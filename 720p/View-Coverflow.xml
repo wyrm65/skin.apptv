@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="Coverflow">
+		<control type="wraplist" id="57">
+			<viewtype label="31945">Wraplist</viewtype>
+			<left>-141</left>
+			<top>187</top>
+			<width>1416</width>
+			<height>525</height>
+			<onleft>57</onleft>
+			<onright>57</onright>
+			<onup>9000</onup>
+			<ondown>1357</ondown>
+			<scrolltime>100</scrolltime>
+			<focusposition>2</focusposition>
+			<orientation>horizontal</orientation>
+			<preloaditems>2</preloaditems>
+			<pagecontrol>1357</pagecontrol>
+			<itemlayout height="390" width="140"></itemlayout>
+			<focusedlayout height="410" width="320"></focusedlayout>
+		</control>
+		<control type="group" id="3011">
+			<left>10</left>
+			<top>200</top>
+			<camera x="640" y="360" />
+			<visible>Control.IsVisible(57) + Container.OnNext</visible>
+			<animation effect="slide" end="-50,0" time="200" reversible="false">Hidden</animation>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(-5).Icon</info>
+				<animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,10) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,9) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>88</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(-4).Icon</info>
+				<animation effect="rotatey" center="10" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,8) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,7) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>177</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(-3).Icon</info>
+				<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,6) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,5) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>265</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(-2).Icon</info>
+				<animation effect="rotatey" center="110" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,4) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,3) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>1008</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-rect.png">DefaultScript.png</texture>
+				<info>Container.ListItem(4).Icon</info>
+				<animation effect="rotatey" center="1434" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,7) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,6) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>920</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(3).Icon</info>
+				<animation effect="rotatey" center="1345" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,5) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,4) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>831</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(2).Icon</info>
+				<animation effect="rotatey" center="1257" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,3) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,2) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>743</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(1).Icon</info>
+				<animation effect="rotatey" center="1168" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,1) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,0) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="group">
+				<visible>Control.IsVisible(57) + Container.OnNext</visible>
+				<animation effect="slide" end="-60,0" time="200" reversible="false">Hidden</animation>
+				<control type="image">
+					<left>460</left>
+					<top>0</top>
+					<width>288</width>
+					<height>288</height>
+					<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+					<info>Container.ListItem(-1).Icon</info>
+					<visible>Container.OnNext</visible>
+					<animation effect="rotatey" center="220" start="0" end="-60" time="200" reversible="false">Hidden</animation>
+					<visible>[IntegerGreaterThan(Container(57).NumItems,2) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,1) + system.getbool(filelists.showparentdiritems)]</visible>
+				</control>
+				<control type="image">
+					<left>654</left>
+					<top>0</top>
+					<width>288</width>
+					<height>288</height>
+					<texture background="true" diffuse="mask-rect.png">DefaultScript.png</texture>
+					<info>Container.ListItem(0).Icon</info>
+					<visible>Container.OnNext</visible>
+					<animation effect="rotatey" center="1080" start="0" end="-60" time="200" reversible="false">Hidden</animation>
+					<animation effect="rotatey" center="1080" start="60" end="60" time="200" condition="true">Conditional</animation>
+				</control>
+			</control>
+		</control>
+		<control type="group" id="3012">
+			<left>10</left>
+			<top>200</top>
+			<camera x="640" y="360" />
+			<visible>Control.IsVisible(57) + Container.OnPrevious</visible>
+			<animation effect="slide" end="50,0" time="200" reversible="false">Hidden</animation>
+			<control type="image">
+				<left>-88</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(-4).Icon</info>
+				<animation effect="rotatey" center="-90" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,8) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,7) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(-3).Icon</info>
+				<animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,6) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,5) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>88</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(-2).Icon</info>
+				<animation effect="rotatey" center="10" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,4) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,3) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>177</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(-1).Icon</info>
+				<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,2) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,1) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>920</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(5).Icon</info>
+				<animation effect="rotatey" center="1345" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,9) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,8) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>831</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(4).Icon</info>
+				<animation effect="rotatey" center="1257" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,7) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,6) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>743</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(3).Icon</info>
+				<animation effect="rotatey" center="1168" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,5) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,4) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>654</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(2).Icon</info>
+				<animation effect="rotatey" center="1080" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,3) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,2) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="group">
+				<visible>Control.IsVisible(57) + Container.OnPrevious</visible>
+				<animation effect="slide" end="60,0" time="200" reversible="false">Hidden</animation>
+				<control type="image">
+					<left>460</left>
+					<top>0</top>
+					<width>288</width>
+					<height>288</height>
+					<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+					<info>Container.ListItem(1).Icon</info>
+					<visible>Container.OnPrevious</visible>
+					<animation effect="rotatey" center="500" start="0" end="60" time="200" reversible="false">Hidden</animation>
+					<visible>[IntegerGreaterThan(Container(57).NumItems,1) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,0) + system.getbool(filelists.showparentdiritems)]</visible>
+				</control>
+				<control type="image">
+					<left>265</left>
+					<top>0</top>
+					<width>288</width>
+					<height>288</height>
+					<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+					<info>Container.ListItem(0).Icon</info>
+					<visible>Container.OnPrevious</visible>
+					<animation effect="rotatey" center="110" start="0" end="60" time="200" reversible="false">Hidden</animation>
+					<animation effect="rotatey" center="110" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				</control>
+			</control>
+		</control>
+		<control type="group" id="3010">
+			<left>10</left>
+			<top>200</top>
+			<camera x="640" y="360" />
+			<visible>Control.IsVisible(57) + !Control.IsVisible(3011)  + !Control.IsVisible(3012)</visible>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(-4).Icon</info>
+				<animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,8) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,7) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>88</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(-3).Icon</info>
+				<animation effect="rotatey" center="10" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,6) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,5) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>177</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(-2).Icon</info>
+				<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,4) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,3) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>265</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(-1).Icon</info>
+				<animation effect="rotatey" center="110" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,2) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,1) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>920</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(4).Icon</info>
+				<animation effect="rotatey" center="1345" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,7) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,6) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>831</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(3).Icon</info>
+				<animation effect="rotatey" center="1257" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,5) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,4) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>743</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(2).Icon</info>
+				<animation effect="rotatey" center="1168" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,3) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,2) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>654</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<info>Container.ListItem(1).Icon</info>
+				<animation effect="rotatey" center="1080" start="60" end="60" time="0" condition="true">Conditional</animation>
+				<visible>[IntegerGreaterThan(Container(57).NumItems,1) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,0) + system.getbool(filelists.showparentdiritems)]</visible>
+			</control>
+			<control type="image">
+				<left>484</left>
+				<top>0</top>
+				<width>288</width>
+				<height>288</height>
+				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
+				<aspectratio>stretch</aspectratio>
+				<info>Container.ListItem(0).Icon</info>
+			</control>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(57)</visible>
+			<include>transition-fade</include>
+			<include>SortLetterNotification</include>
+			<!-- Scroll Bar -->
+			<control type="scrollbar" id="1357">
+				<left>17</left>
+				<top>590</top>
+				<width>1239</width>
+				<height>18</height>
+				<onup>57</onup>
+				<orientation>horizontal</orientation>
+				<animation condition="!Control.HasFocus(1357) + !Container.Scrolling" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>Skin.HasSetting(sbar) + [[IntegerGreaterThan(Container(57).NumItems,10) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,9) + system.getbool(filelists.showparentdiritems)]]</visible>
+			</control>
+			<control type="label">
+				<left>194</left>
+				<top>637</top>
+				<width>885</width>
+				<height>37</height>
+				<font>font20</font>
+				<align>center</align>
+				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<info>ListItem.Label</info>
+				<textoffsetx>0</textoffsetx>
+			</control>
+		</control>
+	</include>
+</includes>

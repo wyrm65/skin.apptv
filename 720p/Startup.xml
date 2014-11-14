@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">10</defaultcontrol>
+	<controls>
+		<control type="button" id="10"><!-- Play the startup video if required -->
+			<left>-12</left>
+			<top>-12</top>
+			<width>1</width>
+			<height>1</height>
+			<onfocus condition="Skin.HasSetting(intro-vid)">PlayMedia($ESCINFO[Skin.String(intro-vid-location)])</onfocus>
+			<onfocus condition="Skin.HasSetting(startup-playlist)">PlayMedia($ESCINFO[Skin.String(Startup_Playlist_Path)],isdir)</onfocus>
+			<onfocus>ReplaceWindow($INFO[System.StartupWindow])</onfocus>
+			<animation effect="fade" delay="1000" end="100">Focus</animation>
+		</control>
+		<control type="group">
+			<visible>!Skin.HasSetting(intro-vid)</visible>
+			<animation effect="fade" end="0" delay="2800" time="200">WindowClose</animation>
+			<control type="image">
+				<left>384</left>
+				<top>200</top>
+				<width>512</width>
+				<height>256</height>
+				<aspectratio>keep</aspectratio>
+				<texture>xtv-logo-big.png</texture>
+			</control>
+		</control>
+	</controls>
+</window>

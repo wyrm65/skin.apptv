@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="ListView">
+		<control type="fixedlist" id="50">
+			<viewtype label="31941">List</viewtype>
+			<left>668</left>
+			<top>116</top>
+			<width>555</width>
+			<height>532</height>
+			<focusposition>2</focusposition>
+			<movement>4</movement>
+			<onleft>9000</onleft>
+			<onright>23</onright>
+			<onup>50</onup>
+			<ondown>50</ondown>
+			<scrolltime>200</scrolltime>
+			<preloaditems>2</preloaditems>
+			<pagecontrol>23</pagecontrol>
+			<itemlayout width="575" height="66">
+				<control type="label">
+					<left>46</left>
+					<top>22</top>
+					<width>506</width>
+					<height>23</height>
+					<font>font12</font>
+					<label>$INFO[ListItem.Label]</label>
+					<visible>IsEmpty(ListItem.Label2)</visible>
+				</control>
+				<control type="group">
+					<visible>!IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<left>46</left>
+						<top>14</top>
+						<width>506</width>
+						<height>23</height>
+						<font>font11</font>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<left>46</left>
+						<top>38</top>
+						<width>506</width>
+						<height>23</height>
+						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<label>$INFO[ListItem.Label2]</label>
+					</control>
+				</control>
+			</itemlayout>
+			<focusedlayout width="575" height="66">
+				<control type="label">
+					<left>46</left>
+					<top>22</top>
+					<width>506</width>
+					<height>23</height>
+					<font>font12</font>
+					<label>$INFO[ListItem.Label]</label>
+					<visible>IsEmpty(ListItem.Label2)</visible>
+				</control>
+				<control type="group">
+					<visible>!IsEmpty(ListItem.Label2)</visible>
+					<control type="label">
+						<left>46</left>
+						<top>14</top>
+						<width>506</width>
+						<height>23</height>
+						<font>font11</font>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<left>46</left>
+						<top>38</top>
+						<width>506</width>
+						<height>23</height>
+						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<label>$INFO[ListItem.Label2]</label>
+					</control>
+				</control>
+			</focusedlayout>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(50)</visible>
+			<control type="group">
+				<top>56</top>
+				<visible>[IntegerGreaterThan(Container(50).NumItems,0) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(50).NumItems,-1) + system.getbool(filelists.showparentdiritems)]</visible>
+				<control type="group">
+					<control type="image"><!-- Button focus slider -->
+						<left>702</left>
+						<top>330</top>
+						<width>532</width>
+						<height>66</height>
+						<texture border="8">button-default-focus.png</texture>
+						<aspectratio>stretch</aspectratio>
+					</control>
+					<animation condition="Container(50).Position(0)" effect="slide" start="0,0" end="0,-264"
+						time="0" easing="inout" reversible="true">Conditional</animation>
+					<animation condition="Container(50).Position(1)" effect="slide" start="0,0" end="0,-198"
+						time="0" easing="inout" reversible="true">Conditional</animation>
+					<animation condition="Container(50).Position(2)" effect="slide" start="0,0" end="0,-132"
+						time="0" easing="inout" reversible="true">Conditional</animation>
+					<animation condition="Container(50).Position(3)" effect="slide" start="0,0" end="0,-66"
+						time="0" easing="inout" reversible="true">Conditional</animation>
+					<!-- Animation for postion 4 does nothing, so removed-->
+					<animation condition="Container(50).Position(5)" effect="slide" start="0,0" end="0,66"
+						time="0" easing="inout" reversible="true">Conditional</animation>
+					<animation condition="Container(50).Position(6)" effect="slide" start="0,0" end="0,132"
+						time="0" easing="inout" reversible="true">Conditional</animation>
+					<animation condition="Container(50).Position(7)" effect="slide" start="0,0" end="0,198"
+						time="0" easing="inout" reversible="true">Conditional</animation>
+				</control>
+			</control>
+			<control type="group">
+				<visible>![Window.IsVisible(videoplaylist) | Window.IsVisible(musicplaylist)]</visible>
+				<animation type="TYPE" condition="Skin.HasSetting(tiltmisclisticon)" reversible="false">
+					<effect type="rotatey" start="-25" end="-25" time="0"/>
+					<effect type="slide" end="15,0" time="0"/>
+					<effect type="zoom" start="100" end="114" center="auto" time="0" tween="back" easing="out"/>
+				</animation>
+				<control type="group">
+					<visible>!Container.Content(addons)</visible>
+					<control type="image">
+						<left>122</left>
+						<top>150</top>
+						<width>384</width>
+						<height>384</height>
+						<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+					</control>
+				</control>
+				<control type="group">
+					<visible>Container.Content(addons)</visible>
+					<control type="group">
+						<visible>!SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
+						<control type="image">
+							<left>122</left>
+							<top>150</top>
+							<width>384</width>
+							<height>384</height>
+							<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+					</control>
+					<control type="group">
+						<visible>SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
+						<control type="image">
+							<left>122</left>
+							<top>150</top>
+							<width>384</width>
+							<height>384</height>
+							<texture background="true">DefaultAddon.png</texture>
+							<aspectratio>keep</aspectratio>
+						</control>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<include>SortLetterNotification</include>
+				<control type="scrollbar" id="23">
+					<left>1250</left>
+					<top>112</top>
+					<width>18</width>
+					<height>555</height>
+					<onleft>50</onleft>
+					<animation condition="!Control.HasFocus(23) + !Container.Scrolling" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<visible>Skin.HasSetting(sbar)</visible>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>
