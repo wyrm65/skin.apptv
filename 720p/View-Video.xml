@@ -679,7 +679,7 @@
 			<left>20</left>
 			<top>100</top>
 			<width>1200</width>
-			<height>575</height>
+			<height>468</height>
 			<onleft>9000</onleft>
 			<onright>29</onright>
 			<onup>52</onup>
@@ -725,7 +725,7 @@
 					<visible>Skin.HasSetting(watched-overlay)</visible>
 				</control>
 				<control type="label">
-					<left>150</left>
+					<left>10</left>
 					<top>185</top>
 					<width>280</width>
 					<height>22</height>
@@ -786,7 +786,7 @@
 					<visible>Skin.HasSetting(watched-overlay)</visible>
 				</control>
 				<control type="label">
-					<left>150</left>
+					<left>10</left>
 					<top>185</top>
 					<width>280</width>
 					<height>22</height>
@@ -797,6 +797,46 @@
 					<textoffsetx>0</textoffsetx>
 				</control>
 			</focusedlayout>
+		</control>
+		<control type="group"><!-- Show the bottom row of icons as long as another row exists -->
+			<visible>Control.IsVisible(52) + Container(52).HasNext + ![Container().OnScrollNext | Container().OnScrollPrevious]</visible>
+			<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
+			<control type="image">
+				<left>110</left>
+				<top>574</top>
+				<width>120</width>
+				<height>168</height>
+				<aspectratio>stretch</aspectratio>
+				<colordiffuse>UnFocusedPosters</colordiffuse>
+				<texture background="true" diffuse="mask-fadetop.png">$VAR[Icon(8)Poster]</texture>
+			</control>
+			<control type="image">
+				<left>410</left>
+				<top>574</top>
+				<width>120</width>
+				<height>168</height>
+				<aspectratio>stretch</aspectratio>
+				<colordiffuse>UnFocusedPosters</colordiffuse>
+				<texture background="true" diffuse="mask-fadetop.png">$VAR[Icon(9)Poster]</texture>
+			</control>
+			<control type="image">
+				<left>710</left>
+				<top>574</top>
+				<width>120</width>
+				<height>168</height>
+				<aspectratio>stretch</aspectratio>
+				<colordiffuse>UnFocusedPosters</colordiffuse>
+				<texture background="true" diffuse="mask-fadetop.png">$VAR[Icon(10)Poster]</texture>
+			</control>
+			<control type="image">
+				<left>1010</left>
+				<top>574</top>
+				<width>120</width>
+				<height>168</height>
+				<aspectratio>stretch</aspectratio>
+				<colordiffuse>UnFocusedPosters</colordiffuse>
+				<texture background="true" diffuse="mask-fadetop.png">$VAR[Icon(11)Poster]</texture>
+			</control>
 		</control>
 		<control type="scrollbar" id="29">
 			<left>1244</left>
@@ -809,188 +849,191 @@
 		</control>
 	</include>
 	<include name="BannerView">
-		<control type="list" id="53">
-			<viewtype label="31946">Banner List</viewtype>
-			<left>662</left>
-			<top>110</top>
-			<width>556</width>
-			<height>514</height>
-			<pagecontrol>29</pagecontrol>
-			<onup>53</onup>
-			<ondown>53</ondown>
-			<onleft>9000</onleft>
-			<onright>29</onright>
-			<itemlayout width="558" height="100">
-				<control type="image"><!-- Background shadow for unselected IconBanner image -->
-					<left>8</left>
-					<top>0</top>
-					<width>542</width>
-					<height>100</height>
-					<texture>colours/black.png</texture>
-					<aspectratio>stretch</aspectratio>
-					<colordiffuse>UnFocusedPosters</colordiffuse>
-				</control>
-				<control type="image"><!-- Banner image -->
-					<left>8</left>
-					<top>0</top>
-					<width>542</width>
-					<height>100</height>
-					<texture background="true">$VAR[IconBanner]</texture>
-					<aspectratio>keep</aspectratio>
-					<colordiffuse>UnFocusedPosters</colordiffuse>
-					<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
-				</control>
-				<control type="image"><!-- Go Back image -->
-					<left>8</left>
-					<top>0</top>
-					<width>542</width>
-					<height>100</height>
-					<texture background="true">$INFO[ListItem.Icon]</texture>
-					<aspectratio>keep</aspectratio>
-					<colordiffuse>UnFocusedPosters</colordiffuse>
-					<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
-				</control>
-			</itemlayout>
-			<focusedlayout width="558" height="116">
-				<control type="image"><!-- Item hi-lite -->
-					<left>0</left>
-					<top>0</top>
-					<width>558</width>
-					<height>116</height>
-					<texture border="8" background="true">button-menu-background.png</texture>
-				</control>
-				<control type="image"><!-- Go Back image -->
-					<left>8</left>
-					<top>8</top>
-					<width>542</width>
-					<height>100</height>
-					<texture background="true">$INFO[ListItem.Icon]</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
-				</control>
-				<control type="image"><!-- Banner image -->
-					<left>8</left>
-					<top>8</top>
-					<width>542</width>
-					<height>100</height>
-					<texture background="true">$VAR[IconBanner]</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
-				</control>
-			</focusedlayout>
-		</control>
 		<control type="group">
 			<visible>Control.IsVisible(53)</visible>
-			<animation effect="fade" delay="300" start="0" end="100" time="200">Visible</animation>
-			<control type="label"><!-- Go Back -->
-				<left>30</left>
-				<top>318</top>
-				<width>600</width>
-				<height>38</height>
-				<font>font22</font>
-				<align>center</align>
-				<label>$LOCALIZE[31688]</label>
-				<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
-			</control>
-			<control type="image"><!-- Mini Fanart -->
-				<left>130</left>
-				<top>114</top>
-				<width>400</width>
-				<height>225</height>
-				<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
-				<aspectratio aligny="top">keep</aspectratio>
-				<fadetime>0</fadetime>
-				<visible>!Container().Scrolling + !IsEmpty(ListItem.Art(fanart))</visible>
-			</control>
-			<control type="grouplist">
-				<left>30</left>
-				<top>355</top>
-				<width>600</width>
-				<height>600</height>
-				<itemgap>2</itemgap>
-				<visible>!IsEmpty(ListItem.Icon)</visible>
-				<control type="label"><!-- Title -->
-					<left>0</left>
-					<top>225</top>
-					<width>600</width>
-					<height>37</height>
-					<font>font18</font>
-					<label>[B]$INFO[ListItem.Label][/B]</label>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
-					<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
-				</control>
-				<control type="label"><!-- First Aired -->
-					<left>0</left>
-					<top>268</top>
-					<width>600</width>
-					<height>25</height>
-					<label>[B]$LOCALIZE[20416]:[/B] $INFO[ListItem.Premiered]</label>
-					<visible>!IsEmpty(ListItem.Premiered)</visible>
-				</control>
-				<control type="label"><!-- Genre -->
-					<left>0</left>
-					<top>300</top>
-					<width>600</width>
-					<height>25</height>
-					<label>[B]$LOCALIZE[515]:[/B] $INFO[ListItem.Genre]</label>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
-					<visible>!IsEmpty(ListItem.Genre)</visible>
-				</control>
-				<control type="label"><!-- Rating -->
-					<left>0</left>
-					<top>331</top>
-					<width>600</width>
-					<height>37</height>
-					<label>[B]$LOCALIZE[563]:[/B] $INFO[ListItem.Rating]</label>
-					<visible>!IsEmpty(ListItem.Rating)</visible>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<top>375</top>
-					<width>600</width>
-					<height>37</height>
-					<label>$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101] $LOCALIZE[20360]</label>
-					<visible>!IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
-				</control>
-				<control type="image">
-					<left>0</left>
-					<top>410</top>
-					<width>600</width>
-					<height>4</height>
-					<texture>separator.png</texture>
-					<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
-				</control>
-				<control type="textbox"><!-- Plot Outline -->
-					<left>8</left>
-					<top>431</top>
-					<width>600</width>
-					<height>150</height>
-					<label fallback="161">$INFO[ListItem.PlotOutline]</label>
-					<align>justify</align>
-					<visible>!IsEmpty(ListItem.PlotOutline)</visible>
-					<autoscroll time="4000" delay="6000" repeat="8000">Skin.HasSetting(autoscroll)</autoscroll>
-				</control>
-				<control type="textbox"><!-- Plot (Show if no outline available)-->
-					<left>8</left>
-					<top>431</top>
-					<width>600</width>
-					<height>150</height>
-					<label fallback="161">$INFO[ListItem.Plot]</label>
-					<align>justify</align>
-					<visible>IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Plot)</visible>
-					<autoscroll time="4000" delay="6000" repeat="8000">Skin.HasSetting(autoscroll)</autoscroll>
-				</control>
+			<control type="list" id="53">
+				<visible>container.content(tvshows) + !IsEmpty(Container.FolderPath)</visible>
+				<viewtype label="31946">Banner List</viewtype>
+				<left>662</left>
+				<top>110</top>
+				<width>556</width>
+				<height>514</height>
+				<pagecontrol>29</pagecontrol>
+				<onup>53</onup>
+				<ondown>53</ondown>
+				<onleft>9000</onleft>
+				<onright>29</onright>
+				<itemlayout width="558" height="100">
+					<control type="image"><!-- Background shadow for unselected IconBanner image -->
+						<left>8</left>
+						<top>0</top>
+						<width>542</width>
+						<height>100</height>
+						<texture>colours/black.png</texture>
+						<aspectratio>stretch</aspectratio>
+						<colordiffuse>UnFocusedPosters</colordiffuse>
+					</control>
+					<control type="image"><!-- Banner image -->
+						<left>8</left>
+						<top>0</top>
+						<width>542</width>
+						<height>100</height>
+						<texture background="true">$VAR[IconBanner]</texture>
+						<aspectratio>keep</aspectratio>
+						<colordiffuse>UnFocusedPosters</colordiffuse>
+						<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+					</control>
+					<control type="image"><!-- Go Back image -->
+						<left>8</left>
+						<top>0</top>
+						<width>542</width>
+						<height>100</height>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio>keep</aspectratio>
+						<colordiffuse>UnFocusedPosters</colordiffuse>
+						<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout width="558" height="116">
+					<control type="image"><!-- Item hi-lite -->
+						<left>0</left>
+						<top>0</top>
+						<width>558</width>
+						<height>116</height>
+						<texture border="8" background="true">button-menu-background.png</texture>
+					</control>
+					<control type="image"><!-- Go Back image -->
+						<left>8</left>
+						<top>8</top>
+						<width>542</width>
+						<height>100</height>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<aspectratio>keep</aspectratio>
+						<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+					</control>
+					<control type="image"><!-- Banner image -->
+						<left>8</left>
+						<top>8</top>
+						<width>542</width>
+						<height>100</height>
+						<texture background="true">$VAR[IconBanner]</texture>
+						<aspectratio>keep</aspectratio>
+						<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+					</control>
+				</focusedlayout>
 			</control>
 			<control type="group">
-				<include>SortLetterNotification</include>
-				<control type="scrollbar" id="29"><!-- Scroll Bar -->
-					<left>1244</left>
-					<top>105</top>
-					<width>18</width>
-					<height>524</height>
-					<onleft>53</onleft>
-					<animation condition="!Control.HasFocus(29) + !Container.Scrolling" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-					<visible>Skin.HasSetting(sbar)</visible>
+				<animation effect="fade" delay="300" start="0" end="100" time="200">Visible</animation>
+				<control type="label"><!-- Go Back -->
+					<left>30</left>
+					<top>318</top>
+					<width>600</width>
+					<height>38</height>
+					<font>font22</font>
+					<align>center</align>
+					<label>$LOCALIZE[31688]</label>
+					<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+				</control>
+				<control type="image"><!-- Mini Fanart -->
+					<left>130</left>
+					<top>114</top>
+					<width>400</width>
+					<height>225</height>
+					<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+					<aspectratio aligny="top">keep</aspectratio>
+					<fadetime>0</fadetime>
+					<visible>!Container().Scrolling + !IsEmpty(ListItem.Art(fanart))</visible>
+				</control>
+				<control type="grouplist">
+					<left>30</left>
+					<top>355</top>
+					<width>600</width>
+					<height>600</height>
+					<itemgap>2</itemgap>
+					<visible>!IsEmpty(ListItem.Icon)</visible>
+					<control type="label"><!-- Title -->
+						<left>0</left>
+						<top>225</top>
+						<width>600</width>
+						<height>37</height>
+						<font>font18</font>
+						<label>[B]$INFO[ListItem.Label][/B]</label>
+						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+					</control>
+					<control type="label"><!-- First Aired -->
+						<left>0</left>
+						<top>268</top>
+						<width>600</width>
+						<height>25</height>
+						<label>[B]$LOCALIZE[20416]:[/B] $INFO[ListItem.Premiered]</label>
+						<visible>!IsEmpty(ListItem.Premiered)</visible>
+					</control>
+					<control type="label"><!-- Genre -->
+						<left>0</left>
+						<top>300</top>
+						<width>600</width>
+						<height>25</height>
+						<label>[B]$LOCALIZE[515]:[/B] $INFO[ListItem.Genre]</label>
+						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<visible>!IsEmpty(ListItem.Genre)</visible>
+					</control>
+					<control type="label"><!-- Rating -->
+						<left>0</left>
+						<top>331</top>
+						<width>600</width>
+						<height>37</height>
+						<label>[B]$LOCALIZE[563]:[/B] $INFO[ListItem.Rating]</label>
+						<visible>!IsEmpty(ListItem.Rating)</visible>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>375</top>
+						<width>600</width>
+						<height>37</height>
+						<label>$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101] $LOCALIZE[20360]</label>
+						<visible>!IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>410</top>
+						<width>600</width>
+						<height>4</height>
+						<texture>separator.png</texture>
+						<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+					</control>
+					<control type="textbox"><!-- Plot Outline -->
+						<left>8</left>
+						<top>431</top>
+						<width>600</width>
+						<height>150</height>
+						<label fallback="161">$INFO[ListItem.PlotOutline]</label>
+						<align>justify</align>
+						<visible>!IsEmpty(ListItem.PlotOutline)</visible>
+						<autoscroll time="4000" delay="6000" repeat="8000">Skin.HasSetting(autoscroll)</autoscroll>
+					</control>
+					<control type="textbox"><!-- Plot (Show if no outline available)-->
+						<left>8</left>
+						<top>431</top>
+						<width>600</width>
+						<height>150</height>
+						<label fallback="161">$INFO[ListItem.Plot]</label>
+						<align>justify</align>
+						<visible>IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Plot)</visible>
+						<autoscroll time="4000" delay="6000" repeat="8000">Skin.HasSetting(autoscroll)</autoscroll>
+					</control>
+				</control>
+				<control type="group">
+					<include>SortLetterNotification</include>
+					<control type="scrollbar" id="29"><!-- Scroll Bar -->
+						<left>1244</left>
+						<top>105</top>
+						<width>18</width>
+						<height>524</height>
+						<onleft>53</onleft>
+						<animation condition="!Control.HasFocus(29) + !Container.Scrolling" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+						<visible>Skin.HasSetting(sbar)</visible>
+					</control>
 				</control>
 			</control>
 		</control>
@@ -1020,7 +1063,7 @@
 					<texture>case-dvd.png</texture>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 					<aspectratio>stretch</aspectratio>
-					<visible>Skin.HasSetting(DVDcase) + !SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>Skin.HasSetting(Mediacase) + !SubString(ListItem.Icon,Default,Left)</visible>
 				</control>
 				<control type="image">
 					<left>-5</left>
@@ -1067,7 +1110,7 @@
 						<width>207</width>
 						<texture>case-dvd.png</texture>
 						<aspectratio>stretch</aspectratio>
-						<visible>Skin.HasSetting(DVDcase)</visible>
+						<visible>Skin.HasSetting(Mediacase)</visible>
 					</control>
 				</control>
 				<control type="image">
@@ -1081,8 +1124,8 @@
 				<control type="image">
 					<left>12</left>
 					<top>110</top>
-					<height>48</height>
-					<width>48</width>
+					<height>40</height>
+					<width>40</width>
 					<texture>$VAR[Overlay]</texture>
 					<visible>Skin.HasSetting(watched-overlay)</visible>
 				</control>
