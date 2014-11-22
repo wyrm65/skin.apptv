@@ -18,21 +18,31 @@
 		</control>
 
 		<!-- Markers for control area items -->
-		<control type="image">
-			<left>1008</left>
-			<top>92</top>
-			<width>24</width>
+		<control type="label">
+			<left>798</left>
+			<top>96</top>
+			<width>444</width>
 			<height>24</height>
-			<texture>scroll-up.png</texture>
-			<visible>Container(8999).HasPrevious</visible>
+			<font>font12</font>
+			<label>$VAR[SettingsList0]</label>
+			<textcolor>disabled-text</textcolor>
+			<camera x="798" y="96" />
+			<animation effect="rotatex" center="96" end="65" time="0" condition="true">Conditional</animation>
+			<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+			<visible>Control.HasFocus(8999)</visible>
 		</control>
-		<control type="image">
-			<left>1008</left>
-			<top>658</top>
-			<width>24</width>
+		<control type="label">
+			<left>798</left>
+			<top>662</top>
+			<width>444</width>
 			<height>24</height>
-			<texture>scroll-down.png</texture>
-			<visible>Container(8999).HasNext</visible>
+			<font>font12</font>
+			<label>$VAR[SettingsList12]</label>
+			<textcolor>disabled-text</textcolor>
+			<camera x="798" y="662" />
+			<animation effect="rotatex" center="662" end="-65" time="0" condition="true">Conditional</animation>
+			<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+			<visible>Control.HasFocus(8999)</visible>
 		</control>
 
 		<control type="group">
