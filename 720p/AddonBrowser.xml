@@ -46,16 +46,16 @@
 			<include>fadebackground</include>
 			<control type="image"><!-- Dialog background -->
 				<left>440</left>
-				<top>212</top>
+				<top>162</top>
 				<width>396</width>
-				<height>360</height>
+				<height>406</height>
 				<texture border="8">button-menu-background.png</texture>
 			</control>
 			<control type="grouplist" id="9000">
 				<left>450</left>
-				<top>224</top>
+				<top>174</top>
 				<width>376</width>
-				<height>336</height>
+				<height>384</height>
 				<onright condition="Control.IsVisible(50)">50</onright>
 				<onright condition="Control.IsVisible(52)">52</onright>
 				<onright condition="Control.IsVisible(54)">54</onright>
@@ -82,7 +82,7 @@
 					<onclick>Skin.ToggleSetting(tiltmisclisticon)</onclick>
 					<selected>Skin.HasSetting(tiltmisclisticon)</selected>
 					<textoffsetx>10</textoffsetx>
-					<radioposx>330</radioposx>
+					<radioposx>340</radioposx>
 					<visible>SubString(Control.GetLabel(2),$LOCALIZE[31941],Right)</visible>
 				</control>
 				<control type="radiobutton" id="1197"><!-- Tilt wall view icons button -->
@@ -93,7 +93,7 @@
 					<onclick>Skin.ToggleSetting(tiltmiscwallicon)</onclick>
 					<selected>Skin.HasSetting(tiltmiscwallicon)</selected>
 					<textoffsetx>10</textoffsetx>
-					<radioposx>330</radioposx>
+					<radioposx>340</radioposx>
 					<visible>SubString(Control.GetLabel(2),$LOCALIZE[31944],Right)</visible>
 				</control>
 				<control type="button" id="3"><!-- Sort by button -->
@@ -124,7 +124,7 @@
 					<font>font11</font>
 					<textoffsetx>10</textoffsetx>
 					<label>$LOCALIZE[25000]</label>
-					<radioposx>330</radioposx>
+					<radioposx>340</radioposx>
 				</control>
 				<control type="radiobutton" id ="7"><!-- Hide foreign button -->
 					<width>376</width>
@@ -132,7 +132,15 @@
 					<font>font11</font>
 					<textoffsetx>10</textoffsetx>
 					<label>$LOCALIZE[25001]</label>
-					<radioposx>330</radioposx>
+					<radioposx>340</radioposx>
+				</control>
+				<control type="radiobutton" id ="8"><!-- Hide broken button -->
+					<width>376</width>
+					<height>48</height>
+					<font>font11</font>
+					<textoffsetx>10</textoffsetx>
+					<label>$LOCALIZE[24999]</label>
+					<radioposx>340</radioposx>
 				</control>
 			</control>
 		</control>
