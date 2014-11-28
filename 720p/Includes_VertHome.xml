@@ -189,18 +189,6 @@
 					<visible>!IsEmpty(Skin.String(CustomMovies.5.Path))</visible>
 				</item>
 				<item>
-					<thumb>icon-livetv.png</thumb>
-					<label>$LOCALIZE[19020]</label>
-					<onclick>ActivateWindow(TVChannels)</onclick>
-					<visible>System.GetBool(pvrmanager.enabled)</visible>
-				</item>
-				<item>
-					<thumb>icon-radio.png</thumb>
-					<label>$LOCALIZE[19021]</label>
-					<onclick>ActivateWindow(RadioChannels)</onclick>
-					<visible>System.GetBool(pvrmanager.enabled)</visible>
-				</item>
-				<item>
 					<thumb>DefaultTVShows.png</thumb>
 					<label>$LOCALIZE[31027]</label>
 					<onclick>$VAR[TVLibEntry]</onclick>
@@ -241,6 +229,18 @@
 					<label>$LOCALIZE[31028]</label>
 					<onclick>$VAR[MusicVideoLibEntry]</onclick>
 					<visible>Skin.HasSetting(home-musicvideo)</visible>
+				</item>
+				<item>
+					<thumb>icon-livetv.png</thumb>
+					<label>$LOCALIZE[19020]</label>
+					<onclick>$VAR[TVEntry]</onclick>
+					<visible>System.GetBool(pvrmanager.enabled) + Skin.HasSetting(home-tv)</visible>
+				</item>
+				<item>
+					<thumb>icon-radio.png</thumb>
+					<label>$LOCALIZE[19021]</label>
+					<onclick>$VAR[RadioEntry]</onclick>
+					<visible>System.GetBool(pvrmanager.enabled) + Skin.HasSetting(home-radio)</visible>
 				</item>
 				<item>
 					<thumb>DefaultMusicSongs.png</thumb>

@@ -551,7 +551,7 @@
 				</control>
 			</control>
 			<control type="group" id="9220"><!-- TV sub menu -->
-				<visible>System.GetBool(pvrmanager.enabled) | !Skin.HasSetting(home-tv) | !IsEmpty(Skin.String(CustomTVShow.1.Path)) | !IsEmpty(Skin.String(CustomTVShow.2.Path)) | !IsEmpty(Skin.String(CustomTVShow.3.Path)) | !IsEmpty(Skin.String(CustomTVShow.4.Path)) | !IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
+				<visible>System.GetBool(pvrmanager.enabled) | !Skin.HasSetting(home-tvshow) | !IsEmpty(Skin.String(CustomTVShow.1.Path)) | !IsEmpty(Skin.String(CustomTVShow.2.Path)) | !IsEmpty(Skin.String(CustomTVShow.3.Path)) | !IsEmpty(Skin.String(CustomTVShow.4.Path)) | !IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
 				<width>210</width>
 				<control type="image">
 					<left>0</left>
@@ -703,7 +703,7 @@
 				</control>
 			</control>
 			<control type="group" id="9520"><!-- Broadcast sub menu -->
-				<visible>System.GetBool(pvrmanager.enabled) | !Skin.HasSetting(home-tv) | !IsEmpty(Skin.String(CustomTVShow.1.Path)) | !IsEmpty(Skin.String(CustomTVShow.2.Path)) | !IsEmpty(Skin.String(CustomTVShow.3.Path)) | !IsEmpty(Skin.String(CustomTVShow.4.Path)) | !IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
+				<visible>[System.GetBool(pvrmanager.enabled) + [!Skin.HasSetting(home-tv) | !Skin.HasSetting(home-radio)]] | !IsEmpty(Skin.String(CustomTVShow.1.Path)) | !IsEmpty(Skin.String(CustomTVShow.2.Path)) | !IsEmpty(Skin.String(CustomTVShow.3.Path)) | !IsEmpty(Skin.String(CustomTVShow.4.Path)) | !IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
 				<width>210</width>
 				<control type="image">
 					<left>0</left>
@@ -799,16 +799,16 @@
 					</focusedlayout>
 					<content>
 						<item><!-- Live TV -->
-							<visible>System.GetBool(pvrmanager.enabled)</visible>
+							<visible>System.GetBool(pvrmanager.enabled) + !Skin.HasSetting(home-tv)</visible>
 							<label>$LOCALIZE[19020]</label>
 							<label2>$LOCALIZE[31031]</label2>
-							<onclick>ActivateWindow(TVChannels)</onclick>
+							<onclick>$VAR[TVEntry]</onclick>
 						</item>
 						<item><!-- Live Radio -->
-							<visible>System.GetBool(pvrmanager.enabled)</visible>
+							<visible>System.GetBool(pvrmanager.enabled) + !Skin.HasSetting(home-radio)</visible>
 							<label>$LOCALIZE[19021]</label>
 							<label2>$LOCALIZE[31031]</label2>
-							<onclick>ActivateWindow(RadioChannels)</onclick>
+							<onclick>$VAR[RadioEntry]</onclick>
 						</item>
 						<item><!-- Custom TV Shows 1 -->
 							<visible>!IsEmpty(Skin.String(CustomTVShow.1.Path))</visible>
