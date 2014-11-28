@@ -583,7 +583,7 @@
 						<left>17</left>
 						<top>467</top>
 						<width>636</width>
-						<height>198</height>
+						<height>214</height>
 						<font>font12</font>
 						<label>$INFO[ListItem.PlotOutline]</label>
 						<align>justify</align>
@@ -595,7 +595,7 @@
 						<left>17</left>
 						<top>467</top>
 						<width>636</width>
-						<height>198</height>
+						<height>214</height>
 						<font>font12</font>
 						<label fallback="161">$INFO[ListItem.Plot]</label>
 						<align>justify</align>
@@ -1561,21 +1561,21 @@
 			<visible>Control.IsVisible(57)</visible>
 			<include>SortLetterNotification</include>
 			<control type="image" id="7018"><!-- Show logo -->
-				<left>564</left>
+				<left>523</left>
 				<top>612</top>
 				<width>234</width>
 				<height>64</height>
 				<texture fallback="blank.png">$VAR[VideoLogo]</texture>
 				<align>center</align>
 				<aligny>bottom</aligny>
-				<aspectratio align="left">keep</aspectratio>
+				<aspectratio>keep</aspectratio>
 				<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
 				<visible>!IsEmpty(ListItem.Title)</visible>
 			</control>
 			<control type="label"><!-- Title -->
 				<left>220</left>
 				<top>626</top>
-				<width>832</width>
+				<width>840</width>
 				<height>37</height>
 				<font>font22</font>
 				<align>center</align>
@@ -1587,7 +1587,7 @@
 			<control type="label"><!-- Go Back -->
 				<left>220</left>
 				<top>626</top>
-				<width>832</width>
+				<width>840</width>
 				<height>37</height>
 				<font>font22</font>
 				<align>center</align>
@@ -1608,12 +1608,12 @@
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="image"><!-- Star Rating -->
-					<left>530</left>
+					<left>540</left>
 					<top>681</top>
 					<width>200</width>
 					<height>25</height>
-					<texture>$VAR[MediaRating]</texture>
-					<align>right</align>
+					<texture>$VAR[MediaRatingCentered]</texture>
+					<align>center</align>
 					<colordiffuse>StarDiffuse</colordiffuse>
 					<visible>!IsEmpty(ListItem.StarRating)</visible>
 				</control>
