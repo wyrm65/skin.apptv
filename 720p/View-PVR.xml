@@ -483,30 +483,23 @@
 	</include>
 	<include name="PVRRecordListView">
 		<control type="group"><!-- Recordings group -->
-			<visible>Control.IsVisible(15)</visible>
+			<visible>Control.IsVisible(50)</visible>
 			<control type="group">
-				<control type="list" id="15">
+				<control type="list" id="50">
 					<posx>678</posx>
 					<posy>116</posy>
 					<width>540</width>
 					<height>560</height>
-					<onup>15</onup>
-					<ondown>15</ondown>
+					<onup>50</onup>
+					<ondown>50</ondown>
 					<onleft>9000</onleft>
 					<onright>27</onright>
 					<pagecontrol>27</pagecontrol>
 					<scrolltime>200</scrolltime>
 					<preloaditems>2</preloaditems>
 					<itemlayout height="70">
-						<control type="image">
-							<posx>11</posx>
-							<posy>11</posy>
-							<width>48</width>
-							<height>48</height>
-							<texture fallback="DefaultTvshows.png">$INFO[ListItem.Icon]</texture>
-						</control>
 						<control type="label">
-							<posx>80</posx>
+							<posx>18</posx>
 							<posy>8</posy>
 							<width>470</width>
 							<height>23</height>
@@ -514,7 +507,7 @@
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
-							<posx>80</posx>
+							<posx>18</posx>
 							<posy>34</posy>
 							<width>240</width>
 							<height>23</height>
@@ -531,15 +524,8 @@
 							<height>70</height>
 							<texture border="8">button-default-focus.png</texture>
 						</control>
-						<control type="image">
-							<posx>11</posx>
-							<posy>11</posy>
-							<width>48</width>
-							<height>48</height>
-							<texture fallback="DefaultTvshows.png">$INFO[ListItem.Icon]</texture>
-						</control>
 						<control type="label">
-							<posx>80</posx>
+							<posx>18</posx>
 							<posy>8</posy>
 							<width>470</width>
 							<height>23</height>
@@ -547,7 +533,7 @@
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
-							<posx>80</posx>
+							<posx>18</posx>
 							<posy>34</posy>
 							<width>240</width>
 							<height>23</height>
@@ -556,6 +542,73 @@
 							<label>$INFO[ListItem.Date]</label>
 						</control>
 					</focusedlayout>
+				</control>
+				<control type="grouplist"><!-- Current Icon/Channel playing -->
+					<animation effect="fade" start="0" end="100" time="200" delay="100">Visible</animation>
+					<left>20</left>
+					<top>116</top>
+					<width>628</width>
+					<height>578</height>
+					<itemgap>2</itemgap>
+					<control type="group">
+						<visible>!Player.HasVideo | [Player.HasVideo + Skin.HasSetting(HomeViewToggle)]</visible>
+						<left>0</left>
+						<width>256</width>
+						<height>256</height>
+						<control type="image">
+							<left>186</left>
+							<width>256</width>
+							<height>256</height>
+							<texture fallback="DefaultTvshows.png" background="true">$INFO[ListItem.Icon]</texture>
+							<aspectratio>keep</aspectratio>
+							<aligny>top</aligny>
+							<visible>!SubString(ListItem.Icon,DefaultVideo,Left)</visible>
+						</control>
+						<control type="image">
+							<left>186</left>
+							<width>256</width>
+							<height>256</height>
+							<texture>DefaultTvshows.png</texture>
+							<aspectratio>keep</aspectratio>
+							<aligny>top</aligny>
+							<visible>SubString(ListItem.Icon,DefaultVideo,Left)</visible>
+						</control>
+					</control>
+					<control type="label">
+						<label>$INFO[ListItem.Title]</label>
+						<width>628</width>
+						<height>34</height>
+						<font>font18</font>
+						<align>center</align>
+						<wrapmultiline>true</wrapmultiline>
+					</control>
+					<control type="label"><!-- Start time -->
+						<visible>!IsEmpty(ListItem.Plot) + !IsEmpty(ListItem.StartTime) + !IsEmpty(ListItem.EndTime)</visible>
+						<width>628</width>
+						<height>30</height>
+						<align>center</align>
+						<label>$LOCALIZE[31134] $INFO[ListItem.StartTime] - $LOCALIZE[31129] $INFO[ListItem.EndTime]</label>
+					</control>
+					<control type="image">
+						<visible>!IsEmpty(ListItem.Title)</visible>
+						<width>628</width>
+						<height>4</height>
+						<texture>separator.png</texture>
+					</control>
+					<control type="textbox"><!-- Plot -->
+						<width>628</width>
+						<height>214</height>
+						<font>font12</font>
+						<align>left</align>
+						<label>$INFO[ListItem.Plot]</label>
+						<visible>!IsEmpty(ListItem.Plot)</visible>
+					</control>
+					<control type="image">
+						<visible>!IsEmpty(ListItem.Plot)</visible>
+						<width>628</width>
+						<height>4</height>
+						<texture>separator.png</texture>
+					</control>
 				</control>
 				<control type="scrollbar" id="27">
 					<posx>1244</posx>
@@ -937,108 +990,6 @@
 					<height>565</height>
 					<onleft>50</onleft>
 					<onright>50</onright>
-					<visible>Skin.HasSetting(sbar)</visible>
-				</control>
-			</control>
-		</control>
-	</include>
-	<include name="PVRNowNextListView">
-		<control type="group"><!-- TV guide Now/Next -->
-			<visible>Control.IsVisible(16)</visible>
-			<control type="group">
-				<control type="list" id="16">
-					<viewtype label="536">List</viewtype>
-					<posx>678</posx>
-					<posy>116</posy>
-					<width>552</width>
-					<height>560</height>
-					<onup>16</onup>
-					<ondown>16</ondown>
-					<onleft>9000</onleft>
-					<onright>27</onright>
-					<scrolltime>200</scrolltime>
-					<pagecontrol>27</pagecontrol>
-					<itemlayout height="70">
-						<control type="image">
-							<posx>11</posx>
-							<posy>11</posy>
-							<width>48</width>
-							<height>48</height>
-							<texture>$INFO[ListItem.Icon]</texture>
-						</control>
-						<control type="label">
-							<posx>80</posx>
-							<posy>8</posy>
-							<width>470</width>
-							<height>24</height>
-							<font>font11</font>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<posx>80</posx>
-							<posy>34</posy>
-							<width>470</width>
-							<height>24</height>
-							<font>font11</font>
-							<textcolor>disabled-text</textcolor>
-							<label>$INFO[ListItem.StartTime]</label>
-						</control>
-						<control type="image">
-							<posx>-30</posx>
-							<posy>24</posy>
-							<width>22</width>
-							<height>22</height>
-							<texture>$VAR[PVROverlay]</texture>
-						</control>
-					</itemlayout>
-					<focusedlayout height="70">
-						<control type="image">
-							<posx>0</posx>
-							<posy>0</posy>
-							<width>552</width>
-							<height>70</height>
-							<texture border="8">button-default-focus.png</texture>
-						</control>
-						<control type="image">
-							<posx>11</posx>
-							<posy>11</posy>
-							<width>48</width>
-							<height>48</height>
-							<texture>$INFO[ListItem.Icon]</texture>
-						</control>
-						<control type="label">
-							<posx>80</posx>
-							<posy>8</posy>
-							<width>470</width>
-							<height>24</height>
-							<font>font11</font>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<posx>80</posx>
-							<posy>34</posy>
-							<width>470</width>
-							<height>24</height>
-							<font>font11</font>
-							<textcolor>disabled-text</textcolor>
-							<label>$INFO[ListItem.StartTime]</label>
-						</control>
-						<control type="image">
-							<posx>-30</posx>
-							<posy>24</posy>
-							<width>22</width>
-							<height>22</height>
-							<texture>$VAR[PVROverlay]</texture>
-						</control>
-					</focusedlayout>
-				</control>
-				<control type="scrollbar" id="27">
-					<posx>1244</posx>
-					<posy>112</posy>
-					<width>18</width>
-					<height>555</height>
-					<onleft>16</onleft>
-					<onright>16</onright>
 					<visible>Skin.HasSetting(sbar)</visible>
 				</control>
 			</control>
