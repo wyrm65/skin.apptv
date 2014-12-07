@@ -703,7 +703,7 @@
 				</control>
 			</control>
 			<control type="group" id="9520"><!-- Broadcast sub menu -->
-				<visible>[System.GetBool(pvrmanager.enabled) + [!Skin.HasSetting(home-tv) | !Skin.HasSetting(home-radio)]] | !IsEmpty(Skin.String(CustomTVShow.1.Path)) | !IsEmpty(Skin.String(CustomTVShow.2.Path)) | !IsEmpty(Skin.String(CustomTVShow.3.Path)) | !IsEmpty(Skin.String(CustomTVShow.4.Path)) | !IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
+				<visible>[System.GetBool(pvrmanager.enabled) + [!Skin.HasSetting(home-tv) | !Skin.HasSetting(home-radio)]] | !IsEmpty(Skin.String(CustomTV.1.Path)) | !IsEmpty(Skin.String(CustomTV.2.Path)) | !IsEmpty(Skin.String(CustomTV.3.Path)) | !IsEmpty(Skin.String(CustomTV.4.Path)) | !IsEmpty(Skin.String(CustomTV.5.Path) | !IsEmpty(Skin.String(CustomRadio.1.Path)) | !IsEmpty(Skin.String(CustomRadio.2.Path)) | !IsEmpty(Skin.String(CustomRadio.3.Path)) | !IsEmpty(Skin.String(CustomRadio.4.Path)) | !IsEmpty(Skin.String(CustomRadio.5.Path))</visible>
 				<width>210</width>
 				<control type="image">
 					<left>0</left>
@@ -799,46 +799,76 @@
 					</focusedlayout>
 					<content>
 						<item><!-- Live TV -->
-							<visible>System.GetBool(pvrmanager.enabled) + !Skin.HasSetting(home-tv)</visible>
+							<visible>!Skin.HasSetting(home-tv)</visible>
 							<label>$LOCALIZE[19020]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$VAR[TVEntry]</onclick>
 						</item>
+						<item><!-- Custom TV 1 -->
+							<visible>!IsEmpty(Skin.String(CustomTV.1.Path))</visible>
+							<label>$INFO[Skin.String(CustomTV.1.Label)]</label>
+							<label2>$LOCALIZE[31031]</label2>
+							<onclick>$INFO[Skin.String(CustomTV.1.Path)]</onclick>
+						</item>
+						<item><!-- Custom TV 2 -->
+							<visible>!IsEmpty(Skin.String(CustomTV.2.Path))</visible>
+							<label>$INFO[Skin.String(CustomTV.2.Label)]</label>
+							<label2>$LOCALIZE[31031]</label2>
+							<onclick>$INFO[Skin.String(CustomTV.2.Path)]</onclick>
+						</item>
+						<item><!-- Custom TV 3 -->
+							<visible>!IsEmpty(Skin.String(CustomTV.3.Path))</visible>
+							<label>$INFO[Skin.String(CustomTV.3.Label)]</label>
+							<label2>$LOCALIZE[31031]</label2>
+							<onclick>$INFO[Skin.String(CustomTV.3.Path)]</onclick>
+						</item>
+						<item><!-- Custom TV 4 -->
+							<visible>!IsEmpty(Skin.String(CustomTV.4.Path))</visible>
+							<label>$INFO[Skin.String(CustomTV.4.Label)]</label>
+							<label2>$LOCALIZE[31031]</label2>
+							<onclick>$INFO[Skin.String(CustomTV.4.Path)]</onclick>
+						</item>
+						<item><!-- Custom TV 5 -->
+							<visible>!IsEmpty(Skin.String(CustomTV.5.Path))</visible>
+							<label>$INFO[Skin.String(CustomTV.5.Label)]</label>
+							<label2>$LOCALIZE[31031]</label2>
+							<onclick>$INFO[Skin.String(CustomTV.5.Path)]</onclick>
+						</item>
 						<item><!-- Live Radio -->
-							<visible>System.GetBool(pvrmanager.enabled) + !Skin.HasSetting(home-radio)</visible>
+							<visible>!Skin.HasSetting(home-radio)</visible>
 							<label>$LOCALIZE[19021]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$VAR[RadioEntry]</onclick>
 						</item>
-						<item><!-- Custom TV Shows 1 -->
-							<visible>!IsEmpty(Skin.String(CustomTVShow.1.Path))</visible>
-							<label>$INFO[Skin.String(CustomTVShow.1.Label)]</label>
+						<item><!-- Custom Radio 1 -->
+							<visible>!IsEmpty(Skin.String(CustomRadio.1.Path))</visible>
+							<label>$INFO[Skin.String(CustomRadio.1.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
-							<onclick>$INFO[Skin.String(CustomTVShow.1.Path)]</onclick>
+							<onclick>$INFO[Skin.String(CustomRadio.1.Path)]</onclick>
 						</item>
-						<item><!-- Custom TV Shows 2 -->
-							<visible>!IsEmpty(Skin.String(CustomTVShow.2.Path))</visible>
-							<label>$INFO[Skin.String(CustomTVShow.2.Label)]</label>
+						<item><!-- Custom Radio 2 -->
+							<visible>!IsEmpty(Skin.String(CustomRadio.2.Path))</visible>
+							<label>$INFO[Skin.String(CustomRadio.2.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
-							<onclick>$INFO[Skin.String(CustomTVShow.2.Path)]</onclick>
+							<onclick>$INFO[Skin.String(CustomRadio.2.Path)]</onclick>
 						</item>
-						<item><!-- Custom TV Shows 3 -->
-							<visible>!IsEmpty(Skin.String(CustomTVShow.3.Path))</visible>
-							<label>$INFO[Skin.String(CustomTVShow.3.Label)]</label>
+						<item><!-- Custom Radio 3 -->
+							<visible>!IsEmpty(Skin.String(CustomRadio.3.Path))</visible>
+							<label>$INFO[Skin.String(CustomRadio.3.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
-							<onclick>$INFO[Skin.String(CustomTVShow.3.Path)]</onclick>
+							<onclick>$INFO[Skin.String(CustomRadio.3.Path)]</onclick>
 						</item>
-						<item><!-- Custom TV Shows 4 -->
-							<visible>!IsEmpty(Skin.String(CustomTVShow.4.Path))</visible>
-							<label>$INFO[Skin.String(CustomTVShow.4.Label)]</label>
+						<item><!-- Custom Radio 4 -->
+							<visible>!IsEmpty(Skin.String(CustomRadio.4.Path))</visible>
+							<label>$INFO[Skin.String(CustomRadio.4.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
-							<onclick>$INFO[Skin.String(CustomTVShow.4.Path)]</onclick>
+							<onclick>$INFO[Skin.String(CustomRadio.4.Path)]</onclick>
 						</item>
-						<item><!-- Custom TV Shows 5 -->
-							<visible>!IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
-							<label>$INFO[Skin.String(CustomTVShow.5.Label)]</label>
+						<item><!-- Custom Radio 5 -->
+							<visible>!IsEmpty(Skin.String(CustomRadio.5.Path))</visible>
+							<label>$INFO[Skin.String(CustomRadio.5.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
-							<onclick>$INFO[Skin.String(CustomTVShow.5.Path)]</onclick>
+							<onclick>$INFO[Skin.String(CustomRadio.5.Path)]</onclick>
 						</item>
 					</content>
 				</control>
