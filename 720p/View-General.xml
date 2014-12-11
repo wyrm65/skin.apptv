@@ -173,7 +173,7 @@
 			<left>20</left>
 			<top>130</top>
 			<width>1200</width>
-			<height>500</height>
+			<height>450</height>
 			<onleft>9000</onleft>
 			<onright>29</onright>
 			<onup>52</onup>
@@ -181,13 +181,14 @@
 			<viewtype label="31943">Icons</viewtype>
 			<scrolltime>200</scrolltime>
 			<pagecontrol>29</pagecontrol>
-			<itemlayout height="250" width="240">
+			<itemlayout height="225" width="240">
 				<control type="image">
 					<left>40</left>
 					<top>10</top>
 					<width>160</width>
 					<height>160</height>
 					<texture>$INFO[ListItem.Icon]</texture>
+					<colordiffuse>UnFocusedPosters</colordiffuse>
 				</control>
 				<control type="image">
 					<left>132</left>
@@ -197,16 +198,16 @@
 					<texture>$INFO[ListItem.Overlay]</texture>
 				</control>
 				<control type="label">
-					<left>120</left>
-					<top>195</top>
+					<left>5</left>
+					<top>190</top>
 					<width>230</width>
-					<height>37</height>
+					<height>25</height>
 					<font>font11</font>
 					<align>center</align>
 					<label>$INFO[ListItem.Label]</label>
 				</control>
 			</itemlayout>
-			<focusedlayout height="250" width="240">
+			<focusedlayout height="225" width="240">
 				<control type="image">
 					<left>40</left>
 					<top>10</top>
@@ -214,7 +215,7 @@
 					<height>160</height>
 					<texture>$INFO[ListItem.Icon]</texture>
 					<aspectratio>keep</aspectratio>
-					<animation effect="zoom" start="100" end="130" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
+					<animation effect="zoom" start="100" end="115" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
 				</control>
 				<control type="image">
 					<left>141</left>
@@ -224,16 +225,65 @@
 					<texture>$INFO[ListItem.Overlay]</texture>
 				</control>
 				<control type="label">
-					<left>120</left>
-					<top>195</top>
+					<left>5</left>
+					<top>190</top>
 					<width>230</width>
-					<height>37</height>
+					<height>25</height>
 					<font>font11</font>
 					<align>center</align>
 					<label>$INFO[ListItem.Label]</label>
 					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
 				</control>
 			</focusedlayout>
+		</control>
+		<control type="group"><!-- Show the bottom row of icons as long as another row exists -->
+			<visible>Control.IsVisible(52) + Container(52).HasNext + ![Container().OnScrollNext | Container().OnScrollPrevious]</visible>
+			<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
+			<control type="image">
+				<left>60</left>
+				<top>574</top>
+				<width>160</width>
+				<height>160</height>
+				<aspectratio>stretch</aspectratio>
+				<colordiffuse>UnFocusedPosters</colordiffuse>
+				<texture background="true" diffuse="mask-fadetop.png">$VAR[Icon(10)Thumb]</texture>
+			</control>
+			<control type="image">
+				<left>300</left>
+				<top>574</top>
+				<width>160</width>
+				<height>160</height>
+				<aspectratio>stretch</aspectratio>
+				<colordiffuse>UnFocusedPosters</colordiffuse>
+				<texture background="true" diffuse="mask-fadetop.png">$VAR[Icon(11)Thumb]</texture>
+			</control>
+			<control type="image">
+				<left>540</left>
+				<top>574</top>
+				<width>160</width>
+				<height>160</height>
+				<aspectratio>stretch</aspectratio>
+				<colordiffuse>UnFocusedPosters</colordiffuse>
+				<texture background="true" diffuse="mask-fadetop.png">$VAR[Icon(12)Thumb]</texture>
+			</control>
+			<control type="image">
+				<left>780</left>
+				<top>574</top>
+				<width>160</width>
+				<height>160</height>
+				<aspectratio>stretch</aspectratio>
+				<colordiffuse>UnFocusedPosters</colordiffuse>
+				<texture background="true" diffuse="mask-fadetop.png">$VAR[Icon(13)Thumb]</texture>
+			</control>
+			<control type="image">
+				<left>1020</left>
+				<top>574</top>
+				<width>160</width>
+				<height>160</height>
+				<aspectratio>stretch</aspectratio>
+				<colordiffuse>UnFocusedPosters</colordiffuse>
+				<texture background="true" diffuse="mask-fadetop.png">$VAR[Icon(14)Thumb]</texture>
+			</control>
 		</control>
 		<control type="scrollbar" id="29">
 			<left>1244</left>
