@@ -431,41 +431,33 @@
 						<visible>Container.Content(studios)</visible>
 						<control type="group">
 							<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
-							<control type="image">
-								<left>320</left>
-								<top>120</top>
-								<width>318</width>
-								<height>318</height>
-								<texture>DefaultVideo.png</texture>
-								<aspectratio>keep</aspectratio>
-							</control>
 							<control type="group">
 								<control type="image">
-									<left>404</left>
-									<top>238</top>
-									<width>161</width>
-									<height>161</height>
+									<left>222</left>
+									<top>222</top>
+									<width>322</width>
+									<height>322</height>
 									<colordiffuse>DropShadow</colordiffuse>
 									<aspectratio>keep</aspectratio>
-									<texture>special://skin/extras/images/studios/$INFO[ListItem.Label,,.png]</texture>
+									<texture fallback="DefaultVideo.png">special://skin/extras/images/studios/$INFO[ListItem.Label,,.png]</texture>
 								</control>
 								<control type="image">
-									<left>402</left>
-									<top>236</top>
-									<width>161</width>
-									<height>161</height>
+									<left>220</left>
+									<top>220</top>
+									<width>322</width>
+									<height>322</height>
 									<aspectratio>keep</aspectratio>
-									<texture>special://skin/extras/images/studios/$INFO[ListItem.Label,,.png]</texture>
+									<texture fallback="DefaultVideo.png">special://skin/extras/images/studios/$INFO[ListItem.Label,,.png]</texture>
 								</control>
 							</control>
 						</control>
 						<control type="group">
 							<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 							<control type="image">
-								<left>320</left>
-								<top>120</top>
-								<width>318</width>
-								<height>318</height>
+								<left>220</left>
+								<top>220</top>
+								<width>320</width>
+								<height>320</height>
 								<texture background="true">$INFO[ListItem.Icon]</texture>
 								<aspectratio>keep</aspectratio>
 							</control>

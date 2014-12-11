@@ -14,16 +14,6 @@
 	-->
 	<include file="Includes_Variables.xml" />
 	<include file="Defaults.xml" />
-	<include file="Includes_Weather.xml" />
-	<include file="View-Coverflow.xml" />
-	<include file="View-Icon.xml" />
-	<include file="View-List.xml" />
-	<include file="View-Wall.xml" />
-	<include file="View-Wrap.xml" />
-	<include file="View-Music.xml" />
-	<include file="View-PhotoWall.xml" />
-	<include file="View-PhotoWrap.xml" />
-	<!--<include file="View-PVR.xml" />-->
 
 	<include name="fullscreenimage"><!-- Postion and size of fullscreen image -->
 			<left>0</left>
@@ -349,14 +339,14 @@
 		</control>
 	</include>
 
-	<include name="xtv-box">
+	<include name="skin-logo">
 		<control type="image">
 			<left>150</left>
 			<top>150</top>
 			<width>512</width>
 			<height>256</height>
 			<aspectratio>keep</aspectratio>
-			<texture>xtv-logo-big.png</texture>
+			<texture>skin-logo-big.png</texture>
 			<animation effect="fade" start="0" delay="150" time="50" condition="Window.Previous(Home) + !Window.Previous(Settings)">WindowOpen</animation>
 			<animation effect="fade" start="10" time="0" condition="Window.Next(Home)">WindowClose</animation>
 		</control>
