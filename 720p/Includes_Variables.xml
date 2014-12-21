@@ -2,14 +2,14 @@
 <includes>
 	<variable name="BackgroundImage">
 		<value condition="Skin.HasSetting(background-fanart) + !IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-background))">$INFO[Skin.String(custom-background)]</value>
+		<value condition="!IsEmpty(Skin.String(background-custom))">$INFO[Skin.String(background-custom)]</value>
 		<value>background.png</value>
 	</variable>
 	<variable name="VideoBackgndImage">
 		<value condition="Skin.HasSetting(background-fanart) + !IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
 		<value condition="Skin.HasSetting(background-fanart) + !IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
 		<value condition="Skin.HasSetting(background-fanart) + !IsEmpty(Fanart.Image)">$INFO[Fanart.Image]</value>
-		<value condition="!IsEmpty(Skin.String(custom-background))">$INFO[Skin.String(custom-background)]</value>
+		<value condition="!IsEmpty(Skin.String(background-custom))">$INFO[Skin.String(background-custom)]</value>
 		<value>background.png</value>
 	</variable>
 	<variable name="VideoRating">
@@ -156,75 +156,75 @@
 	</variable>
 	<variable name="MovieLibEntry">
 		<value condition="!Library.HasContent(Movies)">ActivateWindow(Videos,Files,return)</value>
-		<value condition="StringCompare(Skin.String(movie-libraryentry),$LOCALIZE[369])">ActivateWindow(Videos,MovieTitles,return)</value>
-		<value condition="StringCompare(Skin.String(movie-libraryentry),$LOCALIZE[20108])">ActivateWindow(Videos,Movies,return)</value>
-		<value condition="StringCompare(Skin.String(movie-libraryentry),$LOCALIZE[20386])">ActivateWindow(Videos,RecentlyAddedMovies,return)</value>
-		<value condition="StringCompare(Skin.String(movie-libraryentry),$LOCALIZE[135])">ActivateWindow(Videos,MovieGenres,return)</value>
-		<value condition="StringCompare(Skin.String(movie-libraryentry),$LOCALIZE[652])">ActivateWindow(Videos,MovieYears,return)</value>
-		<value condition="StringCompare(Skin.String(movie-libraryentry),$LOCALIZE[344])">ActivateWindow(Videos,MovieActors,return)</value>
-		<value condition="StringCompare(Skin.String(movie-libraryentry),$LOCALIZE[20348])">ActivateWindow(Videos,MovieDirectors,return)</value>
-		<value condition="StringCompare(Skin.String(movie-libraryentry),$LOCALIZE[20388])">ActivateWindow(Videos,MovieStudios,return)</value>
-		<value condition="StringCompare(Skin.String(movie-libraryentry),$LOCALIZE[744])">ActivateWindow(Videos,Files,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[369])">ActivateWindow(Videos,MovieTitles,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[20108])">ActivateWindow(Videos,Movies,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[20386])">ActivateWindow(Videos,RecentlyAddedMovies,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[135])">ActivateWindow(Videos,MovieGenres,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[652])">ActivateWindow(Videos,MovieYears,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[344])">ActivateWindow(Videos,MovieActors,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[20348])">ActivateWindow(Videos,MovieDirectors,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[20388])">ActivateWindow(Videos,MovieStudios,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[744])">ActivateWindow(Videos,Files,return)</value>
 		<value>ActivateWindow(Videos,MovieTitles,return)</value>
 	</variable>
 	<variable name="TVLibEntry">
 		<value condition="!Library.HasContent(TVShows)">ActivateWindow(Videos,Files,return)</value>
-		<value condition="StringCompare(Skin.String(tvshow-libraryentry),$LOCALIZE[369])">ActivateWindow(Videos,TvShowTitles,return)</value>
-		<value condition="StringCompare(Skin.String(tvshow-libraryentry),$LOCALIZE[20108])">ActivateWindow(Videos,TvShows,return)</value>
-		<value condition="StringCompare(Skin.String(tvshow-libraryentry),$LOCALIZE[20387])">ActivateWindow(Videos,RecentlyAddedEpisodes,return)</value>
-		<value condition="StringCompare(Skin.String(tvshow-libraryentry),$LOCALIZE[135])">ActivateWindow(Videos,TvShowGenres,return)</value>
-		<value condition="StringCompare(Skin.String(tvshow-libraryentry),$LOCALIZE[652])">ActivateWindow(Videos,TvShowYears,return)</value>
-		<value condition="StringCompare(Skin.String(tvshow-libraryentry),$LOCALIZE[344])">ActivateWindow(Videos,TvShowActors,return)</value>
-		<value condition="StringCompare(Skin.String(tvshow-libraryentry),$LOCALIZE[20388])">ActivateWindow(Videos,TvShowStudios,return)</value>
-		<value condition="StringCompare(Skin.String(tvshow-libraryentry),$LOCALIZE[744])">ActivateWindow(Videos,Files,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[369])">ActivateWindow(Videos,TvShowTitles,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[20108])">ActivateWindow(Videos,TvShows,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[20387])">ActivateWindow(Videos,RecentlyAddedEpisodes,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[135])">ActivateWindow(Videos,TvShowGenres,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[652])">ActivateWindow(Videos,TvShowYears,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[344])">ActivateWindow(Videos,TvShowActors,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[20388])">ActivateWindow(Videos,TvShowStudios,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[744])">ActivateWindow(Videos,Files,return)</value>
 		<value>ActivateWindow(Videos,TvShowTitles,return)</value>
 	</variable>
 	<variable name="TVEntry">
-		<value condition="StringCompare(Skin.String(tv-libraryentry),$LOCALIZE[31703])">PlayPvrTV</value>
-		<value condition="StringCompare(Skin.String(tv-libraryentry),$LOCALIZE[19023])">ActivateWindow(tvchannels,return)</value>
-		<value condition="StringCompare(Skin.String(tv-libraryentry),$LOCALIZE[19024])">ActivateWindow(tvguide,return)</value>
-		<value condition="StringCompare(Skin.String(tv-libraryentry),$LOCALIZE[19069])">ActivateWindow(tvrecordings,return)</value>
-		<value condition="StringCompare(Skin.String(tv-libraryentry),$LOCALIZE[19163])">ActivateWindow(tvtimers,return)</value>
-		<value condition="StringCompare(Skin.String(tv-libraryentry),$LOCALIZE[19040])">ActivateWindow(tvsearch,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tv),$LOCALIZE[31703])">PlayPvrTV</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tv),$LOCALIZE[19023])">ActivateWindow(tvchannels,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tv),$LOCALIZE[19024])">ActivateWindow(tvguide,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tv),$LOCALIZE[19069])">ActivateWindow(tvrecordings,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tv),$LOCALIZE[19163])">ActivateWindow(tvtimers,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tv),$LOCALIZE[19040])">ActivateWindow(tvsearch,return)</value>
 		<value>ActivateWindow(ActivateWindow(tvguide,return)</value>
 	</variable>
 	<variable name="RadioEntry">
-		<value condition="StringCompare(Skin.String(tv-libraryentry),$LOCALIZE[31703])">PlayPvrRadio</value>
-		<value condition="StringCompare(Skin.String(radio-libraryentry),$LOCALIZE[19024])">ActivateWindow(radiochannels,return)</value>
-		<value condition="StringCompare(Skin.String(radio-libraryentry),$LOCALIZE[22020])">ActivateWindow(radioguide,return)</value>
-		<value condition="StringCompare(Skin.String(radio-libraryentry),$LOCALIZE[19163])">ActivateWindow(radiorecordings,return)</value>
-		<value condition="StringCompare(Skin.String(radio-libraryentry),$LOCALIZE[19040])">ActivateWindow(radiotimers,return)</value>
-		<value condition="StringCompare(Skin.String(radio-libraryentry),$LOCALIZE[19040])">ActivateWindow(radiosearch,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tv),$LOCALIZE[31703])">PlayPvrRadio</value>
+		<value condition="StringCompare(Skin.String(libraryentry-radio),$LOCALIZE[19024])">ActivateWindow(radiochannels,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-radio),$LOCALIZE[22020])">ActivateWindow(radioguide,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-radio),$LOCALIZE[19163])">ActivateWindow(radiorecordings,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-radio),$LOCALIZE[19040])">ActivateWindow(radiotimers,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-radio),$LOCALIZE[19040])">ActivateWindow(radiosearch,return)</value>
 		<value>ActivateWindow(ActivateWindow(radioguide,return)</value>
 	</variable>
 	<variable name="MusicLibEntry">
 		<value condition="!Library.HasContent(Music)">ActivateWindow(MusicFiles,,return)</value>
-		<value condition="StringCompare(Skin.String(music-libraryentry),$LOCALIZE[20108])">ActivateWindow(MusicLibrary,root,return)</value>
-		<value condition="StringCompare(Skin.String(music-libraryentry),$LOCALIZE[132])">ActivateWindow(MusicLibrary,Albums,return)</value>
-		<value condition="StringCompare(Skin.String(music-libraryentry),$LOCALIZE[135])">ActivateWindow(MusicLibrary,Genres,return)</value>
-		<value condition="StringCompare(Skin.String(music-libraryentry),$LOCALIZE[133])">ActivateWindow(MusicLibrary,Artists,return)</value>
-		<value condition="StringCompare(Skin.String(music-libraryentry),$LOCALIZE[134])">ActivateWindow(MusicLibrary,Songs,return)</value>
-		<value condition="StringCompare(Skin.String(music-libraryentry),$LOCALIZE[10504])">ActivateWindow(MusicLibrary,Top100Songs,return)</value>
-		<value condition="StringCompare(Skin.String(music-libraryentry),$LOCALIZE[10505])">ActivateWindow(MusicLibrary,Top100Albums,return)</value>
-		<value condition="StringCompare(Skin.String(music-libraryentry),$LOCALIZE[359])">ActivateWindow(MusicLibrary,RecentlyAddedAlbums,return)</value>
-		<value condition="StringCompare(Skin.String(music-libraryentry),$LOCALIZE[517])">ActivateWindow(MusicLibrary,RecentlyPlayedAlbums,return)</value>
-		<value condition="StringCompare(Skin.String(music-libraryentry),$LOCALIZE[521])">ActivateWindow(MusicLibrary,Compilations,return)</value>
-		<value condition="StringCompare(Skin.String(music-libraryentry),$LOCALIZE[652])">ActivateWindow(MusicLibrary,Years,return)</value>
-		<value condition="StringCompare(Skin.String(music-libraryentry),$LOCALIZE[1050])">ActivateWindow(MusicLibrary,Singles,return)</value>
-		<value condition="StringCompare(Skin.String(music-libraryentry),$LOCALIZE[744])">ActivateWindow(MusicFiles,,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[20108])">ActivateWindow(MusicLibrary,root,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[132])">ActivateWindow(MusicLibrary,Albums,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[135])">ActivateWindow(MusicLibrary,Genres,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[133])">ActivateWindow(MusicLibrary,Artists,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[134])">ActivateWindow(MusicLibrary,Songs,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[10504])">ActivateWindow(MusicLibrary,Top100Songs,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[10505])">ActivateWindow(MusicLibrary,Top100Albums,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[359])">ActivateWindow(MusicLibrary,RecentlyAddedAlbums,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[517])">ActivateWindow(MusicLibrary,RecentlyPlayedAlbums,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[521])">ActivateWindow(MusicLibrary,Compilations,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[652])">ActivateWindow(MusicLibrary,Years,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[1050])">ActivateWindow(MusicLibrary,Singles,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[744])">ActivateWindow(MusicFiles,,return)</value>
 		<value>ActivateWindow(MusicLibrary,Albums,return)</value>
 	</variable>
 	<variable name="MusicVideoLibEntry">
 		<value condition="!Library.HasContent(MusicVideos)">ActivateWindow(Videos,Files,return)</value>
-		<value condition="StringCompare(Skin.String(musicvideo-libraryentry),$LOCALIZE[369])">ActivateWindow(Videos,MusicVideoTitles,return)</value>
-		<value condition="StringCompare(Skin.String(musicvideo-libraryentry),$LOCALIZE[20108])">ActivateWindow(Videos,MusicVideos,return)</value>
-		<value condition="StringCompare(Skin.String(musicvideo-libraryentry),$LOCALIZE[20390])">ActivateWindow(Videos,RecentlyAddedMusicVideos,return)</value>
-		<value condition="StringCompare(Skin.String(musicvideo-libraryentry),$LOCALIZE[135])">ActivateWindow(Videos,MusicVideoGenres,return)</value>
-		<value condition="StringCompare(Skin.String(musicvideo-libraryentry),$LOCALIZE[652])">ActivateWindow(Videos,MusicVideoYears,return)</value>
-		<value condition="StringCompare(Skin.String(musicvideo-libraryentry),$LOCALIZE[133])">ActivateWindow(Videos,MusicVideoArtists,return)</value>
-		<value condition="StringCompare(Skin.String(musicvideo-libraryentry),$LOCALIZE[20348])">ActivateWindow(Videos,MusicVideoDirectors,return)</value>
-		<value condition="StringCompare(Skin.String(musicvideo-libraryentry),$LOCALIZE[20388])">ActivateWindow(Videos,MusicVideoStudios,return)</value>
-		<value condition="StringCompare(Skin.String(musicvideo-libraryentry),$LOCALIZE[744])">ActivateWindow(Videos,Files,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[369])">ActivateWindow(Videos,MusicVideoTitles,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[20108])">ActivateWindow(Videos,MusicVideos,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[20390])">ActivateWindow(Videos,RecentlyAddedMusicVideos,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[135])">ActivateWindow(Videos,MusicVideoGenres,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[652])">ActivateWindow(Videos,MusicVideoYears,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[133])">ActivateWindow(Videos,MusicVideoArtists,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[20348])">ActivateWindow(Videos,MusicVideoDirectors,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[20388])">ActivateWindow(Videos,MusicVideoStudios,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[744])">ActivateWindow(Videos,Files,return)</value>
 		<value>ActivateWindow(Videos,MusicVideoTitles,return)</value>
 	</variable>
 	<variable name="MusicAddonEntry">

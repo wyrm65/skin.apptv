@@ -148,7 +148,7 @@
 					<label>$INFO[ListItem.Label]</label>
 					<font>font10</font>
 					<align>center</align>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<animation effect="fade" time="100" delay="300">Focus</animation>
 					<visible>Control.HasFocus(9160)</visible>
 				</control>
@@ -408,7 +408,7 @@
 						<width>252</width>
 						<label>$INFO[ListItem.TVshowTitle]</label>
 						<align>center</align>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<font>font10</font>
 					</control>
 					<control type="label">
@@ -418,7 +418,7 @@
 						<width>252</width>
 						<label>$INFO[ListItem.Property(episodeno)] - $INFO[ListItem.Title]</label>
 						<align>center</align>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<font>font10</font>
 					</control>
 				</control>
@@ -576,7 +576,7 @@
 						<label>$INFO[ListItem.Label]</label>
 						<font>font10</font>
 						<align>center</align>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="label">
 						<left>0</left>
@@ -586,7 +586,7 @@
 						<label>$INFO[ListItem.Label2]</label>
 						<font>font10</font>
 						<align>center</align>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 				</control>
 			</focusedlayout>
@@ -683,7 +683,7 @@
 						<label>$INFO[ListItem.Label]</label>
 						<font>font10</font>
 						<align>center</align>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 				</control>
 			</focusedlayout>
@@ -719,7 +719,7 @@
 				<height>46</height>
 				<width>500</width>
 				<label>$INFO[Window(Weather).Property(Location)]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font13</font>
 			</control>
 			<control type="label">
@@ -729,7 +729,7 @@
 				<width>500</width>
 				<font>font11</font>
 				<label>$INFO[Window(Weather).Property(WeatherProvider),$LOCALIZE[31536] - ]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<visible>IsEmpty(Window(Weather).Property(WeatherProviderLogo))</visible>
 			</control>
 			<control type="group">
@@ -760,7 +760,7 @@
 				<width>250</width>
 				<label>$LOCALIZE[31528]</label>
 				<align>center</align>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font18</font>
 			</control>
 			<control type="multiimage"><!-- Current weather condition icon -->
@@ -801,7 +801,7 @@
 				<label>$INFO[Weather.Conditions]</label>
 				<align>center</align>
 				<wrapmultiline>true</wrapmultiline>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font10</font>
 			</control>
 		</control>
@@ -815,7 +815,7 @@
 				<width>240</width>
 				<label>$INFO[Window(Weather).Property(Day1.Title)]</label>
 				<align>center</align>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="multiimage"><!-- Day1 weather condition icon -->
 				<left>80</left>
@@ -855,7 +855,7 @@
 				<label>$INFO[Window(Weather).Property(Day1.Outlook)]</label>
 				<align>center</align>
 				<wrapmultiline>true</wrapmultiline>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font10</font>
 			</control>
 		</control>
@@ -869,7 +869,7 @@
 				<width>240</width>
 				<label>$INFO[Window(Weather).Property(Day2.Title)]</label>
 				<align>center</align>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="multiimage"><!-- Day2 weather condition icon -->
 				<left>80</left>
@@ -909,7 +909,7 @@
 				<label>$INFO[Window(Weather).Property(Day2.Outlook)]</label>
 				<align>center</align>
 				<wrapmultiline>true</wrapmultiline>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font10</font>
 			</control>
 		</control>
@@ -923,7 +923,7 @@
 				<width>240</width>
 				<label>$INFO[Window(Weather).Property(Day3.Title)]</label>
 				<align>center</align>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="multiimage"><!-- Day3 weather condition icon -->
 				<left>80</left>
@@ -963,7 +963,7 @@
 				<label>$INFO[Window(Weather).Property(Day3.Outlook)]</label>
 				<align>center</align>
 				<wrapmultiline>true</wrapmultiline>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font10</font>
 			</control>
 		</control>
@@ -977,7 +977,7 @@
 				<width>240</width>
 				<label>$INFO[Window(Weather).Property(Day4.Title)]</label>
 				<align>center</align>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="multiimage"><!-- Day4 weather condition icon -->
 				<left>80</left>
@@ -1017,7 +1017,7 @@
 				<label>$INFO[Window(Weather).Property(Day4.Outlook)]</label>
 				<align>center</align>
 				<wrapmultiline>true</wrapmultiline>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font10</font>
 			</control>
 		</control>

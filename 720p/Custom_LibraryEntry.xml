@@ -10,16 +10,16 @@
 			<top>-10</top>
 			<height>1</height>
 			<width>1</width>
-			<onfocus condition="Skin.HasSetting(selectmovieentry)">SetFocus(510)</onfocus>
-			<onfocus condition="Skin.HasSetting(selecttvshowentry)">SetFocus(520)</onfocus>
-			<onfocus condition="Skin.HasSetting(selectmusicvidentry)">SetFocus(530)</onfocus>
-			<onfocus condition="Skin.HasSetting(selectmusicentry)">SetFocus(540)</onfocus>
-			<onfocus condition="Skin.HasSetting(selecttventry)">SetFocus(550)</onfocus>
-			<onfocus condition="Skin.HasSetting(selectradioentry)">SetFocus(560)</onfocus>
+			<onfocus condition="Skin.HasSetting(select-movieentry)">SetFocus(510)</onfocus>
+			<onfocus condition="Skin.HasSetting(select-tvshowentry)">SetFocus(520)</onfocus>
+			<onfocus condition="Skin.HasSetting(select-musicvidentry)">SetFocus(530)</onfocus>
+			<onfocus condition="Skin.HasSetting(select-musicentry)">SetFocus(540)</onfocus>
+			<onfocus condition="Skin.HasSetting(select-tventry)">SetFocus(550)</onfocus>
+			<onfocus condition="Skin.HasSetting(select-radioentry)">SetFocus(560)</onfocus>
 		</control>
 		<control type="group">
 			<control type="group" id="510">
-				<visible>Skin.HasSetting(selectmovieentry)</visible>
+				<visible>Skin.HasSetting(select-movieentry)</visible>
 				<control type="image"><!-- Dialog background -->
 					<left>432</left>
 					<top>160</top>
@@ -89,63 +89,63 @@
 					<content>
 						<item><!-- Movie library entry point - Title -->
 							<label>$LOCALIZE[369]</label>
-							<onclick>Skin.SetString(movie-libraryentry,$LOCALIZE[369])</onclick>
-							<onclick>Skin.Reset(selectmovieentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-movie,$LOCALIZE[369])</onclick>
+							<onclick>Skin.Reset(select-movieentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Movie library entry point - Root -->
 							<label>$LOCALIZE[20108]</label>
-							<onclick>Skin.SetString(movie-libraryentry,$LOCALIZE[20108])</onclick>
-							<onclick>Skin.Reset(selectmovieentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-movie,$LOCALIZE[20108])</onclick>
+							<onclick>Skin.Reset(select-movieentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Movie library entry point - RecentlyAdded -->
 							<label>$LOCALIZE[20386]</label>
-							<onclick>Skin.SetString(movie-libraryentry,$LOCALIZE[20386])</onclick>
-							<onclick>Skin.Reset(selectmovieentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-movie,$LOCALIZE[20386])</onclick>
+							<onclick>Skin.Reset(select-movieentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Movie library entry point - Genre -->
 							<label>$LOCALIZE[135]</label>
-							<onclick>Skin.SetString(movie-libraryentry,$LOCALIZE[135])</onclick>
-							<onclick>Skin.Reset(selectmovieentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-movie,$LOCALIZE[135])</onclick>
+							<onclick>Skin.Reset(select-movieentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Movie library entry point - Years -->
 							<label>$LOCALIZE[652]</label>
-							<onclick>Skin.SetString(movie-libraryentry,$LOCALIZE[652])</onclick>
-							<onclick>Skin.Reset(selectmovieentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-movie,$LOCALIZE[652])</onclick>
+							<onclick>Skin.Reset(select-movieentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Movie library entry point - Actors -->
 							<label>$LOCALIZE[344]</label>
-							<onclick>Skin.SetString(movie-libraryentry,$LOCALIZE[344])</onclick>
-							<onclick>Skin.Reset(selectmovieentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-movie,$LOCALIZE[344])</onclick>
+							<onclick>Skin.Reset(select-movieentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Movie library entry point - Directors -->
 							<label>$LOCALIZE[20348]</label>
-							<onclick>Skin.SetString(movie-libraryentry,$LOCALIZE[20348])</onclick>
-							<onclick>Skin.Reset(selectmovieentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-movie,$LOCALIZE[20348])</onclick>
+							<onclick>Skin.Reset(select-movieentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Movie library entry point - Studios -->
 							<label>$LOCALIZE[20388]</label>
-							<onclick>Skin.SetString(movie-libraryentry,$LOCALIZE[20388])</onclick>
-							<onclick>Skin.Reset(selectmovieentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-movie,$LOCALIZE[20388])</onclick>
+							<onclick>Skin.Reset(select-movieentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Movie library entry point - Files -->
 							<label>$LOCALIZE[744]</label>
-							<onclick>Skin.SetString(movie-libraryentry,$LOCALIZE[744])</onclick>
-							<onclick>Skin.Reset(selectmovieentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-movie,$LOCALIZE[744])</onclick>
+							<onclick>Skin.Reset(select-movieentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 					</content>
 				</control>
 			</control>
 			<control type="group" id="520">
-				<visible>Skin.HasSetting(selecttvshowentry)</visible>
+				<visible>Skin.HasSetting(select-tvshowentry)</visible>
 				<control type="image"><!-- Dialog background -->
 					<left>432</left>
 					<top>160</top>
@@ -215,57 +215,57 @@
 					<content>
 						<item><!-- TVShow library entry point - Title -->
 							<label>$LOCALIZE[369]</label>
-							<onclick>Skin.SetString(tvshow-libraryentry,$LOCALIZE[369])</onclick>
-							<onclick>Skin.Reset(selecttvshowentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-tvshow,$LOCALIZE[369])</onclick>
+							<onclick>Skin.Reset(select-tvshowentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- TVShow library entry point - Root -->
 							<label>$LOCALIZE[20108]</label>
-							<onclick>Skin.SetString(tvshow-libraryentry,$LOCALIZE[20108])</onclick>
-							<onclick>Skin.Reset(selecttvshowentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-tvshow,$LOCALIZE[20108])</onclick>
+							<onclick>Skin.Reset(select-tvshowentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- TVShow library entry point - RecentlyAdded -->
 							<label>$LOCALIZE[20387]</label>
-							<onclick>Skin.SetString(tvshow-libraryentry,$LOCALIZE[20387])</onclick>
-							<onclick>Skin.Reset(selecttvshowentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-tvshow,$LOCALIZE[20387])</onclick>
+							<onclick>Skin.Reset(select-tvshowentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- TVShow library entry point - Genres -->
 							<label>$LOCALIZE[135]</label>
-							<onclick>Skin.SetString(tvshow-libraryentry,$LOCALIZE[135])</onclick>
-							<onclick>Skin.Reset(selecttvshowentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-tvshow,$LOCALIZE[135])</onclick>
+							<onclick>Skin.Reset(select-tvshowentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- TVShow library entry point - Years -->
 							<label>$LOCALIZE[652]</label>
-							<onclick>Skin.SetString(tvshow-libraryentry,$LOCALIZE[652])</onclick>
-							<onclick>Skin.Reset(selecttvshowentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-tvshow,$LOCALIZE[652])</onclick>
+							<onclick>Skin.Reset(select-tvshowentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- TVShow library entry point - Actors -->
 							<label>$LOCALIZE[344]</label>
-							<onclick>Skin.SetString(tvshow-libraryentry,$LOCALIZE[344])</onclick>
-							<onclick>Skin.Reset(selecttvshowentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-tvshow,$LOCALIZE[344])</onclick>
+							<onclick>Skin.Reset(select-tvshowentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- TVShow library entry point - Studios -->
 							<label>$LOCALIZE[20388]</label>
-							<onclick>Skin.SetString(tvshow-libraryentry,$LOCALIZE[20388])</onclick>
-							<onclick>Skin.Reset(selecttvshowentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-tvshow,$LOCALIZE[20388])</onclick>
+							<onclick>Skin.Reset(select-tvshowentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- TVShow library entry point - Files -->
 							<label>$LOCALIZE[744]</label>
-							<onclick>Skin.SetString(tvshow-libraryentry,$LOCALIZE[744])</onclick>
-							<onclick>Skin.Reset(selecttvshowentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-tvshow,$LOCALIZE[744])</onclick>
+							<onclick>Skin.Reset(select-tvshowentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 					</content>
 				</control>
 			</control>
 			<control type="group" id="530">
-				<visible>Skin.HasSetting(selectmusicvidentry)</visible>
+				<visible>Skin.HasSetting(select-musicvidentry)</visible>
 				<control type="image"><!-- Dialog background -->
 					<left>432</left>
 					<top>160</top>
@@ -335,63 +335,63 @@
 					<content>
 						<item><!-- Music video library entry point - Title -->
 							<label>$LOCALIZE[369]</label>
-							<onclick>Skin.SetString(musicvideo-libraryentry,$LOCALIZE[369])</onclick>
-							<onclick>Skin.Reset(selectmusicvidentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-musicvideo,$LOCALIZE[369])</onclick>
+							<onclick>Skin.Reset(select-musicvidentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Music video library entry point - Root -->
 							<label>$LOCALIZE[20108]</label>
-							<onclick>Skin.SetString(musicvideo-libraryentry,$LOCALIZE[20108])</onclick>
-							<onclick>Skin.Reset(selectmusicvidentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-musicvideo,$LOCALIZE[20108])</onclick>
+							<onclick>Skin.Reset(select-musicvidentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Music video library entry point - RecentlyAdded -->
 							<label>$LOCALIZE[20390]</label>
-							<onclick>Skin.SetString(musicvideo-libraryentry,$LOCALIZE[20390])</onclick>
-							<onclick>Skin.Reset(selectmusicvidentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-musicvideo,$LOCALIZE[20390])</onclick>
+							<onclick>Skin.Reset(select-musicvidentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Music video library entry point - Genres -->
 							<label>$LOCALIZE[135]</label>
-							<onclick>Skin.SetString(musicvideo-libraryentry,$LOCALIZE[135])</onclick>
-							<onclick>Skin.Reset(selectmusicvidentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-musicvideo,$LOCALIZE[135])</onclick>
+							<onclick>Skin.Reset(select-musicvidentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Music video library entry point - Years -->
 							<label>$LOCALIZE[652]</label>
-							<onclick>Skin.SetString(musicvideo-libraryentry,$LOCALIZE[652])</onclick>
-							<onclick>Skin.Reset(selectmusicvidentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-musicvideo,$LOCALIZE[652])</onclick>
+							<onclick>Skin.Reset(select-musicvidentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Music video library entry point - Artists -->
 							<label>$LOCALIZE[133]</label>
-							<onclick>Skin.SetString(musicvideo-libraryentry,$LOCALIZE[133])</onclick>
-							<onclick>Skin.Reset(selectmusicvidentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-musicvideo,$LOCALIZE[133])</onclick>
+							<onclick>Skin.Reset(select-musicvidentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Music video library entry point - Directors -->
 							<label>$LOCALIZE[20348]</label>
-							<onclick>Skin.SetString(musicvideo-libraryentry,$LOCALIZE[20348])</onclick>
-							<onclick>Skin.Reset(selectmusicvidentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-musicvideo,$LOCALIZE[20348])</onclick>
+							<onclick>Skin.Reset(select-musicvidentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Music video library entry point - Studios -->
 							<label>$LOCALIZE[20388]</label>
-							<onclick>Skin.SetString(musicvideo-libraryentry,$LOCALIZE[20388])</onclick>
-							<onclick>Skin.Reset(selectmusicvidentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-musicvideo,$LOCALIZE[20388])</onclick>
+							<onclick>Skin.Reset(select-musicvidentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Music video library entry point - Files -->
 							<label>$LOCALIZE[744]</label>
-							<onclick>Skin.SetString(musicvideo-libraryentry,$LOCALIZE[744])</onclick>
-							<onclick>Skin.Reset(selectmusicvidentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-musicvideo,$LOCALIZE[744])</onclick>
+							<onclick>Skin.Reset(select-musicvidentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 					</content>
 				</control>
 			</control>
 			<control type="group" id="540">
-				<visible>Skin.HasSetting(selectmusicentry)</visible>
+				<visible>Skin.HasSetting(select-musicentry)</visible>
 				<control type="image"><!-- Dialog background -->
 					<left>432</left>
 					<top>30</top>
@@ -461,87 +461,87 @@
 					<content>
 						<item><!-- Music library entry point - Root -->
 							<label>$LOCALIZE[20108]</label>
-							<onclick>Skin.SetString(music-libraryentry,$LOCALIZE[20108])</onclick>
-							<onclick>Skin.Reset(selectmusicentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-music,$LOCALIZE[20108])</onclick>
+							<onclick>Skin.Reset(select-musicentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Music library entry point - Genres -->
 							<label>$LOCALIZE[135]</label>
-							<onclick>Skin.SetString(music-libraryentry,$LOCALIZE[135])</onclick>
-							<onclick>Skin.Reset(selectmusicentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-music,$LOCALIZE[135])</onclick>
+							<onclick>Skin.Reset(select-musicentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Music library entry point - Artist -->
 							<label>$LOCALIZE[133]</label>
-							<onclick>Skin.SetString(music-libraryentry,$LOCALIZE[133])</onclick>
-							<onclick>Skin.Reset(selectmusicentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-music,$LOCALIZE[133])</onclick>
+							<onclick>Skin.Reset(select-musicentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Music library entry point - Album -->
 							<label>$LOCALIZE[132]</label>
-							<onclick>Skin.SetString(music-libraryentry,$LOCALIZE[132])</onclick>
-							<onclick>Skin.Reset(selectmusicentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-music,$LOCALIZE[132])</onclick>
+							<onclick>Skin.Reset(select-musicentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Music library entry point - Songs -->
 							<label>$LOCALIZE[134]</label>
-							<onclick>Skin.SetString(music-libraryentry,$LOCALIZE[134])</onclick>
-							<onclick>Skin.Reset(selectmusicentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-music,$LOCALIZE[134])</onclick>
+							<onclick>Skin.Reset(select-musicentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Music library entry point - Top100Songs -->
 							<label>$LOCALIZE[10504]</label>
-							<onclick>Skin.SetString(music-libraryentry,$LOCALIZE[10504])</onclick>
-							<onclick>Skin.Reset(selectmusicentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-music,$LOCALIZE[10504])</onclick>
+							<onclick>Skin.Reset(select-musicentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Music library entry point - Top100Albums -->
 							<label>$LOCALIZE[10505]</label>
-							<onclick>Skin.SetString(music-libraryentry,$LOCALIZE[10505])</onclick>
-							<onclick>Skin.Reset(selectmusicentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-music,$LOCALIZE[10505])</onclick>
+							<onclick>Skin.Reset(select-musicentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Music library entry point - RecentlyAddedAlbums -->
 							<label>$LOCALIZE[359]</label>
-							<onclick>Skin.SetString(music-libraryentry,$LOCALIZE[359])</onclick>
-							<onclick>Skin.Reset(selectmusicentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-music,$LOCALIZE[359])</onclick>
+							<onclick>Skin.Reset(select-musicentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Music library entry point - RecentlyPlayedAlbums -->
 							<label>$LOCALIZE[517]</label>
-							<onclick>Skin.SetString(music-libraryentry,$LOCALIZE[517])</onclick>
-							<onclick>Skin.Reset(selectmusicentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-music,$LOCALIZE[517])</onclick>
+							<onclick>Skin.Reset(select-musicentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Music library entry point - Compilations -->
 							<label>$LOCALIZE[521]</label>
-							<onclick>Skin.SetString(music-libraryentry,$LOCALIZE[521])</onclick>
-							<onclick>Skin.Reset(selectmusicentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-music,$LOCALIZE[521])</onclick>
+							<onclick>Skin.Reset(select-musicentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Music library entry point - Years -->
 							<label>$LOCALIZE[652]</label>
-							<onclick>Skin.SetString(music-libraryentry,$LOCALIZE[652])</onclick>
-							<onclick>Skin.Reset(selectmusicentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-music,$LOCALIZE[652])</onclick>
+							<onclick>Skin.Reset(select-musicentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Music library entry point - Singles -->
 							<label>$LOCALIZE[1050]</label>
-							<onclick>Skin.SetString(music-libraryentry,$LOCALIZE[1050])</onclick>
-							<onclick>Skin.Reset(selectmusicentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-music,$LOCALIZE[1050])</onclick>
+							<onclick>Skin.Reset(select-musicentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Music library entry point - Files -->
 							<label>$LOCALIZE[744]</label>
-							<onclick>Skin.SetString(music-libraryentry,$LOCALIZE[744])</onclick>
-							<onclick>Skin.Reset(selectmusicentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-music,$LOCALIZE[744])</onclick>
+							<onclick>Skin.Reset(select-musicentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 					</content>
 				</control>
 			</control>
 			<control type="group" id="550">
-				<visible>Skin.HasSetting(selecttventry)</visible>
+				<visible>Skin.HasSetting(select-tventry)</visible>
 				<control type="image"><!-- Dialog background -->
 					<left>432</left>
 					<top>160</top>
@@ -611,45 +611,45 @@
 					<content>
 						<item><!-- TV entry point - Play TV -->
 							<label>$LOCALIZE[31701]</label>
-							<onclick>Skin.SetString(tv-libraryentry,$LOCALIZE[31703])</onclick>
-							<onclick>Skin.Reset(selecttventry)</onclick>
+							<onclick>Skin.SetString(libraryentry-tv,$LOCALIZE[31703])</onclick>
+							<onclick>Skin.Reset(select-tventry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- TV entry point - TV Channels -->
 							<label>$LOCALIZE[19023]</label>
-							<onclick>Skin.SetString(tv-libraryentry,$LOCALIZE[19023])</onclick>
-							<onclick>Skin.Reset(selecttventry)</onclick>
+							<onclick>Skin.SetString(libraryentry-tv,$LOCALIZE[19023])</onclick>
+							<onclick>Skin.Reset(select-tventry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- TV entry point - Guide -->
 							<label>$LOCALIZE[31709]</label>
-							<onclick>Skin.SetString(tv-libraryentry,$LOCALIZE[22020])</onclick>
-							<onclick>Skin.Reset(selecttventry)</onclick>
+							<onclick>Skin.SetString(libraryentry-tv,$LOCALIZE[22020])</onclick>
+							<onclick>Skin.Reset(select-tventry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- TV entry point - Recordings -->
 							<label>$LOCALIZE[31711]</label>
-							<onclick>Skin.SetString(tv-libraryentry,$LOCALIZE[19163])</onclick>
-							<onclick>Skin.Reset(selecttventry)</onclick>
+							<onclick>Skin.SetString(libraryentry-tv,$LOCALIZE[19163])</onclick>
+							<onclick>Skin.Reset(select-tventry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- TV entry point - Timer -->
 							<label>$LOCALIZE[31713]</label>
-							<onclick>Skin.SetString(tv-libraryentry,$LOCALIZE[19040])</onclick>
-							<onclick>Skin.Reset(selecttventry)</onclick>
+							<onclick>Skin.SetString(libraryentry-tv,$LOCALIZE[19040])</onclick>
+							<onclick>Skin.Reset(select-tventry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- TV entry point - Search -->
 							<label>$LOCALIZE[31707]</label>
-							<onclick>Skin.SetString(tv-libraryentry,$LOCALIZE[137])</onclick>
-							<onclick>Skin.Reset(selecttventry)</onclick>
+							<onclick>Skin.SetString(libraryentry-tv,$LOCALIZE[137])</onclick>
+							<onclick>Skin.Reset(select-tventry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 					</content>
 				</control>
 			</control>
 			<control type="group" id="560">
-				<visible>Skin.HasSetting(selectradioentry)</visible>
+				<visible>Skin.HasSetting(select-radioentry)</visible>
 				<control type="image"><!-- Dialog background -->
 					<left>432</left>
 					<top>160</top>
@@ -719,38 +719,38 @@
 					<content>
 						<item><!-- Radio entry point - Play Radio -->
 							<label>$LOCALIZE[31702]</label>
-							<onclick>Skin.SetString(radio-libraryentry,$LOCALIZE[31703])</onclick>
-							<onclick>Skin.Reset(selectradioentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-radio,$LOCALIZE[31703])</onclick>
+							<onclick>Skin.Reset(select-radioentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Radio entry point - Radio channels -->
 							<label>$LOCALIZE[19024]</label>
-							<onclick>Skin.SetString(radio-libraryentry,$LOCALIZE[19024])</onclick>
-							<onclick>Skin.Reset(selectradioentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-radio,$LOCALIZE[19024])</onclick>
+							<onclick>Skin.Reset(select-radioentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Radio entry point - Guide -->
 							<label>$LOCALIZE[31710]</label>
-							<onclick>Skin.SetString(radio-libraryentry,$LOCALIZE[22020])</onclick>
-							<onclick>Skin.Reset(selectradioentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-radio,$LOCALIZE[22020])</onclick>
+							<onclick>Skin.Reset(select-radioentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Radio entry point - Recordings -->
 							<label>$LOCALIZE[31712]</label>
-							<onclick>Skin.SetString(radio-libraryentry,$LOCALIZE[19163])</onclick>
-							<onclick>Skin.Reset(selectradioentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-radio,$LOCALIZE[19163])</onclick>
+							<onclick>Skin.Reset(select-radioentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Radio entry point - Timer -->
 							<label>$LOCALIZE[31714]</label>
-							<onclick>Skin.SetString(radio-libraryentry,$LOCALIZE[19040])</onclick>
-							<onclick>Skin.Reset(selectradioentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-radio,$LOCALIZE[19040])</onclick>
+							<onclick>Skin.Reset(select-radioentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 						<item><!-- Radio entry point - Search -->
 							<label>$LOCALIZE[31708]</label>
-							<onclick>Skin.SetString(radio-libraryentry,$LOCALIZE[19040])</onclick>
-							<onclick>Skin.Reset(selectradioentry)</onclick>
+							<onclick>Skin.SetString(libraryentry-radio,$LOCALIZE[19040])</onclick>
+							<onclick>Skin.Reset(select-radioentry)</onclick>
 							<onclick>Dialog.Close(1156)</onclick>
 						</item>
 					</content>

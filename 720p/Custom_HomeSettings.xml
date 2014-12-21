@@ -32,7 +32,6 @@
 				<height>56</height>
 				<label>$LOCALIZE[342]</label>
 				<onfocus>Skin.SetString(customsettingmenu,movie)</onfocus>
-				<onup>noop</onup>
 				<ondown>982</ondown>
 				<onleft>100</onleft>
 			</control>
@@ -93,7 +92,6 @@
 				<label>$LOCALIZE[19021]</label>
 				<onfocus>Skin.SetString(customsettingmenu,radio)</onfocus>
 				<onup>985</onup>
-				<ondown>noop</ondown>
 				<onleft>600</onleft>
 			</control>
 		</control>
@@ -104,7 +102,7 @@
 			<width>18</width>
 			<height>542</height>
 			<onright>998</onright>
-			<visible>Skin.HasSetting(sbar)</visible>
+			<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
 		</control>
 		<control type="group" id="998">
 
@@ -121,7 +119,7 @@
 				</control>
 				<!-- Markers for control area items (Don't show if scrollbar is in use)-->
 				<control type="group">
-					<visible>!Skin.HasSetting(sbar)</visible>
+					<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible><!-- Don't show scrollbar -->
 					<control type="image">
 						<left>480</left>
 						<top>88</top>
@@ -237,7 +235,7 @@
 				</control>
 				<!-- Markers for control area items (Don't show if scrollbar is in use)-->
 				<control type="group">
-					<visible>!Skin.HasSetting(sbar)</visible>
+					<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible><!-- Don't show scrollbar -->
 					<control type="image">
 						<left>480</left>
 						<top>88</top>
@@ -353,7 +351,7 @@
 				</control>
 				<!-- Markers for control area items (Don't show if scrollbar is in use)-->
 				<control type="group">
-					<visible>!Skin.HasSetting(sbar)</visible>
+					<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible><!-- Don't show scrollbar -->
 					<control type="image">
 						<left>480</left>
 						<top>88</top>
@@ -470,7 +468,7 @@
 				</control>
 				<!-- Markers for control area items (Don't show if scrollbar is in use)-->
 				<control type="group">
-					<visible>!Skin.HasSetting(sbar)</visible>
+					<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible><!-- Don't show scrollbar -->
 					<control type="image">
 						<left>480</left>
 						<top>88</top>
@@ -585,7 +583,7 @@
 				</control>
 				<!-- Markers for control area items (Don't show if scrollbar is in use)-->
 				<control type="group">
-					<visible>!Skin.HasSetting(sbar)</visible>
+					<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible><!-- Don't show scrollbar -->
 					<control type="image">
 						<left>480</left>
 						<top>88</top>
@@ -700,7 +698,7 @@
 				</control>
 				<!-- Markers for control area items (Don't show if scrollbar is in use)-->
 				<control type="group">
-					<visible>!Skin.HasSetting(sbar)</visible>
+					<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible><!-- Don't show scrollbar -->
 					<control type="image">
 						<left>480</left>
 						<top>88</top>

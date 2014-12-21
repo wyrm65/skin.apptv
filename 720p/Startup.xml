@@ -8,7 +8,7 @@
 			<width>1</width>
 			<height>1</height>
 			<onfocus condition="StringCompare(Skin.String(startup-screentype),$LOCALIZE[31858])">PlayMedia($ESCINFO[Skin.String(startup-screenpath)])</onfocus>
-			<onfocus condition="Skin.HasSetting(startup-playlist)">PlayMedia($ESCINFO[Skin.String(Startup_Playlist_Path)],isdir)</onfocus>
+			<onfocus condition="Skin.HasSetting(startup-playlist)">PlayMedia($ESCINFO[Skin.String(startup-playlistpath)],isdir)</onfocus>
 			<onfocus>ReplaceWindow($INFO[System.StartupWindow])</onfocus>
 			<animation effect="fade" delay="1000" end="100">Focus</animation>
 		</control>

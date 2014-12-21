@@ -2,15 +2,15 @@
 <window type="dialog" id="1150">
 	<zorder>2</zorder>
 	<include>screen-fade</include>
-	<visible>!Window.IsVisible(startup) + [Skin.HasSetting(DebugInfo) | Skin.HasSetting(DebugGrid)]</visible>
+	<visible>!Window.IsVisible(startup) + [Skin.HasSetting(debug-info) | Skin.HasSetting(debug-grid)]</visible>
 	<controls>
 		<control type="image"><!-- Global debug grid -->
-			<visible>Skin.HasSetting(DebugGrid)</visible>
+			<visible>Skin.HasSetting(debug-grid)</visible>
 			<include>fullscreenimage</include>
-			<texture>debuggrid720.png</texture>
+			<texture>debug-grid720.png</texture>
 		</control>
 		<control type="group"><!-- Window/Dialog debug -->
-			<visible>Skin.HasSetting(DebugInfo)</visible>
+			<visible>Skin.HasSetting(debug-info)</visible>
 			<control type="grouplist">
 				<left>15</left>
 				<top>15</top>

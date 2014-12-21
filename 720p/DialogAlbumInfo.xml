@@ -33,7 +33,7 @@
 				<width>320</width>
 				<height>25</height>
 				<align>center</align>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label fallback="416">$INFO[ListItem.Artist]</label>
 			</control>
 			<control type="label"><!-- Year heading -->
@@ -115,7 +115,7 @@
 				<width>414</width>
 				<height>25</height>
 				<label>$INFO[ListItem.Year]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font11</font>
 			</control>
 			<control type="image"><!-- Rating value -->
@@ -133,7 +133,7 @@
 				<width>414</width>
 				<height>25</height>
 				<label>$INFO[ListItem.Genre]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font11</font>
 			</control>
 			<control type="label"><!-- Moods value -->
@@ -142,7 +142,7 @@
 				<width>414</width>
 				<height>25</height>
 				<label>$INFO[ListItem.Property(Album_Mood)]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font11</font>
 			</control>
 			<control type="label"><!-- Styles value -->
@@ -151,7 +151,7 @@
 				<width>414</width>
 				<height>25</height>
 				<label>$INFO[ListItem.Property(Album_Style)]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font11</font>
 			</control>
 			<control type="label"><!-- Theme value -->
@@ -160,7 +160,7 @@
 				<width>414</width>
 				<height>25</height>
 				<label>$INFO[ListItem.Property(Album_Theme)]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font11</font>
 			</control>
 			<control type="label"><!-- Record Label value -->
@@ -169,7 +169,7 @@
 				<width>414</width>
 				<height>25</height>
 				<label>$INFO[ListItem.Property(Album_Label)]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font11</font>
 			</control>
 			<control type="label"><!-- Type value -->
@@ -178,7 +178,7 @@
 				<width>414</width>
 				<height>25</height>
 				<label>$INFO[ListItem.Property(Album_Type)]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font11</font>
 			</control>
 			<control type="textbox" id="4"><!-- Album description -->
@@ -190,7 +190,7 @@
 				<pagecontrol>1423</pagecontrol>
 				<label>$INFO[ListItem.Property(Album_Description)]</label>
 				<align>justify</align>
-				<autoscroll time="4000" delay="8000" repeat="6000">Skin.HasSetting(autoscroll)</autoscroll>
+				<autoscroll time="4000" delay="8000" repeat="6000">Skin.HasSetting(text-autoscroll)</autoscroll>
 				<visible>!Control.IsVisible(50)</visible>
 			</control>
 		</control>
@@ -203,7 +203,7 @@
 				<height>25</height>
 				<align>center</align>
 				<label fallback="416">$INFO[ListItem.Artist]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="label"><!-- Born heading -->
 				<left>10</left>
@@ -304,7 +304,7 @@
 				<width>414</width>
 				<height>46</height>
 				<label>$INFO[ListItem.Property(Artist_Born)]$INFO[ListItem.Property(Artist_Formed)]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font11</font>
 			</control>
 			<control type="label"><!-- Genre value -->
@@ -313,7 +313,7 @@
 				<width>414</width>
 				<height>25</height>
 				<label>$INFO[ListItem.Genre]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font11</font>
 			</control>
 			<control type="label"><!-- Styles value -->
@@ -322,7 +322,7 @@
 				<width>414</width>
 				<height>25</height>
 				<label>$INFO[ListItem.Property(Album_Style)]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font11</font>
 			</control>
 			<control type="label"><!-- Moods value -->
@@ -331,7 +331,7 @@
 				<width>414</width>
 				<height>25</height>
 				<label>$INFO[ListItem.Property(Album_Mood)]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font11</font>
 			</control>
 			<control type="label"><!-- Instruments value -->
@@ -340,7 +340,7 @@
 				<width>414</width>
 				<height>25</height>
 				<label>$INFO[ListItem.Property(Artist_Instrument)]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font11</font>
 			</control>
 			<control type="label"><!-- Died value -->
@@ -349,7 +349,7 @@
 				<width>414</width>
 				<height>25</height>
 				<label>$INFO[ListItem.Property(Artist_Died)]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font11</font>
 			</control>
 			<control type="label"><!-- Disbanded value -->
@@ -358,7 +358,7 @@
 				<width>414</width>
 				<height>25</height>
 				<label>$INFO[ListItem.Property(Artist_Disbanded)]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font11</font>
 			</control>
 			<control type="label"><!-- Years Active value -->
@@ -367,7 +367,7 @@
 				<width>414</width>
 				<height>25</height>
 				<label>$INFO[ListItem.Property(Artist_YearsActive)]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<font>font11</font>
 			</control>
 			<control type="textbox" id="4"><!-- Artist description -->
@@ -379,7 +379,7 @@
 				<pagecontrol>1423</pagecontrol>
 				<label>$INFO[ListItem.Property(Artist_Description)]</label>
 				<align>justify</align>
-				<autoscroll time="2000" delay="3000" repeat="6000">Skin.HasSetting(autoscroll)</autoscroll>
+				<autoscroll time="2000" delay="3000" repeat="6000">Skin.HasSetting(text-autoscroll)</autoscroll>
 				<visible>!Control.IsVisible(50)</visible>
 			</control>
 		</control>
@@ -517,7 +517,7 @@
 			<height>384</height>
 			<texture>case-cd.png</texture>
 			<aspectratio>keep</aspectratio>
-			<visible>Skin.HasSetting(Mediacase) + [Container.Content(songs) | Container.Content(albums)] + !SubString(ListItem.Icon,Default,Left)</visible>
+			<visible>Skin.HasSetting(media-case) + [Container.Content(songs) | Container.Content(albums)] + !SubString(ListItem.Icon,Default,Left)</visible>
 		</control>
 		<control type="image"><!-- Album cover -->
 			<left>172</left>
@@ -589,7 +589,7 @@
 			<onleft>50</onleft>
 			<ondown>23</ondown>
 			<onup>23</onup>
-			<visible>Skin.HasSetting(sbar) + Control.IsVisible(50)</visible>
+			<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875]) + Control.IsVisible(50)</visible>
 		</control>
 		<control type="scrollbar" id="1423">
 			<left>1250</left>
@@ -599,7 +599,7 @@
 			<onleft>999</onleft>
 			<ondown>1423</ondown>
 			<onup>1423</onup>
-			<visible>Skin.HasSetting(sbar) + Control.IsVisible(4)</visible>
+			<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875]) + Control.IsVisible(4)</visible>
 		</control>
 	</controls>
 </window>

@@ -10,7 +10,7 @@
 			<top>37</top>
 			<width>566</width>
 			<height>72</height>
-			<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			<font>font18</font>
 			<label>$INFO[ListItem.Title]</label>
 			<wrapmultiline>true</wrapmultiline>
@@ -23,7 +23,7 @@
 			<height>386</height>
 			<texture>case-cd.png</texture>
 			<aspectratio>keep</aspectratio>
-			<visible>Skin.HasSetting(Mediacase) + [Container.Content(songs) | Container.Content(albums)] + !SubString(ListItem.Icon,Default,Left)</visible>
+			<visible>Skin.HasSetting(media-case) + [Container.Content(songs) | Container.Content(albums)] + !SubString(ListItem.Icon,Default,Left)</visible>
 		</control>
 		<control type="image"><!-- Album cover -->
 			<left>183</left>

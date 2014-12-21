@@ -57,7 +57,7 @@
 		</control>
 		<!-- Markers for control area items (Don't show if scrollbar is in use)-->
 		<control type="group">
-			<visible>!Skin.HasSetting(sbar)</visible>
+			<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible><!-- Don't show scrollbar -->
 			<control type="image">
 				<left>484</left>
 				<top>92</top>
@@ -94,7 +94,7 @@
 			<height>542</height>
 			<onleft>9000</onleft>
 			<onright>5</onright>
-			<visible>Skin.HasSetting(sbar)</visible>
+			<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
 		</control>
 		<control type="textbox" id="6"><!-- Settings description area -->
 			<left>10</left>
@@ -103,7 +103,7 @@
 			<height>54</height>
 			<font>font10</font>
 			<align>center</align>
-			<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 		</control>
 		<control type="button" id="7"><!-- Default button -->
 			<left>53</left>

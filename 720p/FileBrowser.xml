@@ -142,7 +142,8 @@
 			<width>18</width>
 			<height>417</height>
 			<onright>450</onright>
-			<visible>Control.IsVisible(450) + Skin.HasSetting(sbar)</visible>
+			<animation condition="!Control.HasFocus(23) + !Container.Scrolling + (IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]))" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<visible>Control.IsVisible(450) + IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
 		</control>
 	</controls>
 </window>

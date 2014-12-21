@@ -91,7 +91,7 @@
 			<ondown>999</ondown>
 			<onup>11</onup>
 			<orientation>horizontal</orientation>
-			<visible>Skin.HasSetting(sbar)</visible>
+			<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
 		</control>
 		<control type="grouplist" id="999"><!-- Option buttons -->
 			<left>26</left>

@@ -59,7 +59,7 @@
 					<height>56</height>
 					<font>font12</font>
 					<selectedcolor>listselected-text</selectedcolor>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Label]</label>
 				</control>
 			</focusedlayout>
@@ -71,7 +71,7 @@
 			<height>450</height>
 			<onleft>2</onleft>
 			<onright>4</onright>
-			<visible>Skin.HasSetting(sbar)</visible>
+			<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
 		</control>
 		<control type="image">
 			<left>198</left>

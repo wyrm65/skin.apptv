@@ -125,7 +125,7 @@
 			<width>18</width>
 			<height>542</height>
 			<onright>998</onright>
-			<visible>Skin.HasSetting(sbar) + !Skin.String(skinsettingmenu,custom)</visible>
+			<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875]) + !Skin.String(skinsettingmenu,custom)</visible>
 		</control>
 		<control type="group" id="998">
 			<control type="group" id="100"><!-- Startup Settings -->
@@ -140,7 +140,7 @@
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
 				<control type="group"><!-- Markers for control area items (Don't show if scrollbar is in use)-->
-					<visible>!Skin.HasSetting(sbar)</visible>
+					<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible><!-- Don't show scrollbar -->
 					<control type="image">
 						<left>484</left>
 						<top>92</top>
@@ -324,10 +324,10 @@
 					</control>
 					<control type="button" id="107"><!-- Choose Playlist button -->
 						<include>settings-submenu-common</include>
-						<label>- $LOCALIZE[31853] $INFO[Skin.String(Startup_Playlist_Path)]</label>
+						<label>- $LOCALIZE[31853] $INFO[Skin.String(startup-playlistpath)]</label>
 						<textwidth>785</textwidth>
 						<enable>Skin.HasSetting(startup-playlist)</enable>
-						<onclick>Skin.SetFile(Startup_Playlist_Path,,special://musicplaylists)</onclick>
+						<onclick>Skin.SetFile(startup-playlistpath,,special://musicplaylists)</onclick>
 					</control>
 					<control type="button" id="108"><!-- Reset Above Settings button -->
 						<include>settings-submenu-common</include>
@@ -336,7 +336,7 @@
 						<onclick>Skin.Reset(startup-screentype)</onclick>
 						<onclick>Skin.Reset(startup-screenpath)</onclick>
 						<onclick>Skin.Reset(startup-playlist)</onclick>
-						<onclick>Skin.Reset(Startup_Playlist_Path)</onclick>
+						<onclick>Skin.Reset(startup-playlistpath)</onclick>
 					</control>
 				</control>
 			</control>
@@ -352,7 +352,7 @@
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
 				<control type="group"><!-- Markers for control area items (Don't show if scrollbar is in use)-->
-					<visible>!Skin.HasSetting(sbar)</visible>
+					<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible><!-- Don't show scrollbar -->
 					<control type="image">
 						<left>484</left>
 						<top>92</top>
@@ -384,35 +384,150 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31880]</label>
 						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(lockscreensettings)</onclick>
-						<selected>Skin.HasSetting(lockscreensettings)</selected>
+						<onclick>Skin.ToggleSetting(lock-screensettings)</onclick>
+						<selected>Skin.HasSetting(lock-screensettings)</selected>
 						<radioposx>844</radioposx>
 					</control>
-					<control type="radiobutton" id="202"><!-- Scrollbar Toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31881]</label>
-						<onclick>Skin.ToggleSetting(sbar)</onclick>
-						<textwidth>750</textwidth>
-						<selected>Skin.HasSetting(sbar)</selected>
-						<radioposx>844</radioposx>
+					<control type="group" id="202"><!-- Show Scrollbar -->
+						<height>56</height>
+						<width>885</width>
+						<control type="list" id="203">
+							<left>0</left>
+							<top>0</top>
+							<height>56</height>
+							<width>885</width>
+							<onup>201</onup>
+							<ondown>205</ondown>
+							<onleft>1223</onleft>
+							<onright>204</onright>
+							<scrolltime>0</scrolltime>
+							<itemlayout width="885" height="56"/>
+							<focusedlayout width="885" height="56">
+								<control type="image">
+									<left>0</left>
+									<top>0</top>
+									<width>885</width>
+									<height>56</height>
+									<texture border="7">button-default-focus.png</texture>
+									<visible>ControlGroup(202).HasFocus()</visible>
+								</control>
+								<control type="label">
+									<left>18</left>
+									<top>10</top>
+									<height>30</height>
+									<width>800</width>
+									<font>font12</font>
+									<label>$LOCALIZE[31881]</label>
+								</control>
+								<control type="label">
+									<left>0</left>
+									<top>10</top>
+									<height>30</height>
+									<width>790</width>
+									<align>right</align>
+									<font>font12</font>
+									<label>$INFO[ListItem.Label]</label>
+								</control>
+								<control type="image">
+									<left>804</left>
+									<top>10</top>
+									<width>32</width>
+									<height>32</height>
+									<texture>scroll-down-focus.png</texture>
+									<visible>Control.HasFocus(203)</visible>
+								</control>
+								<control type="image">
+									<left>804</left>
+									<top>10</top>
+									<width>32</width>
+									<height>32</height>
+									<texture>scroll-down.png</texture>
+									<visible>!Control.HasFocus(203)</visible>
+								</control>
+							</focusedlayout>
+							<content>
+								<item><!-- On scroll or focus -->
+									<label>$LOCALIZE[31876]</label>
+									<onclick>Skin.SetString(show-scrollbar,$LOCALIZE[31875])</onclick>
+									<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
+								</item>
+								<item><!-- Always -->
+									<label>$LOCALIZE[31875]</label>
+									<onclick>Skin.SetString(show-scrollbar,$LOCALIZE[31877])</onclick>
+									<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
+								</item>
+								<item><!-- Never -->
+									<label>$LOCALIZE[31877]</label>
+									<onclick>Skin.SetString(show-scrollbar,$LOCALIZE[31876])</onclick>
+									<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+								</item>
+							</content>
+						</control>
+						<control type="list" id="204">
+							<left>835</left>
+							<top>0</top>
+							<height>56</height>
+							<width>32</width>
+							<onup>201</onup>
+							<ondown>205</ondown>
+							<onleft>203</onleft>
+							<onright>999</onright>
+							<scrolltime>0</scrolltime>
+							<itemlayout width="32" height="56"/>
+							<focusedlayout width="32" height="56">
+								<control type="image">
+									<left>0</left>
+									<top>10</top>
+									<width>32</width>
+									<height>32</height>
+									<texture>scroll-up.png</texture>
+									<visible>!Control.HasFocus(204)</visible>
+								</control>
+								<control type="image">
+									<left>0</left>
+									<top>10</top>
+									<width>32</width>
+									<height>32</height>
+									<texture>scroll-up-focus.png</texture>
+									<visible>Control.HasFocus(204)</visible>
+								</control>
+							</focusedlayout>
+							<content>
+								<item><!-- On scroll or focus -->
+									<label>$LOCALIZE[31876]</label>
+									<onclick>Skin.SetString(show-scrollbar,$LOCALIZE[31877])</onclick>
+									<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
+								</item>
+								<item><!-- Never -->
+									<label>$LOCALIZE[31877]</label>
+									<onclick>Skin.SetString(show-scrollbar,$LOCALIZE[31875])</onclick>
+									<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+								</item>
+								<item><!-- Always -->
+									<label>$LOCALIZE[31875]</label>
+									<onclick>Skin.SetString(show-scrollbar,$LOCALIZE[31876])</onclick>
+									<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
+								</item>
+							</content>
+						</control>
 					</control>
-					<control type="radiobutton" id="203"><!-- Autoscroll Toggle -->
+					<control type="radiobutton" id="205"><!-- Autoscroll Toggle -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31882]</label>
 						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(autoscroll)</onclick>
-						<selected>Skin.HasSetting(autoscroll)</selected>
+						<onclick>Skin.ToggleSetting(text-autoscroll)</onclick>
+						<selected>Skin.HasSetting(text-autoscroll)</selected>
 						<radioposx>844</radioposx>
 					</control>
-					<control type="radiobutton" id="204"><!-- Media Overlay Toggle -->
+					<control type="radiobutton" id="206"><!-- Media Overlay Toggle -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31883] </label>
 						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(overlay)</onclick>
-						<selected>Skin.HasSetting(overlay)</selected>
+						<onclick>Skin.ToggleSetting(media-overlay)</onclick>
+						<selected>Skin.HasSetting(media-overlay)</selected>
 						<radioposx>844</radioposx>
 					</control>
-					<control type="radiobutton" id="205"><!-- Watched Overlay Toggle -->
+					<control type="radiobutton" id="207"><!-- Watched Overlay Toggle -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31884]</label>
 						<textwidth>750</textwidth>
@@ -420,56 +535,57 @@
 						<selected>Skin.HasSetting(watched-overlay)</selected>
 						<radioposx>844</radioposx>
 					</control>
-					<control type="radiobutton" id="206"><!-- Use Media case Toggle -->
+					<control type="radiobutton" id="208"><!-- Use Media case Toggle -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31869]</label>
 						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(Mediacase)</onclick>
-						<selected>Skin.HasSetting(Mediacase)</selected>
+						<onclick>Skin.ToggleSetting(media-case)</onclick>
+						<selected>Skin.HasSetting(media-case)</selected>
 						<radioposx>844</radioposx>
 					</control>
-					<control type="button" id="208"><!-- Custom Weather Icons Button -->
+					<control type="button" id="209"><!-- Custom Weather Icons Button -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31873]</label>
 						<textwidth>785</textwidth>
 						<onclick>Skin.SetPath(custom-weathericons)</onclick>
 						<visible>!Skin.String(custom-weathericons)</visible>
 					</control>
-					<control type="button" id="209"><!-- Reset Custom Weather Icons Button -->
+					<control type="button" id="210"><!-- Reset Custom Weather Icons Button -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31874]</label>
 						<textwidth>785</textwidth>
 						<onclick>Skin.Reset(custom-weathericons)</onclick>
 						<visible>Skin.String(custom-weathericons)</visible>
 					</control>
-					<control type="radiobutton" id="210"><!-- Use TV Tunes -->
+					<control type="radiobutton" id="211"><!-- Use TV Tunes -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31892]</label>
 						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(tv_theme)</onclick>
-						<selected>Skin.HasSetting(tv_theme)</selected>
+						<onclick>Skin.ToggleSetting(media-themetune)</onclick>
+						<selected>Skin.HasSetting(media-themetune)</selected>
 						<enable>System.HasAddon(script.tvtunes)</enable>
 						<radioposx>844</radioposx>
 					</control>
-					<control type="button" id="211"><!-- TV Logo Downloader Script -->
+					<control type="button" id="212"><!-- TV Logo Downloader Script -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31893]</label>
 						<textwidth>785</textwidth>
 						<onclick>RunScript(script.artwork.downloader,mode=custom,fanart,extrafanart,poster,seasonposter,clearlogo,clearart,banner,seasonbanner)</onclick>
 						<enable>System.HasAddon(script.artwork.downloader)</enable>
 					</control>
-					<control type="button" id="212"><!-- Reset Above Settings button -->
+					<control type="button" id="213"><!-- Reset Above Settings button -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[10041]</label>
 						<textwidth>785</textwidth>
-						<onclick>Skin.Reset(lockscreensettings)</onclick>
+						<onclick>Skin.Reset(lock-screensettings)</onclick>
+						<onclick>Skin.Reset(show-scrollbar)</onclick>
 						<onclick>Skin.Reset(sbar)</onclick>
-						<onclick>Skin.Reset(autoscroll)</onclick>
-						<onclick>Skin.Reset(overlay)</onclick>
+						<onclick>Skin.Reset(text-autoscroll)</onclick>
+						<onclick>Skin.Reset(media-overlay)</onclick>
 						<onclick>Skin.Reset(watched-overlay)</onclick>
-						<onclick>Skin.Reset(Mediacase)</onclick>
+						<onclick>Skin.Reset(media-case)</onclick>
 						<onclick>Skin.Reset(custom-weathericons)</onclick>
-						<onclick>Skin.Reset(tv_theme)</onclick>
+						<onclick>Skin.Reset(media-themetune)</onclick>
 					</control>
 				</control>
 			</control>
@@ -485,7 +601,7 @@
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
 				<control type="group"><!-- Markers for control area items (Don't show if scrollbar is in use)-->
-					<visible>!Skin.HasSetting(sbar)</visible>
+					<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible><!-- Don't show scrollbar -->
 					<control type="image">
 						<left>484</left>
 						<top>92</top>
@@ -1198,7 +1314,7 @@
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
 				<control type="group"><!-- Markers for control area items (Don't show if scrollbar is in use)-->
-					<visible>!Skin.HasSetting(sbar)</visible>
+					<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible><!-- Don't show scrollbar -->
 					<control type="image">
 						<left>484</left>
 						<top>92</top>
@@ -1639,7 +1755,7 @@
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
 				<control type="group"><!-- Markers for control area items (Don't show if scrollbar is in use)-->
-					<visible>!Skin.HasSetting(sbar)</visible>
+					<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible><!-- Don't show scrollbar -->
 					<control type="image">
 						<left>484</left>
 						<top>92</top>
@@ -1671,15 +1787,15 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31860]</label>
 						<textwidth>785</textwidth>
-						<onclick>Skin.SetImage(custom-background)</onclick>
-						<visible>!Skin.String(custom-background)</visible>
+						<onclick>Skin.SetImage(background-custom)</onclick>
+						<visible>!Skin.String(background-custom)</visible>
 					</control>
 					<control type="button" id="503"><!-- Reset Custom Background Button -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31861]</label>
 						<textwidth>785</textwidth>
-						<onclick>Skin.Reset(custom-background)</onclick>
-						<visible>Skin.String(custom-background)</visible>
+						<onclick>Skin.Reset(background-custom)</onclick>
+						<visible>Skin.String(background-custom)</visible>
 					</control>
 					<control type="radiobutton" id="504"><!-- Background Fanart Toggle -->
 						<include>settings-submenu-common</include>
@@ -1702,8 +1818,8 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31862]</label>
 						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(HomeViewToggle)</onclick>
-						<selected>Skin.HasSetting(HomeViewToggle)</selected>
+						<onclick>Skin.ToggleSetting(background-playingmedia)</onclick>
+						<selected>Skin.HasSetting(background-playingmedia)</selected>
 						<radioposx>844</radioposx>
 					</control>
 					<control type="radiobutton" id="507"><!-- Background Artistslideshow Toggle -->
@@ -1719,15 +1835,15 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31866]</label>
 						<textwidth>785</textwidth>
-						<onclick>Skin.SetPath(custom-weatherbackgrounds)</onclick>
-						<visible>!Skin.String(custom-weatherbackgrounds)</visible>
+						<onclick>Skin.SetPath(background-customweather)</onclick>
+						<visible>!Skin.String(background-customweather)</visible>
 					</control>
 					<control type="button" id="509"><!-- Reset Custom Weather Background Button -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31867]</label>
 						<textwidth>785</textwidth>
-						<onclick>Skin.Reset(custom-weatherbackgrounds)</onclick>
-						<visible>Skin.String(custom-weatherbackgrounds)</visible>
+						<onclick>Skin.Reset(background-customweather)</onclick>
+						<visible>Skin.String(background-customweather)</visible>
 					</control>
 					<control type="group" id="510"><!-- Background Visibilty -->
 						<height>56</height>
@@ -1862,13 +1978,12 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[10041]</label>
 						<textwidth>785</textwidth>
-						<onclick>Skin.Reset(custom-background)</onclick>
-						<onclick>Skin.Reset(movie-libraryentry)</onclick>
+						<onclick>Skin.Reset(background-custom)</onclick>
 						<onclick>Skin.Reset(background-fanart)</onclick>
 						<onclick>Skin.Reset(background-extrafanart)</onclick>
-						<onclick>Skin.Reset(HomeViewToggle)</onclick>
+						<onclick>Skin.Reset(background-playingmedia)</onclick>
 						<onclick>Skin.Reset(background-slideshow)</onclick>
-						<onclick>Skin.Reset(custom-weatherbackgrounds)</onclick>
+						<onclick>Skin.Reset(background-customweather)</onclick>
 						<onclick>Skin.Reset(background-visibiltymed)</onclick>
 						<onclick>Skin.Reset(background-visibiltyhigh)</onclick>
 					</control>
@@ -1886,7 +2001,7 @@
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
 				<control type="group"><!-- Markers for control area items (Don't show if scrollbar is in use)-->
-					<visible>!Skin.HasSetting(sbar)</visible>
+					<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible><!-- Don't show scrollbar -->
 					<control type="image">
 						<left>484</left>
 						<top>92</top>
@@ -1917,61 +2032,61 @@
 					<control type="button" id="602"><!-- Set Movie library entry point -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31920]</label>
-						<label2>$INFO[Skin.String(movie-libraryentry)]</label2>
-						<onclick>Skin.SetBool(selectmovieentry)</onclick>
+						<label2>$INFO[Skin.String(libraryentry-movie)]</label2>
+						<onclick>Skin.SetBool(select-movieentry)</onclick>
 						<onclick>ActivateWindow(1156)</onclick>
-						<onclick>Skin.Reset(selectmovieentry)</onclick>
+						<onclick>Skin.Reset(select-movieentry)</onclick>
 					</control>
 					<control type="button" id="603"><!-- Set TV library entry point -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31921]</label>
-						<label2>$INFO[Skin.String(tvshow-libraryentry)]</label2>
-						<onclick>Skin.SetBool(selecttvshowentry)</onclick>
+						<label2>$INFO[Skin.String(libraryentry-tvshow)]</label2>
+						<onclick>Skin.SetBool(select-tvshowentry)</onclick>
 						<onclick>ActivateWindow(1156)</onclick>
-						<onclick>Skin.Reset(selecttvshowentry)</onclick>
+						<onclick>Skin.Reset(select-tvshowentry)</onclick>
 					</control>
 					<control type="button" id="604"><!-- Set Music Video library entry point -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31922]</label>
-						<label2>$INFO[Skin.String(musicvideo-libraryentry)]</label2>
-						<onclick>Skin.SetBool(selectmusicvidentry)</onclick>
+						<label2>$INFO[Skin.String(libraryentry-musicvideo)]</label2>
+						<onclick>Skin.SetBool(select-musicvidentry)</onclick>
 						<onclick>ActivateWindow(1156)</onclick>
-						<onclick>Skin.Reset(selectmusicvidentry)</onclick>
+						<onclick>Skin.Reset(select-musicvidentry)</onclick>
 					</control>
 					<control type="button" id="605"><!-- Set Music library entry point -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31923]</label>
-						<label2>$INFO[Skin.String(music-libraryentry)]</label2>
-						<onclick>Skin.SetBool(selectmusicentry)</onclick>
+						<label2>$INFO[Skin.String(libraryentry-music)]</label2>
+						<onclick>Skin.SetBool(select-musicentry)</onclick>
 						<onclick>ActivateWindow(1156)</onclick>
-						<onclick>Skin.Reset(selectmusicentry)</onclick>
+						<onclick>Skin.Reset(select-musicentry)</onclick>
 					</control>
 					<control type="button" id="606"><!-- Set TV library entry point -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31924]</label>
-						<label2>$INFO[Skin.String(tv-libraryentry)]</label2>
-						<onclick>Skin.SetBool(selecttventry)</onclick>
+						<label2>$INFO[Skin.String(libraryentry-tv)]</label2>
+						<onclick>Skin.SetBool(select-tventry)</onclick>
 						<onclick>ActivateWindow(1156)</onclick>
-						<onclick>Skin.Reset(selecttventry)</onclick>
+						<onclick>Skin.Reset(select-tventry)</onclick>
 					</control>
 					<control type="button" id="607"><!-- Set Radio library entry point -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31925]</label>
-						<label2>$INFO[Skin.String(radio-libraryentry)]</label2>
-						<onclick>Skin.SetBool(selectradioentry)</onclick>
+						<label2>$INFO[Skin.String(libraryentry-radio)]</label2>
+						<onclick>Skin.SetBool(select-radioentry)</onclick>
 						<onclick>ActivateWindow(1156)</onclick>
-						<onclick>Skin.Reset(selectradioentry)</onclick>
+						<onclick>Skin.Reset(select-radioentry)</onclick>
 					</control>
 					<control type="button" id="608"><!-- Reset Above Settings button -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[10041]</label>
 						<textwidth>785</textwidth>
-						<onclick>Skin.Reset(movie-libraryentry)</onclick>
-						<onclick>Skin.Reset(tvshow-libraryentry)</onclick>
-						<onclick>Skin.Reset(musicvideo-libraryentry)</onclick>
-						<onclick>Skin.Reset(music-libraryentry)</onclick>
-						<onclick>Skin.Reset(tv-libraryentry)</onclick>
-						<onclick>Skin.Reset(radio-libraryentry)</onclick>
+						<onclick>Skin.Reset(libraryentry-movie)</onclick>
+						<onclick>Skin.Reset(libraryentry-tvshow)</onclick>
+						<onclick>Skin.Reset(libraryentry-musicvideo)</onclick>
+						<onclick>Skin.Reset(libraryentry-music)</onclick>
+						<onclick>Skin.Reset(libraryentry-tv)</onclick>
+						<onclick>Skin.Reset(libraryentry-radio)</onclick>
 					</control>
 				</control>
 			</control>
@@ -1998,7 +2113,7 @@
 					<visible>!ControlGroup(999).HasFocus()</visible>
 				</control>
 				<control type="group"><!-- Markers for control area items (Don't show if scrollbar is in use)-->
-					<visible>!Skin.HasSetting(sbar)</visible>
+					<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible><!-- Don't show scrollbar -->
 					<control type="image">
 						<left>484</left>
 						<top>92</top>
@@ -2050,16 +2165,16 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31933]</label>
 						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(DebugGrid)</onclick>
-						<selected>Skin.HasSetting(DebugGrid)</selected>
+						<onclick>Skin.ToggleSetting(debug-grid)</onclick>
+						<selected>Skin.HasSetting(debug-grid)</selected>
 						<radioposx>844</radioposx>
 					</control>
 					<control type="radiobutton" id="806"><!-- Show Skin Debug Info toggle -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31934]</label>
 						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(DebugInfo)</onclick>
-						<selected>Skin.HasSetting(DebugInfo)</selected>
+						<onclick>Skin.ToggleSetting(debug-info)</onclick>
+						<selected>Skin.HasSetting(debug-info)</selected>
 						<radioposx>844</radioposx>
 					</control>
 					<control type="image" id="807">

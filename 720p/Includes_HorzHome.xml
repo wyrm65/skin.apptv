@@ -286,7 +286,7 @@
 					<textcolor>disabled-text</textcolor>
 					<camera x="105" y="72" />
 					<animation effect="rotatex" center="72" end="65" time="0" condition="Control.HasFocus(9100)">Conditional</animation>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>Control.HasFocus(9100)</visible>
 				</control>
 				<control type="label">
@@ -301,7 +301,7 @@
 					<textcolor>disabled-text</textcolor>
 					<camera x="105" y="292" />
 					<animation effect="rotatex" center="292" end="-65" time="0" condition="Control.HasFocus(9100)">Conditional</animation>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>Control.HasFocus(9100)</visible>
 				</control>
 				<control type="list" id="9100">
@@ -327,7 +327,7 @@
 							<font>font11</font>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</itemlayout>
 					<focusedlayout height="42" width="210">
@@ -346,7 +346,7 @@
 							<font>font11</font>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</focusedlayout>
 					<content>
@@ -431,7 +431,7 @@
 					<textcolor>disabled-text</textcolor>
 					<camera x="105" y="72" />
 					<animation effect="rotatex" center="72" end="65" time="0" condition="Control.HasFocus(9150)">Conditional</animation>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>Control.HasFocus(9150)</visible>
 				</control>
 				<control type="label">
@@ -445,7 +445,7 @@
 					<textcolor>disabled-text</textcolor>
 					<camera x="105" y="292" />
 					<animation effect="rotatex" center="292" end="-65" time="0" condition="Control.HasFocus(9150)">Conditional</animation>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>Control.HasFocus(9150)</visible>
 				</control>
 				<control type="list" id="9150">
@@ -471,7 +471,7 @@
 							<font>font11</font>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</itemlayout>
 					<focusedlayout height="42" width="210">
@@ -490,7 +490,7 @@
 							<font>font11</font>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</focusedlayout>
 					<content>
@@ -551,7 +551,7 @@
 				</control>
 			</control>
 			<control type="group" id="9220"><!-- TV sub menu -->
-				<visible>System.GetBool(pvrmanager.enabled) | !Skin.HasSetting(home-tvshow) | !IsEmpty(Skin.String(CustomTVShow.1.Path)) | !IsEmpty(Skin.String(CustomTVShow.2.Path)) | !IsEmpty(Skin.String(CustomTVShow.3.Path)) | !IsEmpty(Skin.String(CustomTVShow.4.Path)) | !IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
+				<visible>!Skin.HasSetting(home-tvshow) | !IsEmpty(Skin.String(CustomTVShow.1.Path)) | !IsEmpty(Skin.String(CustomTVShow.2.Path)) | !IsEmpty(Skin.String(CustomTVShow.3.Path)) | !IsEmpty(Skin.String(CustomTVShow.4.Path)) | !IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
 				<width>210</width>
 				<control type="image">
 					<left>0</left>
@@ -583,7 +583,7 @@
 					<textcolor>disabled-text</textcolor>
 					<camera x="105" y="72" />
 					<animation effect="rotatex" center="72" end="65" time="0" condition="Control.HasFocus(9200)">Conditional</animation>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>Control.HasFocus(9200)</visible>
 				</control>
 				<control type="label">
@@ -597,7 +597,7 @@
 					<textcolor>disabled-text</textcolor>
 					<camera x="105" y="292" />
 					<animation effect="rotatex" center="292" end="-65" time="0" condition="Control.HasFocus(9200)">Conditional</animation>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>Control.HasFocus(9200)</visible>
 				</control>
 				<control type="list" id="9200">
@@ -623,7 +623,7 @@
 							<font>font11</font>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</itemlayout>
 					<focusedlayout height="42" width="210">
@@ -642,7 +642,7 @@
 							<font>font11</font>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</focusedlayout>
 					<content>
@@ -703,7 +703,7 @@
 				</control>
 			</control>
 			<control type="group" id="9520"><!-- Broadcast sub menu -->
-				<visible>[System.GetBool(pvrmanager.enabled) + [!Skin.HasSetting(home-tv) | !Skin.HasSetting(home-radio)]] | !IsEmpty(Skin.String(CustomTV.1.Path)) | !IsEmpty(Skin.String(CustomTV.2.Path)) | !IsEmpty(Skin.String(CustomTV.3.Path)) | !IsEmpty(Skin.String(CustomTV.4.Path)) | !IsEmpty(Skin.String(CustomTV.5.Path) | !IsEmpty(Skin.String(CustomRadio.1.Path)) | !IsEmpty(Skin.String(CustomRadio.2.Path)) | !IsEmpty(Skin.String(CustomRadio.3.Path)) | !IsEmpty(Skin.String(CustomRadio.4.Path)) | !IsEmpty(Skin.String(CustomRadio.5.Path))</visible>
+				<visible>System.GetBool(pvrmanager.enabled) + [!Skin.HasSetting(home-tv) | !Skin.HasSetting(home-radio) | !IsEmpty(Skin.String(CustomTV.1.Path)) | !IsEmpty(Skin.String(CustomTV.2.Path)) | !IsEmpty(Skin.String(CustomTV.3.Path)) | !IsEmpty(Skin.String(CustomTV.4.Path)) | !IsEmpty(Skin.String(CustomTV.5.Path)) | !IsEmpty(Skin.String(CustomRadio.1.Path)) | !IsEmpty(Skin.String(CustomRadio.2.Path)) | !IsEmpty(Skin.String(CustomRadio.3.Path)) | !IsEmpty(Skin.String(CustomRadio.4.Path)) | !IsEmpty(Skin.String(CustomRadio.5.Path))]</visible>
 				<width>210</width>
 				<control type="image">
 					<left>0</left>
@@ -735,7 +735,7 @@
 					<textcolor>disabled-text</textcolor>
 					<camera x="105" y="72" />
 					<animation effect="rotatex" center="72" end="65" time="0" condition="Control.HasFocus(9200)">Conditional</animation>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>Control.HasFocus(9500)</visible>
 				</control>
 				<control type="label">
@@ -749,7 +749,7 @@
 					<textcolor>disabled-text</textcolor>
 					<camera x="105" y="292" />
 					<animation effect="rotatex" center="292" end="-65" time="0" condition="Control.HasFocus(9200)">Conditional</animation>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>Control.HasFocus(9500)</visible>
 				</control>
 				<control type="list" id="9500">
@@ -775,7 +775,7 @@
 							<font>font11</font>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</itemlayout>
 					<focusedlayout height="42" width="210">
@@ -794,7 +794,7 @@
 							<font>font11</font>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</focusedlayout>
 					<content>
@@ -918,7 +918,7 @@
 					<textcolor>disabled-text</textcolor>
 					<camera x="105" y="72" />
 					<animation effect="rotatex" center="72" end="65" time="0" condition="Control.HasFocus(9250)">Conditional</animation>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>Control.HasFocus(9250)</visible>
 				</control>
 				<control type="label">
@@ -932,7 +932,7 @@
 					<textcolor>disabled-text</textcolor>
 					<camera x="105" y="292" />
 					<animation effect="rotatex" center="292" end="-65" time="0" condition="Control.HasFocus(9250)">Conditional</animation>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>Control.HasFocus(9250)</visible>
 				</control>
 				<control type="list" id="9250">
@@ -958,7 +958,7 @@
 							<font>font11</font>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</itemlayout>
 					<focusedlayout height="42" width="210">
@@ -977,7 +977,7 @@
 							<font>font11</font>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</focusedlayout>
 					<content>
@@ -1087,7 +1087,7 @@
 							<font>font11</font>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</itemlayout>
 					<focusedlayout height="42" width="210">
@@ -1106,7 +1106,7 @@
 							<font>font11</font>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</focusedlayout>
 					<content>
@@ -1168,7 +1168,7 @@
 					<textcolor>disabled-text</textcolor>
 					<camera x="105" y="72" />
 					<animation effect="rotatex" center="72" end="65" time="0" condition="Control.HasFocus(9350)">Conditional</animation>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>Control.HasFocus(9350)</visible>
 				</control>
 				<control type="label">
@@ -1182,7 +1182,7 @@
 					<textcolor>disabled-text</textcolor>
 					<camera x="105" y="292" />
 					<animation effect="rotatex" center="292" end="-65" time="0" condition="Control.HasFocus(9350)">Conditional</animation>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>Control.HasFocus(9350)</visible>
 				</control>
 				<control type="list" id="9350">
@@ -1208,7 +1208,7 @@
 							<font>font11</font>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</itemlayout>
 					<focusedlayout height="42" width="210">
@@ -1227,7 +1227,7 @@
 							<font>font11</font>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</focusedlayout>
 					<content>
@@ -1345,7 +1345,7 @@
 							<font>font11</font>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</itemlayout>
 					<focusedlayout height="42" width="210">
@@ -1364,7 +1364,7 @@
 							<font>font11</font>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</focusedlayout>
 					<content>
@@ -1419,7 +1419,7 @@
 					<textcolor>disabled-text</textcolor>
 					<camera x="105" y="72" />
 					<animation effect="rotatex" center="72" end="65" time="0" condition="Control.HasFocus(9450)">Conditional</animation>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>Control.HasFocus(9450)</visible>
 				</control>
 				<control type="label">
@@ -1433,7 +1433,7 @@
 					<textcolor>disabled-text</textcolor>
 					<camera x="105" y="292" />
 					<animation effect="rotatex" center="292" end="-65" time="0" condition="Control.HasFocus(9450)">Conditional</animation>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>Control.HasFocus(9450)</visible>
 				</control>
 				<control type="list" id="9450">
@@ -1459,7 +1459,7 @@
 							<font>font11</font>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</itemlayout>
 					<focusedlayout height="42" width="210">
@@ -1478,7 +1478,7 @@
 							<font>font11</font>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</focusedlayout>
 					<content>
@@ -1557,7 +1557,7 @@
 		</control>
 
 		<control type="group" id="9940"><!-- RSS info -->
-			<visible>![Skin.HasSetting(overlay) + [Player.HasAudio | Player.HasVideo]]</visible><!-- Don't show RSS if Video or Music overlay showing -->
+			<visible>![Skin.HasSetting(media-overlay) + [Player.HasAudio | Player.HasVideo]]</visible><!-- Don't show RSS if Video or Music overlay showing -->
 			<include condition="system.getbool(lookandfeel.enablerssfeeds)">page-info</include>
 		</control>
 

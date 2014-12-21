@@ -623,7 +623,7 @@
 		</control>
 		<!-- RSS info -->
 		<control type="group" id="9940"><!-- Don't show RSS if Video or Music overlay showing -->
-			<visible>![Skin.HasSetting(overlay) + [Player.HasAudio | Player.HasVideo]]</visible>
+			<visible>![Skin.HasSetting(media-overlay) + [Player.HasAudio | Player.HasVideo]]</visible>
 			<include condition="system.getbool(lookandfeel.enablerssfeeds)">page-info</include>
 		</control>
 		<control type="group">

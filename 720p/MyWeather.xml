@@ -10,20 +10,20 @@
 				<include>fullscreenimage</include>
 				<texture>background.png</texture>
 				<aspectratio>stretch</aspectratio>
-				<visible>IsEmpty(Skin.String(custom-background))</visible>
+				<visible>IsEmpty(Skin.String(background-custom))</visible>
 			</control>
 			<control type="image"><!-- Custom background -->
 				<include>fullscreenimage</include>
-				<texture>$INFO[Skin.String(custom-background)]</texture>
+				<texture>$INFO[Skin.String(background-custom)]</texture>
 				<aspectratio>stretch</aspectratio>
-				<visible>!IsEmpty(Skin.String(custom-background))</visible>
+				<visible>!IsEmpty(Skin.String(background-custom))</visible>
 			</control>
 			<control type="group">
 				<control type="group">
-					<visible>Window.IsActive(weather) + !IsEmpty(Skin.String(custom-weatherbackgrounds)) + [!Player.HasVideo | !Player.HasAudio]</visible>
+					<visible>Window.IsActive(weather) + !IsEmpty(Skin.String(background-customweather)) + [!Player.HasVideo | !Player.HasAudio]</visible>
 					<control type="multiimage"><!-- Use Custom weather condition backgrounds if location selected -->
 						<include>fullscreenimage</include>
-						<imagepath background="true">$INFO[Skin.String(custom-weatherbackgrounds)]$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
+						<imagepath background="true">$INFO[Skin.String(background-customweather)]$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
 						<aspectratio>scale</aspectratio>
 						<timeperimage>5000</timeperimage>
 						<randomize>true</randomize>
@@ -31,7 +31,7 @@
 					</control>
 				</control>
 				<control type="group">
-					<visible>Skin.HasSetting(HomeViewToggle)</visible>
+					<visible>Skin.HasSetting(background-playingmedia)</visible>
 					<control type="group">
 						<visible>Player.HasVideo</visible>
 						<control type="videowindow">
@@ -68,7 +68,7 @@
 				<colordiffuse>mask-background</colordiffuse>
 				<aspectratio>stretch</aspectratio>
 				<include>background-fade</include>
-				<visible>!IsEmpty(Skin.String(custom-weatherbackgrounds)) | Skin.HasSetting(HomeViewToggle) | Skin.HasSetting(background-slideshow)</visible>
+				<visible>!IsEmpty(Skin.String(background-customweather)) | Skin.HasSetting(background-playingmedia) | Skin.HasSetting(background-slideshow)</visible>
 			</control>
 		</control>
 
@@ -89,7 +89,7 @@
 				<width>636</width>
 				<height>37</height>
 				<font>font18</font>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[Window(Weather).Property(Location)]</label>
 			</control>
 			<control type="label"><!-- Update label -->

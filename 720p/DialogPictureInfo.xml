@@ -75,7 +75,7 @@
 			<width>18</width>
 			<height>500</height>
 			<onleft>5</onleft>
-			<visible>Skin.HasSetting(sbar)</visible>
+			<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
 		</control>
 	</controls>
 </window>

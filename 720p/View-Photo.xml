@@ -78,8 +78,8 @@
 				<onup>54</onup>
 				<ondown>9000</ondown>
 				<orientation>horizontal</orientation>
-				<animation condition="!Control.HasFocus(1354) + !Container.Scrolling" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>Skin.HasSetting(sbar) + SubString(Container.Viewmode,Wrap,Left)</visible>
+				<animation condition="!Control.HasFocus(1354) + !Container.Scrolling + (IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]))" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875]) + SubString(Container.Viewmode,Wrap,Left)</visible>
 			</control>
 			<control type="label"><!-- Go Back -->
 				<left>17</left>
@@ -88,7 +88,7 @@
 				<height>37</height>
 				<font>font22</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<textoffsetx>0</textoffsetx>
 				<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
@@ -100,7 +100,7 @@
 				<height>37</height>
 				<font>font22</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<textoffsetx>0</textoffsetx>
 				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
@@ -111,7 +111,7 @@
 				<width>708</width>
 				<height>37</height>
 				<align>center</align>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.PictureResolution]</label>
 				<textoffsetx>0</textoffsetx>
 			</control>
@@ -189,7 +189,7 @@
 				<height>37</height>
 				<font>font22</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<textoffsetx>0</textoffsetx>
 				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
@@ -202,7 +202,7 @@
 				<height>37</height>
 				<font>font22</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<textoffsetx>0</textoffsetx>
 				<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
@@ -214,7 +214,7 @@
 				<width>800</width>
 				<height>37</height>
 				<align>center</align>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.PictureResolution]</label>
 				<textoffsetx>0</textoffsetx>
 			</control>
@@ -225,8 +225,8 @@
 				<height>527</height>
 				<onleft>58</onleft>
 				<onright>9000</onright>
-				<animation condition="!Control.HasFocus(1358) + !Container.Scrolling" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>Skin.HasSetting(sbar)</visible>
+				<animation condition="!Control.HasFocus(1358) + !Container.Scrolling + (IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]))" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
 			</control>
 		</control>
 	</include>

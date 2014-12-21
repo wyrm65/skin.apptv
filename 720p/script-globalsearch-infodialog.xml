@@ -15,13 +15,13 @@
 			<control type="image"><!-- Solid background -->
 				<include>fullscreenimage</include>
 				<texture>background.png</texture>
-				<visible>IsEmpty(Skin.String(custom-background))</visible>
+				<visible>IsEmpty(Skin.String(background-custom))</visible>
 			</control>
 			<control type="image"><!-- Custom background -->
 				<include>fullscreenimage</include>
 				<aspectratio>stretch</aspectratio>
-				<texture>$INFO[Skin.String(custom-background)]</texture>
-				<visible>!IsEmpty(Skin.String(custom-background))</visible>
+				<texture>$INFO[Skin.String(background-custom)]</texture>
+				<visible>!IsEmpty(Skin.String(background-custom))</visible>
 			</control>
 			<control type="image"><!-- Fanart background -->
 				<include>fullscreenimage</include>
@@ -113,7 +113,7 @@
 						<height>40</height>
 						<font>font22</font>
 						<label>$INFO[Container(100).ListItem.Label]</label>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[Container(100).ListItem.Label]</label>
 					</control>
 					<control type="group"><!-- Studio -->
@@ -160,7 +160,7 @@
 						<posy>35</posy>
 						<width>732</width>
 						<height>37</height>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[Container(100).ListItem.Property(Genre)]</label>
 						<textoffsetx>0</textoffsetx>
 						<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
@@ -239,7 +239,7 @@
 						<label fallback="161">$INFO[Container(100).ListItem.Property(Plot)]</label>
 						<align>justify</align>
 						<pagecontrol>113</pagecontrol>
-						<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(autoscroll)</autoscroll>
+						<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(text-autoscroll)</autoscroll>
 					</control>
 					<control type="scrollbar" id="113"><!-- Movie Scrollbar -->
 						<posx>1244</posx>
@@ -247,8 +247,6 @@
 						<width>18</width>
 						<height>296</height>
 						<onleft>190</onleft>
-						<onright>noop</onright>
-						<onup>noop</onup>
 						<ondown>190</ondown>
 					</control>
 				</control>
@@ -320,7 +318,7 @@
 						<height>40</height>
 						<font>font22</font>
 						<label>$INFO[Container(100).ListItem.Label]</label>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="group"><!-- Studio -->
 						<visible>!IsEmpty(Container(100).ListItem.Property(Studio))</visible>
@@ -366,7 +364,7 @@
 						<posy>35</posy>
 						<width>732</width>
 						<height>37</height>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[Container(100).ListItem.Property(Genre)]</label>
 						<textoffsetx>0</textoffsetx>
 						<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
@@ -412,7 +410,7 @@
 						<label fallback="161">$INFO[Container(100).ListItem.Property(Plot)]</label>
 						<align>justify</align>
 						<pagecontrol>123</pagecontrol>
-						<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(autoscroll)</autoscroll>
+						<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(text-autoscroll)</autoscroll>
 					</control>
 					<control type="scrollbar" id="123"><!-- TV Show Scrollbar -->
 						<posx>1244</posx>
@@ -420,8 +418,6 @@
 						<width>18</width>
 						<height>296</height>
 						<onleft>190</onleft>
-						<onright>noop</onright>
-						<onup>noop</onup>
 						<ondown>190</ondown>
 					</control>
 				</control>
@@ -499,7 +495,7 @@
 						<height>40</height>
 						<font>font22</font>
 						<label>$INFO[Container(100).ListItem.Property(TVShowTitle]</label>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="image"><!-- Cover Image -->
 						<posx>72</posx>
@@ -578,7 +574,7 @@
 						<height>40</height>
 						<font>font22</font>
 						<label>$INFO[Container(100).ListItem.Property(TVShowTitle]</label>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="label"><!-- Title -->
 						<posx>531</posx>
@@ -587,7 +583,7 @@
 						<height>40</height>
 						<font>font18</font>
 						<label>$INFO[Container(100).ListItem.Label]</label>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="image"><!-- Star Rating -->
 						<posx>150</posx>
@@ -652,7 +648,7 @@
 						<label fallback="161">$INFO[Container(100).ListItem.Property(Plot)]</label>
 						<align>justify</align>
 						<pagecontrol>143</pagecontrol>
-						<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(autoscroll)</autoscroll>
+						<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(text-autoscroll)</autoscroll>
 					</control>
 					<control type="scrollbar" id="143"><!-- Episode Scrollbar -->
 						<posx>1244</posx>
@@ -660,8 +656,6 @@
 						<width>18</width>
 						<height>296</height>
 						<onleft>190</onleft>
-						<onright>noop</onright>
-						<onup>noop</onup>
 						<ondown>190</ondown>
 					</control>
 				</control>
@@ -767,14 +761,14 @@
 						<height>40</height>
 						<font>font22</font>
 						<label>$INFO[Container(100).ListItem.Label]</label>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="label"><!-- Genre -->
 						<posx>531</posx>
 						<posy>35</posy>
 						<width>708</width>
 						<height>37</height>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[Container(100).ListItem.Property(Genre)]</label>
 						<textoffsetx>0</textoffsetx>
 						<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
@@ -842,7 +836,7 @@
 						<font>font11</font>
 						<label fallback="161">$INFO[Container(100).ListItem.Property(Plot)]</label>
 						<align>justify</align>
-						<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(autoscroll)</autoscroll>
+						<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(text-autoscroll)</autoscroll>
 					</control>
 				</control>
 				<control type="list" id="150">
@@ -925,7 +919,7 @@
 						<height>40</height>
 						<font>font22</font>
 						<label>$INFO[Container(100).ListItem.Label]</label>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="image"><!-- Cover Image -->
 						<posx>72</posx>
@@ -944,7 +938,7 @@
 						<align>justify</align>
 						<pagecontrol>195</pagecontrol>
 						<label>$INFO[Container(100).ListItem.Property(Artist_Description)]</label>
-						<autoscroll time="3000" delay="20000" repeat="5000">Skin.HasSetting(autoscroll)</autoscroll>
+						<autoscroll time="3000" delay="20000" repeat="5000">Skin.HasSetting(text-autoscroll)</autoscroll>
 					</control>
 				</control>
 				<control type="list" id="160">
@@ -1058,7 +1052,7 @@
 						<height>40</height>
 						<font>font22</font>
 						<label>$INFO[Container(100).ListItem.Label]</label>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="image"><!-- Cover Image -->
 						<posx>72</posx>
@@ -1077,7 +1071,7 @@
 						<align>justify</align>
 						<pagecontrol>195</pagecontrol>
 						<label>$INFO[Container(100).ListItem.Property(Album_Description)]</label>
-						<autoscroll time="3000" delay="20000" repeat="5000">Skin.HasSetting(autoscroll)</autoscroll>
+						<autoscroll time="3000" delay="20000" repeat="5000">Skin.HasSetting(text-autoscroll)</autoscroll>
 					</control>
 				</control>
 				<control type="list" id="170">
@@ -1196,7 +1190,7 @@
 						<height>40</height>
 						<font>font22</font>
 						<label>$INFO[Container(100).ListItem.Label]</label>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="image"><!-- Cover Image -->
 						<posx>72</posx>
@@ -1215,7 +1209,7 @@
 						<align>justify</align>
 						<pagecontrol>195</pagecontrol>
 						<label>$INFO[Container(100).ListItem.Property(Comment)]</label>
-						<autoscroll time="3000" delay="20000" repeat="5000">Skin.HasSetting(autoscroll)</autoscroll>
+						<autoscroll time="3000" delay="20000" repeat="5000">Skin.HasSetting(text-autoscroll)</autoscroll>
 					</control>
 				</control>
 				<control type="list" id="180">
@@ -1353,7 +1347,6 @@
 				<onleft>190</onleft>
 				<onright>190</onright>
 				<onup>195</onup>
-				<ondown>noop</ondown>
 				<control type="button" id="191">
 					<width>250</width>
 					<height>56</height>

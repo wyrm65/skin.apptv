@@ -14,13 +14,13 @@
 			<control type="image"><!-- Solid background -->
 				<include>fullscreenimage</include>
 				<texture>background.png</texture>
-				<visible>!Skin.String(custom-background)</visible>
+				<visible>!Skin.String(background-custom)</visible>
 			</control>
 			<control type="image"><!-- Custom background -->
 				<include>fullscreenimage</include>
-				<texture>$INFO[Skin.String(custom-background)]</texture>
+				<texture>$INFO[Skin.String(background-custom)]</texture>
 				<colordiffuse>osd-background</colordiffuse>
-				<visible>Skin.String(custom-background)</visible>
+				<visible>Skin.String(background-custom)</visible>
 			</control>
 			<control type="group"><!-- Backgroung fanart image -->
 				<control type="image">
@@ -32,7 +32,7 @@
 				</control>
 			</control>
 			<control type="group"><!-- Background visualisation image -->
-				<visible>Skin.HasSetting(HomeViewToggle)</visible>
+				<visible>Skin.HasSetting(background-playingmedia)</visible>
 				<control type="visualisation" id="2">
 					<include>fullscreenimage</include>
 					<visible>Player.HasAudio + !SubString(Window(VideoLibrary).Property(TvTunesIsAlive),True)</visible>
@@ -61,7 +61,7 @@
 				<colordiffuse>mask-background</colordiffuse>
 				<aspectratio>stretch</aspectratio>
 				<include>background-fade</include>
-				<visible>Skin.HasSetting(background-fanart) | Skin.HasSetting(HomeViewToggle) | Skin.HasSetting(background-slideshow)</visible>
+				<visible>Skin.HasSetting(background-fanart) | Skin.HasSetting(background-playingmedia) | Skin.HasSetting(background-slideshow)</visible>
 			</control>
 			<control type="label"><!-- Scraper -->
 				<left>10</left>
@@ -224,7 +224,7 @@
 				<width>265</width>
 				<texture>case-cd.png</texture>
 				<aspectratio>stretch</aspectratio>
-				<visible>Skin.HasSetting(Mediacase) + !SubString(MusicPlayer.Cover,Default,Left)</visible>
+				<visible>Skin.HasSetting(media-case) + !SubString(MusicPlayer.Cover,Default,Left)</visible>
 			</control>
 			<control type="image"><!-- Album cover -->
 				<left>20</left>
@@ -241,7 +241,7 @@
 				<height>45</height>
 				<font>font18</font>
 				<label>$INFO[MusicPlayer.Title]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="label"><!-- Artist -->
 				<left>370</left>
@@ -250,7 +250,7 @@
 				<height>37</height>
 				<font>font12</font>
 				<label>$INFO[MusicPlayer.Artist]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="label"><!-- Album name -->
 				<left>370</left>
@@ -259,7 +259,7 @@
 				<height>37</height>
 				<font>font12</font>
 				<label>$INFO[MusicPlayer.Album]</label>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="label"><!-- Player time -->
 				<left>370</left>

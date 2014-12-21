@@ -54,7 +54,7 @@
 			<width>18</width>
 			<height>280</height>
 			<ondown>3002</ondown>
-			<visible>Skin.HasSetting(sbar)</visible>
+			<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
 		</control>
 
 		<control type="button" id="3002"><!-- Movies buttom -->

@@ -43,10 +43,10 @@
 				<include>fullscreenimage</include>
 				<texture background="true">$VAR[BackgroundImage]</texture>
 				<fadetime>200</fadetime>
-				<visible>![Skin.HasSetting(HomeViewToggle) + Player.HasVideo]</visible>
+				<visible>![Skin.HasSetting(background-playingmedia) + Player.HasVideo]</visible>
 			</control>
 			<control type="group">
-				<visible>Skin.HasSetting(HomeViewToggle)</visible>
+				<visible>Skin.HasSetting(background-playingmedia)</visible>
 				<control type="videowindow">
 					<include>fullscreenimage</include>
 					<aspectratio>stretch</aspectratio>
@@ -81,7 +81,7 @@
 			<colordiffuse>mask-background</colordiffuse>
 			<include>background-fade</include>
 			<aspectratio>stretch</aspectratio>
-			<visible>!IsEmpty(Skin.String(custom-weatherbackgrounds)) | Skin.HasSetting(background-fanart) | Skin.HasSetting(HomeViewToggle) | Skin.HasSetting(background-slideshow)</visible>
+			<visible>!IsEmpty(Skin.String(background-customweather)) | Skin.HasSetting(background-fanart) | Skin.HasSetting(background-playingmedia) | Skin.HasSetting(background-slideshow)</visible>
 		</control>
 	</include>
 
@@ -96,7 +96,7 @@
 			<animation effect="fade" start="0" end="100" time="2500" delay="500" tween="quadratic" easing="out">Visible</animation>
 			<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
 			<control type="group">
-				<visible>![Skin.HasSetting(HomeViewToggle) + Player.HasVideo] + !IsEmpty(ListItem.Title)</visible>
+				<visible>![Skin.HasSetting(background-playingmedia) + Player.HasVideo] + !IsEmpty(ListItem.Title)</visible>
 				<control type="group">
 					<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos)]</visible>
 					<control type="image"><!-- Fallback background image -->
@@ -147,7 +147,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>Skin.HasSetting(HomeViewToggle)</visible>
+			<visible>Skin.HasSetting(background-playingmedia)</visible>
 			<control type="videowindow">
 				<include>fullscreenimage</include>
 				<aspectratio>stretch</aspectratio>
@@ -182,7 +182,7 @@
 			<colordiffuse>mask-background</colordiffuse>
 			<include>background-fade</include>
 			<aspectratio>stretch</aspectratio>
-			<visible>Skin.HasSetting(background-fanart) | Skin.HasSetting(HomeViewToggle) | Skin.HasSetting(background-slideshow)</visible>
+			<visible>Skin.HasSetting(background-fanart) | Skin.HasSetting(background-playingmedia) | Skin.HasSetting(background-slideshow)</visible>
 		</control>
 	</include>
 
@@ -253,7 +253,7 @@
 
 	<include name="home-mediaoverlay">
 		<control type="group" id="9950">
-			<visible>Skin.HasSetting(overlay) + !Window.IsActive(PlayerControls)</visible>
+			<visible>Skin.HasSetting(media-overlay) + !Window.IsActive(PlayerControls)</visible>
 			<control type="group" id="9960"><!-- media infos (music) -->
 				<visible>Player.HasAudio + !SubString(Window(VideoLibrary).Property(TvTunesIsAlive),True)</visible>
 				<control type="image">
@@ -271,7 +271,7 @@
 					<height>22</height>
 					<label>$INFO[MusicPlayer.Artist]</label>
 					<font>font11</font>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="label"><!-- Album -->
 					<left>162</left>
@@ -280,7 +280,7 @@
 					<height>22</height>
 					<label>$INFO[MusicPlayer.Album]</label>
 					<font>font11</font>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="label"><!-- Song Title -->
 					<left>162</left>
@@ -289,7 +289,7 @@
 					<height>22</height>
 					<label>$INFO[MusicPlayer.Title]</label>
 					<font>font11</font>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="label"><!-- Time and duration -->
 					<left>162</left>
@@ -324,7 +324,7 @@
 					<height>23</height>
 					<label>$INFO[VideoPlayer.Title]</label>
 					<font>font12</font>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="label"><!-- Time and duration -->
 					<left>234</left>
@@ -333,7 +333,7 @@
 					<height>23</height>
 					<label>$INFO[VideoPlayer.Time]$INFO[VideoPlayer.Duration, / ]</label>
 					<font>font12</font>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 			</control>
 		</control>
@@ -430,7 +430,7 @@
 
 	<include name="Fake-Overlay">
 		<control type="group"><!-- Video Stuff -->
-			<visible>Skin.HasSetting(overlay) + Player.HasVideo + !VideoPlayer.Content(livetv) + !Skin.HasSetting(HomeViewToggle) + !Window.IsActive(PlayerControls)</visible>
+			<visible>Skin.HasSetting(media-overlay) + Player.HasVideo + !VideoPlayer.Content(livetv) + !Skin.HasSetting(background-playingmedia) + !Window.IsActive(PlayerControls)</visible>
 			<control type="videowindow">
 				<left>35</left>
 				<top>5</top>
@@ -454,7 +454,7 @@
 				<height>25</height>
 				<label>$INFO[VideoPlayer.Title]</label>
 				<font>font12</font>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="label"><!-- Time and duration -->
 				<left>212</left>
@@ -466,7 +466,7 @@
 			</control>
 		</control>
 		<control type="group"><!-- Audio Stuff -->
-			<visible>Player.HasAudio + Skin.HasSetting(overlay) + !SubString(Window(videolibrary).Property(TvTunesIsAlive),True) + !Window.IsActive(PlayerControls)</visible>
+			<visible>Player.HasAudio + Skin.HasSetting(media-overlay) + !SubString(Window(videolibrary).Property(TvTunesIsAlive),True) + !Window.IsActive(PlayerControls)</visible>
 			<control type="image">
 				<left>24</left>
 				<top>2</top>
@@ -482,7 +482,7 @@
 				<height>25</height>
 				<label>$INFO[MusicPlayer.Artist]</label>
 				<font>font11</font>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="label">
 				<left>145</left>
@@ -491,7 +491,7 @@
 				<height>25</height>
 				<label>$INFO[MusicPlayer.Album]</label>
 				<font>font11</font>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="label">
 				<left>145</left>
@@ -500,7 +500,7 @@
 				<height>25</height>
 				<label>$INFO[MusicPlayer.Title]</label>
 				<font>font11</font>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="label">
 				<left>145</left>
@@ -566,7 +566,7 @@
 	
 	<include name="Screen-settings">
 		<animation effect="slide" time="0" start="0,0" end="0,-720">Visible</animation>
-		<visible allowhiddenfocus="true">ControlGroup(9000).HasFocus() + !Skin.HasSetting(lockscreensettings)</visible>
+		<visible allowhiddenfocus="true">ControlGroup(9000).HasFocus() + !Skin.HasSetting(lock-screensettings)</visible>
 	</include>
 
 </includes>

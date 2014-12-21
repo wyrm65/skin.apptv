@@ -204,7 +204,7 @@
 						<height>23</height>
 						<font>font12</font>
 						<label>$INFO[ListItem.Label]</label>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<visible>IsEmpty(ListItem.Label2)</visible>
 					</control>
 					<control type="group">
@@ -216,7 +216,7 @@
 							<height>23</height>
 							<font>font11</font>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 						<control type="label">
 							<left>38</left>
@@ -226,7 +226,7 @@
 							<font>font11</font>
 							<textcolor>disabled-text</textcolor>
 							<label>$INFO[ListItem.Label2]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</control>
 				</control>
@@ -240,7 +240,7 @@
 						<font>font12</font>
 						<selectedcolor>listselected-text</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<visible>IsEmpty(ListItem.Property(Addon.Description))</visible>
 					</control>
 					<control type="group">
@@ -253,7 +253,7 @@
 							<font>font11</font>
 							<selectedcolor>listselected-text</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 						<control type="label">
 							<left>38</left>
@@ -263,7 +263,7 @@
 							<font>font11</font>
 							<textcolor>disabled-text</textcolor>
 							<label>$INFO[ListItem.Property(Addon.Description)]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</control>
 				</control>
@@ -276,7 +276,7 @@
 						<height>23</height>
 						<font>font12</font>
 						<label>$INFO[ListItem.Label]</label>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<visible>IsEmpty(ListItem.PlotOutline)</visible>
 					</control>
 					<control type="group">
@@ -288,7 +288,7 @@
 							<height>23</height>
 							<font>font11</font>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 						<control type="label">
 							<left>38</left>
@@ -298,7 +298,7 @@
 							<font>font11</font>
 							<textcolor>disabled-text</textcolor>
 							<label>$INFO[ListItem.PlotOutline]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</control>
 				</control>
@@ -311,7 +311,7 @@
 						<height>23</height>
 						<font>font12</font>
 						<label>$INFO[ListItem.Label]</label>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<visible>IsEmpty(ListItem.Duration)</visible>
 					</control>
 					<control type="group">
@@ -323,7 +323,7 @@
 							<height>23</height>
 							<font>font11</font>
 							<label>$INFO[ListItem.Label]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 						<control type="label">
 							<left>38</left>
@@ -333,7 +333,7 @@
 							<font>font11</font>
 							<textcolor>disabled-text</textcolor>
 							<label>$VAR[VideoDuration]</label>
-							<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</control>
 				</control>
@@ -581,7 +581,7 @@
 						<align>justify</align>
 						<aligny>top</aligny>
 						<visible>!IsEmpty(ListItem.PlotOutline)</visible>
-						<autoscroll time="4000" delay="6000" repeat="8000">Skin.HasSetting(autoscroll)</autoscroll>
+						<autoscroll time="4000" delay="6000" repeat="8000">Skin.HasSetting(text-autoscroll)</autoscroll>
 					</control>
 					<control type="textbox"><!-- Plot (Show if no outline available)-->
 						<left>17</left>
@@ -593,7 +593,7 @@
 						<align>justify</align>
 						<aligny>top</aligny>
 						<visible>IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Plot)</visible>
-						<autoscroll time="4000" delay="6000" repeat="8000">Skin.HasSetting(autoscroll)</autoscroll>
+						<autoscroll time="4000" delay="6000" repeat="8000">Skin.HasSetting(text-autoscroll)</autoscroll>
 					</control>
 				</control>
 			</control>
@@ -604,8 +604,8 @@
 				<width>18</width>
 				<height>546</height>
 				<onleft>50</onleft>
-				<animation condition="!Control.HasFocus(23) + !Container.Scrolling" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>Skin.HasSetting(sbar)</visible>
+				<animation condition="!Control.HasFocus(23) + !Container.Scrolling + (IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]))" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
 			</control>
 		</control>
 		<!-- Remove for the moment, future feature that is still not quite cooked 
@@ -784,7 +784,7 @@
 					<height>22</height>
 					<font>font11</font>
 					<align>center</align>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Label]</label>
 					<textoffsetx>0</textoffsetx>
 				</control>
@@ -836,8 +836,8 @@
 			<width>18</width>
 			<height>588</height>
 			<onleft>52</onleft>
-			<animation condition="!Control.HasFocus(29) + !Container.Scrolling" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-			<visible>Skin.HasSetting(sbar) + Control.IsVisible(52)</visible>
+			<animation condition="!Control.HasFocus(29) + !Container.Scrolling + (IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]))" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875]) + Control.IsVisible(52)</visible>
 		</control>
 	</include>
 	<include name="BannerView">
@@ -950,7 +950,7 @@
 						<height>37</height>
 						<font>font18</font>
 						<label>[B]$INFO[ListItem.Label][/B]</label>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 					</control>
 					<control type="label"><!-- First Aired -->
@@ -967,7 +967,7 @@
 						<width>600</width>
 						<height>25</height>
 						<label>[B]$LOCALIZE[515]:[/B] $INFO[ListItem.Genre]</label>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<visible>!IsEmpty(ListItem.Genre)</visible>
 					</control>
 					<control type="label"><!-- Rating -->
@@ -1002,7 +1002,7 @@
 						<label fallback="161">$INFO[ListItem.PlotOutline]</label>
 						<align>justify</align>
 						<visible>!IsEmpty(ListItem.PlotOutline)</visible>
-						<autoscroll time="4000" delay="6000" repeat="8000">Skin.HasSetting(autoscroll)</autoscroll>
+						<autoscroll time="4000" delay="6000" repeat="8000">Skin.HasSetting(text-autoscroll)</autoscroll>
 					</control>
 					<control type="textbox"><!-- Plot (Show if no outline available)-->
 						<left>8</left>
@@ -1012,7 +1012,7 @@
 						<label fallback="161">$INFO[ListItem.Plot]</label>
 						<align>justify</align>
 						<visible>IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Plot)</visible>
-						<autoscroll time="4000" delay="6000" repeat="8000">Skin.HasSetting(autoscroll)</autoscroll>
+						<autoscroll time="4000" delay="6000" repeat="8000">Skin.HasSetting(text-autoscroll)</autoscroll>
 					</control>
 				</control>
 				<control type="group">
@@ -1023,8 +1023,8 @@
 						<width>18</width>
 						<height>524</height>
 						<onleft>53</onleft>
-						<animation condition="!Control.HasFocus(29) + !Container.Scrolling" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-						<visible>Skin.HasSetting(sbar)</visible>
+						<animation condition="!Control.HasFocus(29) + !Container.Scrolling + (IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]))" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+						<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
 					</control>
 				</control>
 			</control>
@@ -1055,7 +1055,7 @@
 					<texture>case-dvd.png</texture>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 					<aspectratio>stretch</aspectratio>
-					<visible>Skin.HasSetting(Mediacase) + !SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>Skin.HasSetting(media-case) + !SubString(ListItem.Icon,Default,Left)</visible>
 				</control>
 				<control type="image">
 					<left>-5</left>
@@ -1102,7 +1102,7 @@
 						<width>207</width>
 						<texture>case-dvd.png</texture>
 						<aspectratio>stretch</aspectratio>
-						<visible>Skin.HasSetting(Mediacase)</visible>
+						<visible>Skin.HasSetting(media-case)</visible>
 					</control>
 				</control>
 				<control type="image">
@@ -1141,8 +1141,8 @@
 				<height>18</height>
 				<onup>54</onup>
 				<orientation>horizontal</orientation>
-				<animation condition="!Control.HasFocus(24) + !Container.Scrolling" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>Skin.HasSetting(sbar)</visible>
+				<animation condition="!Control.HasFocus(24) + !Container.Scrolling + (IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]))" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
 			</control>
 			<control type="image" id="7216"><!-- Show logo -->
 				<left>272</left>
@@ -1160,7 +1160,7 @@
 				<width>929</width>
 				<height>38</height>
 				<font>font22</font>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<wrapmultiline>true</wrapmultiline>
 				<textoffsetx>0</textoffsetx>
@@ -1173,7 +1173,7 @@
 				<width>929</width>
 				<height>37</height>
 				<font>font22</font>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<textoffsetx>0</textoffsetx>
 				<visible>stringcompare(ListItem.Icon,DefaultFolderBack.png)</visible>
@@ -1571,7 +1571,7 @@
 				<height>37</height>
 				<font>font22</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<textoffsetx>0</textoffsetx>
 				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left) + SubString(Control.GetLabel(7018),blank.png,Left)</visible>
@@ -1583,7 +1583,7 @@
 				<height>37</height>
 				<font>font22</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<textoffsetx>0</textoffsetx>
 				<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
@@ -1627,8 +1627,8 @@
 				<height>18</height>
 				<onup>57</onup>
 				<orientation>horizontal</orientation>
-				<animation condition="!Control.HasFocus(25) + !Container.Scrolling" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>Skin.HasSetting(sbar) + [[IntegerGreaterThan(Container(57).NumItems,10) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,9) + system.getbool(filelists.showparentdiritems)]]</visible>
+				<animation condition="!Control.HasFocus(25) + !Container.Scrolling + (IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]))" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875]) + [[IntegerGreaterThan(Container(57).NumItems,10) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,9) + system.getbool(filelists.showparentdiritems)]]</visible>
 			</control>
 		</control>
 	</include>
@@ -1815,7 +1815,7 @@
 				<width>460</width>
 				<height>74</height>
 				<font>font20</font>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<wrapmultiline>true</wrapmultiline>
 				<textoffsetx>0</textoffsetx>
@@ -1829,7 +1829,7 @@
 				<height>38</height>
 				<font>font22</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<textoffsetx>0</textoffsetx>
 				<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
@@ -1842,7 +1842,7 @@
 					<width>460</width>
 					<height>37</height>
 					<font>font11</font>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Genre]</label>
 					<textoffsetx>0</textoffsetx>
 					<visible>!IsEmpty(ListItem.Genre)</visible>
@@ -1892,7 +1892,7 @@
 					<font>font12</font>
 					<label fallback="161">$INFO[ListItem.PlotOutline]</label>
 					<visible>!IsEmpty(ListItem.PlotOutline)</visible>
-					<autoscroll time="4000" delay="6000" repeat="8000">Skin.HasSetting(autoscroll)</autoscroll>
+					<autoscroll time="4000" delay="6000" repeat="8000">Skin.HasSetting(text-autoscroll)</autoscroll>
 				</control>
 				<control type="textbox"><!-- Plot (Show if no outline available)-->
 					<left>17</left>
@@ -1902,7 +1902,7 @@
 					<font>font12</font>
 					<label fallback="161">$INFO[ListItem.Plot]</label>
 					<visible>IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Plot)</visible>
-					<autoscroll time="4000" delay="6000" repeat="8000">Skin.HasSetting(autoscroll)</autoscroll>
+					<autoscroll time="4000" delay="6000" repeat="8000">Skin.HasSetting(text-autoscroll)</autoscroll>
 				</control>
 			</control>
 			<control type="scrollbar" id="28">
@@ -1911,8 +1911,8 @@
 				<width>18</width>
 				<height>510</height>
 				<onleft>58</onleft>
-				<animation condition="!Control.HasFocus(28) + !Container.Scrolling" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>Skin.HasSetting(sbar)</visible>
+				<animation condition="!Control.HasFocus(28) + !Container.Scrolling + (IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]))" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
 			</control>
 		</control>
 	</include>

@@ -102,7 +102,7 @@
 					<height>25</height>
 					<label>$INFO[ListItem.Duration]</label>
 					<font>font12</font>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="label"><!-- Genre heading -->
 					<posx>170</posx>
@@ -120,7 +120,7 @@
 					<height>25</height>
 					<label fallback="161">$INFO[ListItem.Genre]</label>
 					<font>font12</font>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="label">
 					<posx>40</posx>
@@ -130,7 +130,7 @@
 					<label>$INFO[ListItem.PlotOutline]</label>
 					<align>center</align>
 					<font>font12</font>
-					<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>!IsEmpty(ListItem.PlotOutline)</visible>
 				</control>
 			</control>

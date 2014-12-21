@@ -177,7 +177,7 @@
 						<height>48</height>
 						<font>font11</font>
 						<selectedcolor>listselected-text</selectedcolor>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<wrapmultiline>true</wrapmultiline>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
@@ -321,7 +321,7 @@
 						<height>22</height>
 						<font>font11</font>
 						<label>$INFO[ListItem.Label]</label>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="progress">
 						<posx>80</posx>
@@ -341,7 +341,7 @@
 						<font>font11</font>
 						<label>$INFO[ListItem.Title]</label>
 						<textcolor>disabled-text</textcolor>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 				</focusedlayout>
 			</control>
@@ -369,8 +369,8 @@
 				<height>565</height>
 				<onleft>11</onleft>
 				<onright>11</onright>
-				<animation condition="!Control.HasFocus(27) + !Container.Scrolling" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>Skin.HasSetting(sbar)</visible>
+				<animation condition="!Control.HasFocus(27) + !Container.Scrolling + (IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]))" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
 			</control>
 		</control>
 	</include>
@@ -477,7 +477,7 @@
 				<height>565</height>
 				<onleft>12</onleft>
 				<onright>12</onright>
-				<visible>Skin.HasSetting(sbar)</visible>
+				<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
 			</control>
 		</control>
 	</include>
@@ -551,7 +551,7 @@
 					<height>578</height>
 					<itemgap>2</itemgap>
 					<control type="group">
-						<visible>!Player.HasVideo | [Player.HasVideo + Skin.HasSetting(HomeViewToggle)]</visible>
+						<visible>!Player.HasVideo | [Player.HasVideo + Skin.HasSetting(background-playingmedia)]</visible>
 						<left>0</left>
 						<width>256</width>
 						<height>256</height>
@@ -617,7 +617,7 @@
 					<height>560</height>
 					<onleft>15</onleft>
 					<onright>9000</onright>
-					<visible>Skin.HasSetting(sbar)</visible>
+					<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
 				</control>
 			</control>
 		</control>
@@ -786,7 +786,7 @@
 				<height>500</height>
 				<onleft>14</onleft>
 				<onright>14</onright>
-				<visible>Skin.HasSetting(sbar)</visible>
+				<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
 			</control>
 		</control>
 	</include>
@@ -909,7 +909,7 @@
 						<height>578</height>
 						<itemgap>2</itemgap>
 						<control type="group">
-							<visible>!Player.HasVideo | [Player.HasVideo + Skin.HasSetting(HomeViewToggle)]</visible>
+							<visible>!Player.HasVideo | [Player.HasVideo + Skin.HasSetting(background-playingmedia)]</visible>
 							<left>0</left>
 							<width>256</width>
 							<height>256</height>
@@ -936,7 +936,7 @@
 							<left>0</left>
 							<width>512</width>
 							<height>256</height>
-							<visible>Player.HasVideo + !Skin.HasSetting(HomeViewToggle)</visible>
+							<visible>Player.HasVideo + !Skin.HasSetting(background-playingmedia)</visible>
 							<control type="videowindow">
 								<left>58</left>
 								<width>512</width>
@@ -990,7 +990,7 @@
 					<height>565</height>
 					<onleft>50</onleft>
 					<onright>50</onright>
-					<visible>Skin.HasSetting(sbar)</visible>
+					<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
 				</control>
 			</control>
 		</control>
@@ -1140,7 +1140,7 @@
 				<height>506</height>
 				<onleft>17</onleft>
 				<onright>9000</onright>
-				<visible>Skin.HasSetting(sbar)</visible>
+				<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
 			</control>
 		</control>
 	</include>
@@ -1193,7 +1193,7 @@
 						<width>730</width>
 						<height>40</height>
 						<label>$INFO[ListItem.Label]</label>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="label">
 						<posx>750</posx>
@@ -1203,7 +1203,7 @@
 						<font>font12</font>
 						<align>right</align>
 						<label>$INFO[ListItem.Label2]</label>
-						<include condition="Skin.HasSetting(autoscroll)">scrolltext</include>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 				</focusedlayout>
 			</control>
@@ -1213,7 +1213,7 @@
 				<width>18</width>
 				<height>560</height>
 				<onleft>560</onleft>
-				<visible>Control.IsVisible(560) + Skin.HasSetting(sbar)</visible>
+				<visible>Control.IsVisible(560) + IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
 			</control>
 			<control type="group">
 				<visible>Control.IsVisible(560)</visible>
@@ -1246,7 +1246,7 @@
 					<font>font12</font>
 					<align>justify</align>
 					<label>$INFO[ListItem.Plot]</label>
-					<autoscroll time="2000" delay="3000" repeat="5000">Skin.HasSetting(autoscroll)</autoscroll>
+					<autoscroll time="2000" delay="3000" repeat="5000">Skin.HasSetting(text-autoscroll)</autoscroll>
 				</control>
 			</control>
 		</control>
