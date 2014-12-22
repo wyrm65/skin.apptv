@@ -91,7 +91,8 @@
 			<ondown>999</ondown>
 			<onup>11</onup>
 			<orientation>horizontal</orientation>
-			<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
+			<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 		</control>
 		<control type="grouplist" id="999"><!-- Option buttons -->
 			<left>26</left>

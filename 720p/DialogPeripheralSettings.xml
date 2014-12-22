@@ -56,6 +56,8 @@
 			<height>545</height>
 			<onleft>5</onleft>
 			<onright>2</onright>
+			<animation condition="!Control.HasFocus(60) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 		</control>
 		<control type="group" id="9000">
 			<left>132</left>

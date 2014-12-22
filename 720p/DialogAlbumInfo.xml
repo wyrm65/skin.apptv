@@ -589,7 +589,8 @@
 			<onleft>50</onleft>
 			<ondown>23</ondown>
 			<onup>23</onup>
-			<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875]) + Control.IsVisible(50)</visible>
+			<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Control.IsVisible(50)</visible>
 		</control>
 		<control type="scrollbar" id="1423">
 			<left>1250</left>
@@ -599,7 +600,8 @@
 			<onleft>999</onleft>
 			<ondown>1423</ondown>
 			<onup>1423</onup>
-			<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875]) + Control.IsVisible(4)</visible>
+			<animation condition="!Control.HasFocus(1423) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Control.IsVisible(4)</visible>
 		</control>
 	</controls>
 </window>

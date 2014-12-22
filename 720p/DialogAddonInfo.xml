@@ -78,24 +78,9 @@
 					<font>font11</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
-				<control type="label"><!-- Rating heading -->
-					<left>0</left>
-					<top>112</top>
-					<width>159</width>
-					<height>31</height>
-					<label>$LOCALIZE[563]:</label>
-					<font>font12</font>
-				</control>
-				<control type="image">
-					<left>168</left>
-					<top>112</top>
-					<width>283</width>
-					<height>40</height>
-					<texture>$INFO[ListItem.Property(Addon.Rating)]</texture>
-				</control>
 				<control type="label"><!-- Summary heading -->
 					<left>0</left>
-					<top>150</top>
+					<top>112</top>
 					<width>159</width>
 					<height>31</height>
 					<label>$LOCALIZE[20037]:</label>
@@ -103,7 +88,7 @@
 				</control>
 				<control type="label">
 					<left>168</left>
-					<top>150</top>
+					<top>112</top>
 					<width>601</width>
 					<height>31</height>
 					<label>$INFO[ListItem.Property(Addon.Summary)]</label>
@@ -142,6 +127,7 @@
 						<width>16</width>
 						<height>184</height>
 						<onleft>9000</onleft>
+						<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 					</control>
 					<control type="label"><!-- Disclaimer heading -->
 						<left>0</left>
@@ -178,6 +164,7 @@
 						<width>16</width>
 						<height>312</height>
 						<onleft>9000</onleft>
+						<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 					</control>
 				</control>
 			</control>

@@ -240,6 +240,8 @@
 				<onright>11</onright>
 				<ondown>61</ondown>
 				<onup>61</onup>
+				<animation condition="!Control.HasFocus(60) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 			</control>
 			<control type="label"><!-- Number of files text label -->
 				<posx>850</posx>

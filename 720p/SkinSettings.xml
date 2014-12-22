@@ -125,7 +125,8 @@
 			<width>18</width>
 			<height>542</height>
 			<onright>998</onright>
-			<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875]) + !Skin.String(skinsettingmenu,custom)</visible>
+			<animation condition="!Control.HasFocus(1223) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + !Skin.String(skinsettingmenu,custom)</visible>
 		</control>
 		<control type="group" id="998">
 			<control type="group" id="100"><!-- Startup Settings -->
@@ -449,7 +450,7 @@
 								<item><!-- On scroll or focus -->
 									<label>$LOCALIZE[31876]</label>
 									<onclick>Skin.SetString(show-scrollbar,$LOCALIZE[31875])</onclick>
-									<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
+									<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876])</visible>
 								</item>
 								<item><!-- Always -->
 									<label>$LOCALIZE[31875]</label>
@@ -496,7 +497,7 @@
 								<item><!-- On scroll or focus -->
 									<label>$LOCALIZE[31876]</label>
 									<onclick>Skin.SetString(show-scrollbar,$LOCALIZE[31877])</onclick>
-									<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])</visible>
+									<visible>IsEmpty(Skin.String(show-scrollbar)) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876])</visible>
 								</item>
 								<item><!-- Never -->
 									<label>$LOCALIZE[31877]</label>
