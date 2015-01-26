@@ -234,7 +234,6 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[Container(50).ListItem(0).Label]</label>
 				<font>font10</font>
-				<textoffsetx>0</textoffsetx>
 			</control>
 			<control type="label"><!-- Actor 2 -->
 				<left>675</left>
@@ -252,7 +251,6 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[Container(50).ListItemNoWrap(2).Label]</label>
 				<font>font10</font>
-				<textoffsetx>0</textoffsetx>
 			</control>
 			<control type="label"><!-- Actor 4 -->
 				<left>675</left>
@@ -644,7 +642,7 @@
 			<label>$LOCALIZE[31955]</label>
 			<font>font10</font>
 			<align>right</align>
-			<visible>!substring(Control.GetLabel(5),$LOCALIZE[207])</visible>
+			<visible>!substring(Control.GetLabel(5),$LOCALIZE[207]) + ![IsEmpty(Container(950).ListItem.Label)]</visible><!-- Not showing Cast and recommended video list has something to show -->
 		</control>
 		<control type="image">
 			<left>380</left>
@@ -732,6 +730,16 @@
 					<height>146</height>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<visible>!(Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes))</visible>
+				</control>
+				<control type="image">
+					<left>49</left>
+					<top>0</top>
+					<width>112</width>
+					<height>146</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+					<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
 				</control>
 			</itemlayout>
 			<focusedlayout height="184" width="210">
@@ -741,7 +749,17 @@
 					<width>112</width>
 					<height>146</height>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<visible>!(Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes))</visible>
+				</control>
+				<control type="image">
+					<left>49</left>
+					<top>0</top>
+					<width>112</width>
+					<height>146</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+					<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
 				</control>
 				<control type="label">
 					<left>0</left>
