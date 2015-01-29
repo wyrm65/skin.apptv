@@ -32,15 +32,9 @@
 	<include name="background">
 		<control type="group">
 			<visible>!Window.IsActive(fullscreenvideo)</visible><!-- Don't try to show background if Video screen is showing -->
-			<control type="image"><!-- Use a black background until background image has had a chance to load -->
-				<include>fullscreenimage</include>
-				<texture>colours/black.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
 			<control type="group">
 				<visible>!Container().Scrolling</visible>
-				<animation effect="fade" start="0" end="100" time="500" delay="2500">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="2600">Visible</animation>
 				<control type="image">
 					<include>fullscreenimage</include>
 					<texture background="true">$VAR[BackgroundImage]</texture>
@@ -71,8 +65,8 @@
 						<include>fullscreenimage</include>
 						<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
 						<aspectratio>keep</aspectratio>
-						<timeperimage>5000</timeperimage>
-						<fadetime>400</fadetime>
+						<timeperimage>6000</timeperimage>
+						<fadetime>200</fadetime>
 						<randomize>true</randomize>
 					</control>
 				</control>
@@ -91,15 +85,9 @@
 	<include name="backgroundvideo">
 		<control type="group">
 			<visible>!Window.IsActive(fullscreenvideo)</visible><!-- Don't try to show background if Video screen is showing -->
-			<control type="image"><!-- Use a black background until background image has had a chance to load -->
-				<include>fullscreenimage</include>
-				<texture>colours/black.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
 			<control type="group">
 				<visible>!Container().Scrolling</visible>
-				<animation effect="fade" start="0" end="100" time="2500" delay="500" tween="quadratic" easing="out">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+				<animation effect="fade" start="0" end="100" time="400" delay="2600" tween="quadratic" easing="out">Visible</animation>
 				<control type="group">
 					<visible>![Skin.HasSetting(background-playingmedia) + Player.HasVideo] + !IsEmpty(ListItem.Title)</visible>
 					<control type="group">
@@ -107,7 +95,7 @@
 						<control type="image"><!-- Fallback background image -->
 							<include>fullscreenimage</include>
 							<aspectratio>stretch</aspectratio>
-							<fadetime>300</fadetime>
+							<fadetime>200</fadetime>
 							<texture background="false">$VAR[VideoBackgndImage]</texture>
 						</control>
 					</control>
@@ -116,8 +104,8 @@
 						<control type="multiimage" id="6300">
 							<include>fullscreenimage</include>
 							<randomize>true</randomize>
-							<timeperimage>5000</timeperimage>
-							<fadetime>300</fadetime>
+							<timeperimage>6000</timeperimage>
+							<fadetime>200</fadetime>
 							<imagepath background="false">$INFO[ListItem.Path,,extrafanart/]</imagepath>
 							<aspectratio>stretch</aspectratio>
 							<visible>Skin.HasSetting(background-extrafanart) + Skin.HasSetting(background-fanart)</visible>
@@ -125,7 +113,7 @@
 						<control type="image"><!-- Fallback background image -->
 							<include>fullscreenimage</include>
 							<aspectratio>stretch</aspectratio>
-							<fadetime>300</fadetime>
+							<fadetime>200</fadetime>
 							<texture background="false">$VAR[VideoBackgndImage]</texture>
 							<visible>!Skin.HasSetting(background-extrafanart) | IsEmpty(Control.GetLabel(6300))</visible>
 						</control>
@@ -135,18 +123,18 @@
 						<control type="multiimage" id="6340">
 							<include>fullscreenimage</include>
 							<randomize>true</randomize>
-							<timeperimage>5000</timeperimage>
-							<fadetime>300</fadetime>
+							<timeperimage>6000</timeperimage>
+							<fadetime>200</fadetime>
 							<imagepath background="false">$INFO[ListItem.Path,,../extrafanart/]</imagepath>
 							<aspectratio>stretch</aspectratio>
 							<visible>Skin.HasSetting(background-extrafanart) + !Window.IsVisible(InfoDialog) + !IsEmpty(ListItem.Path)</visible>
 						</control>
-						<control type="image" id="6342">
+						<control type="image">
 							<include>fullscreenimage</include>
 							<texture background="false">$VAR[VideoBackgndImage]</texture>
 							<aspectratio>stretch</aspectratio>
-							<fadetime>300</fadetime>
-							<visible>IsEmpty(Control.GetLabel(6340)) | !Skin.HasSetting(background-extrafanart)</visible>
+							<fadetime>200</fadetime>
+							<visible>!Skin.HasSetting(background-extrafanart) | IsEmpty(Control.GetLabel(6340))</visible>
 						</control>
 					</control>
 				</control>
@@ -162,7 +150,7 @@
 					<include>fullscreenimage</include>
 					<aspectratio>stretch</aspectratio>
 					<visible>Player.HasAudio + !SubString(Window(VideoLibrary).Property(TvTunesIsAlive),True)</visible>
-					<animation effect="fade" time="300">VisibleChange</animation>
+					<animation effect="fade" time="200">VisibleChange</animation>
 				</control>
 			</control>
 			<control type="group">
@@ -176,8 +164,8 @@
 					<include>fullscreenimage</include>
 					<imagepath background="false">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
 					<aspectratio>keep</aspectratio>
-					<timeperimage>5000</timeperimage>
-					<fadetime>300</fadetime>
+					<timeperimage>6000</timeperimage>
+					<fadetime>200</fadetime>
 					<randomize>true</randomize>
 				</control>
 			</control>
