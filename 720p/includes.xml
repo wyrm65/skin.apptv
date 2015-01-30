@@ -39,7 +39,6 @@
 					<include>fullscreenimage</include>
 					<texture background="true">$VAR[BackgroundImage]</texture>
 					<fadetime>200</fadetime>
-					<visible>![Skin.HasSetting(background-playingmedia) + Player.HasVideo]</visible>
 				</control>
 				<control type="group">
 					<visible>Skin.HasSetting(background-playingmedia)</visible>
@@ -588,7 +587,7 @@
 
 	<include name="transition-fade">
 		<animation effect="fade" time="100">Visible</animation>
-		<animation effect="fade" time="100">Hidden</animation>
+		<!--<animation effect="fade" time="100">Hidden</animation>-->
 	</include>
 
 	<include name="screen-fade">
