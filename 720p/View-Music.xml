@@ -122,9 +122,11 @@
 						<left>144</left>
 						<top>98</top>
 						<width>418</width>
-						<height>418</height>
-						<texture>case-cd.png</texture>
-						<aspectratio>keep</aspectratio>
+						<height>380</height>
+						<texture background="true" fallback="DefaultAudio.png">$INFO[ListItem.Icon]</texture>
+						<aspectratio>stretch</aspectratio>
+						<bordertexture border="28,22,14,22">case-cd.png</bordertexture>
+						<bordersize>28,22,14,22</bordersize>
 						<visible>Skin.HasSetting(media-case) + [Container.Content(songs) | Container.Content(albums)] + !SubString(ListItem.Icon,Default,Left)</visible>
 					</control>
 					<control type="image">
@@ -134,6 +136,7 @@
 						<height>350</height>
 						<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$INFO[ListItem.Icon]</texture>
 						<aspectratio>stretch</aspectratio>
+						<visible>!Skin.HasSetting(media-case) | SubString(ListItem.Icon,Default,Left)</visible>
 					</control>
 				</control>
 				<control type="group">
