@@ -92,9 +92,9 @@
 			</control>
 			<control type="textbox">
 				<left>380</left>
-				<top>110</top>
+				<top>112</top>
 				<width>860</width>
-				<height>120</height>
+				<height>118</height>
 				<label>$INFO[ListItem.Plot]</label>
 				<font>font10</font>
 				<align>justify</align>
@@ -104,9 +104,9 @@
 			</control>
 			<control type="textbox"><!-- Plot outline (Show if no plot available)-->
 				<left>380</left>
-				<top>110</top>
+				<top>112</top>
 				<width>860</width>
-				<height>120</height>
+				<height>118</height>
 				<label fallback="161">$INFO[ListItem.PlotOutline]</label>
 				<font>font10</font>
 				<align>justify</align>
@@ -123,9 +123,11 @@
 			</control>
 			<control type="scrollbar" id="1023"><!-- Plot Scrollbar -->
 				<left>1252</left>
-				<top>114</top>
+				<top>112</top>
 				<width>16</width>
 				<height>118</height>
+				<onup>noop</onup>
+				<onright>noop</onright>
 				<onleft>999</onleft>
 				<ondown>999</ondown>
 				<animation condition="!Control.HasFocus(1023) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
@@ -430,10 +432,11 @@
 			<orientation>horizontal</orientation>
 			<itemgap>15</itemgap>
 			<align>center</align>
-			<onleft>999</onleft>
-			<onright>999</onright>
+			<onleft>noop</onleft>
+			<onright>noop</onright>
 			<ondown condition="Control.IsVisible(50)">50</ondown>
 			<ondown condition="Control.IsVisible(950)">950</ondown>
+			<onup condition="Control.IsVisible(950) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1023</onup>
 			<control type="togglebutton" id="8"><!-- Play/Browse button -->
 				<height>96</height>
 				<width>96</width>
@@ -656,6 +659,8 @@
 			<top>520</top>
 			<width>1260</width>
 			<height>184</height>
+			<onleft>noop</onleft>
+			<onright>noop</onright>
 			<onup>999</onup>
 			<viewtype label="31028">list</viewtype>
 			<scrolltime>200</scrolltime>
@@ -718,6 +723,8 @@
 			<top>520</top>
 			<width>1260</width>
 			<height>184</height>
+			<onleft>noop</onleft>
+			<onright>noop</onright>
 			<onup>999</onup>
 			<viewtype label="31028">list</viewtype>
 			<scrolltime>200</scrolltime>
