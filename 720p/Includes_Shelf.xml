@@ -13,7 +13,7 @@
 	</include>
 
 	<include name="EpisodeRecommended">
-	<content target="video">plugin://service.library.data.provider?type=recommendedepispodes&amp;reload=$INFO[Window.Property(recommendedepisodes)]</content>
+	<content target="video">plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=$INFO[Window.Property(recommendedepisodes)]</content>
 	</include>
 
 	<include name="AlbumRecent">
@@ -436,7 +436,6 @@
 				</control>
 			</focusedlayout>
 			<include condition="System.HasAddon(service.library.data.provider) + StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31954])">EpisodeRecent</include>
-			<!--<include condition="System.HasAddon(script.tv.show.next.aired) + StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31956])">EpisodeNextAired</include>-->
 			<include condition="System.HasAddon(service.library.data.provider) + StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31955])">EpisodeRecommended</include>
 		</control>
 		<control type="group">
