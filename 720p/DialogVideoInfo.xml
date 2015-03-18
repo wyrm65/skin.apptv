@@ -498,13 +498,14 @@
 				<texturefocus>button-info-extras-focus.png</texturefocus>
 				<texturenofocus>button-info-extras.png</texturenofocus>
 				<onclick>RunScript(script.videoextras,display,"$INFO[ListItem.FilenameAndPath]")</onclick>
-				<visible>System.HasAddon(script.videoextras) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(TVShows) | Container.Content(musicvideos)]</visible>
+				<visible>System.HasAddon(script.videoextras) + !Container.Content(files) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(TVShows) | Container.Content(musicvideos)]</visible>
 				<align>center</align>
 				<aligny>top</aligny>
 				<textoffsetx>10</textoffsetx>
 				<textoffsety>60</textoffsety>
 			</control>
 			<control type="group" id="905">
+				<visible>!Container.Content(musicvideos)</visible>
 				<width>96</width>
 				<height>96</height>
 				<control type="button" id="5"><!-- Cast/Plot button -->
@@ -735,7 +736,7 @@
 					<height>146</height>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Thumb]</texture>
-					<visible>!(Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes))</visible>
+					<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
 				</control>
 				<control type="image">
 					<left>49</left>
@@ -755,7 +756,7 @@
 					<height>146</height>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Thumb]</texture>
-					<visible>!(Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes))</visible>
+					<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
 				</control>
 				<control type="image">
 					<left>49</left>
