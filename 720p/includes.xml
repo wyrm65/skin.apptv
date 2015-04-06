@@ -31,10 +31,10 @@
 	</include>
 	<include name="background">
 		<control type="group">
-			<visible>!Window.IsActive(fullscreenvideo)</visible><!-- Don't try to show background if Video screen is showing -->
+			<visible>!Window.IsVisible(fullscreenvideo)</visible><!-- Don't try to show background if Video screen is showing -->
 			<control type="image"><!-- Use a black background until background image has had a chance to load -->
 				<include>fullscreenimage</include>
-				<texture>colours/black.png</texture>
+				<texture>background.png</texture>
 				<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="group">
@@ -89,12 +89,12 @@
 
 	<include name="backgroundvideo">
 		<control type="group">
-			<visible>!Window.IsActive(fullscreenvideo)</visible><!-- Don't try to show background if Video screen is showing -->
+			<visible>!Window.IsVisible(fullscreenvideo)</visible><!-- Don't try to show background if Video screen is showing -->
 			<control type="group">
 				<visible>!Container().Scrolling</visible>
 				<animation effect="fade" start="0" end="100" time="400" delay="2600" tween="quadratic" easing="out">Visible</animation>
 				<control type="group">
-					<visible>![Skin.HasSetting(background-playingmedia) + Player.HasVideo] + !IsEmpty(ListItem.Title)</visible>
+					<visible>![Skin.HasSetting(background-playingmedia) + Player.HasVideo]</visible>
 					<control type="group">
 						<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos)]</visible>
 						<control type="image"><!-- Fallback background image -->
