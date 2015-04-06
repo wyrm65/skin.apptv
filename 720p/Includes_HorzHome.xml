@@ -63,7 +63,7 @@
 			<control type="group" id="9205"><!-- TV Shows icons -->
 				<visible>Control.HasFocus(9200) | Control.HasFocus(9210) | !IsEmpty(Window.Property(ShowTVShow))</visible>
 				<control type="group">
-					<visible>StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31953]) | !IntegerGreaterThan(Container(9210).NumItems,0)</visible>
+					<visible>StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31953]) | [![IntegerGreaterThan(Container(9210).NumItems,0)] + ![StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31953])]]</visible>
 					<control type="image">
 						<left>552</left>
 						<top>38</top>
@@ -80,7 +80,7 @@
 					</control>
 				</control>
 				<control type="group">
-					<visible>!StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31953])</visible>
+					<visible>StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31954]) | StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31955])</visible>
 					<include file="Includes_Shelf.xml">tvshow-shelficons</include>
 				</control>
 			</control>
@@ -702,7 +702,7 @@
 				</control>
 			</control>
 			<control type="group" id="9520"><!-- Broadcast sub menu -->
-				<visible>System.GetBool(pvrmanager.enabled) + [Skin.HasSetting(home-tv) | Skin.HasSetting(home-radio) | !IsEmpty(Skin.String(CustomTV.1.Path)) | !IsEmpty(Skin.String(CustomTV.2.Path)) | !IsEmpty(Skin.String(CustomTV.3.Path)) | !IsEmpty(Skin.String(CustomTV.4.Path)) | !IsEmpty(Skin.String(CustomTV.5.Path)) | !IsEmpty(Skin.String(CustomRadio.1.Path)) | !IsEmpty(Skin.String(CustomRadio.2.Path)) | !IsEmpty(Skin.String(CustomRadio.3.Path)) | !IsEmpty(Skin.String(CustomRadio.4.Path)) | !IsEmpty(Skin.String(CustomRadio.5.Path))]</visible>
+				<visible>[System.GetBool(pvrmanager.enabled) + Skin.HasSetting(home-tv)] | [System.GetBool(pvrmanager.enabled) + Skin.HasSetting(home-radio)] | !IsEmpty(Skin.String(CustomTV.1.Path)) | !IsEmpty(Skin.String(CustomTV.2.Path)) | !IsEmpty(Skin.String(CustomTV.3.Path)) | !IsEmpty(Skin.String(CustomTV.4.Path)) | !IsEmpty(Skin.String(CustomTV.5.Path)) | !IsEmpty(Skin.String(CustomRadio.1.Path)) | !IsEmpty(Skin.String(CustomRadio.2.Path)) | !IsEmpty(Skin.String(CustomRadio.3.Path)) | !IsEmpty(Skin.String(CustomRadio.4.Path)) | !IsEmpty(Skin.String(CustomRadio.5.Path))</visible>
 				<width>210</width>
 				<control type="image">
 					<left>0</left>
