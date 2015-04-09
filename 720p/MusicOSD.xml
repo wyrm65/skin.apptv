@@ -36,7 +36,7 @@
 			<control type="group" id="925">
 				<width>60</width>
 				<height>60</height>
-				<visible>true</visible>
+				<visible>Player.HasAudio</visible>
 				<control type="button" id="912">
 					<width>60</width>
 					<height>60</height>
@@ -49,44 +49,7 @@
 				<control type="image">
 					<width>60</width>
 					<height>60</height>
-					<texture>osd-btn-repeat.png</texture>
-					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
-					<visible>!Control.HasFocus(912)</visible>
-				</control>
-				<control type="image">
-					<width>60</width>
-					<height>60</height>
-					<texture>osd-btn-repeat-focus.png</texture>
-					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
-					<visible>Control.HasFocus(912)</visible>
-				</control>
-				<control type="image">
-					<width>60</width>
-					<height>60</height>
-					<texture>osd-btn-repeatone.png</texture>
-					<visible>Playlist.IsRepeatOne</visible>
-					<visible>!Control.HasFocus(912)</visible>
-				</control>
-				<control type="image">
-					<width>60</width>
-					<height>60</height>
-					<texture>osd-btn-repeatone-focus.png</texture>
-					<visible>Playlist.IsRepeatOne</visible>
-					<visible>Control.HasFocus(912)</visible>
-				</control>
-				<control type="image">
-					<width>60</width>
-					<height>60</height>
-					<texture>osd-btn-repeatall.png</texture>
-					<visible>Playlist.IsRepeat</visible>
-					<visible>!Control.HasFocus(912)</visible>
-				</control>
-				<control type="image">
-					<width>60</width>
-					<height>60</height>
-					<texture>osd-btn-repeatall-focus.png</texture>
-					<visible>Playlist.IsRepeat</visible>
-					<visible>Control.HasFocus(912)</visible>
+					<texture>$VAR[PlayerControlRepeatImage]</texture>
 				</control>
 			</control>
 			<control type="button" id="918">

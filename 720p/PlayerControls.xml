@@ -98,7 +98,7 @@
 			</control>
 			<control type="label">
 				<left>354</left>
-				<top>132</top>
+				<top>135</top>
 				<width>778</width>
 				<height>20</height>
 				<label>$INFO[MusicPlayer.Artist]</label>
@@ -107,7 +107,7 @@
 			</control>
 			<control type="label">
 				<left>354</left>
-				<top>160</top>
+				<top>162</top>
 				<width>778</width>
 				<height>20</height>
 				<label>$INFO[MusicPlayer.Album]</label>
@@ -209,49 +209,14 @@
 					<height>40</height>
 					<onleft>908</onleft>
 					<onright>217</onright>
+					<texturefocus>-</texturefocus>
+					<texturenofocus>-</texturenofocus>
 					<onclick>PlayerControl(Repeat)</onclick>
 				</control>
 				<control type="image">
 					<width>40</width>
 					<height>40</height>
-					<texture>osd-btn-repeat.png</texture>
-					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
-					<visible>!Control.HasFocus(912)</visible>
-				</control>
-				<control type="image">
-					<width>40</width>
-					<height>40</height>
-					<texture>osd-btn-repeat-focus.png</texture>
-					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
-					<visible>Control.HasFocus(912)</visible>
-				</control>
-				<control type="image">
-					<width>40</width>
-					<height>40</height>
-					<texture>osd-btn-repeatone.png</texture>
-					<visible>Playlist.IsRepeatOne</visible>
-					<visible>!Control.HasFocus(912)</visible>
-				</control>
-				<control type="image">
-					<width>40</width>
-					<height>40</height>
-					<texture>osd-btn-repeatone-focus.png</texture>
-					<visible>Playlist.IsRepeatOne</visible>
-					<visible>Control.HasFocus(912)</visible>
-				</control>
-				<control type="image">
-					<width>40</width>
-					<height>40</height>
-					<texture>osd-btn-repeatall.png</texture>
-					<visible>Playlist.IsRepeat</visible>
-					<visible>!Control.HasFocus(912)</visible>
-				</control>
-				<control type="image">
-					<width>40</width>
-					<height>40</height>
-					<texture>osd-btn-repeatall-focus.png</texture>
-					<visible>Playlist.IsRepeat</visible>
-					<visible>Control.HasFocus(912)</visible>
+					<texture>$VAR[PlayerControlRepeatImage]</texture>
 				</control>
 			</control>
 			<control type="image" id="930"><!-- Dummy -->

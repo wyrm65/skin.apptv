@@ -133,6 +133,14 @@
 		<value condition="!substring(ListItem.Duration,min)">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>
 		<value condition="substring(ListItem.Duration,min)">$INFO[ListItem.Duration]</value>
 	</variable>
+	<variable name="PlayerControlRepeatImage">
+		<value condition="Playlist.IsRepeatOne + Control.HasFocus(912)">osd-btn-repeatone-focus.png</value>
+		<value condition="Playlist.IsRepeat + Control.HasFocus(912)">osd-btn-repeatall-focus.png</value>
+		<value condition="Control.HasFocus(912)">osd-btn-repeat-focus.png</value>
+		<value condition="Playlist.IsRepeatOne">osd-btn-repeatone.png</value>
+		<value condition="Playlist.IsRepeat">osd-btn-repeatall.png</value>
+		<value>osd-btn-repeat.png</value>
+	</variable>
 	<variable name="PlayStateImage">
 		<value condition="Player.Paused + !Player.Seeking + !Player.DisplayAfterSeek">osd-btn-pause.png</value>
 		<value condition="Player.Forwarding">osd-btn-fastfwd.png</value>
