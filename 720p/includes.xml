@@ -96,7 +96,7 @@
 				<control type="group">
 					<visible>![Skin.HasSetting(background-playingmedia) + Player.HasVideo]</visible>
 					<control type="group">
-						<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos)]</visible>
+						<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos)] | !Skin.HasSetting(background-extrafanart) | IsEmpty(ListItem.Path)</visible>
 						<control type="image"><!-- Fallback background image -->
 							<include>fullscreenimage</include>
 							<aspectratio>stretch</aspectratio>
@@ -105,41 +105,42 @@
 						</control>
 					</control>
 					<control type="group">
-						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos)] + Skin.HasSetting(background-fanart)</visible>
-						<control type="multiimage" id="6300">
-							<include>fullscreenimage</include>
-							<randomize>true</randomize>
-							<timeperimage>6000</timeperimage>
-							<fadetime>200</fadetime>
-							<imagepath background="false">$INFO[ListItem.Path,,extrafanart/]</imagepath>
-							<aspectratio>stretch</aspectratio>
-							<visible>Skin.HasSetting(background-extrafanart) + Skin.HasSetting(background-fanart)</visible>
+						<visible>Skin.HasSetting(background-extrafanart) + !IsEmpty(ListItem.Path)</visible>
+						<control type="group">
+							<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos)] + Skin.HasSetting(background-fanart)</visible>
+							<control type="multiimage" id="6300">
+								<include>fullscreenimage</include>
+								<randomize>true</randomize>
+								<timeperimage>6000</timeperimage>
+								<fadetime>200</fadetime>
+								<imagepath background="false">$INFO[ListItem.Path,,extrafanart/]</imagepath>
+								<aspectratio>stretch</aspectratio>
+							</control>
+							<control type="image"><!-- Fallback background image -->
+								<include>fullscreenimage</include>
+								<aspectratio>stretch</aspectratio>
+								<fadetime>200</fadetime>
+								<texture background="false">$VAR[VideoBackgndImage]</texture>
+								<visible>IsEmpty(Control.GetLabel(6300))</visible>
+							</control>
 						</control>
-						<control type="image"><!-- Fallback background image -->
-							<include>fullscreenimage</include>
-							<aspectratio>stretch</aspectratio>
-							<fadetime>200</fadetime>
-							<texture background="false">$VAR[VideoBackgndImage]</texture>
-							<visible>!Skin.HasSetting(background-extrafanart) | IsEmpty(Control.GetLabel(6300))</visible>
-						</control>
-					</control>
-					<control type="group">
-						<visible>Container.Content(episodes)</visible>
-						<control type="multiimage" id="6340">
-							<include>fullscreenimage</include>
-							<randomize>true</randomize>
-							<timeperimage>6000</timeperimage>
-							<fadetime>200</fadetime>
-							<imagepath background="false">$INFO[ListItem.Path,,../extrafanart/]</imagepath>
-							<aspectratio>stretch</aspectratio>
-							<visible>Skin.HasSetting(background-extrafanart) + !Window.IsVisible(infodialog) + !IsEmpty(ListItem.Path)</visible>
-						</control>
-						<control type="image">
-							<include>fullscreenimage</include>
-							<texture background="false">$VAR[VideoBackgndImage]</texture>
-							<aspectratio>stretch</aspectratio>
-							<fadetime>200</fadetime>
-							<visible>!Skin.HasSetting(background-extrafanart) | IsEmpty(Control.GetLabel(6340))</visible>
+						<control type="group">
+							<visible>Container.Content(episodes)</visible>
+							<control type="multiimage" id="6340">
+								<include>fullscreenimage</include>
+								<randomize>true</randomize>
+								<timeperimage>6000</timeperimage>
+								<fadetime>200</fadetime>
+								<imagepath background="false">$INFO[ListItem.Path,,../extrafanart/]</imagepath>
+								<aspectratio>stretch</aspectratio>
+							</control>
+							<control type="image">
+								<include>fullscreenimage</include>
+								<texture background="false">$VAR[VideoBackgndImage]</texture>
+								<aspectratio>stretch</aspectratio>
+								<fadetime>200</fadetime>
+								<visible>IsEmpty(Control.GetLabel(6340))</visible>
+							</control>
 						</control>
 					</control>
 				</control>
