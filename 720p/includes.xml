@@ -404,7 +404,7 @@
 
 	<include name="SortLetterNotification">
 		<control type="group">
-			<visible>Container.Scrolling + !Window.IsVisible(progressdialog)</visible>
+			<visible>Container.Scrolling + !Window.IsVisible(progressdialog) + [Container.Content(TVshows) | Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | Container.Content(Movies)]</visible>
 			<animation effect="fade" time="200">Visible</animation>
 			<animation effect="fade" time="200" delay="500">Hidden</animation>
 			<left>598</left>
