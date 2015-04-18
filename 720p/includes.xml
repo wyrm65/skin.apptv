@@ -96,7 +96,7 @@
 				<control type="group">
 					<visible>![Skin.HasSetting(background-playingmedia) + Player.HasVideo]</visible>
 					<control type="group">
-						<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos)] | !Skin.HasSetting(background-extrafanart) | IsEmpty(ListItem.Path)</visible>
+						<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos)] | !Skin.HasSetting(background-extrafanart) | IsEmpty(ListItem.Path) | substring(Container.FolderPath,sources://)</visible>
 						<control type="image"><!-- Fallback background image -->
 							<include>fullscreenimage</include>
 							<aspectratio>stretch</aspectratio>
@@ -105,9 +105,9 @@
 						</control>
 					</control>
 					<control type="group">
-						<visible>Skin.HasSetting(background-extrafanart) + !IsEmpty(ListItem.Path)</visible>
+						<visible>Skin.HasSetting(background-extrafanart) + !IsEmpty(ListItem.Path) + ![substring(Container.FolderPath,sources://) | substring(ListItem.Path,special://videoplaylists/)]</visible>
 						<control type="group">
-							<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos)] + Skin.HasSetting(background-fanart)</visible>
+							<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos)] + !IsEmpty(ListItem.Path)</visible>
 							<control type="multiimage" id="6300">
 								<include>fullscreenimage</include>
 								<randomize>true</randomize>
@@ -125,7 +125,7 @@
 							</control>
 						</control>
 						<control type="group">
-							<visible>Container.Content(episodes)</visible>
+							<visible>Container.Content(episodes) + !IsEmpty(ListItem.Path) + ![substring(Container.FolderPath,sources://) | substring(ListItem.Path,special://videoplaylists/)]</visible>
 							<control type="multiimage" id="6340">
 								<include>fullscreenimage</include>
 								<randomize>true</randomize>
