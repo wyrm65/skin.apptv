@@ -634,8 +634,8 @@
 		</control>
 	</include>
 	<include name="PVRChannelListView">
-		<control type="group"><!-- TV guide channel -->
-			<!--<visible>Control.IsVisible(13)</visible>-->
+		<control type="group"><!-- TV/Radio channel listings -->
+			<visible>Control.IsVisible(13)</visible>
 			<control type="list" id="13">
 				<viewtype label="19029">List</viewtype>
 				<posx>678</posx>
@@ -655,7 +655,16 @@
 						<posy>11</posy>
 						<width>38</width>
 						<height>38</height>
-						<texture>$INFO[ListItem.Icon]</texture>
+						<texture fallback="DefaultTvshows.png">$INFO[ListItem.Icon]</texture>
+						<visible>IsEmpty(Window.Property(IsRadio))</visible>
+					</control>
+					<control type="image">
+						<posx>11</posx>
+						<posy>11</posy>
+						<width>38</width>
+						<height>38</height>
+						<texture fallback="icon-radio.png">$INFO[ListItem.Icon]</texture>
+						<visible>!IsEmpty(Window.Property(IsRadio))</visible>
 					</control>
 					<control type="label">
 						<posx>80</posx>
@@ -687,7 +696,16 @@
 						<posy>11</posy>
 						<width>38</width>
 						<height>38</height>
-						<texture>$INFO[ListItem.Icon]</texture>
+						<texture fallback="DefaultTvshows.png">$INFO[ListItem.Icon]</texture>
+						<visible>IsEmpty(Window.Property(IsRadio))</visible>
+					</control>
+					<control type="image">
+						<posx>11</posx>
+						<posy>11</posy>
+						<width>38</width>
+						<height>38</height>
+						<texture fallback="icon-radio.png">$INFO[ListItem.Icon]</texture>
+						<visible>!IsEmpty(Window.Property(IsRadio))</visible>
 					</control>
 					<control type="label">
 						<posx>80</posx>
@@ -886,8 +904,8 @@
 				</control>
 			</control>
 			<control type="scrollbar" id="27">
-				<posx>1244</posx>
-				<posy>150</posy>
+				<left>1244</left>
+				<top>150</top>
 				<width>18</width>
 				<height>500</height>
 				<onleft>14</onleft>
@@ -902,8 +920,8 @@
 			<visible>Control.IsVisible(50)</visible>
 			<control type="group">
 				<control type="list" id="50">
-					<posx>678</posx>
-					<posy>118</posy>
+					<left>678</left>
+					<top>118</top>
 					<width>552</width>
 					<height>560</height>
 					<onup>50</onup>
@@ -915,31 +933,40 @@
 					<pagecontrol>27</pagecontrol>
 					<itemlayout width="552" height="70">
 						<control type="image">
-							<posx>11</posx>
-							<posy>11</posy>
-							<width>38</width>
-							<height>38</height>
-							<texture>$INFO[ListItem.Icon]</texture>
+							<left>10</left>
+							<top>10</top>
+							<width>50</width>
+							<height>50</height>
+							<texture fallback="DefaultTvshows.png">$INFO[ListItem.Thumb]</texture>
+							<visible>IsEmpty(Window.Property(IsRadio))</visible>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<width>50</width>
+							<height>50</height>
+							<texture fallback="icon-radio.png">$INFO[ListItem.Thumb]</texture>
+							<visible>!IsEmpty(Window.Property(IsRadio))</visible>
 						</control>
 						<control type="label">
-							<posx>80</posx>
-							<posy>8</posy>
+							<left>80</left>
+							<top>8</top>
 							<width>482</width>
 							<height>24</height>
 							<font>font11</font>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
-							<posx>80</posx>
-							<posy>34</posy>
+							<left>80</left>
+							<top>34</top>
 							<width>280</width>
 							<height>24</height>
 							<font>font11</font>
 							<label>$INFO[ListItem.Label2]</label>
 						</control>
 						<control type="image">
-							<posx>-30</posx>
-							<posy>24</posy>
+							<left>-30</left>
+							<top>24</top>
 							<width>22</width>
 							<height>22</height>
 							<texture>$VAR[PVROverlay]</texture>
@@ -947,31 +974,40 @@
 					</itemlayout>
 					<focusedlayout width="552" height="70">
 						<control type="image">
-							<posx>11</posx>
-							<posy>11</posy>
-							<width>38</width>
-							<height>38</height>
-							<texture>$INFO[ListItem.Icon]</texture>
+							<left>10</left>
+							<top>10</top>
+							<width>50</width>
+							<height>50</height>
+							<texture fallback="DefaultTvshows.png">$INFO[ListItem.Thumb]</texture>
+							<visible>IsEmpty(Window.Property(IsRadio))</visible>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<width>50</width>
+							<height>50</height>
+							<texture fallback="icon-radio.png">$INFO[ListItem.Thumb]</texture>
+							<visible>!IsEmpty(Window.Property(IsRadio))</visible>
 						</control>
 						<control type="label">
-							<posx>80</posx>
-							<posy>8</posy>
+							<left>80</left>
+							<top>8</top>
 							<width>482</width>
 							<height>24</height>
 							<font>font11</font>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
-							<posx>80</posx>
-							<posy>34</posy>
+							<left>80</left>
+							<top>34</top>
 							<width>280</width>
 							<height>24</height>
 							<font>font11</font>
 							<label>$INFO[ListItem.Label2]</label>
 						</control>
 						<control type="image">
-							<posx>-30</posx>
-							<posy>24</posy>
+							<left>-30</left>
+							<top>24</top>
 							<width>22</width>
 							<height>22</height>
 							<texture>$VAR[PVROverlay]</texture>
@@ -1020,23 +1056,47 @@
 							<left>0</left>
 							<width>256</width>
 							<height>256</height>
-							<control type="image">
-								<left>186</left>
-								<width>256</width>
-								<height>256</height>
-								<texture fallback="DefaultTvshows.png" background="true" diffuse="mask-rect.png">$INFO[ListItem.Thumb]</texture>
-								<aspectratio scalediffuse="false">keep</aspectratio>
-								<aligny>top</aligny>
-								<visible>!IsEmpty(ListItem.Thumb)</visible>
+							<control type="group">
+								<visible>IsEmpty(Window.Property(IsRadio))</visible>
+								<control type="image">
+									<left>186</left>
+									<width>256</width>
+									<height>256</height>
+									<texture fallback="DefaultTvshows.png" background="true" diffuse="mask-rect.png">$INFO[ListItem.Thumb]</texture>
+									<aspectratio scalediffuse="false">keep</aspectratio>
+									<aligny>top</aligny>
+									<visible>!IsEmpty(ListItem.Thumb)</visible>
+								</control>
+								<control type="image">
+									<left>186</left>
+									<width>256</width>
+									<height>256</height>
+									<texture fallback="DefaultTvshows.png" background="true">$INFO[ListItem.Icon]</texture>
+									<aspectratio>keep</aspectratio>
+									<aligny>top</aligny>
+									<visible>IsEmpty(ListItem.Thumb) + !IsEmpty(ListItem.Icon)</visible>
+								</control>
 							</control>
-							<control type="image">
-								<left>186</left>
-								<width>256</width>
-								<height>256</height>
-								<texture fallback="DefaultTvshows.png" background="true">$INFO[ListItem.Icon]</texture>
-								<aspectratio>keep</aspectratio>
-								<aligny>top</aligny>
-								<visible>IsEmpty(ListItem.Thumb) + !IsEmpty(ListItem.Icon)</visible>
+							<control type="group">
+								<visible>!IsEmpty(Window.Property(IsRadio))</visible>
+								<control type="image">
+									<left>186</left>
+									<width>256</width>
+									<height>256</height>
+									<texture fallback="icon-radio.png" background="true" diffuse="mask-rect.png">$INFO[ListItem.Thumb]</texture>
+									<aspectratio scalediffuse="false">keep</aspectratio>
+									<aligny>top</aligny>
+									<visible>!IsEmpty(ListItem.Thumb)</visible>
+								</control>
+								<control type="image">
+									<left>186</left>
+									<width>256</width>
+									<height>256</height>
+									<texture fallback="icon-radio.png" background="true">$INFO[ListItem.Icon]</texture>
+									<aspectratio>keep</aspectratio>
+									<aligny>top</aligny>
+									<visible>IsEmpty(ListItem.Thumb) + !IsEmpty(ListItem.Icon)</visible>
+								</control>
 							</control>
 						</control>
 						<control type="group">
@@ -1091,8 +1151,8 @@
 					</control>
 				</control>
 				<control type="scrollbar" id="27">
-					<posx>1244</posx>
-					<posy>112</posy>
+					<left>1244</left>
+					<top>112</top>
 					<width>18</width>
 					<height>565</height>
 					<onleft>50</onleft>
@@ -1107,8 +1167,8 @@
 		<control type="group"><!-- TV search group -->
 			<visible>Control.IsVisible(17)</visible>
 			<control type="group">
-				<posx>80</posx>
-				<posy>90</posy>
+				<left>80</left>
+				<top>90</top>
 				<control type="label"><!-- Channel -->
 					<posx>20</posx>
 					<posy>20</posy>
@@ -1144,8 +1204,8 @@
 					<visible>Control.IsVisible(17)</visible>
 				</control>
 				<control type="image">
-					<posx>0</posx>
-					<posy>45</posy>
+					<left>0</left>
+					<top>45</top>
 					<width>1100</width>
 					<height>4</height>
 					<texture>separator.png</texture>
@@ -1153,8 +1213,8 @@
 				</control>
 			</control>
 			<control type="list" id="17">
-				<posx>48</posx>
-				<posy>146</posy>
+				<left>48</left>
+				<top>146</top>
 				<width>1160</width>
 				<height>506</height>
 				<onleft>9000</onleft>
@@ -1233,8 +1293,8 @@
 						<label>$INFO[ListItem.Date]</label>
 					</control>
 					<control type="image">
-						<posx>1056</posx>
-						<posy>7</posy>
+						<left>1056</left>
+						<top>7</top>
 						<width>32</width>
 						<height>32</height>
 						<texture>$VAR[PVROverlay]</texture>
@@ -1242,8 +1302,8 @@
 				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="27">
-				<posx>1244</posx>
-				<posy>146</posy>
+				<left>1244</left>
+				<top>146</top>
 				<width>18</width>
 				<height>506</height>
 				<onleft>17</onleft>
@@ -1258,8 +1318,8 @@
 			<visible>Control.IsVisible(560)</visible>
 			<control type="list" id="560">
 				<viewtype label="$LOCALIZE[4]">list</viewtype>
-				<posx>70</posx>
-				<posy>75</posy>
+				<left>70</left>
+				<top>75</top>
 				<width>760</width>
 				<height>561</height>
 				<onleft>2</onleft>
@@ -1317,8 +1377,8 @@
 				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="60">
-				<posx>854</posx>
-				<posy>78</posy>
+				<left>854</left>
+				<top>78</top>
 				<width>18</width>
 				<height>560</height>
 				<onleft>560</onleft>
@@ -1327,11 +1387,11 @@
 			</control>
 			<control type="group">
 				<visible>Control.IsVisible(560)</visible>
-				<posx>910</posx>
-				<posy>80</posy>
+				<left>910</left>
+				<top>80</top>
 				<control type="image">
-					<posx>10</posx>
-					<posy>0</posy>
+					<left>10</left>
+					<top>0</top>
 					<width>290</width>
 					<height>290</height>
 					<aspectratio aligny="bottom">keep</aspectratio>
@@ -1339,8 +1399,8 @@
 					<texture background="true">$INFO[ListItem.Icon]</texture>
 				</control>
 				<control type="fadelabel">
-					<posx>10</posx>
-					<posy>300</posy>
+					<left>10</left>
+					<top>300</top>
 					<width>290</width>
 					<height>25</height>
 					<label>$INFO[ListItem.Label2]</label>
@@ -1349,8 +1409,8 @@
 					<pauseatend>1000</pauseatend>
 				</control>
 				<control type="textbox"><!-- TV show description -->
-					<posx>10</posx>
-					<posy>330</posy>
+					<left>10</left>
+					<top>330</top>
 					<width>290</width>
 					<height>220</height>
 					<font>font12</font>
