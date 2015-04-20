@@ -129,6 +129,12 @@
 		<value condition="Container.Content(tvshows)">$INFO[ListItem.DBID,special://profile/addon_data/script.videoextras/tvshows/,.png]</value>
 		<value condition="Container.Content(musicvideos)">$INFO[ListItem.DBID,special://profile/addon_data/script.videoextras/musicvideos/,.png]</value>
 	</variable>
+	<variable name="ListItemFlags">
+		<value condition="ListItem.IsStereoscopic">listitem/3D.png</value>
+		<value condition="!IsEmpty(ListItem.VideoResolution) + IntegerGreaterThan(ListItem.VideoResolution,2000)">listitem/4K.png</value>
+		<value condition="!IsEmpty(ListItem.VideoResolution) + IntegerGreaterThan(ListItem.VideoResolution,700)">listitem/HD.png</value>
+		<value condition="!IsEmpty(ListItem.VideoResolution)">listitem/SD.PNG</value>
+	</variable>
 	<variable name="VideoDuration">
 		<value condition="!substring(ListItem.Duration,min)">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>
 		<value condition="substring(ListItem.Duration,min)">$INFO[ListItem.Duration]</value>
