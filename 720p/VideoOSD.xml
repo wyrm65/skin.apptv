@@ -126,6 +126,20 @@
 				<height>64</height>
 				<texture>-</texture>
 			</control>
+			<control type="button" id="916"><!-- Volume Up -->
+				<width>64</width>
+				<height>64</height>
+				<texturefocus>osd-btn-volumeup-focus.png</texturefocus>
+				<texturenofocus>osd-btn-volumeup.png</texturenofocus>
+				<onclick>VolumeUp</onclick>
+			</control>
+			<control type="button" id="917"><!-- Volume Down -->
+				<width>64</width>
+				<height>64</height>
+				<texturefocus>osd-btn-volumedown-focus.png</texturefocus>
+				<texturenofocus>osd-btn-volumedown.png</texturenofocus>
+				<onclick>VolumeDown</onclick>
+			</control>
 			<control type="button" id="217"><!-- Eject DVD -->
 				<width>64</width>
 				<height>64</height>
@@ -332,13 +346,21 @@
 				<onclick>PlayerControl(record)</onclick>
 				<visible>Player.CanRecord + !Player.Recording</visible>
 			</control>
+			<control type="button" id="910">
+				<width>64</width>
+				<height>64</height>
+				<texturefocus>osd-btn-rec-recording-focus.png</texturefocus>
+				<texturenofocus>osd-btn-rec-recording.png</texturenofocus>
+				<onclick>PlayerControl(record)</onclick>
+				<visible>Player.CanRecord + Player.Recording</visible>
+			</control>
 			<control type="button" id="912"><!-- EPG Menu -->
 				<width>64</width>
 				<height>64</height>
 				<texturefocus>osd-btn-guide-focus.png</texturefocus>
 				<texturenofocus>osd-btn-guide.png</texturenofocus>
 				<onclick>ActivateWindow(tvguide)</onclick>
-				<visible>VideoPlayer.Content(LiveTV)</visible>
+				<visible>VideoPlayer.HasEpg</visible>
 			</control>
 			<control type="button" id="913"><!-- Teletext -->
 				<width>64</width>
@@ -355,14 +377,6 @@
 				<texturenofocus>osd-btn-3D.png</texturenofocus>
 				<onclick>ActivateWindow(Custom_3DDialogSelect.xml)</onclick>
 				<visible>VideoPlayer.IsStereoscopic</visible>
-			</control>
-			<control type="button" id="910">
-				<width>64</width>
-				<height>64</height>
-				<texturefocus>osd-btn-rec-recording-focus.png</texturefocus>
-				<texturenofocus>osd-btn-rec-recording.png</texturenofocus>
-				<onclick>PlayerControl(record)</onclick>
-				<visible>Player.CanRecord + Player.Recording</visible>
 			</control>
 			<control type="button" id="921"><!-- Audio menu -->
 				<width>64</width>
