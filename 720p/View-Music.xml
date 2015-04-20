@@ -341,7 +341,6 @@
 				<align>center</align>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
-				<textoffsetx>0</textoffsetx>
 				<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 			</control>
 			<control type="label">
@@ -353,7 +352,6 @@
 				<align>center</align>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
-				<textoffsetx>0</textoffsetx>
 				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 			</control>
 			<control type="image"><!-- Star Rating -->
@@ -373,7 +371,6 @@
 				<align>center</align>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Genre]</label>
-				<textoffsetx>0</textoffsetx>
 				<visible>!Container.Content(genres)</visible>
 			</control>
 		</control>
@@ -381,8 +378,8 @@
 	<include name="AlbumCoverflow">
 		<control type="wraplist" id="57">
 			<viewtype label="31945">Wraplist</viewtype>
-			<posx>-141</posx>
-			<posy>187</posy>
+			<left>-141</left>
+			<top>187</top>
 			<width>1416</width>
 			<height>525</height>
 			<onleft>57</onleft>
@@ -398,14 +395,14 @@
 			<focusedlayout height="410" width="320"></focusedlayout>
 		</control>
 		<control type="group" id="3011">
-			<posx>10</posx>
-			<posy>260</posy>
+			<left>10</left>
+			<top>260</top>
 			<camera x="640" y="360" />
 			<visible>Control.IsVisible(57) + Container.OnNext</visible>
 			<animation effect="slide" end="-50,0" time="200" reversible="false">Hidden</animation>
 			<control type="image">
-				<posx>0</posx>
-				<posy>0</posy>
+				<left>0</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(-5).Icon]</texture>
@@ -413,8 +410,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,10) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,9) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>88</posx>
-				<posy>0</posy>
+				<left>88</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(-4).Icon]</texture>
@@ -422,8 +419,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,8) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,7) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>177</posx>
-				<posy>0</posy>
+				<left>177</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(-3).Icon]</texture>
@@ -431,8 +428,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,6) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,5) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>265</posx>
-				<posy>0</posy>
+				<left>265</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(-2).Icon]</texture>
@@ -440,8 +437,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,4) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,3) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>1008</posx>
-				<posy>0</posy>
+				<left>1008</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(4).Icon]</texture>
@@ -449,8 +446,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,7) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,6) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>920</posx>
-				<posy>0</posy>
+				<left>920</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(3).Icon]</texture>
@@ -458,8 +455,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,5) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,4) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>831</posx>
-				<posy>0</posy>
+				<left>831</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(2).Icon]</texture>
@@ -467,8 +464,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,3) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,2) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>743</posx>
-				<posy>0</posy>
+				<left>743</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(1).Icon]</texture>
@@ -479,8 +476,8 @@
 				<visible>Control.IsVisible(57) + Container.OnNext</visible>
 				<animation effect="slide" end="-60,0" time="200" reversible="false">Hidden</animation>
 				<control type="image">
-					<posx>460</posx>
-					<posy>0</posy>
+					<left>460</left>
+					<top>0</top>
 					<width>288</width>
 					<height>288</height>
 					<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(-1).Icon]</texture>
@@ -489,8 +486,8 @@
 					<visible>[IntegerGreaterThan(Container(57).NumItems,2) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,1) + system.getbool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
-					<posx>654</posx>
-					<posy>0</posy>
+					<left>654</left>
+					<top>0</top>
 					<width>288</width>
 					<height>288</height>
 					<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(0).Icon]</texture>
@@ -501,14 +498,14 @@
 			</control>
 		</control>
 		<control type="group" id="3012">
-			<posx>10</posx>
-			<posy>260</posy>
+			<left>10</left>
+			<top>260</top>
 			<camera x="640" y="360" />
 			<visible>Control.IsVisible(57) + Container.OnPrevious</visible>
 			<animation effect="slide" end="50,0" time="200" reversible="false">Hidden</animation>
 			<control type="image">
-				<posx>-88</posx>
-				<posy>0</posy>
+				<left>-88</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(-4).Icon]</texture>
@@ -516,8 +513,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,8) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,7) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>0</posx>
-				<posy>0</posy>
+				<left>0</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(-3).Icon]</texture>
@@ -525,8 +522,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,6) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,5) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>88</posx>
-				<posy>0</posy>
+				<left>88</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(-2).Icon]</texture>
@@ -534,8 +531,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,4) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,3) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>177</posx>
-				<posy>0</posy>
+				<left>177</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(-1).Icon]</texture>
@@ -543,8 +540,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,2) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,1) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>920</posx>
-				<posy>0</posy>
+				<left>920</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(5).Icon]</texture>
@@ -552,8 +549,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,9) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,8) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>831</posx>
-				<posy>0</posy>
+				<left>831</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(4).Icon]</texture>
@@ -561,8 +558,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,7) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,6) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>743</posx>
-				<posy>0</posy>
+				<left>743</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(3).Icon]</texture>
@@ -570,8 +567,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,5) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,4) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>654</posx>
-				<posy>0</posy>
+				<left>654</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(2).Icon]</texture>
@@ -582,8 +579,8 @@
 				<visible>Control.IsVisible(57) + Container.OnPrevious</visible>
 				<animation effect="slide" end="60,0" time="200" reversible="false">Hidden</animation>
 				<control type="image">
-					<posx>460</posx>
-					<posy>0</posy>
+					<left>460</left>
+					<top>0</top>
 					<width>288</width>
 					<height>288</height>
 					<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(1).Icon]</texture>
@@ -592,8 +589,8 @@
 					<visible>[IntegerGreaterThan(Container(57).NumItems,1) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,0) + system.getbool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
-					<posx>265</posx>
-					<posy>0</posy>
+					<left>265</left>
+					<top>0</top>
 					<width>288</width>
 					<height>288</height>
 					<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(0).Icon]</texture>
@@ -604,13 +601,13 @@
 			</control>
 		</control>
 		<control type="group" id="3010">
-			<posx>10</posx>
-			<posy>260</posy>
+			<left>10</left>
+			<top>260</top>
 			<camera x="640" y="360" />
 			<visible>Control.IsVisible(57) + !Control.IsVisible(3011)  + !Control.IsVisible(3012)</visible>
 			<control type="image">
-				<posx>0</posx>
-				<posy>0</posy>
+				<left>0</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(-4).Icon]</texture>
@@ -618,8 +615,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,8) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,7) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>88</posx>
-				<posy>0</posy>
+				<left>88</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(-3).Icon]</texture>
@@ -627,8 +624,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,6) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,5) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>177</posx>
-				<posy>0</posy>
+				<left>177</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(-2).Icon]</texture>
@@ -636,8 +633,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,4) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,3) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>265</posx>
-				<posy>0</posy>
+				<left>265</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(-1).Icon]</texture>
@@ -645,8 +642,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,2) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,1) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>920</posx>
-				<posy>0</posy>
+				<left>920</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(4).Icon]</texture>
@@ -654,8 +651,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,7) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,6) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>831</posx>
-				<posy>0</posy>
+				<left>831</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(3).Icon]</texture>
@@ -663,8 +660,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,5) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,4) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>743</posx>
-				<posy>0</posy>
+				<left>743</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(2).Icon]</texture>
@@ -672,8 +669,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,3) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,2) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>654</posx>
-				<posy>0</posy>
+				<left>654</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<texture background="true" fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[ListItem(1).Icon]</texture>
@@ -681,8 +678,8 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,1) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,0) + system.getbool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<posx>477</posx>
-				<posy>0</posy>
+				<left>477</left>
+				<top>0</top>
 				<width>288</width>
 				<height>288</height>
 				<aspectratio>stretch</aspectratio>
@@ -694,8 +691,8 @@
 			<visible>Control.IsVisible(57)</visible>
 			<include>SortLetterNotification</include>
 			<control type="scrollbar" id="1257"><!-- Scroll Bar -->
-				<posx>17</posx>
-				<posy>590</posy>
+				<left>17</left>
+				<top>590</top>
 				<width>1239</width>
 				<height>18</height>
 				<onup>57</onup>
@@ -704,58 +701,54 @@
 				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + [[IntegerGreaterThan(Container(57).NumItems,10) + !system.getbool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,9) + system.getbool(filelists.showparentdiritems)]]</visible>
 			</control>
 			<control type="label"><!-- Go Back -->
-				<posx>26</posx>
-				<posy>618</posy>
+				<left>26</left>
+				<top>618</top>
 				<width>1221</width>
 				<height>37</height>
 				<font>font20</font>
 				<align>center</align>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
-				<textoffsetx>0</textoffsetx>
 				<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 			</control>
 			<control type="group">
 				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 				<control type="label"><!-- Artist & Album name-->
-					<posx>26</posx>
-					<posy>618</posy>
+					<left>26</left>
+					<top>618</top>
 					<width>1221</width>
 					<height>37</height>
 					<font>font20</font>
 					<align>center</align>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Artist,, - ]$INFO[ListItem.Label]</label>
-					<textoffsetx>0</textoffsetx>
 					<visible>ListItem.IsFolder</visible>
 				</control>
 				<control type="label"><!-- Track name-->
-					<posx>26</posx>
-					<posy>618</posy>
+					<left>26</left>
+					<top>618</top>
 					<width>1221</width>
 					<height>37</height>
 					<font>font20</font>
 					<align>center</align>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Label]</label>
-					<textoffsetx>0</textoffsetx>
 					<visible>!ListItem.IsFolder</visible>
 				</control>
 				<control type="label"><!-- Genre -->
-					<posx>194</posx>
-					<posy>668</posy>
+					<left>194</left>
+					<top>668</top>
 					<width>885</width>
 					<height>37</height>
 					<font>font18</font>
 					<align>center</align>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Genre]</label>
-					<textoffsetx>0</textoffsetx>
 					<visible>!Container.Content(genres)</visible>
 				</control>
 				<control type="image"><!-- Star Rating -->
-					<posx>35</posx>
-					<posy>681</posy>
+					<left>35</left>
+					<top>681</top>
 					<width>177</width>
 					<height>25</height>
 					<texture>$VAR[MediaRating]</texture>
@@ -766,8 +759,8 @@
 	</include>
 	<include name="AudioWallView">
 		<control type="panel" id="58">
-			<posx>136</posx>
-			<posy>137</posy>
+			<left>136</left>
+			<top>137</top>
 			<width>1008</width>
 			<height>432</height>
 			<onleft>9000</onleft>
@@ -785,8 +778,8 @@
 			<preloaditems>2</preloaditems>
 			<itemlayout height="144" width="144">
 				<control type="image">
-					<posx>8</posx>
-					<posy>8</posy>
+					<left>8</left>
+					<top>8</top>
 					<width>128</width>
 					<height>128</height>
 					<aspectratio>stretch</aspectratio>
@@ -796,8 +789,8 @@
 			</itemlayout>
 			<focusedlayout height="144" width="144">
 				<control type="image">
-					<posx>8</posx>
-					<posy>8</posy>
+					<left>8</left>
+					<top>8</top>
 					<width>128</width>
 					<height>128</height>
 					<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
@@ -808,8 +801,8 @@
 					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
 				</control>
 				<control type="image">
-					<posx>8</posx>
-					<posy>8</posy>
+					<left>8</left>
+					<top>8</top>
 					<width>128</width>
 					<height>128</height>
 					<animation effect="zoom" start="90" end="150" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
@@ -821,65 +814,61 @@
 		<control type="group">
 			<visible>Control.IsVisible(58)</visible>
 			<control type="label"><!-- Go Back -->
-				<posx>26</posx>
-				<posy>645</posy>
+				<left>26</left>
+				<top>645</top>
 				<width>1221</width>
 				<height>37</height>
 				<font>font20</font>
 				<align>center</align>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
-				<textoffsetx>0</textoffsetx>
 				<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 			</control>
 			<control type="group">
 				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 				<control type="label"><!-- Artist & Album name-->
-					<posx>26</posx>
-					<posy>640</posy>
+					<left>26</left>
+					<top>640</top>
 					<width>1228</width>
 					<height>36</height>
 					<font>font20</font>
 					<align>center</align>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Artist,, - ]$INFO[ListItem.Album]</label>
-					<textoffsetx>0</textoffsetx>
 					<visible>Container.Content(albums)</visible>
 				</control>
 				<control type="label"><!-- Track name-->
-					<posx>26</posx>
-					<posy>645</posy>
+					<left>26</left>
+					<top>645</top>
 					<width>1221</width>
 					<height>37</height>
 					<font>font20</font>
 					<align>center</align>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Label]</label>
-					<textoffsetx>0</textoffsetx>
 					<visible>Container.Content(songs)</visible>
 				</control>
 				<control type="image"><!-- Star Rating -->
-					<posx>26</posx>
-					<posy>685</posy>
+					<left>26</left>
+					<top>685</top>
 					<width>177</width>
 					<height>25</height>
 					<texture>$VAR[MediaRating]</texture>
 				</control>
 				<control type="label"><!-- Genre -->
-					<posx>240</posx>
-					<posy>685</posy>
+					<left>240</left>
+					<top>685</top>
 					<width>800</width>
 					<height>37</height>
 					<align>center</align>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Genre]</label>
-					<textoffsetx>0</textoffsetx>
 					<visible>!Container.Content(genres)</visible>
 				</control>
 			</control>
 			<control type="scrollbar" id="1258">
-				<posx>1244</posx>
-				<posy>112</posy>
+				<left>1244</left>
+				<top>112</top>
 				<width>18</width>
 				<height>490</height>
 				<onleft>58</onleft>
