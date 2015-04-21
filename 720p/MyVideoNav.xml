@@ -5,6 +5,8 @@
 	<allowoverlay>yes</allowoverlay>
 	<previouswindow>Home</previouswindow>
 	<views>50,52,53,54,57,58,560</views>
+	<onload>ClearProperty(ShowScreenSettings,Home)</onload>
+	<onunload>ClearProperty(ShowScreenSettings,Home)</onunload>
 	<include>screen-fade</include>
 	<controls>
 		<visible>!Window.IsVisible(movieinformation)</visible>
@@ -66,16 +68,32 @@
 			<include>fadebackground</include>
 			<control type="image"><!-- Button background -->
 				<left>440</left>
-				<top>32</top>
+				<top>46</top>
 				<width>396</width>
-				<height>640</height>
+				<height>628</height>
 				<texture border="8">button-menu-background.png</texture>
+			</control>
+			<control type="label"><!-- Dialog heading -->
+				<left>450</left>
+				<top>56</top>
+				<width>376</width>
+				<height>34</height>
+				<font>font12</font>
+				<label>$LOCALIZE[31557]</label>
+				<align>center</align>
+			</control>
+			<control type="image">
+				<left>450</left>
+				<top>92</top>
+				<width>376</width>
+				<height>4</height>
+				<texture>separator.png</texture>
 			</control>
 			<control type="grouplist" id="9000">
 				<left>450</left>
-				<top>40</top>
+				<top>104</top>
 				<width>376</width>
-				<height>624</height>
+				<height>528</height>
 				<onright>50</onright>
 				<onleft>50</onleft>
 				<itemgap>0</itemgap>

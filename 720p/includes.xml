@@ -568,7 +568,7 @@
 	
 	<include name="Screen-settings">
 		<animation effect="slide" time="0" start="0,0" end="0,-720">Visible</animation>
-		<visible allowhiddenfocus="true">[ControlGroup(9000).HasFocus() | Control.HasFocus(9001) | Control.HasFocus(9002)] + !Skin.HasSetting(lock-screensettings)</visible>
+		<visible allowhiddenfocus="true">[ControlGroup(9000).HasFocus() | StringCompare(Window(Home).Property(ShowScreenSettings),show)] + !Skin.HasSetting(lock-screensettings)</visible>
 	</include>
 
 </includes>
