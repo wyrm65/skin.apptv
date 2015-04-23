@@ -29,6 +29,16 @@
 				<width>212</width>
 				<height>150</height>
 			</control>
+			<control type="button"><!-- Touch button for Fullscreen -->
+				<left>150</left>
+				<top>137</top>
+				<width>212</width>
+				<height>150</height>
+				<texturefocus>-</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<onclick>Fullscreen</onclick>
+				<visible>system.getbool(input.enablemouse)</visible>
+			</control>
 			<control type="label"><!-- Now playing -->
 				<left>354</left>
 				<top>137</top>
@@ -85,9 +95,9 @@
  		<control type="group">
 			<visible>Player.HasAudio</visible>
 			<control type="image">
-				<left>132</left>
+				<left>164</left>
 				<top>137</top>
-				<width>212</width>
+				<width>150</width>
 				<height>150</height>
 				<align>left</align>
 				<aligny>bottom</aligny>
@@ -95,6 +105,16 @@
 				<texture fallback="DefaultAudio.png">$INFO[MusicPlayer.Cover]</texture>
 				<aspectratio>keep</aspectratio>
 				<visible>!Window.IsActive(visualisation)</visible>
+			</control>
+			<control type="button"><!-- Touch button for Fullscreen -->
+				<left>164</left>
+				<top>137</top>
+				<width>150</width>
+				<height>150</height>
+				<texturefocus>-</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<onclick>Fullscreen</onclick>
+				<visible>system.getbool(input.enablemouse)</visible>
 			</control>
 			<control type="label">
 				<left>354</left>
