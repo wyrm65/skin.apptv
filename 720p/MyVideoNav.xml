@@ -82,6 +82,17 @@
 				<label>$LOCALIZE[31557]</label>
 				<align>center</align>
 			</control>
+			<control type="button"><!-- Touch Close button -->
+				<left>814</left>
+				<top>38</top>
+				<width>32</width>
+				<height>32</height>
+				<texturefocus>touch-close.png</texturefocus>
+				<texturenofocus>touch-close.png</texturenofocus>
+				<onclick condition="!StringCompare(Window(Home).Property(ShowScreenSettings),show)">SetProperty(ShowScreenSettings,show,Home)</onclick>
+				<onclick condition="StringCompare(Window(Home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,Home)</onclick>
+				<visible>system.getbool(input.enablemouse)</visible>
+			</control>
 			<control type="image">
 				<left>450</left>
 				<top>92</top>
@@ -227,5 +238,8 @@
 				</control>
 			</control>
 		</control>
+
+		<include>touch-controls</include>
+
 	</controls>
 </window>
