@@ -5,20 +5,22 @@
 	<include>screen-fade</include>
 	<previouswindow>Home</previouswindow>
 	<views>50,54,57,58</views>
+	<onload>ClearProperty(ShowScreenSettings,Home)</onload>
+	<onunload>ClearProperty(ShowScreenSettings,Home)</onunload>
 	<controls>
 		<include>background</include>
 		<include>Fake-Overlay</include>
 		<control type="grouplist">
-			<left>946</left>
-			<top>35</top>
+			<left>780</left>
+			<top>20</top>
 			<width>auto</width>
 			<height>72</height>
 			<align>left</align>
 			<aligny>center</aligny>
 			<orientation>horizontal</orientation>
 			<control type="label"><!-- Music screen heading -->
-				<width max="256">auto</width>
-				<height>72</height>
+				<width max="400">auto</width>
+				<height>62</height>
 				<label>$VAR[MusicHeadings]</label>
 				<font>font18</font>
 				<wrapmultiline>true</wrapmultiline>
@@ -44,16 +46,43 @@
 			<include>fadebackground</include>
 			<control type="image"><!-- Button background -->
 				<left>460</left>
-				<top>90</top>
+				<top>40</top>
 				<width>396</width>
-				<height>550</height>
+				<height>650</height>
 				<texture border="8">button-menu-background.png</texture>
+			</control>
+			<control type="label"><!-- Dialog heading -->
+				<left>472</left>
+				<top>56</top>
+				<width>372</width>
+				<height>34</height>
+				<font>font12</font>
+				<label>$LOCALIZE[31557]</label>
+				<align>center</align>
+			</control>
+			<control type="button"><!-- Touch Close button -->
+				<left>834</left>
+				<top>32</top>
+				<width>32</width>
+				<height>32</height>
+				<texturefocus>touch-close.png</texturefocus>
+				<texturenofocus>touch-close.png</texturenofocus>
+				<onclick condition="!StringCompare(Window(Home).Property(ShowScreenSettings),show)">SetProperty(ShowScreenSettings,show,Home)</onclick>
+				<onclick condition="StringCompare(Window(Home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,Home)</onclick>
+				<visible>system.getbool(input.enablemouse)</visible>
+			</control>
+			<control type="image">
+				<left>472</left>
+				<top>92</top>
+				<width>372</width>
+				<height>4</height>
+				<texture>separator.png</texture>
 			</control>
 			<control type="grouplist" id="9000">
 				<left>472</left>
 				<top>100</top>
 				<width>372</width>
-				<height>528</height>
+				<height>576</height>
 				<onright>50</onright>
 				<onleft>50</onleft>
 				<itemgap>0</itemgap>
@@ -192,5 +221,8 @@
 				</control>
 			</control>
 		</control>
+
+		<include>touch-controls</include>
+
 	</controls>
 </window>

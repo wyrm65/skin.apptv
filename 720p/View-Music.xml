@@ -759,10 +759,10 @@
 	</include>
 	<include name="AudioWallView">
 		<control type="panel" id="58">
-			<left>136</left>
-			<top>137</top>
-			<width>1008</width>
-			<height>432</height>
+			<left>510</left>
+			<top>110</top>
+			<width>720</width>
+			<height>576</height>
 			<onleft>9000</onleft>
 			<onright>1258</onright>
 			<onup>58</onup>
@@ -814,63 +814,122 @@
 		<control type="group">
 			<visible>Control.IsVisible(58)</visible>
 			<control type="label"><!-- Go Back -->
-				<left>26</left>
-				<top>645</top>
-				<width>1221</width>
+				<left>10</left>
+				<top>110</top>
+				<width>490</width>
 				<height>37</height>
-				<font>font20</font>
-				<align>center</align>
+				<font>font13</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 			</control>
-			<control type="group">
+			<control type="grouplist">
+				<left>20</left>
+				<top>110</top>
+				<width>490</width>
+				<height>576</height>
+				<itemgap>0</itemgap>
 				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
-				<control type="label"><!-- Artist & Album name-->
-					<left>26</left>
-					<top>640</top>
-					<width>1228</width>
-					<height>36</height>
-					<font>font20</font>
-					<align>center</align>
+				<control type="label"><!-- Album name-->
+					<width>470</width>
+					<height>46</height>
+					<font>font12</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<label>$INFO[ListItem.Artist,, - ]$INFO[ListItem.Album]</label>
+					<label>$INFO[ListItem.Album]</label>
+					<wrapmultiline>true</wrapmultiline>
 					<visible>Container.Content(albums)</visible>
 				</control>
-				<control type="label"><!-- Track name-->
-					<left>26</left>
-					<top>645</top>
-					<width>1221</width>
-					<height>37</height>
-					<font>font20</font>
-					<align>center</align>
+				<control type="image"><!-- dummy blank space -->
+					<width>10</width>
+					<height>10</height>
+					<texture>blank.png</texture>
+					<visible>!IsEmpty(ListItem.Album)</visible>
+				</control>
+				<control type="label"><!-- Artist name-->
+					<width>470</width>
+					<height>44</height>
+					<font>font11</font>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					<label>$INFO[ListItem.Artist]</label>
+					<wrapmultiline>true</wrapmultiline>
+					<visible>!IsEmpty(ListItem.Artist)</visible>
+				</control>
+				<control type="image"><!-- dummy blank space -->
+					<width>10</width>
+					<height>10</height>
+					<texture>blank.png</texture>
+					<visible>!IsEmpty(ListItem.Artist)</visible>
+				</control>
+				<control type="label"><!-- Track name/Listitem label-->
+					<width>470</width>
+					<height>44</height>
+					<font>font11</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Label]</label>
-					<visible>Container.Content(songs)</visible>
+					<wrapmultiline>true</wrapmultiline>
+					<visible>!Container.Content(albums)</visible>
 				</control>
-				<control type="image"><!-- Star Rating -->
-					<left>26</left>
-					<top>685</top>
-					<width>177</width>
-					<height>25</height>
-					<texture>$VAR[MediaRating]</texture>
+				<control type="image"><!-- dummy blank space -->
+					<width>10</width>
+					<height>10</height>
+					<texture>blank.png</texture>
+					<visible>!Container.Content(albums)</visible>
 				</control>
 				<control type="label"><!-- Genre -->
-					<left>240</left>
-					<top>685</top>
-					<width>800</width>
-					<height>37</height>
-					<align>center</align>
+					<width>470</width>
+					<height>20</height>
+					<font>font10</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Genre]</label>
 					<visible>!Container.Content(genres)</visible>
 				</control>
+				<control type="image"><!-- dummy blank space -->
+					<width>10</width>
+					<height>10</height>
+					<texture>blank.png</texture>
+					<visible>!IsEmpty(ListItem.Genre)</visible>
+				</control>
+				<control type="image"><!-- Star Rating -->
+					<width>177</width>
+					<height>25</height>
+					<texture>$VAR[MediaRating]</texture>
+				</control>
+				<control type="image"><!-- dummy blank space -->
+					<width>10</width>
+					<height>10</height>
+					<texture>blank.png</texture>
+					<visible>Container.Content(albums) + !IsEmpty(ListItem.Property(Album_Description))</visible>
+				</control>
+				<control type="textbox"><!-- Album description -->
+					<width>470</width>
+					<height>354</height>
+					<font>font11</font>
+					<label>$INFO[ListItem.Property(Album_Description)]</label>
+					<align>justify</align>
+					<autoscroll time="2000" delay="3000" repeat="6000">Skin.HasSetting(text-autoscroll)</autoscroll>
+					<visible>Container.Content(albums)</visible>
+				</control>
+				<control type="image"><!-- dummy blank space -->
+					<width>10</width>
+					<height>10</height>
+					<texture>blank.png</texture>
+					<visible>!Container.Content(albums) + !IsEmpty(ListItem.Property(Artist_Description))</visible>
+				</control>
+				<control type="textbox"><!-- Artist description -->
+					<width>470</width>
+					<height>354</height>
+					<font>font11</font>
+					<label>$INFO[ListItem.Property(Artist_Description)]</label>
+					<align>justify</align>
+					<autoscroll time="2000" delay="3000" repeat="6000">Skin.HasSetting(text-autoscroll)</autoscroll>
+					<visible>!Container.Content(albums)</visible>
+				</control>
 			</control>
 			<control type="scrollbar" id="1258">
 				<left>1244</left>
-				<top>112</top>
+				<top>90</top>
 				<width>18</width>
-				<height>490</height>
+				<height>576</height>
 				<onleft>58</onleft>
 				<animation condition="!Control.HasFocus(1258) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
