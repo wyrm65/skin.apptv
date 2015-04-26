@@ -9,13 +9,6 @@
 	<include>screen-fade</include>
 	<controls>
 		<include>fadebackground</include>
-		<control type="button" id="998"><!-- Dummy hidden button to close dialog -->
-			<left>-10</left>
-			<top>-10</top>
-			<width>1</width>
-			<height>1</height>
-			<onfocus>Dialog.Close(1154)</onfocus>
-		</control>
 			<control type="group">
 				<left>337</left>
 				<top>220</top>
@@ -34,6 +27,16 @@
 					<align>center</align>
 					<label>$LOCALIZE[31693]</label>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
+				<control type="button"><!-- Touch Close button -->
+					<left>582</left>
+					<top>-10</top>
+					<width>32</width>
+					<height>32</height>
+					<texturefocus>touch-close.png</texturefocus>
+					<texturenofocus>touch-close.png</texturenofocus>
+					<onclick>Dialog.Close(1154)</onclick>
+					<visible>system.getbool(input.enablemouse)</visible>
 				</control>
 				<control type="image">
 					<left>25</left>
