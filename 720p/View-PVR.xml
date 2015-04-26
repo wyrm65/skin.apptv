@@ -885,8 +885,8 @@
 						<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !IsEmpty(ListItem.ChannelName)</visible>
 					</control>
 					<control type="image">
-						<posx>1120</posx>
-						<posy>12</posy>
+						<left>1120</left>
+						<top>12</top>
 						<width>26</width>
 						<height>26</height>
 						<texture>check-box.png</texture>
@@ -897,8 +897,8 @@
 			<control type="group">
 				<visible>PVR.HasTimer</visible>
 				<control type="label">
-					<posx>68</posx>
-					<posy>660</posy>
+					<left>68</left>
+					<top>660</top>
 					<height>50</height>
 					<label>$INFO[PVR.NextTimer]</label>
 				</control>
@@ -962,7 +962,8 @@
 							<width>280</width>
 							<height>24</height>
 							<font>font11</font>
-							<label>$INFO[ListItem.Label2]</label>
+							<textcolor>disabled-text</textcolor>
+							<label>$INFO[ListItem.ChannelNumberLabel]</label>
 						</control>
 						<control type="image">
 							<left>-30</left>
@@ -1003,7 +1004,8 @@
 							<width>280</width>
 							<height>24</height>
 							<font>font11</font>
-							<label>$INFO[ListItem.Label2]</label>
+							<textcolor>disabled-text</textcolor>
+							<label>$INFO[ListItem.ChannelNumberLabel]</label>
 						</control>
 						<control type="image">
 							<left>-30</left>
@@ -1170,16 +1172,16 @@
 				<left>80</left>
 				<top>90</top>
 				<control type="label"><!-- Channel -->
-					<posx>20</posx>
-					<posy>20</posy>
+					<left>20</left>
+					<top>20</top>
 					<width>240</width>
 					<height>24</height>
 					<label>$LOCALIZE[19148]</label>
 					<visible>Control.IsVisible(17)</visible>
 				</control>
 				<control type="label"><!-- Title -->
-					<posx>350</posx>
-					<posy>20</posy>
+					<left>350</left>
+					<top>20</top>
 					<width>350</width>
 					<height>24</height>
 					<label>$LOCALIZE[369]</label>
@@ -1227,16 +1229,16 @@
 				<preloaditems>2</preloaditems>
 				<itemlayout height="46">
 					<control type="label">
-						<posx>52</posx>
-						<posy>10</posy>
+						<left>52</left>
+						<top>10</top>
 						<width>240</width>
 						<height>24</height>
 						<font>font12</font>
 						<label>$INFO[ListItem.ChannelName]</label>
 					</control>
 					<control type="label">
-						<posx>382</posx>
-						<posy>10</posy>
+						<left>382</left>
+						<top>10</top>
 						<width>350</width>
 						<height>24</height>
 						<font>font12</font>
@@ -1252,8 +1254,8 @@
 						<label>$INFO[ListItem.Date]</label>
 					</control>
 					<control type="image">
-						<posx>1056</posx>
-						<posy>7</posy>
+						<left>1056</left>
+						<top>7</top>
 						<width>32</width>
 						<height>32</height>
 						<texture>$VAR[PVROverlay]</texture>
@@ -1261,23 +1263,23 @@
 				</itemlayout>
 				<focusedlayout height="46">
 					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
+						<left>0</left>
+						<top>0</top>
 						<width>1160</width>
 						<height>46</height>
 						<texture border="8">button-default-focus.png</texture>
 					</control>
 					<control type="label">
-						<posx>52</posx>
-						<posy>10</posy>
+						<left>52</left>
+						<top>10</top>
 						<width>240</width>
 						<height>24</height>
 						<font>font12</font>
 						<label>$INFO[ListItem.ChannelName]</label>
 					</control>
 					<control type="label">
-						<posx>382</posx>
-						<posy>10</posy>
+						<left>382</left>
+						<top>10</top>
 						<width>350</width>
 						<height>24</height>
 						<font>font12</font>
@@ -1331,15 +1333,15 @@
 				<visible>Container.Content(LiveTV)</visible>
 				<itemlayout height="40" width="760">
 					<control type="label">
-						<posx>10</posx>
-						<posy>0</posy>
+						<left>10</left>
+						<top>0</top>
 						<width>730</width>
 						<height>40</height>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
-						<posx>750</posx>
-						<posy>0</posy>
+						<right>750</right>
+						<top>0</top>
 						<width>700</width>
 						<height>40</height>
 						<font>font12</font>
@@ -1349,24 +1351,24 @@
 				</itemlayout>
 				<focusedlayout height="40" width="760">
 					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
+						<left>0</left>
+						<top>0</top>
 						<width>760</width>
 						<height>40</height>
 						<texture border="8">button-default-focus.png</texture>
 						<visible>Control.HasFocus(560)</visible>
 					</control>
 					<control type="label">
-						<posx>10</posx>
-						<posy>0</posy>
+						<left>10</left>
+						<top>0</top>
 						<width>730</width>
 						<height>40</height>
 						<label>$INFO[ListItem.Label]</label>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="label">
-						<posx>750</posx>
-						<posy>0</posy>
+						<right>750</right>
+						<top>0</top>
 						<width>700</width>
 						<height>40</height>
 						<font>font12</font>
