@@ -4,8 +4,8 @@
 		<control type="group"><!-- TV guide timeline -->
 			<visible>Control.IsVisible(10)</visible>
 			<control type="label"><!-- Current time -->
-				<posx>40</posx>
-				<posy>50</posy>
+				<left>40</left>
+				<top>50</top>
 				<width>310</width>
 				<height>32</height>
 				<font>font13</font>
@@ -13,8 +13,8 @@
 			</control>
 			<control type="epggrid" id="10"><!-- EPG grid -->
 				<viewtype label="19032">list</viewtype>
-				<posx>30</posx>
-				<posy>100</posy>
+				<left>30</left>
+				<top>100</top>
 				<width>1220</width>
 				<height>451</height>
 				<pagecontrol>10</pagecontrol>
@@ -28,15 +28,15 @@
 				<ondown>10</ondown>
 				<rulerlayout height="35" width="40">
 					<control type="image" id="1">
+						<left>0</left>
+						<top>0</top>
 						<width>40</width>
 						<height>35</height>
-						<posx>0</posx>
-						<posy>0</posy>
 						<texture>blank.png</texture>
 					</control>
 					<control type="label" id="2">
-						<posx>10</posx>
-						<posy>0</posy>
+						<left>10</left>
+						<top>0</top>
 						<width>34</width>
 						<height>29</height>
 						<font>font11</font>
@@ -44,7 +44,7 @@
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="image">
-						<posx>0</posx>
+						<left>0</left>
 						<posy>28</posy>
 						<width>1120</width>
 						<height>4</height>
@@ -54,24 +54,24 @@
 				<channellayout height="52" width="300">
 					<animation effect="fade" start="110" time="200">UnFocus</animation>
 					<control type="image" id="1">
-						<posx>0</posx>
-						<posy>0</posy>
+						<left>0</left>
+						<top>0</top>
 						<width>298</width>
 						<height>52</height>
 						<texture border="5">colours/grey.png</texture>
 						<colordiffuse>osd-background</colordiffuse>
 					</control>
 					<control type="image">
-						<posx>4</posx>
-						<posy>4</posy>
+						<left>4</left>
+						<top>4</top>
 						<width>44</width>
 						<height>44</height>
 						<aspectratio>keep</aspectratio>
 						<texture>$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="label">
-						<posx>4</posx>
-						<posy>4</posy>
+						<left>4</left>
+						<top>4</top>
 						<width>44</width>
 						<height>44</height>
 						<align>center</align>
@@ -80,8 +80,8 @@
 						<visible>IsEmpty(ListItem.Icon)</visible>
 					</control>
 					<control type="label" id="1">
-						<posx>52</posx>
-						<posy>0</posy>
+						<left>52</left>
+						<top>0</top>
 						<width>238</width>
 						<height>52</height>
 						<font>font11</font>
@@ -92,24 +92,24 @@
 				<focusedchannellayout height="52" width="300">
 					<animation effect="fade" start="110" time="200">OnFocus</animation>
 					<control type="image" id="1">
-						<posx>0</posx>
-						<posy>0</posy>
+						<left>0</left>
+						<top>0</top>
 						<width>298</width>
 						<height>52</height>
 						<texture border="5">colours/blue.png</texture>
 						<colordiffuse>osd-background</colordiffuse>
 					</control>
 					<control type="image">
-						<posx>4</posx>
-						<posy>4</posy>
+						<left>4</left>
+						<top>4</top>
 						<width>44</width>
 						<height>44</height>
 						<aspectratio>keep</aspectratio>
 						<texture>$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="label">
-						<posx>4</posx>
-						<posy>4</posy>
+						<left>4</left>
+						<left>4</top>
 						<width>44</width>
 						<height>44</height>
 						<align>center</align>
@@ -118,8 +118,8 @@
 						<visible>IsEmpty(ListItem.Icon)</visible>
 					</control>
 					<control type="label" id="1">
-						<posx>52</posx>
-						<posy>0</posy>
+						<left>52</left>
+						<top>0</top>
 						<width>238</width>
 						<height>52</height>
 						<font>font11</font>
@@ -129,16 +129,16 @@
 				</focusedchannellayout>
 				<itemlayout height="52" width="40">
 					<control type="image" id="2">
+						<left>0</left>
+						<top>0</top>
 						<width>40</width>
 						<height>52</height>
-						<posx>0</posx>
-						<posy>0</posy>
 						<aspectratio>stretch</aspectratio>
 						<texture border="3">epg-genres/$INFO[ListItem.Property(GenreType)].png</texture>
 					</control>
 					<control type="label" id="1">
-						<posx>20</posx>
-						<posy>0</posy>
+						<left>20</left>
+						<top>0</top>
 						<width>10</width>
 						<height>48</height>
 						<font>font11</font>
@@ -147,8 +147,8 @@
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="image">
-						<posx>2</posx>
-						<posy>18</posy>
+						<left>2</left>
+						<top>18</top>
 						<width>16</width>
 						<height>16</height>
 						<texture>$VAR[PVROverlay]</texture>
@@ -156,25 +156,25 @@
 				</itemlayout>
 				<focusedlayout height="52" width="40">
 					<control type="image" id="14">
+						<left>0</left>
+						<top>0</top>
 						<width>40</width>
 						<height>52</height>
-						<posx>0</posx>
-						<posy>0</posy>
 						<texture border="3">colours/blue.png</texture>
 						<colordiffuse>osd-background</colordiffuse>
 					</control>
 					<control type="image" id="2">
+						<left>0</left>
+						<top>0</top>
 						<width>40</width>
 						<height>52</height>
-						<posx>0</posx>
-						<posy>0</posy>
 						<aspectratio>stretch</aspectratio>
 						<texture>colours/blue.png</texture>
 						<colordiffuse>osd-background</colordiffuse>
 					</control>
 					<control type="label" id="1">
-						<posx>20</posx>
-						<posy>0</posy>
+						<left>20</left>
+						<top>0</top>
 						<width>10</width>
 						<height>48</height>
 						<font>font11</font>
@@ -184,8 +184,8 @@
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="image">
-						<posx>2</posx>
-						<posy>18</posy>
+						<left>2</left>
+						<top>18</top>
 						<width>16</width>
 						<height>16</height>
 						<texture>$VAR[PVROverlay]</texture>
@@ -194,8 +194,8 @@
 			</control>
 			<control type="label">
 				<label>$INFO[ListItem.Title]</label>
-				<posx>30</posx>
-				<posy>566</posy>
+				<left>30</left>
+				<top>566</top>
 				<width>700</width>
 				<height>32</height>
 				<font>font18</font>
@@ -203,8 +203,8 @@
 			</control>
 			<control type="label"><!-- Start time -->
 				<visible>!IsEmpty(ListItem.Plot) + !IsEmpty(ListItem.StartTime) + !IsEmpty(ListItem.EndTime)</visible>
-				<posx>1250</posx>
-				<posy>574</posy>
+				<left>1250</left>
+				<top>574</top>
 				<width>320</width>
 				<height>24</height>
 				<align>right</align>
@@ -212,15 +212,15 @@
 			</control>
 			<control type="image">
 				<visible>!IsEmpty(ListItem.Title)</visible>
-				<posx>30</posx>
-				<posy>602</posy>
+				<left>30</left>
+				<top>602</top>
 				<width>1220</width>
 				<height>4</height>
 				<texture>separator.png</texture>
 			</control>
 			<control type="textbox"><!-- Plot -->
-				<posx>30</posx>
-				<posy>608</posy>
+				<left>30</left>
+				<top>608</top>
 				<width>1220</width>
 				<height>78</height>
 				<font>font11</font>
@@ -234,8 +234,8 @@
 			<visible>Control.IsVisible(11)</visible>
 			<control type="list" id="11">
 				<viewtype label="19030">List</viewtype>
-				<posx>678</posx>
-				<posy>116</posy>
+				<left>678</left>
+				<top>116</top>
 				<width>552</width>
 				<height>560</height>
 				<onleft>9000</onleft>
@@ -247,8 +247,8 @@
 				<preloaditems>2</preloaditems>
 				<itemlayout height="70">
 					<control type="label">
-						<posx>38</posx>
-						<posy>2</posy>
+						<left>18</left>
+						<top>2</top>
 						<width>66</width>
 						<height>66</height>
 						<font>font18</font>
@@ -257,23 +257,23 @@
 						<visible>IsEmpty(ListItem.Icon)</visible>
 					</control>
 					<control type="image">
-						<posx>11</posx>
-						<posy>11</posy>
+						<left>11</left>
+						<top>11</top>
 						<width>48</width>
 						<height>48</height>
 						<texture>$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="label">
-						<posx>80</posx>
-						<posy>8</posy>
+						<left>80</left>
+						<top>8</top>
 						<width>470</width>
 						<height>24</height>
 						<font>font11</font>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="progress">
-						<posx>80</posx>
-						<posy>34</posy>
+						<left>80</left>
+						<top>34</top>
 						<width>460</width>
 						<height>6</height>
 						<reveal>true</reveal>
@@ -282,8 +282,8 @@
 						<colordiffuse>disabled-text</colordiffuse>
 					</control>
 					<control type="label">
-						<posx>80</posx>
-						<posy>39</posy>
+						<left>80</left>
+						<top>39</top>
 						<width>470</width>
 						<height>22</height>
 						<font>font11</font>
@@ -293,15 +293,15 @@
 				</itemlayout>
 				<focusedlayout height="70">
 					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
+						<left>0</left>
+						<top>0</top>
 						<width>552</width>
 						<height>70</height>
 						<texture border="8">button-default-focus.png</texture>
 					</control>
 					<control type="label">
-						<posx>38</posx>
-						<posy>2</posy>
+						<left>18</left>
+						<top>2</top>
 						<width>66</width>
 						<height>66</height>
 						<font>font18</font>
@@ -310,15 +310,15 @@
 						<visible>IsEmpty(ListItem.Icon)</visible>
 					</control>
 					<control type="image">
-						<posx>11</posx>
-						<posy>11</posy>
+						<left>11</left>
+						<top>11</top>
 						<width>48</width>
 						<height>48</height>
 						<texture>$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="label">
-						<posx>80</posx>
-						<posy>8</posy>
+						<left>80</left>
+						<top>8</top>
 						<width>470</width>
 						<height>22</height>
 						<font>font11</font>
@@ -326,8 +326,8 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="progress">
-						<posx>80</posx>
-						<posy>34</posy>
+						<left>80</left>
+						<top>34</top>
 						<width>460</width>
 						<height>6</height>
 						<reveal>true</reveal>
@@ -336,8 +336,8 @@
 						<colordiffuse>ProgressBarColor</colordiffuse>
 					</control>
 					<control type="label">
-						<posx>80</posx>
-						<posy>39</posy>
+						<left>80</left>
+						<top>39</top>
 						<width>470</width>
 						<height>22</height>
 						<font>font11</font>
@@ -431,8 +431,8 @@
 				</control>
 			</control>
 			<control type="scrollbar" id="27">
-				<posx>1244</posx>
-				<posy>112</posy>
+				<left>1244</left>
+				<top>112</top>
 				<width>18</width>
 				<height>565</height>
 				<onleft>11</onleft>
@@ -447,8 +447,8 @@
 			<visible>Control.IsVisible(12)</visible>
 			<control type="list" id="12">
 				<viewtype label="19031">List</viewtype>
-				<posx>678</posx>
-				<posy>116</posy>
+				<left>678</left>
+				<top>116</top>
 				<width>552</width>
 				<height>560</height>
 				<onleft>9000</onleft>
@@ -460,8 +460,8 @@
 				<preloaditems>2</preloaditems>
 				<itemlayout height="70">
 					<control type="label">
-						<posx>38</posx>
-						<posy>2</posy>
+						<left>18</left>
+						<top>2</top>
 						<width>66</width>
 						<height>66</height>
 						<font>font18</font>
@@ -470,23 +470,23 @@
 						<visible>IsEmpty(ListItem.Icon)</visible>
 					</control>
 					<control type="image">
-						<posx>11</posx>
-						<posy>11</posy>
+						<left>11</left>
+						<top>11</top>
 						<width>48</width>
 						<height>48</height>
 						<texture>$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="label">
-						<posx>80</posx>
-						<posy>8</posy>
+						<left>80</left>
+						<top>8</top>
 						<width>470</width>
 						<height>24</height>
 						<font>font11</font>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
-						<posx>80</posx>
-						<posy>34</posy>
+						<left>80</left>
+						<top>34</top>
 						<width>470</width>
 						<height>24</height>
 						<font>font11</font>
@@ -496,15 +496,15 @@
 				</itemlayout>
 				<focusedlayout height="70">
 					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
+						<left>0</left>
+						<top>0</top>
 						<width>552</width>
 						<height>70</height>
 						<texture border="8">button-default-focus.png</texture>
 					</control>
 					<control type="label">
-						<posx>38</posx>
-						<posy>2</posy>
+						<left>18</left>
+						<top>2</top>
 						<width>66</width>
 						<height>66</height>
 						<font>font18</font>
@@ -513,23 +513,23 @@
 						<visible>IsEmpty(ListItem.Icon)</visible>
 					</control>
 					<control type="image">
-						<posx>11</posx>
-						<posy>11</posy>
+						<left>11</left>
+						<top>11</top>
 						<width>48</width>
 						<height>48</height>
 						<texture>$INFO[ListItem.Icon]</texture>
 					</control>
 					<control type="label">
-						<posx>80</posx>
-						<posy>8</posy>
+						<left>80</left>
+						<top>8</top>
 						<width>470</width>
 						<height>24</height>
 						<font>font11</font>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
-						<posx>80</posx>
-						<posy>34</posy>
+						<left>80</left>
+						<top>34</top>
 						<width>470</width>
 						<height>24</height>
 						<font>font11</font>
@@ -622,8 +622,8 @@
 				</control>
 			</control>
 			<control type="scrollbar" id="27">
-				<posx>1244</posx>
-				<posy>112</posy>
+				<left>1244</left>
+				<top>112</top>
 				<width>18</width>
 				<height>565</height>
 				<onleft>12</onleft>
@@ -638,8 +638,8 @@
 			<visible>Control.IsVisible(13)</visible>
 			<control type="list" id="13">
 				<viewtype label="19029">List</viewtype>
-				<posx>678</posx>
-				<posy>118</posy>
+				<left>678</left>
+				<top>118</top>
 				<width>552</width>
 				<height>560</height>
 				<onup>13</onup>
@@ -651,40 +651,40 @@
 				<pagecontrol>27</pagecontrol>
 				<itemlayout width="552" height="70">
 					<control type="image">
-						<posx>11</posx>
-						<posy>11</posy>
+						<left>11</left>
+						<top>11</top>
 						<width>38</width>
 						<height>38</height>
 						<texture fallback="DefaultTvshows.png">$INFO[ListItem.Icon]</texture>
 						<visible>IsEmpty(Window.Property(IsRadio))</visible>
 					</control>
 					<control type="image">
-						<posx>11</posx>
-						<posy>11</posy>
+						<left>11</left>
+						<top>11</top>
 						<width>38</width>
 						<height>38</height>
 						<texture fallback="icon-radio.png">$INFO[ListItem.Icon]</texture>
 						<visible>!IsEmpty(Window.Property(IsRadio))</visible>
 					</control>
 					<control type="label">
-						<posx>80</posx>
-						<posy>8</posy>
+						<left>80</left>
+						<top>8</top>
 						<width>482</width>
 						<height>24</height>
 						<font>font11</font>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
-						<posx>80</posx>
-						<posy>34</posy>
+						<left>80</left>
+						<top>34</top>
 						<width>280</width>
 						<height>24</height>
 						<font>font11</font>
 						<label>$INFO[ListItem.Label2]</label>
 					</control>
 					<control type="image">
-						<posx>-30</posx>
-						<posy>24</posy>
+						<left>-30</left>
+						<top>24</top>
 						<width>22</width>
 						<height>22</height>
 						<texture>$VAR[PVROverlay]</texture>
@@ -692,40 +692,40 @@
 				</itemlayout>
 				<focusedlayout width="552" height="70">
 					<control type="image">
-						<posx>11</posx>
-						<posy>11</posy>
+						<left>11</left>
+						<top>11</top>
 						<width>38</width>
 						<height>38</height>
 						<texture fallback="DefaultTvshows.png">$INFO[ListItem.Icon]</texture>
 						<visible>IsEmpty(Window.Property(IsRadio))</visible>
 					</control>
 					<control type="image">
-						<posx>11</posx>
-						<posy>11</posy>
+						<left>11</left>
+						<top>11</top>
 						<width>38</width>
 						<height>38</height>
 						<texture fallback="icon-radio.png">$INFO[ListItem.Icon]</texture>
 						<visible>!IsEmpty(Window.Property(IsRadio))</visible>
 					</control>
 					<control type="label">
-						<posx>80</posx>
-						<posy>8</posy>
+						<left>80</left>
+						<top>8</top>
 						<width>482</width>
 						<height>24</height>
 						<font>font11</font>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
-						<posx>80</posx>
-						<posy>34</posy>
+						<left>80</left>
+						<top>34</top>
 						<width>280</width>
 						<height>24</height>
 						<font>font11</font>
 						<label>$INFO[ListItem.Label2]</label>
 					</control>
 					<control type="image">
-						<posx>-30</posx>
-						<posy>24</posy>
+						<left>-30</left>
+						<top>24</top>
 						<width>22</width>
 						<height>22</height>
 						<texture>$VAR[PVROverlay]</texture>
@@ -734,8 +734,8 @@
 			</control>
 
 			<control type="scrollbar" id="27">
-				<posx>1244</posx>
-				<posy>116</posy>
+				<left>1244</left>
+				<top>116</top>
 				<width>20</width>
 				<height>560</height>
 				<onleft>15</onleft>
@@ -751,8 +751,8 @@
 			<visible>Control.IsVisible(14)</visible>
 			<control type="group">
 				<visible>Control.IsVisible(14)</visible>
-				<posx>80</posx>
-				<posy>90</posy>
+				<left>80</left>
+				<top>90</top>
 				<control type="label"><!-- Channel heading -->
 					<posx>0</posx>
 					<posy>23</posy>
@@ -786,16 +786,16 @@
 					<label>$LOCALIZE[126]</label>
 				</control>
 				<control type="image">
-					<posx>-60</posx>
-					<posy>45</posy>
+					<left>-60</left>
+					<top>45</top>
 					<width>1240</width>
 					<height>4</height>
 					<texture>separator.png</texture>
 				</control>
 			</control>
 			<control type="list" id="14">
-				<posx>48</posx>
-				<posy>150</posy>
+				<left>48</left>
+				<top>150</top>
 				<width>1160</width>
 				<height>500</height>
 				<onleft>9000</onleft>
@@ -808,39 +808,39 @@
 				<preloaditems>2</preloaditems>
 				<itemlayout height="50">
 					<control type="label">
-						<posx>15</posx>
-						<posy>0</posy>
+						<left>15</left>
+						<top>0</top>
 						<width>180</width>
 						<height>50</height>
 						<font>font12</font>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
-						<posx>200</posx>
-						<posy>0</posy>
+						<left>200</left>
+						<top>0</top>
 						<width>240</width>
 						<height>50</height>
 						<font>font12</font>
 						<label>$INFO[ListItem.ChannelName]</label>
 					</control>
 					<control type="label">
-						<posx>460</posx>
-						<posy>0</posy>
+						<left>460</left>
+						<top>0</top>
 						<width>655</width>
 						<height>50</height>
 						<label>$INFO[ListItem.Date]</label>
 					</control>
 					<control type="image">
-						<posx>1120</posx>
-						<posy>12</posy>
+						<left>1120</left>
+						<top>12</top>
 						<width>26</width>
 						<height>26</height>
 						<texture>check-boxnf.png</texture>
 						<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !IsEmpty(ListItem.ChannelName)</visible>
 					</control>
 					<control type="image">
-						<posx>1120</posx>
-						<posy>12</posy>
+						<left>1120</left>
+						<top>12</top>
 						<width>26</width>
 						<height>26</height>
 						<texture>check-box.png</texture>
@@ -849,36 +849,36 @@
 				</itemlayout>
 				<focusedlayout height="50">
 					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
+						<left>0</left>
+						<top>0</top>
 						<width>1160</width>
 						<height>50</height>
 						<texture border="8">button-default-focus.png</texture>
 					</control>
 					<control type="label">
-						<posx>15</posx>
-						<posy>0</posy>
+						<left>15</left>
+						<top>0</top>
 						<width>180</width>
 						<height>50</height>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
-						<posx>200</posx>
-						<posy>0</posy>
+						<left>200</left>
+						<top>0</top>
 						<width>240</width>
 						<height>50</height>
 						<label>$INFO[ListItem.ChannelName]</label>
 					</control>
 					<control type="label">
-						<posx>460</posx>
-						<posy>0</posy>
+						<left>460</left>
+						<top>0</top>
 						<width>655</width>
 						<height>50</height>
 						<label>$INFO[ListItem.Date]</label>
 					</control>
 					<control type="image">
-						<posx>1120</posx>
-						<posy>12</posy>
+						<left>1120</left>
+						<top>12</top>
 						<width>26</width>
 						<height>26</height>
 						<texture>check-boxnf.png</texture>
@@ -1188,8 +1188,8 @@
 					<visible>Control.IsVisible(17)</visible>
 				</control>
 				<control type="label"><!-- Time -->
-					<posx>720</posx>
-					<posy>20</posy>
+					<left>720</left>
+					<top>20</top>
 					<width>260</width>
 					<height>24</height>
 					<align>center</align>
@@ -1197,8 +1197,8 @@
 					<visible>Control.IsVisible(17)</visible>
 				</control>
 				<control type="label"><!-- Status header -->
-					<posx>970</posx>
-					<posy>20</posy>
+					<left>970</left>
+					<top>20</top>
 					<width>140</width>
 					<height>24</height>
 					<align>center</align>
