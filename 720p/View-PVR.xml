@@ -2,7 +2,7 @@
 <includes>
 	<include name="PVRTimelineView">
 		<control type="group"><!-- TV guide timeline -->
-			<visible>Control.IsVisible(10)</visible>
+			<visible>Control.IsVisible(10) + IntegerGreaterThan(Container(10).NumItems,0)</visible>
 			<control type="label"><!-- Current time -->
 				<left>40</left>
 				<top>50</top>
@@ -23,7 +23,6 @@
 				<progresstexture border="0,32,4,0">progress-timeline.png</progresstexture>
 				<rulerunit>6</rulerunit>
 				<onleft>9000</onleft>
-				<onright>31</onright>
 				<onup>10</onup>
 				<ondown>10</ondown>
 				<rulerlayout height="35" width="40">
@@ -109,7 +108,7 @@
 					</control>
 					<control type="label">
 						<left>4</left>
-						<left>4</top>
+						<top>4</top>
 						<width>44</width>
 						<height>44</height>
 						<align>center</align>
@@ -134,7 +133,7 @@
 						<width>40</width>
 						<height>52</height>
 						<aspectratio>stretch</aspectratio>
-						<texture>epg-genres/$INFO[ListItem.Property(GenreType)].png</texture>
+						<texture border="3">epg-genres/$INFO[ListItem.Property(GenreType)].png</texture>
 					</control>
 					<control type="label" id="1">
 						<left>20</left>
@@ -195,7 +194,7 @@
 			<control type="label">
 				<label>$INFO[ListItem.Title]</label>
 				<left>30</left>
-				<top>566</top>
+				<top>556</top>
 				<width>700</width>
 				<height>32</height>
 				<font>font18</font>
@@ -204,7 +203,7 @@
 			<control type="label"><!-- Start time -->
 				<visible>!IsEmpty(ListItem.Plot) + !IsEmpty(ListItem.StartTime) + !IsEmpty(ListItem.EndTime)</visible>
 				<left>1250</left>
-				<top>574</top>
+				<top>564</top>
 				<width>320</width>
 				<height>24</height>
 				<align>right</align>
@@ -213,14 +212,14 @@
 			<control type="image">
 				<visible>!IsEmpty(ListItem.Title)</visible>
 				<left>30</left>
-				<top>602</top>
+				<top>592</top>
 				<width>1220</width>
 				<height>4</height>
 				<texture>separator.png</texture>
 			</control>
 			<control type="textbox"><!-- Plot -->
 				<left>30</left>
-				<top>608</top>
+				<top>598</top>
 				<width>1220</width>
 				<height>78</height>
 				<font>font11</font>
@@ -231,7 +230,7 @@
 	</include>
 	<include name="PVRNowListView">
 		<control type="group">
-			<visible>Control.IsVisible(11)</visible>
+			<visible>Control.IsVisible(11) + IntegerGreaterThan(Container(11).NumItems,0)</visible>
 			<control type="list" id="11">
 				<viewtype label="19030">List</viewtype>
 				<left>678</left>
@@ -444,7 +443,7 @@
 	</include>
 	<include name="PVRNextListView">
 		<control type="group">
-			<visible>Control.IsVisible(12)</visible>
+			<visible>Control.IsVisible(12) + IntegerGreaterThan(Container(12).NumItems,0)</visible>
 			<control type="list" id="12">
 				<viewtype label="19031">List</viewtype>
 				<left>678</left>
@@ -635,7 +634,7 @@
 	</include>
 	<include name="PVRChannelListView">
 		<control type="group"><!-- TV/Radio channel listings -->
-			<visible>Control.IsVisible(13)</visible>
+			<visible>Control.IsVisible(13) + IntegerGreaterThan(Container(13).NumItems,0)</visible>
 			<control type="list" id="13">
 				<viewtype label="19029">List</viewtype>
 				<left>678</left>
@@ -750,53 +749,52 @@
 		<control type="group"><!-- Timers group -->
 			<visible>Control.IsVisible(14)</visible>
 			<control type="group">
-				<visible>Control.IsVisible(14)</visible>
-				<left>80</left>
-				<top>90</top>
+				<left>20</left>
+				<top>60</top>
 				<control type="label"><!-- Channel heading -->
-					<left>0</left>
-					<top>23</top>
-					<width>220</width>
-					<height>20</height>
-					<align>center</align>
+					<left>15</left>
+					<top>20</top>
+					<width>280</width>
+					<height>25</height>
+					<align>left</align>
 					<label>$LOCALIZE[19029]</label>
 				</control>
 				<control type="label"><!-- Title heading -->
-					<left>220</left>
+					<left>315</left>
 					<top>20</top>
-					<width>300</width>
-					<height>23</height>
-					<align>center</align>
+					<width>305</width>
+					<height>25</height>
+					<align>left</align>
 					<label>$LOCALIZE[369]</label>
 				</control>
 				<control type="label"><!-- Schedule time heading -->
-					<left>580</left>
-					<top>20</topy>
+					<left>640</left>
+					<top>20</top>
 					<width>300</width>
-					<height>23</height>
-					<align>center</align>
+					<height>25</height>
+					<align>left</align>
 					<label>$LOCALIZE[19225]</label>
 				</control>
 				<control type="label"><!-- Status heading -->
-					<left>940</left>
+					<left>1110</left>
 					<top>20</top>
 					<width>150</width>
-					<height>23</height>
+					<height>25</height>
 					<align>center</align>
 					<label>$LOCALIZE[126]</label>
 				</control>
 				<control type="image">
-					<left>-60</left>
-					<top>45</top>
+					<left>0</left>
+					<top>50</top>
 					<width>1240</width>
 					<height>4</height>
 					<texture>separator.png</texture>
 				</control>
 			</control>
 			<control type="list" id="14">
-				<left>48</left>
-				<top>150</top>
-				<width>1160</width>
+				<left>20</left>
+				<top>120</top>
+				<width>1240</width>
 				<height>500</height>
 				<onleft>9000</onleft>
 				<onright>27</onright>
@@ -810,39 +808,40 @@
 					<control type="label">
 						<left>15</left>
 						<top>0</top>
-						<width>180</width>
-						<height>50</height>
-						<font>font12</font>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>200</left>
-						<top>0</top>
-						<width>240</width>
+						<width>280</width>
 						<height>50</height>
 						<font>font12</font>
 						<label>$INFO[ListItem.ChannelName]</label>
 					</control>
 					<control type="label">
-						<left>460</left>
+						<left>315</left>
 						<top>0</top>
-						<width>655</width>
+						<width>305</width>
 						<height>50</height>
+						<font>font12</font>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<left>640</left>
+						<top>0</top>
+						<width>450</width>
+						<height>50</height>
+						<font>font12</font>
 						<label>$INFO[ListItem.Date]</label>
 					</control>
 					<control type="image">
-						<left>1120</left>
-						<top>12</top>
-						<width>26</width>
-						<height>26</height>
+						<left>1176</left>
+						<top>14</top>
+						<width>22</width>
+						<height>22</height>
 						<texture>check-boxnf.png</texture>
 						<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !IsEmpty(ListItem.ChannelName)</visible>
 					</control>
 					<control type="image">
-						<left>1120</left>
-						<top>12</top>
-						<width>26</width>
-						<height>26</height>
+						<left>1176</left>
+						<top>14</top>
+						<width>22</width>
+						<height>22</height>
 						<texture>check-box.png</texture>
 						<visible>StringCompare(ListItem.Comment,$LOCALIZE[305]) + !IsEmpty(ListItem.ChannelName)</visible>
 					</control>
@@ -851,44 +850,47 @@
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
-						<width>1160</width>
+						<width>1240</width>
 						<height>50</height>
 						<texture border="8">button-default-focus.png</texture>
 					</control>
 					<control type="label">
 						<left>15</left>
 						<top>0</top>
-						<width>180</width>
+						<width>280</width>
 						<height>50</height>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>200</left>
-						<top>0</top>
-						<width>240</width>
-						<height>50</height>
+						<font>font12</font>
 						<label>$INFO[ListItem.ChannelName]</label>
 					</control>
 					<control type="label">
-						<left>460</left>
+						<left>315</left>
 						<top>0</top>
-						<width>655</width>
+						<width>305</width>
 						<height>50</height>
+						<font>font12</font>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="label">
+						<left>640</left>
+						<top>0</top>
+						<width>450</width>
+						<height>50</height>
+						<font>font12</font>
 						<label>$INFO[ListItem.Date]</label>
 					</control>
 					<control type="image">
-						<left>1120</left>
-						<top>12</top>
-						<width>26</width>
-						<height>26</height>
+						<left>1176</left>
+						<top>14</top>
+						<width>22</width>
+						<height>22</height>
 						<texture>check-boxnf.png</texture>
 						<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !IsEmpty(ListItem.ChannelName)</visible>
 					</control>
 					<control type="image">
-						<left>1120</left>
-						<top>12</top>
-						<width>26</width>
-						<height>26</height>
+						<left>1176</left>
+						<top>14</top>
+						<width>22</width>
+						<height>22</height>
 						<texture>check-box.png</texture>
 						<visible>StringCompare(ListItem.Comment,$LOCALIZE[305]) + !IsEmpty(ListItem.ChannelName)</visible>
 					</control>
@@ -897,15 +899,17 @@
 			<control type="group">
 				<visible>PVR.HasTimer</visible>
 				<control type="label">
-					<left>68</left>
-					<top>660</top>
-					<height>50</height>
+					<left>20</left>
+					<top>640</top>
+					<width>1240</width>
+					<height>25</height>
+					<align>center</align>
 					<label>$INFO[PVR.NextTimer]</label>
 				</control>
 			</control>
 			<control type="scrollbar" id="27">
 				<left>1244</left>
-				<top>150</top>
+				<top>120</top>
 				<width>18</width>
 				<height>500</height>
 				<onleft>14</onleft>
@@ -917,7 +921,7 @@
 	</include>
 	<include name="PVRListView">
 		<control type="group">
-			<visible>Control.IsVisible(50)</visible>
+			<visible>Control.IsVisible(50) + IntegerGreaterThan(Container(50).NumItems,0)</visible>
 			<control type="group">
 				<control type="list" id="50">
 					<left>678</left>
@@ -937,8 +941,16 @@
 							<top>10</top>
 							<width>50</width>
 							<height>50</height>
+							<texture>DefaultFolder.png</texture>
+							<visible>ListItem.IsFolder + !SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<width>50</width>
+							<height>50</height>
 							<texture fallback="DefaultTvshows.png">$INFO[ListItem.Thumb]</texture>
-							<visible>IsEmpty(Window.Property(IsRadio))</visible>
+							<visible>IsEmpty(Window.Property(IsRadio)) + !ListItem.IsFolder</visible>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -946,7 +958,7 @@
 							<width>50</width>
 							<height>50</height>
 							<texture fallback="icon-radio.png">$INFO[ListItem.Thumb]</texture>
-							<visible>!IsEmpty(Window.Property(IsRadio))</visible>
+							<visible>!IsEmpty(Window.Property(IsRadio)) + !ListItem.IsFolder</visible>
 						</control>
 						<control type="label">
 							<left>80</left>
@@ -979,8 +991,16 @@
 							<top>10</top>
 							<width>50</width>
 							<height>50</height>
+							<texture>DefaultFolder.png</texture>
+							<visible>ListItem.IsFolder + !SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<width>50</width>
+							<height>50</height>
 							<texture fallback="DefaultTvshows.png">$INFO[ListItem.Thumb]</texture>
-							<visible>IsEmpty(Window.Property(IsRadio))</visible>
+							<visible>IsEmpty(Window.Property(IsRadio)) + !ListItem.IsFolder</visible>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -988,7 +1008,7 @@
 							<width>50</width>
 							<height>50</height>
 							<texture fallback="icon-radio.png">$INFO[ListItem.Thumb]</texture>
-							<visible>!IsEmpty(Window.Property(IsRadio))</visible>
+							<visible>!IsEmpty(Window.Property(IsRadio)) + !ListItem.IsFolder</visible>
 						</control>
 						<control type="label">
 							<left>80</left>
@@ -1046,7 +1066,7 @@
 				</control>
 				<control type="group"><!-- Current Icon/Channel playing -->
 					<control type="grouplist">
-						<visible>Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(13) | Control.IsVisible(50) | Control.IsVisible(16)</visible>
+						<visible>Control.IsVisible(13) | Control.IsVisible(50)</visible>
 						<animation effect="fade" start="0" end="100" time="200" delay="100">Visible</animation>
 						<left>20</left>
 						<top>116</top>
@@ -1317,7 +1337,7 @@
 	</include>
 	<include name="PVRLiveTVView">
 		<control type="group">
-			<visible>Control.IsVisible(560)</visible>
+			<visible>Control.IsVisible(560) + IntegerGreaterThan(Container(560).NumItems,0)</visible>
 			<control type="list" id="560">
 				<viewtype label="$LOCALIZE[4]">list</viewtype>
 				<left>70</left>
