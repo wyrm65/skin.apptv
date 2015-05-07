@@ -1582,6 +1582,7 @@
 							<top>0</top>
 							<height>56</height>
 							<width>885</width>
+							<ondown>423</ondown>
 							<onup>419</onup>
 							<onleft>1223</onleft>
 							<onright>422</onright>
@@ -1668,6 +1669,7 @@
 							<top>0</top>
 							<height>56</height>
 							<width>32</width>
+							<ondown>423</ondown>
 							<onup>419</onup>
 							<onleft>421</onleft>
 							<onright>999</onright>
@@ -1724,6 +1726,29 @@
 								</item>
 							</content>
 						</control>
+					</control>
+					<control type="button" id="423"><!-- Reset Above Settings button -->
+						<include>settings-submenu-common</include>
+						<label>$LOCALIZE[10041]</label>
+						<textwidth>785</textwidth>
+						<onclick>Skin.Reset(homemenu-icon)</onclick>
+						<onclick>Skin.Reset(homemenu-vertical)</onclick>
+						<onclick>Skin.Reset(home-video)</onclick>
+						<onclick>Skin.Reset(home-movie)</onclick>
+						<onclick>Skin.Reset(home-tvshows)</onclick>
+						<onclick>Skin.Reset(home-musicvideo)</onclick>
+						<onclick>Skin.Reset(home-tv)</onclick>
+						<onclick>Skin.Reset(home-radio)</onclick>
+						<onclick>Skin.Reset(home-music)</onclick>
+						<onclick>Skin.Reset(home-programs)</onclick>
+						<onclick>Skin.Reset(home-photos)</onclick>
+						<onclick>Skin.Reset(home-profile)</onclick>
+						<onclick>Skin.Reset(home-weather)</onclick>
+						<onclick>Skin.Reset(home-favorites)</onclick>
+						<onclick>Skin.Reset(home-search)</onclick>
+						<onclick>Skin.Reset(home-playdisc)</onclick>
+						<onclick>Skin.Reset(home-shutdown)</onclick>
+						<onclick>Skin.Reset(home-quitaction)</onclick>
 					</control>
 				</control>
 			</control>
@@ -2000,7 +2025,7 @@
 						<height>24</height>
 						<width>24</width>
 						<texture>scroll-down.png</texture>
-						<visible>Container(501).HasNext</visible>
+						<visible>Container(601).HasNext</visible>
 					</control>
 				</control>
 
@@ -2175,6 +2200,15 @@
 					</control>
 				</control>
 			</control>
+		</control>
+		<control type="textbox"><!-- Settings description area -->
+			<left>10</left>
+			<top>660</top>
+			<width>1260</width>
+			<height>50</height>
+			<font>font10</font>
+			<align>center</align>
+			<label>$VAR[SkinSettingHelp]</label>
 		</control>
 	</controls>
 </window>
