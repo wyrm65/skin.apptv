@@ -3,23 +3,23 @@
 	<defaultcontrol always="true">11</defaultcontrol>
 	<coordinates>
 		<system>1</system>
-		<posx>0</posx>
-		<posy>0</posy>
+		<left>0</left>
+		<top>0</top>
 	</coordinates>
 	<include>screen-fade</include>
 	<controls>
 		<include>fadebackground</include>
 		<control type="group">
 			<control type="image"><!-- Dialog background -->
-				<posx>400</posx>
-				<posy>35</posy>
+				<left>400</left>
+				<top>35</top>
 				<width>480</width>
 				<height>650</height>
 				<texture border="8">button-menu-background.png</texture>
 			</control>
 			<control type="label"><!-- Header -->
-				<posx>412</posx>
-				<posy>47</posy>
+				<left>412</left>
+				<top>47</top>
 				<width>456</width>
 				<height>24</height>
 				<font>font12</font>
@@ -28,8 +28,8 @@
 				<visible>!pvr.IsPlayingRadio</visible>
 			</control>
 			<control type="label"><!-- Header -->
-				<posx>412</posx>
-				<posy>47</posy>
+				<left>412</left>
+				<top>47</top>
 				<width>456</width>
 				<height>24</height>
 				<font>font12</font>
@@ -38,8 +38,8 @@
 				<visible>pvr.IsPlayingRadio</visible>
 			</control>
 			<control type="label"><!-- Header -->
-				<posx>412</posx>
-				<posy>75</posy>
+				<left>412</left>
+				<top>75</top>
 				<width>456</width>
 				<height>24</height>
 				<font>font12</font>
@@ -47,8 +47,8 @@
 				<align>center</align>
 			</control>
 			<control type="list" id="11">
-				<posx>412</posx>
-				<posy>105</posy>
+				<left>412</left>
+				<top>105</top>
 				<width>420</width>
 				<height>510</height>
 				<onleft>60</onleft>
@@ -60,32 +60,32 @@
 				<scrolltime>200</scrolltime>
 				<itemlayout height="102" width="420">
 					<control type="label">
-						<posx>12</posx>
-						<posy>12</posy>
+						<left>12</left>
+						<top>12</top>
 						<width>40</width>
 						<height>24</height>
 						<font>font12</font>
 						<label>$INFO[ListItem.ChannelNumber]</label>
 					</control>
 					<control type="image">
-						<posx>12</posx>
-						<posy>40</posy>
+						<left>12</left>
+						<top>40</top>
 						<width>20</width>
 						<height>20</height>
 						<texture>overlayisrecording.png</texture>
 						<visible>ListItem.IsRecording</visible>
 					</control>
 					<control type="label">
-						<posx>56</posx>
-						<posy>12</posy>
+						<left>56</left>
+						<top>12</top>
 						<width>350</width>
 						<height>24</height>
 						<font>font11</font>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
-						<posx>56</posx>
-						<posy>40</posy>
+						<left>56</left>
+						<top>40</top>
 						<width>350</width>
 						<height>24</height>
 						<font>font11</font>
@@ -93,8 +93,8 @@
 						<visible>IsEmpty(Listitem.Icon)</visible>
 					</control>
 					<control type="label">
-						<posx>56</posx>
-						<posy>40</posy>
+						<left>56</left>
+						<top>40</top>
 						<width>300</width>
 						<height>24</height>
 						<font>font11</font>
@@ -103,8 +103,8 @@
 						<visible>!IsEmpty(Listitem.Icon)</visible>
 					</control>
 					<control type="label">
-						<posx>56</posx>
-						<posy>68</posy>
+						<left>56</left>
+						<top>68</top>
 						<width>60</width>
 						<height>24</height>
 						<font>font11</font>
@@ -113,8 +113,8 @@
 						<visible>ListItem.HasEpg</visible>
 					</control>
 					<control type="progress">
-						<posx>110</posx>
-						<posy>78</posy>
+						<left>110</left>
+						<top>78</top>
 						<width>225</width>
 						<height>6</height>
 						<colordiffuse>ScrollBarColor</colordiffuse>
@@ -122,8 +122,8 @@
 						<visible>ListItem.HasEpg</visible>
 					</control>
 					<control type="label">
-						<posx>350</posx>
-						<posy>68</posy>
+						<left>350</left>
+						<top>68</top>
 						<width>60</width>
 						<height>24</height>
 						<font>font11</font>
@@ -132,8 +132,8 @@
 						<visible>ListItem.HasEpg</visible>
 					</control>
 					<control type="image">
-						<posx>364</posx>
-						<posy>4</posy>
+						<left>364</left>
+						<top>4</top>
 						<width>40</width>
 						<height>40</height>
 						<texture>$INFO[ListItem.Icon]</texture>
@@ -141,16 +141,16 @@
 				</itemlayout>
 				<focusedlayout height="102" width="420">
 					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
+						<left>0</left>
+						<top>0</top>
 						<width>420</width>
 						<height>102</height>
 						<texture border="8">button-default-focus.png</texture>
 						<visible>Control.HasFocus(11)</visible>
 					</control>
 					<control type="label">
-						<posx>12</posx>
-						<posy>12</posy>
+						<left>12</left>
+						<top>12</top>
 						<width>40</width>
 						<height>24</height>
 						<font>font12</font>
@@ -158,24 +158,24 @@
 						<label>$INFO[ListItem.ChannelNumber]</label>
 					</control>
 					<control type="image">
-						<posx>12</posx>
-						<posy>40</posy>
+						<left>12</left>
+						<top>40</top>
 						<width>20</width>
 						<height>20</height>
 						<texture>overlayisrecording.png</texture>
 						<visible>ListItem.IsRecording</visible>
 					</control>
 					<control type="label">
-						<posx>56</posx>
-						<posy>12</posy>
+						<left>56</left>
+						<top>12</top>
 						<width>350</width>
 						<height>24</height>
 						<font>font11</font>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
-						<posx>56</posx>
-						<posy>40</posy>
+						<left>56</left>
+						<top>40</top>
 						<width>350</width>
 						<height>24</height>
 						<font>font11</font>
@@ -184,8 +184,8 @@
 						<visible>IsEmpty(Listitem.Icon)</visible>
 					</control>
 					<control type="label">
-						<posx>56</posx>
-						<posy>40</posy>
+						<left>56</left>
+						<top>40</top>
 						<width>300</width>
 						<height>24</height>
 						<font>font11</font>
@@ -194,8 +194,8 @@
 						<visible>!IsEmpty(Listitem.Icon)</visible>
 					</control>
 					<control type="label">
-						<posx>56</posx>
-						<posy>68</posy>
+						<left>56</left>
+						<top>68</top>
 						<width>60</width>
 						<height>24</height>
 						<font>font11</font>
@@ -204,8 +204,8 @@
 						<visible>ListItem.HasEpg</visible>
 					</control>
 					<control type="progress">
-						<posx>110</posx>
-						<posy>78</posy>
+						<left>110</left>
+						<top>78</top>
 						<width>225</width>
 						<height>6</height>
 						<colordiffuse>ScrollBarColor</colordiffuse>
@@ -213,8 +213,8 @@
 						<visible>ListItem.HasEpg</visible>
 					</control>
 					<control type="label">
-						<posx>350</posx>
-						<posy>68</posy>
+						<left>350</left>
+						<top>68</top>
 						<width>60</width>
 						<height>24</height>
 						<font>font11</font>
@@ -223,8 +223,8 @@
 						<visible>ListItem.HasEpg</visible>
 					</control>
 					<control type="image">
-						<posx>364</posx>
-						<posy>4</posy>
+						<left>364</left>
+						<top>4</top>
 						<width>40</width>
 						<height>40</height>
 						<texture>$INFO[ListItem.Icon]</texture>
@@ -232,8 +232,8 @@
 				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="60">
-				<posx>840</posx>
-				<posy>105</posy>
+				<left>840</left>
+				<top>105</top>
 				<width>20</width>
 				<height>510</height>
 				<onleft>11</onleft>
@@ -244,8 +244,8 @@
 				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 			</control>
 			<control type="label"><!-- Number of files text label -->
-				<posx>850</posx>
-				<posy>635</posy>
+				<right>850</right>
+				<top>635</top>
 				<width>400</width>
 				<height>25</height>
 				<align>right</align>

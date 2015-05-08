@@ -5,8 +5,8 @@
 	<controls>
 		<include>backgroundvideo</include>
 		<control type="label"><!-- Dialog heading -->
-			<posx>946</posx>
-			<posy>20</posy>
+			<left>946</left>
+			<top>20</top>
 			<width>309</width>
 			<height>74</height>
 			<label>$LOCALIZE[19199] -[CR]$LOCALIZE[19023]</label>
@@ -15,8 +15,8 @@
 			<visible>IsEmpty(Window.Property(IsRadio))</visible>
 		</control>
 		<control type="label"><!-- Dialog heading -->
-			<posx>946</posx>
-			<posy>20</posy>
+			<left>946</left>
+			<top>20</top>
 			<width>309</width>
 			<height>74</height>
 			<label>$LOCALIZE[19199] -[CR]$LOCALIZE[19024]</label>
@@ -26,11 +26,11 @@
 		</control>
 
 		<control type="group">
-			<posx>10</posx>
-			<posy>112</posy>
+			<left>10</left>
+			<top>112</top>
 			<control type="scrollbar" id="60">
-				<posx>2</posx>
-				<posy>0</posy>
+				<left>2</left>
+				<top>0</top>
 				<width>20</width>
 				<height>532</height>
 				<onleft>60</onleft>
@@ -39,8 +39,8 @@
 				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 			</control>
 			<control type="list" id="20">
-				<posx>36</posx>
-				<posy>0</posy>
+				<left>36</left>
+				<top>0</top>
 				<width>550</width>
 				<height>532</height>
 				<onup>20</onup>
@@ -52,16 +52,16 @@
 				<animation effect="fade" start="100" end="60" time="50" condition="ControlGroup(9002).HasFocus">Conditional</animation>
 				<itemlayout height="76" width="544">
 					<control type="image">
-						<posx>10</posx>
-						<posy>10</posy>
+						<left>10</left>
+						<top>10</top>
 						<width>28</width>
 						<height>28</height>
 						<texture>$INFO[ListItem.Property(Icon)]</texture>
 						<visible>ListItem.Property(ActiveChannel)</visible>
 					</control>
 					<control type="label">
-						<posx>45</posx>
-						<posy>8</posy>
+						<left>45</left>
+						<top>8</top>
 						<width>454</width>
 						<height>24</height>
 						<font>font12</font>
@@ -70,8 +70,8 @@
 						<visible>ListItem.Property(ActiveChannel)</visible>
 					</control>
 					<control type="label">
-						<posx>45</posx>
-						<posy>8</posy>
+						<left>45</left>
+						<top>8</top>
 						<width>454</width>
 						<height>24</height>
 						<font>font12</font>
@@ -80,8 +80,8 @@
 						<visible>!ListItem.Property(ActiveChannel)</visible>
 					</control>
 					<control type="image">
-						<posx>510</posx>
-						<posy>10</posy>
+						<left>510</left>
+						<top>10</top>
 						<width>20</width>
 						<height>20</height>
 						<texture>OverlayWatched.png</texture>
@@ -90,22 +90,22 @@
 				</itemlayout>
 				<focusedlayout height="76" width="544">
 					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
+						<left>0</left>
+						<top>0</top>
 						<width>544</width>
 						<height>76</height>
 						<texture border="8">button-default-focus.png</texture>
 					</control>
 					<control type="image">
-						<posx>10</posx>
-						<posy>10</posy>
+						<left>10</left>
+						<top>10</top>
 						<width>28</width>
 						<height>28</height>
 						<texture>$INFO[ListItem.Property(Icon)]</texture>
 					</control>
 					<control type="label">
-						<posx>45</posx>
-						<posy>8</posy>
+						<left>45</left>
+						<top>8</top>
 						<width>454</width>
 						<height>24</height>
 						<font>font12</font>
@@ -114,8 +114,8 @@
 						<visible>ListItem.Property(ActiveChannel)</visible>
 					</control>
 					<control type="label">
-						<posx>45</posx>
-						<posy>8</posy>
+						<left>45</left>
+						<top>8</top>
 						<width>454</width>
 						<height>24</height>
 						<font>font12</font>
@@ -124,16 +124,16 @@
 						<visible>!ListItem.Property(ActiveChannel)</visible>
 					</control>
 					<control type="image">
-						<posx>510</posx>
-						<posy>10</posy>
+						<left>510</left>
+						<top>10</top>
 						<width>20</width>
 						<height>20</height>
 						<texture>OverlayWatched.png</texture>
 						<visible>ListItem.Property(Changed)</visible>
 					</control>
 					<control type="label">
-						<posx>18</posx>
-						<posy>40</posy>
+						<left>18</left>
+						<top>40</top>
 						<width>500</width>
 						<height>24</height>
 						<font>font11</font>
@@ -145,18 +145,18 @@
 		</control>
 		<control type="group" id="9002">
 			<control type="group">
-				<posx>640</posx>
-				<posy>112</posy>
+				<left>640</left>
+				<top>112</top>
 				<control type="label"><!-- Channel option header -->
-					<posx>0</posx>
-					<posy>0</posy>
+					<left>0</left>
+					<top>0</top>
 					<width>580</width>
 					<height>24</height>
 					<label>[I]$LOCALIZE[31702][/I]</label>
 				</control>
 				<control type="radiobutton" id ="7"><!-- Channel activated -->
-					<posx>0</posx>
-					<posy>28</posy>
+					<left>0</left>
+					<top>28</top>
 					<width>580</width>
 					<height>50</height>
 					<font>font11</font>
@@ -169,8 +169,8 @@
 					<ondown>8</ondown>
 				</control>
 				<control type="edit" id ="8"><!-- Channel name -->
-					<posx>0</posx>
-					<posy>78</posy>
+					<left>0</left>
+					<top>78</top>
 					<width>580</width>
 					<height>50</height>
 					<font>font11</font>
@@ -183,8 +183,8 @@
 					<ondown>9</ondown>
 				</control>
 				<control type="button" id ="9"><!-- Channel logo -->
-					<posx>0</posx>
-					<posy>128</posy>
+					<left>0</left>
+					<top>128</top>
 					<width>580</width>
 					<height>50</height>
 					<font>font11</font>
@@ -195,16 +195,16 @@
 					<ondown>12</ondown>
 				</control>
 				<control type="image" id ="10"><!-- Current channel icon -->
-					<posx>535</posx>
-					<posy>139</posy>
+					<left>535</left>
+					<top>139</top>
 					<width>28</width>
 					<height>28</height>
 					<aspectratio>keep</aspectratio>
 					<texture>$INFO[ListItem.Property(Icon)]</texture>
 				</control>
 				<control type="radiobutton" id ="12"><!-- EPG activated -->
-					<posx>0</posx>
-					<posy>178</posy>
+					<left>0</left>
+					<top>178</top>
 					<width>580</width>
 					<height>50</height>
 					<font>font11</font>
@@ -217,8 +217,8 @@
 					<ondown>13</ondown>
 				</control>
 				<control type="spincontrolex" id ="13"><!-- EPG Source -->
-					<posx>0</posx>
-					<posy>228</posy>
+					<left>0</left>
+					<top>228</top>
 					<width>580</width>
 					<height>50</height>
 					<font>font11</font>
@@ -229,8 +229,8 @@
 					<ondown>14</ondown>
 				</control>
 				<control type="radiobutton" id ="14"><!-- Parental locked -->
-					<posx>0</posx>
-					<posy>278</posy>
+					<left>0</left>
+					<top>278</top>
 					<width>580</width>
 					<height>50</height>
 					<font>font11</font>
@@ -244,18 +244,18 @@
 				</control>
 			</control>
 			<control type="group">
-				<posx>640</posx>
-				<posy>450</posy>
+				<left>640</left>
+				<top>450</top>
 				<control type="label"><!-- Advanced channel options Header -->
-					<posx>0</posx>
-					<posy>0</posy>
+					<left>0</left>
+					<top>0</top>
 					<width>480</width>
 					<height>24</height>
 					<label>[I]$LOCALIZE[31706][/I]</label>
 				</control>
 				<control type="button" id ="30"><!-- Group manager -->
-					<posx>0</posx>
-					<posy>28</posy>
+					<left>0</left>
+					<top>28</top>
 					<width>290</width>
 					<height>50</height>
 					<font>font11</font>
@@ -267,8 +267,8 @@
 					<ondown>33</ondown>
 				</control>
 				<control type="button" id ="34"><!-- TV/Radio -->
-					<posx>295</posx>
-					<posy>28</posy>
+					<left>295</left>
+					<top>28</top>
 					<width>285</width>
 					<height>50</height>
 					<font>font11</font>
@@ -281,8 +281,8 @@
 					<ondown>33</ondown>
 				</control>
 				<control type="button" id ="34"><!-- TV/Radio -->
-					<posx>295</posx>
-					<posy>28</posy>
+					<left>295</left>
+					<top>28</top>
 					<width>285</width>
 					<height>50</height>
 					<font>font11</font>
@@ -295,8 +295,8 @@
 					<ondown>33</ondown>
 				</control>
 				<control type="button" id ="33"><!-- New channel -->
-					<posx>125</posx>
-					<posy>78</posy>
+					<left>125</left>
+					<top>78</top>
 					<width>285</width>
 					<height>50</height>
 					<font>font11</font>
@@ -308,8 +308,8 @@
 					<ondown>31</ondown>
 				</control>
 				<control type="button" id ="31"><!-- Edit channel -->
-					<posx>0</posx>
-					<posy>128</posy>
+					<left>0</left>
+					<top>128</top>
 					<width>285</width>
 					<height>50</height>
 					<font>font11</font>
@@ -321,8 +321,8 @@
 					<ondown>9000</ondown>
 				</control>
 				<control type="button" id ="32"><!-- Delete channel -->
-					<posx>295</posx>
-					<posy>128</posy>
+					<left>295</left>
+					<top>128</top>
 					<width>285</width>
 					<height>50</height>
 					<font>font11</font>
@@ -336,11 +336,11 @@
 			</control>
 		</control>
 		<control type="group" id="9000">
-			<posx>180</posx>
-			<posy>660</posy>
+			<left>180</left>
+			<top>660</top>
 			<control type="button" id ="4"><!-- OK -->
-				<posx>0</posx>
-				<posy>0</posy>
+				<left>0</left>
+				<top>0</top>
 				<width>300</width>
 				<height>50</height>
 				<label>$LOCALIZE[186]</label>
@@ -349,11 +349,10 @@
 				<onleft>6</onleft>
 				<onright>5</onright>
 				<onup>31</onup>
-				<ondown>9000</ondown>
 			</control>
 			<control type="button" id ="5"><!-- Apply changes -->
-				<posx>310</posx>
-				<posy>0</posy>
+				<left>310</left>
+				<top>0</top>
 				<width>300</width>
 				<height>50</height>
 				<label>$LOCALIZE[14070]</label>
@@ -362,11 +361,10 @@
 				<onleft>4</onleft>
 				<onright>6</onright>
 				<onup>31</onup>
-				<ondown>9000</ondown>
 			</control>
 			<control type="button" id ="6"><!-- Cancel -->
-				<posx>620</posx>
-				<posy>0</posy>
+				<left>620</left>
+				<top>0</top>
 				<width>300</width>
 				<height>50</height>
 				<label>$LOCALIZE[222]</label>
@@ -375,7 +373,6 @@
 				<onleft>5</onleft>
 				<onright>4</onright>
 				<onup>31</onup>
-				<ondown>9000</ondown>
 			</control>
 		</control>
 	</controls>
