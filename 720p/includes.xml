@@ -516,6 +516,18 @@
 		</control>
 	</include>
 
+	<include name="touch-screen-workaround">
+		<control type="button" id="11000">
+			<left>0</left>
+			<top>0</top>>
+			<width>1280</width>
+			<height>720</height>
+			<texturefocus>blank.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<visible>system.getbool(input.enablemouse)</visible>
+		</control>
+	</include>
+
 	<include name="touch-controls">
 		<control type="grouplist" id="8000">
 			<visible>system.getbool(input.enablemouse)</visible>

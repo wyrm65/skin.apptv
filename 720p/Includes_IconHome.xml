@@ -41,9 +41,12 @@
 				</control>
 			</control>
 
+			<include>touch-screen-workaround</include>
+
 			<include condition="!Skin.HasSetting(home-time)">horizontalhome-time</include><!-- Show time on home screen -->
 
 			<control type="group" id="9800"><!-- Shelf icons-->
+				<visible>Control.HasFocus(11000) | ControlGroup(9800).HasFocus()</visible>
 				<control type="group" id="9155"><!-- Movie icons -->
 					<visible>StringCompare(Container(9000).ListItem.Label2,$LOCALIZE[31026])</visible>
 					<control type="group">
