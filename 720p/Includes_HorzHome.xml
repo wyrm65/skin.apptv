@@ -22,21 +22,41 @@
 				<width>1280</width>
 				<height>294</height>
 				<texture>menu-mask.png</texture>
-				<colordiffuse>BBF9F9F9</colordiffuse>
+				<!--<colordiffuse>BBF9F9F9</colordiffuse>-->
 			</control>
 		</control>
 
+		<control type="group"><!-- Main Horizontal menu bar -->
+			<control type="image"><!-- Background image for menu area -->
+				<left>0</left>
+				<top>292</top>
+				<width>1280</width>
+				<height>428</height>
+				<texture>colours/black.png</texture>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>290</top>
+				<width>1280</width>
+				<height>4</height>
+				<texture>separator.png</texture>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>360</top>
+				<width>1280</width>
+				<height>4</height>
+				<texture>separator.png</texture>
+			</control>
+		</control>
+
+		<include>touch-screen-workaround</include>
+
 		<include condition="!Skin.HasSetting(home-time)">horizontalhome-time</include><!-- Show time on home screen -->
 
-		<control type="grouplist" id="9800"><!-- Shelf icons-->
-			<left>0</left>
-			<top>0</top>
-			<width>1280</width>
-			<height>295</height>
-			<itemgap>0</itemgap>
-			<orientation>horizontal</orientation>
+		<control type="group" id="9800"><!-- Shelf icons-->
 			<control type="group" id="9155"><!-- Movie icons -->
-				<visible>Control.HasFocus(9150) | Control.HasFocus(9160) | !IsEmpty(Window.Property(ShowMovie))</visible>
+				<visible>Control.HasFocus(9150) | Control.HasFocus(9160)</visible>
 				<control type="group">
 					<visible>StringCompare(Skin.String(shelf-movieimages),$LOCALIZE[31953]) | !IntegerGreaterThan(Container(9160).NumItems,0)</visible>
 					<control type="image">
@@ -61,7 +81,7 @@
 			</control>
 
 			<control type="group" id="9205"><!-- TV Shows icons -->
-				<visible>Control.HasFocus(9200) | Control.HasFocus(9210) | !IsEmpty(Window.Property(ShowTVShow))</visible>
+				<visible>Control.HasFocus(9200) | Control.HasFocus(9210)</visible>
 				<control type="group">
 					<visible>StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31953]) | [![IntegerGreaterThan(Container(9210).NumItems,0)] + ![StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31953])]]</visible>
 					<control type="image">
@@ -86,7 +106,7 @@
 			</control>
 
 			<control type="group" id="9255"><!-- Music icons -->
-				<visible>Control.HasFocus(9250) | Control.HasFocus(9260) | !IsEmpty(Window.Property(ShowMusic))</visible>
+				<visible>Control.HasFocus(9250) | Control.HasFocus(9260)</visible>
 				<control type="group">
 					<visible>StringCompare(Skin.String(shelf-musicimages),$LOCALIZE[31953]) | !IntegerGreaterThan(Container(9260).NumItems,0)</visible>
 					<control type="image">
@@ -111,7 +131,7 @@
 			</control>
 
 			<control type="group" id="9355"><!-- Addon icons -->
-				<visible>Control.HasFocus(9350) | Control.HasFocus(9360) | !IsEmpty(Window.Property(ShowAddon))</visible>
+				<visible>Control.HasFocus(9350) | Control.HasFocus(9360)</visible>
 				<control type="group">
 					<visible>StringCompare(Skin.String(shelf-addonimages),$LOCALIZE[31953]) | !IntegerGreaterThan(Container(9360).NumItems,0)</visible>
 					<control type="image">
@@ -136,7 +156,7 @@
 			</control>
 
 			<control type="group" id="9405"><!-- Weather icons -->
-				<visible>Control.HasFocus(9400) | !IsEmpty(Window.Property(ShowWeather))</visible>
+				<visible>Control.HasFocus(9400)</visible>
 				<control type="group">
 					<visible>!Weather.IsFetched</visible>
 					<control type="image">
@@ -176,31 +196,6 @@
 					<height>176</height>
 					<texture flipy="true" diffuse="mask-fade.png">$VAR[HorzHomeShelfIcon]</texture>
 				</control>
-			</control>
-		</control>
-
-		<control type="group"><!-- Main Horizontal menu bar -->
-			<visible>Window.IsActive(home)</visible>
-			<control type="image"><!-- Background image for menu area -->
-				<left>0</left>
-				<top>292</top>
-				<width>1280</width>
-				<height>428</height>
-				<texture>colours/black.png</texture>
-			</control>
-			<control type="image">
-				<left>0</left>
-				<top>290</top>
-				<width>1280</width>
-				<height>4</height>
-				<texture>separator.png</texture>
-			</control>
-			<control type="image">
-				<left>0</left>
-				<top>360</top>
-				<width>1280</width>
-				<height>4</height>
-				<texture>separator.png</texture>
 			</control>
 		</control>
 
@@ -254,7 +249,7 @@
 			<orientation>horizontal</orientation>
 			<align>center</align>
 			<control type="group" id="9120"><!-- Video sub menu -->
-				<visible>!Skin.HasSetting(home-video) | !IsEmpty(Window.Property(ShowVideo))</visible>
+				<visible>!Skin.HasSetting(home-video)</visible>
 				<width>210</width>
 				<control type="image">
 					<left>0</left>
@@ -262,7 +257,7 @@
 					<width>210</width>
 					<height>66</height>
 					<texture>menu-focus.png</texture>
-					<visible>Control.HasFocus(9100) | !IsEmpty(Window.Property(ShowVideo))</visible>
+					<visible>Control.HasFocus(9100)</visible>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -384,18 +379,6 @@
 						</item>
 					</content>
 				</control>
-				<control type="button">
-					<!-- Hidden button to show menu heading when over video menu area -->
-					<left>0</left>
-					<top>0</top>
-					<width>210</width>
-					<height>94</height>
-					<texturenofocus>-</texturenofocus>
-					<texturefocus>-</texturefocus>
-					<onclick>SetFocus(9100)</onclick>
-					<onfocus>SetProperty(ShowVideo,True)</onfocus>
-					<onunfocus>ClearProperty(ShowVideo)</onunfocus>
-				</control>
 			</control>
 			<control type="group" id="9170"><!-- Movie sub menu -->
 				<visible>!Skin.HasSetting(home-movie) | !IsEmpty(Skin.String(CustomMovies.1.Path)) | !IsEmpty(Skin.String(CustomMovies.2.Path)) | !IsEmpty(Skin.String(CustomMovies.3.Path)) | !IsEmpty(Skin.String(CustomMovies.4.Path)) | !IsEmpty(Skin.String(CustomMovies.5.Path))</visible>
@@ -407,7 +390,7 @@
 					<height>66</height>
 					<texture>menu-focus.png</texture>
 					<animation condition="Control.HasFocus(9160)" effect="fade" start="100" end="65">Conditional</animation>
-					<visible>Control.HasFocus(9150) | Control.HasFocus(9160) | !IsEmpty(Window.Property(ShowMovie))</visible>
+					<visible>Control.HasFocus(9150) | Control.HasFocus(9160)</visible>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -536,18 +519,6 @@
 						</item>
 					</content>
 				</control>
-				<control type="button">
-					<!-- Hidden button to show menu heading when over movie menu area -->
-					<left>0</left>
-					<top>0</top>
-					<width>210</width>
-					<height>94</height>
-					<texturenofocus>-</texturenofocus>
-					<texturefocus>-</texturefocus>
-					<onclick>SetFocus(9150)</onclick>
-					<onfocus>SetProperty(ShowMovie,True)</onfocus>
-					<onunfocus>ClearProperty(ShowMovie)</onunfocus>
-				</control>
 			</control>
 			<control type="group" id="9220"><!-- TV Shows sub menu -->
 				<visible>!Skin.HasSetting(home-tvshows) | !IsEmpty(Skin.String(CustomTVShow.1.Path)) | !IsEmpty(Skin.String(CustomTVShow.2.Path)) | !IsEmpty(Skin.String(CustomTVShow.3.Path)) | !IsEmpty(Skin.String(CustomTVShow.4.Path)) | !IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
@@ -559,7 +530,7 @@
 					<height>66</height>
 					<texture>menu-focus.png</texture>
 					<animation condition="Control.HasFocus(9210)" effect="fade" start="100" end="65">Conditional</animation>
-					<visible>Control.HasFocus(9200) | Control.HasFocus(9210) | !IsEmpty(Window.Property(ShowTVShow))</visible>
+					<visible>Control.HasFocus(9200) | Control.HasFocus(9210)</visible>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -688,18 +659,6 @@
 						</item>
 					</content>
 				</control>
-				<control type="button">
-					<!-- Hidden button to show menu heading when over tvshows menu area -->
-					<left>0</left>
-					<top>0</top>
-					<width>210</width>
-					<height>94</height>
-					<texturenofocus>-</texturenofocus>
-					<texturefocus>-</texturefocus>
-					<onclick>SetFocus(9200)</onclick>
-					<onfocus>SetProperty(ShowTVShow,True)</onfocus>
-					<onunfocus>ClearProperty(ShowTVShow)</onunfocus>
-				</control>
 			</control>
 			<control type="group" id="9520"><!-- Broadcast sub menu -->
 				<visible>[System.GetBool(pvrmanager.enabled) + Skin.HasSetting(home-tv)] | [System.GetBool(pvrmanager.enabled) + Skin.HasSetting(home-radio)] | !IsEmpty(Skin.String(CustomTV.1.Path)) | !IsEmpty(Skin.String(CustomTV.2.Path)) | !IsEmpty(Skin.String(CustomTV.3.Path)) | !IsEmpty(Skin.String(CustomTV.4.Path)) | !IsEmpty(Skin.String(CustomTV.5.Path)) | !IsEmpty(Skin.String(CustomRadio.1.Path)) | !IsEmpty(Skin.String(CustomRadio.2.Path)) | !IsEmpty(Skin.String(CustomRadio.3.Path)) | !IsEmpty(Skin.String(CustomRadio.4.Path)) | !IsEmpty(Skin.String(CustomRadio.5.Path))</visible>
@@ -710,8 +669,7 @@
 					<width>210</width>
 					<height>66</height>
 					<texture>menu-focus.png</texture>
-					<animation condition="Control.HasFocus(9210)" effect="fade" start="100" end="65">Conditional</animation>
-					<visible>Control.HasFocus(9500) | !IsEmpty(Window.Property(ShowBroadcast))</visible>
+					<visible>Control.HasFocus(9500)</visible>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -871,18 +829,6 @@
 						</item>
 					</content>
 				</control>
-				<control type="button">
-					<!-- Hidden button to show menu heading when over tvshows menu area -->
-					<left>0</left>
-					<top>0</top>
-					<width>210</width>
-					<height>94</height>
-					<texturenofocus>-</texturenofocus>
-					<texturefocus>-</texturefocus>
-					<onclick>SetFocus(9500)</onclick>
-					<onfocus>SetProperty(ShowBroadcast,True)</onfocus>
-					<onunfocus>ClearProperty(ShowBroadcast)</onunfocus>
-				</control>
 			</control>
 			<control type="group" id="9270"><!-- Music Sub menu -->
 				<visible>!Skin.HasSetting(home-music) | Skin.HasSetting(home-musicvideo) | !IsEmpty(Skin.String(CustomMusic.1.Path)) | !IsEmpty(Skin.String(CustomMusic.2.Path)) | !IsEmpty(Skin.String(CustomMusic.3.Path)) | !IsEmpty(Skin.String(CustomMusic.4.Path)) | !IsEmpty(Skin.String(CustomMusic.5.Path))</visible>
@@ -894,7 +840,7 @@
 					<height>66</height>
 					<texture>menu-focus.png</texture>
 					<animation condition="Control.HasFocus(9260)" effect="fade" start="100" end="65">Conditional</animation>
-					<visible>Control.HasFocus(9250) | Control.HasFocus(9260) | !IsEmpty(Window.Property(ShowMusic))</visible>
+					<visible>Control.HasFocus(9250) | Control.HasFocus(9260)</visible>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -1029,18 +975,6 @@
 						</item>
 					</content>
 				</control>
-				<control type="button">
-					<!-- Hidden button to show menu heading when over music menu area -->
-					<left>0</left>
-					<top>0</top>
-					<width>210</width>
-					<height>94</height>
-					<texturenofocus>-</texturenofocus>
-					<texturefocus>-</texturefocus>
-					<onclick>SetFocus(9250)</onclick>
-					<onfocus>SetProperty(ShowMusic,True)</onfocus>
-					<onunfocus>ClearProperty(ShowMusic)</onunfocus>
-				</control>
 			</control>
 			<control type="group" id="9320"><!-- Pictures Sub menu -->
 				<visible>Skin.HasSetting(home-photos)</visible>
@@ -1051,7 +985,7 @@
 					<width>210</width>
 					<height>66</height>
 					<texture>menu-focus.png</texture>
-					<visible>Control.HasFocus(9300) | !IsEmpty(Window.Property(ShowPicture))</visible>
+					<visible>Control.HasFocus(9300)</visible>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -1121,18 +1055,6 @@
 						</item>
 					</content>
 				</control>
-				<control type="button">
-					<!-- Hidden button to show menu heading when over picture menu area -->
-					<left>0</left>
-					<top>0</top>
-					<width>210</width>
-					<height>94</height>
-					<texturenofocus>-</texturenofocus>
-					<texturefocus>-</texturefocus>
-					<onclick>SetFocus(9300)</onclick>
-					<onfocus>SetProperty(ShowPicture,True)</onfocus>
-					<onunfocus>ClearProperty(ShowPicture)</onunfocus>
-				</control>
 			</control>
 			<control type="group" id="9370"><!-- Addons Sub menu -->
 				<visible>!Skin.HasSetting(home-programs)</visible>
@@ -1144,7 +1066,7 @@
 					<height>66</height>
 					<texture>menu-focus.png</texture>
 					<animation condition="Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
-					<visible>Control.HasFocus(9350) | Control.HasFocus(9360) | !IsEmpty(Window.Property(ShowAddon))</visible>
+					<visible>Control.HasFocus(9350) | Control.HasFocus(9360)</visible>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -1287,18 +1209,6 @@
 						</item>
 					</content>
 				</control>
-				<control type="button">
-					<!-- Hidden button to show menu heading when over addon menu area -->
-					<left>0</left>
-					<top>0</top>
-					<width>210</width>
-					<height>94</height>
-					<texturenofocus>-</texturenofocus>
-					<texturefocus>-</texturefocus>
-					<onclick>SetFocus(9350)</onclick>
-					<onfocus>SetProperty(ShowAddon,True)</onfocus>
-					<onunfocus>ClearProperty(ShowAddon)</onunfocus>
-				</control>
 			</control>
 			<control type="group" id="9420"><!-- Weather Sub menu -->
 				<visible>!IsEmpty(Weather.plugin) + [Skin.HasSetting(home-weather) | Skin.HasSetting(home-currentweather)]</visible>
@@ -1309,7 +1219,7 @@
 					<width>210</width>
 					<height>66</height>
 					<texture>menu-focus.png</texture>
-					<visible>Control.HasFocus(9400) | !IsEmpty(Window.Property(ShowWeather))</visible>
+					<visible>Control.HasFocus(9400)</visible>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -1374,18 +1284,6 @@
 						</item>
 					</content>
 				</control>
-				<control type="button">
-					<!-- Hidden button to show menu heading when over weather menu area -->
-					<left>0</left>
-					<top>0</top>
-					<width>210</width>
-					<height>94</height>
-					<texturenofocus>-</texturenofocus>
-					<texturefocus>-</texturefocus>
-					<onclick>SetFocus(9400)</onclick>
-					<onfocus>SetProperty(ShowWeather,True)</onfocus>
-					<onunfocus>ClearProperty(ShowWeather)</onunfocus>
-				</control>
 			</control>
 			<control type="group" id="9470"><!-- Settings Sub menu -->
 				<width>210</width>
@@ -1395,7 +1293,7 @@
 					<width>210</width>
 					<height>66</height>
 					<texture>menu-focus.png</texture>
-					<visible>Control.HasFocus(9450) | !IsEmpty(Window.Property(ShowSetting))</visible>
+					<visible>Control.HasFocus(9450)</visible>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -1529,18 +1427,6 @@
 							<onclick>$VAR[QuitAction]</onclick>
 						</item>
 					</content>
-				</control>
-				<control type="button">
-					<!-- Hidden button to show menu heading when over settings menu area -->
-					<left>0</left>
-					<top>0</top>
-					<width>210</width>
-					<height>94</height>
-					<texturenofocus>-</texturenofocus>
-					<texturefocus>-</texturefocus>
-					<onclick>SetFocus(9450)</onclick>
-					<onfocus>SetProperty(ShowSetting,True)</onfocus>
-					<onunfocus>ClearProperty(ShowSetting)</onunfocus>
 				</control>
 			</control>
 		</control>

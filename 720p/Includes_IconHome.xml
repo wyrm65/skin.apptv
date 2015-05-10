@@ -30,7 +30,6 @@
 					<width>1280</width>
 					<height>294</height>
 					<texture>menu-mask.png</texture>
-					<colordiffuse>BBF9F9F9</colordiffuse>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -46,7 +45,6 @@
 			<include condition="!Skin.HasSetting(home-time)">horizontalhome-time</include><!-- Show time on home screen -->
 
 			<control type="group" id="9800"><!-- Shelf icons-->
-				<visible>Control.HasFocus(11000) | ControlGroup(9800).HasFocus()</visible>
 				<control type="group" id="9155"><!-- Movie icons -->
 					<visible>StringCompare(Container(9000).ListItem.Label2,$LOCALIZE[31026])</visible>
 					<control type="group">
@@ -145,8 +143,7 @@
 				</control>
 				<control type="group" id="9802"><!-- Default Shelf image -->
 					<visible>StringCompare(Container(9000).ListItem.Label2,$LOCALIZE[571])</visible>
-					<control type="group"><!-- Use skin supplied image if no watermark image is available -->
-						<visible>IsEmpty(Skin.String(custom-watermark))</visible>
+					<control type="group">
 						<control type="image">
 							<left>464</left>
 							<top>38</top>
@@ -162,23 +159,6 @@
 							<height>176</height>
 							<aspectratio scalediffuse="true">keep</aspectratio>
 							<texture flipy="true" diffuse="mask-fade.png">skin-logo-big.png</texture>
-						</control>
-					</control>
-					<control type="group"><!-- Use user supplied watermark image if available -->
-						<visible>!IsEmpty(Skin.String(custom-watermark))</visible>
-						<control type="image">
-							<left>552</left>
-							<top>38</top>
-							<width>176</width>
-							<height>176</height>
-							<texture>$INFO[Skin.String(custom-watermark)]</texture>
-						</control>
-						<control type="image">
-							<left>552</left>
-							<top>214</top>
-							<width>176</width>
-							<height>176</height>
-							<texture flipy="true" diffuse="mask-fade.png">$INFO[Skin.String(custom-watermark)]</texture>
 						</control>
 					</control>
 				</control>
