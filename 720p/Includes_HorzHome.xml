@@ -55,7 +55,7 @@
 
 		<control type="group" id="9800"><!-- Shelf icons-->
 			<control type="group" id="9155"><!-- Movie icons -->
-				<visible>Control.HasFocus(9150) | Control.HasFocus(9160)</visible>
+				<visible>Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180)</visible>
 				<control type="group">
 					<visible>StringCompare(Skin.String(shelf-movieimages),$LOCALIZE[31953]) | !IntegerGreaterThan(Container(9160).NumItems,0)</visible>
 					<control type="image">
@@ -80,7 +80,7 @@
 			</control>
 
 			<control type="group" id="9205"><!-- TV Shows icons -->
-				<visible>Control.HasFocus(9200) | Control.HasFocus(9210)</visible>
+				<visible>Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230)</visible>
 				<control type="group">
 					<visible>StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31953]) | [![IntegerGreaterThan(Container(9210).NumItems,0)] + ![StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31953])]]</visible>
 					<control type="image">
@@ -105,7 +105,7 @@
 			</control>
 
 			<control type="group" id="9255"><!-- Music icons -->
-				<visible>Control.HasFocus(9250) | Control.HasFocus(9260)</visible>
+				<visible>Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280)</visible>
 				<control type="group">
 					<visible>StringCompare(Skin.String(shelf-musicimages),$LOCALIZE[31953]) | !IntegerGreaterThan(Container(9260).NumItems,0)</visible>
 					<control type="image">
@@ -155,7 +155,7 @@
 			</control>
 
 			<control type="group" id="9405"><!-- Weather icons -->
-				<visible>Control.HasFocus(9400)</visible>
+				<visible>Control.HasFocus(9400) | Control.HasFocus(9430)</visible>
 				<control type="group">
 					<visible>!Weather.IsFetched</visible>
 					<control type="image">
@@ -250,14 +250,54 @@
 			<control type="group" id="9120"><!-- Video sub menu -->
 				<visible>!Skin.HasSetting(home-video)</visible>
 				<width>210</width>
-				<control type="image">
+				<control type="button" id="9130"><!-- Dummy button for mouse control -->
 					<left>0</left>
 					<top>0</top>
 					<width>210</width>
-					<height>66</height>
-					<texture>menu-focus.png</texture>
-					<visible>Control.HasFocus(9100)</visible>
+					<height>345</height>
+					<texturefocus>blank.png</texturefocus>
+					<onup>9005</onup>
+					<ondown>9100</ondown>
+					<onleft>9005</onleft>
+					<onright>9150</onright>
 				</control>
+				<control type="group">
+					<visible>Control.HasFocus(9100) | Control.HasFocus(9130)</visible>
+					<camera x="105" y="220" />
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>210</width>
+						<height>66</height>
+						<texture>menu-focus.png</texture>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>70</top>
+						<width>210</width>
+						<height>22</height>
+						<font>font11</font>
+						<align>center</align>
+						<label>$VAR[VideoList0]</label>
+						<textcolor>disabled-text</textcolor>
+						<animation effect="rotatex" center="70" end="50" condition="Control.HasFocus(9100) | Control.HasFocus(9130)">Conditional</animation>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>294</top>
+						<width>210</width>
+						<height>22</height>
+						<font>font11</font>
+						<align>center</align>
+						<aligny>center</aligny>
+						<label>$VAR[VideoList6]</label>
+						<textcolor>disabled-text</textcolor>
+						<animation effect="rotatex" center="294" end="-50" condition="Control.HasFocus(9100) | Control.HasFocus(9130)">Conditional</animation>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					</control>
+				</control>
+
 				<control type="label">
 					<left>0</left>
 					<top>17</top>
@@ -268,46 +308,18 @@
 					<label>$INFO[Container(9100).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
-				<control type="label">
-					<left>0</left>
-					<top>70</top>
-					<width>210</width>
-					<height>22</height>
-					<font>font11</font>
-					<align>center</align>
-					<label>$VAR[VideoList0]</label>
-					<textcolor>disabled-text</textcolor>
-					<camera x="105" y="70" />
-					<animation effect="rotatex" center="70" end="60" condition="Control.HasFocus(9100)">Conditional</animation>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<visible>Control.HasFocus(9100)</visible>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<top>292</top>
-					<width>210</width>
-					<height>22</height>
-					<font>font11</font>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label>$VAR[VideoList6]</label>
-					<textcolor>disabled-text</textcolor>
-					<camera x="105" y="292" />
-					<animation effect="rotatex" center="292" end="-60" condition="Control.HasFocus(9100)">Conditional</animation>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<visible>Control.HasFocus(9100)</visible>
-				</control>
+
 				<control type="list" id="9100">
-					<animation condition="!Control.HasFocus(9100)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(9100) + !Control.HasFocus(9130)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 					<left>0</left>
-					<top>82</top>
+					<top>84</top>
 					<width>210</width>
 					<height>210</height>
 					<scrolltime>200</scrolltime>
 					<onup>9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9005</onleft>
-					<onright>9170</onright>
+					<onright>9150</onright>
 					<itemgap>0</itemgap>
 					<viewtype label="List">List</viewtype>
 					<itemlayout height="42" width="210">
@@ -381,15 +393,54 @@
 			<control type="group" id="9170"><!-- Movie sub menu -->
 				<visible>!Skin.HasSetting(home-movie) | !IsEmpty(Skin.String(CustomMovies.1.Path)) | !IsEmpty(Skin.String(CustomMovies.2.Path)) | !IsEmpty(Skin.String(CustomMovies.3.Path)) | !IsEmpty(Skin.String(CustomMovies.4.Path)) | !IsEmpty(Skin.String(CustomMovies.5.Path))</visible>
 				<width>210</width>
-				<control type="image">
+				<control type="button" id="9180"><!-- Dummy button for mouse control -->
 					<left>0</left>
 					<top>0</top>
 					<width>210</width>
-					<height>66</height>
-					<texture>menu-focus.png</texture>
-					<animation condition="Control.HasFocus(9160)" effect="fade" start="100" end="65">Conditional</animation>
-					<visible>Control.HasFocus(9150) | Control.HasFocus(9160)</visible>
+					<height>345</height>
+					<texturefocus>blank.png</texturefocus>
+					<onup>9155</onup>
+					<ondown>9150</ondown>
+					<onleft>9100</onleft>
+					<onright>9200</onright>
 				</control>
+				<control type="group">
+					<visible>Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180)</visible>
+					<camera x="105" y="220" />
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>210</width>
+						<height>66</height>
+						<texture>menu-focus.png</texture>
+						<animation condition="Control.HasFocus(9160)" effect="fade" start="100" end="65">Conditional</animation>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>70</top>
+						<width>210</width>
+						<height>22</height>
+						<font>font11</font>
+						<align>center</align>
+						<label>$VAR[MovieList0]</label>
+						<textcolor>disabled-text</textcolor>
+						<animation effect="rotatex" center="70" end="50" condition="Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180)">Conditional</animation>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>294</top>
+						<width>210</width>
+						<height>22</height>
+						<font>font11</font>
+						<align>center</align>
+						<label>$VAR[MovieList6]</label>
+						<textcolor>disabled-text</textcolor>
+						<animation effect="rotatex" center="294" end="-50" condition="Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180)">Conditional</animation>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					</control>
+				</control>
+
 				<control type="label">
 					<left>0</left>
 					<top>17</top>
@@ -400,46 +451,19 @@
 					<label>$INFO[Container(9150).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
-				<control type="label">
-					<left>0</left>
-					<top>70</top>
-					<width>210</width>
-					<height>22</height>
-					<font>font11</font>
-					<align>center</align>
-					<label>$VAR[MovieList0]</label>
-					<textcolor>disabled-text</textcolor>
-					<camera x="105" y="70" />
-					<animation effect="rotatex" center="70" end="60" condition="Control.HasFocus(9150)">Conditional</animation>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<visible>Control.HasFocus(9150)</visible>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<top>292</top>
-					<width>210</width>
-					<height>22</height>
-					<font>font11</font>
-					<align>center</align>
-					<label>$VAR[MovieList6]</label>
-					<textcolor>disabled-text</textcolor>
-					<camera x="105" y="292" />
-					<animation effect="rotatex" center="292" end="-60" condition="Control.HasFocus(9150)">Conditional</animation>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<visible>Control.HasFocus(9150)</visible>
-				</control>
+
 				<control type="list" id="9150">
-					<animation condition="!Control.HasFocus(9150) + !Control.HasFocus(9160)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(9150) + !Control.HasFocus(9160) + !Control.HasFocus(9180)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 					<animation condition="Control.HasFocus(9160)" effect="fade" start="100" end="65" reversible="true">Conditional</animation>
 					<left>0</left>
-					<top>82</top>
+					<top>84</top>
 					<width>210</width>
 					<height>210</height>
 					<scrolltime>200</scrolltime>
 					<onup>9155</onup>
 					<ondown>9005</ondown>
-					<onleft>9120</onleft>
-					<onright>9220</onright>
+					<onleft>9100</onleft>
+					<onright>9200</onright>
 					<itemgap>0</itemgap>
 					<viewtype label="List">List</viewtype>
 					<itemlayout height="42" width="210">
@@ -521,15 +545,54 @@
 			<control type="group" id="9220"><!-- TV Shows sub menu -->
 				<visible>!Skin.HasSetting(home-tvshows) | !IsEmpty(Skin.String(CustomTVShow.1.Path)) | !IsEmpty(Skin.String(CustomTVShow.2.Path)) | !IsEmpty(Skin.String(CustomTVShow.3.Path)) | !IsEmpty(Skin.String(CustomTVShow.4.Path)) | !IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
 				<width>210</width>
-				<control type="image">
+				<control type="button" id="9230"><!-- Dummy button for mouse control -->
 					<left>0</left>
 					<top>0</top>
 					<width>210</width>
-					<height>66</height>
-					<texture>menu-focus.png</texture>
-					<animation condition="Control.HasFocus(9210)" effect="fade" start="100" end="65">Conditional</animation>
-					<visible>Control.HasFocus(9200) | Control.HasFocus(9210)</visible>
+					<height>345</height>
+					<texturefocus>blank.png</texturefocus>
+					<onup>9205</onup>
+					<ondown>9200</ondown>
+					<onleft>9150</onleft>
+					<onright>9500</onright>
 				</control>
+				<control type="group">
+					<visible>Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230)</visible>
+					<camera x="105" y="220" />
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>210</width>
+						<height>66</height>
+						<texture>menu-focus.png</texture>
+						<animation condition="Control.HasFocus(9210)" effect="fade" start="100" end="65">Conditional</animation>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>70</top>
+						<width>210</width>
+						<height>22</height>
+						<font>font11</font>
+						<align>center</align>
+						<label>$VAR[TVShowList0]</label>
+						<textcolor>disabled-text</textcolor>
+						<animation effect="rotatex" center="70" end="50" condition="Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230)">Conditional</animation>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>294</top>
+						<width>210</width>
+						<height>22</height>
+						<font>font11</font>
+						<align>center</align>
+						<label>$VAR[TVShowList6]</label>
+						<textcolor>disabled-text</textcolor>
+						<animation effect="rotatex" center="294" end="-50" condition="Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230)">Conditional</animation>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					</control>
+				</control>
+
 				<control type="label">
 					<left>0</left>
 					<top>17</top>
@@ -540,46 +603,19 @@
 					<label>$INFO[Container(9200).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
-				<control type="label">
-					<left>0</left>
-					<top>70</top>
-					<width>210</width>
-					<height>22</height>
-					<font>font11</font>
-					<align>center</align>
-					<label>$VAR[TVShowList0]</label>
-					<textcolor>disabled-text</textcolor>
-					<camera x="105" y="70" />
-					<animation effect="rotatex" center="70" end="60" condition="Control.HasFocus(9200)">Conditional</animation>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<visible>Control.HasFocus(9200)</visible>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<top>292</top>
-					<width>210</width>
-					<height>22</height>
-					<font>font11</font>
-					<align>center</align>
-					<label>$VAR[TVShowList6]</label>
-					<textcolor>disabled-text</textcolor>
-					<camera x="105" y="292" />
-					<animation effect="rotatex" center="292" end="-60" condition="Control.HasFocus(9200)">Conditional</animation>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<visible>Control.HasFocus(9200)</visible>
-				</control>
+
 				<control type="list" id="9200">
-					<animation condition="!Control.HasFocus(9200) + !Control.HasFocus(9210)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(9200) + !Control.HasFocus(9210) + !Control.HasFocus(9230)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 					<animation condition="Control.HasFocus(9210)" effect="fade" start="100" end="65" reversible="true">Conditional</animation>
 					<left>0</left>
-					<top>82</top>
+					<top>84</top>
 					<width>210</width>
 					<height>210</height>
 					<scrolltime>200</scrolltime>
 					<onup>9205</onup>
 					<ondown>9005</ondown>
-					<onleft>9170</onleft>
-					<onright>9520</onright>
+					<onleft>9150</onleft>
+					<onright>9500</onright>
 					<itemgap>0</itemgap>
 					<viewtype label="List">List</viewtype>
 					<itemlayout height="42" width="210">
@@ -661,14 +697,54 @@
 			<control type="group" id="9520"><!-- Broadcast sub menu -->
 				<visible>[System.GetBool(pvrmanager.enabled) + Skin.HasSetting(home-tv)] | [System.GetBool(pvrmanager.enabled) + Skin.HasSetting(home-radio)] | !IsEmpty(Skin.String(CustomTV.1.Path)) | !IsEmpty(Skin.String(CustomTV.2.Path)) | !IsEmpty(Skin.String(CustomTV.3.Path)) | !IsEmpty(Skin.String(CustomTV.4.Path)) | !IsEmpty(Skin.String(CustomTV.5.Path)) | !IsEmpty(Skin.String(CustomRadio.1.Path)) | !IsEmpty(Skin.String(CustomRadio.2.Path)) | !IsEmpty(Skin.String(CustomRadio.3.Path)) | !IsEmpty(Skin.String(CustomRadio.4.Path)) | !IsEmpty(Skin.String(CustomRadio.5.Path))</visible>
 				<width>210</width>
-				<control type="image">
+				<control type="button" id="9530"><!-- Dummy button for mouse control -->
 					<left>0</left>
 					<top>0</top>
 					<width>210</width>
-					<height>66</height>
-					<texture>menu-focus.png</texture>
-					<visible>Control.HasFocus(9500)</visible>
+					<height>345</height>
+					<texturefocus>blank.png</texturefocus>
+					<onup>9005</onup>
+					<ondown>9500</ondown>
+					<onleft>9200</onleft>
+					<onright>9250</onright>
 				</control>
+				<control type="group">
+					<visible>Control.HasFocus(9500) | Control.HasFocus(9530)</visible>
+					<camera x="105" y="220" />
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>210</width>
+						<height>66</height>
+						<texture>menu-focus.png</texture>
+						<visible></visible>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>70</top>
+						<width>210</width>
+						<height>22</height>
+						<font>font11</font>
+						<align>center</align>
+						<label>$VAR[BroadcastList0]</label>
+						<textcolor>disabled-text</textcolor>
+						<animation effect="rotatex" center="70" end="50" condition="Control.HasFocus(9500) | Control.HasFocus(9530)">Conditional</animation>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>294</top>
+						<width>210</width>
+						<height>22</height>
+						<font>font11</font>
+						<align>center</align>
+						<label>$VAR[BroadcastList6]</label>
+						<textcolor>disabled-text</textcolor>
+						<animation effect="rotatex" center="294" end="-50" condition="Control.HasFocus(9500) | Control.HasFocus(9530)">Conditional</animation>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					</control>
+				</control>
+
 				<control type="label">
 					<left>0</left>
 					<top>17</top>
@@ -679,45 +755,18 @@
 					<label>$INFO[Container(9500).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
-				<control type="label">
-					<left>0</left>
-					<top>70</top>
-					<width>210</width>
-					<height>22</height>
-					<font>font11</font>
-					<align>center</align>
-					<label>$VAR[BroadcastList0]</label>
-					<textcolor>disabled-text</textcolor>
-					<camera x="105" y="70" />
-					<animation effect="rotatex" center="70" end="60" condition="Control.HasFocus(9200)">Conditional</animation>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<visible>Control.HasFocus(9500)</visible>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<top>292</top>
-					<width>210</width>
-					<height>22</height>
-					<font>font11</font>
-					<align>center</align>
-					<label>$VAR[BroadcastList6]</label>
-					<textcolor>disabled-text</textcolor>
-					<camera x="105" y="292" />
-					<animation effect="rotatex" center="292" end="-60" condition="Control.HasFocus(9200)">Conditional</animation>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<visible>Control.HasFocus(9500)</visible>
-				</control>
+
 				<control type="list" id="9500">
-					<animation condition="!Control.HasFocus(9500)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(9500) + !Control.HasFocus(9530)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 					<left>0</left>
-					<top>82</top>
+					<top>84</top>
 					<width>210</width>
 					<height>210</height>
 					<scrolltime>200</scrolltime>
 					<onup>9005</onup>
 					<ondown>9005</ondown>
-					<onleft>9220</onleft>
-					<onright>9270</onright>
+					<onleft>9200</onleft>
+					<onright>9250</onright>
 					<itemgap>0</itemgap>
 					<viewtype label="List">List</viewtype>
 					<itemlayout height="42" width="210">
@@ -830,15 +879,54 @@
 			<control type="group" id="9270"><!-- Music Sub menu -->
 				<visible>!Skin.HasSetting(home-music) | Skin.HasSetting(home-musicvideo) | !IsEmpty(Skin.String(CustomMusic.1.Path)) | !IsEmpty(Skin.String(CustomMusic.2.Path)) | !IsEmpty(Skin.String(CustomMusic.3.Path)) | !IsEmpty(Skin.String(CustomMusic.4.Path)) | !IsEmpty(Skin.String(CustomMusic.5.Path))</visible>
 				<width>210</width>
-				<control type="image">
+				<control type="button" id="9280"><!-- Dummy button for mouse control -->
 					<left>0</left>
 					<top>0</top>
 					<width>210</width>
-					<height>66</height>
-					<texture>menu-focus.png</texture>
-					<animation condition="Control.HasFocus(9260)" effect="fade" start="100" end="65">Conditional</animation>
-					<visible>Control.HasFocus(9250) | Control.HasFocus(9260)</visible>
+					<height>345</height>
+					<texturefocus>blank.png</texturefocus>
+					<onup>9255</onup>
+					<ondown>9250</ondown>
+					<onleft>9500</onleft>
+					<onright>9300</onright>
 				</control>
+				<control type="group">
+					<visible>Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280)</visible>
+					<camera x="105" y="220" />
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>210</width>
+						<height>66</height>
+						<texture>menu-focus.png</texture>
+						<animation condition="Control.HasFocus(9260)" effect="fade" start="100" end="65">Conditional</animation>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>70</top>
+						<width>210</width>
+						<height>22</height>
+						<font>font11</font>
+						<align>center</align>
+						<label>$VAR[MusicList0]</label>
+						<textcolor>disabled-text</textcolor>
+						<animation effect="rotatex" center="70" end="60" condition="Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280)">Conditional</animation>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>294</top>
+						<width>210</width>
+						<height>22</height>
+						<font>font11</font>
+						<align>center</align>
+						<label>$VAR[MusicList6]</label>
+						<textcolor>disabled-text</textcolor>
+						<animation effect="rotatex" center="294" end="-50" condition="Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280)">Conditional</animation>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					</control>
+				</control>
+
 				<control type="label">
 					<left>0</left>
 					<top>17</top>
@@ -849,46 +937,19 @@
 					<label>$INFO[Container(9250).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
-				<control type="label">
-					<left>0</left>
-					<top>70</top>
-					<width>210</width>
-					<height>22</height>
-					<font>font11</font>
-					<align>center</align>
-					<label>$VAR[MusicList0]</label>
-					<textcolor>disabled-text</textcolor>
-					<camera x="105" y="70" />
-					<animation effect="rotatex" center="70" end="60" condition="Control.HasFocus(9250)">Conditional</animation>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<visible>Control.HasFocus(9250)</visible>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<top>292</top>
-					<width>210</width>
-					<height>22</height>
-					<font>font11</font>
-					<align>center</align>
-					<label>$VAR[MusicList6]</label>
-					<textcolor>disabled-text</textcolor>
-					<camera x="105" y="292" />
-					<animation effect="rotatex" center="292" end="-60" condition="Control.HasFocus(9250)">Conditional</animation>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<visible>Control.HasFocus(9250)</visible>
-				</control>
+
 				<control type="list" id="9250">
-					<animation condition="!Control.HasFocus(9250) + !Control.HasFocus(9260)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(9250) + !Control.HasFocus(9260) + !Control.HasFocus(9280)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 					<animation condition="Control.HasFocus(9260)" effect="fade" start="100" end="65" reversible="true">Conditional</animation>
 					<left>0</left>
-					<top>82</top>
+					<top>84</top>
 					<width>210</width>
 					<height>210</height>
 					<scrolltime>200</scrolltime>
 					<onup>9255</onup>
 					<ondown>9005</ondown>
-					<onleft>9520</onleft>
-					<onright>9320</onright>
+					<onleft>9500</onleft>
+					<onright>9300</onright>
 					<itemgap>0</itemgap>
 					<viewtype label="List">List</viewtype>
 					<itemlayout height="42" width="210">
@@ -976,14 +1037,26 @@
 			<control type="group" id="9320"><!-- Pictures Sub menu -->
 				<visible>Skin.HasSetting(home-photos)</visible>
 				<width>210</width>
+				<control type="button" id="9330"><!-- Dummy button for mouse control -->
+					<left>0</left>
+					<top>0</top>
+					<width>210</width>
+					<height>345</height>
+					<texturefocus>blank.png</texturefocus>
+					<onup>9005</onup>
+					<ondown>9300</ondown>
+					<onleft>9250</onleft>
+					<onright>9350</onright>
+				</control>
 				<control type="image">
 					<left>0</left>
 					<top>0</top>
 					<width>210</width>
 					<height>66</height>
 					<texture>menu-focus.png</texture>
-					<visible>Control.HasFocus(9300)</visible>
+					<visible>Control.HasFocus(9300) | Control.HasFocus(9330)</visible>
 				</control>
+
 				<control type="label">
 					<left>0</left>
 					<top>17</top>
@@ -994,17 +1067,18 @@
 					<label>$INFO[Container(9300).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
+
 				<control type="list" id="9300">
-					<animation condition="!Control.HasFocus(9300)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(9300) + !Control.HasFocus(9330)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 					<left>0</left>
-					<top>82</top>
+					<top>84</top>
 					<width>210</width>
 					<height>210</height>
 					<scrolltime>200</scrolltime>
 					<onup>9005</onup>
 					<ondown>9005</ondown>
-					<onleft>9270</onleft>
-					<onright>9370</onright>
+					<onleft>9250</onleft>
+					<onright>9350</onright>
 					<itemgap>0</itemgap>
 					<viewtype label="List">List</viewtype>
 					<itemlayout height="42" width="210">
@@ -1055,15 +1129,55 @@
 			<control type="group" id="9370"><!-- Addons Sub menu -->
 				<visible>!Skin.HasSetting(home-programs)</visible>
 				<width>210</width>
-				<control type="image">
+				<control type="button" id="9380"><!-- Dummy button for mouse control -->
 					<left>0</left>
 					<top>0</top>
 					<width>210</width>
-					<height>66</height>
-					<texture>menu-focus.png</texture>
-					<animation condition="Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
-					<visible>Control.HasFocus(9350) | Control.HasFocus(9360)</visible>
+					<height>345</height>
+					<texturefocus>blank.png</texturefocus>
+					<onup>9355</onup>
+					<ondown>9350</ondown>
+					<onleft>9300</onleft>
+					<onright>9400</onright>
 				</control>
+				<control type="group">
+					<visible>Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9380)</visible>
+					<camera x="105" y="220" />
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>210</width>
+						<height>66</height>
+						<texture>menu-focus.png</texture>
+						<animation condition="Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
+					</control>
+
+					<control type="label">
+						<left>0</left>
+						<top>70</top>
+						<width>210</width>
+						<height>22</height>
+						<font>font11</font>
+						<align>center</align>
+						<label>$VAR[AddonList0]</label>
+						<textcolor>disabled-text</textcolor>
+						<animation effect="rotatex" center="70" end="50" condition="Control.HasFocus(9350) | Control.HasFocus(9380)">Conditional</animation>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>294</top>
+						<width>210</width>
+						<height>22</height>
+						<font>font11</font>
+						<align>center</align>
+						<label>$VAR[AddonList6]</label>
+						<textcolor>disabled-text</textcolor>
+						<animation effect="rotatex" center="292" end="-50" condition="Control.HasFocus(9350) | Control.HasFocus(9380)">Conditional</animation>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					</control>
+				</control>
+
 				<control type="label">
 					<left>0</left>
 					<top>17</top>
@@ -1074,46 +1188,19 @@
 					<label>$INFO[Container(9350).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260)" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
-				<control type="label">
-					<left>0</left>
-					<top>70</top>
-					<width>210</width>
-					<height>22</height>
-					<font>font11</font>
-					<align>center</align>
-					<label>$VAR[AddonList0]</label>
-					<textcolor>disabled-text</textcolor>
-					<camera x="105" y="70" />
-					<animation effect="rotatex" center="70" end="60" condition="Control.HasFocus(9350)">Conditional</animation>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<visible>Control.HasFocus(9350)</visible>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<top>292</top>
-					<width>210</width>
-					<height>22</height>
-					<font>font11</font>
-					<align>center</align>
-					<label>$VAR[AddonList6]</label>
-					<textcolor>disabled-text</textcolor>
-					<camera x="105" y="292" />
-					<animation effect="rotatex" center="292" end="-60" condition="Control.HasFocus(9350)">Conditional</animation>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<visible>Control.HasFocus(9350)</visible>
-				</control>
+
 				<control type="list" id="9350">
-					<animation condition="!Control.HasFocus(9350) + !Control.HasFocus(9360)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(9350) + !Control.HasFocus(9360) + !Control.HasFocus(9380)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 					<animation condition="Control.HasFocus(9360)" effect="fade" start="100" end="65" reversible="true">Conditional</animation>
 					<left>0</left>
-					<top>82</top>
+					<top>84</top>
 					<width>210</width>
 					<height>210</height>
 					<scrolltime>200</scrolltime>
 					<onup>9355</onup>
 					<ondown>9005</ondown>
-					<onleft>9320</onleft>
-					<onright>9420</onright>
+					<onleft>9300</onleft>
+					<onright>9400</onright>
 					<itemgap>0</itemgap>
 					<viewtype label="List">List</viewtype>
 					<itemlayout height="42" width="210">
@@ -1209,14 +1296,26 @@
 			<control type="group" id="9420"><!-- Weather Sub menu -->
 				<visible>!IsEmpty(Weather.plugin) + [Skin.HasSetting(home-weather) | Skin.HasSetting(home-currentweather)]</visible>
 				<width>210</width>
+				<control type="button" id="9430"><!-- Dummy button for mouse control -->
+					<left>0</left>
+					<top>0</top>
+					<width>210</width>
+					<height>345</height>
+					<texturefocus>blank.png</texturefocus>
+					<onup>9005</onup>
+					<ondown>9400</ondown>
+					<onleft>9350</onleft>
+					<onright>9450</onright>
+				</control>
 				<control type="image">
 					<left>0</left>
 					<top>0</top>
 					<width>210</width>
 					<height>66</height>
 					<texture>menu-focus.png</texture>
-					<visible>Control.HasFocus(9400)</visible>
+					<visible>Control.HasFocus(9400) | Control.HasFocus(9430)</visible>
 				</control>
+
 				<control type="label">
 					<left>0</left>
 					<top>17</top>
@@ -1227,17 +1326,18 @@
 					<label>$INFO[Container(9400).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
+
 				<control type="list" id="9400">
-					<animation condition="!Control.HasFocus(9400)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(9400) + !Control.HasFocus(9430)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 					<left>0</left>
-					<top>82</top>
+					<top>84</top>
 					<width>210</width>
 					<height>210</height>
 					<scrolltime>200</scrolltime>
 					<onup>9005</onup>
 					<ondown>9005</ondown>
-					<onleft>9370</onleft>
-					<onright>9470</onright>
+					<onleft>9350</onleft>
+					<onright>9450</onright>
 					<itemgap>0</itemgap>
 					<viewtype label="List">List</viewtype>
 					<itemlayout height="42" width="210">
@@ -1282,14 +1382,53 @@
 			</control>
 			<control type="group" id="9470"><!-- Settings Sub menu -->
 				<width>210</width>
-				<control type="image">
+				<control type="button" id="9480"><!-- Dummy button for mouse control -->
 					<left>0</left>
 					<top>0</top>
 					<width>210</width>
-					<height>66</height>
-					<texture>menu-focus.png</texture>
-					<visible>Control.HasFocus(9450)</visible>
+					<height>345</height>
+					<texturefocus>blank.png</texturefocus>
+					<onup>9005</onup>
+					<ondown>9450</ondown>
+					<onleft>9400</onleft>
+					<onright>9005</onright>
 				</control>
+				<control type="group">
+					<visible>Control.HasFocus(9450) | Control.HasFocus(9480)</visible>
+					<camera x="105" y="220" />
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>210</width>
+						<height>66</height>
+						<texture>menu-focus.png</texture>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>70</top>
+						<width>210</width>
+						<height>22</height>
+						<font>font11</font>
+						<align>center</align>
+						<label>$VAR[SystemList0]</label>
+						<textcolor>disabled-text</textcolor>
+						<animation effect="rotatex" center="70" end="50" condition="Control.HasFocus(9450) | Control.HasFocus(9480)">Conditional</animation>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>294</top>
+						<width>210</width>
+						<height>22</height>
+						<font>font11</font>
+						<align>center</align>
+						<label>$VAR[SystemList6]</label>
+						<textcolor>disabled-text</textcolor>
+						<animation effect="rotatex" center="294" end="-50" condition="Control.HasFocus(9450) | Control.HasFocus(9480)">Conditional</animation>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					</control>
+				</control>
+
 				<control type="label">
 					<left>0</left>
 					<top>17</top>
@@ -1300,45 +1439,18 @@
 					<label>$INFO[Container(9450).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
-				<control type="label">
-					<left>0</left>
-					<top>70</top>
-					<width>210</width>
-					<height>22</height>
-					<font>font11</font>
-					<align>center</align>
-					<label>$VAR[SystemList0]</label>
-					<textcolor>disabled-text</textcolor>
-					<camera x="105" y="70" />
-					<animation effect="rotatex" center="70" end="60" condition="Control.HasFocus(9450)">Conditional</animation>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<visible>Control.HasFocus(9450)</visible>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<top>292</top>
-					<width>210</width>
-					<height>22</height>
-					<font>font11</font>
-					<align>center</align>
-					<label>$VAR[SystemList6]</label>
-					<textcolor>disabled-text</textcolor>
-					<camera x="105" y="292" />
-					<animation effect="rotatex" center="292" end="-60" condition="Control.HasFocus(9450)">Conditional</animation>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<visible>Control.HasFocus(9450)</visible>
-				</control>
+
 				<control type="list" id="9450">
-					<animation condition="!Control.HasFocus(9450)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(9450) + !Control.HasFocus(9480)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 					<left>0</left>
-					<top>82</top>
+					<top>84</top>
 					<width>210</width>
 					<height>210</height>
 					<scrolltime>200</scrolltime>
 					<onup>9005</onup>
 					<ondown>9005</ondown>
-					<onleft>9420</onleft>
-					<onright>9005</onright><!-- change to button to make bump noise -->
+					<onleft>9400</onleft>
+					<onright>9005</onright>
 					<itemgap>0</itemgap>
 					<viewtype label="List">List</viewtype>
 					<itemlayout height="42" width="210">

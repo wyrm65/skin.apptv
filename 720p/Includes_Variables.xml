@@ -476,11 +476,11 @@
 		<value>blank.png</value>
 	</variable>
 	<variable name="HorzHomeShelfIcon">
-		<value condition="Control.HasFocus(9100) | !IsEmpty(Window.Property(ShowVideo))">DefaultVideo.png</value><!--Video shelf Icon -->
-		<value condition="Control.HasFocus(9300) | !IsEmpty(Window.Property(ShowPicture))">DefaultPicture.png</value><!--Picture shelf Icon -->
-		<value condition="Control.HasFocus(9350) | !IsEmpty(Window.Property(ShowAddon))">DefaultAddon.png</value><!--Addon shelf Icon -->
-		<value condition="Control.HasFocus(9500) | !IsEmpty(Window.Property(ShowBroadcast))">icon-broadcast.png</value><!--Broadcast shelf Icon -->
-		<value condition="Control.HasFocus(9450) | !IsEmpty(Window.Property(ShowSetting))">icon-settings.png</value><!--Setting shelf Icon -->
+		<value condition="Control.HasFocus(9100) | Control.HasFocus(9130)">DefaultVideo.png</value><!--Video shelf Icon -->
+		<value condition="Control.HasFocus(9300) | Control.HasFocus(9330)">DefaultPicture.png</value><!--Picture shelf Icon -->
+		<value condition="Control.HasFocus(9350) | Control.HasFocus(9380)">DefaultAddon.png</value><!--Addon shelf Icon -->
+		<value condition="Control.HasFocus(9500) | Control.HasFocus(9530)">icon-broadcast.png</value><!--Broadcast shelf Icon -->
+		<value condition="Control.HasFocus(9450) | Control.HasFocus(9480)">icon-settings.png</value><!--Setting shelf Icon -->
 	</variable>
 	<variable name="MovieShelfIcon0">
 		<value condition="Container(9160).Position(0)">$INFO[Container(9160).ListItemNoWrap(-1).Thumb]</value>
