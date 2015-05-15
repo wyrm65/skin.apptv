@@ -50,12 +50,10 @@
 					<visible>Skin.HasSetting(background-playingmedia)</visible>
 					<control type="videowindow">
 						<include>fullscreenimage</include>
-						<aspectratio>stretch</aspectratio>
 						<visible>Player.HasVideo</visible>
 					</control>
 					<control type="visualisation">
 						<include>fullscreenimage</include>
-						<aspectratio>stretch</aspectratio>
 						<visible>Player.HasAudio</visible>
 					</control>
 				</control>
@@ -149,12 +147,10 @@
 				<visible>Skin.HasSetting(background-playingmedia)</visible>
 				<control type="videowindow">
 					<include>fullscreenimage</include>
-					<aspectratio>stretch</aspectratio>
 					<visible>Player.HasVideo</visible>
 				</control>
 				<control type="visualisation">
 					<include>fullscreenimage</include>
-					<aspectratio>stretch</aspectratio>
 					<visible>Player.HasAudio + !SubString(Window(VideoLibrary).Property(TvTunesIsAlive),True)</visible>
 					<animation effect="fade" time="200">VisibleChange</animation>
 				</control>
@@ -439,7 +435,6 @@
 				<top>5</top>
 				<width>167</width>
 				<height>100</height>
-				<aspectratio>keep</aspectratio>
 			</control>
 			<control type="label"><!-- Now playing -->
 				<left>212</left>
