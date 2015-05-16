@@ -11,27 +11,8 @@
 			<left>902</left>
 			<top>12</top>
 			<width>354</width>
-			<height>162</height>
+			<height>172</height>
 			<texture border="8">button-menu-background.png</texture>
-		</control>
-		<control type="progress">
-			<left>965</left>
-			<top>87</top>
-			<width>226</width>
-			<height>40</height>
-			<info>Player.Volume</info>
-			<colordiffuse>ProgressBarColor</colordiffuse>
-			<texturebg>blank.png</texturebg>
-			<midtexture>colours/blue.png</midtexture>
-			<animation effect="fade" start="50" end="50" time="0" condition="Player.Passthrough">Conditional</animation>
-			<visible>IntegerGreaterThan(Player.Volume,-60)</visible>
-		</control>
-		<control type="image"><!-- Volume bar overlay -->
-			<left>965</left>
-			<top>87</top>
-			<width>226</width>
-			<height>40</height>
-			<texture>volume-overlay.png</texture>
 		</control>
 		<control type="label" id="0"><!-- Volume -->
 			<left>1025</left>
@@ -40,7 +21,8 @@
 			<height>80</height>
 			<font>font22</font>
 			<align>center</align>
-			<info>Player.Volume</info>
+			<label>$INFO[Player.Volume]</label>
+			<visible>IntegerGreaterThan(Player.Volume,0)</visible>
 		</control>
 		<control type="image">
 			<left>919</left>
@@ -49,11 +31,30 @@
 			<height>80</height>
 			<texture>volume-thingy.png</texture>
 		</control>
+		<control type="progress">
+			<left>965</left>
+			<top>112</top>
+			<width>226</width>
+			<height>16</height>
+			<info>Player.Volume</info>
+			<colordiffuse>ProgressBarColor</colordiffuse>
+			<texturebg>blank.png</texturebg>
+			<midtexture>colours/blue.png</midtexture>
+			<animation effect="fade" start="50" end="50" time="0" condition="Player.Passthrough">Conditional</animation>
+			<visible>IntegerGreaterThan(Player.Volume,0)</visible>
+		</control>
+		<control type="image"><!-- Volume bar overlay -->
+			<left>965</left>
+			<top>112</top>
+			<width>226</width>
+			<height>16</height>
+			<texture>volume-overlay.png</texture>
+		</control>
 		<control type="label"><!-- Passthrough -->
 			<left>910</left>
-			<top>137</top>
+			<top>138</top>
 			<width>340</width>
-			<height>20</height>
+			<height>24</height>
 			<label>$LOCALIZE[29802]</label>
 			<font>font12</font>
 			<align>center</align>
