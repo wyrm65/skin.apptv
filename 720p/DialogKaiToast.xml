@@ -3,22 +3,22 @@
 	<zorder>2</zorder>
 	<include>screen-fade</include>
 	<coordinates>
-		<left>346</left>
+		<left>342</left>
 		<top>2</top>
 	</coordinates>
 	<controls>
 		<control type="group">
-			<animation effect="slide" end="0,-90" condition="Window.IsActive(extendedprogressdialog) | Window.IsActive(startup) | Window.IsActive(fullscreenvideo)">Conditional</animation>
+			<animation effect="slide" end="0,-100" condition="Window.IsActive(extendedprogressdialog) | Window.IsActive(startup) | Window.IsActive(fullscreenvideo)">Conditional</animation>
 			<control type="image"><!-- Dialog background image -->
 				<left>0</left>
 				<top>0</top>
-				<width>590</width>
-				<height>84</height>
+				<width>598</width>
+				<height>94</height>
 				<texture border="8">button-menu-background.png</texture>
 			</control>
 			<control type="image" id="400">
 				<left>10</left>
-				<top>10</top>
+				<top>15</top>
 				<width>64</width>
 				<height>64</height>
 				<aspectratio>keep</aspectratio>
@@ -26,7 +26,7 @@
 			</control>
 			<control type="image" id="403">
 				<left>10</left>
-				<top>10</top>
+				<top>15</top>
 				<width>64</width>
 				<height>64</height>
 				<aspectratio>keep</aspectratio>
@@ -35,7 +35,7 @@
 			</control>
 			<control type="image" id="404">
 				<left>10</left>
-				<top>10</top>
+				<top>15</top>
 				<width>64</width>
 				<height>64</height>
 				<aspectratio>keep</aspectratio>
@@ -44,7 +44,7 @@
 			</control>
 			<control type="image" id="405">
 				<left>10</left>
-				<top>10</top>
+				<top>15</top>
 				<width>64</width>
 				<height>64</height>
 				<aspectratio>keep</aspectratio>
@@ -52,21 +52,22 @@
 				<visible>false</visible>
 			</control>
 			<control type="label" id="401"><!-- Caption -->
-				<left>78</left>
+				<left>76</left>
 				<top>10</top>
-				<width>500</width>
-				<height>24</height>
+				<width>512</width>
+				<height>22</height>
 				<font>font11</font>
 				<align>center</align>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="label" id="402"><!-- Description -->
-				<left>78</left>
-				<top>46</top>
-				<width>500</width>
-				<height>24</height>
+				<left>76</left>
+				<top>38</top>
+				<width>512</width>
+				<height>40</height>
 				<font>font10</font>
 				<align>center</align>
+				<wrapmultiline>true</wrapmultiline>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 		</control>
