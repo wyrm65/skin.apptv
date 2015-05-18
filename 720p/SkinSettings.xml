@@ -1483,24 +1483,6 @@
 						<selected>Skin.HasSetting(home-musicvideo)</selected>
 						<radioposx>844</radioposx>
 					</control>
-					<control type="radiobutton" id="409"><!-- Broadcast TV On Home toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31915]</label>
-						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(home-tv)</onclick>
-						<selected>Skin.HasSetting(home-tv)</selected>
-						<radioposx>844</radioposx>
-						<enable>System.GetBool(pvrmanager.enabled)</enable>
-					</control>
-					<control type="radiobutton" id="410"><!-- Broardcast Radio On Home toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31916]</label>
-						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(home-radio)</onclick>
-						<selected>Skin.HasSetting(home-radio)</selected>
-						<radioposx>844</radioposx>
-						<enable>System.GetBool(pvrmanager.enabled)</enable>
-					</control>
 					<control type="radiobutton" id="411"><!-- Music On Home toggle -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31905]</label>
@@ -1737,8 +1719,6 @@
 						<onclick>Skin.Reset(home-movie)</onclick>
 						<onclick>Skin.Reset(home-tvshows)</onclick>
 						<onclick>Skin.Reset(home-musicvideo)</onclick>
-						<onclick>Skin.Reset(home-tv)</onclick>
-						<onclick>Skin.Reset(home-radio)</onclick>
 						<onclick>Skin.Reset(home-music)</onclick>
 						<onclick>Skin.Reset(home-programs)</onclick>
 						<onclick>Skin.Reset(home-photos)</onclick>

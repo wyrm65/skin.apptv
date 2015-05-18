@@ -692,7 +692,7 @@
 				</control>
 			</control>
 			<control type="group" id="9520"><!-- Broadcast sub menu -->
-				<visible>[System.GetBool(pvrmanager.enabled) + Skin.HasSetting(home-tv)] | [System.GetBool(pvrmanager.enabled) + Skin.HasSetting(home-radio)] | !IsEmpty(Skin.String(CustomTV.1.Path)) | !IsEmpty(Skin.String(CustomTV.2.Path)) | !IsEmpty(Skin.String(CustomTV.3.Path)) | !IsEmpty(Skin.String(CustomTV.4.Path)) | !IsEmpty(Skin.String(CustomTV.5.Path)) | !IsEmpty(Skin.String(CustomRadio.1.Path)) | !IsEmpty(Skin.String(CustomRadio.2.Path)) | !IsEmpty(Skin.String(CustomRadio.3.Path)) | !IsEmpty(Skin.String(CustomRadio.4.Path)) | !IsEmpty(Skin.String(CustomRadio.5.Path))</visible>
+				<visible>[System.GetBool(pvrmanager.enabled) + Pvr.HasTVChannels] | [System.GetBool(pvrmanager.enabled) + Pvr.HasRadioChannels] | !IsEmpty(Skin.String(CustomTV.1.Path)) | !IsEmpty(Skin.String(CustomTV.2.Path)) | !IsEmpty(Skin.String(CustomTV.3.Path)) | !IsEmpty(Skin.String(CustomTV.4.Path)) | !IsEmpty(Skin.String(CustomTV.5.Path)) | !IsEmpty(Skin.String(CustomRadio.1.Path)) | !IsEmpty(Skin.String(CustomRadio.2.Path)) | !IsEmpty(Skin.String(CustomRadio.3.Path)) | !IsEmpty(Skin.String(CustomRadio.4.Path)) | !IsEmpty(Skin.String(CustomRadio.5.Path))</visible>
 				<width>210</width>
 				<control type="button" id="9530"><!-- Dummy button for mouse control -->
 					<left>0</left>
@@ -797,7 +797,7 @@
 					</focusedlayout>
 					<content>
 						<item><!-- Live TV -->
-							<visible>Skin.HasSetting(home-tv)</visible>
+							<visible>Pvr.HasTVChannels</visible>
 							<label>$LOCALIZE[19020]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$VAR[TVEntry]</onclick>
@@ -833,7 +833,7 @@
 							<onclick>$INFO[Skin.String(CustomTV.5.Path)]</onclick>
 						</item>
 						<item><!-- Live Radio -->
-							<visible>Skin.HasSetting(home-radio)</visible>
+							<visible>Pvr.HasRadioChannels</visible>
 							<label>$LOCALIZE[19021]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$VAR[RadioEntry]</onclick>

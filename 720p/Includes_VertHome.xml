@@ -232,7 +232,7 @@
 					<thumb>icon-livetv.png</thumb>
 					<label>$LOCALIZE[19020]</label>
 					<onclick>$VAR[TVEntry]</onclick>
-					<visible>System.GetBool(pvrmanager.enabled) + Skin.HasSetting(home-tv)</visible>
+					<visible>System.GetBool(pvrmanager.enabled) + Pvr.HasTVChannels</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomTV.1.Icon)]</thumb>
@@ -268,7 +268,7 @@
 					<thumb>icon-radio.png</thumb>
 					<label>$LOCALIZE[19021]</label>
 					<onclick>$VAR[RadioEntry]</onclick>
-					<visible>System.GetBool(pvrmanager.enabled) + Skin.HasSetting(home-radio)</visible>
+					<visible>System.GetBool(pvrmanager.enabled) + Pvr.HasRadioChannels</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomRadio.1.Icon)]</thumb>

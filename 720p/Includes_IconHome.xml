@@ -328,14 +328,14 @@
 					<onclick>$VAR[MusicVideoLibEntry]</onclick>
 				</item>
 				<item><!-- Live TV -->
-					<visible>System.GetBool(pvrmanager.enabled) + Skin.HasSetting(home-tv)</visible>
+					<visible>System.GetBool(pvrmanager.enabled) + Pvr.HasTVChannels</visible>
 					<thumb>special://skin/extras/homeicons/livetv.png</thumb>
 					<label>$LOCALIZE[19020]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$VAR[TVEntry]</onclick>
 				</item>
 				<item><!-- Live Radio -->
-					<visible>System.GetBool(pvrmanager.enabled) + Skin.HasSetting(home-radio)</visible>
+					<visible>System.GetBool(pvrmanager.enabled) + Pvr.HasRadioChannels</visible>
 					<thumb>special://skin/extras/homeicons/radio.png</thumb>
 					<label>$LOCALIZE[19021]</label>
 					<label2>$LOCALIZE[571]</label2>
