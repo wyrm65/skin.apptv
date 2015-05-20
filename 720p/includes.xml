@@ -335,19 +335,6 @@
 		</control>
 	</include>
 
-	<include name="skin-logo">
-		<control type="image">
-			<left>150</left>
-			<top>150</top>
-			<width>512</width>
-			<height>256</height>
-			<aspectratio>keep</aspectratio>
-			<texture>skin-logo-big.png</texture>
-			<animation effect="fade" start="0" delay="150" time="50" condition="Window.Previous(Home) + !Window.Previous(Settings)">WindowOpen</animation>
-			<animation effect="fade" start="10" time="0" condition="Window.Next(Home)">WindowClose</animation>
-		</control>
-	</include>
-
 	<include name="page-info">
 		<control type="group">
 			<visible>!System.ScreenSaverActive</visible>
