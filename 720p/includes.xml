@@ -531,7 +531,7 @@
 				<height>32</height>
 				<texturefocus>touch-play.png</texturefocus>
 				<texturenofocus>touch-play.png</texturenofocus>
-				<onclick>ActivateWindow(PlayerControls)</onclick>
+				<onclick>ActivateWindow(playercontrols)</onclick>
 				<visible>Player.Playing</visible>
 			</control>
 			<control type="button"><!-- OSD Pause -->
@@ -539,8 +539,23 @@
 				<height>32</height>
 				<texturefocus>touch-pause.png</texturefocus>
 				<texturenofocus>touch-pause.png</texturenofocus>
-				<onclick>ActivateWindow(PlayerControls)</onclick>
+				<onclick>ActivateWindow(playercontrols)</onclick>
 				<visible>Player.Paused</visible>
+			</control>
+			<control type="button"><!-- Search -->
+				<width>32</width>
+				<height>32</height>
+				<texturefocus>touch-search.png</texturefocus>
+				<texturenofocus>touch-search.png</texturenofocus>
+				<onclick condition="!System.HasAddon(script.globalsearch)">VideoLibrary.Search</onclick>
+				<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
+			</control>
+			<control type="button"><!-- Favourite -->
+				<width>32</width>
+				<height>32</height>
+				<texturefocus>touch-fav.png</texturefocus>
+				<texturenofocus>touch-fav.png</texturenofocus>
+				<onclick>ActivateWindow(favourites)</onclick>
 			</control>
 			<control type="button"><!-- Screen Settings -->
 				<width>32</width>
