@@ -3,7 +3,6 @@
 	<defaultcontrol always="true">50</defaultcontrol>
 	<allowoverlay>yes</allowoverlay>
 	<include>screen-fade</include>
-	<!--<previouswindow>home</previouswindow>-->
 	<views>50,54,57,58</views>
 	<onload>ClearProperty(ShowScreenSettings,Home)</onload>
 	<onunload>ClearProperty(ShowScreenSettings,Home)</onunload>
@@ -38,6 +37,9 @@
 		<include file="View-Music.xml">AlbumWrapView</include>
 		<include file="View-Music.xml">AudioWallView</include>
 		<include file="View-Music.xml">AlbumCoverflow</include>
+
+		<include>group-focusvert</include>
+		<include>group-focushorz</include>
 
 		<control type="group"><!-- Screen-settings Menu -->
 			<left>0</left>
