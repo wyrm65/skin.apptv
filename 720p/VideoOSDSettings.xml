@@ -19,12 +19,32 @@
 				<colordiffuse>UnFocusedPosters</colordiffuse>
 			</control>
 			<control type="label" id="2"><!-- Dialog heading -->
-				<left>17</left>
-				<top>14</top>
-				<width>743</width>
+				<left>25</left>
+				<top>6</top>
+				<width>708</width>
 				<height>46</height>
 				<align>center</align>
 				<font>font18</font>
+			</control>
+			<control type="label"><!-- Dialog Video settings heading -->
+				<left>25</left>
+				<top>6</top>
+				<width>708</width>
+				<height>46</height>
+				<align>center</align>
+				<font>font18</font>
+				<label>$LOCALIZE[3] - $LOCALIZE[5]</label>
+				<visible>Window.IsVisible(123) + IsEmpty(Control.GetLabel(2))</visible>
+			</control>
+			<control type="label"><!-- Dialog Audio settings heading -->
+				<left>25</left>
+				<top>6</top>
+				<width>708</width>
+				<height>46</height>
+				<align>center</align>
+				<font>font18</font>
+				<label>$LOCALIZE[292] - $LOCALIZE[5]</label>
+				<visible>Window.IsVisible(124) + IsEmpty(Control.GetLabel(2))</visible>
 			</control>
 			<control type="image">
 				<left>25</left>
@@ -32,6 +52,16 @@
 				<width>708</width>
 				<height>4</height>
 				<texture>separator.png</texture>
+			</control>
+			<control type="button"><!-- Touch Close button -->
+				<left>732</left>
+				<top>-10</top>
+				<width>32</width>
+				<height>32</height>
+				<texturefocus>touch-close.png</texturefocus>
+				<texturenofocus>touch-close.png</texturenofocus>
+				<onclick>Dialog.Close(all,true)</onclick>
+				<visible>system.getbool(input.enablemouse)</visible>
 			</control>
 			<control type="grouplist" id="5"><!-- Control area -->
 				<left>16</left>
