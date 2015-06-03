@@ -3,7 +3,7 @@
 	<include name="IconHomeMenu">
 		<control type="group">
 			<visible>[Container(9000).Row(0) | Container(9000).Row(1)] + !Container(9000).HasPrevious()</visible>
-			<animation effect="fade" start="0" end="100" time="300">Visible</animation>
+			<animation effect="fade" start="0" end="100" time="200">Visible</animation>
 			<control type="group">
 				<visible>![Window.IsActive(videolibrary) | Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)]</visible>
 				<control type="image"><!-- Use solid background image -->
@@ -22,7 +22,7 @@
 					<top>192</top>
 					<width>1280</width>
 					<height>102</height>
-					<texture>colours/midgrey.png</texture>
+					<texture>colours/darkgrey.png</texture>
 				</control>
 				<control type="image">
 					<left>0</left>
@@ -30,13 +30,6 @@
 					<width>1280</width>
 					<height>294</height>
 					<texture>menu-mask.png</texture>
-				</control>
-				<control type="image">
-					<left>0</left>
-					<top>290</top>
-					<width>1280</width>
-					<height>4</height>
-					<texture>separator.png</texture>
 				</control>
 			</control>
 
@@ -202,22 +195,6 @@
 			<height>1</height>
 			<onfocus>SetFocus(9360)</onfocus>
 			<onfocus>ActivateWindow(1157)</onfocus>
-		</control>
-
-		<control type="image"><!-- Background image for icon area -->
-			<left>0</left>
-			<top>299</top>
-			<width>1280</width>
-			<height>421</height>
-			<texture>colours/black.png</texture>
-		</control>
-		<control type="image">
-			<left>0</left>
-			<top>299</top>
-			<width>1280</width>
-			<height>224</height>
-			<texture>menu-homebg.png</texture>
-			<visible>[Container(9000).Row(0) | Container(9000).Row(1)] + !Container(9000).HasPrevious()</visible>
 		</control>
 
 		<control type="panel" id="9000"><!-- Home menu icon panel -->
