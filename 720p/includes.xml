@@ -576,7 +576,7 @@
 			<height>32</height>
 			<itemgap>0</itemgap>
 			<orientation>horizontal</orientation>
-			<visible>[Control.IsVisible(50) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(58)] + [!Skin.HasSetting(lock-screensettings) | !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])]</visible>
+			<visible>[Control.IsVisible(50) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(58)] + [!Skin.HasSetting(lock-screensettings) | [!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + IntegerGreaterThan(Container().NumPages,1)]]</visible>
 			<control type="image">
 				<width>32</width>
 				<height>32</height>
@@ -605,13 +605,13 @@
 				<width>32</width>
 				<height>32</height>
 				<texture>groupfocused.png</texture>
-				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + [Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258)]</visible>
+				<visible>[!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + IntegerGreaterThan(Container().NumPages,1)] + [Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258)]</visible>
 			</control>
 			<control type="image">
 				<width>32</width>
 				<height>32</height>
 				<texture>groupunfocused.png</texture>
-				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + ![Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258)]</visible>
+				<visible>[!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + IntegerGreaterThan(Container().NumPages,1)] + ![Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258)]</visible>
 			</control>
 		</control>
 	</include>
@@ -625,7 +625,7 @@
 			<itemgap>0</itemgap>
 			<aligny>center</aligny>
 			<align>center</align>
-			<visible>[Control.IsVisible(54) | Control.IsVisible(57)] + [!Skin.HasSetting(lock-screensettings) | !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])]</visible>
+			<visible>[Control.IsVisible(54) | Control.IsVisible(57)] + [!Skin.HasSetting(lock-screensettings) | [!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + IntegerGreaterThan(Container().NumPages,1)]]</visible>
 			<control type="image">
 				<width>32</width>
 				<height>32</height>
@@ -654,13 +654,13 @@
 				<width>32</width>
 				<height>32</height>
 				<texture>groupfocused.png</texture>
-				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + [Control.HasFocus(1254) | Control.HasFocus(1257)]</visible>
+				<visible>[!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + [IntegerGreaterThan(Container(54).NumItems,6) | IntegerGreaterThan(Container(57).NumItems,9)]] + [Control.HasFocus(1254) | Control.HasFocus(1257)]</visible>
 			</control>
 			<control type="image">
 				<width>32</width>
 				<height>32</height>
 				<texture>groupunfocused.png</texture>
-				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + ![Control.HasFocus(1254) | Control.HasFocus(1257)]</visible>
+				<visible>[!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + [IntegerGreaterThan(Container(54).NumItems,6) | IntegerGreaterThan(Container(57).NumItems,9)]] + ![Control.HasFocus(1254) | Control.HasFocus(1257)]</visible>
 			</control>
 		</control>
 	</include>
