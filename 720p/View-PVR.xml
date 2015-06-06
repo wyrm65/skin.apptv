@@ -241,7 +241,6 @@
 				<onright>27</onright>
 				<onup>11</onup>
 				<ondown>11</ondown>
-				<scrolltime>200</scrolltime>
 				<pagecontrol>27</pagecontrol>
 				<preloaditems>2</preloaditems>
 				<itemlayout height="70">
@@ -451,7 +450,6 @@
 				<onright>27</onright>
 				<onup>12</onup>
 				<ondown>12</ondown>
-				<scrolltime>200</scrolltime>
 				<pagecontrol>27</pagecontrol>
 				<preloaditems>2</preloaditems>
 				<itemlayout height="70">
@@ -639,7 +637,6 @@
 				<ondown>13</ondown>
 				<onleft>9000</onleft>
 				<onright>27</onright>
-				<scrolltime>200</scrolltime>
 				<preloaditems>2</preloaditems>
 				<pagecontrol>27</pagecontrol>
 				<itemlayout width="552" height="70">
@@ -794,7 +791,6 @@
 				<onright>27</onright>
 				<onup>14</onup>
 				<ondown>14</ondown>
-				<scrolltime>200</scrolltime>
 				<viewtype label="536">list</viewtype>
 				<pagecontrol>27</pagecontrol>
 				<preloaditems>2</preloaditems>
@@ -926,7 +922,6 @@
 					<ondown>50</ondown>
 					<onleft>9000</onleft>
 					<onright>27</onright>
-					<scrolltime>200</scrolltime>
 					<preloaditems>2</preloaditems>
 					<pagecontrol>27</pagecontrol>
 					<itemlayout width="552" height="70">
@@ -1234,7 +1229,6 @@
 				<onright>27</onright>
 				<onup>17</onup>
 				<ondown>17</ondown>
-				<scrolltime>200</scrolltime>
 				<viewtype label="536">list</viewtype>
 				<pagecontrol>27</pagecontrol>
 				<preloaditems>2</preloaditems>
@@ -1340,7 +1334,6 @@
 				<onup>560</onup>
 				<ondown>560</ondown>
 				<pagecontrol>60</pagecontrol>
-				<scrolltime>200</scrolltime>
 				<visible>Container.Content(LiveTV)</visible>
 				<itemlayout height="40" width="760">
 					<control type="label">
@@ -1429,7 +1422,7 @@
 					<font>font12</font>
 					<align>justify</align>
 					<label>$INFO[ListItem.Plot]</label>
-					<autoscroll time="2000" delay="3000" repeat="5000">Skin.HasSetting(text-autoscroll)</autoscroll>
+					<autoscroll time="2000" delay="3000" repeat="5000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
 				</control>
 			</control>
 		</control>

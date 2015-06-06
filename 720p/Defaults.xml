@@ -45,7 +45,7 @@
 		<textcolor>button-text</textcolor>
 		<shadowcolor>shadow-text</shadowcolor>
 		<pulseonselect>false</pulseonselect>
-		<autoscroll time="4000" delay="6000" repeat="5000">Skin.HasSetting(text-autoscroll)</autoscroll>
+		<autoscroll time="4000" delay="6000" repeat="5000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
 	</default>
 	<default type="progress">
 		<texturebg border="8,0,8,0">progress-background.png</texturebg>
@@ -73,7 +73,6 @@
 		<width>32</width>
 		<height>32</height>
 		<font>font13</font>
-		<reverse>yes</reverse>
 		<textcolor>button-text</textcolor>
 		<shadowcolor>shadow-text</shadowcolor>
 		<pulseonselect>false</pulseonselect>
@@ -109,11 +108,11 @@
 		<shadow>no</shadow>
 	</default>
 	<default type="radiobutton">
-		<textureradiofocus>check-box.png</textureradiofocus>
-		<textureradionofocus>check-boxnf.png</textureradionofocus>
 		<texturefocus border="7">button-default-focus.png</texturefocus>
-		<textureradioon>check-box.png</textureradioon>
-		<textureradiooff>check-boxnf.png</textureradiooff>
+		<textureradioonfocus>check-box.png</textureradioonfocus>
+		<textureradioonnofocus>check-box.png</textureradioonnofocus>
+		<textureradiooffnofocus>check-boxnf.png</textureradiooffnofocus>
+		<textureradioofffocus>check-boxnf.png</textureradioofffocus>
 		<font>font13</font>
 		<textcolor>button-text</textcolor>
 		<shadowcolor>shadow-text</shadowcolor>

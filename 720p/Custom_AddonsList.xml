@@ -23,7 +23,6 @@
 			<height>550</height>
 			<onup>999</onup>
 			<ondown>999</ondown>
-			<scrolltime>200</scrolltime>
 			<preloaditems>2</preloaditems>
 			<pagecontrol>23</pagecontrol>
 			<itemlayout width="560" height="56">
@@ -91,7 +90,7 @@
 					<top>150</top>
 					<width>384</width>
 					<height>384</height>
-					<texture background="true" diffuse="mask-squ.png">$INFO[Container(999).Listitem.ActualIcon]</texture>
+					<texture background="true" fallback="DefaultAddon.png" diffuse="mask-squ.png">$INFO[Container(999).Listitem.ActualIcon]</texture>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 				</control>
 			</control>

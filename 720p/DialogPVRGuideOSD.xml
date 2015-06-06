@@ -46,7 +46,6 @@
 				<ondown>11</ondown>
 				<viewtype label="535">list</viewtype>
 				<pagecontrol>60</pagecontrol>
-				<scrolltime>200</scrolltime>
 				<itemlayout height="35" width="410">
 					<control type="label">
 						<left>10</left>
@@ -171,7 +170,7 @@
 				<height>20</height>
 				<font>font12</font>
 				<align>right</align>
-				<label>($INFO[Container(11).NumItems]) $LOCALIZE[31025] - $LOCALIZE[31024] ([COLOR=blue]$INFO[Container(11).CurrentPage]/$INFO[Container(11).NumPages][/COLOR])</label>
+				<label>$INFO[Container(11).CurrentPage]/$INFO[Container(11).NumPages] ($INFO[Container(11).NumItems])</label>
 			</control>
 		</control>
 	</controls>

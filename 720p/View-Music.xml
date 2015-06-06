@@ -13,7 +13,6 @@
 			<onright>1250</onright>
 			<onup>50</onup>
 			<ondown>50</ondown>
-			<scrolltime>200</scrolltime>
 			<preloaditems>2</preloaditems>
 			<pagecontrol>1250</pagecontrol>
 			<itemlayout width="575" height="66">
@@ -436,7 +435,6 @@
 			<onright>57</onright>
 			<onup>9000</onup>
 			<ondown>1257</ondown>
-			<scrolltime>100</scrolltime>
 			<focusposition>2</focusposition>
 			<orientation>horizontal</orientation>
 			<preloaditems>2</preloaditems>
@@ -823,7 +821,6 @@
 				<effect type="slide" end="55,0" time="0"/>
 				<effect type="zoom" start="100" end="115" center="auto" time="0" tween="back" easing="out"/>
 			</animation>
-			<scrolltime>200</scrolltime>
 			<pagecontrol>1258</pagecontrol>
 			<preloaditems>2</preloaditems>
 			<itemlayout height="144" width="144">
@@ -878,7 +875,6 @@
 				<top>110</top>
 				<width>490</width>
 				<height>576</height>
-				<itemgap>0</itemgap>
 				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 				<control type="label"><!-- Album name-->
 					<width>470</width>
@@ -956,7 +952,7 @@
 					<font>font11</font>
 					<label>$INFO[ListItem.Property(Album_Description)]</label>
 					<align>justify</align>
-					<autoscroll time="2000" delay="3000" repeat="6000">Skin.HasSetting(text-autoscroll)</autoscroll>
+					<autoscroll time="2000" delay="3000" repeat="6000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
 					<visible>Container.Content(albums)</visible>
 				</control>
 				<control type="image"><!-- dummy blank space -->
@@ -971,7 +967,7 @@
 					<font>font11</font>
 					<label>$INFO[ListItem.Property(Artist_Description)]</label>
 					<align>justify</align>
-					<autoscroll time="2000" delay="3000" repeat="6000">Skin.HasSetting(text-autoscroll)</autoscroll>
+					<autoscroll time="2000" delay="3000" repeat="6000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
 					<visible>!Container.Content(albums)</visible>
 				</control>
 			</control>
