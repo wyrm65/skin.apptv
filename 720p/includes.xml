@@ -94,7 +94,7 @@
 				<control type="group">
 					<visible>![Skin.HasSetting(background-playingmedia) + Player.HasVideo]</visible>
 					<control type="group">
-						<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos)] | !Skin.HasSetting(background-extrafanart) | IsEmpty(ListItem.Path) | substring(Container.FolderPath,sources://)</visible>
+						<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos)] | !Skin.HasSetting(background-extrafanart) | IsEmpty(ListItem.Path) | IsEmpty(ListItem.Title)</visible>
 						<control type="image"><!-- Fallback background image -->
 							<include>fullscreenimage</include>
 							<aspectratio>stretch</aspectratio>
@@ -103,10 +103,28 @@
 						</control>
 					</control>
 					<control type="group">
-						<visible>Skin.HasSetting(background-extrafanart) + !IsEmpty(ListItem.Path) + ![substring(Container.FolderPath,sources://) | substring(ListItem.Path,special://videoplaylists/)]</visible>
+						<visible>Skin.HasSetting(background-extrafanart) + !IsEmpty(ListItem.Path) + !IsEmpty(ListItem.Title)</visible>
 						<control type="group">
-							<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos)] + !IsEmpty(ListItem.Path)</visible>
+							<visible>[Container.Content(movies) | Container.Content(musicvideos)]</visible>
 							<control type="multiimage" id="6300">
+								<include>fullscreenimage</include>
+								<randomize>true</randomize>
+								<timeperimage>6000</timeperimage>
+								<fadetime>200</fadetime>
+								<imagepath background="false">$INFO[ListItem.Path]extrafanart/</imagepath>
+								<aspectratio>stretch</aspectratio>
+							</control>
+							<control type="image"><!-- Fallback background image -->
+								<include>fullscreenimage</include>
+								<aspectratio>stretch</aspectratio>
+								<fadetime>200</fadetime>
+								<texture background="false">$VAR[VideoBackgndImage]</texture>
+								<visible>IsEmpty(Control.GetLabel(6300))</visible>
+							</control>
+						</control>
+						<control type="group">
+							<visible>[Container.Content(tvshows) | Container.Content(seasons)]</visible>
+							<control type="multiimage" id="6320">
 								<include>fullscreenimage</include>
 								<randomize>true</randomize>
 								<timeperimage>6000</timeperimage>
@@ -119,11 +137,11 @@
 								<aspectratio>stretch</aspectratio>
 								<fadetime>200</fadetime>
 								<texture background="false">$VAR[VideoBackgndImage]</texture>
-								<visible>IsEmpty(Control.GetLabel(6300))</visible>
+								<visible>IsEmpty(Control.GetLabel(6320))</visible>
 							</control>
 						</control>
 						<control type="group">
-							<visible>Container.Content(episodes) + !IsEmpty(ListItem.Path) + ![substring(Container.FolderPath,sources://) | substring(ListItem.Path,special://videoplaylists/)]</visible>
+							<visible>Container.Content(episodes)</visible>
 							<control type="multiimage" id="6340">
 								<include>fullscreenimage</include>
 								<randomize>true</randomize>
@@ -391,7 +409,7 @@
 			<animation effect="fade" time="200">Visible</animation>
 			<animation effect="fade" time="200" delay="500">Hidden</animation>
 			<left>598</left>
-			<top>4</top>
+			<top>24</top>
 			<width>82</width>
 			<height>70</height>
 			<control type="image">
@@ -517,7 +535,6 @@
 			<top>678</top>
 			<width>376</width>
 			<height>32</height>
-			<itemgap>0</itemgap>
 			<orientation>horizontal</orientation>
 			<control type="button"><!-- Back -->
 				<width>32</width>
@@ -574,7 +591,6 @@
 			<top>0</top>
 			<width>96</width>
 			<height>32</height>
-			<itemgap>0</itemgap>
 			<orientation>horizontal</orientation>
 			<visible>[Control.IsVisible(50) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(58)] + [!Skin.HasSetting(lock-screensettings) | [!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + IntegerGreaterThan(Container().NumPages,1)]]</visible>
 			<control type="image">
@@ -622,7 +638,6 @@
 			<top>90</top>
 			<width>32</width>
 			<height>96</height>
-			<itemgap>0</itemgap>
 			<aligny>center</aligny>
 			<align>center</align>
 			<visible>[Control.IsVisible(54) | Control.IsVisible(57)] + [!Skin.HasSetting(lock-screensettings) | [!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + IntegerGreaterThan(Container().NumPages,1)]]</visible>
@@ -690,7 +705,7 @@
 	</include>
 
 	<include name="scrolltext">
-		<scroll>true</scroll>
+		<scroll>!System.ScreenSaverActive</scroll>
 	</include>
 
 	<include name="background-fade">
