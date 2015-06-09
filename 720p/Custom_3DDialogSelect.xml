@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog" id="1151">
 	<defaultcontrol>500</defaultcontrol>
-	<visible>VideoPlayer.IsStereoscopic</visible>
 	<include>screen-fade</include>
 	<coordinates>
 		<left>0</left>
@@ -9,13 +8,22 @@
 	</coordinates>
 	<controls>
 		<include>fadebackground</include>
-		<control type="image"><!-- Dialog background -->
+		<control type="image"><!-- Dialog background Non Fullscreen video screens-->
+			<left>720</left>
+			<top>100</top>
+			<width>396</width>
+			<height>226</height>
+			<texture border="8">button-menu-background.png</texture>
+			<visible>!Window.IsActive(fullscreenvideo)</visible>
+		</control>
+		<control type="image"><!-- Dialog background Fullscreen video screen-->
 			<left>720</left>
 			<top>100</top>
 			<width>396</width>
 			<height>226</height>
 			<texture border="8">button-menu-background.png</texture>
 			<colordiffuse>UnFocusedPosters</colordiffuse>
+			<visible>Window.IsActive(fullscreenvideo)</visible>
 		</control>
 		<control type="label"><!-- Header -->
 			<left>730</left>
@@ -25,7 +33,7 @@
 			<label>$LOCALIZE[31561]</label>
 			<align>center</align>
 		</control>
-		<control type="button">
+		<control type="button"><!-- Touch mouse close button -->
 			<left>1094</left>
 			<top>90</top>
 			<width>32</width>

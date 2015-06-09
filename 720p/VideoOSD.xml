@@ -192,21 +192,16 @@
 				<texturenofocus>osd-btn-skipfwd.png</texturenofocus>
 				<onclick>PlayerControl(Next)</onclick>
 			</control>
-			<control type="button" id="909"><!-- Record -->
-				<width>64</width>
-				<height>64</height>
+			<control type="togglebutton" id="909"><!-- Record -->
+				<width>40</width>
+				<height>40</height>
 				<texturefocus>osd-btn-rec-focus.png</texturefocus>
 				<texturenofocus>osd-btn-rec.png</texturenofocus>
+				<usealttexture>Player.Recording</usealttexture>
+				<alttexturefocus>osd-btn-rec-recording-focus.png</alttexturefocus>
+				<alttexturenofocus>osd-btn-rec-recording.png</alttexturenofocus>
 				<onclick>PlayerControl(record)</onclick>
-				<visible>Player.CanRecord + !Player.Recording</visible>
-			</control>
-			<control type="button" id="910"><!-- Record -->
-				<width>64</width>
-				<height>64</height>
-				<texturefocus>osd-btn-rec-recording-focus.png</texturefocus>
-				<texturenofocus>osd-btn-rec-recording.png</texturenofocus>
-				<onclick>PlayerControl(record)</onclick>
-				<visible>Player.CanRecord + Player.Recording</visible>
+				<visible>Player.CanRecord</visible>
 			</control>
 			<control type="button" id="208"><!-- DVD menu -->
 				<width>64</width>
