@@ -8,7 +8,7 @@
 	</coordinates>
 	<controls>
 		<control type="group">
-			<visible>![Window.IsVisible(fullscreeninfo) | Window.IsVisible(sliderdialog) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(videobookmarks)]</visible>
+			<visible>![Window.IsVisible(fullscreeninfo) | Window.IsVisible(sliderdialog) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(videobookmarks) | Window.IsVisible(subtitlesearch)]</visible>
 			<control type="image"><!-- Seekbar Dialog background image -->
 				<left>0</left>
 				<top>646</top>
@@ -23,7 +23,7 @@
 
 		<!-- Player action labels -->
 		<control type="group">
-			<visible>[Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation)]</visible>
+			<visible>[Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation)] + ![Window.IsVisible(sliderdialog) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(subtitlesearch) | Window.IsVisible(videobookmarks)]</visible>
 			<control type="grouplist">
 				<left>408</left>
 				<top>657</top>
