@@ -760,8 +760,8 @@
 					<width>120</width>
 					<height>168</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-					<bordertexture border="10">mask-hilite.png</bordertexture>
-					<bordersize>9</bordersize>
+					<bordertexture border="7">mask-hilite.png</bordertexture>
+					<bordersize>7</bordersize>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="zoom" start="100" end="124" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
 					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
@@ -1092,10 +1092,10 @@
 				<control type="group">
 					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
 					<control type="image">
-						<left>-5</left>
-						<top>122</top>
-						<height>364</height>
-						<width>270</width>
+						<left>4</left>
+						<top>130</top>
+						<height>350</height>
+						<width>252</width>
 						<texture>mask-hilite.png</texture>
 						<aspectratio>stretch</aspectratio>
 					</control>
@@ -1713,7 +1713,7 @@
 			</itemlayout>
 			<focusedlayout height="169" width="120" condition="!Container.Content(addons)">
 				<control type="group">
-					<animation effect="zoom" start="90" end="140" center="auto" time="400" tween="back" easing="out" reversible="false">focus</animation>
+					<animation effect="zoom" start="90" end="150" center="auto" time="400" tween="back" easing="out" reversible="false">focus</animation>
 					<control type="image">
 						<left>1</left>
 						<top>1</top>
@@ -1724,27 +1724,19 @@
 						<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 					</control>
 					<control type="image">
-						<left>0</left>
-						<top>0</top>
-						<width>120</width>
-						<height>169</height>
-						<texture>mask-hilite.png</texture>
-						<aspectratio>stretch</aspectratio>
-						<animation effect="fade" start="0" end="100" time="100" delay="100">Visible</animation>
-						<visible>![Container().OnScrollNext | Container().OnScrollPrevious] + !SubString(ListItem.Icon,Default,Left)</visible>
-					</control>
-					<control type="image">
 						<left>9</left>
 						<top>12</top>
 						<width>101</width>
 						<height>144</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+						<bordertexture border="6">mask-hilite.png</bordertexture>
+						<bordersize>6</bordersize>
 						<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 					</control>
 					<control type="image"><!-- Watched Overlay -->
-						<left>85</left>
-						<top>4</top>
+						<left>80</left>
+						<top>10</top>
 						<width>32</width>
 						<height>32</height>
 						<texture>$VAR[Overlay]</texture>
@@ -1761,7 +1753,7 @@
 			</focusedlayout>
 			<focusedlayout height="120" width="120" condition="Container.Content(addons)">
 				<control type="group">
-					<animation effect="zoom" start="90" end="140" center="auto" time="400" tween="back" easing="out" reversible="false">focus</animation>
+					<animation effect="zoom" start="90" end="160" center="auto" time="400" tween="back" easing="out" reversible="false">focus</animation>
 					<control type="image">
 						<left>1</left>
 						<top>1</top>
@@ -1772,22 +1764,14 @@
 						<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 					</control>
 					<control type="image">
-						<left>0</left>
-						<top>0</top>
-						<width>120</width>
-						<height>120</height>
-						<texture>mask-hilite.png</texture>
-						<aspectratio>stretch</aspectratio>
-						<animation effect="fade" start="0" end="100" time="100" delay="100">Visible</animation>
-						<visible>![Container().OnScrollNext | Container().OnScrollPrevious] + !SubString(ListItem.Icon,Default,Left)</visible>
-					</control>
-					<control type="image">
 						<left>5</left>
 						<top>5</top>
 						<width>110</width>
 						<height>110</height>
 						<aspectratio scalediffuse="false">keep</aspectratio>
 						<texture fallback="DefaultAddon.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+						<bordertexture border="6">mask-hilite.png</bordertexture>
+						<bordersize>6</bordersize>
 						<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 					</control>
 				</control>
