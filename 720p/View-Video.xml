@@ -894,13 +894,6 @@
 					</control>
 				</itemlayout>
 				<focusedlayout width="558" height="116">
-					<control type="image"><!-- Item hi-lite -->
-						<left>0</left>
-						<top>0</top>
-						<width>558</width>
-						<height>116</height>
-						<texture border="8" background="true">button-menu-background.png</texture>
-					</control>
 					<control type="image"><!-- Go Back image -->
 						<left>8</left>
 						<top>8</top>
@@ -911,11 +904,13 @@
 						<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 					</control>
 					<control type="image"><!-- Banner image -->
-						<left>8</left>
-						<top>8</top>
-						<width>542</width>
-						<height>100</height>
+						<left>0</left>
+						<top>0</top>
+						<width>558</width>
+						<height>116</height>
 						<texture background="true">$VAR[IconBanner]</texture>
+						<bordertexture border="8">mask-hilite.png</bordertexture>
+						<bordersize>8</bordersize>
 						<aspectratio>keep</aspectratio>
 						<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 					</control>
