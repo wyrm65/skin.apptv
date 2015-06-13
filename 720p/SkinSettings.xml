@@ -920,6 +920,7 @@
 							<onleft>1223</onleft>
 							<onright>314</onright>
 							<scrolltime>0</scrolltime>
+							<enable>StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31955]) | StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31954])</enable>
 							<itemlayout width="885" height="56"/>
 							<focusedlayout width="885" height="56">
 								<control type="image">
@@ -930,22 +931,47 @@
 									<texture border="7">button-default-focus.png</texture>
 									<visible>ControlGroup(312).HasFocus()</visible>
 								</control>
-								<control type="label">
-									<left>18</left>
-									<top>10</top>
-									<height>30</height>
-									<width>800</width>
-									<font>font12</font>
-									<label> - $LOCALIZE[31940]</label>
+								<control type="group">
+									<visible>IsEmpty(Skin.String(shelf-tvshowimages)) | StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31953]) | StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[593])</visible>
+									<control type="label">
+										<left>18</left>
+										<top>10</top>
+										<height>30</height>
+										<width>800</width>
+										<textcolor>disabled-text</textcolor>
+										<font>font12</font>
+										<label> - $LOCALIZE[31940]</label>
+									</control>
+									<control type="label">
+										<left>0</left>
+										<top>10</top>
+										<height>30</height>
+										<width>790</width>
+										<align>right</align>
+										<textcolor>disabled-text</textcolor>
+										<font>font12</font>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
 								</control>
-								<control type="label">
-									<left>0</left>
-									<top>10</top>
-									<height>30</height>
-									<width>790</width>
-									<align>right</align>
-									<font>font12</font>
-									<label>$INFO[ListItem.Label]</label>
+								<control type="group">
+									<visible>StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31955]) | StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31954])</visible>
+									<control type="label">
+										<left>18</left>
+										<top>10</top>
+										<height>30</height>
+										<width>800</width>
+										<font>font12</font>
+										<label> - $LOCALIZE[31940]</label>
+									</control>
+									<control type="label">
+										<left>0</left>
+										<top>10</top>
+										<height>30</height>
+										<width>790</width>
+										<align>right</align>
+										<font>font12</font>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
 								</control>
 								<control type="image">
 									<left>804</left>
@@ -992,6 +1018,7 @@
 							<onleft>313</onleft>
 							<onright>999</onright>
 							<scrolltime>0</scrolltime>
+							<enable>StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31955]) | StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31954])</enable>
 							<itemlayout width="32" height="56"/>
 							<focusedlayout width="32" height="56">
 								<control type="image">
@@ -1569,6 +1596,7 @@
 							<onleft>1223</onleft>
 							<onright>422</onright>
 							<scrolltime>0</scrolltime>
+							<enable>!Skin.HasSetting(home-shutdown)</enable>
 							<itemlayout width="885" height="56"/>
 							<focusedlayout width="885" height="56">
 								<control type="image">
@@ -1579,22 +1607,47 @@
 									<texture border="7">button-default-focus.png</texture>
 									<visible>ControlGroup(420).HasFocus()</visible>
 								</control>
-								<control type="label">
-									<left>18</left>
-									<top>10</top>
-									<height>30</height>
-									<width>800</width>
-									<font>font12</font>
-									<label>- $LOCALIZE[31914]:</label>
+								<control type="group">
+									<visible>Skin.HasSetting(home-shutdown)</visible>
+									<control type="label">
+										<left>18</left>
+										<top>10</top>
+										<height>30</height>
+										<width>800</width>
+										<textcolor>disabled-text</textcolor>
+										<font>font12</font>
+										<label>- $LOCALIZE[31914]:</label>
+									</control>
+									<control type="label">
+										<left>0</left>
+										<top>10</top>
+										<height>30</height>
+										<width>790</width>
+										<align>right</align>
+										<textcolor>disabled-text</textcolor>
+										<font>font12</font>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
 								</control>
-								<control type="label">
-									<left>0</left>
-									<top>10</top>
-									<height>30</height>
-									<width>790</width>
-									<align>right</align>
-									<font>font12</font>
-									<label>$INFO[ListItem.Label]</label>
+								<control type="group">
+									<visible>!Skin.HasSetting(home-shutdown)</visible>
+									<control type="label">
+										<left>18</left>
+										<top>10</top>
+										<height>30</height>
+										<width>800</width>
+										<font>font12</font>
+										<label>- $LOCALIZE[31914]:</label>
+									</control>
+									<control type="label">
+										<left>0</left>
+										<top>10</top>
+										<height>30</height>
+										<width>790</width>
+										<align>right</align>
+										<font>font12</font>
+										<label>$INFO[ListItem.Label]</label>
+									</control>
 								</control>
 								<control type="image">
 									<left>804</left>
@@ -1656,6 +1709,7 @@
 							<onleft>421</onleft>
 							<onright>999</onright>
 							<scrolltime>0</scrolltime>
+							<enable>!Skin.HasSetting(home-shutdown)</enable>
 							<itemlayout width="32" height="56"/>
 							<focusedlayout width="32" height="56">
 								<control type="image">
@@ -2057,6 +2111,7 @@
 						<onclick>Skin.SetBool(select-tventry)</onclick>
 						<onclick>ActivateWindow(1156)</onclick>
 						<onclick>Skin.Reset(select-tventry)</onclick>
+						<enable>[System.GetBool(pvrmanager.enabled) + Pvr.HasTVChannels]</enable>
 					</control>
 					<control type="button" id="607"><!-- Set Radio library entry point -->
 						<include>settings-submenu-common</include>
@@ -2065,6 +2120,7 @@
 						<onclick>Skin.SetBool(select-radioentry)</onclick>
 						<onclick>ActivateWindow(1156)</onclick>
 						<onclick>Skin.Reset(select-radioentry)</onclick>
+						<enable>[System.GetBool(pvrmanager.enabled) + Pvr.HasRadioChannels]</enable>
 					</control>
 					<control type="button" id="608"><!-- Reset Above Settings button -->
 						<include>settings-submenu-common</include>
