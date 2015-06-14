@@ -617,63 +617,6 @@
 				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 			</control>
 		</control>
-		<!-- Remove for the moment, future feature that is still not quite cooked 
-		<control type="group">
-			<visible>Control.IsVisible(50) + System.IdleTime(20) + Container.Content(movies)</visible>
-			<control type="wraplist" id="950">
-				<left>-10</left>
-				<top>-10</top>
-				<width>10</width>
-				<height>10</height>
-				<viewtype label="31028">wrap</viewtype>
-				<autoscroll>true</autoscroll>
-				<scrolltime>4000</scrolltime>
-				<orientation>horizontal</orientation>
-				<itemlayout height="10" width="10"></itemlayout>
-				<focusedlayout height="10" width="10"></focusedlayout>
-				<content target="video">library://video/recentlyaddedmovies.xml</content>
-			</control>
-			<control type="group" id="951">
-				<visible>Control.IsVisible(950)</visible>
-				<animation effect="fade" start="100" end="0" time="200" reversible="false">Hidden</animation>
-				<control type="image">
-					<left>-88</left>
-					<top>190</top>
-					<width>88</width>
-					<height>62</height>
-					<texture background="true" diffuse="mask-squ.png">$INFO[Container(950).Listitem(2).thumb]</texture>
-					<aspectratio aligny="bottom">keep</aspectratio>
-					<animation condition="!Container(950).OnNext" effect="slide" start="0,0" end="148,10" time="4000" tween="Quadratic" easing="in" reversible="false">Conditional</animation>
-				</control>
-				<control type="image">
-					<left>60</left>
-					<top>200</top>
-					<width>88</width>
-					<height>62</height>
-					<texture background="true" diffuse="mask-squ.png">$INFO[Container(950).Listitem(1).thumb]</texture>
-					<aspectratio aligny="bottom">keep</aspectratio>
-					<animation condition="!Container(950).OnNext" effect="zoom" end="180,210,115,81" time="4000" reversible="false">Conditional</animation>
-				</control>
-				<control type="image">
-					<left>180</left>
-					<top>210</top>
-					<width>115</width>
-					<height>81</height>
-					<texture background="true" diffuse="mask-squ.png">$INFO[Container(950).Listitem(0).thumb]</texture>
-					<aspectratio aligny="bottom">keep</aspectratio>
-					<animation condition="!Container(950).OnNext" effect="zoom" end="250,230,407,287" time="4000" tween="Quadratic" easing="in" reversible="false">Conditional</animation>
-				</control>
-				<control type="image">
-					<left>250</left>
-					<top>230</top>
-					<width>407</width>
-					<height>287</height>
-					<texture background="true" diffuse="mask-squ.png">$INFO[Container(950).Listitem(-1).thumb]</texture>
-					<aspectratio aligny="bottom">keep</aspectratio>
-					<animation condition="!Container(950).OnNext" effect="fade" start="100" end="0" time="2500" reversible="false">Conditional</animation>
-				</control>
-			</control>
-		</control>-->
 	</include>
 	<include name="VideoIconView">
 		<control type="panel" id="52">
@@ -689,14 +632,14 @@
 			<pagecontrol>1252</pagecontrol>
 			<itemlayout height="234" width="300">
 				<control type="image">
-					<left>90</left>
+					<left>66</left>
 					<top>5</top>
-					<width>120</width>
+					<width>168</width>
 					<height>168</height>
 					<aspectratio>keep</aspectratio>
 					<colordiffuse>UnFocusedPosters</colordiffuse>
-					<texture background="true">DefaultVideo.png</texture>
-					<visible>SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
+					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<visible>SubString(ListItem.Icon,Default,Left) | ![Container.Content(movies) | Container.Content(tvshows)]</visible>
 				</control>
 				<control type="image">
 					<left>90</left>
@@ -706,7 +649,7 @@
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<colordiffuse>UnFocusedPosters</colordiffuse>
 					<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-					<visible>!SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
+					<visible>!SubString(ListItem.Icon,Default,Left) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 				</control>
 				<control type="image"><!-- Extras Overlay -->
 					<left>92</left>
@@ -735,24 +678,26 @@
 			</itemlayout>
 			<focusedlayout height="234" width="300">
 				<control type="image">
-					<left>90</left>
+					<left>66</left>
 					<top>5</top>
-					<width>120</width>
+					<width>168</width>
 					<height>168</height>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 					<animation effect="zoom" start="100" end="124" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
-					<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-					<visible>SubString(ListItem.Icon,Default,Left) + !SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
+					<texture background="true" diffuse="mask-rect.png">$INFO[ListItem.Icon]</texture>
+					<visible>SubString(ListItem.Icon,Default,Left)</visible>
 				</control>
 				<control type="image">
-					<left>90</left>
+					<left>66</left>
 					<top>5</top>
-					<width>120</width>
+					<width>168</width>
 					<height>168</height>
-					<aspectratio>keep</aspectratio>
+					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$INFO[ListItem.Icon]</texture>
+					<bordertexture border="7">mask-hilite.png</bordertexture>
+					<bordersize>7</bordersize>
+					<aspectratio scalediffuse="false">keep</aspectratio>
 					<animation effect="zoom" start="100" end="124" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
-					<texture background="true">DefaultVideo.png</texture>
-					<visible>SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
+					<visible>!SubString(ListItem.Icon,Default,Left) + ![Container.Content(movies) | Container.Content(tvshows)]</visible>
 				</control>
 				<control type="image">
 					<left>90</left>
@@ -764,7 +709,7 @@
 					<bordersize>7</bordersize>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="zoom" start="100" end="124" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
-					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>!SubString(ListItem.Icon,Default,Left) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 				</control>
 				<control type="image"><!-- Extras Overlay -->
 					<left>90</left>
@@ -797,10 +742,11 @@
 			</focusedlayout>
 		</control>
 		<control type="group"><!-- Show the bottom row of icons as long as another row exists -->
-			<visible>Control.IsVisible(52) + Container(52).HasNext + ![Container().OnScrollNext | Container().OnScrollPrevious]</visible>
+			<visible>[Container.Content(movies) | Container.Content(tvshows)] + Control.IsVisible(52) + Container(52).HasNext + ![Container().OnScrollNext | Container().OnScrollPrevious]</visible>
+			<left>20</left>
 			<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
 			<control type="image">
-				<left>110</left>
+				<left>90</left>
 				<top>574</top>
 				<width>120</width>
 				<height>168</height>
@@ -809,7 +755,7 @@
 				<texture background="true" diffuse="mask-fadetop.png">$VAR[Icon(8)Poster]</texture>
 			</control>
 			<control type="image">
-				<left>410</left>
+				<left>390</left>
 				<top>574</top>
 				<width>120</width>
 				<height>168</height>
@@ -818,7 +764,7 @@
 				<texture background="true" diffuse="mask-fadetop.png">$VAR[Icon(9)Poster]</texture>
 			</control>
 			<control type="image">
-				<left>710</left>
+				<left>690</left>
 				<top>574</top>
 				<width>120</width>
 				<height>168</height>
@@ -827,13 +773,53 @@
 				<texture background="true" diffuse="mask-fadetop.png">$VAR[Icon(10)Poster]</texture>
 			</control>
 			<control type="image">
-				<left>1010</left>
+				<left>990</left>
 				<top>574</top>
 				<width>120</width>
 				<height>168</height>
 				<aspectratio>stretch</aspectratio>
 				<colordiffuse>UnFocusedPosters</colordiffuse>
 				<texture background="true" diffuse="mask-fadetop.png">$VAR[Icon(11)Poster]</texture>
+			</control>
+		</control>
+		<control type="group"><!-- Show the bottom row of icons as long as another row exists -->
+			<visible>![Container.Content(movies) | Container.Content(tvshows)] + Control.IsVisible(52) + Container(52).HasNext + ![Container().OnScrollNext | Container().OnScrollPrevious]</visible>
+			<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
+			<control type="image">
+				<left>86</left>
+				<top>574</top>
+				<width>168</width>
+				<height>168</height>
+				<aspectratio scalediffuse="false">keep</aspectratio>
+				<colordiffuse>UnFocusedPosters</colordiffuse>
+				<texture background="true" diffuse="mask-fadetop.png">$VAR[Icon(8)VideoIcon]</texture>
+			</control>
+			<control type="image">
+				<left>386</left>
+				<top>574</top>
+				<width>168</width>
+				<height>168</height>
+				<aspectratio scalediffuse="false">keep</aspectratio>
+				<colordiffuse>UnFocusedPosters</colordiffuse>
+				<texture background="true" diffuse="mask-fadetop.png">$VAR[Icon(9)VideoIcon]</texture>
+			</control>
+			<control type="image">
+				<left>686</left>
+				<top>574</top>
+				<width>168</width>
+				<height>168</height>
+				<aspectratio scalediffuse="false">keep</aspectratio>
+				<colordiffuse>UnFocusedPosters</colordiffuse>
+				<texture background="true" diffuse="mask-fadetop.png">$VAR[Icon(10)VideoIcon]</texture>
+			</control>
+			<control type="image">
+				<left>986</left>
+				<top>574</top>
+				<width>168</width>
+				<height>168</height>
+				<aspectratio scalediffuse="false">keep</aspectratio>
+				<colordiffuse>UnFocusedPosters</colordiffuse>
+				<texture background="true" diffuse="mask-fadetop.png">$VAR[Icon(11)VideoIcon]</texture>
 			</control>
 		</control>
 		<include>SortLetterNotification</include>
