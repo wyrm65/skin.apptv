@@ -582,6 +582,7 @@
 				<texturenofocus>touch-settings.png</texturenofocus>
 				<onclick condition="!StringCompare(Window(Home).Property(ShowScreenSettings),show)">SetProperty(ShowScreenSettings,show,Home)</onclick>
 				<onclick condition="StringCompare(Window(Home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,Home)</onclick>
+				<visible>!Skin.HasSetting(lock-screensettings)</visible>
 			</control>
 		</control>
 	</include>

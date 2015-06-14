@@ -9,7 +9,7 @@
 			<height>500</height>
 			<onleft>54</onleft>
 			<onright>54</onright>
-			<onup>9000</onup>
+			<onup condition="!Skin.HasSetting(lock-screensettings)">9000</onup>
 			<ondown>1254</ondown>
 			<focusposition>2</focusposition>
 			<orientation>horizontal</orientation>
@@ -75,7 +75,7 @@
 				<width>1239</width>
 				<height>18</height>
 				<onup>54</onup>
-				<ondown>9000</ondown>
+				<ondown condition="!Skin.HasSetting(lock-screensettings)">9000</ondown>
 				<orientation>horizontal</orientation>
 				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + SubString(Container.Viewmode,Wrap,Left)</visible>
@@ -122,7 +122,7 @@
 			<top>143</top>
 			<width>1008</width>
 			<height>432</height>
-			<onleft>9000</onleft>
+			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
 			<onright>1258</onright>
 			<onup>58</onup>
 			<ondown>58</ondown>
@@ -222,7 +222,6 @@
 				<width>18</width>
 				<height>527</height>
 				<onleft>58</onleft>
-				<onright>9000</onright>
 				<animation condition="!Control.HasFocus(1258) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 			</control>

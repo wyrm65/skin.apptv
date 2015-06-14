@@ -237,7 +237,7 @@
 				<top>116</top>
 				<width>552</width>
 				<height>560</height>
-				<onleft>9000</onleft>
+				<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
 				<onright>27</onright>
 				<onup>11</onup>
 				<ondown>11</ondown>
@@ -446,7 +446,7 @@
 				<top>116</top>
 				<width>552</width>
 				<height>560</height>
-				<onleft>9000</onleft>
+				<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
 				<onright>27</onright>
 				<onup>12</onup>
 				<ondown>12</ondown>
@@ -635,7 +635,7 @@
 				<height>560</height>
 				<onup>13</onup>
 				<ondown>13</ondown>
-				<onleft>9000</onleft>
+				<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
 				<onright>27</onright>
 				<preloaditems>2</preloaditems>
 				<pagecontrol>27</pagecontrol>
@@ -729,7 +729,6 @@
 				<width>20</width>
 				<height>560</height>
 				<onleft>15</onleft>
-				<onright>9000</onright>
 				<animation condition="!Control.HasFocus(27) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 			</control>
@@ -787,7 +786,7 @@
 				<top>120</top>
 				<width>1240</width>
 				<height>500</height>
-				<onleft>9000</onleft>
+				<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
 				<onright>27</onright>
 				<onup>14</onup>
 				<ondown>14</ondown>
@@ -920,7 +919,7 @@
 					<height>560</height>
 					<onup>50</onup>
 					<ondown>50</ondown>
-					<onleft>9000</onleft>
+					<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
 					<onright>27</onright>
 					<preloaditems>2</preloaditems>
 					<pagecontrol>27</pagecontrol>
@@ -1225,7 +1224,7 @@
 				<top>146</top>
 				<width>1160</width>
 				<height>506</height>
-				<onleft>9000</onleft>
+				<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
 				<onright>27</onright>
 				<onup>17</onup>
 				<ondown>17</ondown>
@@ -1314,7 +1313,6 @@
 				<width>18</width>
 				<height>506</height>
 				<onleft>17</onleft>
-				<onright>9000</onright>
 				<animation condition="!Control.HasFocus(27) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 			</control>
