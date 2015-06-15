@@ -11,7 +11,8 @@
 			<movement>4</movement>
 			<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
 			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
-			<onright>1250</onright>
+			<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+			<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1250</onright>
 			<onup>50</onup>
 			<ondown>50</ondown>
 			<preloaditems>2</preloaditems>
@@ -627,7 +628,8 @@
 			<height>468</height>
 			<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
 			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
-			<onright>1252</onright>
+			<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+			<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1252</onright>
 			<onup>52</onup>
 			<ondown>52</ondown>
 			<viewtype label="31943">icon</viewtype>
@@ -850,7 +852,8 @@
 				<ondown>53</ondown>
 				<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
 				<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
-				<onright>1253</onright>
+				<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+				<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1253</onright>
 				<itemlayout width="558" height="100">
 					<control type="image"><!-- Background shadow for unselected IconBanner image -->
 						<left>8</left>
@@ -1006,7 +1009,7 @@
 				</control>
 				<control type="group">
 					<include>SortLetterNotification</include>
-					<control type="scrollbar" id="1253"><!-- Scroll Bar -->
+					<control type="scrollbar" id="1253">
 						<left>1244</left>
 						<top>105</top>
 						<width>18</width>
@@ -1030,7 +1033,8 @@
 			<onright>54</onright>
 			<onup condition="Skin.HasSetting(lock-screensettings)">noop</onup>
 			<onup condition="!Skin.HasSetting(lock-screensettings)">9000</onup>
-			<ondown>1254</ondown>
+			<ondown condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</ondown>
+			<ondown condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1254</ondown>
 			<focusposition>0</focusposition>
 			<orientation>horizontal</orientation>
 			<preloaditems>2</preloaditems>
@@ -1210,7 +1214,8 @@
 			<onright>57</onright>
 			<onup condition="Skin.HasSetting(lock-screensettings)">noop</onup>
 			<onup condition="!Skin.HasSetting(lock-screensettings)">9000</onup>
-			<ondown>1257</ondown>
+			<ondown condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</ondown>
+			<ondown condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1257</ondown>
 			<focusposition>2</focusposition>
 			<orientation>horizontal</orientation>
 			<preloaditems>2</preloaditems>
@@ -1608,7 +1613,7 @@
 					<visible>!IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
 				</control>
 			</control>
-			<control type="scrollbar" id="1257"><!-- Scroll Bar -->
+			<control type="scrollbar" id="1257">
 				<left>17</left>
 				<top>590</top>
 				<width>1239</width>
@@ -1628,7 +1633,8 @@
 			<height>507</height>
 			<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
 			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
-			<onright>1258</onright>
+			<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+			<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1258</onright>
 			<onup>58</onup>
 			<ondown>58</ondown>
 			<viewtype label="31944">wall</viewtype>

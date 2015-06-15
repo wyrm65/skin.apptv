@@ -50,7 +50,8 @@
 					<top>130</top>
 					<width>860</width>
 					<height>460</height>
-					<onleft>23</onleft>
+					<onleft condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>
+					<onleft condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1258</onleft>
 					<onright>150</onright>
 					<onup>120</onup>
 					<ondown>120</ondown>
@@ -169,7 +170,7 @@
 						</control>
 					</focusedlayout>
 				</control>
-				<control type="scrollbar" id="23"><!-- Scrollbar -->
+				<control type="scrollbar" id="23">
 					<left>10</left>
 					<top>126</top>
 					<width>18</width>

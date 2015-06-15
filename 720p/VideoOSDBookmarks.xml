@@ -46,7 +46,8 @@
 			<top>55</top>
 			<width>640</width>
 			<height>400</height>
-			<onright>23</onright>
+			<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+			<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">23</onright>
 			<ondown>999</ondown>
 			<viewtype label="31943">icon</viewtype>
 			<pagecontrol>23</pagecontrol>

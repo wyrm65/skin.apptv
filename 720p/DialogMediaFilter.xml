@@ -38,7 +38,8 @@
 			<height>460</height>
 			<pagecontrol>6</pagecontrol>
 			<ondown>9001</ondown>
-			<onright>6</onright>
+			<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+			<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">6</onright>
 		</control>
 		<control type="scrollbar" id="6">
 			<left>966</left>

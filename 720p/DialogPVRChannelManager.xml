@@ -33,7 +33,6 @@
 				<top>0</top>
 				<width>20</width>
 				<height>532</height>
-				<onleft>60</onleft>
 				<onright>20</onright>
 				<animation condition="!Control.HasFocus(60) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
@@ -45,7 +44,8 @@
 				<height>532</height>
 				<onup>20</onup>
 				<ondown>9000</ondown>
-				<onleft>60</onleft>
+				<onleft condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>
+				<onleft condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">60</onleft>
 				<onright>9002</onright>
 				<pagecontrol>60</pagecontrol>
 				<animation effect="fade" start="100" end="60" time="50" condition="ControlGroup(9002).HasFocus">Conditional</animation>

@@ -36,7 +36,8 @@
 			<top>180</top>
 			<width>675</width>
 			<height>405</height>
-			<onleft>23</onleft>
+			<onleft condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>
+			<onleft condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">23</onleft>
 			<onright>460</onright>
 			<onup>450</onup>
 			<ondown>450</ondown>

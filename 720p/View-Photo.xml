@@ -9,7 +9,10 @@
 			<height>500</height>
 			<onleft>54</onleft>
 			<onright>54</onright>
+			<onup condition="Skin.HasSetting(lock-screensettings)">noop</onup>
 			<onup condition="!Skin.HasSetting(lock-screensettings)">9000</onup>
+			<ondown condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</ondown>
+			<ondown condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1254</ondown>
 			<ondown>1254</ondown>
 			<focusposition>2</focusposition>
 			<orientation>horizontal</orientation>
@@ -69,13 +72,12 @@
 			<visible>Control.IsVisible(54)</visible>
 			<include>transition-fade</include>
 			<include>SortLetterNotification</include>
-			<control type="scrollbar" id="1254"><!-- Scroll Bar -->
+			<control type="scrollbar" id="1254">
 				<left>17</left>
 				<top>614</top>
 				<width>1239</width>
 				<height>18</height>
 				<onup>54</onup>
-				<ondown condition="!Skin.HasSetting(lock-screensettings)">9000</ondown>
 				<orientation>horizontal</orientation>
 				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + SubString(Container.Viewmode,Wrap,Left)</visible>
@@ -122,8 +124,10 @@
 			<top>143</top>
 			<width>1008</width>
 			<height>432</height>
+			<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
 			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
-			<onright>1258</onright>
+			<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+			<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1258</onright>
 			<onup>58</onup>
 			<ondown>58</ondown>
 			<viewtype label="31944">wall</viewtype>

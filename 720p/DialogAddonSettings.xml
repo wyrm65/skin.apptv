@@ -33,7 +33,8 @@
 			<itemgap>-2</itemgap>
 			<pagecontrol>30</pagecontrol>
 			<ondown>9001</ondown>
-			<onleft>30</onleft>
+			<onleft condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>
+			<onleft condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">30</onleft>
 			<onright>9</onright>
 		</control>
 		<control type="scrollbar" id="30">

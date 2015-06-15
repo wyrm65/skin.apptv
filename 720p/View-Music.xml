@@ -9,7 +9,10 @@
 			<height>532</height>
 			<focusposition>2</focusposition>
 			<movement>4</movement>
+			<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
 			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
+			<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+			<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1250</onright>
 			<onright>1250</onright>
 			<onup>50</onup>
 			<ondown>50</ondown>
@@ -310,8 +313,10 @@
 			<height>390</height>
 			<onleft>54</onleft>
 			<onright>54</onright>
+			<onup condition="Skin.HasSetting(lock-screensettings)">noop</onup>
 			<onup condition="!Skin.HasSetting(lock-screensettings)">9000</onup>
-			<ondown>1254</ondown>
+			<ondown condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</ondown>
+			<ondown condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1254</ondown>
 			<focusposition>0</focusposition>
 			<orientation>horizontal</orientation>
 			<preloaditems>2</preloaditems>
@@ -371,7 +376,7 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(54)</visible>
-			<control type="scrollbar" id="1254"><!-- Scroll Bar -->
+			<control type="scrollbar" id="1254">
 				<left>17</left>
 				<top>616</top>
 				<width>1239</width>
@@ -433,8 +438,10 @@
 			<height>525</height>
 			<onleft>57</onleft>
 			<onright>57</onright>
+			<onup condition="Skin.HasSetting(lock-screensettings)">noop</onup>
 			<onup condition="!Skin.HasSetting(lock-screensettings)">9000</onup>
-			<ondown>1257</ondown>
+			<ondown condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</ondown>
+			<ondown condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1257</ondown>
 			<focusposition>2</focusposition>
 			<orientation>horizontal</orientation>
 			<preloaditems>2</preloaditems>
@@ -738,7 +745,7 @@
 		<control type="group">
 			<visible>Control.IsVisible(57)</visible>
 			<include>SortLetterNotification</include>
-			<control type="scrollbar" id="1257"><!-- Scroll Bar -->
+			<control type="scrollbar" id="1257">
 				<left>17</left>
 				<top>590</top>
 				<width>1239</width>
@@ -811,8 +818,10 @@
 			<top>110</top>
 			<width>720</width>
 			<height>576</height>
+			<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
 			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
-			<onright>1258</onright>
+			<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+			<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1258</onright>
 			<onup>58</onup>
 			<ondown>58</ondown>
 			<viewtype label="31944">wall</viewtype>

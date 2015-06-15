@@ -21,8 +21,10 @@
 			<top>112</top>
 			<width>531</width>
 			<height>450</height>
-			<onleft>4</onleft>
-			<onright>23</onright>
+			<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
+			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
+			<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+			<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">23</onright>
 			<onup>2</onup>
 			<ondown>2</ondown>
 			<viewtype label="31941">list</viewtype>
@@ -71,7 +73,6 @@
 			<width>18</width>
 			<height>450</height>
 			<onleft>2</onleft>
-			<onright>4</onright>
 			<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 		</control>

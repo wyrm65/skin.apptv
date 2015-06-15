@@ -34,7 +34,8 @@
 			<top>112</top>
 			<width>504</width>
 			<height>555</height>
-			<onright>423</onright>
+			<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+			<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">423</onright>
 			<onup>450</onup>
 			<ondown>450</ondown>
 			<pagecontrol>423</pagecontrol>

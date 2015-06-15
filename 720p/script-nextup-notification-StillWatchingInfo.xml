@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">4012</defaultcontrol>
+	<zorder>0</zorder>
+	<controls>
+		<control type="group">
+			<right>133</right>
+			<bottom>133</bottom>
+			<width>593</width>
+			<height>226</height>
+			<control type="group">
+				<control type="image">
+					<top>3</top>
+					<left>3</left>
+					<right>7</right>
+					<height>216</height>
+					<animation effect="fade" start="100" end="90" time="200" condition="true">Conditional</animation>
+					<texture border="5" colordiffuse="ff010101">box.png</texture>
+				</control>
+				<!-- -->
+				<control type="image" id="4001" description="poster">
+					<left>3</left>
+					<top>3</top>
+					<width>144</width>
+					<height>216</height>
+					<fadetime>350</fadetime>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+				</control>
+				<control type="label" description="still watching question">
+					<width>67%</width>
+					<top>7</top>
+					<left>153</left>
+					<height>27</height>
+					<font>font16</font>
+					<textcolor>B3dddddd</textcolor>
+					<label>$ADDON[service.nextup.notification 30012]</label>
+				</control>
+				<control type="label" description="Title" id="4000">
+					<left>153</left>
+					<width>67%</width>
+					<top>40</top>
+					<height>27</height>
+					<font>font16</font>
+					<textcolor>orange</textcolor>
+				</control>
+				<control type="image">
+					<left>153</left>
+					<top>171</top>
+					<width>16</width>
+					<height>16</height>
+					<aspect>keep</aspect>
+					<texture>imdb.png</texture>
+					<visible>Control.IsVisible(4003)</visible>
+				</control>
+				<control type="label" id="4003" description="rating">
+					<left>177</left>
+					<width>67%</width>
+					<top>167</top>
+					<height>27</height>
+					<font>font14</font>
+					<textcolor>B3dddddd</textcolor>
+				</control>
+				<control type="label" id="4004" description="year">
+					<left>210</left>
+					<width>67%</width>
+					<top>167</top>
+					<height>27</height>
+					<font>font14</font>
+					<textcolor>B3dddddd</textcolor>
+					<scroll>false</scroll>
+				</control>
+				<control type="textbox" id="4006" description="plot">
+					<left>153</left>
+					<right>27</right>
+					<top>73</top>
+					<height>100</height>
+					<font>Tiny</font>
+					<align>justify</align>
+					<autoscroll>false</autoscroll>
+					<textcolor>B3bbbbbb</textcolor>
+				</control>
+				<control type="label" description="Total Time">
+					<right>20</right>
+					<align>right</align>
+					<width>200</width>
+					<top>7</top>
+					<height>53</height>
+					<font>font16</font>
+					<textcolor>B3dddddd</textcolor>
+					<label>$INFO[Player.TimeRemaining(ss),,sec(s)]</label>
+				</control>
+				<!-- buttons -->
+				<control type="button" id="4012">
+					<description>Still watching</description>
+					<right>20</right>
+					<bottom>43</bottom>
+					<width>153</width>
+					<onup>4013</onup>
+					<ondown>4013</ondown>
+					<font>font14</font>
+					<label>$ADDON[service.nextup.notification 30010]</label>
+					<focusedcolor>FFededed</focusedcolor>
+					<disabledcolor>B3dddddd</disabledcolor>
+					<selectedcolor>FF000000</selectedcolor>
+					<height>27</height>
+					<textcolor>ff333333</textcolor>
+					<texturefocus colordiffuse="FF16571F" border="5">box.png</texturefocus>
+					<texturenofocus colordiffuse="FFFFFFFF" border="5">box.png</texturenofocus>
+				</control>
+				<control type="button" id="4013">
+					<description>Cancel</description>
+					<right>20</right>
+					<bottom>13</bottom>
+					<width>153</width>
+					<onup>4012</onup>
+					<ondown>4012</ondown>
+					<font>font14</font>
+					<label>222</label>
+					<focusedcolor>FFededed</focusedcolor>
+					<disabledcolor>B3dddddd</disabledcolor>
+					<selectedcolor>FF000000</selectedcolor>
+					<height>27</height>
+					<textcolor>ff333333</textcolor>
+					<texturefocus colordiffuse="FF16571F" border="5">box.png</texturefocus>
+					<texturenofocus colordiffuse="FFFFFFFF" border="5">box.png</texturenofocus>
+				</control>
+				<control type="image">
+					<left>153</left>
+					<description>Progress Back</description>
+					<width>420</width>
+					<bottom>7</bottom>
+					<height>5</height>
+					<texture colordiffuse="1F000000">white.png</texture>
+				</control>
+				<control type="progress" description="cache">
+					<left>153</left>
+					<description>Progress Bar</description>
+					<width>420</width>
+					<bottom>7</bottom>
+					<height>5</height>
+					<info>Player.ProgressCache</info>
+					<texturebg colordiffuse="00ffffff">progress-bg.png</texturebg>
+					<lefttexture colordiffuse="FFff4081">progress-end.png</lefttexture>
+					<midtexture colordiffuse="FFff4081">progress-end.png</midtexture>
+					<righttexture colordiffuse="FFff4081">progress-end.png</righttexture>
+				</control>
+				<control type="progress" id="23">
+					<description>Progress Bar</description>
+					<left>153</left>
+					<width>420</width>
+					<bottom>7</bottom>
+					<height>5</height>
+					<info>Player.Progress</info>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>
