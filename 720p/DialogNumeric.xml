@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">21</defaultcontrol>
+	<zorder>2</zorder>
 	<coordinates>
 		<left>0</left>
 		<top>0</top>
@@ -174,15 +175,25 @@
 				<onright>23</onright>
 				<onup>19</onup>
 			</control>
-			<control type="button" id="23"><!-- BACKSPACE button -->
+			<control type="button" id="1023"><!-- Custom BACKSPACE button -->
 				<left>194</left>
 				<top>195</top>
 				<width>128</width>
 				<height>64</height>
 				<texturenofocus border="6">key-backspace-nofocus.png</texturenofocus>
 				<texturefocus border="6">key-backspace-focus.png</texturefocus>
+				<onclick>SendClick(numericinput,23)</onclick>
 				<onleft>22</onleft>
 				<onup>21</onup>
+			</control>
+			<control type="button" id="23"><!-- Don't show as we are using a graphical BACKSPACE button -->
+				<left>0</left>
+				<top>0</top>
+				<width>0</width>
+				<height>0</height>
+				<texturenofocus>blank.png</texturenofocus>
+				<texturefocus>blank.png</texturefocus>
+				<visible>false</visible>
 			</control>
 		</control>
 	</controls>
