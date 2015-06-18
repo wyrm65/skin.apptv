@@ -8,13 +8,11 @@
 	</coordinates>
 	<include>screen-fade</include>
 	<controls>
-		<include>fadebackground</include>
-		<control type="image"><!-- Keyboard background -->
-			<left>460</left>
-			<top>390</top>
-			<width>360</width>
-			<height>330</height>
-			<texture diffuse="mask-rect.png">background-keyboard.png</texture>
+		<control type="image"><!-- Fade background to hilite keypad -->
+			<include>fullscreenimage</include>
+			<texture>colours/black.png</texture>
+			<aspectratio>scale</aspectratio>
+			<colordiffuse>mask-background</colordiffuse>
 		</control>
 		<control type="label" id="1"><!-- Dialog heading -->
 			<left>490</left>
@@ -116,6 +114,13 @@
 				<onup>13</onup>
 				<ondown>19</ondown>
 				<include>keyboard-key-common</include>
+			</control>
+			<control type="image"><!-- Spacer to balance keyboard layout -->
+				<left>194</left>
+				<top>65</top>
+				<width>128</width>
+				<height>129</height>
+				<texture border="6">key-special-nofocus.png</texture>
 			</control>
 			<control type="button" id="17"><!-- 7 button -->
 				<left>0</left>
