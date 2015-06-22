@@ -391,7 +391,7 @@
 						<effect type="zoom" start="100" end="114" center="auto" time="0" tween="back" easing="out"/>
 					</animation>
 					<control type="group">
-						<visible>!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(musicvideos) + !Container.Content(studios)</visible>
+						<visible>!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(musicvideos)</visible>
 						<control type="group">
 							<visible>!SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
 								<control type="image">
@@ -436,42 +436,6 @@
 								<width>318</width>
 								<height>318</height>
 								<texture>DefaultMusicVideos.png</texture>
-								<aspectratio>keep</aspectratio>
-							</control>
-						</control>
-					</control>
-					<control type="group">
-						<visible>Container.Content(studios)</visible>
-						<control type="group">
-							<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
-							<control type="group">
-								<control type="image">
-									<left>222</left>
-									<top>222</top>
-									<width>322</width>
-									<height>322</height>
-									<colordiffuse>DropShadow</colordiffuse>
-									<aspectratio>keep</aspectratio>
-									<texture fallback="DefaultVideo.png">special://skin/extras/images/studios/$INFO[ListItem.Label,,.png]</texture>
-								</control>
-								<control type="image">
-									<left>220</left>
-									<top>220</top>
-									<width>322</width>
-									<height>322</height>
-									<aspectratio>keep</aspectratio>
-									<texture fallback="DefaultVideo.png">special://skin/extras/images/studios/$INFO[ListItem.Label,,.png]</texture>
-								</control>
-							</control>
-						</control>
-						<control type="group">
-							<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
-							<control type="image">
-								<left>220</left>
-								<top>220</top>
-								<width>320</width>
-								<height>320</height>
-								<texture background="true">$INFO[ListItem.Icon]</texture>
 								<aspectratio>keep</aspectratio>
 							</control>
 						</control>
@@ -967,7 +931,7 @@
 					<control type="label"><!-- Rating -->
 						<left>0</left>
 						<top>331</top>
-						<width>600</width>
+						<width>300</width>
 						<height>37</height>
 						<label>[B]$LOCALIZE[563]:[/B] $INFO[ListItem.Rating]</label>
 						<visible>!IsEmpty(ListItem.Rating)</visible>
@@ -1121,6 +1085,21 @@
 					<texture fallback="blank.png">$VAR[ExtrasOverlay]</texture>
 					<visible>System.HasAddon(script.videoextras)</visible>
 				</control>
+				<control type="image">
+					<left>78</left>
+					<top>116</top>
+					<width>32</width>
+					<height>32</height>
+					<colordiffuse>DropShadow</colordiffuse>
+					<texture fallback="blank.png">$VAR[ListItemFlags]</texture>
+				</control>
+				<control type="image">
+					<left>76</left>
+					<top>114</top>
+					<width>32</width>
+					<height>32</height>
+					<texture fallback="blank.png">$VAR[ListItemFlags]</texture>
+				</control>
 			</focusedlayout>
 		</control>
 		<control type="group">
@@ -1174,7 +1153,7 @@
 				<visible>!IsEmpty(ListItem.Title)</visible>
 				<control type="label"><!-- Duration -->
 					<left>26</left>
-					<top>276</top>
+					<top>272</top>
 					<width>204</width>
 					<height>31</height>
 					<align>center</align>
@@ -1603,14 +1582,29 @@
 					<visible>!IsEmpty(ListItem.StarRating)</visible>
 				</control>
 				<control type="label"><!-- Duration -->
-					<left>1256</left>
+					<left>1000</left>
 					<top>634</top>
-					<width>265</width>
+					<width>260</width>
 					<height>31</height>
 					<align>right</align>
 					<font>font18</font>
 					<label>$VAR[VideoDuration]</label>
 					<visible>!IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
+				</control>
+				<control type="image">
+					<left>1230</left>
+					<top>672</top>
+					<width>32</width>
+					<height>32</height>
+					<colordiffuse>DropShadow</colordiffuse>
+					<texture fallback="blank.png">$VAR[ListItemFlags]</texture>
+				</control>
+				<control type="image">
+					<left>1228</left>
+					<top>670</top>
+					<width>32</width>
+					<height>32</height>
+					<texture fallback="blank.png">$VAR[ListItemFlags]</texture>
 				</control>
 			</control>
 			<control type="scrollbar" id="1257">
@@ -1847,6 +1841,21 @@
 					<aligny>bottom</aligny>
 					<texture>$VAR[VideoRating]</texture>
 					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<left>242</left>
+					<top>292</top>
+					<width>32</width>
+					<height>32</height>
+					<colordiffuse>DropShadow</colordiffuse>
+					<texture fallback="blank.png">$VAR[ListItemFlags]</texture>
+				</control>
+				<control type="image">
+					<left>240</left>
+					<top>290</top>
+					<width>32</width>
+					<height>32</height>
+					<texture fallback="blank.png">$VAR[ListItemFlags]</texture>
 				</control>
 				<control type="image"><!-- Star Rating -->
 					<left>300</left>
