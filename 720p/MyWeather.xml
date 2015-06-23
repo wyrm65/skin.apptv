@@ -43,7 +43,7 @@
 					</control>
 				</control>
 				<control type="group">
-					<visible>Skin.HasSetting(background-slideshow) + Player.HasAudio + !SubString(Window(VideoLibrary).Property(TvTunesIsAlive),True)</visible>
+					<visible>Skin.HasSetting(background-slideshow) + Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
 					<control type="image"><!-- Mask out any backgrounds showing around ArtistSlideshow Fanart -->
 						<include>fullscreenimage</include>
 						<texture>colours/black.png</texture>

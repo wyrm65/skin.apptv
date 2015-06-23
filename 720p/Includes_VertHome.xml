@@ -733,7 +733,7 @@
 		<control type="group" id="9950">
 			<visible>Skin.HasSetting(media-overlay) + !Window.IsActive(PlayerControls)</visible>
 			<control type="group" id="9960">
-				<visible>Player.HasAudio + !SubString(Window(VideoLibrary).Property(TvTunesIsAlive),True)</visible>
+				<visible>Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
 				<control type="image">
 					<left>20</left>
 					<top>536</top>

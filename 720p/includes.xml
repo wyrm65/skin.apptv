@@ -59,7 +59,7 @@
 					</control>
 				</control>
 				<control type="group">
-					<visible>Skin.HasSetting(background-slideshow) + Player.HasAudio + !SubString(Window(VideoLibrary).Property(TvTunesIsAlive),True)</visible>
+					<visible>Skin.HasSetting(background-slideshow) + Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
 					<control type="image"><!-- Mask out any backgrounds showing around ArtistSlideshow Fanart -->
 						<include>fullscreenimage</include>
 						<texture>colours/black.png</texture>
@@ -170,12 +170,12 @@
 				</control>
 				<control type="visualisation">
 					<include>fullscreenimage</include>
-					<visible>Player.HasAudio + !SubString(Window(VideoLibrary).Property(TvTunesIsAlive),True)</visible>
+					<visible>Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
 					<animation effect="fade" time="200">VisibleChange</animation>
 				</control>
 			</control>
 			<control type="group">
-				<visible>Skin.HasSetting(background-slideshow) + Player.HasAudio + !SubString(Window(VideoLibrary).Property(TvTunesIsAlive),True)</visible>
+				<visible>Skin.HasSetting(background-slideshow) + Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
 				<control type="image"><!-- Mask out any backgrounds showing around ArtistSlideshow Fanart -->
 					<include>fullscreenimage</include>
 					<texture>colours/black.png</texture>
@@ -270,7 +270,7 @@
 		<control type="group" id="9950">
 			<visible>Skin.HasSetting(media-overlay) + !Window.IsActive(playercontrols)</visible>
 			<control type="group" id="9960"><!-- media infos (music) -->
-				<visible>Player.HasAudio + !SubString(Window(VideoLibrary).Property(TvTunesIsAlive),True)</visible>
+				<visible>Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
 				<control type="image">
 					<left>30</left>
 					<top>616</top>
@@ -470,7 +470,7 @@
 			</control>
 		</control>
 		<control type="group"><!-- Audio Stuff -->
-			<visible>Player.HasAudio + Skin.HasSetting(media-overlay) + !SubString(Window(videolibrary).Property(TvTunesIsAlive),True) + !Window.IsActive(PlayerControls)</visible>
+			<visible>Player.HasAudio + Skin.HasSetting(media-overlay) + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia)) + !Window.IsActive(PlayerControls)</visible>
 			<control type="image">
 				<left>24</left>
 				<top>2</top>

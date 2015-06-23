@@ -3,7 +3,6 @@
 	<defaultcontrol always="true">999</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<onload condition="System.HasAddon(script.videoextras)">RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
-	<onload condition="Skin.HasSetting(media-themetune)">RunScript(script.tvtunes,backend=True)</onload>
 	<include>screen-fade</include>
 	<controls>
 		<control type="image"><!-- Use a black background until background image has finished loading -->

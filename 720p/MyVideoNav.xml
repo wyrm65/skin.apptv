@@ -4,9 +4,10 @@
 	<allowoverlay>yes</allowoverlay>
 	<include>screen-fade</include>
 	<views>50,52,53,54,57,58,560</views>
-	<onload condition="Skin.HasSetting(media-themetune) + !SubString(Window(Videos).Property(CinemaExperienceRunning),True)">RunScript(script.tvtunes,backend=True)</onload>
+	<onload condition="Skin.HasSetting(media-themetune) + SubString(Window(Videos).Property(CinemaExperienceRunning),True)">SetProperty(TvTunesBlocked,true,Home)</onload>
 	<onload>ClearProperty(ShowScreenSettings,Home)</onload>
 	<onunload>ClearProperty(ShowScreenSettings,Home)</onunload>
+	<onunload>ClearProperty(TvTunesBlocked,Home)</onunload>
 	<controls>
 		<visible>!Window.IsVisible(movieinformation)</visible>
 		<include>backgroundvideo</include>
