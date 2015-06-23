@@ -239,6 +239,25 @@
 			<onfocus>ActivateWindow(1157)</onfocus>
 		</control>
 
+		<control type="group"><!-- Markers for menu bar items -->
+			<control type="image">
+				<left>0</left>
+				<top>322</top>
+				<height>16</height>
+				<width>16</width>
+				<texture>scroll-left.png</texture>
+				<visible>Container(9000).HasPrevious</visible>
+			</control>
+			<control type="image">
+				<left>1264</left>
+				<top>322</top>
+				<height>16</height>
+				<width>16</width>
+				<texture>scroll-right.png</texture>
+				<visible>Container(9000).HasNext</visible>
+			</control>
+		</control>
+
 		<control type="grouplist" id="9000"><!-- Home Sub menus -->
 			<left>10</left>
 			<top>295</top>
