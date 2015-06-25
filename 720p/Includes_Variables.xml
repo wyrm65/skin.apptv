@@ -117,8 +117,9 @@
 		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=$INFO[Window.Property(recommendedepisodes)]</value>
 	</variable>
 	<variable name="Overlay">
-		<value condition="ListItem.IsResumable">overlaypartialywatched.png</value>
-		<value>$INFO[ListItem.Overlay]</value>
+		<value condition="ListItem.IsResumable">OverlayPartialyWatched.png</value>
+		<value condition="SubString(ListItem.Overlay,OverlayWatched,Left)">OverlayWatched.png</value>
+		<value condition="!ListItem.IsFolder">OverlayUnwatched.png</value>
 	</variable>
 	<variable name="PVROverlay">
 		<value condition="ListItem.IsRecording">overlayisrecording.png</value>
