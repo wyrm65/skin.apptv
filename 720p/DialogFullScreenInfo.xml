@@ -3,7 +3,7 @@
 	<include>screen-fade</include>
 	<controls>
 		<control type="group">
-			<visible>![Window.IsVisible(sliderdialog) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(videobookmarks)]</visible>
+			<visible>![Window.IsVisible(sliderdialog) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(videobookmarks) | Window.IsVisible(script-nextup-notification-StillWatchingInfo.xml) | Window.IsVisible(script-nextup-notification-NextUpInfo.xml)]</visible>
 			<control type="group">
 				<control type="image"><!-- Dialog background -->
 					<left>0</left>
@@ -154,7 +154,7 @@
 			</control>
 
 			<control type="group">
-				<visible>[Window.IsVisible(fullscreenvideo)] + ![Window.IsVisible(sliderdialog) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(videobookmarks)]</visible>
+				<visible>[Window.IsVisible(fullscreenvideo)] + ![Window.IsVisible(sliderdialog) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(videobookmarks) | Window.IsVisible(script-nextup-notification-StillWatchingInfo.xml) | Window.IsVisible(script-nextup-notification-NextUpInfo.xml)]</visible>
 				<control type="label">
 					<left>8</left>
 					<top>644</top>
