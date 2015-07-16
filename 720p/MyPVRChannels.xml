@@ -44,14 +44,14 @@
 			<include>fadebackground</include>
 			<control type="image"><!-- Button background -->
 				<left>440</left>
-				<top>130</top>
+				<top>100</top>
 				<width>396</width>
-				<height>458</height>
+				<height>518</height>
 				<texture border="8">button-menu-background.png</texture>
 			</control>
 			<control type="label"><!-- Dialog heading -->
 				<left>450</left>
-				<top>140</top>
+				<top>108</top>
 				<width>372</width>
 				<height>34</height>
 				<font>font12</font>
@@ -60,7 +60,7 @@
 			</control>
 			<control type="button"><!-- Touch Close button -->
 				<left>814</left>
-				<top>120</top>
+				<top>90</top>
 				<width>32</width>
 				<height>32</height>
 				<texturefocus>touch-close.png</texturefocus>
@@ -71,40 +71,63 @@
 			</control>
 			<control type="image">
 				<left>450</left>
-				<top>182</top>
+				<top>142</top>
 				<width>376</width>
 				<height>4</height>
 				<texture>separator.png</texture>
 			</control>
 			<control type="grouplist" id="9000">
 				<left>450</left>
-				<top>190</top>
+				<top>150</top>
 				<width>376</width>
-				<height>432</height>
+				<height>478</height>
 				<onright>50</onright>
 				<onleft>50</onleft>
 				<control type="button" id="3"><!-- Sort by button -->
 					<width>376</width>
-					<height>48</height>
+					<height>46</height>
 					<font>font11</font>
 					<label>$LOCALIZE[103]</label>
 				</control>
 				<control type="togglebutton" id="4"><!-- Sort direction button -->
 					<width>376</width>
-					<height>48</height>
+					<height>46</height>
 					<label>$LOCALIZE[21429]: $LOCALIZE[21430]</label>
 					<altlabel>$LOCALIZE[21429]: $LOCALIZE[21431]</altlabel>
 					<font>font11</font>
 				</control>
 				<control type="button" id="28"><!--Change Channel Groups-->
 					<width>376</width>
-					<height>48</height>
+					<height>46</height>
 					<label>-</label>
 					<font>font11</font>
 				</control>
+				<control type="radiobutton" id="31"><!-- Filter -->
+					<width>376</width>
+					<height>46</height>
+					<label>$LOCALIZE[587]</label>
+					<font>font11</font>
+					<selected>Container.Filtered</selected>
+					<onclick>right</onclick>
+					<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)</visible>
+				</control>
+				<control type="radiobutton" id="5"><!-- Group recordings by folder structure -->
+					<width>376</width>
+					<height>46</height>
+					<label>$LOCALIZE[19270]</label>
+					<font>font11</font>
+					<visible>Window.IsActive(TVRecordings) | Window.IsActive(RadioRecordings)</visible>
+				</control>
+				<control type="radiobutton" id="6"><!-- Show hidden channels -->
+					<width>376</width>
+					<height>46</height>
+					<label>$LOCALIZE[19051]</label>
+					<font>font11</font>
+					<visible>Window.IsActive(TVChannels) | Window.IsActive(RadioChannels)</visible>
+				</control>
 				<control type="button" id="902"><!-- Guide -->
 					<width>376</width>
-					<height>48</height>
+					<height>46</height>
 					<label>$LOCALIZE[22020]</label>
 					<font>font11</font>
 					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVGuide)</onclick>
@@ -112,7 +135,7 @@
 				</control>
 				<control type="button" id="903"><!-- Recordings -->
 					<width>376</width>
-					<height>48</height>
+					<height>46</height>
 					<label>$LOCALIZE[19163]</label>
 					<font>font11</font>
 					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVRecordings)</onclick>
@@ -120,7 +143,7 @@
 				</control>
 				<control type="button" id="904"><!-- Search -->
 					<width>376</width>
-					<height>48</height>
+					<height>46</height>
 					<label>$LOCALIZE[137]</label>
 					<font>font11</font>
 					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVSearch)</onclick>
@@ -128,7 +151,7 @@
 				</control>
 				<control type="button" id="905"><!-- Timers -->
 					<width>376</width>
-					<height>48</height>
+					<height>46</height>
 					<label>$LOCALIZE[19040]</label>
 					<font>font11</font>
 					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(TVTimers)</onclick>

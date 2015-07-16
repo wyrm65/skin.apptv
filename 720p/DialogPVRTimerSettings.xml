@@ -18,10 +18,20 @@
 		</control>
 		<control type="label" id="2"><!-- Dialog heading -->
 			<left>315</left>
-			<top>50</top>
+			<top>46</top>
+			<width>650</width>
+			<height>30</height>
+			<label>-</label>
+			<align>center</align>
+		</control>
+		<control type="label"><!-- Dialog heading -->
+			<left>315</left>
+			<top>46</top>
 			<width>650</width>
 			<height>30</height>
 			<align>center</align>
+			<label>$LOCALIZE[19026]</label>
+			<visible>IsEmpty(Control.GetLabel(2))</visible>
 		</control>
 		<control type="image">
 			<left>315</left>
@@ -42,12 +52,12 @@
 			<onright>9001</onright>
 		</control>
 		<control type="group" id="9001">
-			<left>435</left>
+			<left>335</left>
 			<top>620</top>
 			<control type="button" id="28"><!-- OK -->
 				<left>0</left>
 				<top>0</top>
-				<width>200</width>
+				<width>300</width>
 				<height>46</height>
 				<align>center</align>
 				<font>font12</font>
@@ -58,9 +68,9 @@
 				<ondown>5</ondown>
 			</control>
 			<control type="button" id="29"><!-- Cancel -->
-				<left>210</left>
+				<left>310</left>
 				<top>0</top>
-				<width>200</width>
+				<width>300</width>
 				<height>46</height>
 				<align>center</align>
 				<font>font12</font>
@@ -84,9 +94,6 @@
 			<focusedcolor>button-text</focusedcolor>
 			<reverse>yes</reverse>
 		</control>
-		<control type="sliderex" id="13"><!-- Default slider -->
-			<height>46</height>
-		</control>
 		<control type="image" id="11">
 			<height>4</height>
 			<texture>separator.png</texture>
@@ -94,6 +101,12 @@
 		<control type="edit" id="12"><!-- Default edit -->
 			<height>46</height>
 			<focusedcolor>button-text</focusedcolor>
+		</control>
+		<control type="sliderex" id="13"><!-- Default slider -->
+			<height>46</height>
+		</control>
+		<control type="label" id="14"><!-- Default label -->
+			<height>46</height>
 		</control>
 	</controls>
 </window>

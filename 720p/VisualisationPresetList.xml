@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol>2</defaultcontrol>
+	<defaultcontrol>5</defaultcontrol>
 	<include>screen-fade</include>
 	<coordinates>
 		<left>0</left>
@@ -16,37 +16,50 @@
 			<texture border="8">button-menu-background.png</texture>
 			<colordiffuse>osd-background</colordiffuse>
 		</control>
-		<control type="label" id="3"><!-- Presets -->
+		<control type="button"><!-- Touch Close button -->
+			<left>1214</left>
+			<top>5</top>
+			<width>32</width>
+			<height>32</height>
+			<texturefocus>touch-close.png</texturefocus>
+			<texturenofocus>touch-close.png</texturenofocus>
+			<onclick>Dialog.Close(all,true)</onclick>
+			<visible>system.getbool(input.enablemouse)</visible>
+		</control>
+		<control type="label" id="2"><!-- Heading label -->
 			<left>502</left>
-			<top>27</top>
+			<top>26</top>
 			<width>716</width>
+			<height>23</height>
 			<align>center</align>
+			<label>-</label>
 			<font>font12</font>
 		</control>
 		<control type="label" id="4"><!-- NO presets -->
 			<left>502</left>
 			<top>237</top>
 			<width>716</width>
+			<height>23</height>
 			<align>center</align>
 			<label>$LOCALIZE[13389]</label>
 			<font>font12</font>
 		</control>
 		<control type="image">
 			<left>502</left>
-			<top>66</top>
+			<top>62</top>
 			<width>716</width>
 			<height>4</height>
 			<texture>separator.png</texture>
 		</control>
-		<control type="list" id="2">
+		<control type="list" id="5">
 			<left>502</left>
 			<top>75</top>
 			<width>688</width>
 			<height>500</height>
 			<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
 			<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">60</onright>
-			<onup>2</onup>
-			<ondown>2</ondown>
+			<onup>5</onup>
+			<ondown>5</ondown>
 			<pagecontrol>60</pagecontrol>
 			<itemlayout width="688" height="45">
 				<control type="label">
@@ -83,7 +96,7 @@
 			<top>75</top>
 			<width>18</width>
 			<height>500</height>
-			<onleft>2</onleft>
+			<onleft>5</onleft>
 			<animation condition="!Control.HasFocus(60) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 		</control>
