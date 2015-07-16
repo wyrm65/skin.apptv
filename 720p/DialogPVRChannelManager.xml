@@ -9,20 +9,9 @@
 			<top>20</top>
 			<width>309</width>
 			<height>74</height>
-			<label>$LOCALIZE[19199] -[CR]$LOCALIZE[19023]</label>
+			<label>$VAR[PVRChannelManagerHeading]</label>
 			<font>font20</font>
 			<wrapmultiline>true</wrapmultiline>
-			<visible>IsEmpty(Window.Property(IsRadio))</visible>
-		</control>
-		<control type="label"><!-- Dialog heading -->
-			<left>946</left>
-			<top>20</top>
-			<width>309</width>
-			<height>74</height>
-			<label>$LOCALIZE[19199] -[CR]$LOCALIZE[19024]</label>
-			<font>font20</font>
-			<wrapmultiline>true</wrapmultiline>
-			<visible>!IsEmpty(Window.Property(IsRadio))</visible>
 		</control>
 
 		<control type="group">
@@ -151,7 +140,7 @@
 					<top>0</top>
 					<width>580</width>
 					<height>24</height>
-					<label>[I]$LOCALIZE[31702][/I]</label>
+					<label>[I]$VAR[PVRChannelManagerSubHeading][/I]</label>
 				</control>
 				<control type="radiobutton" id ="7"><!-- Channel activated -->
 					<left>0</left>
@@ -263,7 +252,7 @@
 					<onleft>20</onleft>
 					<onright>34</onright>
 					<onup>14</onup>
-					<ondown>33</ondown>
+					<ondown>9000</ondown>
 				</control>
 				<control type="button" id ="34"><!-- TV/Radio -->
 					<left>295</left>
@@ -277,7 +266,7 @@
 					<onleft>30</onleft>
 					<onright>34</onright>
 					<onup>14</onup>
-					<ondown>33</ondown>
+					<ondown>9000</ondown>
 				</control>
 				<control type="button" id ="34"><!-- TV/Radio -->
 					<left>295</left>
@@ -291,45 +280,6 @@
 					<onleft>30</onleft>
 					<onright>34</onright>
 					<onup>14</onup>
-					<ondown>33</ondown>
-				</control>
-				<control type="button" id ="33"><!-- New channel -->
-					<left>125</left>
-					<top>78</top>
-					<width>285</width>
-					<height>50</height>
-					<font>font11</font>
-					<align>center</align>
-					<label>$LOCALIZE[19204]</label>
-					<onleft>20</onleft>
-					<onright>33</onright>
-					<onup>30</onup>
-					<ondown>31</ondown>
-				</control>
-				<control type="button" id ="31"><!-- Edit channel -->
-					<left>0</left>
-					<top>128</top>
-					<width>285</width>
-					<height>50</height>
-					<font>font11</font>
-					<align>center</align>
-					<label>$LOCALIZE[19203]</label>
-					<onleft>20</onleft>
-					<onright>32</onright>
-					<onup>33</onup>
-					<ondown>9000</ondown>
-				</control>
-				<control type="button" id ="32"><!-- Delete channel -->
-					<left>295</left>
-					<top>128</top>
-					<width>285</width>
-					<height>50</height>
-					<font>font11</font>
-					<align>center</align>
-					<label>$LOCALIZE[19211]</label>
-					<onleft>31</onleft>
-					<onright>32</onright>
-					<onup>33</onup>
 					<ondown>9000</ondown>
 				</control>
 			</control>
@@ -347,7 +297,7 @@
 				<align>center</align>
 				<onleft>6</onleft>
 				<onright>5</onright>
-				<onup>31</onup>
+				<onup>30</onup>
 			</control>
 			<control type="button" id ="5"><!-- Apply changes -->
 				<left>310</left>
@@ -359,7 +309,7 @@
 				<align>center</align>
 				<onleft>4</onleft>
 				<onright>6</onright>
-				<onup>31</onup>
+				<onup>30</onup>
 			</control>
 			<control type="button" id ="6"><!-- Cancel -->
 				<left>620</left>
@@ -371,7 +321,7 @@
 				<align>center</align>
 				<onleft>5</onleft>
 				<onright>4</onright>
-				<onup>31</onup>
+				<onup>30</onup>
 			</control>
 		</control>
 	</controls>

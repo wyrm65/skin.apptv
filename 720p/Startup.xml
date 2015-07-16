@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">10</defaultcontrol>
+	<animation effect="fade" end="100" time="400">WindowOpen</animation>
 	<controls>
 		<control type="button" id="10"><!-- Play the startup video if required -->
 			<left>-12</left>
@@ -14,7 +15,7 @@
 		</control>
 		<control type="group">
 			<visible>!StringCompare(Skin.String(startup-screentype),$LOCALIZE[31858])</visible>
-			<animation effect="fade" end="0" delay="2300" time="200">WindowClose</animation>
+			<animation effect="fade" end="0" delay="2100" time="400">WindowClose</animation>
 			<control type="image"><!-- Skin logo -->
 				<left>384</left>
 				<top>200</top>
