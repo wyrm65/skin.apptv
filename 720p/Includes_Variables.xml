@@ -136,6 +136,10 @@
 		<value condition="!IsEmpty(ListItem.VideoResolution) + IntegerGreaterThan(ListItem.VideoResolution,700)">listitem/HD.png</value>
 		<value condition="!IsEmpty(ListItem.VideoResolution)">listitem/SD.PNG</value>
 	</variable>
+	<variable name="ListDynamicContent">
+		<value condition="Container.Content(movies)">library://video/recentlyaddedmovies.xml</value >
+		<value condition="Container.Content(tvshows)">library://video/recentlyaddedepisodes.xml</value >
+	</variable>
 	<variable name="VideoDuration">
 		<value condition="!substring(ListItem.Duration,min)">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>
 		<value condition="substring(ListItem.Duration,min)">$INFO[ListItem.Duration]</value>
@@ -164,6 +168,7 @@
 		<value condition="!Player.Seeking + [Player.Rewinding16x | Player.Forwarding16x]">x16</value>
 		<value condition="!Player.Seeking + [Player.Rewinding32x | Player.Forwarding32x]">x32</value>
 		<value condition="!Player.Seeking + Player.DisplayAfterSeek">$INFO[Player.SeekOffset]</value>
+		<value condition="!IsEmpty(Player.SeekStepSize) + ![Player.Forwarding | Player.Rewinding]">$LOCALIZE[31046] $INFO[Player.SeekStepSize]</value>
 	</variable>
 	<variable name="MovieLibEntry">
 		<value condition="!Library.HasContent(Movies)">ActivateWindow(Videos,Files,return)</value>
@@ -289,6 +294,14 @@
 		<value condition="Window.IsVisible(MyPVRRecordings.xml)">$LOCALIZE[20007]</value><!-- Recordings -->
 		<value>$INFO[Container.FolderName]</value>
 	</variable>
+	<variable name="PVRChannelManagerHeading">
+		<value condition="IsEmpty(Window.Property(IsRadio))">$LOCALIZE[19199] -[CR]$LOCALIZE[19023]</value>
+		<value condition="!IsEmpty(Window.Property(IsRadio))">$LOCALIZE[19199] -[CR]$LOCALIZE[19024]</value>
+	</variable>
+	<variable name="PVRChannelManagerSubHeading">
+		<value condition="IsEmpty(Window.Property(IsRadio))">$LOCALIZE[19023]</value>
+		<value condition="!IsEmpty(Window.Property(IsRadio))">$LOCALIZE[19024]</value>
+	</variable>
 	<variable name="IconBanner">
 		<value condition="!IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
 		<value condition="!IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
@@ -297,7 +310,8 @@
 	</variable>
 	<variable name="IconPoster">
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
-		<value>$INFO[ListItem.Icon]</value>
+		<value condition="!IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
+		<value condition="IsEmpty(ListItem.Icon)">$INFO[ListItem.Thumb]</value>
 	</variable>
 	<variable name="Icon(-5)Poster">
 		<value condition="!IsEmpty(ListItem(-5).Art(poster))">$INFO[ListItem(-5).Art(poster)]</value>
