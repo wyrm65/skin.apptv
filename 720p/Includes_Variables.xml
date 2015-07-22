@@ -137,8 +137,8 @@
 		<value condition="!IsEmpty(ListItem.VideoResolution)">listitem/SD.PNG</value>
 	</variable>
 	<variable name="ListDynamicContent">
-		<value condition="Container.Content(movies)">library://video/recentlyaddedmovies.xml</value >
-		<value condition="Container.Content(tvshows)">library://video/recentlyaddedepisodes.xml</value >
+		<value condition="Container.Content(movies)">videodb://recentlyaddedmovies/</value >
+		<value condition="Container.Content(tvshows)">videodb://recentlyaddedepisodes/</value >
 	</variable>
 	<variable name="VideoDuration">
 		<value condition="!substring(ListItem.Duration,min)">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>

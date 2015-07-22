@@ -586,7 +586,7 @@
 		<control type="group" id="945">
 			<visible>!Skin.HasSetting(lowspec-system) + Control.IsVisible(50) + System.IdleTime(10) + !System.ScreenSaverActive + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 			<animation effect="fade" start="100" end="0" time="200" reversible="false">Hidden</animation>
-			<animation effect="fade" start="0" end="100" time="2000">Visible</animation>
+			<animation effect="fade" start="0" end="100" time="1800">Visible</animation>
 			<control type="wraplist" id="950">
 				<left>-10</left>
 				<top>-10</top>
@@ -594,11 +594,11 @@
 				<height>10</height>
 				<viewtype label="31028">wrap</viewtype>
 				<autoscroll>true</autoscroll>
-				<scrolltime>3000</scrolltime>
+				<scrolltime>4000</scrolltime>
 				<orientation>horizontal</orientation>
 				<itemlayout height="10" width="10"></itemlayout>
 				<focusedlayout height="10" width="10"></focusedlayout>
-				<content target="video">$VAR[ListDynamicContent]</content>
+				<content limit="20">$VAR[ListDynamicContent]</content>
 			</control>
 			<control type="group" id="951">
 				<visible>Control.IsVisible(950)</visible>
@@ -607,10 +607,10 @@
 					<top>190</top>
 					<width>88</width>
 					<height>62</height>
-					<texture background="true" diffuse="mask-squ.png">$INFO[Container(950).Listitem(2).Art(thumb)]</texture>
-					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture background="true" diffuse="mask-rect.png">$INFO[Container(950).Listitem(2).Art(thumb)]</texture>
+					<aspectratio scalediffuse="true" aligny="bottom">keep</aspectratio>
 					<animation type="TYPE" condition="!Container(950).OnNext" reversible="false">
-						<effect type="slide" start="0,0" end="148,10" time="3000" tween="Quadratic" easing="in"/>
+						<effect type="slide" start="0,0" end="148,10" time="4000" tween="Quadratic" easing="in"/>
 						<effect type="fade" start="20" end="20" time="0"/>
 					</animation>
 				</control>
@@ -619,11 +619,11 @@
 					<top>200</top>
 					<width>88</width>
 					<height>62</height>
-					<texture background="true" diffuse="mask-squ.png">$INFO[Container(950).Listitem(1).Art(thumb)]</texture>
-					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture background="true" diffuse="mask-rect.png">$INFO[Container(950).Listitem(1).Art(thumb)]</texture>
+					<aspectratio scalediffuse="true" aligny="bottom">keep</aspectratio>
 					<animation type="TYPE" condition="!Container(950).OnNext" reversible="false">
-						<effect type="zoom" start="60,200,88,62" end="180,210,115,81" time="3000" tween="Quadratic" easing="in"/>
-						<effect type="fade" start="20" end="45" time="3000"/>
+						<effect type="zoom" start="60,200,88,62" end="180,210,115,81" time="4000" tween="Quadratic" easing="in"/>
+						<effect type="fade" start="20" end="45" time="4000"/>
 					</animation>
 				</control>
 				<control type="image">
@@ -631,11 +631,11 @@
 					<top>210</top>
 					<width>115</width>
 					<height>81</height>
-					<texture background="true" diffuse="mask-squ.png">$INFO[Container(950).Listitem(0).Art(thumb)]</texture>
-					<aspectratio aligny="bottom">keep</aspectratio>
+					<texture background="true" diffuse="mask-rect.png">$INFO[Container(950).Listitem(0).Art(thumb)]</texture>
+					<aspectratio scalediffuse="true" aligny="bottom">keep</aspectratio>
 					<animation type="TYPE" condition="!Container(950).OnNext" reversible="false">
-						<effect type="zoom" start="180,210,115,81" end="250,230,407,287" time="3000" tween="Quadratic" easing="in"/>
-						<effect type="fade" start="45" end="100" time="3000"/>
+						<effect type="zoom" start="180,210,115,81" end="250,230,407,287" time="4000" tween="Quadratic" easing="in"/>
+						<effect type="fade" start="45" end="100" time="4000"/>
 					</animation>
 				</control>
 				<control type="image">
@@ -643,9 +643,9 @@
 					<top>230</top>
 					<width>407</width>
 					<height>287</height>
-					<texture background="true" diffuse="mask-squ.png">$INFO[Container(950).Listitem(-1).Art(thumb)]</texture>
-					<aspectratio aligny="bottom">keep</aspectratio>
-					<animation condition="!Container(950).OnNext" effect="fade" start="100" end="0" time="1750" reversible="false">Conditional</animation>
+					<texture background="true" diffuse="mask-rect.png">$INFO[Container(950).Listitem(-1).Art(thumb)]</texture>
+					<aspectratio scalediffuse="true" aligny="bottom">keep</aspectratio>
+					<animation condition="!Container(950).OnNext" effect="fade" start="100" end="0" time="1800" reversible="false">Conditional</animation>
 				</control>
 			</control>
 		</control>
