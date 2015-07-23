@@ -119,7 +119,10 @@
 	<variable name="Overlay">
 		<value condition="ListItem.IsResumable">OverlayPartialyWatched.png</value>
 		<value condition="SubString(ListItem.Overlay,OverlayWatched,Left)">OverlayWatched.png</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons)] + !SubString(ListItem.Icon,DefaultFolderBack.png,Left) + !IntegerGreaterThan(ListItem.Property(WatchedEpisodes),0)">OverlayUnwatched.png</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons)] + IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)">OverlayPartialyWatched.png</value>
 		<value condition="!ListItem.IsFolder">OverlayUnwatched.png</value>
+		<value>OverlayWatched.png</value>
 	</variable>
 	<variable name="PVROverlay">
 		<value condition="ListItem.IsRecording">overlayisrecording.png</value>
