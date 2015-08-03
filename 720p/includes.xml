@@ -202,10 +202,10 @@
 	</include>
 
 	<include name="player-mediaicon">
-		<control type="group"><!-- Player Media Icon -->
-			<visible>Window.IsVisible(fullscreenvideo)</visible>
-			<control type="group">
-				<control type="group">
+		<control type="group" id="1"><!-- Player Media Icon -->
+			<!--<visible>Window.IsVisible(fullscreenvideo)</visible>-->
+			<control type="group" id="1">
+				<control type="group" id="1">
 					<visible>VideoPlayer.Content(Movies) | VideoPlayer.Content(episodes)</visible><!-- Movies or Tv Episodes -->
 					<animation effect="fade" time="200">VisibleChange</animation>
 					<control type="image" id="890"><!-- Use Clearart if available -->
@@ -217,7 +217,7 @@
 						<aligny>bottom</aligny>
 						<aspectratio>keep</aspectratio>
 					</control>
-					<control type="group">
+					<control type="group" id="1">
 						<visible>StringCompare(Control.GetLabel(890),blank.png)</visible>
 						<control type="image" id="891"><!-- Use Logo if available -->
 							<left>8</left>
@@ -227,7 +227,7 @@
 							<texture>$VAR[PlayerVideoLogo]</texture>
 							<aspectratio align="left" aligny="bottom">keep</aspectratio>
 						</control>
-						<control type="image"><!-- Fallback to video cover image if no clearart or logo -->
+						<control type="image" id="892"><!-- Fallback to video cover image if no clearart or logo -->
 							<left>56</left>
 							<top>460</top>
 							<width>180</width>
@@ -240,10 +240,10 @@
 					</control>
 				</control>
 			</control>
-			<control type="group"><!-- Any video other than Movies and TV Episodes -->
+			<control type="group" id="1"><!-- Any video other than Movies and TV Episodes -->
 				<visible>![VideoPlayer.Content(Movies) | VideoPlayer.Content(episodes)]</visible>
 				<animation effect="fade" time="200">VisibleChange</animation>
-				<control type="image"><!-- Fallback to Thumb image if not TV Episode or Movie playing -->
+				<control type="image" id="893"><!-- Fallback to Thumb image if not TV Episode or Movie playing -->
 					<left>56</left>
 					<top>460</top>
 					<width>180</width>
@@ -254,7 +254,7 @@
 				</control>
 			</control>
 		</control>
-		<control type="image"><!-- Music cover image-->
+		<control type="image" id="894"><!-- Music cover image-->
 			<left>8</left>
 			<top>384</top>
 			<width>250</width>
@@ -389,18 +389,6 @@
 				<headlinecolor>rss-headline-text</headlinecolor>
 				<visible>!IsEmpty(Skin.String(custom-watermark))</visible>
 			</control>
-		</control>
-	</include>
-
-	<include name="horizontalhome-time">
-		<control type="label"><!-- Time and date -->
-			<left>754</left>
-			<top>0</top>
-			<width>526</width>
-			<height>46</height>
-			<label>$INFO[system.Time(hh:mm xx)] $INFO[system.Date]</label>
-			<align>center</align>
-			<font>font13</font>
 		</control>
 	</include>
 
@@ -706,10 +694,6 @@
 
 	<include name="settingbutton-fade">
 		<animation effect="fade" start="100" end="60">Visible</animation>
-	</include>
-
-	<include name="transition-fade">
-		<animation effect="fade" time="100">Visible</animation>
 	</include>
 
 	<include name="screen-fade">
