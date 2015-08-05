@@ -137,7 +137,7 @@
 		<value condition="ListItem.IsStereoscopic">listitem/3D.png</value>
 		<value condition="!IsEmpty(ListItem.VideoResolution) + IntegerGreaterThan(ListItem.VideoResolution,2000)">listitem/4K.png</value>
 		<value condition="!IsEmpty(ListItem.VideoResolution) + IntegerGreaterThan(ListItem.VideoResolution,700)">listitem/HD.png</value>
-		<value condition="!IsEmpty(ListItem.VideoResolution)">listitem/SD.PNG</value>
+		<value condition="!IsEmpty(ListItem.VideoResolution)">listitem/SD.png</value>
 	</variable>
 	<variable name="ListDynamicContent">
 		<value condition="Container.Content(movies)">videodb://recentlyaddedmovies/</value >
@@ -165,13 +165,13 @@
 	<variable name="PlayStateTxt">
 		<value condition="Player.Paused + Player.Caching + !Player.Seeking + !Player.DisplayAfterSeek">$LOCALIZE[15107] $INFO[Player.CacheLevel]%</value>
 		<value condition="Player.Seeking">$INFO[Player.SeekOffset]</value>
+		<value condition="!IsEmpty(Player.SeekStepSize) + ![Player.Forwarding | Player.Rewinding]">$LOCALIZE[31038] $INFO[Player.SeekStepSize]</value>
 		<value condition="!Player.Seeking + [Player.Rewinding2x | Player.Forwarding2x]">x2</value>
 		<value condition="!Player.Seeking + [Player.Rewinding4x | Player.Forwarding4x]">x4</value>
 		<value condition="!Player.Seeking + [Player.Rewinding8x | Player.Forwarding8x]">x8</value>
 		<value condition="!Player.Seeking + [Player.Rewinding16x | Player.Forwarding16x]">x16</value>
 		<value condition="!Player.Seeking + [Player.Rewinding32x | Player.Forwarding32x]">x32</value>
 		<value condition="!Player.Seeking + Player.DisplayAfterSeek">$INFO[Player.SeekOffset]</value>
-		<value condition="!IsEmpty(Player.SeekStepSize) + ![Player.Forwarding | Player.Rewinding]">$LOCALIZE[31046] $INFO[Player.SeekStepSize]</value>
 	</variable>
 	<variable name="MovieLibEntry">
 		<value condition="!Library.HasContent(Movies)">ActivateWindow(Videos,Files,return)</value>
@@ -773,7 +773,7 @@
 		<value condition="System.Platform.Linux">$LOCALIZE[31566] $LOCALIZE[31567]</value>
 		<value>$LOCALIZE[13205]</value><!-- Unknown platform type -->
 	</variable>
-	<variable name="SkinSettingHelp">
+	<variable name="SkinSettingHelp"><!-- Help strings for skin settings -->
 		<value condition="ControlGroup(102).HasFocus()">$LOCALIZE[31300]</value>
 		<value condition="Control.HasFocus(105)">$LOCALIZE[31301]</value>
 		<value condition="Control.HasFocus(106)">$LOCALIZE[31302]</value>
