@@ -17,7 +17,6 @@
 			</control>
 			<control type="group"><!-- Fanart backgrounds for focused search item -->
 				<visible>Skin.HasSetting(background-fanart)</visible>
-				<include>transition-fade</include>
 				<control type="image">
 					<include>fullscreenimage</include>
 					<texture background="true">$INFO[Container(111).ListItem.Property(Fanart)]</texture>
@@ -707,7 +706,7 @@
 						<onleft>141</onleft>
 						<onright>141</onright>
 						<onup>131</onup>
-						<ondown>151</ondown>
+						<ondown>221</ondown>
 						<orientation>horizontal</orientation>
 						<viewtype label="535">list</viewtype>
 						<preloaditems>2</preloaditems>
@@ -791,6 +790,123 @@
 					</control>
 				</control>
 
+				<control type="group" id="229"><!-- EPG Results -->
+					<left>0</left>
+					<top>0</top>
+					<width>1280</width>
+					<height>200</height>
+					<control type="grouplist">
+						<left>10</left>
+						<top>0</top>
+						<width>980</width>
+						<height>30</height>
+						<orientation>horizontal</orientation>
+						<control type="label">
+							<width min="10" max="700">auto</width>
+							<height>30</height>
+							<label>[B]$ADDON[script.globalsearch 19069] $INFO[Window.Property(GlobalSearch.SearchString)]: [/B]</label>
+							<font>font12</font>
+						</control>
+						<control type="label" id="220">
+							<width min="10" max="280">auto</width>
+							<height>30</height>
+							<label>-</label>
+							<font>font12</font>
+						</control>
+					</control>
+					<control type="list" id="221">
+						<posx>10</posx>
+						<posy>25</posy>
+						<width>1200</width>
+						<height>170</height>
+						<onleft>221</onleft>
+						<onright>221</onright>
+						<onup>141</onup>
+						<ondown>151</ondown>
+						<orientation>horizontal</orientation>
+						<viewtype label="535">list</viewtype>
+						<preloaditems>2</preloaditems>
+						<itemlayout width="600" height="170">
+							<control type="image">
+								<left>4</left>
+								<top>35</top>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture background="true">$INFO[ListItem.Icon]</texture>
+							</control>
+							<control type="label">
+								<left>110</left>
+								<top>10</top>
+								<width>480</width>
+								<height>25</height>
+								<label>[B]$INFO[ListItem.Label][/B]</label>
+								<font>font12</font>
+							</control>
+							<control type="label">
+								<left>110</left>
+								<top>36</top>
+								<width>480</width>
+								<height>25</height>
+								<label>$INFO[ListItem.Property(Duration),, $LOCALIZE[12391]]</label>
+								<font>font12</font>
+							</control>
+							<control type="textbox">
+								<left>110</left>
+								<top>62</top>
+								<width>480</width>
+								<height>82</height>
+								<label>$INFO[ListItem.Property(Plot)]</label>
+								<font>font12</font>
+							</control>
+						</itemlayout>
+						<focusedlayout width="600" height="170">
+							<control type="image"><!-- Focused search result background-->
+								<left>0</left>
+								<top>5</top>
+								<width>600</width>
+								<height>170</height>
+								<texture border="6" diffuse="mask-rect.png">colours/blue.png</texture>
+								<colordiffuse>mask-background</colordiffuse>
+								<visible>Control.HasFocus(221)</visible>
+							</control>
+							<control type="image">
+								<left>4</left>
+								<top>35</top>
+								<width>100</width>
+								<height>100</height>
+								<aspectratio>keep</aspectratio>
+								<texture background="true">$INFO[ListItem.Icon]</texture>
+							</control>
+							<control type="label">
+								<left>110</left>
+								<top>10</top>
+								<width>480</width>
+								<height>25</height>
+								<label>[B]$INFO[ListItem.Label][/B]</label>
+								<font>font12</font>
+							</control>
+							<control type="label">
+								<left>110</left>
+								<top>36</top>
+								<width>480</width>
+								<height>25</height>
+								<label>$INFO[ListItem.Property(Duration),, $LOCALIZE[12391]]</label>
+								<font>font12</font>
+							</control>
+							<control type="textbox">
+								<left>110</left>
+								<top>62</top>
+								<width>480</width>
+								<height>82</height>
+								<label>$INFO[ListItem.Property(Plot)]</label>
+								<font>font12</font>
+								<visible>IsEmpty(ListItem.Property(TagLine)) + IsEmpty(ListItem.Property(PlotOutline))</visible>
+							</control>
+						</focusedlayout>
+					</control>
+				</control>
+
 				<control type="group" id="159"><!-- Music video search results -->
 					<left>0</left>
 					<top>0</top>
@@ -822,7 +938,7 @@
 						<height>170</height>
 						<onleft>151</onleft>
 						<onright>151</onright>
-						<onup>141</onup>
+						<onup>221</onup>
 						<ondown>161</ondown>
 						<orientation>horizontal</orientation>
 						<viewtype label="535">list</viewtype>
