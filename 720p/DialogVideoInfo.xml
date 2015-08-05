@@ -140,34 +140,28 @@
 			</control>
 			<control type="group">
 				<control type="image"><!-- Video cover-->
-					<left>65</left>
-					<top>50</top>
-					<width>265</width>
-					<height>410</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<left>55</left>
+					<top>80</top>
+					<width>230</width>
+					<height>356</height>
+					<aspectratio scalediffuse="true">keep</aspectratio>
 					<texture background="true" fallback="DefaultVideo.png" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-					<animation type="TYPE" condition="true" reversible="false">
-						<effect type="rotatey" start="-15" end="-15" time="0"/>
-					</animation>
 					<visible>Container.Content(movies)</visible>
 				</control>
 				<control type="image"><!-- Video cover-->
-					<left>75</left>
-					<top>50</top>
-					<width>265</width>
-					<height>410</height>
-					<aspectratio scalediffuse="false">keep</aspectratio>
+					<left>55</left>
+					<top>80</top>
+					<width>230</width>
+					<height>356</height>
+					<aspectratio scalediffuse="true">keep</aspectratio>
 					<texture background="true" fallback="DefaultTvshows.png" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-					<animation type="TYPE" condition="true" reversible="false">
-						<effect type="rotatey" start="-15" end="-15" time="0"/>
-					</animation>
 					<visible>Container.Content(tvshows)</visible>
 				</control>
 				<control type="image">
-					<left>58</left>
-					<top>50</top>
-					<width>288</width>
-					<height>288</height>
+					<left>55</left>
+					<top>80</top>
+					<width>230</width>
+					<height>230</height>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 					<texture background="true" fallback="DefaultTvshows.png" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 					<visible>Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
@@ -445,17 +439,9 @@
 			<ondown condition="Control.IsVisible(950)">950</ondown>
 			<onup>1023</onup>
 			<control type="togglebutton" id="8"><!-- Play/Browse button -->
-				<height>96</height>
-				<width>96</width>
-				<font>font10</font>
-				<align>center</align>
-				<aligny>top</aligny>
-				<textoffsetx>10</textoffsetx>
-				<textoffsety>60</textoffsety>
+				<include>videoinfo-options-common</include>
 				<label>$LOCALIZE[208]</label>
 				<altlabel>$LOCALIZE[1024]</altlabel>
-				<textcolor>disabled-text</textcolor>
-				<focusedcolor>button-text</focusedcolor>
 				<texturefocus>button-info-play-focus.png</texturefocus>
 				<texturenofocus>button-info-play.png</texturenofocus>
 				<alttexturefocus>button-info-play-focus.png</alttexturefocus>
@@ -464,54 +450,30 @@
 				<visible>[!System.HasAddon(script.cinema.experience) + Container.Content(movies)] | [Container.Content(episodes) | Container.Content(TVShows) | Container.Content(musicvideos)]</visible>
 			</control>
 			<control type="button" id="18"><!-- Home cinema button -->
-				<height>96</height>
-				<width>96</width>
-				<font>font10</font>
+				<include>videoinfo-options-common</include>
 				<label>$LOCALIZE[31692]</label>
-				<textcolor>disabled-text</textcolor>
-				<focusedcolor>button-text</focusedcolor>
 				<texturefocus>button-info-play-focus.png</texturefocus>
 				<texturenofocus>button-info-play.png</texturenofocus>
-				<align>center</align>
-				<aligny>top</aligny>
-				<textoffsetx>10</textoffsetx>
-				<textoffsety>60</textoffsety>
 				<onclick>Playlist.Clear</onclick>
 				<onclick>Dialog.Close(MovieInformation)</onclick>
 				<onclick>RunScript(script.cinema.experience)</onclick>
 				<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies)</visible>
 			</control>
 			<control type="button" id="11"><!-- Trailer button -->
-				<height>96</height>
-				<width>96</width>
-				<font>font10</font>
+				<include>videoinfo-options-common</include>
 				<label>$LOCALIZE[20410]</label>
-				<textcolor>disabled-text</textcolor>
-				<focusedcolor>button-text</focusedcolor>
 				<texturefocus>button-info-trailer-focus.png</texturefocus>
 				<texturenofocus>button-info-trailer.png</texturenofocus>
-				<align>center</align>
-				<aligny>top</aligny>
-				<textoffsetx>10</textoffsetx>
-				<textoffsety>60</textoffsety>
 				<enable>!IsEmpty(ListItem.Trailer)</enable>
 				<visible>Container.Content(movies)</visible>
 			</control>
 			<control type="button" id="100"><!-- Video Extras -->
-				<height>96</height>
-				<width>96</width>
-				<font>font10</font>
+				<include>videoinfo-options-common</include>
 				<label>$ADDON[script.videoextras 32001]</label>
-				<textcolor>disabled-text</textcolor>
-				<focusedcolor>button-text</focusedcolor>
 				<texturefocus>button-info-extras-focus.png</texturefocus>
 				<texturenofocus>button-info-extras.png</texturenofocus>
 				<onclick>RunScript(script.videoextras,display,"$INFO[ListItem.FilenameAndPath]")</onclick>
 				<visible>System.HasAddon(script.videoextras) + !Container.Content(files) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(TVShows) | Container.Content(musicvideos)]</visible>
-				<align>center</align>
-				<aligny>top</aligny>
-				<textoffsetx>10</textoffsetx>
-				<textoffsety>60</textoffsety>
 			</control>
 			<control type="group" id="905">
 				<visible>!Container.Content(musicvideos)</visible>
@@ -606,32 +568,16 @@
 				</control>
 			</control>
 			<control type="button" id="6"><!-- Refresh button -->
-				<height>96</height>
-				<width>96</width>
-				<font>font10</font>
+				<include>videoinfo-options-common</include>
 				<label>$LOCALIZE[184]</label>
-				<textcolor>disabled-text</textcolor>
-				<focusedcolor>button-text</focusedcolor>
 				<texturefocus>button-info-refresh-focus.png</texturefocus>
 				<texturenofocus>button-info-refresh.png</texturenofocus>
-				<align>center</align>
-				<aligny>top</aligny>
-				<textoffsetx>10</textoffsetx>
-				<textoffsety>60</textoffsety>
 			</control>
 			<control type="button" id="1115"><!-- More options button -->
-				<height>96</height>
-				<width>96</width>
-				<font>font10</font>
+				<include>videoinfo-options-common</include>
 				<label>$LOCALIZE[31693]</label>
-				<textcolor>disabled-text</textcolor>
-				<focusedcolor>button-text</focusedcolor>
 				<texturefocus>button-info-more-focus.png</texturefocus>
 				<texturenofocus>button-info-more.png</texturenofocus>
-				<align>center</align>
-				<aligny>top</aligny>
-				<textoffsetx>10</textoffsetx>
-				<textoffsety>60</textoffsety>
 				<onclick>ActivateWindow(1154)</onclick>
 			</control>
 		</control>
