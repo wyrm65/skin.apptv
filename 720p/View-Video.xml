@@ -394,24 +394,24 @@
 						<visible>!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(musicvideos)</visible>
 						<control type="group">
 							<visible>!SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
-								<control type="image">
-								<left>320</left>
+							<control type="image">
+								<left>330</left>
 								<top>120</top>
-								<width>318</width>
-								<height>318</height>
+								<width>320</width>
+								<height>320</height>
 								<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$INFO[ListItem.Icon]</texture>
-								<aspectratio scalediffuse="false">keep</aspectratio>
+								<aspectratio scalediffuse="false" align="right">keep</aspectratio>
 							</control>
 						</control>
 						<control type="group">
 							<visible>SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
 							<control type="image">
-								<left>320</left>
+								<left>330</left>
 								<top>120</top>
-								<width>318</width>
-								<height>318</height>
+								<width>320</width>
+								<height>320</height>
 								<texture>DefaultVideo.png</texture>
-								<aspectratio>keep</aspectratio>
+								<aspectratio align="right">keep</aspectratio>
 							</control>
 						</control>
 					</control>
@@ -420,55 +420,53 @@
 						<control type="group">
 							<visible>!SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
 							<control type="image">
-								<left>320</left>
+								<left>330</left>
 								<top>120</top>
-								<width>318</width>
-								<height>318</height>
+								<width>320</width>
+								<height>320</height>
 								<texture background="true" fallback="DefaultMusicVideos.png" diffuse="mask-rect.png">$INFO[ListItem.Icon]</texture>
-								<aspectratio scalediffuse="false">keep</aspectratio>
+								<aspectratio scalediffuse="true" align="right">keep</aspectratio>
 							</control>
 						</control>
 						<control type="group">
 							<visible>SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
 							<control type="image">
-								<left>320</left>
+								<left>330</left>
 								<top>120</top>
-								<width>318</width>
-								<height>318</height>
+								<width>320</width>
+								<height>320</height>
 								<texture>DefaultMusicVideos.png</texture>
-								<aspectratio>keep</aspectratio>
+								<aspectratio align="right">keep</aspectratio>
 							</control>
 						</control>
 					</control>
 					<control type="group">
 						<visible>Container.Content(movies)</visible>
-						<control type="group">
+						<control type="image">
+							<left>330</left>
+							<top>120</top>
+							<width>320</width>
+							<height>320</height>
+							<texture background="true" fallback="DefaultVideo.png" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+							<aspectratio scalediffuse="true" align="right">keep</aspectratio>
 							<visible>!SubString(ListItem.Icon,DefaultFolder,Left)</visible>
-							<control type="image">
-								<left>320</left>
-								<top>120</top>
-								<width>227</width>
-								<height>318</height>
-								<texture background="true" fallback="DefaultVideo.png" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-								<aspectratio scalediffuse="false">stretch</aspectratio>
-							</control>
 						</control>
 						<control type="image">
-							<left>320</left>
+							<left>330</left>
 							<top>120</top>
-							<width>318</width>
-							<height>318</height>
+							<width>320</width>
+							<height>320</height>
 							<texture>DefaultVideo.png</texture>
-							<aspectratio>keep</aspectratio>
+							<aspectratio align="right">keep</aspectratio>
 							<visible>SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
 						</control>
 						<control type="image">
-							<left>320</left>
+							<left>330</left>
 							<top>120</top>
-							<width>318</width>
-							<height>318</height>
+							<width>320</width>
+							<height>320</height>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
-							<aspectratio>keep</aspectratio>
+							<aspectratio align="right">keep</aspectratio>
 							<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 						</control>
 					</control>
@@ -477,23 +475,23 @@
 						<control type="group"><!-- Show Icon For TV SHOW/SEASON/EPISODES -->
 							<visible>!SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
 							<control type="image">
-								<left>320</left>
+								<left>330</left>
 								<top>120</top>
-								<width>318</width>
-								<height>318</height>
+								<width>320</width>
+								<height>320</height>
 								<texture fallback="DefaultTvshows.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-								<aspectratio scalediffuse="false">keep</aspectratio>
+								<aspectratio scalediffuse="true" align="right">keep</aspectratio>
 							</control>
 						</control>
 						<control type="group"><!-- Show TV icon as the Default icon -->
 							<visible>SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
 							<control type="image">
-								<left>320</left>
+								<left>330</left>
 								<top>120</top>
-								<width>318</width>
-								<height>318</height>
+								<width>320</width>
+								<height>320</height>
 								<texture>DefaultTvshows.png</texture>
-								<aspectratio>keep</aspectratio>
+								<aspectratio align="right">keep</aspectratio>
 							</control>
 						</control>
 					</control>
