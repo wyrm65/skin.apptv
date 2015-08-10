@@ -3,6 +3,7 @@
 	<defaultcontrol always="true">999</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<onload condition="System.HasAddon(script.videoextras)">RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
+	<onload condition="System.HasAddon(script.duration)">RunScript(script.duration,duration=$INFO[ListItem.Duration])</onload>
 	<include>screen-fade</include>
 	<controls>
 		<control type="image"><!-- Use a black background until background image has finished loading -->
@@ -196,26 +197,14 @@
 				<label>$LOCALIZE[172] $INFO[ListItem.Year]</label>
 				<visible>Container.Content(movies)</visible>
 			</control>
-			<control type="group"><!-- Duration -->
+			<control type="label"><!-- Duration -->
+				<left>380</left>
+				<top>314</top>
+				<width>290</width>
+				<height>20</height>
+				<font>font10</font>
+				<label>$LOCALIZE[31133] $VAR[VideoDuration]</label>
 				<visible>!IsEmpty(listitem.Duration)</visible>
-				<control type="label">
-					<left>380</left>
-					<top>314</top>
-					<width>290</width>
-					<height>20</height>
-					<font>font10</font>
-					<label>$LOCALIZE[31133] $INFO[ListItem.Duration]</label>
-					<visible>substring(listitem.Duration,hrs) | substring(listitem.Duration,min)</visible>
-				</control>
-				<control type="label">
-					<left>380</left>
-					<top>314</top>
-					<width>290</width>
-					<height>20</height>
-					<font>font10</font>
-					<label>$LOCALIZE[31133] $INFO[ListItem.Duration,, mins]</label>
-					<visible>![substring(listitem.Duration,hrs) | substring(listitem.Duration,min)]</visible>
-				</control>
 			</control>
 			<control type="group">
 				<visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)</visible>

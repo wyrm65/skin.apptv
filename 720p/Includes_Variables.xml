@@ -121,7 +121,7 @@
 		<value condition="SubString(ListItem.Overlay,OverlayWatched,Left)">OverlayWatched.png</value>
 		<value condition="[Container.Content(tvshows) | Container.Content(seasons)] + !SubString(ListItem.Icon,DefaultFolderBack.png,Left) + !IntegerGreaterThan(ListItem.Property(WatchedEpisodes),0)">OverlayUnwatched.png</value>
 		<value condition="[Container.Content(tvshows) | Container.Content(seasons)] + IntegerGreaterThan(ListItem.Property(UnWatchedEpisodes),0)">OverlayPartialyWatched.png</value>
-		<value condition="!ListItem.IsFolder">OverlayUnwatched.png</value>
+		<value condition="!ListItem.IsFolder + !Container.Content(Addons)">OverlayUnwatched.png</value>
 		<value>OverlayWatched.png</value>
 	</variable>
 	<variable name="PVROverlay">
@@ -144,8 +144,8 @@
 		<value condition="Container.Content(tvshows)">videodb://recentlyaddedepisodes/</value >
 	</variable>
 	<variable name="VideoDuration">
-		<value condition="!substring(ListItem.Duration,min)">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>
-		<value condition="substring(ListItem.Duration,min)">$INFO[ListItem.Duration]</value>
+		<value condition="System.HasAddon(script.duration)">$INFO[window.Property(Duration)]</value>
+		<value>$INFO[ListItem.Duration] $LOCALIZE[12391]</value>
 	</variable>
 	<variable name="PlayerControlRepeatImage">
 		<value condition="Playlist.IsRepeatOne + Control.HasFocus(912)">osd-btn-repeatone-focus.png</value>
