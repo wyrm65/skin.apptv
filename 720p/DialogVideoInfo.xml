@@ -36,7 +36,7 @@
 			<control type="group">
 				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
 				<control type="image" id="7018"><!-- Show logo -->
-					<left>380</left>
+					<left>340</left>
 					<top>12</top>
 					<width>266</width>
 					<height>74</height>
@@ -47,9 +47,9 @@
 					<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
 				</control>
 				<control type="label"><!-- Title -->
-					<left>380</left>
+					<left>340</left>
 					<top>39</top>
-					<width>720</width>
+					<width>760</width>
 					<height>40</height>
 					<font>font18</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
@@ -59,9 +59,9 @@
 				</control>
 			</control>
 			<control type="label">
-				<left>380</left>
+				<left>340</left>
 				<top>39</top>
-				<width>720</width>
+				<width>760</width>
 				<height>40</height>
 				<font>font18</font>
 				<label>$INFO[ListItem.Label]</label>
@@ -80,9 +80,9 @@
 				<aspectratio>keep</aspectratio>
 			</control>
 			<control type="label"><!-- Studio -->
-				<left>380</left>
+				<left>340</left>
 				<top>84</top>
-				<width>720</width>
+				<width>760</width>
 				<height>22</height>
 				<font>font11</font>
 				<textcolor>disabled-text</textcolor>
@@ -92,16 +92,16 @@
 				<textoffsetx>0</textoffsetx>
 			</control>
 			<control type="image">
-				<left>380</left>
+				<left>340</left>
 				<top>108</top>
-				<width>860</width>
+				<width>900</width>
 				<height>4</height>
 				<texture>separator.png</texture>
 			</control>
 			<control type="textbox">
-				<left>380</left>
+				<left>340</left>
 				<top>112</top>
-				<width>860</width>
+				<width>900</width>
 				<height>118</height>
 				<label>$INFO[ListItem.Plot]</label>
 				<font>font10</font>
@@ -110,9 +110,9 @@
 				<visible>!IsEmpty(ListItem.Plot)</visible>
 			</control>
 			<control type="textbox"><!-- Plot outline (Show if no plot available)-->
-				<left>380</left>
+				<left>340</left>
 				<top>112</top>
-				<width>860</width>
+				<width>900</width>
 				<height>118</height>
 				<label fallback="161">$INFO[ListItem.PlotOutline]</label>
 				<font>font10</font>
@@ -121,9 +121,9 @@
 				<visible>IsEmpty(ListItem.Plot)</visible>
 			</control>
 			<control type="image">
-				<left>380</left>
+				<left>340</left>
 				<top>232</top>
-				<width>860</width>
+				<width>900</width>
 				<height>4</height>
 				<texture>separator.png</texture>
 			</control>
@@ -169,9 +169,9 @@
 				</control>
 			</control>
 			<control type="label"><!-- Details heading -->
-				<left>380</left>
+				<left>340</left>
 				<top>240</top>
-				<width>290</width>
+				<width>320</width>
 				<height>22</height>
 				<label>$LOCALIZE[31135]</label>
 				<font>font11</font>
@@ -179,9 +179,9 @@
 				<shadowcolor>shadow-text</shadowcolor>
 			</control>
 			<control type="label"><!-- Genre -->
-				<left>380</left>
+				<left>340</left>
 				<top>265</top>
-				<width>285</width>
+				<width>320</width>
 				<height>20</height>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Genre]</label>
@@ -189,22 +189,139 @@
 				<textoffsetx>0</textoffsetx>
 			</control>
 			<control type="label"><!-- Year released -->
-				<left>380</left>
+				<left>340</left>
 				<top>290</top>
-				<width>285</width>
+				<width>320</width>
 				<height>20</height>
 				<font>font10</font>
 				<label>$LOCALIZE[172] $INFO[ListItem.Year]</label>
 				<visible>Container.Content(movies)</visible>
 			</control>
 			<control type="label"><!-- Duration -->
-				<left>380</left>
+				<left>340</left>
 				<top>314</top>
-				<width>290</width>
+				<width>320</width>
 				<height>20</height>
 				<font>font10</font>
 				<label>$LOCALIZE[31133] $VAR[VideoDuration]</label>
 				<visible>!IsEmpty(listitem.Duration)</visible>
+			</control>
+			<control type="label"><!-- Premiered -->
+				<left>340</left>
+				<top>290</top>
+				<width>320</width>
+				<height>20</height>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				<label>$LOCALIZE[20416] $INFO[ListItem.Premiered]</label>
+				<font>font10</font>
+				<visible>Container.Content(tvshows) | Container.Content(episodes)| Container.Content(musicvideos)</visible>
+			</control>
+			<control type="group">
+				<visible>Container.Content(tvshows)</visible>
+				<control type="group">
+					<visible>StringCompare(Container.FolderPath,videodb://tvshows/titles/)</visible>
+					<control type="label"><!-- Seasons -->
+						<left>340</left>
+						<top>315</top>
+						<width>320</width>
+						<height>20</height>
+						<label>$LOCALIZE[33054] $INFO[ListItem.Property(TotalSeasons)]</label>
+						<font>font10</font>
+					</control>
+				</control>
+				<control type="group">
+					<visible>!StringCompare(Container.FolderPath,videodb://tvshows/titles/)</visible>
+					<control type="label"><!-- Current TVShow Season -->
+						<left>340</left>
+						<top>315</top>
+						<width>320</width>
+						<height>20</height>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[ListItem.Label]</label>
+						<font>font10</font>
+					</control>
+				</control>
+				<control type="label">
+					<left>340</left>
+					<top>340</top>
+					<width>320</width>
+					<height>20</height>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					<label>$LOCALIZE[20360] $INFO[ListItem.Property(TotalEpisodes)] [COLOR=grey] ($INFO[ListItem.Property(UnWatchedEpisodes), , $LOCALIZE[16101]])[/COLOR]</label>
+					<font>font10</font>
+				</control>
+			</control>
+			<control type="grouplist"><!-- Media flags -->
+				<left>338</left>
+				<top>338</top>
+				<width>290</width>
+				<height>30</height>
+				<align>left</align>
+				<orientation>horizontal</orientation>
+				<itemgap>-4</itemgap>
+				<animation effect="fade" start="0" end="100" time="1000">WindowOpen</animation>
+				<control type="image" id="171"><!-- Audio codec -->
+					<width>40</width>
+					<height>30</height>
+					<texture background="true">$INFO[Listitem.AudioCodec,special://skin/extras/images/audio/,.png]</texture>
+					<visible>!IsEmpty(ListItem.AudioCodec) + !StringCompare(Control.GetLabel(161),blank.png)</visible>
+				</control>
+				<control type="image" id="172"><!-- Video codec -->
+					<width>40</width>
+					<height>30</height>
+					<texture background="true">$INFO[Listitem.VideoCodec,special://skin/extras/images/video/,.png]</texture>
+					<visible>!IsEmpty(ListItem.VideoCodec) + !StringCompare(Control.GetLabel(162),blank.png)</visible>
+				</control>
+				<control type="image" id="173"><!-- Video aspect ratio -->
+					<width>40</width>
+					<height>30</height>
+					<texture background="true">$INFO[ListItem.VideoAspect,special://skin/extras/images/aspectratio/,.png]</texture>
+					<visible>!IsEmpty(ListItem.VideoAspect) + !StringCompare(Control.GetLabel(163),blank.png)</visible>
+				</control>
+				<control type="image" id="174"><!-- Video resolution -->
+					<width>40</width>
+					<height>30</height>
+					<texture background="true">$INFO[Listitem.VideoResolution,special://skin/extras/images/resolution/,.png]</texture>
+					<visible>!IsEmpty(ListItem.VideoResolution) + !StringCompare(Control.GetLabel(164),blank.png)</visible>
+				</control>
+				<!-- Hack to check if media flag image is available -->
+				<control type="image" id="161">
+					<width>1</width>
+					<height>30</height>
+					<colordiffuse>HideControl</colordiffuse>
+					<texture background="true" fallback="blank.png">$INFO[Listitem.AudioCodec,special://skin/extras/images/audio/,.png]</texture>
+					<visible>!IsEmpty(ListItem.AudioCodec)</visible>
+				</control>
+				<control type="image" id="162">
+					<width>1</width>
+					<height>30</height>
+					<colordiffuse>HideControl</colordiffuse>
+					<texture background="true" fallback="blank.png">$INFO[Listitem.VideoCodec,special://skin/extras/images/video/,.png]</texture>
+					<visible>!IsEmpty(ListItem.VideoCodec)</visible>
+				</control>
+				<control type="image" id="163">
+					<width>1</width>
+					<height>30</height>
+					<texture background="true" fallback="blank.png">$INFO[ListItem.VideoAspect,special://skin/extras/images/aspectratio/,.png]</texture>
+					<colordiffuse>HideControl</colordiffuse>
+					<visible>!IsEmpty(ListItem.VideoAspect)</visible>
+				</control>
+				<control type="image" id="164">
+					<width>1</width>
+					<height>30</height>
+					<colordiffuse>HideControl</colordiffuse>
+					<texture background="true" fallback="blank.png">$INFO[Listitem.VideoResolution,special://skin/extras/images/resolution/,.png]</texture>
+					<visible>!IsEmpty(ListItem.VideoResolution)</visible>
+				</control>
+			</control>
+			<control type="image"><!-- Star Rating -->
+				<left>340</left>
+				<top>370</top>
+				<width>143</width>
+				<height>18</height>
+				<texture>$VAR[MediaRating]</texture>
+				<colordiffuse>StarDiffuse</colordiffuse>
+				<visible>!IsEmpty(ListItem.StarRating)</visible>
 			</control>
 			<control type="group">
 				<visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
@@ -296,126 +413,9 @@
 					<wrapmultiline>true</wrapmultiline>
 				</control>
 			</control>
-			<control type="label"><!-- Premiered -->
-				<left>380</left>
-				<top>290</top>
-				<width>290</width>
-				<height>20</height>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				<label>$LOCALIZE[20416] $INFO[ListItem.Premiered]</label>
-				<font>font10</font>
-				<visible>Container.Content(tvshows) | Container.Content(episodes)| Container.Content(musicvideos)</visible>
-			</control>
-			<control type="group">
-				<visible>Container.Content(tvshows)</visible>
-				<control type="group">
-					<visible>StringCompare(Container.FolderPath,videodb://tvshows/titles/)</visible>
-					<control type="label"><!-- Seasons -->
-						<left>380</left>
-						<top>315</top>
-						<width>290</width>
-						<height>20</height>
-						<label>$LOCALIZE[33054] $INFO[ListItem.Property(TotalSeasons)]</label>
-						<font>font10</font>
-					</control>
-				</control>
-				<control type="group">
-					<visible>!StringCompare(Container.FolderPath,videodb://tvshows/titles/)</visible>
-					<control type="label"><!-- Current TVShow Season -->
-						<left>380</left>
-						<top>315</top>
-						<width>290</width>
-						<height>20</height>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-						<label>$INFO[ListItem.Label]</label>
-						<font>font10</font>
-					</control>
-				</control>
-				<control type="label">
-					<left>380</left>
-					<top>340</top>
-					<width>456</width>
-					<height>20</height>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<label>$LOCALIZE[20360] $INFO[ListItem.Property(TotalEpisodes)] [COLOR=grey] ($INFO[ListItem.Property(UnWatchedEpisodes), , $LOCALIZE[16101]])[/COLOR]</label>
-					<font>font10</font>
-				</control>
-			</control>
-			<control type="grouplist"><!-- Media flags -->
-				<left>378</left>
-				<top>338</top>
-				<width>290</width>
-				<height>30</height>
-				<align>left</align>
-				<orientation>horizontal</orientation>
-				<itemgap>-4</itemgap>
-				<animation effect="fade" start="0" end="100" time="1000">WindowOpen</animation>
-				<control type="image" id="171"><!-- Audio codec -->
-					<width>40</width>
-					<height>30</height>
-					<texture background="true">$INFO[Listitem.AudioCodec,special://skin/extras/images/audio/,.png]</texture>
-					<visible>!IsEmpty(ListItem.AudioCodec) + !StringCompare(Control.GetLabel(161),blank.png)</visible>
-				</control>
-				<control type="image" id="172"><!-- Video codec -->
-					<width>40</width>
-					<height>30</height>
-					<texture background="true">$INFO[Listitem.VideoCodec,special://skin/extras/images/video/,.png]</texture>
-					<visible>!IsEmpty(ListItem.VideoCodec) + !StringCompare(Control.GetLabel(162),blank.png)</visible>
-				</control>
-				<control type="image" id="173"><!-- Video aspect ratio -->
-					<width>40</width>
-					<height>30</height>
-					<texture background="true">$INFO[ListItem.VideoAspect,special://skin/extras/images/aspectratio/,.png]</texture>
-					<visible>!IsEmpty(ListItem.VideoAspect) + !StringCompare(Control.GetLabel(163),blank.png)</visible>
-				</control>
-				<control type="image" id="174"><!-- Video resolution -->
-					<width>40</width>
-					<height>30</height>
-					<texture background="true">$INFO[Listitem.VideoResolution,special://skin/extras/images/resolution/,.png]</texture>
-					<visible>!IsEmpty(ListItem.VideoResolution) + !StringCompare(Control.GetLabel(164),blank.png)</visible>
-				</control>
-				<!-- Hack to check if media flag image is available -->
-				<control type="image" id="161">
-					<width>1</width>
-					<height>30</height>
-					<colordiffuse>HideControl</colordiffuse>
-					<texture background="true" fallback="blank.png">$INFO[Listitem.AudioCodec,special://skin/extras/images/audio/,.png]</texture>
-					<visible>!IsEmpty(ListItem.AudioCodec)</visible>
-				</control>
-				<control type="image" id="162">
-					<width>1</width>
-					<height>30</height>
-					<colordiffuse>HideControl</colordiffuse>
-					<texture background="true" fallback="blank.png">$INFO[Listitem.VideoCodec,special://skin/extras/images/video/,.png]</texture>
-					<visible>!IsEmpty(ListItem.VideoCodec)</visible>
-				</control>
-				<control type="image" id="163">
-					<width>1</width>
-					<height>30</height>
-					<texture background="true" fallback="blank.png">$INFO[ListItem.VideoAspect,special://skin/extras/images/aspectratio/,.png]</texture>
-					<colordiffuse>HideControl</colordiffuse>
-					<visible>!IsEmpty(ListItem.VideoAspect)</visible>
-				</control>
-				<control type="image" id="164">
-					<width>1</width>
-					<height>30</height>
-					<colordiffuse>HideControl</colordiffuse>
-					<texture background="true" fallback="blank.png">$INFO[Listitem.VideoResolution,special://skin/extras/images/resolution/,.png]</texture>
-					<visible>!IsEmpty(ListItem.VideoResolution)</visible>
-				</control>
-			</control>
-			<control type="image"><!-- Star Rating -->
-				<left>380</left>
-				<top>370</top>
-				<width>143</width>
-				<height>18</height>
-				<texture>$VAR[MediaRating]</texture>
-				<colordiffuse>StarDiffuse</colordiffuse>
-				<visible>!IsEmpty(ListItem.StarRating)</visible>
-			</control>
 		</control>
 		<control type="grouplist" id="999"><!-- Option buttons -->
-			<left>380</left>
+			<left>360</left>
 			<top>400</top>
 			<width>880</width>
 			<height>96</height>
@@ -574,7 +574,7 @@
 			<left>20</left>
 			<top>488</top>
 			<height>20</height>
-			<width>330</width>
+			<width>300</width>
 			<label>$LOCALIZE[206]</label>
 			<font>font11</font>
 			<align>right</align>
@@ -584,16 +584,16 @@
 			<left>20</left>
 			<top>488</top>
 			<height>20</height>
-			<width>330</width>
+			<width>300</width>
 			<label>$LOCALIZE[31955]</label>
 			<font>font10</font>
 			<align>right</align>
 			<visible>!substring(Control.GetLabel(5),$LOCALIZE[207]) + ![IsEmpty(Container(950).ListItem.Label)]</visible><!-- Not showing Cast and recommended video list has something to show -->
 		</control>
 		<control type="image">
-			<left>380</left>
+			<left>340</left>
 			<top>504</top>
-			<width>860</width>
+			<width>900</width>
 			<height>4</height>
 			<texture>separator.png</texture>
 		</control>
@@ -693,86 +693,94 @@
 		<control type="list" id="950">
 			<visible>!substring(Control.GetLabel(5),$LOCALIZE[207])</visible>
 			<left>10</left>
-			<top>520</top>
+			<top>510</top>
 			<width>1260</width>
-			<height>184</height>
+			<height>202</height>
 			<onleft>noop</onleft>
 			<onright>noop</onright>
 			<onup>999</onup>
 			<viewtype label="31028">list</viewtype>
 			<orientation>horizontal</orientation>
-			<itemlayout height="184" width="210">
+			<itemlayout height="202" width="210">
 				<control type="image">
-					<left>49</left>
-					<top>0</top>
-					<width>112</width>
-					<height>146</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<left>51</left>
+					<top>8</top>
+					<width>108</width>
+					<height>142</height>
+					<aspectratio scalediffuse="true">keep</aspectratio>
 					<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Thumb]</texture>
 					<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
 				</control>
 				<control type="image">
-					<left>49</left>
-					<top>0</top>
-					<width>112</width>
-					<height>146</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<left>51</left>
+					<top>8</top>
+					<width>108</width>
+					<height>142</height>
+					<aspectratio scalediffuse="true">keep</aspectratio>
 					<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
 					<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
 				</control>
 			</itemlayout>
-			<focusedlayout height="184" width="210">
-				<control type="image">
-					<left>49</left>
-					<top>0</top>
-					<width>112</width>
-					<height>146</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Thumb]</texture>
-					<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
+			<focusedlayout height="202" width="210">
+				<control type="group">
+					<visible>!Control.HasFocus(950)</visible>
+					<control type="image">
+						<left>51</left>
+						<top>8</top>
+						<width>108</width>
+						<height>142</height>
+						<aspectratio scalediffuse="true">keep</aspectratio>
+						<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
+					</control>
+					<control type="image">
+						<left>51</left>
+						<top>8</top>
+						<width>108</width>
+						<height>142</height>
+						<aspectratio scalediffuse="true">keep</aspectratio>
+						<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+						<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+					</control>
 				</control>
-				<control type="image">
-					<left>49</left>
-					<top>0</top>
-					<width>112</width>
-					<height>146</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
-					<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+				<control type="group">
+					<visible>Control.HasFocus(950)</visible>
+					<control type="image">
+						<left>44</left>
+						<top>0</top>
+						<width>122</width>
+						<height>158</height>
+						<aspectratio scalediffuse="true">keep</aspectratio>
+						<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<bordertexture  border="8">mask-hilite2.png</bordertexture>
+						<bordersize>8</bordersize>
+						<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
+					</control>
+					<control type="image">
+						<left>44</left>
+						<top>0</top>
+						<width>122</width>
+						<height>158</height>
+						<aspectratio scalediffuse="true">keep</aspectratio>
+						<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+						<bordertexture border="8">mask-hilite2.png</bordertexture>
+						<bordersize>8</bordersize>
+						<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
+					</control>
 				</control>
-				<control type="label">
+				<control type="textbox">
 					<left>0</left>
-					<top>156</top>
-					<height>20</height>
+					<top>154</top>
 					<width>210</width>
+					<height>48</height>
 					<label>$INFO[ListItem.Label]</label>
 					<font>font10</font>
 					<align>center</align>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<animation effect="fade" time="100" delay="300">Focus</animation>
 					<visible>Control.HasFocus(950)</visible>
 				</control>
 			</focusedlayout>
 			<content target="video">$VAR[VideoInfoIcons]</content>
-		</control>
-		<control type="group">
-			<visible>Control.HasFocus(950)</visible>
-			<left>10</left>
-			<top>512</top>
-			<control type="image"><!-- Focus slider -->
-				<left>41</left>
-				<top>0</top>
-				<width>128</width>
-				<height>162</height>
-				<texture border="8">mask-hilite2.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			<animation condition="Container(950).Position(0)" effect="slide" start="0,0" end="0,0" time="200" easing="inout" reversible="true">Conditional</animation>
-			<animation condition="Container(950).Position(1)" effect="slide" start="0,0" end="210,0" time="200" easing="inout" reversible="true">Conditional</animation>
-			<animation condition="Container(950).Position(2)" effect="slide" start="0,0" end="420,0" time="200" easing="inout" reversible="true">Conditional</animation>
-			<animation condition="Container(950).Position(3)" effect="slide" start="0,0" end="630,0" time="200" easing="inout" reversible="true">Conditional</animation>
-			<animation condition="Container(950).Position(4)" effect="slide" start="0,0" end="840,0" time="200" easing="inout" reversible="true">Conditional</animation>
-			<animation condition="Container(950).Position(5)" effect="slide" start="0,0" end="1050,0" time="200" easing="inout" reversible="true">Conditional</animation>
 		</control>
 		<control type="group"><!-- Markers for control area items -->
 			<visible>Control.HasFocus(950)</visible>
