@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
 	<include name="IconHomeMenu">
+		<control type="image"><!-- Use solid background image -->
+			<include>fullscreenimage</include>
+			<texture>colours/offblack.png</texture>
+		</control>
 		<control type="group">
 			<visible>[Container(9000).Row(0) | Container(9000).Row(1)] + !Container(9000).HasPrevious()</visible>
 			<animation effect="fade" start="0" end="100" time="200">Visible</animation>
 			<control type="group">
 				<visible>![Window.IsActive(videolibrary) | Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)]</visible>
-				<control type="image"><!-- Use solid background image -->
-					<include>fullscreenimage</include>
-					<texture>colours/black.png</texture>
-				</control>
 				<control type="image"><!-- Build up home menu shelf image -->
 					<left>0</left>
 					<top>0</top>
@@ -288,13 +288,13 @@
 					<thumb>special://skin/extras/homeicons/weather.png</thumb>
 					<label>$LOCALIZE[8]</label>
 					<label2>$LOCALIZE[8]</label2>
-					<onclick>ActivateWindow(Weather,,return)</onclick>
+					<onclick>ActivateWindow(weather,,return)</onclick>
 				</item>
 				<item><!-- System menu -->
 					<thumb>special://skin/extras/homeicons/setting.png</thumb>
 					<label>$LOCALIZE[13000]</label>
 					<label2>$LOCALIZE[571]</label2>
-					<onclick>ActivateWindow(Settings,,return)</onclick>
+					<onclick>ActivateWindow(settings,,return)</onclick>
 				</item>
 				<item><!-- Music Videos -->
 					<visible>Skin.HasSetting(home-musicvideo)</visible>
@@ -329,14 +329,14 @@
 					<thumb>special://skin/extras/homeicons/pics.png</thumb>
 					<label>$LOCALIZE[1]</label>
 					<label2>$LOCALIZE[571]</label2>
-					<onclick>ActivateWindow(MyPictures,,return)</onclick>
+					<onclick>ActivateWindow(pictures,,return)</onclick>
 				</item>
 				<item><!-- Favourites -->
 					<visible>Skin.HasSetting(home-favorites)</visible>
 					<thumb>special://skin/extras/homeicons/favs.png</thumb>
 					<label>$LOCALIZE[31652]</label>
 					<label2>$LOCALIZE[571]</label2>
-					<onclick>ActivateWindow(Favourites)</onclick>
+					<onclick>ActivateWindow(favourites)</onclick>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomMovies.1.Icon)]</thumb>
@@ -571,23 +571,30 @@
 				</item>
 			</content>
 		</control>
-		<control type="image"><!-- Hide third row of icons if still in the first two rows of panel -->
-			<left>0</left>
-			<top>620</top>
-			<width>1280</width>
-			<height>100</height>
-			<texture>colours/black.png</texture>
+		<control type="group">
 			<visible>[Container(9000).Row(0) | Container(9000).Row(1)] + !Container(9000).HasPrevious()</visible>
+			<control type="image"><!-- Hide third row of icons if still in the first two rows of panel -->
+				<left>0</left>
+				<top>620</top>
+				<width>1280</width>
+				<height>100</height>
+				<texture>colours/offblack.png</texture>
+			</control>
+			<control type="button"><!-- Onfocus, move to next row of icon panel -->
+				<left>0</left>
+				<top>620</top>
+				<width>1280</width>
+				<height>100</height>
+				<texturefocus>blank.png</texturefocus>
+				<onfocus>Control.Message(9000,moveup)</onfocus>
+			</control>
+			<!-- Home media overlay -->
+			<include>home-mediaoverlay</include>
 		</control>
 		<!-- RSS info -->
 		<control type="group" id="9940"><!-- Don't show RSS if Video or Music overlay showing -->
 			<visible>![Skin.HasSetting(media-overlay) + [Player.HasAudio | Player.HasVideo]]</visible>
-			<include condition="system.getbool(lookandfeel.enablerssfeeds)">page-info</include>
-		</control>
-		<control type="group">
-			<visible>[Container(9000).Row(0) | Container(9000).Row(1)] + !Container(9000).HasPrevious()</visible>
-		<!-- Home media overlay -->
-			<include>home-mediaoverlay</include>
+			<include condition="System.GetBool(lookandfeel.enablerssfeeds)">page-info</include>
 		</control>
 	</include>
 </includes>

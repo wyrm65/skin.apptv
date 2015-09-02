@@ -8,7 +8,7 @@
 			<top>-24</top>
 			<width>1</width>
 			<height>1</height>
-			<onfocus>ActivateWindow(PlayerControls)</onfocus>
+			<onfocus>ActivateWindow(playercontrols)</onfocus>
 			<onfocus>Control.SetFocus(9000)</onfocus>
 		</control>
 
@@ -375,19 +375,19 @@
 				<item>
 					<thumb>DefaultPicture.png</thumb>
 					<label>$LOCALIZE[1]</label>
-					<onclick>ActivateWindow(MyPictures,,return)</onclick>
+					<onclick>ActivateWindow(pictures,,return)</onclick>
 					<visible>Skin.HasSetting(home-photos)</visible>
 				</item>
 				<item>
 					<thumb>icon-weather.png</thumb>
 					<label>$LOCALIZE[31032]</label>
-					<onclick>ActivateWindow(Weather,,return)</onclick>
+					<onclick>ActivateWindow(weather,,return)</onclick>
 					<visible>Skin.HasSetting(home-weather) + !IsEmpty(Weather.plugin)</visible>
 				</item>
 				<item>
 					<thumb>icon-fav.png</thumb>
 					<label>$LOCALIZE[31652]</label>
-					<onclick>ActivateWindow(Favourites)</onclick>
+					<onclick>ActivateWindow(favourites)</onclick>
 					<visible>Skin.HasSetting(home-favorites)</visible>
 				</item>
 				<item>
@@ -405,7 +405,7 @@
 				<item>
 					<thumb>icon-settings.png</thumb>
 					<label>$LOCALIZE[13000]</label>
-					<onclick>ActivateWindow(Settings,,return)</onclick>
+					<onclick>ActivateWindow(settings,,return)</onclick>
 				</item>
 				<item>
 					<thumb>DefaultDVDRom.png</thumb>
@@ -728,10 +728,10 @@
 			<visible>!IsEmpty(Skin.String(custom-watermark))</visible>
 		</control>
 		<!-- RSS info -->
-		<include condition="system.getbool(lookandfeel.enablerssfeeds)">page-info</include>
+		<include condition="System.GetBool(lookandfeel.enablerssfeeds)">page-info</include>
 		<!-- media infos (music) -->
 		<control type="group" id="9950">
-			<visible>Skin.HasSetting(media-overlay) + !Window.IsActive(PlayerControls)</visible>
+			<visible>Skin.HasSetting(media-overlay) + !Window.IsActive(playercontrols)</visible>
 			<control type="group" id="9960">
 				<visible>Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
 				<control type="image">

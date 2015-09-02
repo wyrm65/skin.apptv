@@ -423,7 +423,7 @@
 
 	<include name="Fake-Overlay">
 		<control type="group"><!-- Video Stuff -->
-			<visible>Skin.HasSetting(media-overlay) + Player.HasVideo + !VideoPlayer.Content(livetv) + !Skin.HasSetting(background-playingmedia) + !Window.IsActive(PlayerControls)</visible>
+			<visible>Skin.HasSetting(media-overlay) + Player.HasVideo + !VideoPlayer.Content(livetv) + !Skin.HasSetting(background-playingmedia) + !Window.IsActive(playercontrols)</visible>
 			<control type="videowindow">
 				<left>35</left>
 				<top>5</top>
@@ -458,7 +458,7 @@
 			</control>
 		</control>
 		<control type="group"><!-- Audio Stuff -->
-			<visible>Player.HasAudio + Skin.HasSetting(media-overlay) + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia)) + !Window.IsActive(PlayerControls)</visible>
+			<visible>Player.HasAudio + Skin.HasSetting(media-overlay) + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia)) + !Window.IsActive(playercontrols)</visible>
 			<control type="image">
 				<left>24</left>
 				<top>2</top>
@@ -507,9 +507,9 @@
 
 	<include name="touch-controls">
 		<control type="grouplist" id="8000">
-			<visible>system.getbool(input.enablemouse)</visible>
-			<left>10</left>
-			<top>678</top>
+			<visible>System.GetBool(input.enablemouse)</visible>
+			<left>20</left>
+			<top>684</top>
 			<width>376</width>
 			<height>32</height>
 			<orientation>horizontal</orientation>
@@ -520,21 +520,27 @@
 				<texturenofocus>touch-back.png</texturenofocus>
 				<onclick>Back</onclick>
 			</control>
-			<control type="button"><!-- OSD Play -->
+			<control type="image">
+				<width>16</width>
+				<height>32</height>
+				<texture>blank.png</texture>
+			</control>
+			<control type="togglebutton"><!-- OSD Play/Pause -->
 				<width>32</width>
 				<height>32</height>
 				<texturefocus>touch-play.png</texturefocus>
 				<texturenofocus>touch-play.png</texturenofocus>
+				<alttexturefocus>touch-pause.png</alttexturefocus>
+				<alttexturenofocus>touch-pause.png</alttexturenofocus>
+				<usealttexture>Player.Paused</usealttexture>
 				<onclick>ActivateWindow(playercontrols)</onclick>
-				<visible>Player.Playing</visible>
+				<visible>Player.HasAudio | Player.HasVideo</visible>
 			</control>
-			<control type="button"><!-- OSD Pause -->
-				<width>32</width>
+			<control type="image">
+				<width>16</width>
 				<height>32</height>
-				<texturefocus>touch-pause.png</texturefocus>
-				<texturenofocus>touch-pause.png</texturenofocus>
-				<onclick>ActivateWindow(playercontrols)</onclick>
-				<visible>Player.Paused</visible>
+				<texture>blank.png</texture>
+				<visible>Player.HasAudio | Player.HasVideo</visible>
 			</control>
 			<control type="button"><!-- Search -->
 				<width>32</width>
@@ -544,12 +550,22 @@
 				<onclick condition="!System.HasAddon(script.globalsearch)">VideoLibrary.Search</onclick>
 				<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
 			</control>
+			<control type="image">
+				<width>16</width>
+				<height>32</height>
+				<texture>blank.png</texture>
+			</control>
 			<control type="button"><!-- Favourite -->
 				<width>32</width>
 				<height>32</height>
 				<texturefocus>touch-fav.png</texturefocus>
 				<texturenofocus>touch-fav.png</texturenofocus>
 				<onclick>ActivateWindow(favourites)</onclick>
+			</control>
+			<control type="image">
+				<width>16</width>
+				<height>32</height>
+				<texture>blank.png</texture>
 			</control>
 			<control type="button"><!-- Screen Settings -->
 				<width>32</width>

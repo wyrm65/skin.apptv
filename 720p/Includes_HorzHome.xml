@@ -56,7 +56,7 @@
 			<height>720</height>
 			<texturefocus>blank.png</texturefocus>
 			<texturenofocus>blank.png</texturenofocus>
-			<visible>system.getbool(input.enablemouse)</visible>
+			<visible>System.GetBool(input.enablemouse)</visible>
 		</control>
 
 		<include condition="!Skin.HasSetting(home-time)" file="Includes_Shelf.xml">homeshelf-time</include><!-- Show time on home screen -->
@@ -1242,7 +1242,7 @@
 						<item><!-- Addon browser -->
 							<label>$LOCALIZE[21452]</label>
 							<label2>$LOCALIZE[24001]</label2>
-							<onclick>ActivateWindow(AddonBrowser,,return)</onclick>
+							<onclick>ActivateWindow(addonbrowser,,return)</onclick>
 						</item>
 					</content>
 				</control>
@@ -1462,7 +1462,7 @@
 							<visible>[Player.HasAudio | Player.HasVideo]</visible>
 							<label>$LOCALIZE[16003] $LOCALIZE[478]</label>
 							<label2>$LOCALIZE[13000]</label2>
-							<onclick>ActivateWindow(PlayerControls)</onclick>
+							<onclick>ActivateWindow(playercontrols)</onclick>
 							<onclick>SetFocus(9450)</onclick>
 						</item>
 						<item><!-- Quit -->
@@ -1489,7 +1489,7 @@
 
 		<control type="group" id="9940"><!-- RSS info -->
 			<visible>![Skin.HasSetting(media-overlay) + [Player.HasAudio | Player.HasVideo]]</visible><!-- Don't show RSS if Video or Music overlay showing -->
-			<include condition="system.getbool(lookandfeel.enablerssfeeds)">page-info</include>
+			<include condition="System.GetBool(lookandfeel.enablerssfeeds)">page-info</include>
 		</control>
 
 		<include>home-mediaoverlay</include><!-- Home media overlay -->
