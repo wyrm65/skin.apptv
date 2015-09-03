@@ -91,6 +91,16 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(3)</visible>
+			<control type="button"><!-- Touch Close button -->
+				<left>1167</left>
+				<top>51</top>
+				<width>32</width>
+				<height>32</height>
+				<texturefocus>touch-close.png</texturefocus>
+				<texturenofocus>touch-close.png</texturenofocus>
+				<onclick>Dialog.Close(selectdialog)</onclick>
+				<visible>System.GetBool(input.enablemouse)</visible>
+			</control>
 			<control type="image">
 				<left>170</left>
 				<top>106</top>
@@ -177,6 +187,16 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(6)</visible>
+			<control type="button"><!-- Touch Close button -->
+				<left>1157</left>
+				<top>51</top>
+				<width>32</width>
+				<height>32</height>
+				<texturefocus>touch-close.png</texturefocus>
+				<texturenofocus>touch-close.png</texturenofocus>
+				<onclick>Dialog.Close(selectdialog)</onclick>
+				<visible>System.GetBool(input.enablemouse)</visible>
+			</control>
 			<control type="image">
 				<left>162</left>
 				<top>106</top>
