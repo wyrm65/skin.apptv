@@ -123,12 +123,21 @@
 					<top>94</top>
 					<width>256</width>
 					<height>256</height>
-					<imagepath>$INFO[Skin.String(custom-weathericons)]$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
+					<imagepath>$INFO[Skin.String(custom-weathericons)]$INFO[Window.Property(Current.FanartCode)]</imagepath>
 					<aspectratio>keep</aspectratio>
 					<timeperimage>200</timeperimage>
 					<randomize>false</randomize>
 					<fadetime>0</fadetime>
-					<visible>Skin.String(custom-weathericons)</visible>
+					<visible>!IsEmpty(Skin.String(custom-weathericons)) + Skin.HasSetting(animate-customicons)</visible>
+				</control>
+				<control type="image">
+					<left>132</left>
+					<top>94</top>
+					<width>256</width>
+					<height>256</height>
+					<texture>$INFO[Window(Weather).Property(Current.FanartCode)].png</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>!IsEmpty(Skin.String(custom-weathericons)) + !Skin.HasSetting(animate-customicons)</visible>
 				</control>
 				<control type="image">
 					<left>132</left>
@@ -137,7 +146,7 @@
 					<height>256</height>
 					<texture>$INFO[Weather.Conditions]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>!Skin.String(custom-weathericons)</visible>
+					<visible>IsEmpty(Skin.String(custom-weathericons))</visible>
 				</control>
 				<control type="label"><!-- Current temp heading -->
 					<right>656</right>
@@ -283,7 +292,16 @@
 						<timeperimage>200</timeperimage>
 						<randomize>false</randomize>
 						<fadetime>0</fadetime>
-						<visible>Skin.String(custom-weathericons)</visible>
+						<visible>!IsEmpty(Skin.String(custom-weathericons)) + Skin.HasSetting(animate-customicons)</visible>
+					</control>
+					<control type="image">
+						<left>358</left>
+						<top>10</top>
+						<width>96</width>
+						<height>96</height>
+						<texture>$INFO[Window(Weather).Property(Day1.FanartCode)].png</texture>
+						<aspectratio>keep</aspectratio>
+						<visible>!IsEmpty(Skin.String(custom-weathericons)) + !Skin.HasSetting(animate-customicons)</visible>
 					</control>
 					<control type="image">
 						<left>358</left>
@@ -292,7 +310,7 @@
 						<height>96</height>
 						<texture>$INFO[Window(Weather).Property(Day1.OutlookIcon)]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>!Skin.String(custom-weathericons)</visible>
+						<visible>IsEmpty(Skin.String(custom-weathericons))</visible>
 					</control>
 					<control type="label"><!-- Daily temperature range -->
 						<left>60</left>
@@ -341,7 +359,16 @@
 						<timeperimage>200</timeperimage>
 						<randomize>false</randomize>
 						<fadetime>0</fadetime>
-						<visible>Skin.String(custom-weathericons)</visible>
+						<visible>!IsEmpty(Skin.String(custom-weathericons)) + Skin.HasSetting(animate-customicons)</visible>
+					</control>
+					<control type="image">
+						<left>358</left>
+						<top>10</top>
+						<width>96</width>
+						<height>96</height>
+						<texture>$INFO[Window(Weather).Property(Day2.FanartCode)].png</texture>
+						<aspectratio>keep</aspectratio>
+						<visible>!IsEmpty(Skin.String(custom-weathericons)) + !Skin.HasSetting(animate-customicons)</visible>
 					</control>
 					<control type="image">
 						<left>358</left>
@@ -350,7 +377,7 @@
 						<height>96</height>
 						<texture>$INFO[Window(Weather).Property(Day2.OutlookIcon)]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>!Skin.String(custom-weathericons)</visible>
+						<visible>IsEmpty(Skin.String(custom-weathericons))</visible>
 					</control>
 					<control type="label"><!-- Daily temperature range -->
 						<left>60</left>
@@ -399,7 +426,16 @@
 						<timeperimage>200</timeperimage>
 						<randomize>false</randomize>
 						<fadetime>0</fadetime>
-						<visible>Skin.String(custom-weathericons)</visible>
+						<visible>!IsEmpty(Skin.String(custom-weathericons)) + Skin.HasSetting(animate-customicons)</visible>
+					</control>
+					<control type="image">
+						<left>358</left>
+						<top>10</top>
+						<width>96</width>
+						<height>96</height>
+						<texture>$INFO[Window(Weather).Property(Day3.FanartCode)].png</texture>
+						<aspectratio>keep</aspectratio>
+						<visible>!IsEmpty(Skin.String(custom-weathericons)) + !Skin.HasSetting(animate-customicons)</visible>
 					</control>
 					<control type="image">
 						<left>358</left>
@@ -408,7 +444,7 @@
 						<height>96</height>
 						<texture>$INFO[Window(Weather).Property(Day3.OutlookIcon)]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>!Skin.String(custom-weathericons)</visible>
+						<visible>IsEmpty(Skin.String(custom-weathericons))</visible>
 					</control>
 					<control type="label"><!-- Daily temperature range -->
 						<left>60</left>
@@ -454,10 +490,19 @@
 						<height>96</height>
 						<imagepath>$INFO[Skin.String(custom-weathericons)]$INFO[Window(Weather).Property(Day4.FanartCode)]</imagepath>
 						<aspectratio>keep</aspectratio>
-						<timeperimage>200</timeperimage>
+						<timeperimage>2000</timeperimage>
 						<randomize>false</randomize>
 						<fadetime>0</fadetime>
-						<visible>Skin.String(custom-weathericons)</visible>
+						<visible>!IsEmpty(Skin.String(custom-weathericons)) + Skin.HasSetting(animate-customicons)</visible>
+					</control>
+					<control type="image">
+						<left>358</left>
+						<top>10</top>
+						<width>96</width>
+						<height>96</height>
+						<texture>$INFO[Window(Weather).Property(Day4.FanartCode)].png</texture>
+						<aspectratio>keep</aspectratio>
+						<visible>!IsEmpty(Skin.String(custom-weathericons)) + !Skin.HasSetting(animate-customicons)</visible>
 					</control>
 					<control type="image">
 						<left>358</left>
@@ -466,7 +511,7 @@
 						<height>96</height>
 						<texture>$INFO[Window(Weather).Property(Day4.OutlookIcon)]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>!Skin.String(custom-weathericons)</visible>
+						<visible>IsEmpty(Skin.String(custom-weathericons))</visible>
 					</control>
 					<control type="label"><!-- Daily temperature range -->
 						<left>60</left>
