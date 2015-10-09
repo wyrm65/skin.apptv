@@ -616,6 +616,7 @@
 						<label>$LOCALIZE[31871]</label>
 						<textwidth>785</textwidth>
 						<onclick>Skin.SetImage(custom-watermark)</onclick>
+						<enable>Skin.HasSetting(homemenu-horizontal) | [!Skin.HasSetting(homemenu-vertical) + !Skin.HasSetting(homemenu-horizontal) + !Skin.HasSetting(homemenu-icon)]</enable>
 						<visible>!Skin.String(custom-watermark)</visible>
 					</control>
 					<control type="button" id="305"><!-- Reset Custom Homescreen Watermark Image -->
@@ -623,6 +624,7 @@
 						<label>$LOCALIZE[31872]</label>
 						<textwidth>785</textwidth>
 						<onclick>Skin.Reset(custom-watermark)</onclick>
+						<enable>Skin.HasSetting(homemenu-horizontal) | [!Skin.HasSetting(homemenu-vertical) + !Skin.HasSetting(homemenu-horizontal) + !Skin.HasSetting(homemenu-icon)]</enable>
 						<visible>Skin.String(custom-watermark)</visible>
 					</control>
 					<control type="label" id="328">
