@@ -69,12 +69,13 @@
 			</control>
 		</control>
 
-		<control type="button" id="6000"><!-- Fake button to steal focus -->
+		<control type="button" id="6000"><!-- Fake button to steal focus, don't show if Open weather map screen is showing -->
 			<onleft>9000</onleft>
 			<onright>noop</onright>
 			<texturefocus>-</texturefocus>
 			<texturenofocus>-</texturenofocus>
 			<onclick>noop</onclick>
+			<visible>![StringCompare(Skin.String(weather-view),$LOCALIZE[33035]) + SubString(Weather.plugin,weather.openweathermap.extended)]</visible>
 		</control>
 
 		<control type="label"><!-- Weather heading label -->
@@ -122,7 +123,7 @@
 				<top>50</top>
 				<width>636</width>
 				<height>37</height>
-				<font>font18</font>
+				<font>font13</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[Window(Weather).Property(Location)]</label>
 			</control>
@@ -149,7 +150,7 @@
 				<left>390</left>
 				<top>120</top>
 				<width>496</width>
-				<height>412</height>
+				<height>414</height>
 				<texture border="8">button-menu-background.png</texture>
 			</control>
 			<control type="label"><!-- Dialog heading -->
@@ -187,12 +188,22 @@
 				<itemgap>0</itemgap>
 				<onright>6000</onright>
 				<onleft>6000</onleft>
-				<control type="button" id="200"><!-- View (Future expansion) -->
+				<control type="button" id="200"><!-- View (types of forecasts) -->
 					<width>476</width>
 					<height>50</height>
-					<label>$LOCALIZE[31562] $LOCALIZE[10508]</label>
-					<onclick>SetFocus(6000)</onclick>
+					<label>$LOCALIZE[31562] $INFO[Skin.String(weather-view)]</label>
+					<onclick>$VAR[WeatherView]</onclick>
 				</control>
+				<!--<control type="togglebutton" id="999">--><!-- Radar/forecast button -->
+					<!--<width>476</width>
+					<height>50</height>
+					<label>$LOCALIZE[31528]</label>
+					<altlabel>$LOCALIZE[33035]</altlabel>
+					<onclick>Skin.ToggleSetting(showradar)</onclick>
+					<usealttexture>Skin.HasSetting(showradar)</usealttexture>
+					<enable>StringCompare(Skin.String(weather-view),$LOCALIZE[10508])</enable>
+					<visible>SubString(Weather.plugin,weather.ozweather)</visible>
+				</control>-->
 				<control type="spincontrolex" id="3"><!-- Change location button -->
 					<width>476</width>
 					<height>50</height>
@@ -201,17 +212,6 @@
 				<control type="button" id="2"><!-- Refresh button -->
 					<width>476</width>
 					<height>50</height>
-				</control>
-				<control type="togglebutton" id="999"><!-- Radar/forecast button -->
-					<width>476</width>
-					<height>50</height>
-					<font>font11</font>
-					<align>center</align>
-					<label>$LOCALIZE[33035]</label>
-					<altlabel>$LOCALIZE[31528]</altlabel>
-					<onclick>Skin.ToggleSetting(showradar)</onclick>
-					<usealttexture>Skin.HasSetting(showradar)</usealttexture>
-					<visible>SubString(Weather.plugin,weather.ozweather)</visible>
 				</control>
 				<control type="button" id="208"><!-- Custom Weather Backgrounds Button -->
 					<width>476</width>
@@ -228,6 +228,15 @@
 					<onclick>SetFocus(6000)</onclick>
 					<onclick>SetProperty(SelectDialogType,weathericons,Home)</onclick>
 					<onclick>ActivateWindow(1154)</onclick>
+				</control>
+				<control type="radiobutton" id="210"><!-- Alerts  -->
+					<width>476</width>
+					<height>50</height>
+					<label>$LOCALIZE[33049]</label>
+					<onclick>Skin.ToggleSetting(weather-alerts)</onclick>
+					<selected>Skin.HasSetting(weather-alerts)</selected>
+					<radioposx>440</radioposx>
+					<enable>!IsEmpty(Window.Property(Alerts.RSS))</enable>
 				</control>
 				<control type="button" id="4"><!-- Settings button -->
 					<width>476</width>
