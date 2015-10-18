@@ -34,6 +34,7 @@
 			</control>
 
 			<include condition="!Skin.HasSetting(home-time)" file="Includes_Shelf.xml">homeshelf-time</include><!-- Show time on home screen -->
+			<include condition="Skin.HasSetting(media-overlay)" file="Includes_Shelf.xml">shelf-nowplaying</include><!-- Now Playing -->
 
 			<control type="group" id="9800"><!-- Shelf icons-->
 				<control type="group" id="9155"><!-- Movie icons -->
@@ -198,10 +199,10 @@
 		</control>
 
 		<control type="panel" id="9000"><!-- Home menu icon panel -->
-			<animation condition="![Container(9000).Row(0) | Container(9000).Row(1)] | Container(9000).HasPrevious()" effect="slide" start="0,0" end="0,-260" time="100">Conditonal</animation>
+			<animation condition="![Container(9000).Row(0) | Container(9000).Row(1)] | Container(9000).HasPrevious()" effect="slide" start="0,0" end="0,-280" time="100">Conditonal</animation>
 			<width>1260</width>
 			<height>640</height>
-			<top>300</top>
+			<top>320</top>
 			<left>10</left>
 			<onleft>9005</onleft>
 			<onright>9005</onright>
@@ -610,25 +611,23 @@
 			<visible>[Container(9000).Row(0) | Container(9000).Row(1)] + !Container(9000).HasPrevious()</visible>
 			<control type="image"><!-- Hide third row of icons if still in the first two rows of panel -->
 				<left>0</left>
-				<top>620</top>
+				<top>640</top>
 				<width>1280</width>
-				<height>100</height>
+				<height>80</height>
 				<texture>colours/offblack.png</texture>
 			</control>
 			<control type="button"><!-- Onfocus, move to next row of icon panel -->
 				<left>0</left>
-				<top>620</top>
+				<top>640</top>
 				<width>1280</width>
-				<height>100</height>
+				<height>80</height>
 				<texturefocus>blank.png</texturefocus>
 				<onfocus>Control.Message(9000,moveup)</onfocus>
 			</control>
-			<!-- Home media overlay -->
-			<include>home-mediaoverlay</include>
+
 		</control>
 		<!-- RSS info -->
-		<control type="group" id="9940"><!-- Don't show RSS if Video or Music overlay showing -->
-			<visible>![Skin.HasSetting(media-overlay) + [Player.HasAudio | Player.HasVideo]]</visible>
+		<control type="group" id="9940">
 			<include condition="System.GetBool(lookandfeel.enablerssfeeds)">page-info</include>
 		</control>
 	</include>

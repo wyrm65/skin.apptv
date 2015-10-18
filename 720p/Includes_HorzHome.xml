@@ -49,6 +49,17 @@
 			</control>
 		</control>
 
+		<control type="image"><!-- Home menu watermark -->
+			<left>1100</left>
+			<top>592</top>
+			<width>128</width>
+			<height>128</height>
+			<aspectratio aligny="top">keep</aspectratio>
+			<texture background="true">$INFO[Skin.String(custom-watermark)]</texture>
+			<colordiffuse>UnFocusedPosters</colordiffuse>
+			<visible>!IsEmpty(Skin.String(custom-watermark))</visible>
+		</control>
+
 		<control type="button" id="11000"><!-- Fake fullscreen button as a touch screen work around -->
 			<left>0</left>
 			<top>0</top>>
@@ -60,6 +71,7 @@
 		</control>
 
 		<include condition="!Skin.HasSetting(home-time)" file="Includes_Shelf.xml">homeshelf-time</include><!-- Show time on home screen -->
+		<include condition="Skin.HasSetting(media-overlay)" file="Includes_Shelf.xml">shelf-nowplaying</include><!-- Now Playing -->
 
 		<control type="group" id="9800"><!-- Shelf icons-->
 			<control type="group" id="9155"><!-- Movie icons -->
@@ -308,7 +320,7 @@
 						</control>
 						<control type="image">
 							<left>96</left>
-							<top>294</top>
+							<top>336</top>
 							<height>16</height>
 							<width>16</width>
 							<texture>scroll-down.png</texture>
@@ -331,7 +343,7 @@
 					<left>0</left>
 					<top>84</top>
 					<width>210</width>
-					<height>210</height>
+					<height>252</height>
 					<onup>9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9005</onleft>
@@ -440,7 +452,7 @@
 						</control>
 						<control type="image">
 							<left>96</left>
-							<top>294</top>
+							<top>336</top>
 							<height>16</height>
 							<width>16</width>
 							<texture>scroll-down.png</texture>
@@ -464,7 +476,7 @@
 					<left>0</left>
 					<top>84</top>
 					<width>210</width>
-					<height>210</height>
+					<height>252</height>
 					<onup>9155</onup>
 					<ondown>9005</ondown>
 					<onleft>9100</onleft>
@@ -581,7 +593,7 @@
 						</control>
 						<control type="image">
 							<left>96</left>
-							<top>294</top>
+							<top>336</top>
 							<height>16</height>
 							<width>16</width>
 							<texture>scroll-down.png</texture>
@@ -605,7 +617,7 @@
 					<left>0</left>
 					<top>84</top>
 					<width>210</width>
-					<height>210</height>
+					<height>252</height>
 					<onup>9205</onup>
 					<ondown>9005</ondown>
 					<onleft>9150</onleft>
@@ -721,7 +733,7 @@
 						</control>
 						<control type="image">
 							<left>96</left>
-							<top>294</top>
+							<top>336</top>
 							<height>16</height>
 							<width>16</width>
 							<texture>scroll-down.png</texture>
@@ -744,7 +756,7 @@
 					<left>0</left>
 					<top>84</top>
 					<width>210</width>
-					<height>210</height>
+					<height>252</height>
 					<onup>9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9200</onleft>
@@ -891,7 +903,7 @@
 						</control>
 						<control type="image">
 							<left>96</left>
-							<top>294</top>
+							<top>336</top>
 							<height>16</height>
 							<width>16</width>
 							<texture>scroll-down.png</texture>
@@ -914,7 +926,7 @@
 					<left>0</left>
 					<top>84</top>
 					<width>210</width>
-					<height>210</height>
+					<height>252</height>
 					<onup>9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9500</onleft>
@@ -1020,7 +1032,7 @@
 						</control>
 						<control type="image">
 							<left>96</left>
-							<top>294</top>
+							<top>336</top>
 							<height>16</height>
 							<width>16</width>
 							<texture>scroll-down.png</texture>
@@ -1044,7 +1056,7 @@
 					<left>0</left>
 					<top>84</top>
 					<width>210</width>
-					<height>210</height>
+					<height>252</height>
 					<onup>9255</onup>
 					<ondown>9005</ondown>
 					<onleft>9550</onleft>
@@ -1169,7 +1181,7 @@
 					<left>0</left>
 					<top>84</top>
 					<width>210</width>
-					<height>210</height>
+					<height>252</height>
 					<onup>9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9250</onleft>
@@ -1255,7 +1267,7 @@
 						</control>
 						<control type="image">
 							<left>96</left>
-							<top>294</top>
+							<top>336</top>
 							<height>16</height>
 							<width>16</width>
 							<texture>scroll-down.png</texture>
@@ -1279,7 +1291,7 @@
 					<left>0</left>
 					<top>84</top>
 					<width>210</width>
-					<height>210</height>
+					<height>252</height>
 					<onup>9355</onup>
 					<ondown>9005</ondown>
 					<onleft>9300</onleft>
@@ -1412,7 +1424,7 @@
 					<left>0</left>
 					<top>84</top>
 					<width>210</width>
-					<height>210</height>
+					<height>252</height>
 					<onup>9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9350</onleft>
@@ -1491,7 +1503,7 @@
 						</control>
 						<control type="image">
 							<left>96</left>
-							<top>294</top>
+							<top>336</top>
 							<height>16</height>
 							<width>16</width>
 							<texture>scroll-down.png</texture>
@@ -1514,7 +1526,7 @@
 					<left>0</left>
 					<top>84</top>
 					<width>210</width>
-					<height>210</height>
+					<height>252</height>
 					<onup>9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9400</onleft>
@@ -1604,22 +1616,9 @@
 			</control>
 		</control>
 
-		<control type="image"><!-- Home menu watermark -->
-			<left>1100</left>
-			<top>592</top>
-			<width>128</width>
-			<height>128</height>
-			<aspectratio aligny="top">keep</aspectratio>
-			<texture background="true">$INFO[Skin.String(custom-watermark)]</texture>
-			<colordiffuse>UnFocusedPosters</colordiffuse>
-			<visible>!IsEmpty(Skin.String(custom-watermark))</visible>
-		</control>
-
 		<control type="group" id="9940"><!-- RSS info -->
-			<visible>![Skin.HasSetting(media-overlay) + [Player.HasAudio | Player.HasVideo]]</visible><!-- Don't show RSS if Video or Music overlay showing -->
 			<include condition="System.GetBool(lookandfeel.enablerssfeeds)">page-info</include>
 		</control>
 
-		<include>home-mediaoverlay</include><!-- Home media overlay -->
 	</include>
 </includes>
