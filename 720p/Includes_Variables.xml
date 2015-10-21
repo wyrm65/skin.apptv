@@ -113,8 +113,8 @@
 		<value>blank.png</value>
 	</variable>
 	<variable name="VideoInfoIcons">
-		<value condition="Container.Content(movies)">plugin://service.library.data.provider?type=recommendedmovies&amp;reload=$INFO[Window.Property(recommendedmovies)]</value>
-		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">plugin://service.library.data.provider?type=recommendedepisodes&amp;reload=$INFO[Window.Property(recommendedepisodes)]</value>
+		<value condition="Container.Content(movies)">plugin://script.skin.helper.service?action=recommendedmovies&amp;reload=true</value>
+		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">plugin://script.skin.helper.service?action=nextepisodes&amp;reload=true</value>
 	</variable>
 	<variable name="Overlay">
 		<value condition="ListItem.IsResumable">OverlayPartialyWatched.png</value>
