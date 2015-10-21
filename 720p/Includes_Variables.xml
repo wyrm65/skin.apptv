@@ -13,11 +13,11 @@
 		<value>background.png</value>
 	</variable>
 	<variable name="VideoRating">
-		<value condition="substring(ListItem.Mpaa,Rated G) | substring(ListItem.Mpaa,Rated: G)">special://skin/extras/images/rating/mpaa_general.png</value>
-		<value condition="[substring(ListItem.Mpaa,Rated PG) | substring(ListItem.Mpaa,Rated: PG)] + !substring(ListItem.Mpaa,Rated PG-13) + !substring(ListItem.Mpaa,Rated: PG-13)">special://skin/extras/images/rating/mpaa_pg.png</value>
-		<value condition="substring(ListItem.Mpaa,Rated PG-13) | substring(ListItem.Mpaa,Rated: PG-13)">special://skin/extras/images/rating/mpaa_pg13.png</value>
-		<value condition="substring(ListItem.Mpaa,Rated R) | substring(ListItem.Mpaa,Rated: R)">special://skin/extras/images/rating/mpaa_restricted.png</value>
-		<value condition="substring(ListItem.Mpaa,Rated NC-17) | substring(ListItem.Mpaa,Rated: NC-17)">special://skin/extras/images/rating/mpaa_nc17.png</value>
+		<value condition="SubString(ListItem.Mpaa,Rated G) | SubString(ListItem.Mpaa,Rated: G)">special://skin/extras/images/rating/mpaa_general.png</value>
+		<value condition="[SubString(ListItem.Mpaa,Rated PG) | SubString(ListItem.Mpaa,Rated: PG)] + !SubString(ListItem.Mpaa,Rated PG-13) + !SubString(ListItem.Mpaa,Rated: PG-13)">special://skin/extras/images/rating/mpaa_pg.png</value>
+		<value condition="SubString(ListItem.Mpaa,Rated PG-13) | SubString(ListItem.Mpaa,Rated: PG-13)">special://skin/extras/images/rating/mpaa_pg13.png</value>
+		<value condition="SubString(ListItem.Mpaa,Rated R) | SubString(ListItem.Mpaa,Rated: R)">special://skin/extras/images/rating/mpaa_restricted.png</value>
+		<value condition="SubString(ListItem.Mpaa,Rated NC-17) | SubString(ListItem.Mpaa,Rated: NC-17)">special://skin/extras/images/rating/mpaa_nc17.png</value>
 		<value condition="StringCompare(ListItem.Mpaa,UK:U)">special://skin/extras/images/rating/bbfc_u.png</value>
 		<value condition="StringCompare(ListItem.Mpaa,UK:UC)">special://skin/extras/images/rating/bbfc_uc.png</value>
 		<value condition="StringCompare(ListItem.Mpaa,UK:PG)">special://skin/extras/images/rating/bbfc_pg.png</value>
@@ -26,13 +26,13 @@
 		<value condition="StringCompare(ListItem.Mpaa,UK:15)">special://skin/extras/images/rating/bbfc_15.png</value>
 		<value condition="StringCompare(ListItem.Mpaa,UK:18)">special://skin/extras/images/rating/bbfc_18.png</value>
 		<value condition="StringCompare(ListItem.Mpaa,UK:R18)">special://skin/extras/images/rating/bbfc_R18.png</value>
-		<value condition="substring(ListItem.Mpaa,FSK0) | substring(ListItem.Mpaa,FSK 0) | substring(ListItem.Mpaa,FSK o.A.)">special://skin/extras/images/rating/FSK-0.png</value>
-		<value condition="substring(ListItem.Mpaa,FSK6) | substring(ListItem.Mpaa,FSK 6)">special://skin/extras/images/rating/FSK-6.png</value>
-		<value condition="substring(ListItem.Mpaa,FSK12) | substring(ListItem.Mpaa,FSK 12)">special://skin/extras/images/rating/FSK-12.png</value>
-		<value condition="substring(ListItem.Mpaa,FSK16) | substring(ListItem.Mpaa,FSK 16)">special://skin/extras/images/rating/FSK-16.png</value>
-		<value condition="substring(ListItem.Mpaa,FSK18) | substring(ListItem.Mpaa,FSK 18)">special://skin/extras/images/rating/FSK-18.png</value>
+		<value condition="SubString(ListItem.Mpaa,FSK0) | SubString(ListItem.Mpaa,FSK 0) | SubString(ListItem.Mpaa,FSK o.A.)">special://skin/extras/images/rating/FSK-0.png</value>
+		<value condition="SubString(ListItem.Mpaa,FSK6) | SubString(ListItem.Mpaa,FSK 6)">special://skin/extras/images/rating/FSK-6.png</value>
+		<value condition="SubString(ListItem.Mpaa,FSK12) | SubString(ListItem.Mpaa,FSK 12)">special://skin/extras/images/rating/FSK-12.png</value>
+		<value condition="SubString(ListItem.Mpaa,FSK16) | SubString(ListItem.Mpaa,FSK 16)">special://skin/extras/images/rating/FSK-16.png</value>
+		<value condition="SubString(ListItem.Mpaa,FSK18) | SubString(ListItem.Mpaa,FSK 18)">special://skin/extras/images/rating/FSK-18.png</value>
 		<value condition="StringCompare(Listitem.Mpaa,Australia:G) | StringCompare(Listitem.Mpaa,Australia:TV-G) | StringCompare(Listitem.Mpaa,Australia:TV-C) | StringCompare(Listitem.Mpaa,Australia:TV-P)">special://skin/extras/images/rating/australia_g.png</value>
-		<value condition="substring(Listitem.Mpaa,Australia:MA) | substring(Listitem.Mpaa,Australia:TV-MA) | substring(Listitem.Mpaa,Australia:TV-MAV) | substring(Listitem.Mpaa,Australia:TV-AV)">special://skin/extras/images/rating/australia_ma.png</value>
+		<value condition="SubString(Listitem.Mpaa,Australia:MA) | SubString(Listitem.Mpaa,Australia:TV-MA) | SubString(Listitem.Mpaa,Australia:TV-MAV) | SubString(Listitem.Mpaa,Australia:TV-AV)">special://skin/extras/images/rating/australia_ma.png</value>
 		<value condition="StringCompare(Listitem.Mpaa,Australia:M) | StringCompare(Listitem.Mpaa,Australia:TV-M)">special://skin/extras/images/rating/australia_m.png</value>
 		<value condition="StringCompare(Listitem.Mpaa,Australia:PG) | StringCompare(Listitem.Mpaa,Australia:TV-PG)">special://skin/extras/images/rating/australia_pg.png</value>
 		<value condition="StringCompare(Listitem.Mpaa,Australia:R) | StringCompare(Listitem.Mpaa,Australia:TV-R)">special://skin/extras/images/rating/australia_r.png</value>
@@ -47,19 +47,19 @@
 		<value condition="SubString(ListItem.Mpaa,HU-12)">special://skin/extras/images/rating/HU_12.png</value>
 		<value condition="SubString(ListItem.Mpaa,HU-16)">special://skin/extras/images/rating/HU_16.png</value>
 		<value condition="SubString(ListItem.Mpaa,HU-18)">special://skin/extras/images/rating/HU_18.png</value>
-		<value condition="substring(ListItem.Mpaa,TV-Y) + ![substring(ListItem.Mpaa,TV-Y7) | substring(ListItem.Mpaa,TV-Y7-FV)]">special://skin/extras/images/rating/TV-Y.png</value>
-		<value condition="substring(ListItem.Mpaa,TV-Y7) | substring(ListItem.Mpaa,TV-Y7-FV)">special://skin/extras/images/rating/TV-Y7.png</value>
-		<value condition="substring(ListItem.Mpaa,TV-G)">special://skin/extras/images/rating/TV-G.png</value>
-		<value condition="substring(ListItem.Mpaa,TV-PG)">special://skin/extras/images/rating/TV-PG.png</value>
-		<value condition="substring(ListItem.Mpaa,TV-14)">special://skin/extras/images/rating/TV-14.png</value>
-		<value condition="substring(ListItem.Mpaa,TV-MA)">special://skin/extras/images/rating/TV-MA.png</value>
+		<value condition="SubString(ListItem.Mpaa,TV-Y) + ![SubString(ListItem.Mpaa,TV-Y7) | SubString(ListItem.Mpaa,TV-Y7-FV)]">special://skin/extras/images/rating/TV-Y.png</value>
+		<value condition="SubString(ListItem.Mpaa,TV-Y7) | SubString(ListItem.Mpaa,TV-Y7-FV)">special://skin/extras/images/rating/TV-Y7.png</value>
+		<value condition="SubString(ListItem.Mpaa,TV-G)">special://skin/extras/images/rating/TV-G.png</value>
+		<value condition="SubString(ListItem.Mpaa,TV-PG)">special://skin/extras/images/rating/TV-PG.png</value>
+		<value condition="SubString(ListItem.Mpaa,TV-14)">special://skin/extras/images/rating/TV-14.png</value>
+		<value condition="SubString(ListItem.Mpaa,TV-MA)">special://skin/extras/images/rating/TV-MA.png</value>
 	</variable>
 	<variable name="GlobalSearchRating">
-		<value condition="substring(Container(100).ListItem.Property(Mpaa),Rated G) | substring(Container(100).ListItem.Property(Mpaa),Rated: G)">special://skin/extras/images/rating/mpaa_general.png</value>
-		<value condition="[substring(Container(100).ListItem.Property(Mpaa),Rated PG) | substring(Container(100).ListItem.Property(Mpaa),Rated: PG)] + !substring(Container(100).ListItem.Property(Mpaa),Rated PG-13) + !substring(Container(100).ListItem.Property(Mpaa),Rated: PG-13)">special://skin/extras/images/rating/mpaa_pg.png</value>
-		<value condition="substring(Container(100).ListItem.Property(Mpaa),Rated PG-13) | substring(Container(100).ListItem.Property(Mpaa),Rated: PG-13)">special://skin/extras/images/rating/mpaa_pg13.png</value>
-		<value condition="substring(Container(100).ListItem.Property(Mpaa),Rated R) | substring(Container(100).ListItem.Property(Mpaa),Rated: R)">special://skin/extras/images/rating/mpaa_restricted.png</value>
-		<value condition="substring(Container(100).ListItem.Property(Mpaa),Rated NC-17) | substring(Container(100).ListItem.Property(Mpaa),Rated: NC-17)">special://skin/extras/images/rating/mpaa_nc17.png</value>
+		<value condition="SubString(Container(100).ListItem.Property(Mpaa),Rated G) | SubString(Container(100).ListItem.Property(Mpaa),Rated: G)">special://skin/extras/images/rating/mpaa_general.png</value>
+		<value condition="[SubString(Container(100).ListItem.Property(Mpaa),Rated PG) | SubString(Container(100).ListItem.Property(Mpaa),Rated: PG)] + !SubString(Container(100).ListItem.Property(Mpaa),Rated PG-13) + !SubString(Container(100).ListItem.Property(Mpaa),Rated: PG-13)">special://skin/extras/images/rating/mpaa_pg.png</value>
+		<value condition="SubString(Container(100).ListItem.Property(Mpaa),Rated PG-13) | SubString(Container(100).ListItem.Property(Mpaa),Rated: PG-13)">special://skin/extras/images/rating/mpaa_pg13.png</value>
+		<value condition="SubString(Container(100).ListItem.Property(Mpaa),Rated R) | SubString(Container(100).ListItem.Property(Mpaa),Rated: R)">special://skin/extras/images/rating/mpaa_restricted.png</value>
+		<value condition="SubString(Container(100).ListItem.Property(Mpaa),Rated NC-17) | SubString(Container(100).ListItem.Property(Mpaa),Rated: NC-17)">special://skin/extras/images/rating/mpaa_nc17.png</value>
 		<value condition="StringCompare(Container(100).ListItem.Property(Mpaa),UK:U)">special://skin/extras/images/rating/bbfc_u.png</value>
 		<value condition="StringCompare(Container(100).ListItem.Property(Mpaa),UK:UC)">special://skin/extras/images/rating/bbfc_uc.png</value>
 		<value condition="StringCompare(Container(100).ListItem.Property(Mpaa),UK:PG)">special://skin/extras/images/rating/bbfc_pg.png</value>
@@ -68,13 +68,13 @@
 		<value condition="StringCompare(Container(100).ListItem.Property(Mpaa),UK:15)">special://skin/extras/images/rating/bbfc_15.png</value>
 		<value condition="StringCompare(Container(100).ListItem.Property(Mpaa),UK:18)">special://skin/extras/images/rating/bbfc_18.png</value>
 		<value condition="StringCompare(Container(100).ListItem.Property(Mpaa),UK:R18)">special://skin/extras/images/rating/bbfc_R18.png</value>
-		<value condition="substring(Container(100).ListItem.Property(Mpaa),FSK0) | substring(Container(100).ListItem.Property(Mpaa),FSK 0) | substring(ListItem.Mpaa,FSK o.A.)">special://skin/extras/images/rating/FSK-0.png</value>
-		<value condition="substring(Container(100).ListItem.Property(Mpaa),FSK6) | substring(Container(100).ListItem.Property(Mpaa),FSK 6)">special://skin/extras/images/rating/FSK-6.png</value>
-		<value condition="substring(Container(100).ListItem.Property(Mpaa),FSK12) | substring(Container(100).ListItem.Property(Mpaa),FSK 12)">special://skin/extras/images/rating/FSK-12.png</value>
-		<value condition="substring(Container(100).ListItem.Property(Mpaa),FSK16) | substring(Container(100).ListItem.Property(Mpaa),FSK 16)">special://skin/extras/images/rating/FSK-16.png</value>
-		<value condition="substring(Container(100).ListItem.Property(Mpaa),FSK18) | substring(Container(100).ListItem.Property(Mpaa),FSK 18)">special://skin/extras/images/rating/FSK-18.png</value>
+		<value condition="SubString(Container(100).ListItem.Property(Mpaa),FSK0) | SubString(Container(100).ListItem.Property(Mpaa),FSK 0) | SubString(ListItem.Mpaa,FSK o.A.)">special://skin/extras/images/rating/FSK-0.png</value>
+		<value condition="SubString(Container(100).ListItem.Property(Mpaa),FSK6) | SubString(Container(100).ListItem.Property(Mpaa),FSK 6)">special://skin/extras/images/rating/FSK-6.png</value>
+		<value condition="SubString(Container(100).ListItem.Property(Mpaa),FSK12) | SubString(Container(100).ListItem.Property(Mpaa),FSK 12)">special://skin/extras/images/rating/FSK-12.png</value>
+		<value condition="SubString(Container(100).ListItem.Property(Mpaa),FSK16) | SubString(Container(100).ListItem.Property(Mpaa),FSK 16)">special://skin/extras/images/rating/FSK-16.png</value>
+		<value condition="SubString(Container(100).ListItem.Property(Mpaa),FSK18) | SubString(Container(100).ListItem.Property(Mpaa),FSK 18)">special://skin/extras/images/rating/FSK-18.png</value>
 		<value condition="StringCompare(Container(100).Listitem.Property(Mpaa),Australia:G) | StringCompare(Container(100).Listitem.Property(Mpaa),Australia:TV-G) | StringCompare(Container(100).Listitem.Property(Mpaa),Australia:TV-C) | StringCompare(Container(100).Listitem.Property(Mpaa),Australia:TV-P)">special://skin/extras/images/rating/australia_g.png</value>
-		<value condition="substring(Container(100).Listitem.Property(Mpaa),Australia:MA) | substring(Container(100).Listitem.Property(Mpaa),Australia:TV-MA) | substring(Container(100).Listitem.Property(Mpaa),Australia:TV-MAV) | substring(Container(100).Listitem.Property(Mpaa),Australia:TV-AV)">special://skin/extras/images/rating/australia_ma.png</value>
+		<value condition="SubString(Container(100).Listitem.Property(Mpaa),Australia:MA) | SubString(Container(100).Listitem.Property(Mpaa),Australia:TV-MA) | SubString(Container(100).Listitem.Property(Mpaa),Australia:TV-MAV) | SubString(Container(100).Listitem.Property(Mpaa),Australia:TV-AV)">special://skin/extras/images/rating/australia_ma.png</value>
 		<value condition="StringCompare(Container(100).Listitem.Property(Mpaa),Australia:M) | StringCompare(Container(100).Listitem.Property(Mpaa),Australia:TV-M)">special://skin/extras/images/rating/australia_m.png</value>
 		<value condition="StringCompare(Container(100).Listitem.Property(Mpaa),Australia:PG) | StringCompare(Container(100).Listitem.Property(Mpaa),Australia:TV-PG)">special://skin/extras/images/rating/australia_pg.png</value>
 		<value condition="StringCompare(Container(100).Listitem.Property(Mpaa),Australia:R) | StringCompare(Container(100).Listitem.Property(Mpaa),Australia:TV-R)">special://skin/extras/images/rating/australia_r.png</value>
@@ -89,27 +89,27 @@
 		<value condition="SubString(Container(100).ListItem.Property(Mpaa),HU-12)">special://skin/extras/images/rating/HU_12.png</value>
 		<value condition="SubString(Container(100).ListItem.Property(Mpaa),HU-16)">special://skin/extras/images/rating/HU_16.png</value>
 		<value condition="SubString(Container(100).ListItem.Property(Mpaa),HU-18)">special://skin/extras/images/rating/HU_18.png</value>
-		<value condition="substring(Container(100).ListItem.Property(Mpaa),TV-Y) + ![substring(Container(100).ListItem.Property(Mpaa),TV-Y7) | substring(ListItem.Mpaa,TV-Y7-FV)]">special://skin/extras/images/rating/TV-Y.png</value>
-		<value condition="substring(Container(100).ListItem.Property(Mpaa),TV-Y7) | substring(Container(100).ListItem.Property(Mpaa),TV-Y7-FV)">special://skin/extras/images/rating/TV-Y7.png</value>
-		<value condition="substring(Container(100).ListItem.Property(Mpaa),TV-G)">special://skin/extras/images/rating/TV-G.png</value>
-		<value condition="substring(Container(100).ListItem.Property(Mpaa),TV-PG)">special://skin/extras/images/rating/TV-PG.png</value>
-		<value condition="substring(Container(100).ListItem.Property(Mpaa),TV-14)">special://skin/extras/images/rating/TV-14.png</value>
-		<value condition="substring(Container(100).ListItem.Property(Mpaa),TV-MA)">special://skin/extras/images/rating/TV-MA.png</value>
+		<value condition="SubString(Container(100).ListItem.Property(Mpaa),TV-Y) + ![SubString(Container(100).ListItem.Property(Mpaa),TV-Y7) | SubString(ListItem.Mpaa,TV-Y7-FV)]">special://skin/extras/images/rating/TV-Y.png</value>
+		<value condition="SubString(Container(100).ListItem.Property(Mpaa),TV-Y7) | SubString(Container(100).ListItem.Property(Mpaa),TV-Y7-FV)">special://skin/extras/images/rating/TV-Y7.png</value>
+		<value condition="SubString(Container(100).ListItem.Property(Mpaa),TV-G)">special://skin/extras/images/rating/TV-G.png</value>
+		<value condition="SubString(Container(100).ListItem.Property(Mpaa),TV-PG)">special://skin/extras/images/rating/TV-PG.png</value>
+		<value condition="SubString(Container(100).ListItem.Property(Mpaa),TV-14)">special://skin/extras/images/rating/TV-14.png</value>
+		<value condition="SubString(Container(100).ListItem.Property(Mpaa),TV-MA)">special://skin/extras/images/rating/TV-MA.png</value>
 	</variable>
 	<variable name="MediaRating">
-		<value condition="substring(ListItem.StarRating,5)">rating5.png</value>
-		<value condition="substring(ListItem.StarRating,4)">rating4.png</value>
-		<value condition="substring(ListItem.StarRating,3)">rating3.png</value>
-		<value condition="substring(ListItem.StarRating,2)">rating2.png</value>
-		<value condition="substring(ListItem.StarRating,1)">rating1.png</value>
+		<value condition="SubString(ListItem.StarRating,5)">rating5.png</value>
+		<value condition="SubString(ListItem.StarRating,4)">rating4.png</value>
+		<value condition="SubString(ListItem.StarRating,3)">rating3.png</value>
+		<value condition="SubString(ListItem.StarRating,2)">rating2.png</value>
+		<value condition="SubString(ListItem.StarRating,1)">rating1.png</value>
 		<value>blank.png</value>
 	</variable>
 	<variable name="MediaRatingCentered">
-		<value condition="substring(ListItem.StarRating,5)">rating5-center.png</value>
-		<value condition="substring(ListItem.StarRating,4)">rating4-center.png</value>
-		<value condition="substring(ListItem.StarRating,3)">rating3-center.png</value>
-		<value condition="substring(ListItem.StarRating,2)">rating2-center.png</value>
-		<value condition="substring(ListItem.StarRating,1)">rating1-center.png</value>
+		<value condition="SubString(ListItem.StarRating,5)">rating5-center.png</value>
+		<value condition="SubString(ListItem.StarRating,4)">rating4-center.png</value>
+		<value condition="SubString(ListItem.StarRating,3)">rating3-center.png</value>
+		<value condition="SubString(ListItem.StarRating,2)">rating2-center.png</value>
+		<value condition="SubString(ListItem.StarRating,1)">rating1-center.png</value>
 		<value>blank.png</value>
 	</variable>
 	<variable name="VideoInfoIcons">
@@ -142,11 +142,6 @@
 	<variable name="ListDynamicContent">
 		<value condition="Container.Content(movies)">videodb://recentlyaddedmovies/</value >
 		<value condition="Container.Content(tvshows)">videodb://recentlyaddedepisodes/</value >
-	</variable>
-	<variable name="VideoDuration">
-		<value condition="System.HasAddon(script.duration) + !substring(Window.Property(Duration),0h,left)">$INFO[Window.Property(Duration)]</value>
-		<value condition="System.HasAddon(script.duration)">$INFO[ListItem.Duration] $LOCALIZE[12391]</value>
-		<value>$INFO[ListItem.Duration] $LOCALIZE[12391]</value>
 	</variable>
 	<variable name="PlayerControlRepeatImage">
 		<value condition="Playlist.IsRepeatOne + Control.HasFocus(912)">osd-btn-repeatone-focus.png</value>
@@ -849,4 +844,13 @@
 		<value condition="Control.HasFocus(805)">$LOCALIZE[31372]</value>
 		<value condition="Control.HasFocus(806)">$LOCALIZE[31373]</value>
 	</variable>
+	<variable name="VideoDuration">
+		<value condition="[System.HasAddon(script.duration)] + [!SubString(Window(Home).Property(Duration),0h)]">$INFO[Window(Home).Property(Duration)]</value>
+		<value>$INFO[ListItem.Duration] $LOCALIZE[12391]</value>
+	</variable>
+			<value condition="!IsEmpty(Window(home).Property(SkinHelper.MovieSet.Duration))">$INFO[Window(home).Property(SkinHelper.MovieSet.Duration)]$INFO[Window(home).Property(SkinHelper.MovieSet.Runtime), (, $LOCALIZE[12391])]</value>
+        <value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItemDuration)) + !SubString(ListItem.Duration,$LOCALIZE[12391]) + !SubString(ListItem.Duration,:)">$INFO[Window(home).Property(SkinHelper.ListItemDuration)]$INFO[ListItem.Duration, (, $LOCALIZE[12391])]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItemDuration)) + SubString(ListItem.Duration,$LOCALIZE[12391]) + !SubString(ListItem.Duration,:)">$INFO[Window(home).Property(SkinHelper.ListItemDuration)]$INFO[ListItem.Duration, (,)]</value>
+        <value condition="!IsEmpty(ListItem.Duration) + !SubString(ListItem.Duration,$LOCALIZE[12391]) + !SubString(ListItem.Duration,:)">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>
+		<value condition="!IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration]$LOCALIZE[12391]</value>
 </includes>
