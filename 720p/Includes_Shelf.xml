@@ -63,7 +63,7 @@
 	</include>
 
 	<include name="movie-shelficons">
-		<animation effect="slide" end="260,0" condition="Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]">Conditional</animation>
+		<animation effect="slide" end="210,0" condition="!Container(9160).Position(5) + Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]">Conditional</animation>
 		<control type="group">
 			<control type="label"><!-- Movie shelf icons label -->
 				<left>35</left>
@@ -258,7 +258,7 @@
 		</control>
 	</include>
 	<include name="tvshow-shelficons">
-		<animation effect="slide" end="260,0" condition="Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]">Conditional</animation>
+		<animation effect="slide" end="260,0" condition="!Container(9210).Position(4) + Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]">Conditional</animation>
 		<control type="group">
 			<control type="label"><!-- TV Episodes shelf icons label -->
 				<left>55</left>
@@ -507,7 +507,7 @@
 	</include>
 
 	<include name="music-shelficons">
-		<animation effect="slide" end="260,0" condition="Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]">Conditional</animation>
+		<animation effect="slide" end="210,0" condition="!Container(9260).Position(5) + Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]">Conditional</animation>
 		<control type="group">
 			<control type="label"><!-- Album shelf icon label-->
 				<left>40</left>
@@ -631,7 +631,7 @@
 	</include>
 
 	<include name="addons-shelficons">
-		<animation effect="slide" end="260,0" condition="Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]">Conditional</animation>
+		<animation effect="slide" end="210,0" condition="Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]">Conditional</animation>
 		<control type="group">
 			<control type="label"><!-- Addon shelf icon label-->
 				<left>55</left>
@@ -729,7 +729,7 @@
 	</include>
 
 	<include name="ShelfWeather">
-		<animation effect="slide" end="260,0" condition="Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]">Conditional</animation>
+		<animation effect="slide" end="210,0" condition="Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]">Conditional</animation>
 		<control type="group">
 			<control type="group">
 				<left>10</left>
@@ -1058,76 +1058,78 @@
 	</include>
 
 	<include name="shelf-nowplaying">
-		<control type="label"><!-- Now playing -->
-			<left>5</left>
-			<top>12</top>
-			<width>250</width>
-			<height>25</height>
-			<label>$LOCALIZE[31037]</label>
-			<font>font11</font>
-			<align>center</align>
-			<visible>Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]</visible>
-		</control>
-		<control type="group"><!-- Video Stuff -->
-			<visible>Skin.HasSetting(media-overlay) + Player.HasVideo + !VideoPlayer.Content(livetv) + !Skin.HasSetting(background-playingmedia)</visible>
-			<control type="image"><!-- Video cover image -->
-				<left>55</left>
-				<top>46</top>
-				<width>150</width>
-				<height>194</height>
-				<texture diffuse="mask-rect.png" background="true">$VAR[PlayerVideoCover]</texture>
-				<aspectratio scalediffuse="false">stretch</aspectratio>
-			</control>
-			<control type="image">
-				<left>55</left>
-				<top>241</top>
-				<width>150</width>
-				<height>194</height>
-				<texture diffuse="mask-fade.png" background="true" flipy="true">$VAR[PlayerVideoCover]</texture>
-				<aspectratio scalediffuse="false">stretch</aspectratio>
-			</control>
-			<control type="textbox">
-				<left>5</left>
-				<top>238</top>
-				<height>48</height>
-				<width>250</width>
-				<font>font10</font>
+		<control type="group">
+		<visible>!Container(9160).Position(5) + !Container(9210).Position(4) + !Container(9260).Position(5) + Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]</visible>
+			<control type="label"><!-- Now playing -->
+				<left>10</left>
+				<top>12</top>
+				<width>210</width>
+				<height>25</height>
+				<label>$LOCALIZE[31037]</label>
+				<font>font11</font>
 				<align>center</align>
-				<aligny>top</aligny>
-				<label>$INFO[VideoPlayer.Title]</label>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
-		</control>
-		<control type="group"><!-- Audio Stuff -->
-			<visible>Skin.HasSetting(media-overlay) + Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
-			<control type="image">
-				<left>40</left>
-				<top>56</top>
-				<width>180</width>
-				<height>180</height>
-				<aspectratio scalediffuse="false">stretch</aspectratio>
-				<aligny>top</aligny>
-				<texture diffuse="mask-squ.png" background="true" fallback="DefaultAudio.png">$INFO[MusicPlayer.Cover]</texture>
+			<control type="group"><!-- Video Stuff -->
+				<visible>Player.HasVideo + !VideoPlayer.Content(livetv) + !Skin.HasSetting(background-playingmedia)</visible>
+				<control type="image"><!-- Video cover image -->
+					<left>40</left>
+					<top>46</top>
+					<width>150</width>
+					<height>194</height>
+					<texture diffuse="mask-rect.png" background="true">$VAR[PlayerVideoCover]</texture>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+				</control>
+				<control type="image">
+					<left>40</left>
+					<top>241</top>
+					<width>150</width>
+					<height>194</height>
+					<texture diffuse="mask-fade.png" background="true" flipy="true">$VAR[PlayerVideoCover]</texture>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+				</control>
+				<control type="textbox">
+					<left>10</left>
+					<top>238</top>
+					<height>48</height>
+					<width>210</width>
+					<font>font10</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<label>$INFO[VideoPlayer.Title]</label>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
 			</control>
-			<control type="image">
-				<left>40</left>
-				<top>236</top>
-				<width>180</width>
-				<height>180</height>
-				<aspectratio scalediffuse="false">stretch</aspectratio>
-				<aligny>top</aligny>
-				<texture diffuse="mask-fade.png" background="true" fallback="DefaultAudio.png" flipy="true">$INFO[MusicPlayer.Cover]</texture>
-			</control>
-			<control type="textbox">
-				<left>5</left>
-				<top>238</top>
-				<height>48</height>
-				<width>250</width>
-				<font>font10</font>
-				<align>center</align>
-				<aligny>top</aligny>
-				<label>$INFO[MusicPlayer.Title]</label>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+			<control type="group"><!-- Audio Stuff -->
+				<visible>Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
+				<control type="image">
+					<left>25</left>
+					<top>56</top>
+					<width>180</width>
+					<height>180</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<aligny>top</aligny>
+					<texture diffuse="mask-squ.png" background="true" fallback="DefaultAudio.png">$INFO[MusicPlayer.Cover]</texture>
+				</control>
+				<control type="image">
+					<left>25</left>
+					<top>236</top>
+					<width>180</width>
+					<height>180</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<aligny>top</aligny>
+					<texture diffuse="mask-fade.png" background="true" fallback="DefaultAudio.png" flipy="true">$INFO[MusicPlayer.Cover]</texture>
+				</control>
+				<control type="textbox">
+					<left>10</left>
+					<top>238</top>
+					<height>48</height>
+					<width>210</width>
+					<font>font10</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<label>$INFO[MusicPlayer.Title]</label>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
 			</control>
 		</control>
 	</include>
