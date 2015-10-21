@@ -580,7 +580,7 @@
 			<label>$LOCALIZE[206]</label>
 			<font>font11</font>
 			<align>right</align>
-			<visible>substring(Control.GetLabel(5),$LOCALIZE[207])</visible>
+			<visible>SubString(Control.GetLabel(5),$LOCALIZE[207])</visible>
 		</control>
 		<control type="label">
 			<left>20</left>
@@ -590,7 +590,7 @@
 			<label>$LOCALIZE[31955]</label>
 			<font>font10</font>
 			<align>right</align>
-			<visible>!substring(Control.GetLabel(5),$LOCALIZE[207]) + ![IsEmpty(Container(950).ListItem.Label)]</visible><!-- Not showing Cast and recommended video list has something to show -->
+			<visible>!SubString(Control.GetLabel(5),$LOCALIZE[207]) + ![IsEmpty(Container(950).ListItem.Label)]</visible><!-- Not showing Cast and recommended video list has something to show -->
 		</control>
 		<control type="image">
 			<left>340</left>
@@ -693,7 +693,7 @@
 			</control>
 		</control>
 		<control type="list" id="950">
-			<visible>!substring(Control.GetLabel(5),$LOCALIZE[207])</visible>
+			<visible>!SubString(Control.GetLabel(5),$LOCALIZE[207])</visible>
 			<left>10</left>
 			<top>508</top>
 			<width>1260</width>

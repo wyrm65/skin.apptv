@@ -184,7 +184,7 @@
 							<align>center</align>
 							<font>font18</font>
 							<label>$INFO[Container(100).ListItem.Property(Duration)]</label>
-							<visible>substring(Container(100).ListItem.Property(Duration),hrs)</visible>
+							<visible>SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
 							<left>730</left>
@@ -194,7 +194,7 @@
 							<align>center</align>
 							<font>font18</font>
 							<label>$INFO[Container(100).ListItem.Property(Duration)]</label>
-							<visible>substring(Container(100).ListItem.Property(Duration),min) + !substring(Container(100).ListItem.Property(Duration),hrs)</visible>
+							<visible>SubString(Container(100).ListItem.Property(Duration),min) + !SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
 							<left>730</left>
@@ -204,7 +204,7 @@
 							<align>center</align>
 							<font>font18</font>
 							<label>$INFO[Container(100).ListItem.Property(Duration),, mins]</label>
-							<visible>!substring(Container(100).ListItem.Property(Duration),min)</visible>
+							<visible>!SubString(Container(100).ListItem.Property(Duration),min)</visible>
 						</control>
 					</control>
 					<control type="label"><!-- Year -->
@@ -618,7 +618,7 @@
 							<height>62</height>
 							<font>font18</font>
 							<label>$INFO[Container(100).ListItem.Property(Duration)]</label>
-							<visible>substring(Container(100).ListItem.Property(Duration),hrs)</visible>
+							<visible>SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
 							<left>769</left>
@@ -627,7 +627,7 @@
 							<height>62</height>
 							<font>font18</font>
 							<label>$INFO[Container(100).ListItem.Property(Duration)]</label>
-							<visible>substring(Container(100).ListItem.Property(Duration),min) + !substring(Container(100).ListItem.Property(Duration),hrs)</visible>
+							<visible>SubString(Container(100).ListItem.Property(Duration),min) + !SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
 							<left>769</left>
@@ -636,7 +636,7 @@
 							<height>62</height>
 							<font>font18</font>
 							<label>$INFO[Container(100).ListItem.Property(Duration),, mins]</label>
-							<visible>!substring(Container(100).ListItem.Property(Duration),min)</visible>
+							<visible>!SubString(Container(100).ListItem.Property(Duration),min)</visible>
 						</control>
 					</control>
 					<control type="label"><!-- Plot -->
@@ -800,7 +800,7 @@
 							<height>62</height>
 							<font>font18</font>
 							<label>$INFO[Container(100).ListItem.Property(Duration)]</label>
-							<visible>substring(Container(100).ListItem.Property(Duration),hrs)</visible>
+							<visible>SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
 							<left>769</left>
@@ -809,7 +809,7 @@
 							<height>62</height>
 							<font>font18</font>
 							<label>$INFO[Container(100).ListItem.Property(Duration)]</label>
-							<visible>substring(Container(100).ListItem.Property(Duration),min) + !substring(Container(100).ListItem.Property(Duration),hrs)</visible>
+							<visible>SubString(Container(100).ListItem.Property(Duration),min) + !SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
 							<left>769</left>
@@ -818,7 +818,7 @@
 							<height>62</height>
 							<font>font18</font>
 							<label>$INFO[Container(100).ListItem.Property(Duration),, mins]</label>
-							<visible>!substring(Container(100).ListItem.Property(Duration),min)</visible>
+							<visible>!SubString(Container(100).ListItem.Property(Duration),min)</visible>
 						</control>
 					</control>
 
