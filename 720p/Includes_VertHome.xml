@@ -446,6 +446,7 @@
 				<item>
 					<thumb>icon-power.png</thumb>
 					<label>$LOCALIZE[13009]</label>
+					<onclick condition="!StringCompare(Skin.String(home-quitaction),$LOCALIZE[31558])">SetProperty(ShutdownKodi,true,Home)</onclick>
 					<onclick>$VAR[QuitAction]</onclick>
 					<visible>!Skin.HasSetting(home-shutdown)</visible>
 				</item>

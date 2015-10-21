@@ -1609,6 +1609,7 @@
 							<visible>!Skin.HasSetting(home-shutdown)</visible>
 							<label>$LOCALIZE[13009]</label>
 							<label2>$LOCALIZE[13000]</label2>
+							<onclick condition="!StringCompare(Skin.String(home-quitaction),$LOCALIZE[31558])">SetProperty(ShutdownKodi,true,Home)</onclick>
 							<onclick>$VAR[QuitAction]</onclick>
 						</item>
 					</content>

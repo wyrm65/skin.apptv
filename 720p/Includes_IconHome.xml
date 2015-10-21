@@ -603,6 +603,7 @@
 					<thumb>special://skin/extras/homeicons/quit.png</thumb>
 					<label>$LOCALIZE[13009]</label>
 					<label2>$LOCALIZE[571]</label2>
+					<onclick condition="!StringCompare(Skin.String(home-quitaction),$LOCALIZE[31558])">SetProperty(ShutdownKodi,true,Home)</onclick>
 					<onclick>$VAR[QuitAction]</onclick>
 				</item>
 			</content>
