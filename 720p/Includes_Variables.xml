@@ -845,12 +845,7 @@
 		<value condition="Control.HasFocus(806)">$LOCALIZE[31373]</value>
 	</variable>
 	<variable name="VideoDuration">
-		<value condition="[System.HasAddon(script.duration)] + [!SubString(Window(Home).Property(Duration),0h)]">$INFO[Window(Home).Property(Duration)]</value>
+		<value condition="!IsEmpty(Window(Home).Property(SkinHelper.ListItemDuration)) + !StringCompare(Window(Home).Property(SkinHelper.ListItemDuration.Hours),0)">$INFO[Window(Home).Property(SkinHelper.ListItemDuration.Hours)]h$INFO[Window(Home).Property(SkinHelper.ListItemDuration.Minutes)]m</value>
 		<value>$INFO[ListItem.Duration] $LOCALIZE[12391]</value>
 	</variable>
-			<value condition="!IsEmpty(Window(home).Property(SkinHelper.MovieSet.Duration))">$INFO[Window(home).Property(SkinHelper.MovieSet.Duration)]$INFO[Window(home).Property(SkinHelper.MovieSet.Runtime), (, $LOCALIZE[12391])]</value>
-        <value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItemDuration)) + !SubString(ListItem.Duration,$LOCALIZE[12391]) + !SubString(ListItem.Duration,:)">$INFO[Window(home).Property(SkinHelper.ListItemDuration)]$INFO[ListItem.Duration, (, $LOCALIZE[12391])]</value>
-		<value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItemDuration)) + SubString(ListItem.Duration,$LOCALIZE[12391]) + !SubString(ListItem.Duration,:)">$INFO[Window(home).Property(SkinHelper.ListItemDuration)]$INFO[ListItem.Duration, (,)]</value>
-        <value condition="!IsEmpty(ListItem.Duration) + !SubString(ListItem.Duration,$LOCALIZE[12391]) + !SubString(ListItem.Duration,:)">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>
-		<value condition="!IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration]$LOCALIZE[12391]</value>
 </includes>
