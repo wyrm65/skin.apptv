@@ -3,8 +3,6 @@
 	<defaultcontrol always="true">999</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<onload condition="System.HasAddon(script.videoextras)">RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
-	<onload condition="System.HasAddon(script.duration)">RunScript(script.duration,duration=$INFO[ListItem.Duration])</onload>
-	<include>screen-fade</include>
 	<controls>
 		<control type="image"><!-- Use a black background until background image has finished loading -->
 			<include>fullscreenimage</include>
@@ -204,7 +202,7 @@
 				<height>20</height>
 				<font>font10</font>
 				<label>$LOCALIZE[31133] $VAR[VideoDuration]</label>
-				<visible>!IsEmpty(listitem.Duration)</visible>
+				<visible>!IsEmpty(Listitem.Duration)</visible>
 			</control>
 			<control type="label"><!-- Premiered -->
 				<left>340</left>
