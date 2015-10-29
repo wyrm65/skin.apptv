@@ -163,7 +163,16 @@
 					<height>230</height>
 					<aspectratio scalediffuse="true">keep</aspectratio>
 					<texture background="true" fallback="DefaultTvshows.png" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-					<visible>Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
+					<visible>Container.Content(seasons) | Container.Content(episodes)</visible>
+				</control>
+				<control type="image">
+					<left>55</left>
+					<top>80</top>
+					<width>230</width>
+					<height>230</height>
+					<aspectratio scalediffuse="true">keep</aspectratio>
+					<texture background="true" fallback="DefaultMusicVideos.png" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+					<visible>Container.Content(musicvideos)</visible>
 				</control>
 			</control>
 			<control type="label"><!-- Details heading -->
@@ -434,17 +443,16 @@
 				<alttexturefocus>button-info-play-focus.png</alttexturefocus>
 				<alttexturenofocus>button-info-play.png</alttexturenofocus>
 				<usealttexture>Container.Content(tvshows)</usealttexture>
-				<visible>[!System.HasAddon(script.cinema.experience) + Container.Content(movies)] | [Container.Content(episodes) | Container.Content(TVShows) | Container.Content(musicvideos)]</visible>
+				<visible>!System.HasAddon(script.cinema.experience) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(TVShows) | Container.Content(musicvideos)]</visible>
 			</control>
 			<control type="button" id="18"><!-- Home cinema button -->
 				<include>videoinfo-options-common</include>
 				<label>$LOCALIZE[31692]</label>
 				<texturefocus>button-info-play-focus.png</texturefocus>
 				<texturenofocus>button-info-play.png</texturenofocus>
-				<onclick>Playlist.Clear</onclick>
 				<onclick>Dialog.Close(MovieInformation)</onclick>
-				<onclick>RunScript(script.cinema.experience)</onclick>
-				<visible>System.HasAddon(script.cinema.experience) + Container.Content(movies)</visible>
+				<onclick>RunScript(script.cinemavision,experience)</onclick>
+				<visible>System.HasAddon(script.cinemavision) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(TVShows) | Container.Content(musicvideos)]</visible>
 			</control>
 			<control type="button" id="11"><!-- Trailer button -->
 				<include>videoinfo-options-common</include>
@@ -585,7 +593,7 @@
 			<top>488</top>
 			<height>20</height>
 			<width>300</width>
-			<label>$LOCALIZE[31955]</label>
+			<label>$LOCALIZE[31691]</label>
 			<font>font10</font>
 			<align>right</align>
 			<visible>!SubString(Control.GetLabel(5),$LOCALIZE[207]) + ![IsEmpty(Container(950).ListItem.Label)]</visible><!-- Not showing Cast and recommended video list has something to show -->
@@ -717,7 +725,7 @@
 					<width>114</width>
 					<height>150</height>
 					<aspectratio scalediffuse="true">keep</aspectratio>
-					<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+					<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Thumb]</texture>
 					<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
 				</control>
 			</itemlayout>
@@ -739,7 +747,7 @@
 						<width>114</width>
 						<height>150</height>
 						<aspectratio scalediffuse="true">keep</aspectratio>
-						<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+						<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Thumb]</texture>
 						<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
 					</control>
 				</control>
@@ -762,7 +770,7 @@
 						<width>130</width>
 						<height>166</height>
 						<aspectratio scalediffuse="true">keep</aspectratio>
-						<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+						<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Thumb]</texture>
 						<bordertexture border="8">mask-hilite2.png</bordertexture>
 						<bordersize>8</bordersize>
 						<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
@@ -780,7 +788,7 @@
 					<visible>Control.HasFocus(950)</visible>
 				</control>
 			</focusedlayout>
-			<content target="video">$VAR[VideoInfoIcons]</content>
+			<content target="video" limit="12">$VAR[VideoInfoIcons]</content>
 		</control>
 		<control type="group"><!-- Markers for control area items -->
 			<control type="image">
