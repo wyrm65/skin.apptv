@@ -227,9 +227,9 @@
 				</control>
 				<control type="image"><!-- Rating -->
 					<left>160</left>
-					<top>600</top>
+					<top>603</top>
 					<width>150</width>
-					<height>25</height>
+					<height>19</height>
 					<texture>$VAR[MediaRating]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
@@ -410,10 +410,11 @@
 			</control>
 			<control type="image"><!-- Star Rating -->
 				<left>26</left>
-				<top>687</top>
+				<top>650</top>
 				<width>177</width>
-				<height>25</height>
+				<height>22</height>
 				<texture>$VAR[MediaRating]</texture>
+				<aspectratio>keep</aspectratio>
 				<visible>!SubString(ListItem.Icon,Default,Left) + !IsEmpty(ListItem.StarRating)</visible>
 			</control>
 			<control type="label"><!-- Genre -->
@@ -802,11 +803,12 @@
 					<visible>!Container.Content(genres)</visible>
 				</control>
 				<control type="image"><!-- Star Rating -->
-					<left>35</left>
-					<top>681</top>
+					<left>18</left>
+					<top>630</top>
 					<width>177</width>
-					<height>25</height>
+					<height>22</height>
 					<texture>$VAR[MediaRating]</texture>
+					<aspectratio>keep</aspectratio>
 					<visible>!IsEmpty(ListItem.StarRating)</visible>
 				</control>
 			</control>
@@ -946,8 +948,9 @@
 				</control>
 				<control type="image"><!-- Star Rating -->
 					<width>177</width>
-					<height>25</height>
+					<height>22</height>
 					<texture>$VAR[MediaRating]</texture>
+					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="image"><!-- dummy blank space -->
 					<width>10</width>

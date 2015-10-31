@@ -500,11 +500,12 @@
 					<visible>!IsEmpty(ListItem.Title)</visible>
 					<control type="image"><!-- Star Rating -->
 						<left>17</left>
-						<top>268</top>
+						<top>270</top>
 						<width>177</width>
-						<height>25</height>
+						<height>22</height>
 						<texture>$VAR[MediaRating]</texture>
 						<colordiffuse>StarDiffuse</colordiffuse>
+						<aspectratio>keep</aspectratio>
 						<visible>!IsEmpty(ListItem.StarRating)</visible>
 					</control>
 					<control type="label"><!-- Number of unwatched episodes -->
@@ -596,7 +597,7 @@
 				<orientation>horizontal</orientation>
 				<itemlayout height="10" width="10"></itemlayout>
 				<focusedlayout height="10" width="10"></focusedlayout>
-				<content limit="20">$VAR[ListDynamicContent]</content>
+				<content limit="12">$VAR[ListDynamicContent]</content>
 			</control>
 			<control type="group" id="951">
 				<visible>Control.IsVisible(950)</visible>
@@ -1232,6 +1233,7 @@
 					<height>25</height>
 					<texture>$VAR[MediaRating]</texture>
 					<colordiffuse>StarDiffuse</colordiffuse>
+					<aspectratio>keep</aspectratio>
 					<visible>!IsEmpty(ListItem.StarRating)</visible>
 				</control>
 				<control type="image"><!-- MPAA Rating -->
@@ -1643,6 +1645,7 @@
 					<texture>$VAR[MediaRatingCentered]</texture>
 					<align>center</align>
 					<colordiffuse>StarDiffuse</colordiffuse>
+					<aspectratio>keep</aspectratio>
 					<visible>!IsEmpty(ListItem.StarRating)</visible>
 				</control>
 				<control type="label"><!-- Duration -->
@@ -1923,12 +1926,13 @@
 				</control>
 				<control type="image"><!-- Star Rating -->
 					<left>300</left>
-					<top>292</top>
+					<top>294</top>
 					<width>177</width>
-					<height>25</height>
+					<height>22</height>
 					<texture>$VAR[MediaRating]</texture>
 					<align>right</align>
 					<colordiffuse>StarDiffuse</colordiffuse>
+					<aspectratio>keep</aspectratio>
 					<visible>!IsEmpty(ListItem.StarRating)</visible>
 				</control>
 				<control type="textbox"><!-- Plot Outline -->
