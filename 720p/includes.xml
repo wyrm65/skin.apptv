@@ -266,94 +266,6 @@
 		</control>
 	</include>
 
-	<include name="home-mediaoverlay">
-		<control type="group" id="9950">
-			<visible>Skin.HasSetting(media-overlay) + !Window.IsActive(playercontrols)</visible>
-			<control type="group" id="9960"><!-- media infos (music) -->
-				<visible>Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
-				<control type="image">
-					<left>30</left>
-					<top>616</top>
-					<width>96</width>
-					<height>96</height>
-					<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$INFO[MusicPlayer.Cover]</texture>
-					<aspectratio scalediffuse="false">keep</aspectratio>
-				</control>
-				<control type="label"><!-- Artist -->
-					<left>162</left>
-					<top>616</top>
-					<width>520</width>
-					<height>22</height>
-					<label>$INFO[MusicPlayer.Artist]</label>
-					<font>font11</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				</control>
-				<control type="label"><!-- Album -->
-					<left>162</left>
-					<top>640</top>
-					<width>520</width>
-					<height>22</height>
-					<label>$INFO[MusicPlayer.Album]</label>
-					<font>font11</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				</control>
-				<control type="label"><!-- Song Title -->
-					<left>162</left>
-					<top>664</top>
-					<width>520</width>
-					<height>22</height>
-					<label>$INFO[MusicPlayer.Title]</label>
-					<font>font11</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				</control>
-				<control type="label"><!-- Time and duration -->
-					<left>162</left>
-					<top>688</top>
-					<width>520</width>
-					<height>22</height>
-					<label>$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ]</label>
-					<font>font11</font>
-				</control>
-			</control>
-			<control type="group" id="9970"><!-- media infos (video) -->
-				<visible>Player.HasVideo</visible>
-				<control type="videowindow">
-					<left>33</left>
-					<top>616</top>
-					<width>168</width>
-					<height>100</height>
-				</control>
-				<control type="label"><!-- Now playing -->
-					<left>234</left>
-					<top>624</top>
-					<width>280</width>
-					<height>23</height>
-					<label>$LOCALIZE[13350]</label>
-					<font>font12</font>
-					<textcolor>listselected-text</textcolor>
-				</control>
-				<control type="label"><!-- Video title -->
-					<left>234</left>
-					<top>656</top>
-					<width>520</width>
-					<height>23</height>
-					<label>$INFO[VideoPlayer.Title]</label>
-					<font>font12</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				</control>
-				<control type="label"><!-- Time and duration -->
-					<left>234</left>
-					<top>688</top>
-					<width>280</width>
-					<height>23</height>
-					<label>$INFO[VideoPlayer.Time]$INFO[VideoPlayer.Duration, / ]</label>
-					<font>font12</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				</control>
-			</control>
-		</control>
-	</include>
-
 	<include name="page-info">
 		<control type="group">
 			<visible>!System.ScreenSaverActive</visible>
@@ -462,9 +374,9 @@
 			<control type="image">
 				<left>24</left>
 				<top>2</top>
-				<width>110</width>
-				<height>110</height>
-				<texture background="true" fallback="DefaultAudio.png">$INFO[MusicPlayer.Cover]</texture>
+				<width>100</width>
+				<height>100</height>
+				<texture background="true" fallback="DefaultAudio.png">$VAR[PlayerMusicCover]</texture>
 				<aspectratio>keep</aspectratio>
 			</control>
 			<control type="label">
