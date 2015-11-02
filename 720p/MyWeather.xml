@@ -128,16 +128,18 @@
 			</control>
 		</control>
 
-		<include file="Includes_Weather.xml">weather</include>
+		<include file="Includes_Weather.xml">standardweather</include>
+		<include condition="SubString(Weather.plugin,weather.ozweather)" file="Includes_Weather.xml">ozweather</include>
+		<include condition="SubString(Weather.plugin,weather.openweathermap.extended)" file="Includes_Weather.xml">openweatherextended</include>
 
 		<control type="label"><!-- Update label -->
-			<left>624</left>
+			<left>900</left>
 			<top>685</top>
-			<width>636</width>
+			<width>370</width>
 			<height>25</height>
 			<font>font10</font>
 			<align>right</align>
-			<label>$LOCALIZE[31531] - $INFO[Window(Weather).Property(Updated)]</label>
+			<label>$LOCALIZE[31531] $INFO[Window(Weather).Property(Updated)]</label>
 		</control>
 
 		<control type="group"><!-- Screen-settings Menu -->
@@ -193,16 +195,6 @@
 					<label>$LOCALIZE[31562] $INFO[Skin.String(weather-view)]</label>
 					<onclick>$VAR[WeatherView]</onclick>
 				</control>
-				<!--<control type="togglebutton" id="999">--><!-- Radar/forecast button -->
-					<!--<width>476</width>
-					<height>50</height>
-					<label>$LOCALIZE[31528]</label>
-					<altlabel>$LOCALIZE[33035]</altlabel>
-					<onclick>Skin.ToggleSetting(showradar)</onclick>
-					<usealttexture>Skin.HasSetting(showradar)</usealttexture>
-					<enable>StringCompare(Skin.String(weather-view),$LOCALIZE[10508])</enable>
-					<visible>SubString(Weather.plugin,weather.ozweather)</visible>
-				</control>-->
 				<control type="spincontrolex" id="3"><!-- Change location button -->
 					<width>476</width>
 					<height>50</height>
@@ -231,17 +223,18 @@
 				<control type="radiobutton" id="210"><!-- Alerts  -->
 					<width>476</width>
 					<height>50</height>
-					<label>$LOCALIZE[33049]</label>
+					<label>$LOCALIZE[33050]</label>
 					<onclick>Skin.ToggleSetting(weather-alerts)</onclick>
 					<selected>Skin.HasSetting(weather-alerts)</selected>
 					<radioposx>440</radioposx>
-					<enable>!IsEmpty(Window.Property(Alerts.RSS))</enable>
+					<enable>SubString(Weather.plugin,weather.openweathermap.extended)</enable>
 				</control>
 				<control type="button" id="4"><!-- Settings button -->
 					<width>476</width>
 					<height>50</height>
 					<label>$LOCALIZE[10014]</label>
 					<onclick>ActivateWindow(weathersettings)</onclick>
+					<onclick>Skin.SetString(weather-view,$LOCALIZE[10508])</onclick>
 				</control>
 			</control>
 		</control>

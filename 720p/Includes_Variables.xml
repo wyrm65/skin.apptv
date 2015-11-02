@@ -113,8 +113,8 @@
 		<value>blank.png</value>
 	</variable>
 	<variable name="VideoInfoIcons">
-		<value condition="Container.Content(movies)">plugin://script.skin.helper.service?action=recommendedmovies&amp;reload=true</value>
-		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">plugin://script.skin.helper.service?action=nextepisodes&amp;reload=true</value>
+		<value condition="Container.Content(movies)">plugin://script.skin.helper.service/?action=similarmovies&amp;imdbid=$INFO[ListItem.IMDBNumber]&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
+		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">plugin://script.skin.helper.service/?action=similarshows&amp;imdbid=$INFO[ListItem.IMDBNumber]&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
 	</variable>
 	<variable name="Overlay">
 		<value condition="ListItem.IsResumable">OverlayPartialyWatched.png</value>
@@ -564,11 +564,14 @@
 	</variable>
 	<variable name="PlayerVideoCover">
 		<value condition="!IsEmpty(Player.Art(poster)) + VideoPlayer.Content(movies)">$INFO[Player.Art(poster)]</value>
-		<value condition="!IsEmpty(VideoPlayer.cover) + VideoPlayer.Content(movies)">$INFO[VideoPlayer.cover]</value>
+		<value condition="!IsEmpty(VideoPlayer.cover) + VideoPlayer.Content(movies)">$INFO[VideoPlayer.Cover]</value>
 		<value condition="!IsEmpty(Player.Art(tvshow.poster)) + VideoPlayer.Content(episodes)">$INFO[Player.Art(tvshow.poster)]</value>
 		<value condition="!IsEmpty(Player.Art(tvshow.banner)) + VideoPlayer.Content(episodes)">$INFO[Player.Art(tvshow.banner)]</value>
 		<value condition="!IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
-		<value>blank.png</value>
+	</variable>
+	<variable name="PlayerMusicCover">
+		<value condition="!IsEmpty(MusicPlayer.Cover)">$INFO[MusicPlayer.Cover]</value>
+		<value condition="!IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
 	</variable>
 	<variable name="HorzHomeShelfIcon">
 		<value condition="Control.HasFocus(9100) | Control.HasFocus(9130)">DefaultVideo.png</value><!--Video shelf Icon -->
@@ -660,12 +663,14 @@
 		<value condition="Container(9260).Position(5)">$INFO[Container(9260).ListItemNoWrap(1).Thumb]</value>
 	</variable>
 	<variable name="WeatherView">
-		<value condition="StringCompare(Skin.String(weather-view),$LOCALIZE[10508]) | IsEmpty(Skin.String(weather-view))">Skin.SetString(weather-view,$LOCALIZE[33035])</value><!-- 36 Hour forecast -->
-		<value condition="StringCompare(Skin.String(weather-view),$LOCALIZE[33034])">Skin.SetString(weather-view,$LOCALIZE[33037])</value><!-- Weekend forecast -->
-		<value condition="StringCompare(Skin.String(weather-view),$LOCALIZE[33037])">Skin.SetString(weather-view,$LOCALIZE[33036])</value><!-- Hourly -->
-		<value condition="StringCompare(Skin.String(weather-view),$LOCALIZE[33036])">Skin.SetString(weather-view,$LOCALIZE[10508])</value><!-- 36 Hour -->
-		<value condition="StringCompare(Skin.String(weather-view),$LOCALIZE[33035])">Skin.SetString(weather-view,$LOCALIZE[10508])</value><!-- Maps -->
-		<value>Skin.SetString(weather-view,$LOCALIZE[10508])</value><!-- Fall thru default -->
+		<value condition="!SubString(Weather.plugin,weather.openweathermap.extended) + !SubString(Weather.plugin,weather.ozweather)">Skin.SetString(weather-view,$LOCALIZE[10508])</value><!-- Standard Forecast if not using extended forecast plugins -->
+		<value condition="[StringCompare(Skin.String(weather-view),$LOCALIZE[10508]) | IsEmpty(Skin.String(weather-view))] + SubString(Weather.plugin,weather.ozweather)">Skin.SetString(weather-view,$LOCALIZE[33035])</value><!-- Maps -->
+		<value condition="[StringCompare(Skin.String(weather-view),$LOCALIZE[10508]) | IsEmpty(Skin.String(weather-view))] + SubString(Weather.plugin,weather.openweathermap.extended)">Skin.SetString(weather-view,$LOCALIZE[33034])</value><!-- 36 Hour forecast -->
+		<value condition="StringCompare(Skin.String(weather-view),$LOCALIZE[33034]) + SubString(Weather.plugin,weather.openweathermap.extended)">Skin.SetString(weather-view,$LOCALIZE[33037])</value><!-- Weekend forecast -->
+		<value condition="StringCompare(Skin.String(weather-view),$LOCALIZE[33037]) + SubString(Weather.plugin,weather.openweathermap.extended)">Skin.SetString(weather-view,$LOCALIZE[33036])</value><!-- Hourly -->
+		<value condition="StringCompare(Skin.String(weather-view),$LOCALIZE[33036]) + SubString(Weather.plugin,weather.openweathermap.extended)">Skin.SetString(weather-view,$LOCALIZE[33035])</value><!-- Maps -->
+		<value condition="StringCompare(Skin.String(weather-view),$LOCALIZE[33035]) + [SubString(Weather.plugin,weather.openweathermap.extended) | SubString(Weather.plugin,weather.ozweather)]">Skin.SetString(weather-view,$LOCALIZE[10508])</value><!-- Standard Forecast -->
+		<value>Skin.SetString(weather-view,$LOCALIZE[10508])</value><!-- Fall thru default (Standard forecast) -->
 	</variable>
 	<variable name="QuitAction">
 		<value condition="StringCompare(Skin.String(home-quitaction),$LOCALIZE[13009])">Quit()</value>
@@ -789,6 +794,14 @@
 		<value condition="System.Platform.Linux">$LOCALIZE[31566] $LOCALIZE[31567]</value>
 		<value>$LOCALIZE[13205]</value><!-- Unknown platform type -->
 	</variable>
+		<variable name="ShelfType">
+		<value condition="[Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180)] + StringCompare(Skin.String(shelf-movieimages),$LOCALIZE[31954])">$LOCALIZE[31964]</value>
+		<value condition="[Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180)] + StringCompare(Skin.String(shelf-movieimages),$LOCALIZE[31955])">$LOCALIZE[31960]</value>
+		<value condition="[Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230)] + StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31954])">$LOCALIZE[31965]</value>
+		<value condition="[Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230)] + StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31955])">$LOCALIZE[31962]</value>
+		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280)] + StringCompare(Skin.String(shelf-musicimages),$LOCALIZE[31954])">$LOCALIZE[31966]</value>
+		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280)] + StringCompare(Skin.String(shelf-musicimages),$LOCALIZE[31955])">$LOCALIZE[31963]</value>
+	</variable>
 	<variable name="SkinSettingHelp"><!-- Help strings for skin settings -->
 		<value condition="ControlGroup(102).HasFocus()">$LOCALIZE[31300]</value>
 		<value condition="Control.HasFocus(105)">$LOCALIZE[31301]</value>
@@ -799,8 +812,6 @@
 		<value condition="Control.HasFocus(205)">$LOCALIZE[31306]</value>
 		<value condition="Control.HasFocus(206)">$LOCALIZE[31307]</value>
 		<value condition="Control.HasFocus(208)">$LOCALIZE[31308]</value>
-		<value condition="Control.HasFocus(209) | Control.HasFocus(210)">$LOCALIZE[31309]</value>
-		<value condition="Control.HasFocus(211)">$LOCALIZE[31310]</value>
 		<value condition="Control.HasFocus(212)">$LOCALIZE[31311]</value>
 		<value condition="Control.HasFocus(302)">$LOCALIZE[31312]</value>
 		<value condition="Control.HasFocus(303)">$LOCALIZE[31313]</value>
