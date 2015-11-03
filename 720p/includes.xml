@@ -95,7 +95,7 @@
 				<control type="group">
 					<visible>![Skin.HasSetting(background-playingmedia) + Player.HasVideo]</visible>
 					<control type="group">
-						<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos)] | !Skin.HasSetting(background-extrafanart) | IsEmpty(ListItem.Path) | IsEmpty(ListItem.Title)</visible>
+						<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos)] | !Skin.HasSetting(SkinHelper.EnableExtraFanart) | IsEmpty(ListItem.Path) | IsEmpty(ListItem.Title)</visible>
 						<control type="image"><!-- Fallback background image -->
 							<include>fullscreenimage</include>
 							<aspectratio>stretch</aspectratio>
@@ -104,15 +104,15 @@
 						</control>
 					</control>
 					<control type="group">
-						<visible>Skin.HasSetting(background-extrafanart) + !IsEmpty(ListItem.Path) + !IsEmpty(ListItem.Title)</visible>
+						<visible>Skin.HasSetting(SkinHelper.EnableExtraFanart) + !IsEmpty(ListItem.Path) + !IsEmpty(ListItem.Title)</visible>
 						<control type="group">
-							<visible>[Container.Content(movies) | Container.Content(musicvideos)]</visible>
+							<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)]</visible>
 							<control type="multiimage" id="6300">
 								<include>fullscreenimage</include>
 								<randomize>true</randomize>
 								<timeperimage>6000</timeperimage>
 								<fadetime>200</fadetime>
-								<imagepath background="false">$INFO[ListItem.Path]extrafanart/</imagepath>
+								<imagepath background="false">$INFO[Window(Home).Property(SkinHelper.ExtraFanArtPath)]</imagepath>
 								<aspectratio>stretch</aspectratio>
 							</control>
 							<control type="image"><!-- Fallback background image -->
@@ -120,43 +120,7 @@
 								<aspectratio>stretch</aspectratio>
 								<fadetime>200</fadetime>
 								<texture background="false">$VAR[VideoBackgndImage]</texture>
-								<visible>IsEmpty(Control.GetLabel(6300))</visible>
-							</control>
-						</control>
-						<control type="group">
-							<visible>[Container.Content(tvshows) | Container.Content(seasons)]</visible>
-							<control type="multiimage" id="6320">
-								<include>fullscreenimage</include>
-								<randomize>true</randomize>
-								<timeperimage>6000</timeperimage>
-								<fadetime>200</fadetime>
-								<imagepath background="false">$INFO[ListItem.Path,,extrafanart/]</imagepath>
-								<aspectratio>stretch</aspectratio>
-							</control>
-							<control type="image"><!-- Fallback background image -->
-								<include>fullscreenimage</include>
-								<aspectratio>stretch</aspectratio>
-								<fadetime>200</fadetime>
-								<texture background="false">$VAR[VideoBackgndImage]</texture>
-								<visible>IsEmpty(Control.GetLabel(6320))</visible>
-							</control>
-						</control>
-						<control type="group">
-							<visible>Container.Content(episodes)</visible>
-							<control type="multiimage" id="6340">
-								<include>fullscreenimage</include>
-								<randomize>true</randomize>
-								<timeperimage>6000</timeperimage>
-								<fadetime>200</fadetime>
-								<imagepath background="false">$INFO[ListItem.Path,,../extrafanart/]</imagepath>
-								<aspectratio>stretch</aspectratio>
-							</control>
-							<control type="image">
-								<include>fullscreenimage</include>
-								<texture background="false">$VAR[VideoBackgndImage]</texture>
-								<aspectratio>stretch</aspectratio>
-								<fadetime>200</fadetime>
-								<visible>IsEmpty(Control.GetLabel(6340))</visible>
+								<visible>IsEmpty(Window(Home).Property(SkinHelper.ExtraFanArtPath))</visible>
 							</control>
 						</control>
 					</control>
@@ -203,7 +167,6 @@
 
 	<include name="player-mediaicon">
 		<control type="group" id="1"><!-- Player Media Icon -->
-			<!--<visible>Window.IsVisible(fullscreenvideo)</visible>-->
 			<control type="group" id="1">
 				<control type="group" id="1">
 					<visible>VideoPlayer.Content(Movies) | VideoPlayer.Content(episodes)</visible><!-- Movies or Tv Episodes -->
@@ -628,7 +591,6 @@
 	</include>
 
 	<include name="background-fade">
-		<animation effect="fade" start="100" end="99" condition="Skin.HasSetting(background-visibiltylow)">Conditional</animation>
 		<animation effect="fade" start="100" end="85" condition="Skin.HasSetting(background-visibiltymed)">Conditional</animation>
 		<animation effect="fade" start="100" end="60" condition="Skin.HasSetting(background-visibiltyhigh)">Conditional</animation>
 	</include>

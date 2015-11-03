@@ -7,14 +7,14 @@
 				<top>0</top>
 				<width>1280</width>
 				<height>192</height>
-				<texture>colours/grey.png</texture>
+				<texture>background-horzshelfbackdrop.png</texture>
 			</control>
 			<control type="image">
 				<left>0</left>
 				<top>192</top>
 				<width>1280</width>
 				<height>102</height>
-				<texture>colours/midgrey.png</texture>
+				<texture>background-horzshelf.png</texture>
 			</control>
 			<control type="image">
 				<left>0</left>
@@ -31,7 +31,7 @@
 				<top>292</top>
 				<width>1280</width>
 				<height>428</height>
-				<texture>colours/black.png</texture>
+				<texture>background-horzhome.png</texture>
 			</control>
 			<control type="image">
 				<left>0</left>
@@ -177,7 +177,7 @@
 			<control type="group" id="9405"><!-- Weather icons -->
 				<visible>Control.HasFocus(9400) | Control.HasFocus(9430)</visible>
 				<control type="group">
-					<visible>!Weather.IsFetched</visible>
+					<visible>!Weather.IsFetched | IsEmpty(Window(Weather).Property(Current.Temperature))</visible>
 					<control type="image">
 						<left>552</left>
 						<top>38</top>
@@ -919,7 +919,7 @@
 					<font>font18</font>
 					<align>center</align>
 					<label>$VAR[CustomFavHeading]</label>
-					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
+					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
 				<control type="list" id="9550">
 					<animation condition="!Control.HasFocus(9550) + !Control.HasFocus(9580)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
