@@ -704,6 +704,17 @@
 				<randomize>false</randomize>
 				<loop>yes</loop>
 			</control>
+			<control type="image"><!-- Busy animation (Show if no map has been displayed yet) -->
+				<left>324</left>
+				<top>324</top>
+				<width>64</width>
+				<height>64</height>
+				<texture>busy.png</texture>
+				<aspectratio>keep</aspectratio>
+				<animation effect="fade" start="0" end="100" time="100" delay="10000">Visible</animation>
+				<animation effect="rotate" start="360" end="0" center="auto" time="5400" loop="true" condition="true">conditional</animation>
+				<visible>IsEmpty(Window.Property(Radar))</visible>
+			</control>
 		</control>
 	</include>
 	<include name="openweatherextended">
@@ -2542,6 +2553,17 @@
 						<visible>Weather.IsFetched + !IsEmpty(Window.Property(Map.5.Area)) + !IsEmpty(Window.Property(Map.IsFetched))</visible>
 					</item>
 				</content>
+			</control>
+			<control type="image"><!-- Busy animation (Show if no map has been displayed yet) -->
+				<left>326</left>
+				<top>322</top>
+				<width>64</width>
+				<height>64</height>
+				<texture>busy.png</texture>
+				<aspectratio>keep</aspectratio>
+				<animation effect="fade" start="0" end="100" time="100" delay="10000">Visible</animation>
+				<animation effect="rotate" start="360" end="0" center="auto" time="5400" loop="true" condition="true">conditional</animation>
+				<visible>IsEmpty(Container(5998).ListItem.Label)</visible>
 			</control>
 		</control>
 		<control type="group">
