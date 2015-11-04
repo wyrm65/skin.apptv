@@ -795,12 +795,12 @@
 		<value>$LOCALIZE[13205]</value><!-- Unknown platform type -->
 	</variable>
 		<variable name="ShelfType">
-		<value condition="[Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180)] + StringCompare(Skin.String(shelf-movieimages),$LOCALIZE[31954])">$LOCALIZE[31964]</value>
-		<value condition="[Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180)] + StringCompare(Skin.String(shelf-movieimages),$LOCALIZE[31955])">$LOCALIZE[31960]</value>
-		<value condition="[Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230)] + StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31954])">$LOCALIZE[31965]</value>
-		<value condition="[Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230)] + StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31955])">$LOCALIZE[31962]</value>
-		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280)] + StringCompare(Skin.String(shelf-musicimages),$LOCALIZE[31954])">$LOCALIZE[31966]</value>
-		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280)] + StringCompare(Skin.String(shelf-musicimages),$LOCALIZE[31955])">$LOCALIZE[31963]</value>
+		<value condition="[Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180) | StringCompare(Container(9000).ListItem.Label2,$LOCALIZE[31026])] + StringCompare(Skin.String(shelf-movieimages),$LOCALIZE[31954])">$LOCALIZE[31964]</value>
+		<value condition="[Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180) | StringCompare(Container(9000).ListItem.Label2,$LOCALIZE[31026])] + StringCompare(Skin.String(shelf-movieimages),$LOCALIZE[31955])">$LOCALIZE[31960]</value>
+		<value condition="[Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230) | StringCompare(Container(9000).ListItem.Label2,$LOCALIZE[20343])] + StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31954])">$LOCALIZE[31965]</value>
+		<value condition="[Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230) | StringCompare(Container(9000).ListItem.Label2,$LOCALIZE[20343])] + StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31955])">$LOCALIZE[31962]</value>
+		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280) | StringCompare(Container(9000).ListItem.Label2,$LOCALIZE[2])] + StringCompare(Skin.String(shelf-musicimages),$LOCALIZE[31954])">$LOCALIZE[31966]</value>
+		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280) | StringCompare(Container(9000).ListItem.Label2,$LOCALIZE[2])] + StringCompare(Skin.String(shelf-musicimages),$LOCALIZE[31955])">$LOCALIZE[31963]</value>
 	</variable>
 	<variable name="SkinSettingHelp"><!-- Help strings for skin settings -->
 		<value condition="ControlGroup(102).HasFocus()">$LOCALIZE[31300]</value>
