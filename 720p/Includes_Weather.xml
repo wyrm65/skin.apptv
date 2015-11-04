@@ -2,7 +2,7 @@
 <includes>
 	<include name="standardweather">
 		<control type="group">
-			<visible>!Weather.IsFetched</visible>
+			<visible>!Weather.IsFetched | SubString(Window(Weather).Property(Current.ConditionIcon),na.png,right)</visible>
 			<control type="image">
 				<left>480</left>
 				<top>100</top>
@@ -33,9 +33,9 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>Weather.IsFetched</visible>
+			<visible>Weather.IsFetched + !SubString(Window(Weather).Property(Current.ConditionIcon),na.png,right)</visible>
 			<control type="group"><!-- Standard Forecast -->
-				<visible>[StringCompare(Skin.String(weather-view),$LOCALIZE[10508]) | IsEmpty(Skin.String(weather-view))] + !IsEmpty(Window.Property(Current.Temperature))</visible>
+				<visible>[StringCompare(Skin.String(weather-view),$LOCALIZE[10508]) | IsEmpty(Skin.String(weather-view))]</visible>
 				<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
 				<control type="group">
 					<left>24</left>
@@ -57,7 +57,7 @@
 						<top>90</top>
 						<width>256</width>
 						<height>256</height>
-						<texture>$INFO[Window(Weather).Property(Current.FanartCode)].png</texture>
+						<texture>$INFO[Window(Weather).Property(Current.ConditionIcon)]</texture>
 						<aspectratio>keep</aspectratio>
 						<visible>!IsEmpty(Skin.String(custom-weathericons)) + !Skin.HasSetting(animate-customicons)</visible>
 					</control>
@@ -200,6 +200,8 @@
 					</control>
 				</control>
 				<control type="group">
+					<animation effect="slide" end="210,0" condition="SubString(Window(Weather).Property(Day5.OutlookIcon),na.png,right)" reversible="true">Conditional</animation>
+					<animation effect="slide" end="105,0" condition="SubString(Window(Weather).Property(Day6.OutlookIcon),na.png,right) + !SubString(Window(Weather).Property(Day5.OutlookIcon),na.png,right)" reversible="true">Conditional</animation>
 					<control type="group"><!-- Day 1 -->
 						<left>10</left>
 						<top>430</top>
@@ -419,6 +421,7 @@
 					<control type="group"><!-- Day 5 -->
 						<left>850</left>
 						<top>430</top>
+						<visible>!SubString(Window(Weather).Property(Day5.OutlookIcon),na.png,right)</visible>
 						<control type="label">
 							<left>5</left>
 							<top>30</top>
@@ -473,6 +476,7 @@
 					<control type="group"><!-- Day 6 -->
 						<left>1060</left>
 						<top>430</top>
+						<visible>!SubString(Window(Weather).Property(Day6.OutlookIcon),na.png,right)</visible>
 						<control type="label">
 							<left>5</left>
 							<top>30</top>
