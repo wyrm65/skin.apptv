@@ -447,7 +447,7 @@
 							<top>116</top>
 							<width>336</width>
 							<height>336</height>
-							<texture background="true" fallback="DefaultVideo.png" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+							<texture background="true" fallback="DefaultMovies.png" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 							<aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
 							<visible>!SubString(ListItem.Icon,DefaultFolder,Left)</visible>
 						</control>
@@ -456,7 +456,7 @@
 							<top>116</top>
 							<width>336</width>
 							<height>336</height>
-							<texture>DefaultVideo.png</texture>
+							<texture>DefaultMovies.png</texture>
 							<aspectratio align="right" aligny="top">keep</aspectratio>
 							<visible>SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
 						</control>
@@ -671,7 +671,7 @@
 					<height>168</height>
 					<aspectratio>keep</aspectratio>
 					<colordiffuse>UnFocusedPosters</colordiffuse>
-					<texture background="true">$INFO[ListItem.Icon]</texture>
+					<texture fallback="DefaultVideo.png" background="true">$INFO[ListItem.Icon]</texture>
 					<visible>SubString(ListItem.Icon,Default,Left) | ![Container.Content(movies) | Container.Content(tvshows)]</visible>
 				</control>
 				<control type="image">
@@ -681,7 +681,7 @@
 					<height>168</height>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<colordiffuse>UnFocusedPosters</colordiffuse>
-					<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 					<visible>!SubString(ListItem.Icon,Default,Left) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 				</control>
 				<control type="image"><!-- Extras Overlay -->
