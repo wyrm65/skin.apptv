@@ -5,6 +5,7 @@
 		<top>2</top>
 	</coordinates>
 	<controls>
+		<visible>IsEmpty(Window(Home).Property(script.cinemavision.running))</visible>
 		<control type="group">
 			<animation effect="slide" end="0,-100" condition="Window.IsActive(extendedprogressdialog) | Window.IsActive(startup) | Window.IsActive(fullscreenvideo)">Conditional</animation>
 			<control type="image"><!-- Dialog background image -->
@@ -20,34 +21,6 @@
 				<width>64</width>
 				<height>64</height>
 				<aspectratio>keep</aspectratio>
-				<texture>kai-info.png</texture>
-			</control>
-			<control type="image" id="403">
-				<left>14</left>
-				<top>15</top>
-				<width>64</width>
-				<height>64</height>
-				<aspectratio>keep</aspectratio>
-				<texture>kai-info.png</texture>
-				<visible>false</visible>
-			</control>
-			<control type="image" id="404">
-				<left>14</left>
-				<top>15</top>
-				<width>64</width>
-				<height>64</height>
-				<aspectratio>keep</aspectratio>
-				<texture>kai-warning.png</texture>
-				<visible>false</visible>
-			</control>
-			<control type="image" id="405">
-				<left>14</left>
-				<top>15</top>
-				<width>64</width>
-				<height>64</height>
-				<aspectratio>keep</aspectratio>
-				<texture>kai-error.png</texture>
-				<visible>false</visible>
 			</control>
 			<control type="label" id="401"><!-- Caption -->
 				<left>80</left>
