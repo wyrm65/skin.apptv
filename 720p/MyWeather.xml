@@ -1,72 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">6000</defaultcontrol>
-	<allowoverlay>no</allowoverlay>
 	<controls>
-		<control type="group"><!-- Weather screen background image -->
-			<control type="image"><!-- Solid background -->
-				<include>fullscreenimage</include>
-				<texture>background.png</texture>
-				<aspectratio>stretch</aspectratio>
-				<visible>IsEmpty(Skin.String(background-custom))</visible>
-			</control>
-			<control type="image"><!-- Custom background -->
-				<include>fullscreenimage</include>
-				<texture>$INFO[Skin.String(background-custom)]</texture>
-				<aspectratio>stretch</aspectratio>
-				<visible>!IsEmpty(Skin.String(background-custom))</visible>
-			</control>
-			<control type="group">
-				<control type="group">
-					<visible>Window.IsActive(weather) + !IsEmpty(Skin.String(background-customweather)) + [!Player.HasVideo | !Player.HasAudio]</visible>
-					<control type="multiimage"><!-- Use Custom weather condition backgrounds if location selected -->
-						<include>fullscreenimage</include>
-						<imagepath background="true">$INFO[Skin.String(background-customweather)]$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
-						<aspectratio>scale</aspectratio>
-						<timeperimage>5000</timeperimage>
-						<randomize>true</randomize>
-						<fadetime>400</fadetime>
-					</control>
-				</control>
-				<control type="group">
-					<visible>Skin.HasSetting(background-playingmedia)</visible>
-					<control type="group">
-						<visible>Player.HasVideo</visible>
-						<control type="videowindow">
-							<include>fullscreenimage</include>
-						</control>
-					</control>
-					<control type="visualisation">
-						<include>fullscreenimage</include>
-						<visible>Player.HasAudio</visible>
-					</control>
-				</control>
-				<control type="group">
-					<visible>Skin.HasSetting(background-slideshow) + Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
-					<control type="image"><!-- Mask out any backgrounds showing around ArtistSlideshow Fanart -->
-						<include>fullscreenimage</include>
-						<texture>colours/black.png</texture>
-						<aspectratio>stretch</aspectratio>
-					</control>
-					<control type="multiimage"><!-- Backgroung ArtistSlideshow fanart image -->
-						<include>fullscreenimage</include>
-						<imagepath background="true">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</imagepath>
-						<aspectratio>keep</aspectratio>
-						<timeperimage>5000</timeperimage>
-						<fadetime>400</fadetime>
-						<randomize>true</randomize>
-					</control>
-				</control>
-			</control>
-			<control type="image"><!-- Mask to fade background -->
-				<include>fullscreenimage</include>
-				<texture>colours/black.png</texture>
-				<colordiffuse>mask-background</colordiffuse>
-				<aspectratio>stretch</aspectratio>
-				<include>background-fade</include>
-				<visible>!IsEmpty(Skin.String(background-customweather)) | Skin.HasSetting(background-playingmedia) | Skin.HasSetting(background-slideshow)</visible>
-			</control>
-		</control>
+		<include>background</include>
 
 		<control type="button" id="6000"><!-- Fake button to steal focus, don't show if Open weather map screen is showing -->
 			<onleft>9000</onleft>

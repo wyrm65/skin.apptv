@@ -6,7 +6,6 @@
 		<left>0</left>
 		<top>0</top>
 	</coordinates>
-	<allowoverlay>no</allowoverlay>
 	<controls>
 		<include>fadebackground</include>
 			<control type="group">
@@ -16,7 +15,7 @@
 					<left>0</left>
 					<top>0</top>
 					<width>604</width>
-					<height>280</height>
+					<height>330</height>
 					<texture border="8">button-menu-background.png</texture>
 				</control>
 				<control type="label"><!-- Dialog heading -->
@@ -49,7 +48,7 @@
 					<left>25</left>
 					<top>60</top>
 					<width>554</width>
-					<height>200</height>
+					<height>250</height>
 					<viewtype label="536">list</viewtype>
 					<onright>998</onright>
 					<onleft>998</onleft>
@@ -102,6 +101,12 @@
 							<onclick>Dialog.Close(1154)</onclick>
 							<onclick>RunScript(script.tvtunes,mode=solo)</onclick>
 							<visible>StringCompare(Window(Home).Property(SelectDialogType),videoinfomore) + System.HasAddon(script.tvtunes) + [Container.Content(tvshows) | Container.Content(movies) | Container.Content(musicvideos)]</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[38023]</label>
+							<onclick>Dialog.Close(1154)</onclick>
+							<onclick>SendClick(movieinformation,7)</onclick>
+							<visible>StringCompare(Window(Home).Property(SelectDialogType),videoinfomore)</visible>
 						</item>
 						<item>
 							<label>$LOCALIZE[31689]</label>

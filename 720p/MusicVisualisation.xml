@@ -1,53 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<onload condition="Skin.HasSetting(background-slideshow)">RunScript(script.artistslideshow)</onload>
-	<allowoverlay>no</allowoverlay>
-	<visible>!Window.IsVisible(videooverlay) + !Window.IsVisible(fullscreenvideo)</visible>
+	<visible>!Window.IsVisible(videooverlay) + !Window.IsVisible(fullscreenvideo) + !Window.IsActive(script-cu-lrclyrics-main.xml)</visible>
 	<controls>
-		<control type="image"><!-- Solid background -->
-			<include>fullscreenimage</include>
-			<texture>background.png</texture>
-			<visible>!Skin.String(background-custom)</visible>
-		</control>
-		<control type="image"><!-- Custom background -->
-			<include>fullscreenimage</include>
-			<texture>$INFO[Skin.String(background-custom)]</texture>
-			<colordiffuse>osd-background</colordiffuse>
-			<visible>Skin.String(background-custom)</visible>
-		</control>
-		<control type="group">
-			<control type="image"><!-- Backgroung fanart image -->
-				<include>fullscreenimage</include>
-				<texture background="true">$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
-				<aspectratio>scale</aspectratio>
-				<fadetime>1000</fadetime>
-				<visible>!Skin.HasSetting(background-slideshow)</visible>
-			</control>
-		</control>
-		<control type="group">
-			<visible>Skin.HasSetting(background-playingmedia)</visible>
-			<control type="visualisation" id="2"><!-- Background visualisation image -->
-				<include>fullscreenimage</include>
-				<visible>Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
-			</control>
-		</control>
-		<control type="group">
-			<visible>Skin.HasSetting(background-slideshow)</visible>
-			<control type="image"><!-- Mask out any backgrounds showing around ArtistSlideshow Fanart -->
-				<include>fullscreenimage</include>
-				<texture>colours/black.png</texture>
-				<aspectratio>stretch</aspectratio>
-				<visible>SubString(Control.GetLabel(991),blank.png)</visible>
-			</control>
-			<control type="multiimage" id="991"><!-- ArtistSlideshow Fanart -->
-				<include>fullscreenimage</include>
-				<imagepath fallback="blank.png" background="true">$INFO[Window.Property(ArtistSlideshow)]</imagepath>
-				<aspectratio>keep</aspectratio>
-				<timeperimage>5000</timeperimage>
-				<fadetime>1000</fadetime>
-				<randomize>true</randomize>
-			</control>
-		</control>
+		<include>background</include>
 		<control type="group"><!-- infos -->
 			<visible>Player.ShowInfo</visible>
 			<control type="image" id="992"><!-- Music logo if available -->
@@ -73,7 +29,7 @@
 				<width>1280</width>
 				<height>155</height>
 				<texture>background.png</texture>
-				<colordiffuse>osd-background</colordiffuse>
+				<colordiffuse>mask-background</colordiffuse>
 			</control>
 			<control type="image"><!-- Cd overlay -->
 				<animation effect="slide" start="-102" end="0" time="900" tween="cubic" easing="out" delay="1000">WindowOpen</animation>
@@ -187,7 +143,7 @@
 				<width>1280</width>
 				<height>90</height>
 				<texture>background.png</texture>
-				<colordiffuse>osd-background</colordiffuse>
+				<colordiffuse>mask-background</colordiffuse>
 			</control>
 			<control type="label"><!-- Codec info -->
 				<left>132</left>
