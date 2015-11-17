@@ -2,7 +2,18 @@
 <window>
 	<controls>
 		<include>Fake-Overlay</include>
-		<control type="image">
+		<control type="image"><!-- Solid background -->
+			<include>fullscreenimage</include>
+			<texture>background.png</texture>
+			<visible>IsEmpty(Skin.String(background-custom))</visible>
+		</control>
+		<control type="image"><!-- Custom background -->
+			<include>fullscreenimage</include>
+			<aspectratio>stretch</aspectratio>
+			<texture>$INFO[Skin.String(background-custom)]</texture>
+			<visible>!IsEmpty(Skin.String(background-custom))</visible>
+		</control>
+		<control type="image"><!-- Fanart background -->
 			<include>fullscreenimage</include>
 			<texture background="true">$VAR[NextAiredFanart]</texture>
 			<aspectratio>scale</aspectratio>
@@ -10,11 +21,10 @@
 		</control>
 		<control type="image"><!-- mask to fade background -->
 			<include>fullscreenimage</include>
-			<texture>colours/black.png</texture>
+			<texture>background-mask.png</texture>
 			<colordiffuse>mask-background</colordiffuse>
 			<aspectratio>stretch</aspectratio>
 			<include>background-fade</include>
-			<visible>!IsEmpty(Window(Home).Property(TVGuide.BackgroundFanart)) + Skin.HasSetting(background-fanart)</visible>
 		</control>
 
 		<control type="grouplist">
