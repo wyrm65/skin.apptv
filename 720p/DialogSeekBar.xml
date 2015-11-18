@@ -96,9 +96,9 @@
 				</control>
 			</control>
 		</control>
-		<!-- Start Progress Control for all Windows Except VideoFullScreen , KaraokeVisualisation, MusicVisualisation, MyMusicPlaylist, PVRGuide and PlayerControls-->
+		<!-- Start Progress Control for all Windows Except VideoFullScreen , MusicVisualisation, MyMusicPlaylist, PVRGuide and PlayerControls-->
 		<control type="group">
-			<visible>![Window.IsActive(fullscreenvideo) | Window.IsActive(karaoke) | Window.IsActive(visualisation) | Window.IsActive(musicplaylist) | Window.IsActive(tvguide) | Window.IsActive(playercontrols) | Window.IsVisible(script-nextup-notification-StillWatchingInfo.xml) | Window.IsVisible(script-nextup-notification-NextUpInfo.xml)]</visible>
+			<visible>![Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation) | Window.IsActive(musicplaylist) | Window.IsActive(tvguide) | Window.IsActive(playercontrols) | Window.IsVisible(script-nextup-notification-StillWatchingInfo.xml) | Window.IsVisible(script-nextup-notification-NextUpInfo.xml)]</visible>
 			<control type="image"><!-- Dialog background image -->
 				<left>463</left>
 				<top>22</top>
