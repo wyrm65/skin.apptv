@@ -114,41 +114,6 @@
 							<onclick>RunScript(script.libraryeditor,DBID=$INFO[ListItem.DBID])</onclick>
 							<visible>StringCompare(Window(Home).Property(SelectDialogType),videoinfomore) + System.HasAddon(script.libraryeditor) + !IsEmpty(ListItem.DBID)</visible>
 						</item>
-						<!-- Weather Icon options -->
-						<item><!-- Kodi Default -->
-							<label>$LOCALIZE[571]</label>
-							<onclick>Dialog.Close(1154)</onclick>
-							<onclick>Skin.Reset(animate-customicons)</onclick>
-							<onclick>Skin.Reset(custom-weathericons)</onclick>
-							<visible>StringCompare(Window(Home).Property(SelectDialogType),weathericons)</visible>
-						</item>
-						<item><!-- Location Static icons -->
-							<label>$LOCALIZE[31551]</label>
-							<onclick>Dialog.Close(1154)</onclick>
-							<onclick>Skin.Reset(animate-customicons)</onclick>
-							<onclick>Skin.SetPath(custom-weathericons)</onclick>
-							<visible>StringCompare(Window(Home).Property(SelectDialogType),weathericons)</visible>
-						</item>
-						<item><!-- Location Animated icons -->
-							<label>$LOCALIZE[31552]</label>
-							<onclick>Dialog.Close(1154)</onclick>
-							<onclick>Skin.SetBool(animate-customicons)</onclick>
-							<onclick>Skin.SetPath(custom-weathericons)</onclick>
-							<visible>StringCompare(Window(Home).Property(SelectDialogType),weathericons)</visible>
-						</item>
-						<!-- Weather Fanart options -->
-						<item><!-- None -->
-							<label>$LOCALIZE[231]</label>
-							<onclick>Dialog.Close(1154)</onclick>
-							<onclick>Skin.Reset(background-customweather)</onclick>
-							<visible>StringCompare(Window(Home).Property(SelectDialogType),weatherbackgrounds)</visible>
-						</item>
-						<item><!-- Set Custom weather background -->
-							<label>$LOCALIZE[31553]</label>
-							<onclick>Dialog.Close(1154)</onclick>
-							<onclick>Skin.SetPath(background-customweather)</onclick>
-							<visible>StringCompare(Window(Home).Property(SelectDialogType),weatherbackgrounds)</visible>
-						</item>
 					</content>
 				</control>
 			</control>

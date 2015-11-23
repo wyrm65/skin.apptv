@@ -2,7 +2,8 @@
 <includes>
 	<variable name="BackgndImage">
 		<value condition="Skin.HasSetting(background-slideshow) + Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia)) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow))">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</value>
-		<value condition="Window.IsActive(weather) + !IsEmpty(Skin.String(background-customweather))">$INFO[Skin.String(background-customweather)]$INFO[Window(Weather).Property(Current.FanartCode)]</value>
+		<value condition="Window.IsActive(weather) + Skin.HasSetting(background-customweather.multi) + !IsEmpty(Skin.String(background-customweather))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(Weather).Property(Current.FanartCode)]</value>
+		<value condition="Window.IsActive(weather) + !Skin.HasSetting(background-customweather.multi) + !IsEmpty(Skin.String(background-customweather))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(Weather).Property(Current.FanartCode),,.jpg]</value>
 		<value condition="Window.IsActive(visualisation) + !IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
 		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !IsEmpty(Window(Home).Property(SkinHelper.ExtraFanArtPath))">$INFO[Window(Home).Property(SkinHelper.ExtraFanArtPath)]</value>
 		<value condition="Skin.HasSetting(background-fanart) + !IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
@@ -591,6 +592,11 @@
 	<variable name="PlayerMusicCover">
 		<value condition="!IsEmpty(MusicPlayer.Cover)">$INFO[MusicPlayer.Cover]</value>
 		<value condition="!IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
+	</variable>
+	<variable name="PVRIcon">
+		<value condition="!IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+		<value condition="IsEmpty(Window.Property(IsRadio))">DefaultTvshows.png</value>
+		<value condition="!IsEmpty(Window.Property(IsRadio))">icon-radio.png</value>
 	</variable>
 	<variable name="HorzHomeShelfIcon">
 		<value condition="Control.HasFocus(9100) | Control.HasFocus(9130)">DefaultVideo.png</value><!--Video shelf Icon -->
