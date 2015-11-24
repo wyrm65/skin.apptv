@@ -792,21 +792,21 @@
 					<top>120</top>
 					<width>96</width>
 					<height>96</height>
-					<imagepath>$INFO[Skin.String(custom-weathericons)]$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
+					<imagepath>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
 					<aspectratio>keep</aspectratio>
-					<timeperimage>200</timeperimage>
+					<timeperimage>100</timeperimage>
 					<randomize>false</randomize>
-					<fadetime>0</fadetime>
-					<visible>!IsEmpty(Skin.String(custom-weathericons)) + Skin.HasSetting(animate-customicons)</visible>
+					<fadetime>1</fadetime>
+					<visible>!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)</visible>
 				</control>
 				<control type="image"><!-- Todays custom weather condition icon -->
 					<left>72</left>
 					<top>120</top>
 					<width>96</width>
 					<height>96</height>
-					<texture>$INFO[Skin.String(custom-weathericons)]$INFO[Window(Weather).Property(Current.FanartCode),,.png]</texture>
+					<texture>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Current.FanartCode),,.png]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>!IsEmpty(Skin.String(custom-weathericons)) + !Skin.HasSetting(animate-customicons)</visible>
+					<visible>!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)</visible>
 				</control>
 				<control type="image"><!-- Todays default weather condition icon -->
 					<left>72</left>
@@ -815,7 +815,7 @@
 					<height>96</height>
 					<texture>$INFO[Window(Weather).Property(Current.ConditionIcon)]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>IsEmpty(Skin.String(custom-weathericons))</visible>
+					<visible>IsEmpty(Skin.String(custom-weathericons.path))</visible>
 				</control>
 				<control type="label"><!-- Todays temperature range -->
 					<left>0</left>
@@ -855,21 +855,21 @@
 					<top>68</top>
 					<width>80</width>
 					<height>80</height>
-					<imagepath>$INFO[Skin.String(custom-weathericons)]$INFO[Window(Weather).Property(Day1.FanartCode)]</imagepath>
+					<imagepath>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day1.FanartCode)]</imagepath>
 					<aspectratio>keep</aspectratio>
-					<timeperimage>200</timeperimage>
+					<timeperimage>100</timeperimage>
 					<randomize>false</randomize>
-					<fadetime>0</fadetime>
-					<visible>!IsEmpty(Skin.String(custom-weathericons)) + Skin.HasSetting(animate-customicons)</visible>
+					<fadetime>1</fadetime>
+					<visible>!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)</visible>
 				</control>
 				<control type="image"><!-- Day 1 custom weather condition icon -->
 					<left>80</left>
 					<top>68</top>
 					<width>80</width>
 					<height>80</height>
-					<texture>$INFO[Skin.String(custom-weathericons)]$INFO[Window(Weather).Property(Day1.FanartCode),,.png]</texture>
+					<texture>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day1.FanartCode),,.png]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>!IsEmpty(Skin.String(custom-weathericons)) + !Skin.HasSetting(animate-customicons)</visible>
+					<visible>!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)</visible>
 				</control>
 				<control type="image"><!-- Day 1 weather condition icon -->
 					<left>80</left>
@@ -878,7 +878,7 @@
 					<height>80</height>
 					<texture>$INFO[Window(Weather).Property(Day1.OutlookIcon)]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>IsEmpty(Skin.String(custom-weathericons))</visible>
+					<visible>IsEmpty(Skin.String(custom-weathericons.path))</visible>
 				</control>
 				<control type="label"><!-- Day 1 temperature range -->
 					<left>0</left>
@@ -918,21 +918,21 @@
 					<top>68</top>
 					<width>80</width>
 					<height>80</height>
-					<imagepath>$INFO[Skin.String(custom-weathericons)]$INFO[Window(Weather).Property(Day2.FanartCode)]</imagepath>
+					<imagepath>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day2.FanartCode)]</imagepath>
 					<aspectratio>keep</aspectratio>
-					<timeperimage>200</timeperimage>
+					<timeperimage>100</timeperimage>
 					<randomize>false</randomize>
-					<fadetime>0</fadetime>
-					<visible>!IsEmpty(Skin.String(custom-weathericons)) + Skin.HasSetting(animate-customicons)</visible>
+					<fadetime>1</fadetime>
+					<visible>!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)</visible>
 				</control>
 				<control type="image"><!-- Day 2 custom weather condition icon -->
 					<left>80</left>
 					<top>68</top>
 					<width>80</width>
 					<height>80</height>
-					<texture>$INFO[Skin.String(custom-weathericons)]$INFO[Window(Weather).Property(Day2.FanartCode),,.png]</texture>
+					<texture>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day2.FanartCode),,.png]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>!IsEmpty(Skin.String(custom-weathericons)) + !Skin.HasSetting(animate-customicons)</visible>
+					<visible>!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)</visible>
 				</control>
 				<control type="image"><!-- Day 2 weather condition icon -->
 					<left>80</left>
@@ -941,7 +941,7 @@
 					<height>80</height>
 					<texture>$INFO[Window(Weather).Property(Day2.OutlookIcon)]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>IsEmpty(Skin.String(custom-weathericons))</visible>
+					<visible>IsEmpty(Skin.String(custom-weathericons.path))</visible>
 				</control>
 				<control type="label"><!-- Day 2 temperature range -->
 					<left>0</left>
@@ -981,21 +981,21 @@
 					<top>68</top>
 					<width>80</width>
 					<height>80</height>
-					<imagepath>$INFO[Skin.String(custom-weathericons)]$INFO[Window(Weather).Property(Day3.FanartCode)]</imagepath>
+					<imagepath>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day3.FanartCode)]</imagepath>
 					<aspectratio>keep</aspectratio>
-					<timeperimage>200</timeperimage>
+					<timeperimage>100</timeperimage>
 					<randomize>false</randomize>
-					<fadetime>0</fadetime>
-					<visible>!IsEmpty(Skin.String(custom-weathericons)) + Skin.HasSetting(animate-customicons)</visible>
+					<fadetime>1</fadetime>
+					<visible>!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)</visible>
 				</control>
 				<control type="image"><!-- Day 3 custom weather condition icon -->
 					<left>80</left>
 					<top>68</top>
 					<width>80</width>
 					<height>80</height>
-					<texture>$INFO[Skin.String(custom-weathericons)]$INFO[Window(Weather).Property(Day3.FanartCode),,.png]</texture>
+					<texture>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day3.FanartCode),,.png]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>!IsEmpty(Skin.String(custom-weathericons)) + !Skin.HasSetting(animate-customicons)</visible>
+					<visible>!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)</visible>
 				</control>
 				<control type="image"><!-- Day 3 weather condition icon -->
 					<left>80</left>
@@ -1004,7 +1004,7 @@
 					<height>80</height>
 					<texture>$INFO[Window(Weather).Property(Day3.OutlookIcon)]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>IsEmpty(Skin.String(custom-weathericons))</visible>
+					<visible>IsEmpty(Skin.String(custom-weathericons.path))</visible>
 				</control>
 				<control type="label"><!-- Day3 temperature range -->
 					<left>0</left>
@@ -1045,30 +1045,30 @@
 					<top>68</top>
 					<width>80</width>
 					<height>80</height>
-					<imagepath>$INFO[Skin.String(custom-weathericons)]$INFO[Window(Weather).Property(Day4.FanartCode)]</imagepath>
+					<imagepath>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day4.FanartCode)]</imagepath>
 					<aspectratio>keep</aspectratio>
-					<timeperimage>200</timeperimage>
+					<timeperimage>100</timeperimage>
 					<randomize>false</randomize>
-					<fadetime>0</fadetime>
-					<visible>[!IsEmpty(Skin.String(custom-weathericons))] + Skin.HasSetting(animate-customicons)</visible>
+					<fadetime>1</fadetime>
+					<visible>[!IsEmpty(Skin.String(custom-weathericons.path))] + Skin.HasSetting(custom-weathericons.multi)</visible>
 				</control>
 				<control type="image"><!-- Day 4 custom weather condition icon -->
 					<left>80</left>
 					<top>68</top>
 					<width>80</width>
 					<height>80</height>
-					<texture>$INFO[Skin.String(custom-weathericons)]$INFO[Window(Weather).Property(Day4.FanartCode),,.png]</texture>
+					<texture>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day4.FanartCode),,.png]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>[!IsEmpty(Skin.String(custom-weathericons))] + [!Skin.HasSetting(animate-customicons)]</visible>
+					<visible>[!IsEmpty(Skin.String(custom-weathericons.path))] + [!Skin.HasSetting(custom-weathericons.multi)]</visible>
 				</control>
 				<control type="image"><!-- Day 4 weather condition icon -->
 					<left>80</left>
 					<top>68</top>
 					<width>80</width>
 					<height>80</height>
-					<texture>$INFO[Skin.String(custom-weathericons)]$INFO[Window(Weather).Property(Day4.OutlookIcon)]</texture>
+					<texture>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day4.OutlookIcon)]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>IsEmpty(Skin.String(custom-weathericons))</visible>
+					<visible>IsEmpty(Skin.String(custom-weathericons.path))</visible>
 				</control>
 				<control type="label"><!-- Day 4 temp range -->
 					<left>0</left>
