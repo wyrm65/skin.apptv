@@ -1073,47 +1073,13 @@
 							<left>0</left>
 							<width>256</width>
 							<height>256</height>
-							<control type="group">
-								<visible>IsEmpty(Window.Property(IsRadio))</visible>
-								<control type="image">
-									<left>186</left>
-									<width>256</width>
-									<height>256</height>
-									<texture fallback="DefaultTvshows.png" background="true" diffuse="mask-rect.png">$INFO[ListItem.Thumb]</texture>
-									<aspectratio scalediffuse="false">keep</aspectratio>
-									<aligny>top</aligny>
-									<visible>!IsEmpty(ListItem.Thumb)</visible>
-								</control>
-								<control type="image">
-									<left>186</left>
-									<width>256</width>
-									<height>256</height>
-									<texture fallback="DefaultTvshows.png" background="true">$INFO[ListItem.Icon]</texture>
-									<aspectratio>keep</aspectratio>
-									<aligny>top</aligny>
-									<visible>IsEmpty(ListItem.Thumb) + !IsEmpty(ListItem.Icon)</visible>
-								</control>
-							</control>
-							<control type="group">
-								<visible>!IsEmpty(Window.Property(IsRadio))</visible>
-								<control type="image">
-									<left>186</left>
-									<width>256</width>
-									<height>256</height>
-									<texture fallback="icon-radio.png" background="true" diffuse="mask-rect.png">$INFO[ListItem.Thumb]</texture>
-									<aspectratio scalediffuse="false">keep</aspectratio>
-									<aligny>top</aligny>
-									<visible>!IsEmpty(ListItem.Thumb)</visible>
-								</control>
-								<control type="image">
-									<left>186</left>
-									<width>256</width>
-									<height>256</height>
-									<texture fallback="icon-radio.png" background="true">$INFO[ListItem.Icon]</texture>
-									<aspectratio>keep</aspectratio>
-									<aligny>top</aligny>
-									<visible>IsEmpty(ListItem.Thumb) + !IsEmpty(ListItem.Icon)</visible>
-								</control>
+							<control type="image">
+								<left>186</left>
+								<width>256</width>
+								<height>256</height>
+								<texture background="true">$VAR[PVRIcon]</texture>
+								<aspectratio>keep</aspectratio>
+								<aligny>top</aligny>
 							</control>
 						</control>
 						<control type="group">
