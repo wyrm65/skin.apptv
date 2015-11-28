@@ -2,26 +2,59 @@
 <window>
 	<defaultcontrol>5</defaultcontrol>
 	<coordinates>
-		<posx>0</posx>
-		<posy>0</posy>
+		<posx>170</posx>
+		<posy>40</posy>
 	</coordinates>
 	<controls>
-		<include>background</include>
+		<animation effect="fade" time="200">VisibleChange</animation>
+		<control type="image"><!-- Dialog background Non Fullscreen Video screens -->
+			<left>0</left>
+			<top>0</top>
+			<width>926</width>
+			<height>642</height>
+			<texture border="8">button-menu-background.png</texture>
+			<visible>!Window.IsActive(fullscreenvideo)</visible>
+		</control>
+		<control type="image"><!-- Dialog background Fullscreen Video screen -->
+			<left>0</left>
+			<top>0</top>
+			<width>926</width>
+			<height>642</height>
+			<texture border="8">button-menu-background.png</texture>
+			<colordiffuse>UnFocusedPosters</colordiffuse>
+			<visible>Window.IsActive(fullscreenvideo)</visible>
+		</control>
+		<control type="label" id="2"><!-- Dialog heading -->
+			<left>22</left>
+			<top>6</top>
+			<width>885</width>
+			<height>46</height>
+			<align>center</align>
+			<font>font18</font>
+		</control>
+		<control type="image">
+			<left>22</left>
+			<top>54</top>
+			<width>885</width>
+			<height>4</height>
+			<texture>separator.png</texture>
+		</control>
+		<control type="button"><!-- Touch Close button -->
+			<left>902</left>
+			<top>-10</top>
+			<width>32</width>
+			<height>32</height>
+			<texturefocus>touch-close.png</texturefocus>
+			<texturenofocus>touch-close.png</texturenofocus>
+			<onclick>Dialog.Close(all,true)</onclick>
+			<visible>System.GetBool(input.enablemouse)</visible>
+		</control>
 		<control type="group">
-			<control type="label" id="2"><!-- Heading -->
-				<left>946</left>
-				<top>31</top>
-				<width>320</width>
-				<height>62</height>
-				<font>font18</font>
-				<wrapmultiline>true</wrapmultiline>
-				<label>-</label>
-			</control>
 			<control type="grouplist" id="5"><!-- control area -->
-				<left>53</left>
-				<top>112</top>
+				<left>22</left>
+				<top>60</top>
 				<width>885</width>
-				<height>542</height>
+				<height>560</height>
 				<itemgap>-2</itemgap>
 				<pagecontrol>30</pagecontrol>
 				<onleft condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>

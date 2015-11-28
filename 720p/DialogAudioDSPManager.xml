@@ -6,7 +6,7 @@
 		<control type="group">
 			<control type="label"><!-- Screen Title -->
 				<left>946</left>
-				<top>35</top>
+				<top>25</top>
 				<width>300</width>
 				<height>72</height>
 				<align>left</align>
@@ -16,7 +16,7 @@
 			</control>
 			<control type="list" id="9000">
 				<left>15</left>
-				<top>60</top>
+				<top>80</top>
 				<width>1250</width>
 				<height>45</height>
 				<scrolltime>200</scrolltime>
@@ -42,7 +42,7 @@
 						<width>250</width>
 						<height>45</height>
 						<texture border="5">button-default-focus.png</texture>
-						<visible>Control.HasFocus(9000)</visible>
+						<animation  condition="Control.HasFocus(20) | Control.HasFocus(60) | Control.HasFocus(21) | Control.HasFocus(61) | ControlGroup(300).HasFocus" effect="fade" start="100" end="60">Conditional</animation>
 					</control>
 					<control type="label">
 						<left>5</left>
@@ -93,95 +93,105 @@
 					</item>
 				</content>
 			</control>
+			<control type="image">
+				<left>10</left>
+				<top>130</top>
+				<width>1260</width>
+				<height>4</height>
+				<texture>separator.png</texture>
+			</control>
 			<control type="label">
 				<left>15</left>
-				<top>120</top>
+				<top>135</top>
 				<width>620</width>
-				<height>30</height>
+				<height>25</height>
 				<align>center</align>
 				<aligny>center</aligny>
-				<textcolor>blue</textcolor>
 				<label>$LOCALIZE[15050]</label>
 				<font>font12</font>
 			</control>
 			<control type="group" id="200">
 				<control type="list" id="20">
 					<left>10</left>
-					<top>160</top>
+					<top>165</top>
 					<width>610</width>
-					<height>400</height>
+					<height>450</height>
 					<onup>9000</onup>
 					<ondown>22</ondown>
 					<onleft>21</onleft>
 					<onright>60</onright>
 					<pagecontrol>60</pagecontrol>
 					<scrolltime>200</scrolltime>
-					<itemlayout width="610" height="80">
+					<itemlayout width="610" height="110">
 						<control type="image">
 							<left>5</left>
-							<top>5</top>
+							<top>20</top>
 							<width>70</width>
 							<height>70</height>
-							<texture fallback="DefaultAddonAudioDSP.png">$INFO[ListItem.Property(Icon)]</texture>
+							<texture fallback="DefaultAddon.png">$INFO[ListItem.Property(Icon)]</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
 						<control type="textbox">
 							<left>85</left>
-							<top>0</top>
+							<top>5</top>
 							<width>515</width>
-							<height>40</height>
-							<font>font11</font>
-							<label>[B]$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)][/B]</label>
+							<height>50</height>
+							<font>font10</font>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]</label>
 						</control>
 						<control type="textbox">
 							<left>85</left>
-							<top>38</top>
+							<top>55</top>
 							<width>515</width>
-							<height>40</height>
-							<font>font11</font>
+							<height>50</height>
+							<font>font10</font>
+							<aligny>center</aligny>
 							<label>$INFO[ListItem.Property(Description)]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout width="610" height="80">
+					<focusedlayout width="610" height="110">
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
 							<width>610</width>
-							<height>80</height>
+							<height>110</height>
 							<texture border="5">button-default-focus.png</texture>
 							<visible>Control.HasFocus(20)</visible>
 						</control>
 						<control type="image">
 							<left>5</left>
-							<top>5</top>
+							<top>20</top>
 							<width>70</width>
 							<height>70</height>
-							<texture>$INFO[ListItem.Property(Icon)]</texture>
+							<texture fallback="DefaultAddon.png">$INFO[ListItem.Property(Icon)]</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
 						<control type="textbox">
 							<left>85</left>
-							<top>0</top>
+							<top>5</top>
 							<width>515</width>
-							<height>40</height>
-							<font>font11</font>
-							<label>[B]$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)][/B]</label>
+							<height>50</height>
+							<font>font10</font>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]</label>
 						</control>
 						<control type="textbox">
 							<left>85</left>
-							<top>38</top>
+							<top>55</top>
 							<width>515</width>
-							<height>40</height>
-							<font>font11</font>
+							<height>50</height>
+							<font>font10</font>
+							<aligny>center</aligny>
 							<label>$INFO[ListItem.Property(Description)]</label>
 						</control>
 					</focusedlayout>
 				</control>
 				<control type="scrollbar" id="60">
 					<left>620</left>
-					<top>160</top>
+					<top>165</top>
 					<width>20</width>
-					<height>400</height>
+					<height>450</height>
 					<onleft>20</onleft>
 					<onright>21</onright>
 					<ondown>60</ondown>
@@ -192,91 +202,95 @@
 				</control>
 				<control type="label">
 					<left>660</left>
-					<top>120</top>
+					<top>135</top>
 					<width>620</width>
-					<height>30</height>
+					<height>25</height>
 					<align>center</align>
 					<aligny>center</aligny>
 					<label>$LOCALIZE[15051]</label>
-					<font>font13</font>
+					<font>font12</font>
 				</control>
 				<control type="list" id="21">
 					<left>650</left>
-					<top>160</top>
+					<top>165</top>
 					<width>610</width>
-					<height>400</height>
+					<height>440</height>
 					<onup>9000</onup>
 					<ondown>22</ondown>
 					<onleft>20</onleft>
 					<onright>61</onright>
 					<pagecontrol>61</pagecontrol>
 					<scrolltime>200</scrolltime>
-					<itemlayout width="610" height="80">
+					<itemlayout width="610" height="110">
 						<control type="image">
 							<left>5</left>
-							<top>5</top>
+							<top>20</top>
 							<width>70</width>
 							<height>70</height>
-							<texture>$INFO[ListItem.Property(Icon)]</texture>
+							<texture fallback="DefaultAddon.png">$INFO[ListItem.Property(Icon)]</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
 						<control type="textbox">
 							<left>85</left>
-							<top>0</top>
+							<top>5</top>
 							<width>515</width>
-							<height>40</height>
-							<font>font11</font>
-							<label>[B]$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)][/B]</label>
+							<height>50</height>
+							<font>font10</font>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]</label>
 						</control>
 						<control type="textbox">
 							<left>85</left>
-							<top>38</top>
+							<top>55</top>
 							<width>515</width>
-							<height>40</height>
-							<font>font11</font>
+							<height>50</height>
+							<font>font10</font>
+							<aligny>center</aligny>
 							<label>$INFO[ListItem.Property(Description)]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout width="610" height="80">
+					<focusedlayout width="610" height="110">
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
 							<width>610</width>
-							<height>80</height>
+							<height>110</height>
 							<texture border="5">button-default-focus.png</texture>
 							<visible>Control.HasFocus(21)</visible>
 						</control>
 						<control type="image">
 							<left>5</left>
-							<top>5</top>
+							<top>20</top>
 							<width>70</width>
 							<height>70</height>
-							<texture>$INFO[ListItem.Property(Icon)]</texture>
+							<texture fallback="DefaultAddon.png">$INFO[ListItem.Property(Icon)]</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
 						<control type="textbox">
 							<left>85</left>
-							<top>0</top>
+							<top>5</top>
 							<width>515</width>
-							<height>40</height>
-							<font>font11</font>
-							<label>[B]$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)][/B]</label>
+							<height>50</height>
+							<font>font10</font>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Property(AddonName)]: $INFO[ListItem.Property(Name)]</label>
 						</control>
 						<control type="textbox">
 							<left>85</left>
-							<top>38</top>
+							<top>55</top>
 							<width>515</width>
-							<height>40</height>
-							<font>font11</font>
+							<height>50</height>
+							<font>font10</font>
+							<aligny>center</aligny>
 							<label>$INFO[ListItem.Property(Description)]</label>
 						</control>
 					</focusedlayout>
 				</control>
 				<control type="scrollbar" id="61">
 					<left>1260</left>
-					<top>160</top>
+					<top>165</top>
 					<width>20</width>
-					<height>400</height>
+					<height>450</height>
 					<onleft>21</onleft>
 					<onright>20</onright>
 					<ondown>61</ondown>
@@ -287,30 +301,30 @@
 				</control>
 			</control>
 			<control type="image">
-				<left>0</left>
-				<top>600</top>
-				<width>1280</width>
-				<height>2</height>
+				<left>10</left>
+				<top>620</top>
+				<width>1260</width>
+				<height>4</height>
 				<texture>separator.png</texture>
 			</control>
 			<control type="textbox"><!-- current mode description label -->
 				<left>40</left>
-				<top>600</top>
+				<top>624</top>
 				<width>1200</width>
-				<height>60</height>
-				<font>font11</font>
+				<height>40</height>
+				<font>font10</font>
 				<align>center</align>
 				<aligny>center</aligny>
 				<label>$INFO[Container(9000).ListItem.Label2]</label>
 			</control>
-			<control type="group">
+			<control type="group" id="300">
 				<control type="radiobutton" id="22"><!-- Add -->
-					<left>190</left>
+					<left>40</left>
 					<top>670</top>
-					<width>300</width>
+					<width>400</width>
 					<height>45</height>
 					<font>font11</font>
-					<align>center</align>
+					<align>left</align>
 					<aligny>center</aligny>
 					<label>$LOCALIZE[15064]</label>
 					<onleft>24</onleft>
@@ -319,9 +333,9 @@
 					<ondown>9000</ondown>
 				</control>
 				<control type="button" id="23"><!-- Apply -->
-					<left>490</left>
+					<left>440</left>
 					<top>670</top>
-					<width>300</width>
+					<width>400</width>
 					<height>45</height>
 					<font>font11</font>
 					<align>center</align>
@@ -333,9 +347,9 @@
 					<ondown>9000</ondown>
 				</control>
 				<control type="button" id="24"><!-- Clear -->
-					<left>790</left>
+					<left>840</left>
 					<top>670</top>
-					<width>300</width>
+					<width>400</width>
 					<height>45</height>
 					<font>font11</font>
 					<align>center</align>

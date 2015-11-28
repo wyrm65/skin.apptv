@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">214</defaultcontrol>
-	<animation effect="fade" end="0" time="100" condition="[Window.IsVisible(sliderdialog) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(subtitlesearch) | Window.IsVisible(videobookmarks) | Window.IsVisible(script-nextup-notification-StillWatchingInfo.xml) | Window.IsVisible(script-nextup-notification-NextUpInfo.xml)]">Conditional</animation>
+	<animation effect="fade" end="0" time="100" condition="[Window.IsVisible(sliderdialog) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdaudiodspsettings) | Window.IsVisible(subtitlesearch) | Window.IsVisible(videobookmarks) | Window.IsVisible(script-nextup-notification-StillWatchingInfo.xml) | Window.IsVisible(script-nextup-notification-NextUpInfo.xml)]">Conditional</animation>
 	<controls>
 		<control type="image"><!-- Background shadow -->
 			<left>0</left>
@@ -12,7 +12,7 @@
 			<colordiffuse>mask-background</colordiffuse>
 		</control>
 		<control type="group">
-			<visible>![Window.IsVisible(fullscreeninfo) | Window.IsVisible(sliderdialog) | Window.IsVisible(seekbar) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(videobookmarks)]</visible>
+			<visible>![Window.IsVisible(fullscreeninfo) | Window.IsVisible(sliderdialog) | Window.IsVisible(seekbar) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdaudiodspsettings) | Window.IsVisible(videobookmarks)]</visible>
 			<include>player-mediaicon</include>
 		</control>
 
@@ -41,7 +41,7 @@
 		</control>
 
 		<control type="group">
-			<visible>[Window.IsVisible(fullscreenvideo)] + ![Window.IsVisible(fullscreeninfo) | Window.IsVisible(sliderdialog) | Window.IsVisible(seekbar) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(videobookmarks) | Window.IsVisible(script-nextup-notification-StillWatchingInfo.xml) | Window.IsVisible(script-nextup-notification-NextUpInfo.xml)]</visible>
+			<visible>[Window.IsVisible(fullscreenvideo)] + ![Window.IsVisible(fullscreeninfo) | Window.IsVisible(sliderdialog) | Window.IsVisible(seekbar) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdaudiodspsettings) | Window.IsVisible(videobookmarks) | Window.IsVisible(script-nextup-notification-StillWatchingInfo.xml) | Window.IsVisible(script-nextup-notification-NextUpInfo.xml)]</visible>
 			<!-- Player info labels -->
 			<control type="label">
 				<left>8</left>
