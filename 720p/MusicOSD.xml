@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol>214</defaultcontrol>
-	<animation effect="fade" end="0" time="200" condition="Window.IsVisible(visualisationsettings) | Window.IsVisible(visualisationpresetlist)">Conditional</animation>	
+	<animation effect="fade" end="0" time="200" condition="Window.IsVisible(visualisationsettings)">Conditional</animation>	
 	<controls>
 		<control type="image"><!-- Background shadow -->
 			<left>0</left>
@@ -173,6 +173,21 @@
 				<texturefocus>osd-btn-setting-focus.png</texturefocus>
 				<texturenofocus>osd-btn-setting.png</texturenofocus>
 				<onclick>Addon.Default.OpenSettings(xbmc.player.musicviz)</onclick>
+			</control>
+			<control type="button" id="921"><!-- Audio menu -->
+				<width>64</width>
+				<height>64</height>
+				<texturefocus>osd-btn-audio-focus.png</texturefocus>
+				<texturenofocus>osd-btn-audio.png</texturenofocus>
+				<onclick>ActivateWindow(osdaudiosettings)</onclick>
+			</control>
+			<control type="button" id="924"><!-- RDS Info -->
+				<width>64</width>
+				<height>64</height>
+				<texturefocus>osd-btn-guide-focus.png</texturefocus>
+				<texturenofocus>osd-btn-guide.png</texturenofocus>
+				<onclick>ActivateWindow(PVRRadioRDSInfo)</onclick>
+				<visible>MusicPlayer.Content(LiveTV) + RDS.HasRadiotextPlus</visible>
 			</control>
 		</control>
 	</controls>
