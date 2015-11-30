@@ -75,6 +75,7 @@
 
 	<include name="player-mediaicon">
 		<control type="group" id="1"><!-- Player Media Icon -->
+			<visible>Window.IsVisible(fullscreeninfo)</visible>
 			<control type="group" id="1">
 				<visible>VideoPlayer.Content(Movies) | VideoPlayer.Content(episodes)</visible><!-- Movies or Tv Episodes -->
 				<animation effect="fade" time="200">VisibleChange</animation>
