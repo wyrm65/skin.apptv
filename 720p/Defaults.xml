@@ -6,7 +6,6 @@
 		<scrollsuffix> • </scrollsuffix>
 		<textcolor>button-text</textcolor>
 		<shadowcolor>shadow-text</shadowcolor>
-		<selectedcolor>listselected-text</selectedcolor>
 		<aligny>center</aligny>
 	</default>
 	<default type="button">
@@ -35,6 +34,7 @@
 		<font>font13</font>
 		<textcolor>button-text</textcolor>
 		<shadowcolor>shadow-text</shadowcolor>
+		<disabledcolor>disabled-text</disabledcolor>
 		<scroll>false</scroll>
 		<scrollout>false</scrollout>
 		<pauseatend>4000</pauseatend>
@@ -49,10 +49,10 @@
 	</default>
 	<default type="progress">
 		<texturebg border="8,0,8,0">progress-background.png</texturebg>
-		<lefttexture></lefttexture>
-		<midtexture border="8,0,8,0">progress-bar.png</midtexture>
-		<righttexture></righttexture>
-		<overlaytexture></overlaytexture>
+		<lefttexture>-</lefttexture>
+		<midtexture border="8,0,8,0">progress-bar-focus.png</midtexture>
+		<righttexture>-</righttexture>
+		<overlaytexture/>
 		<colordiffuse>ProgressBarColor</colordiffuse>
 	</default>
 	<default type="scrollbar">
@@ -76,6 +76,7 @@
 		<font>font13</font>
 		<textcolor>button-text</textcolor>
 		<shadowcolor>shadow-text</shadowcolor>
+		<disabledcolor>disabled-text</disabledcolor>
 		<pulseonselect>false</pulseonselect>
 		<subtype>text</subtype>
 	</default>
@@ -100,8 +101,8 @@
 	</default>
 	<default type="radiobutton">
 		<texturefocus border="7">button-default-focus.png</texturefocus>
-		<radiowidth />
-		<radioheight />
+		<radiowidth/>
+		<radioheight/>
 		<font>font13</font>
 		<textcolor>button-text</textcolor>
 		<shadowcolor>shadow-text</shadowcolor>
