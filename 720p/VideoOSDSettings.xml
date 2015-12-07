@@ -7,7 +7,7 @@
 	</coordinates>
 	<controls>
 		<control type="group">
-			<animation effect="fade" start="100" end="0" time="200" condition="Window.IsVisible(osdaudiodspsettings) | Window.IsVisible(sliderdialog) | Window.IsVisible(filebrowser)">Conditional</animation>
+			<animation effect="fade" start="100" end="0" time="200" condition="Window.IsVisible(sliderdialog)">Conditional</animation>
 			<control type="image"><!-- Dialog background Non Fullscreen Video screens -->
 				<left>0</left>
 				<top>0</top>
@@ -21,8 +21,7 @@
 				<top>0</top>
 				<width>754</width>
 				<height>642</height>
-				<texture border="8">button-menu-background.png</texture>
-				<colordiffuse>UnFocusedPosters</colordiffuse>
+				<texture colordiffuse="UnFocusedPosters" border="8">button-menu-background.png</texture>
 				<visible>Window.IsActive(fullscreenvideo)</visible>
 			</control>
 			<control type="label" id="2"><!-- Dialog heading -->
@@ -32,7 +31,6 @@
 				<height>46</height>
 				<align>center</align>
 				<font>font18</font>
-				<label>-</label>
 			</control>
 			<control type="label"><!-- Dialog Video settings heading -->
 				<left>25</left>
@@ -68,7 +66,8 @@
 				<height>32</height>
 				<texturefocus>touch-close.png</texturefocus>
 				<texturenofocus>touch-close.png</texturenofocus>
-				<onclick>Dialog.Close(all,true)</onclick>
+				<onclick>Dialog.Close(osdaudiosettings)</onclick>
+				<onclick>Dialog.Close(osdvideosettings)</onclick>
 				<visible>System.GetBool(input.enablemouse)</visible>
 			</control>
 			<control type="grouplist" id="5"><!-- Control area -->
@@ -76,8 +75,8 @@
 				<top>62</top>
 				<width>722</width>
 				<height>552</height>
-				<onleft>5</onleft>
-				<onright>5</onright>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
 				<onup>5</onup>
 				<ondown>5</ondown>
 			</control>

@@ -8,30 +8,38 @@
 	<controls>
 		<include>fadebackground</include>
 		<control type="image"><!-- Dialog background image type 3 -->
-			<left>150</left>
+			<left>120</left>
 			<top>60</top>
-			<width>1038</width>
+			<width>1040</width>
 			<height>540</height>
 			<texture border="8">button-menu-background.png</texture>
-			<visible>Control.IsVisible(3)</visible>
 		</control>
-		<control type="image"><!-- Dialog background image type 6 -->
-			<left>140</left>
-			<top>60</top>
-			<width>1038</width>
-			<height>516</height>
-			<texture border="8">button-menu-background.png</texture>
-			<visible>Control.IsVisible(6)</visible>
+		<control type="button"><!-- Touch Close button -->
+			<left>1137</left>
+			<top>51</top>
+			<width>32</width>
+			<height>32</height>
+			<texturefocus>touch-close.png</texturefocus>
+			<texturenofocus>touch-close.png</texturenofocus>
+			<onclick>Dialog.Close(selectdialog)</onclick>
+			<visible>System.GetBool(input.enablemouse)</visible>
 		</control>
 		<control type="label" id="1"><!-- Dialog heading -->
-			<left>310</left>
+			<left>140</left>
 			<top>68</top>
-			<width>736</width>
+			<width>996</width>
 			<height>37</height>
 			<align>center</align>
 		</control>
+		<control type="image">
+			<left>140</left>
+			<top>106</top>
+			<width>996</width>
+			<height>4</height>
+			<texture>separator.png</texture>
+		</control>
 		<control type="list" id="3"><!-- Type 3 Select -->
-			<left>200</left>
+			<left>170</left>
 			<top>124</top>
 			<width>700</width>
 			<height>448</height>
@@ -88,45 +96,8 @@
 				</control>
 			</focusedlayout>
 		</control>
-		<control type="group">
-			<visible>Control.IsVisible(3)</visible>
-			<control type="button"><!-- Touch Close button -->
-				<left>1167</left>
-				<top>51</top>
-				<width>32</width>
-				<height>32</height>
-				<texturefocus>touch-close.png</texturefocus>
-				<texturenofocus>touch-close.png</texturenofocus>
-				<onclick>Dialog.Close(selectdialog)</onclick>
-				<visible>System.GetBool(input.enablemouse)</visible>
-			</control>
-			<control type="image">
-				<left>170</left>
-				<top>106</top>
-				<width>996</width>
-				<height>4</height>
-				<texture>separator.png</texture>
-			</control>
-			<control type="scrollbar" id="23">
-				<left>170</left>
-				<top>124</top>
-				<width>18</width>
-				<height>448</height>
-				<onright>3</onright>
-				<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
-			</control>
-			<control type="label">
-				<left>700</left>
-				<top>560</top>
-				<width>400</width>
-				<height>24</height>
-				<label>$INFO[Container(3).NumItems] $LOCALIZE[127]</label>
-				<align>right</align>
-			</control>
-		</control>
 		<control type="list" id="6"><!-- Type 6 Select -->
-			<left>168</left>
+			<left>145</left>
 			<top>124</top>
 			<width>700</width>
 			<height>392</height>
@@ -185,26 +156,29 @@
 			</focusedlayout>
 		</control>
 		<control type="group">
+			<visible>Control.IsVisible(3)</visible>
+			<control type="scrollbar" id="23">
+				<left>136</left>
+				<top>124</top>
+				<width>18</width>
+				<height>448</height>
+				<onright>3</onright>
+				<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+			</control>
+			<control type="label">
+				<left>670</left>
+				<top>560</top>
+				<width>400</width>
+				<height>24</height>
+				<label>$INFO[Container(3).NumItems] $LOCALIZE[127]</label>
+				<align>right</align>
+			</control>
+		</control>
+		<control type="group">
 			<visible>Control.IsVisible(6)</visible>
-			<control type="button"><!-- Touch Close button -->
-				<left>1157</left>
-				<top>51</top>
-				<width>32</width>
-				<height>32</height>
-				<texturefocus>touch-close.png</texturefocus>
-				<texturenofocus>touch-close.png</texturenofocus>
-				<onclick>Dialog.Close(selectdialog)</onclick>
-				<visible>System.GetBool(input.enablemouse)</visible>
-			</control>
-			<control type="image">
-				<left>162</left>
-				<top>106</top>
-				<width>996</width>
-				<height>4</height>
-				<texture>separator.png</texture>
-			</control>
 			<control type="scrollbar" id="26">
-				<left>882</left>
+				<left>856</left>
 				<top>124</top>
 				<width>18</width>
 				<height>392</height>
@@ -214,7 +188,7 @@
 				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 			</control>
 			<control type="image">
-				<left>904</left>
+				<left>884</left>
 				<top>190</top>
 				<height>256</height>
 				<width>256</width>
@@ -222,18 +196,18 @@
 				<aspectratio aligny="top">keep</aspectratio>
 			</control>
 			<control type="label">
-				<left>700</left>
-				<top>532</top>
+				<left>670</left>
+				<top>560</top>
 				<width>400</width>
-				<height>37</height>
+				<height>24</height>
 				<label>$INFO[Container(6).NumItems] $LOCALIZE[127]</label>
 				<align>right</align>
 			</control>
 		</control>
 		<control type="button" id="5"><!-- Manual -->
-			<left>910</left>
+			<left>884</left>
 			<top>124</top>
-			<width>250</width>
+			<width>256</width>
 			<height>56</height>
 			<font>font12</font>
 			<label>$LOCALIZE[186]</label>

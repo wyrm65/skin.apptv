@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol>5</defaultcontrol>
+	<visible>!Window.IsVisible(DialogParametricEQ.xml)</visible>
 	<coordinates>
-		<posx>170</posx>
-		<posy>40</posy>
+		<left>170</left>
+		<top>40</top>
 	</coordinates>
 	<controls>
 		<animation effect="fade" time="200">VisibleChange</animation>
@@ -20,8 +21,7 @@
 			<top>0</top>
 			<width>926</width>
 			<height>642</height>
-			<texture border="8">button-menu-background.png</texture>
-			<colordiffuse>UnFocusedPosters</colordiffuse>
+			<texture colordiffuse="UnFocusedPosters" border="8">button-menu-background.png</texture>
 			<visible>Window.IsActive(fullscreenvideo)</visible>
 		</control>
 		<control type="label" id="2"><!-- Dialog heading -->
@@ -46,7 +46,7 @@
 			<height>32</height>
 			<texturefocus>touch-close.png</texturefocus>
 			<texturenofocus>touch-close.png</texturenofocus>
-			<onclick>Dialog.Close(all,true)</onclick>
+			<onclick>Dialog.Close(osdaudiodspsettings)</onclick>
 			<visible>System.GetBool(input.enablemouse)</visible>
 		</control>
 		<control type="group">

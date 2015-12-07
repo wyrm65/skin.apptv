@@ -1108,9 +1108,8 @@
 
 	<include name="shelf-nowplaying">
 		<control type="group">
-		<visible>![Control.HasFocus(9160) + Container(9160).Position(5)] + ![Control.HasFocus(9210) + Container(9210).Position(4)] + 
-		![Control.HasFocus(9260) + Container(9260).Position(5)] + Skin.HasSetting(media-overlay) + 
-		[[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]</visible>
+		<visible>!Container(9160).Position(5) + !Container(9210).Position(4) + !Container(9260).Position(5) + Skin.HasSetting(media-overlay) + 
+		[Player.HasVideo | [Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]]</visible>
 		<control type="label"><!-- Now playing -->
 				<left>10</left>
 				<top>12</top>
@@ -1121,21 +1120,31 @@
 				<align>center</align>
 			</control>
 			<control type="group"><!-- Video Stuff -->
-				<visible>Player.HasVideo + !VideoPlayer.Content(livetv) + !Skin.HasSetting(background-playingmedia)</visible>
+				<visible>Player.HasVideo</visible>
 				<control type="image"><!-- Video cover image -->
 					<left>40</left>
 					<top>46</top>
 					<width>150</width>
 					<height>194</height>
-					<texture diffuse="mask-rect.png" background="true">$VAR[PlayerVideoCover]</texture>
+					<texture diffuse="mask-rect.png" background="true" fallback="DefaultVideo.png">$VAR[PlayerVideoCover]</texture>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
+				</control>
+				<control type="button"><!-- Fake fullscreen button as a touch screen work around -->
+					<left>40</left>
+					<top>46</top>
+					<width>150</width>
+					<height>194</height>
+					<texturefocus>blank.png</texturefocus>
+					<texturenofocus>blank.png</texturenofocus>
+					<onclick>Fullscreen</onclick>
+					<visible>System.GetBool(input.enablemouse)</visible>
 				</control>
 				<control type="image">
 					<left>40</left>
 					<top>241</top>
 					<width>150</width>
 					<height>194</height>
-					<texture diffuse="mask-fade.png" background="true" flipy="true">$VAR[PlayerVideoCover]</texture>
+					<texture diffuse="mask-fade.png" background="true" fallback="DefaultVideo.png" flipy="true">$VAR[PlayerVideoCover]</texture>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 				</control>
 				<control type="textbox">
@@ -1160,6 +1169,16 @@
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<aligny>top</aligny>
 					<texture diffuse="mask-squ.png" background="true" fallback="DefaultAudio.png">$VAR[PlayerMusicCover]</texture>
+				</control>
+				<control type="button"><!-- Fake fullscreen button as a touch screen work around -->
+					<left>25</left>
+					<top>56</top>
+					<width>180</width>
+					<height>180</height>
+					<texturefocus>blank.png</texturefocus>
+					<texturenofocus>blank.png</texturenofocus>
+					<onclick>Fullscreen</onclick>
+					<visible>System.GetBool(input.enablemouse)</visible>
 				</control>
 				<control type="image">
 					<left>25</left>

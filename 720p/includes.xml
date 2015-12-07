@@ -51,15 +51,15 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>Skin.HasSetting(background-playingmedia)</visible>
+				<visible>Skin.HasSetting(background-playingmedia) + [[Skin.HasSetting(homemenu-vertical) + Window.IsVisible(home)] | !Window.IsVisible(home)]</visible>
 				<control type="videowindow">
 					<include>fullscreenimage</include>
 					<visible>Player.HasVideo</visible>
 				</control>
 				<control type="visualisation">
 					<include>fullscreenimage</include>
-					<visible>Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
 					<animation effect="fade" time="200">VisibleChange</animation>
+					<visible>Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
 				</control>
 			</control>
 			<control type="image"><!-- mask to fade backgrounds -->
@@ -75,45 +75,24 @@
 
 	<include name="player-mediaicon">
 		<control type="group" id="1"><!-- Player Media Icon -->
-			<visible>Window.IsVisible(fullscreeninfo)</visible>
+			<visible>[Window.IsActive(fullscreenvideo)] + ![Window.IsActive(musicosd)]</visible>
 			<control type="group" id="1">
 				<visible>VideoPlayer.Content(Movies) | VideoPlayer.Content(episodes)</visible><!-- Movies or Tv Episodes -->
 				<animation effect="fade" time="200">VisibleChange</animation>
-				<control type="image" id="890"><!-- Use Clearart if available -->
-					<left>8</left>
-					<top>496</top>
-					<width>275</width>
-					<height>145</height>
-					<texture>$VAR[PlayerVideoClearart]</texture>
+				<control type="image" id="1">
+					<left>18</left>
+					<top>440</top>
+					<width>256</width>
+					<height>256</height>
+					<texture>$VAR[PlayerVideoArt]</texture>
 					<aligny>bottom</aligny>
 					<aspectratio>keep</aspectratio>
-				</control>
-				<control type="group" id="1">
-					<visible>StringCompare(Control.GetLabel(890),blank.png)</visible>
-					<control type="image" id="891"><!-- Use Logo if available -->
-						<left>8</left>
-						<top>565</top>
-						<width>276</width>
-						<height>75</height>
-						<texture>$VAR[PlayerVideoLogo]</texture>
-						<aspectratio align="left" aligny="bottom">keep</aspectratio>
-					</control>
-					<control type="image"><!-- Fallback to video cover image if no clearart or logo -->
-						<left>56</left>
-						<top>460</top>
-						<width>180</width>
-						<height>180</height>
-						<aligny>bottom</aligny>
-						<texture diffuse="mask-rect.png">$VAR[PlayerVideoCover]</texture>
-						<aspectratio scalediffuse="false">keep</aspectratio>
-						<visible>StringCompare(Control.GetLabel(891),blank.png)</visible>
-					</control>
 				</control>
 			</control>
 			<control type="group" id="1"><!-- Any video other than Movies and TV Episodes -->
 				<visible>![VideoPlayer.Content(Movies) | VideoPlayer.Content(episodes)]</visible>
 				<animation effect="fade" time="200">VisibleChange</animation>
-				<control type="image"><!-- Fallback to Thumb image if not TV Episode or Movie playing -->
+				<control type="image" id="1"><!-- Fallback to Thumb image if not TV Episode or Movie playing -->
 					<left>56</left>
 					<top>460</top>
 					<width>180</width>
@@ -194,85 +173,88 @@
 	</include>
 
 	<include name="Fake-Overlay">
-		<control type="group"><!-- Video Stuff -->
-			<visible>Skin.HasSetting(media-overlay) + Player.HasVideo + !VideoPlayer.Content(livetv) + !Skin.HasSetting(background-playingmedia) + !Window.IsActive(playercontrols)</visible>
-			<control type="videowindow">
-				<left>35</left>
-				<top>5</top>
-				<width>167</width>
-				<height>100</height>
+		<control type="group">
+			<visible>Skin.HasSetting(media-overlay) + !Window.IsActive(playercontrols)</visible>
+			<control type="group"><!-- Video Stuff -->
+				<visible>Player.HasVideo + !Skin.HasSetting(background-playingmedia)</visible>
+				<control type="videowindow">
+					<left>35</left>
+					<top>5</top>
+					<width>167</width>
+					<height>100</height>
+				</control>
+				<control type="label"><!-- Now playing -->
+					<left>212</left>
+					<top>14</top>
+					<width>430</width>
+					<height>25</height>
+					<label>$LOCALIZE[31037]</label>
+					<font>font12</font>
+					<textcolor>listselected-text</textcolor>
+				</control>
+				<control type="label">
+					<left>212</left>
+					<top>39</top>
+					<width>430</width>
+					<height>25</height>
+					<label>$INFO[VideoPlayer.Title]</label>
+					<font>font12</font>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
+				<control type="label"><!-- Time and duration -->
+					<left>212</left>
+					<top>64</top>
+					<width>430</width>
+					<height>25</height>
+					<label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
+					<font>font12</font>
+				</control>
 			</control>
-			<control type="label"><!-- Now playing -->
-				<left>212</left>
-				<top>14</top>
-				<width>430</width>
-				<height>25</height>
-				<label>$LOCALIZE[13350]</label>
-				<font>font12</font>
-				<textcolor>listselected-text</textcolor>
-			</control>
-			<control type="label">
-				<left>212</left>
-				<top>39</top>
-				<width>430</width>
-				<height>25</height>
-				<label>$INFO[VideoPlayer.Title]</label>
-				<font>font12</font>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-			</control>
-			<control type="label"><!-- Time and duration -->
-				<left>212</left>
-				<top>64</top>
-				<width>430</width>
-				<height>25</height>
-				<label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
-				<font>font12</font>
-			</control>
-		</control>
-		<control type="group"><!-- Audio Stuff -->
-			<visible>Player.HasAudio + Skin.HasSetting(media-overlay) + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia)) + !Window.IsActive(playercontrols)</visible>
-			<control type="image">
-				<left>24</left>
-				<top>2</top>
-				<width>100</width>
-				<height>100</height>
-				<texture background="true" fallback="DefaultAudio.png">$VAR[PlayerMusicCover]</texture>
-				<aspectratio>keep</aspectratio>
-			</control>
-			<control type="label">
-				<left>145</left>
-				<top>2</top>
-				<width>475</width>
-				<height>25</height>
-				<label>$INFO[MusicPlayer.Artist]</label>
-				<font>font11</font>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-			</control>
-			<control type="label">
-				<left>145</left>
-				<top>27</top>
-				<width>475</width>
-				<height>25</height>
-				<label>$INFO[MusicPlayer.Album]</label>
-				<font>font11</font>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-			</control>
-			<control type="label">
-				<left>145</left>
-				<top>52</top>
-				<width>475</width>
-				<height>25</height>
-				<label>$INFO[MusicPlayer.Title]</label>
-				<font>font11</font>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-			</control>
-			<control type="label">
-				<left>145</left>
-				<top>77</top>
-				<width>475</width>
-				<height>25</height>
-				<label>$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ]</label>
-				<font>font12</font>
+			<control type="group"><!-- Audio Stuff -->
+				<visible>Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
+				<control type="image">
+					<left>24</left>
+					<top>2</top>
+					<width>100</width>
+					<height>100</height>
+					<texture background="true" fallback="DefaultAudio.png">$VAR[PlayerMusicCover]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+					<left>145</left>
+					<top>2</top>
+					<width>475</width>
+					<height>25</height>
+					<label>$INFO[MusicPlayer.Artist]</label>
+					<font>font11</font>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
+				<control type="label">
+					<left>145</left>
+					<top>27</top>
+					<width>475</width>
+					<height>25</height>
+					<label>$INFO[MusicPlayer.Album]</label>
+					<font>font11</font>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
+				<control type="label">
+					<left>145</left>
+					<top>52</top>
+					<width>475</width>
+					<height>25</height>
+					<label>$INFO[MusicPlayer.Title]</label>
+					<font>font11</font>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
+				<control type="label">
+					<left>145</left>
+					<top>77</top>
+					<width>475</width>
+					<height>25</height>
+					<label>$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ]</label>
+					<font>font12</font>
+				</control>
 			</control>
 		</control>
 	</include>

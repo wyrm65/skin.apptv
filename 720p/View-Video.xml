@@ -889,18 +889,16 @@
 						<top>0</top>
 						<width>542</width>
 						<height>100</height>
-						<texture>colours/black.png</texture>
+						<texture colordiffuse="UnFocusedPosters">background-mask.png</texture>
 						<aspectratio>stretch</aspectratio>
-						<colordiffuse>UnFocusedPosters</colordiffuse>
 					</control>
 					<control type="image"><!-- Banner image -->
 						<left>8</left>
 						<top>0</top>
 						<width>542</width>
 						<height>100</height>
-						<texture background="true">$VAR[IconBanner]</texture>
+						<texture colordiffuse="UnFocusedPosters" background="true">$VAR[IconBanner]</texture>
 						<aspectratio>keep</aspectratio>
-						<colordiffuse>UnFocusedPosters</colordiffuse>
 						<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 					</control>
 					<control type="image"><!-- Go Back image -->
@@ -908,9 +906,8 @@
 						<top>0</top>
 						<width>542</width>
 						<height>100</height>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<texture colordiffuse="UnFocusedPosters" background="true">$INFO[ListItem.Icon]</texture>
 						<aspectratio>keep</aspectratio>
-						<colordiffuse>UnFocusedPosters</colordiffuse>
 						<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 					</control>
 				</itemlayout>

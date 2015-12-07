@@ -6,9 +6,8 @@
 		<control type="image"><!-- Kodi has been asked to quit/restart, fade screen down to show that something is happening -->
 			<visible>!IsEmpty(Window(Home).Property(ShutdownKodi))</visible>
 			<include>fullscreenimage</include>
-			<texture>colours/black.png</texture>
+			<texture colordiffuse="mask-background">background-mask.png</texture>
 			<aspectratio>scale</aspectratio>
-			<colordiffuse>mask-background</colordiffuse>
 		</control>
 		<control type="image"><!-- Global debug grid -->
 			<visible>Skin.HasSetting(debug-grid)</visible>
@@ -313,6 +312,12 @@
 					<textcolor>kai-text</textcolor>
 					<label>DialogOK.xml</label>
 					<visible>Window.IsVisible(DialogOK.xml)</visible>
+				</control>
+				<control type="label">
+					<include>overlaylabel-dimension</include>
+					<textcolor>kai-text</textcolor>
+					<label>DialogParametricEQ.xml</label>
+					<visible>Window.IsVisible(DialogParametricEQ.xml)</visible>
 				</control>
 				<control type="label">
 					<include>overlaylabel-dimension</include>

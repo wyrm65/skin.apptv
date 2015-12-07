@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol>101</defaultcontrol>
-	<visible>StringCompare(Skin.String(osd-lyricpath),script.cu.lrclyrics)</visible>
-	<coordinates>
-		<left>0</left>
-		<top>0</top>
-	</coordinates>
+	<animation effect="fade" end="0" time="0" condition="!StringCompare(Skin.String(osd-lyricpath),script.cu.lrclyrics)">Conditional</animation>
 	<controls>
 		<include>background</include>
 		<control type="group">
@@ -101,7 +97,7 @@
 				<top>668</top>
 				<width>656</width>
 				<height>37</height>
-				<label>$INFO[musicplayer.Time]$INFO[musicplayer.Duration, / ]</label>
+				<label>$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ]</label>
 				<font>font12</font>
 			</control>
 			<control type="progress" id="1">

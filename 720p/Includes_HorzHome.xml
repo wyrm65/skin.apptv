@@ -13,7 +13,7 @@
 				<left>0</left>
 				<top>192</top>
 				<width>1280</width>
-				<height>102</height>
+				<height>102</height>m
 				<texture>background-horzshelf.png</texture>
 			</control>
 			<control type="image">
@@ -58,16 +58,6 @@
 			<texture background="true">$INFO[Skin.String(custom-watermark)]</texture>
 			<colordiffuse>UnFocusedPosters</colordiffuse>
 			<visible>!IsEmpty(Skin.String(custom-watermark))</visible>
-		</control>
-
-		<control type="button" id="11000"><!-- Fake fullscreen button as a touch screen work around -->
-			<left>0</left>
-			<top>0</top>>
-			<width>1280</width>
-			<height>720</height>
-			<texturefocus>blank.png</texturefocus>
-			<texturenofocus>blank.png</texturenofocus>
-			<visible>System.GetBool(input.enablemouse)</visible>
 		</control>
 
 		<include condition="!Skin.HasSetting(home-time)" file="Includes_Shelf.xml">homeshelf-time</include><!-- Show time on home screen -->

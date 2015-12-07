@@ -9,8 +9,7 @@
 					<top>462</top>
 					<height>264</height>
 					<width>1280</width>
-					<texture>colours/black.png</texture>
-					<colordiffuse>mask-background</colordiffuse>
+					<texture colordiffuse="mask-background">background-mask.png</texture>
 				</control>
 				<include>player-mediaicon</include>
 			</control>
@@ -97,58 +96,29 @@
 				<orientation>horizontal</orientation>
 				<itemgap>-8</itemgap>
 				<animation effect="fade" start="0" end="100" time="1000">WindowOpen</animation>
-				<!-- Hack to check if media flag image is available -->
-				<control type="image" id="161">
-					<width>1</width>
-					<height>40</height>
-					<colordiffuse>HideControl</colordiffuse>
-					<texture background="true" fallback="blank.png">$INFO[VideoPlayer.AudioCodec,special://skin/extras/images/audio/,.png]</texture>
-					<visible>!IsEmpty(VideoPlayer.AudioCodec)</visible>
-				</control>
-				<control type="image" id="162">
-					<width>1</width>
-					<height>40</height>
-					<colordiffuse>HideControl</colordiffuse>
-					<texture background="true" fallback="blank.png">$INFO[VideoPlayer.VideoCodec,special://skin/extras/images/video/,.png]</texture>
-					<visible>!IsEmpty(VideoPlayer.VideoCodec)</visible>
-				</control>
-				<control type="image" id="163">
-					<width>1</width>
-					<height>40</height>
-					<texture background="true" fallback="blank.png">$INFO[VideoPlayer.VideoAspect,special://skin/extras/images/aspectratio/,.png]</texture>
-					<colordiffuse>HideControl</colordiffuse>
-					<visible>!IsEmpty(VideoPlayer.VideoAspect)</visible>
-				</control>
-				<control type="image" id="164">
-					<width>1</width>
-					<height>40</height>
-					<colordiffuse>HideControl</colordiffuse>
-					<texture background="true" fallback="blank.png">$INFO[VideoPlayer.VideoResolution,special://skin/extras/images/resolution/,.png]</texture>
-					<visible>!IsEmpty(VideoPlayer.VideoResolution)</visible>
-				</control>
-				<control type="image" id="171"><!-- Audio Codec -->
+				<control type="image" id="1"><!-- Audio Codec -->
 					<width>54</width>
 					<height>40</height>
 					<texture background="true">$INFO[VideoPlayer.AudioCodec,special://skin/extras/images/audio/,.png]</texture>
-					<visible>!IsEmpty(VideoPlayer.AudioCodec) + !StringCompare(Control.GetLabel(161),blank.png)</visible>
+					<visible>!Player.ChannelPreviewActive</visible>
 				</control>
-				<control type="image" id="172"><!-- Video Codec -->
+				<control type="image" id="1"><!-- Video Codec -->
 					<width>54</width>
 					<height>40</height>
 					<texture background="true">$INFO[VideoPlayer.VideoCodec,special://skin/extras/images/video/,.png]</texture>
-					<visible>!IsEmpty(VideoPlayer.VideoCodec) + !StringCompare(Control.GetLabel(162),blank.png)</visible>
+					<visible>!Player.ChannelPreviewActive</visible>
 				</control>
-				<control type="image" id="173"><!-- Video Aspect Ratio -->
+				<control type="image" id="1"><!-- Video Aspect Ratio -->
 					<width>54</width>
 					<height>40</height>
 					<texture background="true">$INFO[VideoPlayer.VideoAspect,special://skin/extras/images/aspectratio/,.png]</texture>
-					<visible>!IsEmpty(VideoPlayer.VideoAspect) + !StringCompare(Control.GetLabel(163),blank.png)</visible>
+					<visible>!Player.ChannelPreviewActive</visible>
 				</control>
-				<control type="image" id="174"><!-- Video Resolution -->
+				<control type="image" id="1"><!-- Video Resolution -->
 					<width>54</width>
 					<height>40</height>
 					<texture background="true">$INFO[VideoPlayer.VideoResolution,special://skin/extras/images/resolution/,.png]</texture>
-					<visible>!IsEmpty(VideoPlayer.VideoResolution) + !StringCompare(Control.GetLabel(164),blank.png)</visible>
+					<visible>!Player.ChannelPreviewActive</visible>
 				</control>
 			</control>
 
@@ -198,15 +168,14 @@
 			</control>
 		</control>
 
-		<control type="group">
+		<control type="group" id="0">
 			<visible>Player.ShowCodec</visible>
 			<control type="image"><!-- Background shadow -->
 				<left>0</left>
 				<top>0</top>
 				<width>1280</width>
 				<height>186</height>
-				<texture>colours/black.png</texture>
-				<colordiffuse>mask-background</colordiffuse>
+				<texture colordiffuse="mask-background">background-mask.png</texture>
 				<visible>!VideoPlayer.Content(LiveTV)</visible>
 			</control>
 			<control type="image"><!-- Background shadow for LiveTV -->
@@ -214,8 +183,7 @@
 				<top>0</top>
 				<width>1280</width>
 				<height>380</height>
-				<texture>colours/black.png</texture>
-				<colordiffuse>mask-background</colordiffuse>
+				<texture colordiffuse="mask-background">background-mask.png</texture>
 				<visible>VideoPlayer.Content(LiveTV)</visible>
 			</control>
 			<!-- codec infos -->

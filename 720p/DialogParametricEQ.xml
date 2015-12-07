@@ -2,16 +2,25 @@
 <window>
 	<defaultcontrol always="true">8000</defaultcontrol>
 	<coordinates>
-		<posx>225</posx>
-		<posy>15</posy>
+		<left>225</left>
+		<top>15</top>
 	</coordinates>
 	<controls>
-		<control type="image"><!-- Dialog background -->
+		<control type="image"><!-- Dialog background Fullscreen Video screen -->
 			<left>40</left>
 			<top>16</top>
 			<width>720</width>
 			<height>660</height>
 			<texture colordiffuse="UnFocusedPosters" border="8">button-menu-background.png</texture>
+			<visible>Window.IsActive(fullscreenvideo)</visible>
+		</control>
+		<control type="image"><!-- Dialog background Non Fullscreen Video screen -->
+			<left>40</left>
+			<top>16</top>
+			<width>720</width>
+			<height>660</height>
+			<texture border="8">button-menu-background.png</texture>
+			<visible>!Window.IsActive(fullscreenvideo)</visible>
 		</control>
 		<control type="label"><!-- Dialog heading -->
 			<left>60</left>
