@@ -86,7 +86,7 @@
 					<info>Player.Progress</info>
 					<colordiffuse>ProgressBarColor</colordiffuse>
 				</control>
-				
+
 				<control type="slider" id="401"><!-- Seek Slider -->
 					<left>238</left>
 					<top>650</top>
@@ -96,19 +96,19 @@
 				</control>
 			</control>
 		</control>
-		<!-- Start Progress Control for all Windows Except VideoFullScreen , MusicVisualisation, MyMusicPlaylist, PVRGuide and PlayerControls-->
+		<!-- Start Progress Control for all Windows Except VideoFullScreen , MusicVisualisation, MyMusicPlaylist, PVRGuide, PlayerControls, Pin Sentry dialogs and Nextup Notification dialogs -->
 		<control type="group">
-			<visible>![Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation) | Window.IsActive(musicplaylist) | Window.IsActive(tvguide) | Window.IsActive(playercontrols) | Window.IsVisible(script-nextup-notification-StillWatchingInfo.xml) | Window.IsVisible(script-nextup-notification-NextUpInfo.xml)]</visible>
+			<visible>![Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation) | Window.IsActive(musicplaylist) | Window.IsActive(tvguide) | Window.IsActive(playercontrols) | Window.IsVisible(pinsentry-background.xml) | Window.IsVisible(script-nextup-notification-StillWatchingInfo.xml) | Window.IsVisible(script-nextup-notification-NextUpInfo.xml)]</visible>
 			<control type="image"><!-- Dialog background image -->
 				<left>463</left>
-				<top>22</top>
+				<top>648</top>
 				<width>354</width>
-				<height>87</height>
+				<height>64</height>
 				<texture border="8">button-menu-background.png</texture>
 			</control>
 			<control type="label">
 				<left>432</left>
-				<top>45</top>
+				<top>660</top>
 				<width>177</width>
 				<height>20</height>
 				<font>font12</font>
@@ -118,7 +118,7 @@
 			</control>
 			<control type="label">
 				<left>432</left>
-				<top>45</top>
+				<top>660</top>
 				<width>177</width>
 				<height>20</height>
 				<font>font12</font>
@@ -128,24 +128,24 @@
 			</control>
 			<control type="label">
 				<left>619</left>
-				<top>45</top>
+				<top>660</top>
 				<width>177</width>
 				<height>20</height>
 				<label>$INFO[Player.Duration,/ ]</label>
 				<font>font12</font>
 			</control>
 			<control type="progress">
-				<left>481</left>
-				<top>86</top>
-				<width>300</width>
+				<left>480</left>
+				<top>690</top>
+				<width>320</width>
 				<height>8</height>
 				<info>Player.ProgressCache</info>
 				<colordiffuse>CacheBarColor</colordiffuse>
 			</control>
 			<control type="progress">
-				<left>481</left>
-				<top>86</top>
-				<width>300</width>
+				<left>480</left>
+				<top>690</top>
+				<width>320</width>
 				<height>8</height>
 				<info>Player.Progress</info>
 				<colordiffuse>ProgressBarColor</colordiffuse>

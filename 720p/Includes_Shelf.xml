@@ -1108,9 +1108,8 @@
 
 	<include name="shelf-nowplaying">
 		<control type="group">
-		<visible>!Container(9160).Position(5) + !Container(9210).Position(4) + !Container(9260).Position(5) + Skin.HasSetting(media-overlay) + 
-		[Player.HasVideo | [Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]]</visible>
-		<control type="label"><!-- Now playing -->
+			<visible>!Container(9160).Position(5) + !Container(9210).Position(4) + !Container(9260).Position(5) + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]]</visible>
+			<control type="label"><!-- Now playing -->
 				<left>10</left>
 				<top>12</top>
 				<width>210</width>
@@ -1134,8 +1133,7 @@
 					<top>46</top>
 					<width>150</width>
 					<height>194</height>
-					<texturefocus>blank.png</texturefocus>
-					<texturenofocus>blank.png</texturenofocus>
+					<texturefocus>-</texturefocus>
 					<onclick>Fullscreen</onclick>
 					<visible>System.GetBool(input.enablemouse)</visible>
 				</control>
@@ -1175,8 +1173,7 @@
 					<top>56</top>
 					<width>180</width>
 					<height>180</height>
-					<texturefocus>blank.png</texturefocus>
-					<texturenofocus>blank.png</texturenofocus>
+					<texturefocus>-</texturefocus>
 					<onclick>Fullscreen</onclick>
 					<visible>System.GetBool(input.enablemouse)</visible>
 				</control>

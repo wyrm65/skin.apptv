@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<window>
+<window type="dialog">
 	<defaultcontrol>5</defaultcontrol>
-	<visible>!Window.IsVisible(DialogParametricEQ.xml)</visible>
 	<coordinates>
 		<left>170</left>
 		<top>40</top>
 	</coordinates>
+	<onload>Dialog.Close(osdaudiosettings)</onload>
 	<controls>
-		<animation effect="fade" time="200">VisibleChange</animation>
 		<control type="image"><!-- Dialog background Non Fullscreen Video screens -->
 			<left>0</left>
 			<top>0</top>
@@ -27,7 +26,7 @@
 		<control type="label" id="2"><!-- Dialog heading -->
 			<left>22</left>
 			<top>6</top>
-			<width>885</width>
+			<width>882</width>
 			<height>46</height>
 			<align>center</align>
 			<font>font18</font>
@@ -35,11 +34,11 @@
 		<control type="image">
 			<left>22</left>
 			<top>54</top>
-			<width>885</width>
+			<width>882</width>
 			<height>4</height>
 			<texture>separator.png</texture>
 		</control>
-		<control type="button"><!-- Touch Close button -->
+		<control type="button" id="999"><!-- Touch Close button -->
 			<left>902</left>
 			<top>-10</top>
 			<width>32</width>
@@ -53,13 +52,14 @@
 			<control type="grouplist" id="5"><!-- control area -->
 				<left>22</left>
 				<top>60</top>
-				<width>885</width>
+				<width>882</width>
 				<height>560</height>
 				<itemgap>-2</itemgap>
 				<pagecontrol>30</pagecontrol>
+				<onback>Dialog.Close(OSDAudioDSPSettings)</onback>
 				<onleft condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>
 				<onleft condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">30</onleft>
-				<onright>noop</onright>
+				<onright>Dialog.Close(OSDAudioDSPSettings)</onright>
 				<onup>5</onup>
 				<ondown>5</ondown>
 			</control>
@@ -90,7 +90,7 @@
 			<height>4</height>
 			<texture>separator.png</texture>
 		</control>
-		<control type="button" id="12"><!-- Default Edit -->
+		<control type="edit" id="12"><!-- Default Edit -->
 			<height>56</height>
 			<font>font12</font>
 		</control>
