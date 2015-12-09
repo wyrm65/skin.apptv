@@ -1156,6 +1156,13 @@
 					<label>$INFO[VideoPlayer.Title]</label>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
+				<control type="videowindow"><!-- video preview window, hack to allow playercontrols to work -->
+					<left>44</left>
+					<top>520</top>
+					<width>205</width>
+					<height>123</height>
+					<visible>false</visible>
+				</control>
 			</control>
 			<control type="group"><!-- Audio Stuff -->
 				<visible>Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
