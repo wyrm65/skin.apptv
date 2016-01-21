@@ -162,6 +162,11 @@
 		<value condition="!IsEmpty(ListItem.VideoResolution) + IntegerGreaterThan(ListItem.VideoResolution,700)">listitem/HD.png</value>
 		<value condition="!IsEmpty(ListItem.VideoResolution)">listitem/SD.png</value>
 	</variable>
+	<variable name="ListItemShortcut">
+		<value condition="Container.Content(movies) | Container.Content(episodes) | Container.Content(songs) | Container.Content(playlists)">PlayMedia(&quot;$INFO[ListItem.FilenameAndPath]&quot;)</value>
+		<value condition="Window.IsVisible(videolibrary)">ActivateWindow(videolibrary,&quot;$INFO[ListItem.FolderPath]&quot;,return)</value>
+		<value condition="Window.IsVisible(musiclibrary)">ActivateWindow(musiclibrary,&quot;$INFO[ListItem.FolderPath]&quot;,return)</value>
+	</variable>
 	<variable name="ListDynamicContent">
 		<value condition="Container.Content(movies)">videodb://recentlyaddedmovies/</value >
 		<value condition="Container.Content(tvshows)">videodb://recentlyaddedepisodes/</value >
