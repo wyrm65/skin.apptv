@@ -570,7 +570,7 @@
 		<value condition="!IsEmpty(ListItem.Art(clearlogo)) + [Container.Content(tvshows) | Container.Content(movies)]">$INFO[ListItem.Art(clearlogo)]</value>
 		<value condition="!IsEmpty(ListItem.Art(tvshow.clearlogo)) + Container.Content(tvshows)">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
 		<value condition="IsEmpty(ListItem.Art(clearlogo)) + [Container.Content(tvshows) | Container.Content(movies)]">$INFO[ListItem.path,,logo.png]</value>
-		<value>blank.png</value>
+		<value>.</value>
 	</variable>
 	<variable name="ListViewVideoLogo">
 		<value condition="!IsEmpty(ListItem.Art(clearlogo)) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies)]">$INFO[ListItem.Art(clearlogo)]</value>
@@ -578,7 +578,7 @@
 		<value condition="IsEmpty(ListItem.Art(clearlogo)) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(movies)]">$INFO[ListItem.path,,logo.png]</value>
 		<value condition="IsEmpty(ListItem.Art(tvshow.clearlogo)) + [Container.Content(tvshows) | Container.Content(seasons)]">$INFO[ListItem.path,,logo.png]</value>
 		<value condition="IsEmpty(ListItem.Art(clearlogo)) + Container.Content(episodes)">$INFO[ListItem.Path,,../logo.png]</value>
-		<value>blank.png</value>
+		<value>.</value>
 	</variable>
 	<variable name="PlayerVideoArt">
 		<value condition="[VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)] + !IsEmpty(Player.Art(clearart))">$INFO[Player.Art(clearart)]</value>

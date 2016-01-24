@@ -11,7 +11,7 @@
 				<top>20</top>
 				<width>400</width>
 				<height>155</height>
-				<texture fallback="blank.png">$INFO[Player.FolderPath,,logo.png]</texture>
+				<texture fallback=".">$INFO[Player.FolderPath,,logo.png]</texture>
 				<aspectratio align="left" aligny="bottom">keep</aspectratio>
 			</control>
 			<control type="image" id="993"><!-- Otherwise try parent directory of above -->
@@ -19,9 +19,9 @@
 				<top>20</top>
 				<width>400</width>
 				<height>155</height>
-				<texture fallback="blank.png">$INFO[Player.FolderPath,,../logo.png]</texture>
+				<texture>$INFO[Player.FolderPath,,../logo.png]</texture>
 				<aspectratio align="left" aligny="bottom">keep</aspectratio>
-				<visible>SubString(Control.GetLabel(992),blank.png)</visible>
+				<visible>SubString(Control.GetLabel(992),.)</visible>
 			</control>
 			<control type="image"><!-- media info background image -->
 				<left>0</left>

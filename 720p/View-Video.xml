@@ -30,7 +30,7 @@
 					<top>16</top>
 					<width>16</width>
 					<height>16</height>
-					<texture fallback="blank.png">$VAR[ExtrasOverlay]</texture>
+					<texture>$VAR[ExtrasOverlay]</texture>
 					<visible>System.HasAddon(script.videoextras)</visible>
 				</control>
 				<control type="image">
@@ -39,14 +39,14 @@
 					<width>32</width>
 					<height>32</height>
 					<colordiffuse>DropShadow</colordiffuse>
-					<texture fallback="blank.png">$VAR[ListItemFlags]</texture>
+					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 				<control type="image">
 					<left>522</left>
 					<top>36</top>
 					<width>32</width>
 					<height>32</height>
-					<texture fallback="blank.png">$VAR[ListItemFlags]</texture>
+					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 				<control type="group">
 					<visible>![Container.Content(movies) | Container.Content(musicvideos) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(addons)]</visible>
@@ -190,7 +190,7 @@
 					<top>16</top>
 					<width>16</width>
 					<height>16</height>
-					<texture fallback="blank.png">$VAR[ExtrasOverlay]</texture>
+					<texture>$VAR[ExtrasOverlay]</texture>
 					<visible>System.HasAddon(script.videoextras)</visible>
 				</control>
 				<control type="image">
@@ -199,14 +199,14 @@
 					<width>32</width>
 					<height>32</height>
 					<colordiffuse>DropShadow</colordiffuse>
-					<texture fallback="blank.png">$VAR[ListItemFlags]</texture>
+					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 				<control type="image">
 					<left>522</left>
 					<top>36</top>
 					<width>32</width>
 					<height>32</height>
-					<texture fallback="blank.png">$VAR[ListItemFlags]</texture>
+					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 				<control type="group">
 					<visible>![Container.Content(movies) | Container.Content(musicvideos) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(addons)]</visible>
@@ -543,7 +543,7 @@
 						<top>412</top>
 						<width>184</width>
 						<height>50</height>
-						<texture fallback="blank.png">$VAR[ListViewVideoLogo]</texture>
+						<texture>$VAR[ListViewVideoLogo]</texture>
 						<aligny>bottom</aligny>
 						<aspectratio align="left">keep</aspectratio>
 					</control>
@@ -552,7 +552,7 @@
 						<top>467</top>
 						<width>636</width>
 						<height>210</height>
-						<font>font12</font>
+						<font>font10</font>
 						<label>$INFO[ListItem.PlotOutline]</label>
 						<align>justify</align>
 						<aligny>top</aligny>
@@ -563,8 +563,8 @@
 						<top>467</top>
 						<width>636</width>
 						<height>210</height>
-						<font>font12</font>
-						<label fallback="161">$INFO[ListItem.Plot]</label>
+						<font>font10</font>
+						<label>$INFO[ListItem.Plot]</label>
 						<align>justify</align>
 						<aligny>top</aligny>
 						<visible>IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Plot)</visible>
@@ -585,7 +585,7 @@
 		<control type="group" id="945">
 			<visible>!Skin.HasSetting(lowspec-system) + Control.IsVisible(50) + System.IdleTime(10) + !System.ScreenSaverActive + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 			<animation effect="fade" start="100" end="0" time="200" reversible="false">Hidden</animation>
-			<animation effect="fade" start="0" end="100" time="1800" reversible="false">Visible</animation>
+			<animation effect="fade" start="0" end="100" time="2000" reversible="false">Visible</animation>
 			<control type="wraplist" id="950">
 				<left>-10</left>
 				<top>-10</top>
@@ -687,7 +687,7 @@
 					<top>8</top>
 					<width>16</width>
 					<height>16</height>
-					<texture fallback="blank.png">$VAR[ExtrasOverlay]</texture>
+					<texture>$VAR[ExtrasOverlay]</texture>
 					<visible>System.HasAddon(script.videoextras)</visible>
 				</control>
 				<control type="image"><!-- Watched Overlay -->
@@ -747,7 +747,7 @@
 					<top>0</top>
 					<width>16</width>
 					<height>16</height>
-					<texture fallback="blank.png">$VAR[ExtrasOverlay]</texture>
+					<texture>$VAR[ExtrasOverlay]</texture>
 					<animation effect="zoom" start="100" end="124" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
 					<visible>System.HasAddon(script.videoextras)</visible>
 				</control>
@@ -936,89 +936,111 @@
 					<label>$LOCALIZE[31688]</label>
 					<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 				</control>
-				<control type="image"><!-- Mini Fanart -->
-					<left>130</left>
-					<top>114</top>
-					<width>400</width>
-					<height>225</height>
-					<texture background="true">$INFO[ListItem.Art(fanart)]</texture>
-					<aspectratio aligny="top">keep</aspectratio>
-					<fadetime>0</fadetime>
-					<visible>!Container().Scrolling + !IsEmpty(ListItem.Art(fanart))</visible>
+				<control type="group"><!-- Mini Fanart -->
+					<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+					<control type="image">
+						<left>134</left>
+						<top>114</top>
+						<width>392</width>
+						<height>220</height>
+						<texture background="true" fallback="DefaultTVShows.png">$INFO[ListItem.Art(fanart)]</texture>
+						<aspectratio aligny="top">keep</aspectratio>
+						<visible>!Skin.HasSetting(background-fanart)</visible>
+					</control>
+					<control type="image">
+						<left>134</left>
+						<top>114</top>
+						<width>392</width>
+						<height>220</height>
+						<texture background="true" fallback="DefaultTVShows.png">$INFO[ListItem.Art(thumb)]</texture>
+						<aspectratio aligny="top">keep</aspectratio>
+						<visible>Skin.HasSetting(background-fanart)</visible>
+					</control>
 				</control>
 				<control type="grouplist">
 					<left>30</left>
-					<top>355</top>
+					<top>344</top>
 					<width>600</width>
 					<height>600</height>
 					<itemgap>2</itemgap>
 					<visible>!IsEmpty(ListItem.Icon)</visible>
-					<control type="label"><!-- Title -->
-						<left>0</left>
-						<top>225</top>
+					<control type="group">
 						<width>600</width>
-						<height>37</height>
-						<font>font18</font>
-						<label>[B]$INFO[ListItem.Label][/B]</label>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<height>50</height>
 						<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+						<control type="image" id="7316"><!-- Show logo -->
+							<left>208</left>
+							<top>0</top>
+							<width>184</width>
+							<height>50</height>
+							<texture>$VAR[VideoLogo]</texture>
+							<aspectratio align="center" aligny="bottom">keep</aspectratio>
+						</control>
+						<control type="label"><!-- Title -->
+							<left>0</left>
+							<top>0</top>
+							<width>600</width>
+							<height>50</height>
+							<label>[B]$INFO[ListItem.Label][/B]</label>
+							<font>font13</font>
+							<align>center</align>
+							<wrapmultiline>true</wrapmultiline>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+							<visible>IsEmpty(Control.GetLabel(7316))</visible>
+						</control>
 					</control>
 					<control type="label"><!-- First Aired -->
-						<left>0</left>
-						<top>268</top>
 						<width>600</width>
-						<height>25</height>
+						<height>26</height>
 						<label>[B]$LOCALIZE[20416]:[/B] $INFO[ListItem.Premiered]</label>
+						<font>font11</font>
+						<align>center</align>
 						<visible>!IsEmpty(ListItem.Premiered)</visible>
 					</control>
 					<control type="label"><!-- Genre -->
-						<left>0</left>
-						<top>300</top>
 						<width>600</width>
-						<height>25</height>
+						<height>26</height>
 						<label>[B]$LOCALIZE[515]:[/B] $INFO[ListItem.Genre]</label>
+						<font>font11</font>
+						<align>center</align>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<visible>!IsEmpty(ListItem.Genre)</visible>
 					</control>
 					<control type="label"><!-- Rating -->
-						<left>0</left>
-						<top>331</top>
-						<width>300</width>
-						<height>37</height>
+						<width>600</width>
+						<height>26</height>
 						<label>[B]$LOCALIZE[563]:[/B] $INFO[ListItem.Rating]</label>
+						<font>font11</font>
+						<align>center</align>
 						<visible>!IsEmpty(ListItem.Rating)</visible>
 					</control>
 					<control type="label">
-						<left>0</left>
-						<top>375</top>
 						<width>600</width>
-						<height>37</height>
+						<height>28</height>
 						<label>$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101] $LOCALIZE[20360]</label>
+						<font>font11</font>
+						<align>center</align>
 						<visible>!IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
 					</control>
 					<control type="image">
-						<left>0</left>
-						<top>410</top>
 						<width>600</width>
 						<height>4</height>
 						<texture>separator.png</texture>
 						<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 					</control>
 					<control type="textbox"><!-- Plot Outline -->
-						<left>8</left>
-						<top>431</top>
 						<width>600</width>
-						<height>150</height>
-						<label fallback="161">$INFO[ListItem.PlotOutline]</label>
+						<height>162</height>
+						<label>$INFO[ListItem.PlotOutline]</label>
+						<font>font10</font>
 						<align>justify</align>
 						<visible>!IsEmpty(ListItem.PlotOutline)</visible>
 					</control>
 					<control type="textbox"><!-- Plot (Show if no outline available)-->
-						<left>8</left>
-						<top>431</top>
 						<width>600</width>
-						<height>150</height>
-						<label fallback="161">$INFO[ListItem.Plot]</label>
+						<height>162</height>
+						<label>$INFO[ListItem.Plot]</label>
+						<font>font10</font>
 						<align>justify</align>
 						<visible>IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Plot)</visible>
 					</control>
@@ -1089,7 +1111,7 @@
 					<top>322</top>
 					<width>16</width>
 					<height>16</height>
-					<texture fallback="blank.png">$VAR[ExtrasOverlay]</texture>
+					<texture>$VAR[ExtrasOverlay]</texture>
 					<visible>System.HasAddon(script.videoextras)</visible>
 				</control>
 			</itemlayout>
@@ -1134,7 +1156,7 @@
 					<top>122</top>
 					<width>24</width>
 					<height>24</height>
-					<texture fallback="blank.png">$VAR[ExtrasOverlay]</texture>
+					<texture>$VAR[ExtrasOverlay]</texture>
 					<visible>System.HasAddon(script.videoextras)</visible>
 				</control>
 				<control type="image">
@@ -1143,14 +1165,14 @@
 					<width>32</width>
 					<height>32</height>
 					<colordiffuse>DropShadow</colordiffuse>
-					<texture fallback="blank.png">$VAR[ListItemFlags]</texture>
+					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 				<control type="image">
 					<left>76</left>
 					<top>114</top>
 					<width>32</width>
 					<height>32</height>
-					<texture fallback="blank.png">$VAR[ListItemFlags]</texture>
+					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 			</focusedlayout>
 		</control>
@@ -1172,7 +1194,7 @@
 				<top>424</top>
 				<width>314</width>
 				<height>86</height>
-				<texture fallback="blank.png">$VAR[VideoLogo]</texture>
+				<texture>$VAR[VideoLogo]</texture>
 				<aspectratio align="left" aligny="bottom">keep</aspectratio>
 				<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
 				<visible>!IsEmpty(ListItem.Title)</visible>
@@ -1187,7 +1209,7 @@
 				<label>$INFO[ListItem.Label]</label>
 				<wrapmultiline>true</wrapmultiline>
 				<textoffsetx>0</textoffsetx>
-				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left) + SubString(Control.GetLabel(7216),blank.png,Left)</visible>
+				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left) + SubString(Control.GetLabel(7216),.,Left)</visible>
 				<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
 			</control>
 			<control type="label"><!-- Go Back -->
@@ -1582,7 +1604,7 @@
 				<top>612</top>
 				<width>234</width>
 				<height>64</height>
-				<texture fallback="blank.png">$VAR[VideoLogo]</texture>
+				<texture>$VAR[VideoLogo]</texture>
 				<align>center</align>
 				<aligny>bottom</aligny>
 				<aspectratio>keep</aspectratio>
@@ -1599,7 +1621,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left) + SubString(Control.GetLabel(7018),blank.png,Left)</visible>
+				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left) + SubString(Control.GetLabel(7018),.,Left)</visible>
 			</control>
 			<control type="label"><!-- Go Back -->
 				<left>220</left>
@@ -1651,14 +1673,14 @@
 					<width>32</width>
 					<height>32</height>
 					<colordiffuse>DropShadow</colordiffuse>
-					<texture fallback="blank.png">$VAR[ListItemFlags]</texture>
+					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 				<control type="image">
 					<left>1228</left>
 					<top>670</top>
 					<width>32</width>
 					<height>32</height>
-					<texture fallback="blank.png">$VAR[ListItemFlags]</texture>
+					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 			</control>
 			<control type="scrollbar" id="1257">
@@ -1724,7 +1746,7 @@
 					<top>4</top>
 					<width>16</width>
 					<height>16</height>
-					<texture fallback="blank.png">$VAR[ExtrasOverlay]</texture>
+					<texture>$VAR[ExtrasOverlay]</texture>
 					<visible>System.HasAddon(script.videoextras)</visible>
 				</control>
 			</itemlayout>
@@ -1767,8 +1789,8 @@
 						<height>144</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
-						<bordertexture border="6">mask-hilite.png</bordertexture>
-						<bordersize>6</bordersize>
+						<bordertexture border="7">mask-hilite.png</bordertexture>
+						<bordersize>7</bordersize>
 						<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 					</control>
 					<control type="image"><!-- Watched Overlay -->
@@ -1783,7 +1805,7 @@
 						<top>14</top>
 						<width>16</width>
 						<height>16</height>
-						<texture fallback="blank.png">$VAR[ExtrasOverlay]</texture>
+						<texture>$VAR[ExtrasOverlay]</texture>
 						<visible>System.HasAddon(script.videoextras)</visible>
 					</control>
 				</control>
@@ -1807,8 +1829,8 @@
 						<height>110</height>
 						<aspectratio scalediffuse="false">keep</aspectratio>
 						<texture fallback="DefaultAddon.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
-						<bordertexture border="6">mask-hilite.png</bordertexture>
-						<bordersize>6</bordersize>
+						<bordertexture border="7">mask-hilite.png</bordertexture>
+						<bordersize>7</bordersize>
 						<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 					</control>
 				</control>
@@ -1822,7 +1844,7 @@
 				<top>112</top>
 				<width>354</width>
 				<height>97</height>
-				<texture fallback="blank.png">$VAR[VideoLogo]</texture>
+				<texture>$VAR[VideoLogo]</texture>
 				<aspectratio align="left" aligny="bottom">keep</aspectratio>
 				<animation effect="fade" delay="200" start="0" end="100" time="200">Visible</animation>
 				<visible>!IsEmpty(ListItem.Title)</visible>
@@ -1838,7 +1860,7 @@
 				<wrapmultiline>true</wrapmultiline>
 				<textoffsetx>0</textoffsetx>
 				<animation effect="fade" delay="200" start="0" end="100" time="200">Visible</animation>
-				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left) + SubString(Control.GetLabel(7116),blank.png,Left)</visible>
+				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left) + SubString(Control.GetLabel(7116),.,Left)</visible>
 			</control>
 			<control type="label"><!-- Go Back -->
 				<left>17</left>
@@ -1898,14 +1920,14 @@
 					<width>32</width>
 					<height>32</height>
 					<colordiffuse>DropShadow</colordiffuse>
-					<texture fallback="blank.png">$VAR[ListItemFlags]</texture>
+					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 				<control type="image">
 					<left>240</left>
 					<top>290</top>
 					<width>32</width>
 					<height>32</height>
-					<texture fallback="blank.png">$VAR[ListItemFlags]</texture>
+					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 				<control type="image"><!-- Star Rating -->
 					<left>300</left>
@@ -1924,7 +1946,7 @@
 					<width>460</width>
 					<height>316</height>
 					<font>font12</font>
-					<label fallback="161">$INFO[ListItem.PlotOutline]</label>
+					<label>$INFO[ListItem.PlotOutline]</label>
 					<visible>!IsEmpty(ListItem.PlotOutline)</visible>
 				</control>
 				<control type="textbox"><!-- Plot (Show if no outline available)-->
@@ -1933,7 +1955,7 @@
 					<width>460</width>
 					<height>316</height>
 					<font>font12</font>
-					<label fallback="161">$INFO[ListItem.Plot]</label>
+					<label>$INFO[ListItem.Plot]</label>
 					<visible>IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Plot)</visible>
 				</control>
 			</control>
