@@ -33,42 +33,35 @@
 	<include name="background">
 		<control type="group">
 			<visible>!Window.IsVisible(fullscreenvideo)</visible><!-- Don't try to show background if Video screen is showing -->
-			<control type="image"><!-- Use a black base layer for backdrops -->
+			<control type="image"><!-- Use skin default background as base layer for backdrops -->
 				<include>fullscreenimage</include>
-				<texture>colours/black.png</texture>
-				<aspectratio>scale</aspectratio>
+				<texture>background.png</texture>
+				<aspectratio>stretch</aspectratio>
 			</control>
-			<control type="group">
-				<visible>!Container().Scrolling + ![Skin.HasSetting(background-playingmedia) + Player.HasVideo]</visible>
-				<animation effect="fade" start="0" end="100" time="400" delay="2600" tween="quadratic" easing="out">Visible</animation>
-				<control type="multiimage">
-					<include>fullscreenimage</include>
-					<randomize>true</randomize>
-					<timeperimage>6000</timeperimage>
-					<fadetime>200</fadetime>
-					<imagepath background="false">$VAR[BackgndImage]</imagepath>
-					<aspectratio>stretch</aspectratio>
-				</control>
+			<control type="multiimage">
+				<include>fullscreenimage</include>
+				<randomize>true</randomize>
+				<timeperimage>6000</timeperimage>
+				<fadetime>200</fadetime>
+				<imagepath background="false">$VAR[BackgndImage]</imagepath>
+				<aspectratio>stretch</aspectratio>
+				<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
+				<animation effect="fade" start="0" end="100" time="200" delay="2800">Visible</animation>
+				<visible>!Container().Scrolling + !System.ScreenSaverActive + ![Skin.HasSetting(background-playingmedia) + Player.HasVideo]</visible>
 			</control>
 			<control type="group">
 				<visible>Skin.HasSetting(background-playingmedia) + [[Skin.HasSetting(homemenu-vertical) + Window.IsVisible(home)] | !Window.IsVisible(home)]</visible>
 				<control type="videowindow">
 					<include>fullscreenimage</include>
+					<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
 					<visible>Player.HasVideo</visible>
 				</control>
 				<control type="visualisation">
 					<include>fullscreenimage</include>
+					<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
 					<animation effect="fade" time="200">VisibleChange</animation>
 					<visible>Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
 				</control>
-			</control>
-			<control type="image"><!-- mask to fade backgrounds -->
-				<include>fullscreenimage</include>
-				<texture>background-mask.png</texture>
-				<colordiffuse>mask-background</colordiffuse>
-				<include>background-fade</include>
-				<aspectratio>stretch</aspectratio>
-				<visible>Skin.HasSetting(background-fanart) | Skin.HasSetting(background-playingmedia) | Skin.HasSetting(background-slideshow)</visible>
 			</control>
 		</control>
 	</include>

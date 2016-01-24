@@ -15,6 +15,11 @@
 		<value condition="!IsEmpty(Skin.String(background-custom))">$INFO[Skin.String(background-custom)]</value>
 		<value>background.png</value>
 	</variable>
+	<variable name="BackgndImageVisibity">
+		<value condition="!Skin.HasSetting(background-visibiltymed) + !Skin.HasSetting(background-visibiltyhigh)">LowBgnVisibity</value>
+		<value condition="Skin.HasSetting(background-visibiltymed)">MedBgnVisibity</value>
+		<value condition="Skin.HasSetting(background-visibiltyhigh)">HighBgnVisibity</value>
+	</variable>
 	<variable name="VideoRating">
 		<value condition="SubString(ListItem.Mpaa,Rated G) | SubString(ListItem.Mpaa,Rated: G)">special://skin/extras/images/rating/mpaa_general.png</value>
 		<value condition="[SubString(ListItem.Mpaa,Rated PG) | SubString(ListItem.Mpaa,Rated: PG)] + !SubString(ListItem.Mpaa,Rated PG-13) + !SubString(ListItem.Mpaa,Rated: PG-13)">special://skin/extras/images/rating/mpaa_pg.png</value>
