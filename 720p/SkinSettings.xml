@@ -1817,7 +1817,7 @@
 						<label>$LOCALIZE[31863]</label>
 						<textwidth>750</textwidth>
 						<onclick>Skin.ToggleSetting(background-fanart)</onclick>
-						<selected>Skin.HasSetting(background-fanart)</selected>
+						<selected>!Skin.HasSetting(background-fanart)</selected>
 						<radioposx>844</radioposx>
 					</control>
 					<control type="radiobutton" id="505"><!-- Background ExtraFanart Toggle -->
@@ -1826,7 +1826,7 @@
 						<textwidth>750</textwidth>
 						<onclick>Skin.ToggleSetting(SkinHelper.EnableExtraFanart)</onclick>
 						<selected>Skin.HasSetting(SkinHelper.EnableExtraFanart)</selected>
-						<enable>Skin.HasSetting(background-fanart)</enable>
+						<enable>!Skin.HasSetting(background-fanart)</enable>
 						<radioposx>844</radioposx>
 					</control>
 					<control type="radiobutton" id="506"><!-- Media In Background Toggle -->

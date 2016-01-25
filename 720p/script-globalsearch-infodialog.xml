@@ -11,29 +11,23 @@
 			<focusedlayout width="1" height="1"/>
 		</control>
 		<control type="group">
-			<control type="image"><!-- Solid background -->
+			<control type="image"><!-- Solid background use as base to other background images -->
 				<include>fullscreenimage</include>
 				<texture>background.png</texture>
-				<visible>IsEmpty(Skin.String(background-custom))</visible>
 			</control>
 			<control type="image"><!-- Custom background -->
 				<include>fullscreenimage</include>
 				<aspectratio>stretch</aspectratio>
 				<texture>$INFO[Skin.String(background-custom)]</texture>
+				<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
 				<visible>!IsEmpty(Skin.String(background-custom))</visible>
 			</control>
 			<control type="image"><!-- Fanart background -->
 				<include>fullscreenimage</include>
 				<aspectratio>scale</aspectratio>
 				<texture>$INFO[Container(100).ListItem.Property(Fanart)]</texture>
-				<visible>Skin.HasSetting(background-fanart)</visible>
-			</control>
-			<control type="image"><!-- Mask to fade backgrounds -->
-				<include>fullscreenimage</include>
-				<texture>background-mask.png</texture>
-				<colordiffuse>mask-background</colordiffuse>
-				<aspectratio>stretch</aspectratio>
-				<include>background-fade</include>
+				<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
+				<visible>!Skin.HasSetting(background-fanart)</visible>
 			</control>
 			<control type="grouplist"><!-- Media flags -->
 				<visible>Control.IsVisible(110) | Control.IsVisible(140) | Control.IsVisible(150)</visible>
@@ -1372,7 +1366,7 @@
 			</control>
 			<control type="grouplist" id="190">
 				<left>8</left>
-				<top>656</top>
+				<top>656</top><!-- Move down off screen, original postion was 656 -->
 				<width>1256</width>
 				<height>56</height>
 				<orientation>horizontal</orientation>
