@@ -117,7 +117,7 @@
 						<textcolor>disabled-text</textcolor>
 						<shadowcolor>shadow-text</shadowcolor>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-						<label>$INFO[Container(100).ListItem.Property(Studio)</label>
+						<label>$INFO[Container(100).ListItem.Property(Studio)]</label>
 						<textoffsetx>0</textoffsetx>
 					</control>
 					<control type="image">
@@ -519,7 +519,7 @@
 						<width>708</width>
 						<height>40</height>
 						<font>font22</font>
-						<label>$INFO[Container(100).ListItem.Property(TVShowTitle]</label>
+						<label>$INFO[Container(100).ListItem.Property(TVShowTitle)]</label>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="image"><!-- Cover Image -->
@@ -599,7 +599,7 @@
 						<width>708</width>
 						<height>40</height>
 						<font>font22</font>
-						<label>$INFO[Container(100).ListItem.Property(TVShowTitle]</label>
+						<label>$INFO[Container(100).ListItem.Property(TVShowTitle)]</label>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="label"><!-- Title -->
@@ -1346,6 +1346,100 @@
 						</item>
 					</content>
 				</control>
+				<control type="list" id="200">
+					<posx>430</posx>
+					<posy>118</posy>
+					<width>800</width>
+					<height>330</height>
+					<onleft>200</onleft>
+					<onright>200</onright>
+					<onup>190</onup>
+					<ondown>195</ondown>
+					<pagecontrol>-</pagecontrol>
+					<scrolltime>200</scrolltime>
+					<itemlayout width="800" height="30">
+						<control type="label">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>165</width>
+							<height>30</height>
+							<font>font11</font>
+							<align>right</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<posx>175</posx>
+							<posy>0</posy>
+							<width>625</width>
+							<height>30</height>
+							<font>font11</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout width="800" height="30">
+						<control type="label">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>165</width>
+							<height>30</height>
+							<font>font11</font>
+							<align>right</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label]</label>
+						</control>
+						<control type="label">
+							<posx>175</posx>
+							<posy>0</posy>
+							<width>625</width>
+							<height>30</height>
+							<font>font11</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.Label2]</label>
+						</control>
+					</focusedlayout>
+					<content>
+						<item>
+							<label>$LOCALIZE[19080]:</label>
+							<label2>$INFO[Container(100).ListItem.Property(StartTime)]</label2>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(Container(100).ListItem.Property(StartTime))</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[19081]:</label>
+							<label2>$INFO[Container(100).ListItem.Property(EndTime)]</label2>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(Container(100).ListItem.Property(EndTime))</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[2050]:</label>
+							<label2>$INFO[Container(100).ListItem.Property(Duration),, $LOCALIZE[12391]]</label2>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(Container(100).ListItem.Property(Duration))</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[515]:</label>
+							<label2>$INFO[Container(100).ListItem.Property(Genre)]</label2>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[19148]:</label>
+							<label2>$INFO[Container(100).ListItem.Property(ChannelNumber)]. $INFO[Container(100).ListItem.Property(ChannelName)]</label2>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(Container(100).ListItem.Property(ChannelName))</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[15311]</label>
+							<label2>$INFO[Container(100).ListItem.Property(Path)]</label2>
+							<onclick>noop</onclick>
+							<visible>!IsEmpty(Container(100).ListItem.Property(Path))</visible>
+						</item>
+					</content>
+				</control>
 			</control>
 
 			<control type="spincontrol" id="195">
@@ -1364,31 +1458,35 @@
 				<onleft>180</onleft>
 				<onright>180</onright>
 			</control>
-			<control type="grouplist" id="190">
-				<left>8</left>
-				<top>656</top><!-- Move down off screen, original postion was 656 -->
-				<width>1256</width>
+			<control type="button" id="191"><!-- Hide button offscreen and focus on the play button -->
+				<left>-200</left>
+				<top>-200</top>
+				<width>250</width>
 				<height>56</height>
+				<label></label>
+				<align>center</align>
+				<onfocus>SetFocus(192)</onfocus>
+			</control>
+			<control type="grouplist" id="190"><!-- Option buttons -->
+				<left>360</left>
+				<top>400</top>
+				<width>880</width>
+				<height>96</height>
 				<orientation>horizontal</orientation>
+				<itemgap>15</itemgap>
 				<align>center</align>
 				<onleft>190</onleft>
 				<onright>190</onright>
 				<onup>195</onup>
-				<control type="button" id="191">
-					<width>250</width>
-					<height>56</height>
-					<label>$LOCALIZE[186]</label>
-					<align>center</align>
+				<control type="button" id="192"><!-- Play/Browse button -->
+					<include>videoinfo-options-common</include>
+					<texturefocus>button-info-play-focus.png</texturefocus>
+					<texturenofocus>button-info-play.png</texturenofocus>
 				</control>
-				<control type="button" id="192">
-					<width>250</width>
-					<height>56</height>
-					<align>center</align>
-				</control>
-				<control type="button" id="193">
-					<width>250</width>
-					<height>56</height>
-					<align>center</align>
+				<control type="button" id="193"><!-- Trailer button -->
+					<include>videoinfo-options-common</include>
+					<texturefocus>button-info-trailer-focus.png</texturefocus>
+					<texturenofocus>button-info-trailer.png</texturenofocus>
 				</control>
 			</control>
 		</control>
