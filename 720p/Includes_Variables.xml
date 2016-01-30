@@ -7,6 +7,7 @@
 		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))">$INFO[Window(Home).Property(SkinHelper.Player.Music.ExtraFanArt)]</value>
 		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !IsEmpty(Window(Home).Property(SkinHelper.Music.ExtraFanArt))">$INFO[Window(Home).Property(SkinHelper.Music.ExtraFanArt)]</value>
 		<value condition="Window.IsActive(visualisation) + !IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.PVR.FanArt))">$INFO[Window(home).Property(SkinHelper.PVR.FanArt)]</value>
 		<value condition="!Skin.HasSetting(background-fanart) + !IsEmpty(Window(Home).Property(SkinHelper.Music.FanArt))">$INFO[Window(Home).Property(SkinHelper.Music.FanArt)]</value>
 		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !IsEmpty(Window(Home).Property(SkinHelper.ExtraFanArtPath))">$INFO[Window(Home).Property(SkinHelper.ExtraFanArtPath)]</value>
 		<value condition="!Skin.HasSetting(background-fanart) + !IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
