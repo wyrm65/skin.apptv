@@ -45,7 +45,7 @@
 				<top>480</top>
 				<texture fallback="DefaultDVDRom.png">$INFO[Player.FolderPath]/cdart.png</texture>
 				<aspectratio aligny="bottom">keep</aspectratio>
-				<visible>!SubString(Player.Art(thumb),Default,Left)</visible>
+				<visible>!SubString(Control.GetLabel(994),DefaultAudio.png,Right) + !SubString(Control.GetLabel(994),icon-radio.png,Right)</visible>
 			</control>
 			<control type="image">
 				<left>10</left>
@@ -54,9 +54,9 @@
 				<width>265</width>
 				<texture>case-cd.png</texture>
 				<aspectratio>stretch</aspectratio>
-				<visible>Skin.HasSetting(media-case) + !SubString(Player.Art(thumb),Default,Left)</visible>
+				<visible>Skin.HasSetting(media-case) + !SubString(Control.GetLabel(994),DefaultAudio.png,Right) + !SubString(Control.GetLabel(994),icon-radio.png,Right)</visible>
 			</control>
-			<control type="image"><!-- Cover image -->
+			<control type="image" id="994"><!-- Cover image -->
 				<left>36</left>
 				<top>475</top>
 				<width>225</width>
