@@ -1187,45 +1187,70 @@
 			</control>
 			<control type="group"><!-- Audio Stuff -->
 				<visible>Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
-				<control type="image">
-					<left>25</left>
-					<top>56</top>
-					<width>180</width>
-					<height>180</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<aligny>top</aligny>
-					<texture diffuse="mask-squ.png" background="true" fallback="DefaultAudio.png">$VAR[PlayerMusicCover]</texture>
+				<control type="group"><!-- Playing Non Radio Audio -->
 					<visible>!Pvr.IsPlayingRadio</visible>
+					<control type="image">
+						<left>25</left>
+						<top>56</top>
+						<width>180</width>
+						<height>180</height>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<aligny>top</aligny>
+						<texture diffuse="mask-squ.png" background="true">$VAR[PlayerMusicCover]</texture>
+					</control>
+					<control type="image">
+						<left>25</left>
+						<top>236</top>
+						<width>180</width>
+						<height>180</height>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<aligny>top</aligny>
+						<texture diffuse="mask-fade.png" background="true" flipy="true">$VAR[PlayerMusicCover]</texture>
+					</control>
+					<control type="textbox">
+						<left>10</left>
+						<top>238</top>
+						<height>48</height>
+						<width>210</width>
+						<font>font10</font>
+						<align>center</align>
+						<aligny>top</aligny>
+						<label>$INFO[MusicPlayer.Title]</label>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						
+					</control>
 				</control>
-				<control type="image">
-					<left>25</left>
-					<top>236</top>
-					<width>180</width>
-					<height>180</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<aligny>top</aligny>
-					<texture diffuse="mask-fade.png" background="true" fallback="DefaultAudio.png" flipy="true">$VAR[PlayerMusicCover]</texture>
-					<visible>!Pvr.IsPlayingRadio</visible>
-				</control>
-				<control type="image">
-					<left>25</left>
-					<top>56</top>
-					<width>180</width>
-					<height>180</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<aligny>top</aligny>
-					<texture diffuse="mask-squ.png" background="true" fallback="icon-radio.png">$VAR[PlayerMusicCover]</texture>
+				<control type="group"><!-- Playing Radio Audio -->
 					<visible>Pvr.IsPlayingRadio</visible>
-				</control>
-				<control type="image">
-					<left>25</left>
-					<top>236</top>
-					<width>180</width>
-					<height>180</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<aligny>top</aligny>
-					<texture diffuse="mask-fade.png" background="true" fallback="icon-radio.png" flipy="true">$VAR[PlayerMusicCover]</texture>
-					<visible>Pvr.IsPlayingRadio</visible>
+					<control type="image">
+						<left>25</left>
+						<top>56</top>
+						<width>180</width>
+						<height>180</height>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<aligny>top</aligny>
+						<texture diffuse="mask-squ.png" background="true">$VAR[PlayerMusicCover]</texture>
+					</control>
+					<control type="image">
+						<left>25</left>
+						<top>236</top>
+						<width>180</width>
+						<height>180</height>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<aligny>top</aligny>
+						<texture diffuse="mask-fade.png" background="true" flipy="true">$VAR[PlayerMusicCover]</texture>
+					</control>
+					<control type="textbox">
+						<left>10</left>
+						<top>238</top>
+						<height>48</height>
+						<width>210</width>
+						<font>font10</font>
+						<align>center</align>
+						<aligny>top</aligny>
+						<label>$LOCALIZE[19021] - $INFO[MusicPlayer.ChannelName][CR]$INFO[MusicPlayer.Title]</label>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					</control>
 				</control>
 				<control type="button"><!-- Fake fullscreen button as a touch screen work around -->
 					<left>25</left>
@@ -1235,30 +1260,6 @@
 					<texturefocus>-</texturefocus>
 					<onclick>Fullscreen</onclick>
 					<visible>System.GetBool(input.enablemouse)</visible>
-				</control>
-				<control type="textbox">
-					<left>10</left>
-					<top>238</top>
-					<height>48</height>
-					<width>210</width>
-					<font>font10</font>
-					<align>center</align>
-					<aligny>top</aligny>
-					<label>$INFO[MusicPlayer.Title]</label>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<visible>!Pvr.IsPlayingRadio</visible>
-				</control>
-				<control type="textbox">
-					<left>10</left>
-					<top>238</top>
-					<height>48</height>
-					<width>210</width>
-					<font>font10</font>
-					<align>center</align>
-					<aligny>top</aligny>
-					<label>$INFO[MusicPlayer.ChannelName][CR]$INFO[MusicPlayer.ChannelNumberLabel]</label>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<visible>Pvr.IsPlayingRadio</visible>
 				</control>
 			</control>
 		</control>

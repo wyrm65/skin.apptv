@@ -61,15 +61,34 @@
 				<top>475</top>
 				<width>225</width>
 				<height>225</height>
-				<texture fallback="DefaultAudio.png">$VAR[PlayerMusicCover]</texture>
+				<texture>$VAR[PlayerMusicCover]</texture>
 				<aspectratio aligny="bottom">stretch</aspectratio>
+			</control>
+			<control type="label"><!-- Now playing -->
+				<left>370</left>
+				<top>520</top>
+				<width>682</width>
+				<height>25</height>
+				<label>$LOCALIZE[31037]</label>
+				<font>font13</font>
+				<textcolor>listselected-text</textcolor>
+			</control>
+			<control type="label"><!-- Title label -->
+				<left>370</left>
+				<top>548</top>
+				<width>682</width>
+				<height>25</height>
+				<font>font12</font>
+				<label>$LOCALIZE[19021] - $INFO[MusicPlayer.ChannelName]</label>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				<visible>Pvr.IsPlayingRadio</visible>
 			</control>
 			<control type="label"><!-- Title label -->
 				<left>370</left>
 				<top>572</top>
 				<width>656</width>
 				<height>45</height>
-				<font>font18</font>
+				<font>font13</font>
 				<label>$INFO[MusicPlayer.Title]</label>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
@@ -78,7 +97,7 @@
 				<top>608</top>
 				<width>682</width>
 				<height>37</height>
-				<font>font12</font>
+				<font>font11</font>
 				<label>$INFO[MusicPlayer.Artist]</label>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
@@ -87,7 +106,7 @@
 				<top>638</top>
 				<width>656</width>
 				<height>37</height>
-				<font>font12</font>
+				<font>font11</font>
 				<label>$INFO[MusicPlayer.Album]</label>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
@@ -98,6 +117,7 @@
 				<height>37</height>
 				<label>$INFO[musicplayer.Time]$INFO[musicplayer.Duration, / ]</label>
 				<font>font12</font>
+				<visible>!Pvr.IsPlayingRadio</visible>
 			</control>
 			<control type="label"><!-- Playlist label -->
 				<left>974</left>
@@ -124,7 +144,7 @@
 				<width>685</width>
 				<height>16</height>
 				<info>Player.Progress</info>
-				<visible>true</visible>
+				<visible>!Pvr.IsPlayingRadio</visible>
 			</control>
 			<control type="slider" id="402"><!-- Seek slider -->
 				<left>558</left>
@@ -132,6 +152,7 @@
 				<width>685</width>
 				<height>20</height>
 				<action>seek</action>
+				<visible>!Pvr.IsPlayingRadio</visible>
 			</control>
 		</control>
 		<control type="group"><!-- Codec -->
