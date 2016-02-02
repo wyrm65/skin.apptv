@@ -431,6 +431,14 @@
 				<texturenofocus>osd-btn-audio.png</texturenofocus>
 				<onclick>ActivateWindow(osdaudiosettings)</onclick>
 			</control>
+			<control type="button" id="924"><!-- RDS Info -->
+				<width>40</width>
+				<height>40</height>
+				<texturefocus>osd-btn-guide-focus.png</texturefocus>
+				<texturenofocus>osd-btn-guide.png</texturenofocus>
+				<onclick>ActivateWindow(PVRRadioRDSInfo)</onclick>
+				<visible>MusicPlayer.Content(LiveTV) + RDS.HasRadiotextPlus</visible>
+			</control>
 			<control type="button" id="920"><!-- Video Menu -->
 				<width>40</width>
 				<height>40</height>
