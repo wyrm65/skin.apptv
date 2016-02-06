@@ -509,7 +509,7 @@
 				<visible>IntegerGreaterThan(Container(9260).NumItems,0)</visible>
 			</control>
 			<control type="group">
-				<visible>![Skin.HasSetting(media-overlay) + [Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]]</visible>
+				<visible>![[Skin.HasSetting(media-overlay) + [Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]]</visible>
 				<control type="image">
 					<left>0</left>
 					<top>65</top>
