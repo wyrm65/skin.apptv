@@ -38,7 +38,6 @@
 				<align>left</align>
 				<orientation>horizontal</orientation>
 				<itemgap>-4</itemgap>
-				<animation effect="fade" start="0" end="100" time="1000">WindowOpen</animation>
 				<control type="image" id="771"><!-- Audio Codec -->
 					<width>40</width>
 					<height>30</height>
@@ -99,8 +98,8 @@
 					<control type="label"><!-- Title -->
 						<left>340</left>
 						<top>12</top>
-						<width>760</width>
-						<height>72</height>
+						<width>800</width>
+						<height>62</height>
 						<font>font18</font>
 						<wrapmultiline>true</wrapmultiline>
 						<aligny>center</aligny>
@@ -111,7 +110,7 @@
 					<control type="label"><!-- Studio -->
 						<left>340</left>
 						<top>84</top>
-						<width>760</width>
+						<width>800</width>
 						<height>22</height>
 						<font>font11</font>
 						<textcolor>disabled-text</textcolor>
@@ -177,7 +176,7 @@
 					<control type="label"><!-- Genre -->
 						<left>340</left>
 						<top>265</top>
-						<width>320</width>
+						<width>600</width>
 						<height>20</height>
 						<font>font10</font>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
@@ -192,6 +191,227 @@
 						<height>20</height>
 						<font>font10</font>
 						<label>$LOCALIZE[172] $INFO[Container(100).ListItem.Property(Year)]</label>
+					</control>
+					<control type="image"><!-- Mpaa Rating Dropshadow -->
+						<left>1121</left>
+						<top>40</top>
+						<width>136</width>
+						<height>40</height>
+						<colordiffuse>DropShadow</colordiffuse>
+						<align>right</align>
+						<aligny>bottom</aligny>
+						<texture>$VAR[GlobalSearchRating]</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="image"><!-- Mpaa Rating -->
+						<left>1120</left>
+						<top>39</top>
+						<width>136</width>
+						<height>40</height>
+						<align>right</align>
+						<aligny>bottom</aligny>
+						<texture>$VAR[GlobalSearchRating]</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="group"><!-- Duration -->
+						<visible>!IsEmpty(Container(100).ListItem.Property(Duration))</visible>
+						<control type="label">
+							<left>340</left>
+							<top>314</top>
+							<width>320</width>
+							<height>20</height>
+							<font>font10</font>
+							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
+							<visible>SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+						</control>
+						<control type="label">
+							<left>340</left>
+							<top>314</top>
+							<width>320</width>
+							<height>20</height>
+							<font>font10</font>
+							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
+							<visible>SubString(Container(100).ListItem.Property(Duration),min) + !SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+						</control>
+						<control type="label">
+							<left>340</left>
+							<top>314</top>
+							<width>320</width>
+							<height>20</height>
+							<font>font10</font>
+							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration),, mins]</label>
+							<visible>!SubString(Container(100).ListItem.Property(Duration),min)</visible>
+						</control>
+					</control>
+					<control type="image"><!-- Star Rating Dropshadow-->
+						<left>341</left>
+						<top>371</top>
+						<width>144</width>
+						<height>18</height>
+						<texture>$INFO[Container(100).ListItem.Property(StarRating)]</texture>
+						<colordiffuse>DropShadow</colordiffuse>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="image"><!-- Star Rating -->
+						<left>340</left>
+						<top>370</top>
+						<width>144</width>
+						<height>18</height>
+						<texture>$INFO[Container(100).ListItem.Property(StarRating)]</texture>
+						<colordiffuse>StarDiffuse</colordiffuse>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="label"><!-- Director heading-->
+						<left>970</left>
+						<top>240</top>
+						<width>290</width>
+						<height>22</height>
+						<label>$LOCALIZE[20339]</label>
+						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<shadowcolor>shadow-text</shadowcolor>
+					</control>
+					<control type="label">
+						<left>970</left>
+						<top>265</top>
+						<width>290</width>
+						<height>42</height>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Property(Director)]</label>
+						<font>font10</font>
+						<wrapmultiline>true</wrapmultiline>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Director))</visible>
+					</control>
+					<control type="label"><!-- Playcount heading-->
+						<left>970</left>
+						<top>314</top>
+						<width>290</width>
+						<height>22</height>
+						<label>$LOCALIZE[567]</label>
+						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<shadowcolor>shadow-text</shadowcolor>
+					</control>
+					<control type="label">
+						<left>970</left>
+						<top>338</top>
+						<width>290</width>
+						<height>42</height>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Property(Playcount)]</label>
+						<font>font10</font>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
+					</control>
+				</control>
+				<control type="list" id="110">
+					<left>530</left>
+					<top>190</top>
+					<width>1</width>
+					<height>1</height>
+					<onup>190</onup>
+					<ondown>195</ondown>
+					<itemlayout width="1" height="1"/>
+					<focusedlayout width="1" height="1"/>
+				</control>
+
+				<control type="group"><!-- TV Show info -->
+					<visible>Control.IsVisible(120)</visible>
+					<control type="label"><!-- Title -->
+						<left>340</left>
+						<top>12</top>
+						<width>800</width>
+						<height>72</height>
+						<font>font18</font>
+						<wrapmultiline>true</wrapmultiline>
+						<aligny>center</aligny>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Label]</label>
+						<textoffsetx>0</textoffsetx>
+					</control>
+					<control type="label"><!-- Studio -->
+						<left>340</left>
+						<top>84</top>
+						<width>800</width>
+						<height>22</height>
+						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<shadowcolor>shadow-text</shadowcolor>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Property(Studio)]</label>
+						<textoffsetx>0</textoffsetx>
+					</control>
+					<control type="image">
+						<left>340</left>
+						<top>108</top>
+						<width>900</width>
+						<height>4</height>
+						<texture>separator.png</texture>
+					</control>
+					<control type="textbox">
+						<left>340</left>
+						<top>112</top>
+						<width>900</width>
+						<height>118</height>
+						<label fallback="161">$INFO[Container(100).ListItem.Property(Plot)]</label>
+						<font>font10</font>
+						<align>justify</align>
+						<pagecontrol>123</pagecontrol>
+					</control>
+					<control type="scrollbar" id="123"><!-- Plot Scrollbar -->
+						<left>1252</left>
+						<top>112</top>
+						<width>16</width>
+						<height>116</height>
+						<onup>123</onup>
+						<onright>123</onright>
+						<onleft>999</onleft>
+						<ondown>999</ondown>
+						<animation condition="!Control.HasFocus(123) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="20" time="200" reversible="true">Conditional</animation>
+						<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876])</visible>
+					</control>
+					<control type="image">
+						<left>340</left>
+						<top>232</top>
+						<width>900</width>
+						<height>4</height>
+						<texture>separator.png</texture>
+					</control>
+					<control type="image"><!-- Cover Image -->
+						<left>55</left>
+						<top>80</top>
+						<width>230</width>
+						<height>356</height>
+						<texture fallback="DefaultTVShows.png" diffuse="mask-rect.png">$INFO[Container(100).ListItem.Icon]</texture>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+					</control>
+					<control type="label"><!-- Details heading -->
+						<left>340</left>
+						<top>240</top>
+						<width>320</width>
+						<height>22</height>
+						<label>$LOCALIZE[31135]</label>
+						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<shadowcolor>shadow-text</shadowcolor>
+					</control>
+					<control type="label"><!-- Genre -->
+						<left>340</left>
+						<top>265</top>
+						<width>600</width>
+						<height>20</height>
+						<font>font10</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Property(Genre)]</label>
+						<textoffsetx>0</textoffsetx>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
+					</control>
+					<control type="label"><!-- Premiered -->
+						<left>340</left>
+						<top>290</top>
+						<width>320</width>
+						<height>20</height>
+						<font>font10</font>
+						<label>$LOCALIZE[172] $INFO[Container(100).ListItem.Property(Premiered)]</label>
 					</control>
 					<control type="image"><!-- Mpaa Rating Dropshadow -->
 						<left>1121</left>
@@ -262,36 +482,205 @@
 						<colordiffuse>StarDiffuse</colordiffuse>
 						<aspectratio>keep</aspectratio>
 					</control>
-					<control type="scrollbar" id="113"><!-- Movie Scrollbar -->
-						<left>1244</left>
-						<top>292</top>
-						<width>18</width>
-						<height>296</height>
-						<onleft>190</onleft>
-						<ondown>190</ondown>
-						<animation condition="!Control.HasFocus(113) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-						<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
-					</control>
-					<control type="label"><!-- Director heading-->
+					<control type="label"><!-- Playcount heading-->
 						<left>970</left>
-						<top>240</top>
+						<top>314</top>
 						<width>290</width>
 						<height>22</height>
-						<label>$LOCALIZE[20339]</label>
+						<label>$LOCALIZE[567]</label>
 						<font>font11</font>
 						<textcolor>disabled-text</textcolor>
 						<shadowcolor>shadow-text</shadowcolor>
 					</control>
 					<control type="label">
 						<left>970</left>
-						<top>265</top>
+						<top>338</top>
 						<width>290</width>
 						<height>42</height>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-						<label>$INFO[Container(100).ListItem.Property(Director)]</label>
+						<label>$INFO[Container(100).ListItem.Property(Playcount)]</label>
 						<font>font10</font>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
+					</control>
+				</control>
+				<control type="list" id="120">
+					<left>530</left>
+					<top>190</top>
+					<width>1</width>
+					<height>1</height>
+					<onup>190</onup>
+					<ondown>195</ondown>
+					<itemlayout width="1" height="1"/>
+					<focusedlayout width="1" height="1"/>
+				</control>
+
+				<control type="group"><!-- TV Season info -->
+					<visible>Control.IsVisible(130)</visible>
+					<control type="label"><!-- Title -->
+						<left>340</left>
+						<top>12</top>
+						<width>760</width>
+						<height>62</height>
+						<font>font18</font>
 						<wrapmultiline>true</wrapmultiline>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Director))</visible>
+						<aligny>center</aligny>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Label]</label>
+						<textoffsetx>0</textoffsetx>
+					</control>
+					<control type="label"><!-- TVShow Title -->
+						<left>340</left>
+						<top>82</top>
+						<width>760</width>
+						<height>22</height>
+						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<shadowcolor>shadow-text</shadowcolor>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Property(TvShowTitle)]</label>
+						<textoffsetx>0</textoffsetx>
+					</control>
+					<control type="image">
+						<left>340</left>
+						<top>108</top>
+						<width>900</width>
+						<height>4</height>
+						<texture>separator.png</texture>
+					</control>
+					<control type="textbox">
+						<left>340</left>
+						<top>112</top>
+						<width>900</width>
+						<height>118</height>
+						<label fallback="161">$INFO[Container(100).ListItem.Property(Plot)]</label>
+						<font>font10</font>
+						<align>justify</align>
+						<pagecontrol>133</pagecontrol>
+					</control>
+					<control type="scrollbar" id="133"><!-- Plot Scrollbar -->
+						<left>1252</left>
+						<top>112</top>
+						<width>16</width>
+						<height>116</height>
+						<onup>133</onup>
+						<onright>133</onright>
+						<onleft>999</onleft>
+						<ondown>999</ondown>
+						<animation condition="!Control.HasFocus(123) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="20" time="200" reversible="true">Conditional</animation>
+						<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876])</visible>
+					</control>
+					<control type="image">
+						<left>340</left>
+						<top>232</top>
+						<width>900</width>
+						<height>4</height>
+						<texture>separator.png</texture>
+					</control>
+					<control type="image"><!-- Cover Image -->
+						<left>55</left>
+						<top>80</top>
+						<width>230</width>
+						<height>356</height>
+						<texture fallback="DefaultTVShows.png" diffuse="mask-rect.png">$INFO[Container(100).ListItem.Icon]</texture>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+					</control>
+					<control type="label"><!-- Details heading -->
+						<left>340</left>
+						<top>240</top>
+						<width>320</width>
+						<height>22</height>
+						<label>$LOCALIZE[31135]</label>
+						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<shadowcolor>shadow-text</shadowcolor>
+					</control>
+					<control type="label"><!-- Genre -->
+						<left>340</left>
+						<top>265</top>
+						<width>600</width>
+						<height>20</height>
+						<font>font10</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Property(Genre)]</label>
+						<textoffsetx>0</textoffsetx>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
+					</control>
+					<control type="label"><!-- Premiered released -->
+						<left>340</left>
+						<top>290</top>
+						<width>320</width>
+						<height>20</height>
+						<font>font10</font>
+						<label>$LOCALIZE[172] $INFO[Container(100).ListItem.Property(Premiered)]</label>
+					</control>
+					<control type="image"><!-- Mpaa Rating Dropshadow -->
+						<left>1121</left>
+						<top>40</top>
+						<width>136</width>
+						<height>40</height>
+						<colordiffuse>DropShadow</colordiffuse>
+						<align>right</align>
+						<aligny>bottom</aligny>
+						<texture>$VAR[GlobalSearchRating]</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="image"><!-- Mpaa Rating -->
+						<left>1120</left>
+						<top>39</top>
+						<width>136</width>
+						<height>40</height>
+						<align>right</align>
+						<aligny>bottom</aligny>
+						<texture>$VAR[GlobalSearchRating]</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="group"><!-- Duration -->
+						<visible>!IsEmpty(Container(100).ListItem.Property(Duration))</visible>
+						<control type="label">
+							<left>340</left>
+							<top>314</top>
+							<width>320</width>
+							<height>20</height>
+							<font>font10</font>
+							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
+							<visible>SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+						</control>
+						<control type="label">
+							<left>340</left>
+							<top>314</top>
+							<width>320</width>
+							<height>20</height>
+							<font>font10</font>
+							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
+							<visible>SubString(Container(100).ListItem.Property(Duration),min) + !SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+						</control>
+						<control type="label">
+							<left>340</left>
+							<top>314</top>
+							<width>320</width>
+							<height>20</height>
+							<font>font10</font>
+							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration),, mins]</label>
+							<visible>!SubString(Container(100).ListItem.Property(Duration),min)</visible>
+						</control>
+					</control>
+					<control type="image"><!-- Star Rating Dropshadow-->
+						<left>341</left>
+						<top>371</top>
+						<width>144</width>
+						<height>18</height>
+						<texture>$INFO[Container(100).ListItem.Property(StarRating)]</texture>
+						<colordiffuse>DropShadow</colordiffuse>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="image"><!-- Star Rating -->
+						<left>340</left>
+						<top>370</top>
+						<width>144</width>
+						<height>18</height>
+						<texture>$INFO[Container(100).ListItem.Property(StarRating)]</texture>
+						<colordiffuse>StarDiffuse</colordiffuse>
+						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="label"><!-- Playcount heading-->
 						<left>970</left>
@@ -314,449 +703,206 @@
 						<visible>!IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
 					</control>
 				</control>
-
-				<control type="list" id="110">
+				<control type="list" id="130">
 					<left>530</left>
 					<top>190</top>
-					<width>710</width>
-					<height>90</height>
-					<onleft>110</onleft>
-					<onright>110</onright>
+					<width>1</width>
+					<height>1</height>
 					<onup>190</onup>
 					<ondown>195</ondown>
-					<itemlayout width="710" height="30">
-					</itemlayout>
-					<focusedlayout width="710" height="30">
-					</focusedlayout>
+					<itemlayout width="1" height="1"/>
+					<focusedlayout width="1" height="1"/>
 				</control>
-				<control type="group"><!-- TV Show info -->
-					<visible>Control.IsVisible(120)</visible>
-					<left>0</left>
-					<top>50</top>
+
+				<control type="group"><!-- TV Episode info -->
+					<visible>Control.IsVisible(140)</visible>
 					<control type="label"><!-- Title -->
-						<left>530</left>
-						<top>-11</top>
-						<width>732</width>
-						<height>40</height>
-						<font>font22</font>
-						<label>$INFO[Container(100).ListItem.Label]</label>
+						<left>340</left>
+						<top>12</top>
+						<width>760</width>
+						<height>72</height>
+						<font>font18</font>
+						<wrapmultiline>true</wrapmultiline>
+						<aligny>center</aligny>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					</control>
-					<control type="group"><!-- Studio -->
-						<visible>!IsEmpty(Container(100).ListItem.Property(Studio))</visible>
-						<control type="image">
-							<left>214</left>
-							<top>2</top>
-							<width>106</width>
-							<height>72</height>
-							<aligny>bottom</aligny>
-							<colordiffuse>DropShadow</colordiffuse>
-							<aspectratio>keep</aspectratio>
-							<texture fallback="blank.png">$INFO[Container(100).ListItem.Property(Studio),special://skin/extras/images/studios/,.png]</texture>
-						</control>
-						<control type="image">
-							<left>212</left>
-							<top>0</top>
-							<width>106</width>
-							<height>72</height>
-							<aligny>bottom</aligny>
-							<aspectratio>keep</aspectratio>
-							<texture fallback="blank.png">$INFO[Container(100).ListItem.Property(Studio),special://skin/extras/images/studios/,.png]</texture>
-						</control>
-					</control>
-					<control type="image"><!-- Cover Image -->
-						<left>122</left>
-						<top>74</top>
-						<width>286</width>
-						<height>412</height>
-						<texture diffuse="mask-rect.png">$INFO[Container(100).ListItem.Icon]</texture>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-					</control>
-					<control type="image"><!-- Star Rating -->
-						<left>150</left>
-						<top>498</top>
-						<width>215</width>
-						<height>27</height>
-						<colordiffuse>StarDiffuse</colordiffuse>
-						<aspectratio>keep</aspectratio>
-						<texture fallback="blank.png">$INFO[Container(100).ListItem.Property(StarRating)]</texture>
-					</control>
-					<control type="label"><!-- Genre -->
-						<left>530</left>
-						<top>35</top>
-						<width>732</width>
-						<height>37</height>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-						<label>$INFO[Container(100).ListItem.Property(Genre)]</label>
+						<label>$INFO[Container(100).ListItem.Label] ($LOCALIZE[20359] $INFO[Container(100).ListItem.Property(Episode)])</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
 					</control>
-					<control type="image"><!-- Mpaa Rating -->
-						<left>530</left>
-						<top>70</top>
-						<width>212</width>
-						<height>62</height>
+					<control type="label"><!-- TVShow Title -->
+						<left>340</left>
+						<top>82</top>
+						<width>760</width>
+						<height>22</height>
+						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<shadowcolor>shadow-text</shadowcolor>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Property(TvShowTitle)]</label>
+						<textoffsetx>0</textoffsetx>
+					</control>
+					<control type="image"><!-- Mpaa Rating Dropshadow -->
+						<left>1121</left>
+						<top>40</top>
+						<width>136</width>
+						<height>40</height>
+						<colordiffuse>DropShadow</colordiffuse>
+						<align>right</align>
 						<aligny>bottom</aligny>
 						<texture>$VAR[GlobalSearchRating]</texture>
 						<aspectratio>keep</aspectratio>
 					</control>
-					<control type="label"><!-- Year -->
-						<left>1049</left>
-						<top>76</top>
-						<width>177</width>
-						<height>62</height>
+					<control type="image"><!-- Mpaa Rating -->
+						<left>1120</left>
+						<top>39</top>
+						<width>136</width>
+						<height>40</height>
 						<align>right</align>
-						<font>font18</font>
-						<label>$INFO[Container(100).ListItem.Property(Year)]</label>
+						<aligny>bottom</aligny>
+						<texture>$VAR[GlobalSearchRating]</texture>
+						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="image">
-						<left>530</left>
-						<top>286</top>
-						<width>696</width>
+						<left>340</left>
+						<top>108</top>
+						<width>900</width>
 						<height>4</height>
 						<texture>separator.png</texture>
 					</control>
-					<control type="label"><!-- Plot -->
-						<left>530</left>
-						<top>254</top>
-						<width>400</width>
-						<height>32</height>
-						<font>font18</font>
-						<label>$LOCALIZE[207]</label>
-					</control>
-					<control type="textbox">
-						<left>530</left>
-						<top>292</top>
-						<width>696</width>
-						<height>296</height>
+					<control type="textbox"><!-- Plot -->
+						<left>340</left>
+						<top>112</top>
+						<width>900</width>
+						<height>118</height>
 						<label fallback="161">$INFO[Container(100).ListItem.Property(Plot)]</label>
+						<font>font10</font>
 						<align>justify</align>
-						<pagecontrol>123</pagecontrol>
-						<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
+						<pagecontrol>143</pagecontrol>
 					</control>
-					<control type="scrollbar" id="123"><!-- TV Show Scrollbar -->
-						<left>1244</left>
-						<top>292</top>
-						<width>18</width>
-						<height>296</height>
-						<onleft>190</onleft>
-						<ondown>190</ondown>
-						<animation condition="!Control.HasFocus(123) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-						<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+					<control type="scrollbar" id="143"><!-- Plot Scrollbar -->
+						<left>1252</left>
+						<top>112</top>
+						<width>16</width>
+						<height>116</height>
+						<onup>143</onup>
+						<onright>143</onright>
+						<onleft>999</onleft>
+						<ondown>999</ondown>
+						<animation condition="!Control.HasFocus(143) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="20" time="200" reversible="true">Conditional</animation>
+						<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876])</visible>
 					</control>
-				</control>
-				<control type="list" id="120">
-					<left>530</left>
-					<top>190</top>
-					<width>710</width>
-					<height>90</height>
-					<onleft>120</onleft>
-					<onright>120</onright>
-					<onup>190</onup>
-					<ondown>195</ondown>
-					<itemlayout width="710" height="30">
-						<control type="label">
-							<left>0</left>
-							<top>0</top>
-							<width>240</width>
-							<height>30</height>
-							<align>right</align>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>250</left>
-							<top>0</top>
-							<width>456</width>
-							<height>30</height>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout width="710" height="30">
-						<control type="label">
-							<left>0</left>
-							<top>0</top>
-							<width>240</width>
-							<height>30</height>
-							<align>right</align>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>250</left>
-							<top>0</top>
-							<width>456</width>
-							<height>30</height>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</focusedlayout>
-					<content>
-						<item>
-							<label>$LOCALIZE[20360]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Episode)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Episode))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[20416]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Premiered)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Premiered))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[567]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Playcount)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
-						</item>
-					</content>
-				</control>
-				<control type="group"><!-- TV Season info -->
-					<visible>Control.IsVisible(130)</visible>
-					<left>0</left>
-					<top>50</top>
-					<control type="label"><!-- Show Title -->
-						<left>531</left>
-						<top>-11</top>
-						<width>708</width>
-						<height>40</height>
-						<font>font22</font>
-						<label>$INFO[Container(100).ListItem.Property(TVShowTitle)]</label>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					<control type="image">
+						<left>340</left>
+						<top>232</top>
+						<width>900</width>
+						<height>4</height>
+						<texture>separator.png</texture>
 					</control>
 					<control type="image"><!-- Cover Image -->
-						<left>72</left>
-						<top>46</top>
-						<width>384</width>
-						<height>384</height>
-						<texture fallback="DefaultTvshows.png" diffuse="mask-rect.png">$INFO[Container(100).ListItem.Icon]</texture>
+						<left>55</left>
+						<top>80</top>
+						<width>230</width>
+						<height>230</height>
+						<texture fallback="DefaultTVShows.png" diffuse="mask-rect.png">$INFO[Container(100).ListItem.Icon]</texture>
 						<aspectratio scalediffuse="false">keep</aspectratio>
 					</control>
-				</control>
-				<control type="list" id="130">
-					<left>530</left>
-					<top>190</top>
-					<width>710</width>
-					<height>90</height>
-					<onleft>130</onleft>
-					<onright>130</onright>
-					<onup>190</onup>
-					<ondown>195</ondown>
-					<itemlayout width="710" height="30">
-						<control type="label">
-							<left>0</left>
-							<top>0</top>
-							<width>240</width>
-							<height>30</height>
-							<align>right</align>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>250</left>
-							<top>0</top>
-							<width>456</width>
-							<height>30</height>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout width="710" height="30">
-						<control type="label">
-							<left>0</left>
-							<top>0</top>
-							<width>240</width>
-							<height>30</height>
-							<align>right</align>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>250</left>
-							<top>0</top>
-							<width>456</width>
-							<height>30</height>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</focusedlayout>
-					<content>
-						<item>
-							<label>$LOCALIZE[20360]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Episode)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Episode))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[567]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Playcount)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
-						</item>
-					</content>
-				</control>
-				<control type="group"><!-- TV Episode info -->
-					<visible>Control.IsVisible(140)</visible>
-					<left>0</left>
-					<top>50</top>
-					<control type="label"><!-- Show Title -->
-						<left>531</left>
-						<top>-11</top>
-						<width>708</width>
-						<height>40</height>
-						<font>font22</font>
-						<label>$INFO[Container(100).ListItem.Property(TVShowTitle)]</label>
+					<control type="label"><!-- Playcount heading-->
+						<left>970</left>
+						<top>240</top>
+						<width>290</width>
+						<height>22</height>
+						<label>$LOCALIZE[567]</label>
+						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<shadowcolor>shadow-text</shadowcolor>
+					</control>
+					<control type="label">
+						<left>970</left>
+						<top>265</top>
+						<width>290</width>
+						<height>20</height>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Property(Playcount)]</label>
+						<font>font10</font>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
 					</control>
-					<control type="label"><!-- Title -->
-						<left>531</left>
-						<top>31</top>
-						<width>708</width>
-						<height>40</height>
-						<font>font18</font>
-						<label>$INFO[Container(100).ListItem.Label]</label>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					<control type="label"><!-- Details heading -->
+						<left>340</left>
+						<top>240</top>
+						<width>320</width>
+						<height>22</height>
+						<label>$LOCALIZE[31135]</label>
+						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<shadowcolor>shadow-text</shadowcolor>
 					</control>
-					<control type="image"><!-- Star Rating -->
-						<left>150</left>
-						<top>-10</top>
-						<width>215</width>
-						<height>27</height>
-						<colordiffuse>StarDiffuse</colordiffuse>
-						<aspectratio>keep</aspectratio>
-						<texture fallback="blank.png">$INFO[Container(100).ListItem.Property(StarRating)]</texture>
-					</control>
-					<control type="image"><!-- Cover Image -->
-						<left>72</left>
-						<top>46</top>
-						<width>384</width>
-						<height>384</height>
-						<texture fallback="DefaultTvshows.png" diffuse="mask-rect.png">$INFO[Container(100).ListItem.Icon]</texture>
-						<aspectratio>keep</aspectratio>
+					<control type="label"><!-- Premiered -->
+						<left>340</left>
+						<top>265</top>
+						<width>320</width>
+						<height>20</height>
+						<font>font10</font>
+						<label>$LOCALIZE[172] $INFO[Container(100).ListItem.Property(Premiered)]</label>
 					</control>
 					<control type="group"><!-- Duration -->
 						<visible>!IsEmpty(Container(100).ListItem.Property(Duration))</visible>
 						<control type="label">
-							<left>769</left>
-							<top>62</top>
-							<width>265</width>
-							<height>62</height>
-							<font>font18</font>
-							<label>$INFO[Container(100).ListItem.Property(Duration)]</label>
+							<left>340</left>
+							<top>290</top>
+							<width>320</width>
+							<height>20</height>
+							<font>font10</font>
+							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
 							<visible>SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
-							<left>769</left>
-							<top>62</top>
-							<width>265</width>
-							<height>62</height>
-							<font>font18</font>
-							<label>$INFO[Container(100).ListItem.Property(Duration)]</label>
+							<left>340</left>
+							<top>290</top>
+							<width>320</width>
+							<height>20</height>
+							<font>font10</font>
+							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
 							<visible>SubString(Container(100).ListItem.Property(Duration),min) + !SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
-							<left>769</left>
-							<top>62</top>
-							<width>265</width>
-							<height>62</height>
-							<font>font18</font>
-							<label>$INFO[Container(100).ListItem.Property(Duration),, mins]</label>
+							<left>340</left>
+							<top>290</top>
+							<width>320</width>
+							<height>20</height>
+							<font>font10</font>
+							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration),, mins]</label>
 							<visible>!SubString(Container(100).ListItem.Property(Duration),min)</visible>
 						</control>
 					</control>
-					<control type="label"><!-- Plot -->
-						<left>531</left>
-						<top>280</top>
-						<width>265</width>
-						<height>27</height>
-						<font>font18</font>
-						<label>$LOCALIZE[207]</label>
+					<control type="image"><!-- Star Rating Dropshadow-->
+						<left>341</left>
+						<top>315</top>
+						<width>144</width>
+						<height>18</height>
+						<texture>$INFO[Container(100).ListItem.Property(StarRating)]</texture>
+						<colordiffuse>DropShadow</colordiffuse>
+						<aspectratio>keep</aspectratio>
 					</control>
-					<control type="textbox">
-						<left>531</left>
-						<top>307</top>
-						<width>654</width>
-						<height>296</height>
-						<label fallback="161">$INFO[Container(100).ListItem.Property(Plot)]</label>
-						<align>justify</align>
-						<pagecontrol>143</pagecontrol>
-						<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
-					</control>
-					<control type="scrollbar" id="143"><!-- Episode Scrollbar -->
-						<left>1244</left>
-						<top>292</top>
-						<width>18</width>
-						<height>296</height>
-						<onleft>190</onleft>
-						<ondown>190</ondown>
-						<animation condition="!Control.HasFocus(143) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-						<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+					<control type="image"><!-- Star Rating -->
+						<left>340</left>
+						<top>314</top>
+						<width>144</width>
+						<height>18</height>
+						<texture>$INFO[Container(100).ListItem.Property(StarRating)]</texture>
+						<colordiffuse>StarDiffuse</colordiffuse>
+						<aspectratio>keep</aspectratio>
 					</control>
 				</control>
 				<control type="list" id="140">
 					<left>530</left>
 					<top>190</top>
-					<width>710</width>
-					<height>120</height>
-					<onleft>140</onleft>
-					<onright>140</onright>
+					<width>1</width>
+					<height>1</height>
 					<onup>190</onup>
 					<ondown>195</ondown>
-					<itemlayout width="710" height="30">
-						<control type="label">
-							<left>0</left>
-							<top>0</top>
-							<width>240</width>
-							<height>30</height>
-							<align>right</align>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>250</left>
-							<top>0</top>
-							<width>456</width>
-							<height>30</height>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout width="710" height="30">
-						<control type="label">
-							<left>0</left>
-							<top>0</top>
-							<width>240</width>
-							<height>30</height>
-							<align>right</align>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>250</left>
-							<top>0</top>
-							<width>456</width>
-							<height>30</height>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</focusedlayout>
-					<content>
-						<item>
-							<label>$LOCALIZE[20373] $INFO[Container(100).ListItem.Property(Season)]:</label>
-							<label2>$LOCALIZE[20359] $INFO[Container(100).ListItem.Property(Episode)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Season)) + !IsEmpty(Container(100).ListItem.Property(Episode))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[20339]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Director)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Director))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[20416]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Premiered)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Premiered))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[567]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Playcount)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
-						</item>
-					</content>
+					<itemlayout width="1" height="1"/>
+					<focusedlayout width="1" height="1"/>
 				</control>
+
 				<control type="group"><!-- Music Video info -->
 					<visible>Control.IsVisible(150)</visible>
 					<left>0</left>
@@ -873,73 +1019,14 @@
 				<control type="list" id="150">
 					<left>530</left>
 					<top>190</top>
-					<width>710</width>
-					<height>120</height>
-					<onleft>150</onleft>
-					<onright>150</onright>
+					<width>1</width>
+					<height>1</height>
 					<onup>190</onup>
 					<ondown>195</ondown>
-					<itemlayout width="710" height="30">
-						<control type="label">
-							<left>0</left>
-							<top>0</top>
-							<width>240</width>
-							<height>30</height>
-							<align>right</align>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>250</left>
-							<top>0</top>
-							<width>456</width>
-							<height>30</height>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout width="710" height="30">
-						<control type="label">
-							<left>0</left>
-							<top>0</top>
-							<width>240</width>
-							<height>30</height>
-							<align>right</align>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>250</left>
-							<top>0</top>
-							<width>456</width>
-							<height>30</height>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</focusedlayout>
-					<content>
-						<item>
-							<label>$LOCALIZE[557]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Artist)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Artist))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[558]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Album)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Album))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[20339]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Director)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Director))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[567]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Playcount)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
-						</item>
-					</content>
+					<itemlayout width="1" height="1"/>
+					<focusedlayout width="1" height="1"/>
 				</control>
+
 				<control type="group"><!-- Artist info -->
 					<visible>Control.IsVisible(160)</visible>
 					<left>0</left>
@@ -976,100 +1063,12 @@
 				<control type="list" id="160">
 					<left>460</left>
 					<top>118</top>
-					<width>800</width>
-					<height>440</height>
-					<onleft>160</onleft>
-					<onright>160</onright>
+					<width>1</width>
+					<height>1</height>
 					<onup>190</onup>
 					<ondown>195</ondown>
-					<itemlayout width="800" height="40">
-						<control type="label">
-							<left>0</left>
-							<top>0</top>
-							<width>265</width>
-							<height>40</height>
-							<font>font11</font>
-							<align>right</align>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>275</left>
-							<top>0</top>
-							<width>525</width>
-							<height>40</height>
-							<font>font11</font>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout width="800" height="40">
-						<control type="label">
-							<left>0</left>
-							<top>0</top>
-							<width>265</width>
-							<height>40</height>
-							<font>font11</font>
-							<align>right</align>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>275</left>
-							<top>0</top>
-							<width>525</width>
-							<height>40</height>
-							<font>font11</font>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</focusedlayout>
-					<content>
-						<item>
-							<label>$LOCALIZE[21893]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Artist_Born)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Born))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[21894]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Artist_Formed)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Formed))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[21897]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Artist_Died)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Died))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[21896]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Artist_Disbanded)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Disbanded))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[21898]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Artist_YearsActive)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Artist_YearsActive))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[175]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Artist_Mood)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Mood))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[176]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Artist_Style)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Style))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[515]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Genre)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
-						</item>
-					</content>
+					<itemlayout width="1" height="1"/>
+					<focusedlayout width="1" height="1"/>
 				</control>
 
 				<control type="group"><!-- Album info -->
@@ -1108,107 +1107,14 @@
 				<control type="list" id="170">
 					<left>460</left>
 					<top>118</top>
-					<width>800</width>
-					<height>440</height>
-					<onleft>170</onleft>
-					<onright>170</onright>
+					<width>1</width>
+					<height>1</height>
 					<onup>190</onup>
 					<ondown>195</ondown>
-					<itemlayout width="800" height="40">
-						<control type="label">
-							<left>0</left>
-							<top>0</top>
-							<width>265</width>
-							<height>40</height>
-							<font>font11</font>
-							<align>right</align>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>275</left>
-							<top>0</top>
-							<width>525</width>
-							<height>40</height>
-							<font>font11</font>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout width="800" height="40">
-						<control type="label">
-							<left>0</left>
-							<top>0</top>
-							<width>265</width>
-							<height>40</height>
-							<font>font11</font>
-							<align>right</align>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>275</left>
-							<top>0</top>
-							<width>525</width>
-							<height>40</height>
-							<font>font11</font>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</focusedlayout>
-					<content>
-						<item>
-							<label>$LOCALIZE[557]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Artist)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Artist))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[515]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Genre)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[563]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Album_Rating)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Rating))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[175]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Album_Mood)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Album_Mood))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[176]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Album_Style)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Album_Style))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[21895]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Album_Theme)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Album_Theme))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[146]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Album_Type)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Album_Type))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[21899]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Album_Label)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Album_Label))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[562]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Year)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Year))</visible>
-						</item>
-					</content>
+					<itemlayout width="1" height="1"/>
+					<focusedlayout width="1" height="1"/>
 				</control>
+
 				<control type="group"><!-- Song info -->
 					<visible>Control.IsVisible(180)</visible>
 					<left>0</left>
@@ -1245,200 +1151,25 @@
 				<control type="list" id="180">
 					<left>460</left>
 					<top>118</top>
-					<width>800</width>
-					<height>440</height>
-					<onleft>180</onleft>
-					<onright>180</onright>
+					<width>1</width>
+					<height>1</height>
 					<onup>190</onup>
 					<ondown>195</ondown>
-					<itemlayout width="800" height="40">
-						<control type="label">
-							<left>0</left>
-							<top>0</top>
-							<width>265</width>
-							<height>40</height>
-							<font>font11</font>
-							<align>right</align>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>275</left>
-							<top>0</top>
-							<width>525</width>
-							<height>40</height>
-							<font>font11</font>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout width="800" height="40">
-						<control type="label">
-							<left>0</left>
-							<top>0</top>
-							<width>265</width>
-							<height>40</height>
-							<font>font11</font>
-							<align>right</align>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<left>275</left>
-							<top>0</top>
-							<width>525</width>
-							<height>40</height>
-							<font>font11</font>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</focusedlayout>
-					<content>
-						<item>
-							<label>$LOCALIZE[557]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Artist)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Artist))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[558]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Album)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Album))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[554]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Track)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Track))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[2050]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Duration),, $LOCALIZE[12391]]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Duration)) + !SubString(Container(100).ListItem.Property(Duration),min)</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[2050]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Duration)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Duration)) + SubString(Container(100).ListItem.Property(Duration),min)</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[563]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Rating)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Rating))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[515]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Genre)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[562]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Year)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Year))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[567]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Playcount)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
-						</item>
-					</content>
+					<itemlayout width="1" height="1"/>
+					<focusedlayout width="1" height="40"/>
 				</control>
+
 				<control type="list" id="200">
 					<posx>430</posx>
 					<posy>118</posy>
-					<width>800</width>
-					<height>330</height>
-					<onleft>200</onleft>
-					<onright>200</onright>
+					<width>1</width>
+					<height>1</height>
 					<onup>190</onup>
 					<ondown>195</ondown>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
-					<itemlayout width="800" height="30">
-						<control type="label">
-							<posx>0</posx>
-							<posy>0</posy>
-							<width>165</width>
-							<height>30</height>
-							<font>font11</font>
-							<align>right</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<posx>175</posx>
-							<posy>0</posy>
-							<width>625</width>
-							<height>30</height>
-							<font>font11</font>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout width="800" height="30">
-						<control type="label">
-							<posx>0</posx>
-							<posy>0</posy>
-							<width>165</width>
-							<height>30</height>
-							<font>font11</font>
-							<align>right</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label]</label>
-						</control>
-						<control type="label">
-							<posx>175</posx>
-							<posy>0</posy>
-							<width>625</width>
-							<height>30</height>
-							<font>font11</font>
-							<align>left</align>
-							<aligny>center</aligny>
-							<label>$INFO[ListItem.Label2]</label>
-						</control>
-					</focusedlayout>
-					<content>
-						<item>
-							<label>$LOCALIZE[19080]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(StartTime)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(StartTime))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[19081]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(EndTime)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(EndTime))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[2050]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Duration),, $LOCALIZE[12391]]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Duration))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[515]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(Genre)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[19148]:</label>
-							<label2>$INFO[Container(100).ListItem.Property(ChannelNumber)]. $INFO[Container(100).ListItem.Property(ChannelName)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(ChannelName))</visible>
-						</item>
-						<item>
-							<label>$LOCALIZE[15311]</label>
-							<label2>$INFO[Container(100).ListItem.Property(Path)]</label2>
-							<onclick>noop</onclick>
-							<visible>!IsEmpty(Container(100).ListItem.Property(Path))</visible>
-						</item>
-					</content>
+					<itemlayout width="1" height="1"/>
+					<focusedlayout width="1" height="1"/>
 				</control>
 			</control>
 
