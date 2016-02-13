@@ -145,6 +145,12 @@
 		<value condition="Container.Content(movies)">plugin://script.skin.helper.service/?action=similarmovies&amp;imdbid=$INFO[ListItem.IMDBNumber]&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
 		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">plugin://script.skin.helper.service/?action=similarshows&amp;imdbid=$INFO[ListItem.IMDBNumber]&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
 	</variable>
+	<variable name="SearchInfoIcons">
+		<value condition="Control.IsVisible(110)">plugin://script.skin.helper.service/?action=similarmovies&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
+		<value condition="Control.IsVisible(120) | Control.IsVisible(130) | Control.IsVisible(140)">plugin://script.skin.helper.service/?action=similarshows&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
+		<value condition="Control.IsVisible(150)">plugin://script.skin.helper.service/?action=inprogressandrecommendedmedia&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
+		<value condition="Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180)">plugin://script.skin.helper.service/?action=recommendedsongs&amp;reload=$INFO[Window(Home).Property(widgetreloadmusic)]</value>
+	</variable>
 	<variable name="Overlay">
 		<value condition="ListItem.IsResumable">OverlayPartialyWatched.png</value>
 		<value condition="SubString(ListItem.Overlay,OverlayWatched,Left)">OverlayWatched.png</value>
