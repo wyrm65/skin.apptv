@@ -27,7 +27,7 @@
 				<aspectratio>scale</aspectratio>
 				<texture>$INFO[Container(100).ListItem.Property(Fanart)]</texture>
 				<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
-				<visible>!Skin.HasSetting(background-fanart)</visible>
+				<visible>!Skin.HasSetting(background-fanarts)</visible>
 			</control>
 			<control type="grouplist"><!-- Media flags -->
 				<visible>Control.IsVisible(110) | Control.IsVisible(140) | Control.IsVisible(150)</visible>
@@ -131,6 +131,24 @@
 					<height>116</height>
 					<animation condition="!Control.HasFocus(153) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 					<visible>Control.IsVisible(150)</visible>
+				</control>
+				<control type="scrollbar" id="163"><!-- Artist Scrollbar -->
+					<width>16</width>
+					<height>116</height>
+					<animation condition="!Control.HasFocus(163) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<visible>Control.IsVisible(160)</visible>
+				</control>
+				<control type="scrollbar" id="173"><!-- Album Scrollbar -->
+					<width>16</width>
+					<height>116</height>
+					<animation condition="!Control.HasFocus(173) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<visible>Control.IsVisible(170)</visible>
+				</control>
+				<control type="scrollbar" id="183"><!-- Song Scrollbar -->
+					<width>16</width>
+					<height>116</height>
+					<animation condition="!Control.HasFocus(183) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<visible>Control.IsVisible(180)</visible>
 				</control>
 			</control>
 
@@ -339,7 +357,7 @@
 					<width>1</width>
 					<height>1</height>
 					<onup>190</onup>
-					<ondown>195</ondown>
+					<ondown>950</ondown>
 					<itemlayout width="1" height="1"/>
 					<focusedlayout width="1" height="1"/>
 				</control>
@@ -527,7 +545,7 @@
 					<width>1</width>
 					<height>1</height>
 					<onup>190</onup>
-					<ondown>195</ondown>
+					<ondown>950</ondown>
 					<itemlayout width="1" height="1"/>
 					<focusedlayout width="1" height="1"/>
 				</control>
@@ -715,7 +733,7 @@
 					<width>1</width>
 					<height>1</height>
 					<onup>190</onup>
-					<ondown>195</ondown>
+					<ondown>950</ondown>
 					<itemlayout width="1" height="1"/>
 					<focusedlayout width="1" height="1"/>
 				</control>
@@ -892,7 +910,7 @@
 					<width>1</width>
 					<height>1</height>
 					<onup>190</onup>
-					<ondown>195</ondown>
+					<ondown>950</ondown>
 					<itemlayout width="1" height="1"/>
 					<focusedlayout width="1" height="1"/>
 				</control>
@@ -1082,42 +1100,136 @@
 					<width>1</width>
 					<height>1</height>
 					<onup>190</onup>
-					<ondown>195</ondown>
+					<ondown>950</ondown>
 					<itemlayout width="1" height="1"/>
 					<focusedlayout width="1" height="1"/>
 				</control>
 
 				<control type="group"><!-- Artist info -->
 					<visible>Control.IsVisible(160)</visible>
-					<left>0</left>
-					<top>50</top>
-					<control type="label"><!-- Title -->
-						<left>531</left>
-						<top>-11</top>
-						<width>708</width>
-						<height>40</height>
-						<font>font22</font>
-						<label>$INFO[Container(100).ListItem.Label]</label>
+					<control type="label"><!-- Artist -->
+						<left>340</left>
+						<top>12</top>
+						<width>920</width>
+						<height>62</height>
+						<font>font18</font>
+						<wrapmultiline>true</wrapmultiline>
+						<aligny>center</aligny>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Label]</label>
+						<textoffsetx>0</textoffsetx>
 					</control>
-					<control type="image"><!-- Cover Image -->
-						<left>72</left>
-						<top>46</top>
-						<width>384</width>
-						<height>384</height>
-						<texture fallback="DefaultAudio.png" diffuse="mask-squ.png">$INFO[Container(100).ListItem.Icon]</texture>
-						<aspectratio scalediffuse="false">keep</aspectratio>
+					<control type="label"><!-- Artist born/died -->
+						<left>340</left>
+						<top>82</top>
+						<width>920</width>
+						<height>22</height>
+						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<shadowcolor>shadow-text</shadowcolor>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Property(Artist_Born)]$INFO[Container(100).ListItem.Property(Artist_Died), - ,]</label>
+						<textoffsetx>0</textoffsetx>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Born))</visible>
+					</control>
+					<control type="label"><!-- Artist formed/disbanded -->
+						<left>340</left>
+						<top>82</top>
+						<width>920</width>
+						<height>22</height>
+						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<shadowcolor>shadow-text</shadowcolor>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Property(Artist_Formed)]$INFO[Container(100).ListItem.Property(Artist_Disbanded), - ,]</label>
+						<textoffsetx>0</textoffsetx>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Formed))</visible>
+					</control>
+					<control type="image">
+						<left>340</left>
+						<top>108</top>
+						<width>900</width>
+						<height>4</height>
+						<texture>separator.png</texture>
 					</control>
 					<control type="textbox">
-						<left>60</left>
-						<top>488</top>
-						<width>1160</width>
-						<height>114</height>
-						<font>font11</font>
+						<left>340</left>
+						<top>112</top>
+						<width>900</width>
+						<height>118</height>
+						<label fallback="161">$INFO[Container(100).ListItem.Property(Artist_Description)]</label>
+						<font>font10</font>
 						<align>justify</align>
-						<pagecontrol>195</pagecontrol>
-						<label>$INFO[Container(100).ListItem.Property(Artist_Description)]</label>
-						<autoscroll time="3000" delay="20000" repeat="5000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
+						<pagecontrol>163</pagecontrol>
+					</control>
+					<control type="image">
+						<left>340</left>
+						<top>232</top>
+						<width>900</width>
+						<height>4</height>
+						<texture>separator.png</texture>
+					</control>
+					<control type="image"><!-- Artist Image -->
+						<left>42</left>
+						<top>80</top>
+						<width>256</width>
+						<height>256</height>
+						<texture fallback="icon-profile.png" diffuse="mask-rect.png">$INFO[Container(100).ListItem.Icon]</texture>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+					</control>
+					<control type="label"><!-- Details heading -->
+						<left>340</left>
+						<top>240</top>
+						<width>320</width>
+						<height>22</height>
+						<label>$LOCALIZE[31135]</label>
+						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<shadowcolor>shadow-text</shadowcolor>
+					</control>
+					<control type="label"><!-- Genres -->
+						<left>340</left>
+						<top>266</top>
+						<width>600</width>
+						<height>20</height>
+						<font>font10</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$LOCALIZE[135] : $INFO[Container(100).ListItem.Property(Artist_Genre)]</label>
+						<textoffsetx>0</textoffsetx>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Genre))</visible>
+					</control>
+					<control type="label"><!-- Moods -->
+						<left>340</left>
+						<top>292</top>
+						<width>600</width>
+						<height>20</height>
+						<font>font10</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$LOCALIZE[175] : $INFO[Container(100).ListItem.Property(Artist_Mood)]</label>
+						<textoffsetx>0</textoffsetx>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Mood))</visible>
+					</control>
+					<control type="label"><!-- Styles -->
+						<left>340</left>
+						<top>318</top>
+						<width>600</width>
+						<height>20</height>
+						<font>font10</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$LOCALIZE[176] : $INFO[Container(100).ListItem.Property(Artist_Style)]</label>
+						<textoffsetx>0</textoffsetx>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Style))</visible>
+					</control>
+					<control type="label"><!-- Active -->
+						<left>340</left>
+						<top>344</top>
+						<width>600</width>
+						<height>20</height>
+						<font>font10</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$LOCALIZE[21898] : $INFO[Container(100).ListItem.Property(Artist_YearsActive)]</label>
+						<textoffsetx>0</textoffsetx>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_YearsActive))</visible>
 					</control>
 				</control>
 				<control type="list" id="160">
@@ -1126,42 +1238,141 @@
 					<width>1</width>
 					<height>1</height>
 					<onup>190</onup>
-					<ondown>195</ondown>
+					<ondown>950</ondown>
 					<itemlayout width="1" height="1"/>
 					<focusedlayout width="1" height="1"/>
 				</control>
 
 				<control type="group"><!-- Album info -->
 					<visible>Control.IsVisible(170)</visible>
-					<left>0</left>
-					<top>50</top>
-					<control type="label"><!-- Title -->
-						<left>531</left>
-						<top>-11</top>
-						<width>708</width>
-						<height>40</height>
-						<font>font22</font>
-						<label>$INFO[Container(100).ListItem.Label]</label>
+					<control type="label"><!-- Album -->
+						<left>340</left>
+						<top>12</top>
+						<width>920</width>
+						<height>62</height>
+						<font>font18</font>
+						<wrapmultiline>true</wrapmultiline>
+						<aligny>center</aligny>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Label]</label>
+						<textoffsetx>0</textoffsetx>
 					</control>
-					<control type="image"><!-- Cover Image -->
-						<left>72</left>
-						<top>46</top>
-						<width>384</width>
-						<height>384</height>
-						<texture fallback="DefaultAudio.png" diffuse="mask-squ.png">$INFO[Container(100).ListItem.Icon]</texture>
-						<aspectratio scalediffuse="false">keep</aspectratio>
+					<control type="label"><!-- Artist -->
+						<left>340</left>
+						<top>82</top>
+						<width>920</width>
+						<height>22</height>
+						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<shadowcolor>shadow-text</shadowcolor>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Property(Artist)]</label>
+						<textoffsetx>0</textoffsetx>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Artist))</visible>
+					</control>
+					<control type="image">
+						<left>340</left>
+						<top>108</top>
+						<width>900</width>
+						<height>4</height>
+						<texture>separator.png</texture>
 					</control>
 					<control type="textbox">
-						<left>60</left>
-						<top>488</top>
-						<width>1160</width>
-						<height>114</height>
-						<font>font11</font>
+						<left>340</left>
+						<top>112</top>
+						<width>900</width>
+						<height>118</height>
+						<label fallback="161">$INFO[Container(100).ListItem.Property(Album_Description)]</label>
+						<font>font10</font>
 						<align>justify</align>
-						<pagecontrol>195</pagecontrol>
-						<label>$INFO[Container(100).ListItem.Property(Album_Description)]</label>
-						<autoscroll time="3000" delay="20000" repeat="5000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
+						<pagecontrol>173</pagecontrol>
+					</control>
+					<control type="image">
+						<left>340</left>
+						<top>232</top>
+						<width>900</width>
+						<height>4</height>
+						<texture>separator.png</texture>
+					</control>
+					<control type="image"><!-- Album Image -->
+						<left>42</left>
+						<top>80</top>
+						<width>256</width>
+						<height>256</height>
+						<texture fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[Container(100).ListItem.Icon]</texture>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+					</control>
+					<control type="label"><!-- Details heading -->
+						<left>340</left>
+						<top>240</top>
+						<width>320</width>
+						<height>22</height>
+						<label>$LOCALIZE[31135]</label>
+						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<shadowcolor>shadow-text</shadowcolor>
+					</control>
+					<control type="label"><!-- Genres -->
+						<left>340</left>
+						<top>266</top>
+						<width>600</width>
+						<height>20</height>
+						<font>font10</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$LOCALIZE[135] : $INFO[Container(100).ListItem.Property(Genre)]</label>
+						<textoffsetx>0</textoffsetx>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
+					</control>
+					<control type="label"><!-- Moods -->
+						<left>340</left>
+						<top>292</top>
+						<width>600</width>
+						<height>20</height>
+						<font>font10</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$LOCALIZE[175] : $INFO[Container(100).ListItem.Property(Album_Mood)]</label>
+						<textoffsetx>0</textoffsetx>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Album_Mood))</visible>
+					</control>
+					<control type="label"><!-- Style -->
+						<left>340</left>
+						<top>318</top>
+						<width>600</width>
+						<height>20</height>
+						<font>font10</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$LOCALIZE[176] : $INFO[Container(100).ListItem.Property(Album_Style)]</label>
+						<textoffsetx>0</textoffsetx>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Album_Style))</visible>
+					</control>
+					<control type="label"><!-- Release date -->
+						<left>340</left>
+						<top>344</top>
+						<width>600</width>
+						<height>20</height>
+						<font>font10</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$LOCALIZE[172] : $INFO[Container(100).ListItem.Property(Year)]</label>
+						<textoffsetx>0</textoffsetx>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Year))</visible>
+					</control>
+					<control type="image"><!-- Star Rating Dropshadow-->
+						<left>341</left>
+						<top>371</top>
+						<width>144</width>
+						<height>18</height>
+						<texture>$INFO[Container(100).ListItem.Property(StarRating)]</texture>
+						<colordiffuse>DropShadow</colordiffuse>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="image"><!-- Star Rating -->
+						<left>340</left>
+						<top>370</top>
+						<width>144</width>
+						<height>18</height>
+						<texture>$INFO[Container(100).ListItem.Property(StarRating)]</texture>
+						<colordiffuse>StarDiffuse</colordiffuse>
+						<aspectratio>keep</aspectratio>
 					</control>
 				</control>
 				<control type="list" id="170">
@@ -1170,42 +1381,169 @@
 					<width>1</width>
 					<height>1</height>
 					<onup>190</onup>
-					<ondown>195</ondown>
+					<ondown>950</ondown>
 					<itemlayout width="1" height="1"/>
 					<focusedlayout width="1" height="1"/>
 				</control>
 
 				<control type="group"><!-- Song info -->
 					<visible>Control.IsVisible(180)</visible>
-					<left>0</left>
-					<top>50</top>
-					<control type="label"><!-- Title -->
-						<left>531</left>
-						<top>-11</top>
-						<width>708</width>
-						<height>40</height>
-						<font>font22</font>
-						<label>$INFO[Container(100).ListItem.Label]</label>
+					<control type="label"><!-- Track number and name -->
+						<left>340</left>
+						<top>12</top>
+						<width>920</width>
+						<height>62</height>
+						<font>font18</font>
+						<wrapmultiline>true</wrapmultiline>
+						<aligny>center</aligny>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Property(Track),, - ]$INFO[Container(100).ListItem.Label]</label>
+						<textoffsetx>0</textoffsetx>
 					</control>
-					<control type="image"><!-- Cover Image -->
-						<left>72</left>
-						<top>46</top>
-						<width>384</width>
-						<height>384</height>
-						<texture fallback="DefaultAudio.png" diffuse="mask-squ.png">$INFO[Container(100).ListItem.Icon]</texture>
-						<aspectratio scalediffuse="false">keep</aspectratio>
-					</control>
-					<control type="textbox"><!-- Song Comment -->
-						<left>60</left>
-						<top>450</top>
-						<width>1160</width>
-						<height>100</height>
+					<control type="label"><!-- Artist -->
+						<left>340</left>
+						<top>82</top>
+						<width>920</width>
+						<height>22</height>
 						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<shadowcolor>shadow-text</shadowcolor>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Property(Artist)]$INFO[Container(100).ListItem.Property(Album), : ,]</label>
+						<textoffsetx>0</textoffsetx>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Artist))</visible>
+					</control>
+					<control type="image">
+						<left>340</left>
+						<top>108</top>
+						<width>900</width>
+						<height>4</height>
+						<texture>separator.png</texture>
+					</control>
+					<control type="textbox">
+						<left>340</left>
+						<top>112</top>
+						<width>900</width>
+						<height>118</height>
+						<label fallback="161">$INFO[Container(100).ListItem.Property(Comment)]</label>
+						<font>font10</font>
 						<align>justify</align>
-						<pagecontrol>195</pagecontrol>
-						<label>$INFO[Container(100).ListItem.Property(Comment)]</label>
-						<autoscroll time="3000" delay="20000" repeat="5000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
+						<pagecontrol>183</pagecontrol>
+					</control>
+					<control type="image">
+						<left>340</left>
+						<top>232</top>
+						<width>900</width>
+						<height>4</height>
+						<texture>separator.png</texture>
+					</control>
+					<control type="image"><!-- Album Image -->
+						<left>42</left>
+						<top>80</top>
+						<width>256</width>
+						<height>256</height>
+						<texture fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[Container(100).ListItem.Icon]</texture>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+					</control>
+					<control type="label"><!-- Details heading -->
+						<left>340</left>
+						<top>240</top>
+						<width>320</width>
+						<height>22</height>
+						<label>$LOCALIZE[31135]</label>
+						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<shadowcolor>shadow-text</shadowcolor>
+					</control>
+					<control type="label"><!-- Genres -->
+						<left>340</left>
+						<top>266</top>
+						<width>600</width>
+						<height>20</height>
+						<font>font10</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$LOCALIZE[135] : $INFO[Container(100).ListItem.Property(Genre)]</label>
+						<textoffsetx>0</textoffsetx>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
+					</control>
+					<control type="label"><!-- Playcount heading-->
+						<left>970</left>
+						<top>240</top>
+						<width>290</width>
+						<height>22</height>
+						<label>$LOCALIZE[567]</label>
+						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<shadowcolor>shadow-text</shadowcolor>
+					</control>
+					<control type="label">
+						<left>970</left>
+						<top>266</top>
+						<width>290</width>
+						<height>20</height>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Property(Playcount)]</label>
+						<font>font10</font>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
+					</control>
+					<control type="group"><!-- Duration -->
+						<visible>!IsEmpty(Container(100).ListItem.Property(Duration))</visible>
+						<control type="label">
+							<left>340</left>
+							<top>318</top>
+							<width>320</width>
+							<height>20</height>
+							<font>font10</font>
+							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
+							<visible>SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+						</control>
+						<control type="label">
+							<left>340</left>
+							<top>318</top>
+							<width>320</width>
+							<height>20</height>
+							<font>font10</font>
+							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
+							<visible>SubString(Container(100).ListItem.Property(Duration),min) + !SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+						</control>
+						<control type="label">
+							<left>340</left>
+							<top>318</top>
+							<width>320</width>
+							<height>20</height>
+							<font>font10</font>
+							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration),, mins]</label>
+							<visible>!SubString(Container(100).ListItem.Property(Duration),min)</visible>
+						</control>
+					</control>
+					<control type="label"><!-- Release date -->
+						<left>340</left>
+						<top>344</top>
+						<width>600</width>
+						<height>20</height>
+						<font>font10</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$LOCALIZE[172] : $INFO[Container(100).ListItem.Property(Year)]</label>
+						<textoffsetx>0</textoffsetx>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Year))</visible>
+					</control>
+					<control type="image"><!-- Star Rating Dropshadow-->
+						<left>341</left>
+						<top>371</top>
+						<width>144</width>
+						<height>18</height>
+						<texture>$INFO[Container(100).ListItem.Property(StarRating)]</texture>
+						<colordiffuse>DropShadow</colordiffuse>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="image"><!-- Star Rating -->
+						<left>340</left>
+						<top>370</top>
+						<width>144</width>
+						<height>18</height>
+						<texture>$INFO[Container(100).ListItem.Property(StarRating)]</texture>
+						<colordiffuse>StarDiffuse</colordiffuse>
+						<aspectratio>keep</aspectratio>
 					</control>
 				</control>
 				<control type="list" id="180">
@@ -1214,9 +1552,9 @@
 					<width>1</width>
 					<height>1</height>
 					<onup>190</onup>
-					<ondown>195</ondown>
+					<ondown>950</ondown>
 					<itemlayout width="1" height="1"/>
-					<focusedlayout width="1" height="40"/>
+					<focusedlayout width="1" height="1"/>
 				</control>
 
 				<control type="list" id="200">
@@ -1225,7 +1563,7 @@
 					<width>1</width>
 					<height>1</height>
 					<onup>190</onup>
-					<ondown>195</ondown>
+					<ondown>950</ondown>
 					<pagecontrol>-</pagecontrol>
 					<scrolltime>200</scrolltime>
 					<itemlayout width="1" height="1"/>
@@ -1233,43 +1571,28 @@
 				</control>
 			</control>
 
-			<control type="spincontrol" id="195">
-				<left>1152</left>
-				<top>624</top>
-				<spinwidth>33</spinwidth>
-				<spinheight>22</spinheight>
-				<textureup>scroll-up.png</textureup>
-				<texturedown>scroll-down.png</texturedown>
-				<textureupfocus>scroll-up-focus.png</textureupfocus>
-				<texturedownfocus>scroll-down-focus.png</texturedownfocus>
-				<subtype>page</subtype>
-				<showonepage>false</showonepage>
-				<onup>101</onup>
-				<ondown>190</ondown>
-				<onleft>200</onleft>
-				<onright>200</onright>
-			</control>
-
-			<control type="button" id="191"><!-- Hide button offscreen and focus on the play button -->
-				<left>-200</left>
-				<top>-200</top>
-				<width>250</width>
-				<height>45</height>
-				<label></label>
-				<align>center</align>
-				<onfocus>SetFocus(190)</onfocus>
-			</control>
-			<control type="button" id="192"><!-- Hidden Browse button -->
-				<left>-200</left>
-				<top>-150</top>
-				<width>250</width>
-				<height>45</height>
-			</control>
-			<control type="button" id="193"><!-- Hidden Trailer button -->
-				<left>-200</left>
-				<top>-100</top>
-				<width>250</width>
-				<height>45</height>
+			<control type="group"><!-- Hide script supplied buttons offscreen so I can replace with my own custom buttons -->
+				<control type="button" id="191"><!-- Hidden Play button -->
+					<left>-200</left>
+					<top>-200</top>
+					<width>250</width>
+					<height>45</height>
+					<label></label>
+					<align>center</align>
+					<onfocus>SetFocus(190)</onfocus>
+				</control>
+				<control type="button" id="192"><!-- Hidden Browse button -->
+					<left>-200</left>
+					<top>-150</top>
+					<width>250</width>
+					<height>45</height>
+				</control>
+				<control type="button" id="193"><!-- Hidden Trailer button -->
+					<left>-200</left>
+					<top>-100</top>
+					<width>250</width>
+					<height>45</height>
+				</control>
 			</control>
 
 			<control type="grouplist" id="190"><!-- Option buttons -->
@@ -1325,7 +1648,7 @@
 				<label>$LOCALIZE[31691]</label>
 				<font>font10</font>
 				<align>right</align>
-				<visible>![IsEmpty(Container(950).ListItem.Label)]</visible><!-- Not showing Cast and recommended video list has something to show -->
+				<visible>![IsEmpty(Container(950).ListItem.Label)]</visible>
 			</control>
 			<control type="image">
 				<left>340</left>
@@ -1333,6 +1656,7 @@
 				<width>900</width>
 				<height>4</height>
 				<texture>separator.png</texture>
+				<visible>![IsEmpty(Container(950).ListItem.Label)]</visible>
 			</control>
 			<control type="list" id="950">
 				<left>10</left>
@@ -1363,6 +1687,15 @@
 						<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Thumb]</texture>
 						<visible>Control.IsVisible(120) | Control.IsVisible(130) | Control.IsVisible(140)</visible>
 					</control>
+					<control type="image">
+						<left>30</left>
+						<top>8</top>
+						<width>150</width>
+						<height>150</height>
+						<aspectratio scalediffuse="true">keep</aspectratio>
+						<texture diffuse="mask-rect.png" fallback="DefaultAudio.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<visible>Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180)</visible>
+					</control>
 				</itemlayout>
 				<focusedlayout height="208" width="210">
 					<control type="group">
@@ -1384,6 +1717,15 @@
 							<aspectratio scalediffuse="true">keep</aspectratio>
 							<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Thumb]</texture>
 							<visible>Control.IsVisible(120) | Control.IsVisible(130) | Control.IsVisible(140)</visible>
+						</control>
+						<control type="image">
+							<left>30</left>
+							<top>8</top>
+							<width>150</width>
+							<height>150</height>
+							<aspectratio scalediffuse="true">keep</aspectratio>
+							<texture diffuse="mask-rect.png" fallback="DefaultAudio.png" background="true">$INFO[ListItem.Thumb]</texture>
+							<visible>Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180)</visible>
 						</control>
 					</control>
 					<control type="group">
@@ -1428,6 +1770,26 @@
 							<texture>DefaultTVShows.png</texture>
 							<visible>[Control.IsVisible(120) | Control.IsVisible(130) | Control.IsVisible(140)] + [IsEmpty(ListItem.Thumb) | SubString(ListItem.Thumb,Default,Left)]</visible>
 						</control>
+						<control type="image">
+							<left>22</left>
+							<top>0</top>
+							<width>166</width>
+							<height>166</height>
+							<aspectratio scalediffuse="true">keep</aspectratio>
+							<texture diffuse="mask-rect.png" background="true">$INFO[ListItem.Thumb]</texture>
+							<bordertexture border="6">mask-hilite2.png</bordertexture>
+							<bordersize>6</bordersize>
+							<visible>[Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180)] + !IsEmpty(ListItem.Thumb) + !SubString(ListItem.Thumb,Default,Left)</visible>
+						</control>
+						<control type="image">
+							<left>22</left>
+							<top>0</top>
+							<width>166</width>
+							<height>166</height>
+							<aspectratio>keep</aspectratio>
+							<texture>DefaultAudio.png</texture>
+							<visible>[Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180)] + [IsEmpty(ListItem.Thumb) | SubString(ListItem.Thumb,Default,Left)]</visible>
+						</control>
 					</control>
 					<control type="textbox">
 						<left>0</left>
@@ -1441,7 +1803,7 @@
 						<visible>Control.HasFocus(950)</visible>
 					</control>
 				</focusedlayout>
-				<content target="video" limit="12">$VAR[SearchInfoIcons]</content>
+				<content limit="12">$VAR[SearchInfoIcons]</content>
 			</control>
 			<control type="group"><!-- Markers for control area items -->
 				<visible>Control.HasFocus(950)</visible>
