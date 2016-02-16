@@ -1816,8 +1816,8 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31863]</label>
 						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(background-fanart)</onclick>
-						<selected>!Skin.HasSetting(background-fanart)</selected>
+						<onclick>Skin.ToggleSetting(background-fanarts)</onclick>
+						<selected>!Skin.HasSetting(background-fanarts)</selected>
 						<radioposx>844</radioposx>
 					</control>
 					<control type="radiobutton" id="505"><!-- Background ExtraFanart Toggle -->
@@ -1826,7 +1826,7 @@
 						<textwidth>750</textwidth>
 						<onclick>Skin.ToggleSetting(SkinHelper.EnableExtraFanart)</onclick>
 						<selected>Skin.HasSetting(SkinHelper.EnableExtraFanart)</selected>
-						<enable>!Skin.HasSetting(background-fanart)</enable>
+						<enable>!Skin.HasSetting(background-fanarts)</enable>
 						<radioposx>844</radioposx>
 					</control>
 					<control type="radiobutton" id="506"><!-- Media In Background Toggle -->
@@ -1980,7 +1980,7 @@
 						<label>$LOCALIZE[10041]</label>
 						<textwidth>785</textwidth>
 						<onclick>Skin.Reset(background-custom)</onclick>
-						<onclick>Skin.Reset(background-fanart)</onclick>
+						<onclick>Skin.Reset(background-fanarts)</onclick>
 						<onclick>Skin.Reset(background-extrafanart)</onclick>
 						<onclick>Skin.Reset(background-playingmedia)</onclick>
 						<onclick>Skin.Reset(background-slideshow)</onclick>
