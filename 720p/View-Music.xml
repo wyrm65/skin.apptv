@@ -921,13 +921,13 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Label]</label>
 					<wrapmultiline>true</wrapmultiline>
-					<visible>!Container.Content(albums)</visible>
+					<visible>!Container.Content(albums) + !Container.Content(artists)</visible>
 				</control>
 				<control type="image"><!-- dummy blank space -->
 					<width>10</width>
 					<height>10</height>
 					<texture>blank.png</texture>
-					<visible>!Container.Content(albums)</visible>
+					<visible>!Container.Content(albums) + !Container.Content(artists)</visible>
 				</control>
 				<control type="label"><!-- Genre -->
 					<width>470</width>
