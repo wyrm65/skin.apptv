@@ -150,6 +150,12 @@
 					<animation condition="!Control.HasFocus(183) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 					<visible>Control.IsVisible(180)</visible>
 				</control>
+				<control type="scrollbar" id="203"><!-- EPG Scrollbar -->
+					<width>16</width>
+					<height>116</height>
+					<animation condition="!Control.HasFocus(203) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<visible>Control.IsVisible(200)</visible>
+				</control>
 			</control>
 
 			<control type="group" id="101">
@@ -1557,6 +1563,128 @@
 					<focusedlayout width="1" height="1"/>
 				</control>
 
+				<control type="group"><!-- EPG info -->
+					<visible>Control.IsVisible(200)</visible>
+					<control type="label"><!-- Program name -->
+						<left>340</left>
+						<top>12</top>
+						<width>920</width>
+						<height>62</height>
+						<font>font18</font>
+						<wrapmultiline>true</wrapmultiline>
+						<aligny>center</aligny>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Label]</label>
+						<textoffsetx>0</textoffsetx>
+					</control>
+					<control type="label"><!-- Channel number and name -->
+						<left>340</left>
+						<top>82</top>
+						<width>920</width>
+						<height>22</height>
+						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<shadowcolor>shadow-text</shadowcolor>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Property(ChannelNumber),, - ]$INFO[Container(100).ListItem.Property(ChannelName)]</label>
+						<textoffsetx>0</textoffsetx>
+						<visible>!IsEmpty(Container(100).ListItem.Property(ChannelName))</visible>
+					</control>
+					<control type="image">
+						<left>340</left>
+						<top>108</top>
+						<width>900</width>
+						<height>4</height>
+						<texture>separator.png</texture>
+					</control>
+					<control type="textbox">
+						<left>340</left>
+						<top>112</top>
+						<width>900</width>
+						<height>118</height>
+						<label fallback="161">$INFO[Container(100).ListItem.Property(Plot)]</label>
+						<font>font10</font>
+						<align>justify</align>
+						<pagecontrol>183</pagecontrol>
+					</control>
+					<control type="image">
+						<left>340</left>
+						<top>232</top>
+						<width>900</width>
+						<height>4</height>
+						<texture>separator.png</texture>
+					</control>
+					<control type="image"><!-- Channel Image -->
+						<left>42</left>
+						<top>80</top>
+						<width>256</width>
+						<height>256</height>
+						<texture fallback="DefaultAudio.png" diffuse="mask-rect.png">$INFO[Container(100).ListItem.Icon]</texture>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+					</control>
+					<control type="label"><!-- Details heading -->
+						<left>340</left>
+						<top>240</top>
+						<width>320</width>
+						<height>22</height>
+						<label>$LOCALIZE[31135]</label>
+						<font>font11</font>
+						<textcolor>disabled-text</textcolor>
+						<shadowcolor>shadow-text</shadowcolor>
+					</control>
+					<control type="label"><!-- Genres -->
+						<left>340</left>
+						<top>266</top>
+						<width>600</width>
+						<height>20</height>
+						<font>font10</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$LOCALIZE[135] : $INFO[Container(100).ListItem.Property(Genre)]</label>
+						<textoffsetx>0</textoffsetx>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
+					</control>
+					<control type="group"><!-- Duration -->
+						<visible>!IsEmpty(Container(100).ListItem.Property(Duration))</visible>
+						<control type="label">
+							<left>340</left>
+							<top>318</top>
+							<width>320</width>
+							<height>20</height>
+							<font>font10</font>
+							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
+							<visible>SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+						</control>
+						<control type="label">
+							<left>340</left>
+							<top>318</top>
+							<width>320</width>
+							<height>20</height>
+							<font>font10</font>
+							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
+							<visible>SubString(Container(100).ListItem.Property(Duration),min) + !SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+						</control>
+						<control type="label">
+							<left>340</left>
+							<top>318</top>
+							<width>320</width>
+							<height>20</height>
+							<font>font10</font>
+							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration),, mins]</label>
+							<visible>!SubString(Container(100).ListItem.Property(Duration),min)</visible>
+						</control>
+					</control>
+					<control type="label"><!-- Start/End Times -->
+						<left>340</left>
+						<top>344</top>
+						<width>600</width>
+						<height>20</height>
+						<font>font10</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[Container(100).ListItem.Property(Starttime),, - ]$INFO[Container(100).ListItem.Property(Endtime)]</label>
+						<textoffsetx>0</textoffsetx>
+						<visible>!IsEmpty(Container(100).ListItem.Property(Starttime)) + !IsEmpty(Container(100).ListItem.Property(Endtime))</visible>
+					</control>
+				</control>
 				<control type="list" id="200">
 					<posx>430</posx>
 					<posy>118</posy>
@@ -1696,6 +1824,15 @@
 						<texture diffuse="mask-rect.png" fallback="DefaultAudio.png" background="true">$INFO[ListItem.Thumb]</texture>
 						<visible>Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180)</visible>
 					</control>
+					<control type="image">
+						<left>30</left>
+						<top>8</top>
+						<width>150</width>
+						<height>150</height>
+						<aspectratio scalediffuse="true">keep</aspectratio>
+						<texture diffuse="mask-rect.png" fallback="icon-livetv.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<visible>Control.IsVisible(200)</visible>
+					</control>
 				</itemlayout>
 				<focusedlayout height="208" width="210">
 					<control type="group">
@@ -1726,6 +1863,15 @@
 							<aspectratio scalediffuse="true">keep</aspectratio>
 							<texture diffuse="mask-rect.png" fallback="DefaultAudio.png" background="true">$INFO[ListItem.Thumb]</texture>
 							<visible>Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180)</visible>
+						</control>
+						<control type="image">
+							<left>30</left>
+							<top>8</top>
+							<width>150</width>
+							<height>150</height>
+							<aspectratio scalediffuse="true">keep</aspectratio>
+							<texture diffuse="mask-rect.png" fallback="icon-livetv.png" background="true">$INFO[ListItem.Thumb]</texture>
+							<visible>Control.IsVisible(200)</visible>
 						</control>
 					</control>
 					<control type="group">
@@ -1789,6 +1935,26 @@
 							<aspectratio>keep</aspectratio>
 							<texture>DefaultAudio.png</texture>
 							<visible>[Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180)] + [IsEmpty(ListItem.Thumb) | SubString(ListItem.Thumb,Default,Left)]</visible>
+						</control>
+						<control type="image">
+							<left>22</left>
+							<top>0</top>
+							<width>166</width>
+							<height>166</height>
+							<aspectratio scalediffuse="true">keep</aspectratio>
+							<texture diffuse="mask-rect.png" background="true">$INFO[ListItem.Thumb]</texture>
+							<bordertexture border="6">mask-hilite2.png</bordertexture>
+							<bordersize>6</bordersize>
+							<visible>Control.IsVisible(200) + !IsEmpty(ListItem.Thumb) + !SubString(ListItem.Thumb,Default,Left)</visible>
+						</control>
+						<control type="image">
+							<left>22</left>
+							<top>0</top>
+							<width>166</width>
+							<height>166</height>
+							<aspectratio>keep</aspectratio>
+							<texture>icon-livetv.png</texture>
+							<visible>Control.IsVisible(200) + [IsEmpty(ListItem.Thumb) | SubString(ListItem.Thumb,Default,Left)]</visible>
 						</control>
 					</control>
 					<control type="textbox">
