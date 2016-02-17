@@ -238,7 +238,7 @@
 					<top>27</top>
 					<width>475</width>
 					<height>25</height>
-					<label>$INFO[MusicPlayer.Album]</label>
+					<label>$INFO[MusicPlayer.Title]</label>
 					<font>font11</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
@@ -249,13 +249,14 @@
 					<height>25</height>
 					<label>$LOCALIZE[19021] - $INFO[MusicPlayer.ChannelName]</label>
 					<font>font13</font>
+					<visible>Pvr.IsPlayingRadio</visible>
 				</control>
 				<control type="label">
 					<left>145</left>
 					<top>52</top>
 					<width>475</width>
 					<height>25</height>
-					<label>$INFO[MusicPlayer.Title]</label>
+					<label>$INFO[MusicPlayer.Album]</label>
 					<font>font11</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
