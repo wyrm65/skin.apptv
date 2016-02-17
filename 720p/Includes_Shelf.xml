@@ -148,7 +148,7 @@
 					<control type="textbox">
 						<left>0</left>
 						<top>195</top>
-						<height>48</height>
+						<height>50</height>
 						<width>210</width>
 						<font>font10</font>
 						<align>center</align>
@@ -537,14 +537,14 @@
 				<left>10</left>
 				<top>50</top>
 				<width>1260</width>
-				<height>245</height>
+				<height>248</height>
 				<onleft>9054</onleft>
 				<onright>9054</onright>
 				<onup>9054</onup>
 				<ondown>9000</ondown>
 				<viewtype label="31028">list</viewtype>
 				<orientation>horizontal</orientation>
-				<itemlayout height="245" width="210">
+				<itemlayout height="248" width="210">
 					<control type="image">
 						<left>15</left>
 						<top>6</top>
@@ -564,7 +564,7 @@
 						<texture fallback="DefaultAudio.png" flipy="true" diffuse="mask-fade.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 					</control>
 				</itemlayout>
-				<focusedlayout height="245" width="210">
+				<focusedlayout height="248" width="210">
 					<control type="image">
 						<left>15</left>
 						<top>6</top>
@@ -586,7 +586,7 @@
 					<control type="textbox">
 						<left>0</left>
 						<top>188</top>
-						<height>48</height>
+						<height>50</height>
 						<width>210</width>
 						<font>font10</font>
 						<align>center</align>
@@ -1196,7 +1196,7 @@
 						<height>180</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<aligny>top</aligny>
-						<texture diffuse="mask-squ.png" background="true">$VAR[PlayerMusicCover]</texture>
+						<texture diffuse="mask-squ.png" background="true" fallback="DefaultAudio.png">$VAR[PlayerMusicCover]</texture>
 					</control>
 					<control type="image">
 						<left>25</left>
@@ -1205,7 +1205,7 @@
 						<height>180</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<aligny>top</aligny>
-						<texture diffuse="mask-fade.png" background="true" flipy="true">$VAR[PlayerMusicCover]</texture>
+						<texture diffuse="mask-fade.png" background="true" flipy="true" fallback="DefaultAudio.png">$VAR[PlayerMusicCover]</texture>
 					</control>
 					<control type="textbox">
 						<left>10</left>
@@ -1229,7 +1229,7 @@
 						<height>180</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<aligny>top</aligny>
-						<texture diffuse="mask-squ.png" background="true">$VAR[PlayerMusicCover]</texture>
+						<texture diffuse="mask-squ.png" background="true" fallback="icon-radio.png">$VAR[PlayerMusicCover]</texture>
 					</control>
 					<control type="image">
 						<left>25</left>
@@ -1238,7 +1238,7 @@
 						<height>180</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<aligny>top</aligny>
-						<texture diffuse="mask-fade.png" background="true" flipy="true">$VAR[PlayerMusicCover]</texture>
+						<texture diffuse="mask-fade.png" background="true" flipy="true" fallback="icon-radio.png">$VAR[PlayerMusicCover]</texture>
 					</control>
 					<control type="textbox">
 						<left>10</left>
