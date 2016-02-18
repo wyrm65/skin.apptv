@@ -114,6 +114,31 @@
 							<onclick>RunScript(script.libraryeditor,DBID=$INFO[ListItem.DBID])</onclick>
 							<visible>StringCompare(Window(Home).Property(SelectDialogType),videoinfomore) + System.HasAddon(script.libraryeditor) + !IsEmpty(ListItem.DBID)</visible>
 						</item>
+						<!-- More Music Info options -->
+						<item>
+							<label>$LOCALIZE[13405]</label>
+							<onclick>Dialog.Close(1154)</onclick>
+							<onclick>SendClick(musicinformation,10)</onclick>
+							<visible>StringCompare(Window(Home).Property(SelectDialogType),musicinfomore) + Window.IsVisible(musicinformation)</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[13405]</label>
+							<onclick>Dialog.Close(1154)</onclick>
+							<onclick>SendClick(songinformation,13)</onclick>
+							<visible>StringCompare(Window(Home).Property(SelectDialogType),musicinfomore) + Window.IsVisible(songinformation)</visible>
+						</item>
+						<item>
+							<label>$ADDON[script.cdartmanager 32042]</label>
+							<onclick>Dialog.Close(1154)</onclick>
+							<onclick>RunScript(script.cdartmanager)</onclick>
+							<visible>StringCompare(Window(Home).Property(SelectDialogType),musicinfomore) + System.HasAddon(script.cdartmanager)</visible>
+						</item>
+						<item>
+							<label>$LOCALIZE[31689]</label>
+							<onclick>Dialog.Close(1154)</onclick>
+							<onclick>RunScript(script.libraryeditor,DBID=$INFO[ListItem.DBID])</onclick>
+							<visible>StringCompare(Window(Home).Property(SelectDialogType),musicinfomore) + System.HasAddon(script.libraryeditor) + !IsEmpty(ListItem.DBID)</visible>
+						</item>
 					</content>
 				</control>
 			</control>

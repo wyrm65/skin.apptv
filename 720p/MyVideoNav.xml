@@ -200,16 +200,6 @@
 					<radioposx>330</radioposx>
 					<visible>system.haslocks</visible>
 				</control>
-				<control type="button" id="1199"><!-- Goto playlist button -->
-					<width>376</width>
-					<height>48</height>
-					<font>font11</font>
-					<label>$LOCALIZE[13350]</label>
-					<onclick>$VAR[PlayList]</onclick>
-					<visible>Player.HasMedia</visible>
-					<visible>!VideoPlayer.Content(LiveTV)</visible>
-					<visible>!Window.IsVisible(musicplaylist) + !Window.IsVisible(videoplaylist)</visible>
-				</control>
 				<control type="togglebutton" id="20"><!-- Update library button -->
 					<width>376</width>
 					<height>48</height>
@@ -233,7 +223,7 @@
 					<font>font11</font>
 					<label>$LOCALIZE[13350]</label>
 					<onclick>ActivateWindow(videoplaylist)</onclick>
-					<visible>Player.HasVideo</visible>
+					<visible>!StringCompare(Playlist.Length(video),0)</visible>
 				</control>
 			</control>
 		</control>

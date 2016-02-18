@@ -607,19 +607,13 @@
 				<label>$LOCALIZE[184]</label>
 				<align>center</align>
 			</control>
-			<control type="button" id="10"><!-- Get Album cover -->
-				<width>250</width>
-				<height>56</height>
-				<label>$LOCALIZE[13405]</label>
-				<align>center</align>
-			</control>
-			<control type="button" id="16"><!-- CDArtManager Script -->
+			<control type="button" id="1115"><!-- More options button -->
 				<width>250</width>
 				<height>56</height>
 				<label>$LOCALIZE[31693]</label>
 				<align>center</align>
-				<onclick>RunScript(script.cdartmanager)</onclick>
-				<visible>system.hasaddon(script.cdartmanager)</visible>
+				<onclick>SetProperty(SelectDialogType,musicinfomore,Home)</onclick>
+				<onclick>ActivateWindow(1154)</onclick>
 			</control>
 		</control>
 		<control type="scrollbar" id="23">

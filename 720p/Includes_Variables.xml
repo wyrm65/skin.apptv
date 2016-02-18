@@ -10,6 +10,7 @@
 		<value condition="!IsEmpty(Window(home).Property(SkinHelper.PVR.FanArt))">$INFO[Window(home).Property(SkinHelper.PVR.FanArt)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !IsEmpty(Window(Home).Property(SkinHelper.Music.FanArt))">$INFO[Window(Home).Property(SkinHelper.Music.FanArt)]</value>
 		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !IsEmpty(Window(Home).Property(SkinHelper.ExtraFanArtPath))">$INFO[Window(Home).Property(SkinHelper.ExtraFanArtPath)]</value>
+		<value condition="!Skin.HasSetting(background-fanarts) + !IsEmpty(ListItem.Art(set.fanart))">$INFO[ListItem.Art(set.fanart)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !IsEmpty(Fanart.Image)">$INFO[Fanart.Image]</value>
@@ -151,7 +152,7 @@
 		<value condition="Control.IsVisible(150)">plugin://script.skin.helper.service/?action=inprogressandrecommendedmedia&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
 		<value condition="Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180)">plugin://script.skin.helper.service/?action=recommendedalbums&amp;reload=$INFO[Window(Home).Property(widgetreloadmusic)]</value>
 		<value condition="Control.IsVisible(200)">plugin://script.skin.helper.service/?action=pvrchannels&amp;limit=[LIMIT]&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
-		</variable>
+	</variable>
 	<variable name="Overlay">
 		<value condition="ListItem.IsResumable">OverlayPartialyWatched.png</value>
 		<value condition="SubString(ListItem.Overlay,OverlayWatched,Left)">OverlayWatched.png</value>
@@ -349,6 +350,7 @@
 	</variable>
 	<variable name="CustomDialogSelectHeading">
 		<value condition="StringCompare(Window(Home).Property(SelectDialogType),videoinfomore)">$LOCALIZE[31693]</value>
+		<value condition="StringCompare(Window(Home).Property(SelectDialogType),musicinfomore)">$LOCALIZE[31693]</value>
 		<value condition="StringCompare(Window(Home).Property(SelectDialogType),weathericons)">$LOCALIZE[31873]</value>
 		<value condition="StringCompare(Window(Home).Property(SelectDialogType),weatherbackgrounds)">$LOCALIZE[31866]</value>
 	</variable>
@@ -361,7 +363,7 @@
 	<variable name="IconPoster">
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value condition="!IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
-		<value condition="IsEmpty(ListItem.Icon)">$INFO[ListItem.Thumb]</value>
+		<value condition="IsEmpty(ListItem.Icon)">$INFO[ListItem.Art(thumb)]</value>
 	</variable>
 	<variable name="Icon(-5)Poster">
 		<value condition="!IsEmpty(ListItem(-5).Art(poster))">$INFO[ListItem(-5).Art(poster)]</value>
@@ -406,6 +408,102 @@
 	<variable name="Icon(5)Poster">
 		<value condition="!IsEmpty(ListItem(5).Art(poster))">$INFO[ListItem(5).Art(poster)]</value>
 		<value>$INFO[ListItem(5).Icon]</value>
+	</variable>
+	<variable name="IconCover">
+		<value condition="!IsEmpty(ListItem.Icon) + !Substring(ListItem.Icon,Default)">$INFO[ListItem.Icon]</value>
+		<value condition="!IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+		<value condition="!IsEmpty(ListItem.Icon) + Substring(ListItem.Icon,DefaultFolderBack)">$INFO[ListItem.Icon]</value>
+		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
+		<value>DefaultAudio.png</value>
+	</variable>
+	<variable name="Icon(-5)Cover">
+		<value condition="!IsEmpty(ListItem(-5).Icon) + !Substring(ListItem(-5).Icon,Default)">$INFO[ListItem(-5).Icon]</value>
+		<value condition="!IsEmpty(ListItem(-5).Art(thumb))">$INFO[ListItem(-5).Art(thumb)]</value>
+		<value condition="!IsEmpty(ListItem(-5).Icon) + Substring(ListItem(-5).Icon,DefaultFolderBack)">$INFO[ListItem(-5).Icon]</value>
+		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
+		<value>DefaultAudio.png</value>
+	</variable>
+	<variable name="Icon(-4)Cover">
+		<value condition="!IsEmpty(ListItem(-4).Icon) + !Substring(ListItem(-4).Icon,Default)">$INFO[ListItem(-4).Icon]</value>
+		<value condition="!IsEmpty(ListItem(-4).Art(thumb))">$INFO[ListItem(-4).Art(thumb)]</value>
+		<value condition="!IsEmpty(ListItem(-4).Icon) + Substring(ListItem(-4).Icon,DefaultFolderBack)">$INFO[ListItem(-4).Icon]</value>
+		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
+		<value>DefaultAudio.png</value>
+	</variable>
+	<variable name="Icon(-3)Cover">
+		<value condition="!IsEmpty(ListItem(-3).Icon) + !Substring(ListItem(-3).Icon,Default)">$INFO[ListItem(-3).Icon]</value>
+		<value condition="!IsEmpty(ListItem(-3).Art(thumb))">$INFO[ListItem(-3).Art(thumb)]</value>
+		<value condition="!IsEmpty(ListItem(-3).Icon) + Substring(ListItem(-3).Icon,DefaultFolderBack)">$INFO[ListItem(-3).Icon]</value>
+		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
+		<value>DefaultAudio.png</value>
+	</variable>
+	<variable name="Icon(-2)Cover">
+		<value condition="!IsEmpty(ListItem(-2).Icon) + !Substring(ListItem(-2).Icon,Default)">$INFO[ListItem(-2).Icon]</value>
+		<value condition="!IsEmpty(ListItem(-2).Art(thumb))">$INFO[ListItem(-2).Art(thumb)]</value>
+		<value condition="!IsEmpty(ListItem(-2).Icon) + Substring(ListItem(-2).Icon,DefaultFolderBack)">$INFO[ListItem(-2).Icon]</value>
+		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
+		<value>DefaultAudio.png</value>
+	</variable>
+	<variable name="Icon(-1)Cover">
+		<value condition="!IsEmpty(ListItem(-1).Icon) + !Substring(ListItem(-1).Icon,Default)">$INFO[ListItem(-1).Icon]</value>
+		<value condition="!IsEmpty(ListItem(-1).Art(thumb))">$INFO[ListItem(-1).Art(thumb)]</value>
+		<value condition="!IsEmpty(ListItem(-1).Icon) + Substring(ListItem(-1).Icon,DefaultFolderBack)">$INFO[ListItem(-1).Icon]</value>
+		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
+		<value>DefaultAudio.png</value>
+	</variable>
+	<variable name="Icon(0)Cover">
+		<value condition="!IsEmpty(ListItem(0).Icon) + !Substring(ListItem(0).Icon,Default)">$INFO[ListItem(0).Icon]</value>
+		<value condition="!IsEmpty(ListItem(0).Art(thumb))">$INFO[ListItem(0).Art(thumb)]</value>
+		<value condition="!IsEmpty(ListItem(0).Icon) + Substring(ListItem(0).Icon,DefaultFolderBack)">$INFO[ListItem(0).Icon]</value>
+		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
+		<value>DefaultAudio.png</value>
+	</variable>
+	<variable name="Icon(1)Cover">
+		<value condition="!IsEmpty(ListItem(1).Icon) + !Substring(ListItem(1).Icon,Default)">$INFO[ListItem(1).Icon]</value>
+		<value condition="!IsEmpty(ListItem(1).Art(thumb))">$INFO[ListItem(1).Art(thumb)]</value>
+		<value condition="!IsEmpty(ListItem(1).Icon) + Substring(ListItem(1).Icon,DefaultFolderBack)">$INFO[ListItem(1).Icon]</value>
+		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
+		<value>DefaultAudio.png</value>
+	</variable>
+	<variable name="Icon(2)Cover">
+		<value condition="!IsEmpty(ListItem(2).Icon) + !Substring(ListItem(2).Icon,Default)">$INFO[ListItem(2).Icon]</value>
+		<value condition="!IsEmpty(ListItem(2).Art(thumb))">$INFO[ListItem(2).Art(thumb)]</value>
+		<value condition="!IsEmpty(ListItem(2).Icon) + Substring(ListItem(2).Icon,DefaultFolderBack)">$INFO[ListItem(2).Icon]</value>
+		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
+		<value>DefaultAudio.png</value>
+	</variable>
+	<variable name="Icon(3)Cover">
+		<value condition="!IsEmpty(ListItem(3).Icon) + !Substring(ListItem(3).Icon,Default)">$INFO[ListItem(3).Icon]</value>
+		<value condition="!IsEmpty(ListItem(3).Art(thumb))">$INFO[ListItem(3).Art(thumb)]</value>
+		<value condition="!IsEmpty(ListItem(3).Icon) + Substring(ListItem(3).Icon,DefaultFolderBack)">$INFO[ListItem(3).Icon]</value>
+		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
+		<value>DefaultAudio.png</value>
+	</variable>
+	<variable name="Icon(4)Cover">
+		<value condition="!IsEmpty(ListItem(4).Icon) + !Substring(ListItem(4).Icon,Default)">$INFO[ListItem(4).Icon]</value>
+		<value condition="!IsEmpty(ListItem(4).Art(thumb))">$INFO[ListItem(4).Art(thumb)]</value>
+		<value condition="!IsEmpty(ListItem(4).Icon) + Substring(ListItem(4).Icon,DefaultFolderBack)">$INFO[ListItem(4).Icon]</value>
+		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
+		<value>DefaultAudio.png</value>
+	</variable>
+	<variable name="Icon(5)Cover">
+		<value condition="!IsEmpty(ListItem(5).Icon) + !Substring(ListItem(5).Icon,Default)">$INFO[ListItem(5).Icon]</value>
+		<value condition="!IsEmpty(ListItem(5).Art(thumb))">$INFO[ListItem(5).Art(thumb)]</value>
+		<value condition="!IsEmpty(ListItem(5).Icon) + Substring(ListItem(5).Icon,DefaultFolderBack)">$INFO[ListItem(5).Icon]</value>
+		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
+		<value>DefaultAudio.png</value>
 	</variable>
 	<variable name="Icon(8)Poster">
 		<value condition="Container.Position(0) + !IsEmpty(Container.ListItemNoWrap(8).Art(poster))">$INFO[Container.ListItemNoWrap(8).Art(poster)]</value>
@@ -619,7 +717,7 @@
 	</variable>
 	<variable name="PVRIcon">
 		<value condition="!IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
-		<value condition="IsEmpty(Window.Property(IsRadio))">DefaultTvshows.png</value>
+		<value condition="IsEmpty(Window.Property(IsRadio))">icon-livetv.png</value>
 		<value condition="!IsEmpty(Window.Property(IsRadio))">icon-radio.png</value>
 	</variable>
 	<variable name="HorzHomeShelfIcon">
@@ -729,10 +827,6 @@
 		<value condition="StringCompare(Skin.String(home-quitaction),$LOCALIZE[13011])">Suspend()</value>
 		<value condition="StringCompare(Skin.String(home-quitaction),$LOCALIZE[31558])">ActivateWindow(shutdownmenu)</value>
 		<value>Quit()</value>
-	</variable>
-	<variable name="PlayList">
-		<value condition="Player.HasVideo">ActivateWindow(videoplaylist)</value>
-		<value condition="Player.HasAudio">ActivateWindow(musicplaylist)</value>
 	</variable>
 	<variable name="NextAiredFanart">
 		<value condition="Control.HasFocus(200)">$INFO[Container(200).ListItem.Property(Fanart)]</value>
