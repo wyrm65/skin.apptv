@@ -430,10 +430,10 @@
 	<include name="AlbumCoverflow">
 		<control type="wraplist" id="57">
 			<viewtype label="31945">wrap</viewtype>
-			<left>-141</left>
+			<left>-136</left>
 			<top>187</top>
-			<width>1416</width>
-			<height>525</height>
+			<width>1280</width>
+			<height>288</height>
 			<onleft>57</onleft>
 			<onright>57</onright>
 			<onup condition="Skin.HasSetting(lock-screensettings)">noop</onup>
@@ -448,8 +448,8 @@
 			<focusedlayout height="410" width="320"></focusedlayout>
 		</control>
 		<control type="group" id="3011">
-			<left>10</left>
-			<top>260</top>
+			<left>30</left>
+			<top>284</top>
 			<camera x="640" y="360" />
 			<visible>Control.IsVisible(57) + Container.OnNext</visible>
 			<animation effect="slide" end="-50,0" time="200" reversible="false">Hidden</animation>
@@ -490,7 +490,7 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,4) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,3) + System.GetBool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<left>1008</left>
+				<left>1028</left>
 				<top>0</top>
 				<width>288</width>
 				<height>288</height>
@@ -499,7 +499,7 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,7) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,6) + System.GetBool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<left>920</left>
+				<left>940</left>
 				<top>0</top>
 				<width>288</width>
 				<height>288</height>
@@ -508,7 +508,7 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,5) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,4) + System.GetBool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<left>831</left>
+				<left>851</left>
 				<top>0</top>
 				<width>288</width>
 				<height>288</height>
@@ -517,7 +517,7 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,3) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,2) + System.GetBool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<left>743</left>
+				<left>763</left>
 				<top>0</top>
 				<width>288</width>
 				<height>288</height>
@@ -551,8 +551,8 @@
 			</control>
 		</control>
 		<control type="group" id="3012">
-			<left>10</left>
-			<top>260</top>
+			<left>30</left>
+			<top>284</top>
 			<camera x="640" y="360" />
 			<visible>Control.IsVisible(57) + Container.OnPrevious</visible>
 			<animation effect="slide" end="50,0" time="200" reversible="false">Hidden</animation>
@@ -593,7 +593,7 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,2) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,1) + System.GetBool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<left>920</left>
+				<left>940</left>
 				<top>0</top>
 				<width>288</width>
 				<height>288</height>
@@ -602,7 +602,7 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,9) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,8) + System.GetBool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<left>831</left>
+				<left>851</left>
 				<top>0</top>
 				<width>288</width>
 				<height>288</height>
@@ -611,7 +611,7 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,7) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,6) + System.GetBool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<left>743</left>
+				<left>763</left>
 				<top>0</top>
 				<width>288</width>
 				<height>288</height>
@@ -654,8 +654,8 @@
 			</control>
 		</control>
 		<control type="group" id="3010">
-			<left>10</left>
-			<top>260</top>
+			<left>30</left>
+			<top>284</top>
 			<camera x="640" y="360" />
 			<visible>Control.IsVisible(57) + !Control.IsVisible(3011)  + !Control.IsVisible(3012)</visible>
 			<control type="image">
@@ -695,7 +695,7 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,2) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,1) + System.GetBool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<left>920</left>
+				<left>940</left>
 				<top>0</top>
 				<width>288</width>
 				<height>288</height>
@@ -704,7 +704,7 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,7) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,6) + System.GetBool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<left>831</left>
+				<left>851</left>
 				<top>0</top>
 				<width>288</width>
 				<height>288</height>
@@ -713,7 +713,7 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,5) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,4) + System.GetBool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<left>743</left>
+				<left>763</left>
 				<top>0</top>
 				<width>288</width>
 				<height>288</height>
@@ -731,7 +731,7 @@
 				<visible>[IntegerGreaterThan(Container(57).NumItems,1) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,0) + System.GetBool(filelists.showparentdiritems)]</visible>
 			</control>
 			<control type="image">
-				<left>477</left>
+				<left>460</left>
 				<top>0</top>
 				<width>288</width>
 				<height>288</height>
@@ -744,9 +744,9 @@
 			<visible>Control.IsVisible(57)</visible>
 			<include>SortLetterNotification</include>
 			<control type="scrollbar" id="1257">
-				<left>17</left>
+				<left>20</left>
 				<top>590</top>
-				<width>1239</width>
+				<width>1240</width>
 				<height>18</height>
 				<onup>57</onup>
 				<orientation>horizontal</orientation>
@@ -777,16 +777,27 @@
 					<label>$INFO[ListItem.Artist,, - ]$INFO[ListItem.Label]</label>
 					<visible>ListItem.IsFolder + !Container.Content(artists)</visible>
 				</control>
-				<control type="label"><!-- Artist name-->
-					<left>26</left>
-					<top>618</top>
-					<width>1221</width>
-					<height>37</height>
-					<font>font18</font>
-					<align>center</align>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<label>$INFO[ListItem.Label]</label>
+				<control type="group">
 					<visible>ListItem.IsFolder + Container.Content(artists)</visible>
+					<control type="image"><!-- Music logo if available -->
+						<left>544</left>
+						<top>610</top>
+						<width>192</width>
+						<height>75</height>
+						<texture>$INFO[Window(Home).Property(SkinHelper.Music.ClearLogo)]</texture>
+						<aspectratio align="left" aligny="bottom">keep</aspectratio>
+					</control>
+					<control type="label"><!-- Artist name-->
+						<left>26</left>
+						<top>618</top>
+						<width>1221</width>
+						<height>37</height>
+						<font>font18</font>
+						<align>center</align>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<label>$INFO[ListItem.Label]</label>
+						<visible>IsEmpty(Window(Home).Property(SkinHelper.Music.ClearLogo))</visible>
+					</control>
 				</control>
 				<control type="label"><!-- Track name-->
 					<left>26</left>
@@ -801,9 +812,9 @@
 				</control>
 				<control type="label"><!-- Genre -->
 					<left>194</left>
-					<top>668</top>
+					<top>685</top>
 					<width>885</width>
-					<height>37</height>
+					<height>25</height>
 					<font>font13</font>
 					<align>center</align>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
@@ -844,43 +855,44 @@
 			<preloaditems>4</preloaditems>
 			<itemlayout height="144" width="144">
 				<control type="image">
-					<left>8</left>
-					<top>8</top>
-					<width>128</width>
-					<height>128</height>
+					<left>1</left>
+					<top>1</top>
+					<width>142</width>
+					<height>142</height>
 					<aspectratio>stretch</aspectratio>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 					<texture diffuse="mask-squ.png" fallback="DefaultAudio.png" background="true">$VAR[IconCover]</texture>
 					<visible>!IsEmpty(ListItem.Art(thumb))</visible>
 				</control>
 				<control type="image">
-					<left>8</left>
-					<top>8</top>
-					<width>128</width>
-					<height>128</height>
+					<left>1</left>
+					<top>1</top>
+					<width>142</width>
+					<height>142</height>
+					<colordiffuse>UnFocusedCovers</colordiffuse>
 					<texture fallback="DefaultAudio.png" background="true">$VAR[IconCover]</texture>
 					<visible>IsEmpty(ListItem.Art(thumb))</visible>
 				</control>
 			</itemlayout>
 			<focusedlayout height="144" width="144">
 				<control type="image">
-					<left>8</left>
-					<top>8</top>
-					<width>128</width>
-					<height>128</height>
+					<left>1</left>
+					<top>1</top>
+					<width>142</width>
+					<height>142</height>
 					<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 					<aspectratio>stretch</aspectratio>
 					<bordertexture border="9">mask-hilite.png</bordertexture>
 					<bordersize>9</bordersize>
-					<animation effect="zoom" start="90" end="150" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
+					<animation effect="zoom" start="90" end="130" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
 					<visible>!IsEmpty(ListItem.Art(thumb))</visible>
 				</control>
 					<control type="image">
-					<left>8</left>
-					<top>8</top>
-					<width>128</width>
-					<height>128</height>
-					<animation effect="zoom" start="90" end="150" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
+					<left>1</left>
+					<top>1</top>
+					<width>142</width>
+					<height>142</height>
+					<animation effect="zoom" start="90" end="140" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
 					<texture fallback="DefaultAudio.png" background="true">$VAR[IconCover]</texture>
 					<visible>IsEmpty(ListItem.Art(thumb))</visible>
 				</control>
