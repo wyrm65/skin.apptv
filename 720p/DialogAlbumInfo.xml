@@ -26,13 +26,14 @@
 		<control type="group"><!-- Album -->
 			<visible>Container.Content(albums)</visible>
 			<control type="label"><!-- Artist value -->
-				<left>172</left>
-				<top>387</top>
-				<width>320</width>
+				<left>48</left>
+				<top>392</top>
+				<width>568</width>
 				<height>25</height>
 				<align>center</align>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label fallback="416">$INFO[ListItem.Artist]</label>
+				<font>font12</font>
 			</control>
 			<control type="label"><!-- Year heading -->
 				<left>10</left>
@@ -194,12 +195,13 @@
 		<control type="group"><!-- Artist -->
 			<visible>Container.Content(artists)</visible>
 			<control type="label"><!-- Artist value -->
-				<left>172</left>
-				<top>387</top>
-				<width>320</width>
+				<left>48</left>
+				<top>392</top>
+				<width>568</width>
 				<height>25</height>
 				<align>center</align>
 				<label fallback="416">$INFO[ListItem.Artist]</label>
+				<font>font12</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="label"><!-- Born heading -->
@@ -558,20 +560,20 @@
 			<height>384</height>
 			<texture>case-cd.png</texture>
 			<aspectratio>keep</aspectratio>
-			<visible>Skin.HasSetting(media-case) + [Container.Content(songs) | Container.Content(albums)] + !SubString(ListItem.Icon,Default,Left)</visible>
+			<visible>Skin.HasSetting(media-case) + [Container.Content(songs) | Container.Content(albums)] + !SubString(Control.GetLabel(994),DefaultAudio.png,Right)</visible>
 		</control>
-		<control type="image"><!-- Album cover -->
+		<control type="image" id="994"><!-- Album cover -->
 			<left>172</left>
 			<top>60</top>
 			<width>320</width>
 			<height>320</height>
-			<texture diffuse="mask-squ.png" fallback="DefaultAudio.png" background="true">$INFO[ListItem.Thumb]</texture>
+			<texture diffuse="mask-squ.png" fallback="DefaultAudio.png" background="true">$INFO[ListItem.Icon]</texture>
 			<aspectratio>stretch</aspectratio>
 		</control>
 		<control type="image">
-			<left>49</left>
-			<top>425</top>
-			<width>566</width>
+			<left>48</left>
+			<top>428</top>
+			<width>568</width>
 			<height>4</height>
 			<texture>separator.png</texture>
 		</control>
