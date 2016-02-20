@@ -120,38 +120,36 @@
 					<effect type="zoom" start="100" end="112" center="auto" time="0" tween="back" easing="out"/>
 				</animation>
 				<control type="group">
-					<visible>!Container.Content(addons)</visible>
+					<visible>Container.Content(albums) | Container.Content(songs)</visible>
 					<control type="image">
 						<left>144</left>
 						<top>98</top>
 						<width>418</width>
 						<height>380</height>
-						<texture background="true" fallback="DefaultAudio.png">$INFO[ListItem.Icon]</texture>
+						<texture background="true" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 						<aspectratio>keep</aspectratio>
 						<bordertexture border="30,22,14,22">case-cd.png</bordertexture>
 						<bordersize>30,22,14,22</bordersize>
-						<visible>Skin.HasSetting(media-case) + [Container.Content(songs) | Container.Content(albums)] + !SubString(ListItem.Icon,Default,Left)</visible>
+						<visible>Skin.HasSetting(media-case) + !SubString(ListItem.Icon,Default,Left)</visible>
 					</control>
 					<control type="image">
-						<left>190</left>
-						<top>134</top>
-						<width>350</width>
-						<height>350</height>
-						<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$INFO[ListItem.Icon]</texture>
+						<left>185</left>
+						<top>130</top>
+						<width>360</width>
+						<height>360</height>
+						<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
 						<visible>!Skin.HasSetting(media-case) | SubString(ListItem.Icon,Default,Left)</visible>
 					</control>
 				</control>
-				<control type="group">
-					<visible>Container.Content(addons)</visible>
-					<control type="image">
-						<left>190</left>
-						<top>134</top>
-						<width>350</width>
-						<height>350</height>
-						<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$INFO[ListItem.Icon]</texture>
-						<aspectratio>stretch</aspectratio>
-					</control>
+				<control type="image">
+					<left>185</left>
+					<top>130</top>
+					<width>360</width>
+					<height>360</height>
+					<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
+					<aspectratio>stretch</aspectratio>
+					<visible>!Container.Content(albums) + !Container.Content(songs)</visible>
 				</control>
 			</control>
 			<control type="group">
@@ -307,9 +305,9 @@
 		<control type="wraplist" id="54">
 			<viewtype label="31942">wrap</viewtype>
 			<left>14</left>
-			<top>250</top>
+			<top>320</top>
 			<width>1240</width>
-			<height>390</height>
+			<height>366</height>
 			<onleft>54</onleft>
 			<onright>54</onright>
 			<onup condition="Skin.HasSetting(lock-screensettings)">noop</onup>
@@ -322,57 +320,89 @@
 			<scrolltime>0</scrolltime>
 			<pagecontrol>1254</pagecontrol>
 			<itemlayout height="154" width="154">
-				<control type="image">
-					<left>-50</left>
-					<top>204</top>
-					<height>154</height>
-					<width>154</width>
-					<texture colordiffuse="UnFocusedCovers" background="true">case-cd.png</texture>
-					<aspectratio>stretch</aspectratio>
-					<visible>Skin.HasSetting(media-case) + !SubString(ListItem.Icon,Default,Left)</visible>
+				<control type="group">
+					<visible>Container.Content(albums) | Container.Content(songs)</visible>
+					<control type="image">
+						<left>-50</left>
+						<top>150</top>
+						<height>154</height>
+						<width>154</width>
+						<colordiffuse>UnFocusedCovers</colordiffuse>
+						<texture background="true" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
+						<aspectratio>stretch</aspectratio>
+						<bordertexture border="24,20,10,20">case-cd.png</bordertexture>
+						<bordersize>24,20,10,20</bordersize>
+						<visible>Skin.HasSetting(media-case) + !SubString(ListItem.Icon,Default,Left)</visible>
+					</control>
+					<control type="image">
+						<left>-32</left>
+						<top>160</top>
+						<height>128</height>
+						<width>128</width>
+						<colordiffuse>UnFocusedCovers</colordiffuse>
+						<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
+						<aspectratio>stretch</aspectratio>
+						<visible>!Skin.HasSetting(media-case) | SubString(ListItem.Icon,Default,Left)</visible>
+					</control>
 				</control>
 				<control type="image">
 					<left>-32</left>
-					<top>218</top>
+					<top>160</top>
 					<height>128</height>
 					<width>128</width>
-					<texture colordiffuse="UnFocusedCovers" background="true" fallback="DefaultAudio.png">$INFO[ListItem.Icon]</texture>
+					<colordiffuse>UnFocusedCovers</colordiffuse>
+					<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 					<aspectratio>stretch</aspectratio>
+					<visible>!Container.Content(albums) + !Container.Content(songs)</visible>
 				</control>
 			</itemlayout>
 			<focusedlayout height="366" width="366">
 				<control type="group">
-					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>Container.Content(albums) | Container.Content(songs)</visible>
 					<control type="image">
-						<left>-6</left>
-						<top>60</top>
-						<height>320</height>
-						<width>344</width>
-						<texture>mask-hilite.png</texture>
-						<aspectratio>stretch</aspectratio>
-					</control>
-					<control type="image">
-						<left>2</left>
-						<top>65</top>
+						<left>6</left>
+						<top>0</top>
 						<height>305</height>
 						<width>305</width>
-						<texture>case-cd.png</texture>
+						<texture background="true" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
-						<visible>Skin.HasSetting(media-case)</visible>
+						<bordertexture border="30,22,14,22">case-cd.png</bordertexture>
+						<bordersize>30,22,14,22</bordersize>
+						<visible>Skin.HasSetting(media-case) + !SubString(ListItem.Icon,Default,Left)</visible>
+					</control>
+					<control type="image">
+						<left>14</left>
+						<top>2</top>
+						<height>288</height>
+						<width>288</width>
+						<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
+						<aspectratio>stretch</aspectratio>
+						<visible>!Skin.HasSetting(media-case) | SubString(ListItem.Icon,Default,Left)</visible>
 					</control>
 				</control>
 				<control type="image">
-					<left>36</left>
-					<top>90</top>
-					<width>256</width>
-					<height>256</height>
-					<texture background="true" fallback="DefaultAudio.png">$INFO[ListItem.Icon]</texture>
+					<left>14</left>
+					<top>2</top>
+					<height>288</height>
+					<width>288</width>
+					<colordiffuse>UnFocusedCovers</colordiffuse>
+					<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 					<aspectratio>stretch</aspectratio>
+					<visible>!Container.Content(albums) + !Container.Content(songs)</visible>
 				</control>
 			</focusedlayout>
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(54)</visible>
+			<control type="image"><!-- Music logo if available -->
+				<left>84</left>
+				<top>230</top>
+				<width>192</width>
+				<height>75</height>
+				<texture>$INFO[Window(Home).Property(SkinHelper.Music.ClearLogo)]</texture>
+				<aspectratio align="left" aligny="bottom">keep</aspectratio>
+				<visible>ListItem.IsFolder + Container.Content(artists)</visible>
+			</control>
 			<control type="scrollbar" id="1254">
 				<left>17</left>
 				<top>616</top>
@@ -388,7 +418,7 @@
 				<top>637</top>
 				<width>1221</width>
 				<height>37</height>
-				<font>font20</font>
+				<font>font18</font>
 				<align>center</align>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
@@ -399,7 +429,7 @@
 				<top>637</top>
 				<width>1221</width>
 				<height>37</height>
-				<font>font20</font>
+				<font>font18</font>
 				<align>center</align>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
@@ -419,7 +449,7 @@
 				<top>681</top>
 				<width>849</width>
 				<height>37</height>
-				<font>font18</font>
+				<font>font13</font>
 				<align>center</align>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Genre]</label>
