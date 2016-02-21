@@ -8,20 +8,11 @@
 			<visible>Player.ShowInfo</visible>
 			<control type="image" id="992"><!-- Music logo if available -->
 				<left>8</left>
-				<top>20</top>
+				<top>80</top>
 				<width>400</width>
 				<height>155</height>
-				<texture fallback=".">$INFO[Player.FolderPath,,logo.png]</texture>
+				<texture>$INFO[Window(Home).Property(SkinHelper.Player.Music.ClearLogo)]</texture>
 				<aspectratio align="left" aligny="bottom">keep</aspectratio>
-			</control>
-			<control type="image" id="993"><!-- Otherwise try parent directory of above -->
-				<left>8</left>
-				<top>20</top>
-				<width>400</width>
-				<height>155</height>
-				<texture>$INFO[Player.FolderPath,,../logo.png]</texture>
-				<aspectratio align="left" aligny="bottom">keep</aspectratio>
-				<visible>SubString(Control.GetLabel(992),.)</visible>
 			</control>
 			<control type="image"><!-- media info background image -->
 				<left>0</left>
@@ -43,7 +34,7 @@
 				<height>215</height>
 				<left>132</left>
 				<top>480</top>
-				<texture fallback="DefaultDVDRom.png">$INFO[Player.FolderPath]/cdart.png</texture>
+				<texture fallback="DefaultDVDRom.png">$INFO[Window(Home).Property(SkinHelper.Player.Music.DiscArt)</texture>
 				<aspectratio aligny="bottom">keep</aspectratio>
 				<visible>!SubString(Control.GetLabel(994),DefaultAudio.png,Right) + !SubString(Control.GetLabel(994),icon-radio.png,Right)</visible>
 			</control>
