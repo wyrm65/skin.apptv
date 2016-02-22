@@ -393,25 +393,13 @@
 					<control type="group">
 						<visible>!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(musicvideos)</visible>
 						<control type="group">
-							<visible>!SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
 							<control type="image">
 								<left>314</left>
 								<top>116</top>
 								<width>336</width>
 								<height>336</height>
-								<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$INFO[ListItem.Icon]</texture>
+								<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconThumb]</texture>
 								<aspectratio scalediffuse="false" align="right" aligny="top">keep</aspectratio>
-							</control>
-						</control>
-						<control type="group">
-							<visible>SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
-							<control type="image">
-								<left>314</left>
-								<top>116</top>
-								<width>336</width>
-								<height>336</height>
-								<texture>DefaultVideo.png</texture>
-								<aspectratio align="right" aligny="top">keep</aspectratio>
 							</control>
 						</control>
 					</control>

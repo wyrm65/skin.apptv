@@ -354,6 +354,14 @@
 		<value condition="StringCompare(Window(Home).Property(SelectDialogType),weathericons)">$LOCALIZE[31873]</value>
 		<value condition="StringCompare(Window(Home).Property(SelectDialogType),weatherbackgrounds)">$LOCALIZE[31866]</value>
 	</variable>
+	<variable name="IconThumb">
+		<value condition="!IsEmpty(ListItem.Icon) + !Substring(ListItem.Icon,Default)">$INFO[ListItem.Icon]</value>
+		<value condition="!IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+		<value condition="!IsEmpty(ListItem.Icon) + Substring(ListItem.Icon,DefaultFolderBack)">$INFO[ListItem.Icon]</value>
+		<value condition="Container.Content(studios)">$INFO[Skin.String(custom-moviestudioicons.path)]$INFO[ListItem.Label]$INFO[Skin.String(custom-moviestudioicons.ext)]</value>
+		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-moviegenresicons.path)]$INFO[ListItem.Label]$INFO[Skin.String(custom-moviegenresicons.ext)]</value>
+		<value>DefaultVideo.png</value>
+	</variable>
 	<variable name="IconBanner">
 		<value condition="!IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
 		<value condition="!IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
@@ -413,6 +421,7 @@
 		<value condition="!IsEmpty(ListItem.Icon) + !Substring(ListItem.Icon,Default)">$INFO[ListItem.Icon]</value>
 		<value condition="!IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem.Icon) + Substring(ListItem.Icon,DefaultFolderBack)">$INFO[ListItem.Icon]</value>
+		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem.Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
 		<value condition="Container.Content(artists)">icon-profile.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
 		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
@@ -422,6 +431,7 @@
 		<value condition="!IsEmpty(ListItem(-5).Icon) + !Substring(ListItem(-5).Icon,Default)">$INFO[ListItem(-5).Icon]</value>
 		<value condition="!IsEmpty(ListItem(-5).Art(thumb))">$INFO[ListItem(-5).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(-5).Icon) + Substring(ListItem(-5).Icon,DefaultFolderBack)">$INFO[ListItem(-5).Icon]</value>
+		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(-5).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
 		<value condition="Container.Content(artists)">icon-profile.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
 		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
@@ -431,6 +441,7 @@
 		<value condition="!IsEmpty(ListItem(-4).Icon) + !Substring(ListItem(-4).Icon,Default)">$INFO[ListItem(-4).Icon]</value>
 		<value condition="!IsEmpty(ListItem(-4).Art(thumb))">$INFO[ListItem(-4).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(-4).Icon) + Substring(ListItem(-4).Icon,DefaultFolderBack)">$INFO[ListItem(-4).Icon]</value>
+		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(-4).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
 		<value condition="Container.Content(artists)">icon-profile.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
 		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
@@ -440,6 +451,7 @@
 		<value condition="!IsEmpty(ListItem(-3).Icon) + !Substring(ListItem(-3).Icon,Default)">$INFO[ListItem(-3).Icon]</value>
 		<value condition="!IsEmpty(ListItem(-3).Art(thumb))">$INFO[ListItem(-3).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(-3).Icon) + Substring(ListItem(-3).Icon,DefaultFolderBack)">$INFO[ListItem(-3).Icon]</value>
+		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(-3).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
 		<value condition="Container.Content(artists)">icon-profile.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
 		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
@@ -449,6 +461,7 @@
 		<value condition="!IsEmpty(ListItem(-2).Icon) + !Substring(ListItem(-2).Icon,Default)">$INFO[ListItem(-2).Icon]</value>
 		<value condition="!IsEmpty(ListItem(-2).Art(thumb))">$INFO[ListItem(-2).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(-2).Icon) + Substring(ListItem(-2).Icon,DefaultFolderBack)">$INFO[ListItem(-2).Icon]</value>
+		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(-2).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
 		<value condition="Container.Content(artists)">icon-profile.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
 		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
@@ -458,6 +471,7 @@
 		<value condition="!IsEmpty(ListItem(-1).Icon) + !Substring(ListItem(-1).Icon,Default)">$INFO[ListItem(-1).Icon]</value>
 		<value condition="!IsEmpty(ListItem(-1).Art(thumb))">$INFO[ListItem(-1).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(-1).Icon) + Substring(ListItem(-1).Icon,DefaultFolderBack)">$INFO[ListItem(-1).Icon]</value>
+		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(-1).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
 		<value condition="Container.Content(artists)">icon-profile.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
 		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
@@ -467,6 +481,7 @@
 		<value condition="!IsEmpty(ListItem(0).Icon) + !Substring(ListItem(0).Icon,Default)">$INFO[ListItem(0).Icon]</value>
 		<value condition="!IsEmpty(ListItem(0).Art(thumb))">$INFO[ListItem(0).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(0).Icon) + Substring(ListItem(0).Icon,DefaultFolderBack)">$INFO[ListItem(0).Icon]</value>
+		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(0).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
 		<value condition="Container.Content(artists)">icon-profile.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
 		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
@@ -476,6 +491,7 @@
 		<value condition="!IsEmpty(ListItem(1).Icon) + !Substring(ListItem(1).Icon,Default)">$INFO[ListItem(1).Icon]</value>
 		<value condition="!IsEmpty(ListItem(1).Art(thumb))">$INFO[ListItem(1).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(1).Icon) + Substring(ListItem(1).Icon,DefaultFolderBack)">$INFO[ListItem(1).Icon]</value>
+		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(1).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
 		<value condition="Container.Content(artists)">icon-profile.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
 		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
@@ -485,6 +501,7 @@
 		<value condition="!IsEmpty(ListItem(2).Icon) + !Substring(ListItem(2).Icon,Default)">$INFO[ListItem(2).Icon]</value>
 		<value condition="!IsEmpty(ListItem(2).Art(thumb))">$INFO[ListItem(2).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(2).Icon) + Substring(ListItem(2).Icon,DefaultFolderBack)">$INFO[ListItem(2).Icon]</value>
+		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(2).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
 		<value condition="Container.Content(artists)">icon-profile.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
 		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
@@ -494,6 +511,7 @@
 		<value condition="!IsEmpty(ListItem(3).Icon) + !Substring(ListItem(3).Icon,Default)">$INFO[ListItem(3).Icon]</value>
 		<value condition="!IsEmpty(ListItem(3).Art(thumb))">$INFO[ListItem(3).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(3).Icon) + Substring(ListItem(3).Icon,DefaultFolderBack)">$INFO[ListItem(3).Icon]</value>
+		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(3).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
 		<value condition="Container.Content(artists)">icon-profile.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
 		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
@@ -503,6 +521,7 @@
 		<value condition="!IsEmpty(ListItem(4).Icon) + !Substring(ListItem(4).Icon,Default)">$INFO[ListItem(4).Icon]</value>
 		<value condition="!IsEmpty(ListItem(4).Art(thumb))">$INFO[ListItem(4).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(4).Icon) + Substring(ListItem(4).Icon,DefaultFolderBack)">$INFO[ListItem(4).Icon]</value>
+		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(4).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
 		<value condition="Container.Content(artists)">icon-profile.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
 		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
@@ -512,6 +531,7 @@
 		<value condition="!IsEmpty(ListItem(5).Icon) + !Substring(ListItem(5).Icon,Default)">$INFO[ListItem(5).Icon]</value>
 		<value condition="!IsEmpty(ListItem(5).Art(thumb))">$INFO[ListItem(5).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(5).Icon) + Substring(ListItem(5).Icon,DefaultFolderBack)">$INFO[ListItem(5).Icon]</value>
+		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(5).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
 		<value condition="Container.Content(artists)">icon-profile.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
 		<value condition="Container.Content(Addons)">DefaultAddon.png</value>

@@ -127,6 +127,15 @@
 					<altlabel>$LOCALIZE[21429]: $LOCALIZE[21431]</altlabel>
 					<textoffsetx>10</textoffsetx>
 				</control>
+				<control type="button" id="211"><!-- Custom Genre Icons Button -->
+					<width>372</width>
+					<height>50</height>
+					<label>$LOCALIZE[31879]</label>
+					<font>font11</font>
+					<onclick>RunScript(script.image.resource.select,type=resource.images.musicgenreicons&amp;property=custom-musicgenresicons)</onclick>
+					<textoffsetx>10</textoffsetx>
+					<visible>Container.Content(genres)</visible>
+				</control>
 				<control type="button" id="8"><!-- Search -->
 					<width>372</width>
 					<height>48</height>
@@ -159,6 +168,14 @@
 					<height>48</height>
 					<font>font11</font>
 					<label>$LOCALIZE[589]</label>
+					<textoffsetx>10</textoffsetx>
+				</control>
+				<control type="button" id="200"><!-- Clean library button -->
+					<width>376</width>
+					<height>48</height>
+					<font>font11</font>
+					<label>$LOCALIZE[334]</label>
+					<onclick>CleanLibrary(music)</onclick>
 					<textoffsetx>10</textoffsetx>
 				</control>
 				<control type="togglebutton" id="20"><!-- Update library -->
