@@ -572,8 +572,7 @@
 		</control>
 		<control type="group" id="945">
 			<visible>!Skin.HasSetting(lowspec-system) + Control.IsVisible(50) + System.IdleTime(10) + !System.ScreenSaverActive + [Container.Content(movies) | Container.Content(tvshows)]</visible>
-			<animation effect="fade" start="100" end="0" time="200" reversible="false">Hidden</animation>
-			<animation effect="fade" start="0" end="100" time="2000" reversible="false">Visible</animation>
+			<animation effect="fade" start="0" end="100" delay="500" time="1000">Visible</animation>
 			<control type="wraplist" id="950">
 				<left>-10</left>
 				<top>-10</top>
@@ -1054,7 +1053,7 @@
 			<left>0</left>
 			<top>187</top>
 			<width>1258</width>
-			<height>525</height>
+			<height>480</height>
 			<onleft>54</onleft>
 			<onright>54</onright>
 			<onup condition="Skin.HasSetting(lock-screensettings)">noop</onup>
@@ -1066,7 +1065,7 @@
 			<preloaditems>4</preloaditems>
 			<scrolltime>0</scrolltime>
 			<pagecontrol>1254</pagecontrol>
-			<itemlayout height="292" width="90">
+			<itemlayout height="292" width="90" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">
 				<control type="image">
 					<left>-5</left>
 					<top>336</top>
@@ -1103,7 +1102,18 @@
 					<visible>System.HasAddon(script.videoextras)</visible>
 				</control>
 			</itemlayout>
-			<focusedlayout height="405" width="276">
+			<itemlayout height="292" width="90" condition="!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes)">
+				<control type="image">
+					<left>4</left>
+					<top>392</top>
+					<height>76</height>
+					<width>76</width>
+					<texture diffuse="mask-rect.png" background="true" fallback="DefaultVideo.png">$VAR[IconPoster]</texture>
+					<colordiffuse>UnFocusedCovers</colordiffuse>
+					<aspectratio scalediffuse="true">keep</aspectratio>
+				</control>
+			</itemlayout>
+			<focusedlayout height="405" width="276" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">
 				<control type="group">
 					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
 					<control type="image">
@@ -1161,6 +1171,16 @@
 					<width>32</width>
 					<height>32</height>
 					<texture>$VAR[ListItemFlags]</texture>
+				</control>
+			</focusedlayout>
+			<focusedlayout height="405" width="276" condition="!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes)">
+				<control type="image">
+					<left>22</left>
+					<top>224</top>
+					<height>244</height>
+					<width>244</width>
+					<aspectratio scalediffuse="true">keep</aspectratio>
+					<texture diffuse="mask-rect.png" background="true" fallback="DefaultVideo.png">$VAR[IconPoster]</texture>
 				</control>
 			</focusedlayout>
 		</control>
@@ -1718,7 +1738,7 @@
 					<top>1</top>
 					<width>119</width>
 					<height>169</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<aspectratio>stretch</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
 					<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 				</control>
@@ -1746,16 +1766,16 @@
 					<height>119</height>
 					<aspectratio>keep</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" background="true">$INFO[ListItem.Icon]</texture>
-					<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+					<visible>SubString(ListItem.Icon,Default,Left)</visible>
 				</control>
 				<control type="image">
 					<left>1</left>
 					<top>1</top>
 					<width>119</width>
 					<height>119</height>
-					<aspectratio scalediffuse="false">keep</aspectratio>
+					<aspectratio>keep</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" fallback="DefaultAddon.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
-					<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
 				</control>
 			</itemlayout>
 			<focusedlayout height="169" width="120" condition="!Container.Content(addons)">
@@ -1808,7 +1828,7 @@
 						<height>119</height>
 						<aspectratio>keep</aspectratio>
 						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+						<visible>SubString(ListItem.Icon,Default,Left)</visible>
 					</control>
 					<control type="image">
 						<left>5</left>
@@ -1819,7 +1839,7 @@
 						<texture fallback="DefaultAddon.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
 						<bordertexture border="7">mask-hilite.png</bordertexture>
 						<bordersize>7</bordersize>
-						<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+						<visible>!SubString(ListItem.Icon,Default,Left)</visible>
 					</control>
 				</control>
 			</focusedlayout>
