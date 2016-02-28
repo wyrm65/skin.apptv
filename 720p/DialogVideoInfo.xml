@@ -37,7 +37,7 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Label]</label>
 					<textoffsetx>0</textoffsetx>
-					<visible>SubString(Control.GetLabel(7018),.,Left)</visible>
+					<visible>IsEmpty(Control.GetLabel(7018))</visible>
 				</control>
 			</control>
 			<control type="label"><!-- Title -->
