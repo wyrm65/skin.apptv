@@ -398,7 +398,7 @@
 								<top>116</top>
 								<width>336</width>
 								<height>336</height>
-								<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconThumb]</texture>
+								<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 								<aspectratio scalediffuse="false" align="right" aligny="top">keep</aspectratio>
 							</control>
 						</control>
@@ -412,7 +412,7 @@
 								<top>116</top>
 								<width>336</width>
 								<height>336</height>
-								<texture background="true" fallback="DefaultMusicVideos.png" diffuse="mask-rect.png">$INFO[ListItem.Icon]</texture>
+								<texture background="true" fallback="DefaultMusicVideos.png" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 								<aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
 							</control>
 						</control>
@@ -666,7 +666,7 @@
 					<width>120</width>
 					<height>168</height>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$INFO[ListItem.Icon]</texture>
 					<visible>!SubString(ListItem.Icon,Default,Left) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 				</control>
 				<control type="image"><!-- Extras Overlay -->
@@ -722,7 +722,7 @@
 					<top>5</top>
 					<width>120</width>
 					<height>168</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$INFO[ListItem.Icon]</texture>
 					<bordertexture border="7">mask-hilite.png</bordertexture>
 					<bordersize>7</bordersize>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
@@ -762,7 +762,7 @@
 		<control type="group"><!-- Show the bottom row of icons as long as another row exists -->
 			<visible>[Container.Content(movies) | Container.Content(tvshows)] + Control.IsVisible(52) + Container(52).HasNext + ![Container().OnScrollNext | Container().OnScrollPrevious]</visible>
 			<left>20</left>
-			<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
+			<animation effect="fade" delay="0" start="0" end="100" time="200">Visible</animation>
 			<control type="image">
 				<left>90</left>
 				<top>574</top>
@@ -798,7 +798,7 @@
 		</control>
 		<control type="group"><!-- Show the bottom row of icons as long as another row exists -->
 			<visible>![Container.Content(movies) | Container.Content(tvshows)] + Control.IsVisible(52) + Container(52).HasNext + ![Container().OnScrollNext | Container().OnScrollPrevious]</visible>
-			<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
+			<animation effect="fade" delay="0" start="0" end="100" time="200">Visible</animation>
 			<control type="image">
 				<left>86</left>
 				<top>574</top>
@@ -1205,7 +1205,6 @@
 				<texture>$VAR[VideoLogo]</texture>
 				<aspectratio align="left" aligny="bottom">keep</aspectratio>
 				<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
-				<visible>!IsEmpty(ListItem.Title)</visible>
 			</control>
 			<control type="label"><!-- Title -->
 				<left>272</left>
@@ -1217,8 +1216,8 @@
 				<label>$INFO[ListItem.Label]</label>
 				<wrapmultiline>true</wrapmultiline>
 				<textoffsetx>0</textoffsetx>
-				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left) + SubString(Control.GetLabel(7216),.,Left)</visible>
 				<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
+				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left) + IsEmpty(Control.GetLabel(7216))</visible>
 			</control>
 			<control type="label"><!-- Go Back -->
 				<left>272</left>
@@ -1299,6 +1298,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-5)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,10) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,9) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1309,6 +1309,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-4)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="10" start="-60" end="-60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,8) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,7) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1319,6 +1320,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-3)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,6) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,5) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1329,6 +1331,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-2)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="110" start="-60" end="-60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,4) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,3) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1339,6 +1342,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(4)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1434" start="60" end="60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,7) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,6) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1349,6 +1353,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(3)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1345" start="60" end="60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,5) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,4) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1359,6 +1364,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(2)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1257" start="60" end="60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,3) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,2) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1369,6 +1375,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(1)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1168" start="60" end="60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,1) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,0) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1382,6 +1389,7 @@
 						<width>286</width>
 						<height>400</height>
 						<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-1)Poster]</texture>
+						<colordiffuse>SecondaryCovers</colordiffuse>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<visible>[IntegerGreaterThan(Container(57).NumItems,2) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,1) + System.GetBool(filelists.showparentdiritems)]</visible>
 						<animation effect="rotatey" center="220" start="0" end="-60" time="200" reversible="false">Hidden</animation>
@@ -1410,6 +1418,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-4)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="-90" start="-60" end="-60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,8) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,7) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1420,6 +1429,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-3)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,6) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,5) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1430,6 +1440,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-2)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="10" start="-60" end="-60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,4) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,3) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1440,6 +1451,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-1)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,2) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,1) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1450,6 +1462,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(5)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1345" start="60" end="60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,9) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,8) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1460,6 +1473,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(4)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1257" start="60" end="60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,7) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,6) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1470,6 +1484,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(3)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1168" start="60" end="60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,5) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,4) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1481,6 +1496,7 @@
 					<height>400</height>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(2)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<animation effect="rotatey" center="1080" start="60" end="60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,3) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,2) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
@@ -1493,6 +1509,7 @@
 						<width>286</width>
 						<height>400</height>
 						<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(1)Poster]</texture>
+						<colordiffuse>SecondaryCovers</colordiffuse>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<visible>[IntegerGreaterThan(Container(57).NumItems,1) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,0) + System.GetBool(filelists.showparentdiritems)]</visible>
 						<animation effect="rotatey" center="500" start="0" end="60" time="200" reversible="false">Hidden</animation>
@@ -1520,6 +1537,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-4)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,8) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,7) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1530,6 +1548,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-3)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="10" start="-60" end="-60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,6) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,5) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1540,6 +1559,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-2)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,4) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,3) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1550,6 +1570,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-1)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="110" start="-60" end="-60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,2) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,1) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1560,6 +1581,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(4)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1345" start="60" end="60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,7) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,6) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1570,6 +1592,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(3)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1257" start="60" end="60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,5) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,4) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1580,6 +1603,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(2)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1168" start="60" end="60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,3) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,2) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1590,6 +1614,7 @@
 					<width>286</width>
 					<height>400</height>
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(1)Poster]</texture>
+					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1080" start="60" end="60" time="0" condition="true">Conditional</animation>
 					<visible>[IntegerGreaterThan(Container(57).NumItems,1) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,0) + System.GetBool(filelists.showparentdiritems)]</visible>
@@ -1617,7 +1642,6 @@
 				<aligny>bottom</aligny>
 				<aspectratio>keep</aspectratio>
 				<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
-				<visible>!IsEmpty(ListItem.Title)</visible>
 			</control>
 			<control type="label"><!-- Title -->
 				<left>220</left>
@@ -1629,7 +1653,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left) + SubString(Control.GetLabel(7018),.,Left)</visible>
+				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left) + IsEmpty(Control.GetLabel(7018))</visible>
 			</control>
 			<control type="label"><!-- Go Back -->
 				<left>220</left>
@@ -1708,7 +1732,7 @@
 			<left>505</left>
 			<top>120</top>
 			<width>720</width>
-			<height>507</height>
+			<height>510</height>
 			<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
 			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
 			<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
@@ -1723,63 +1747,68 @@
 				<effect type="slide" end="70,0" time="0"/>
 				<effect type="zoom" start="100" end="120" center="auto" time="0" tween="back" easing="out"/>
 			</animation>
-			<itemlayout height="169" width="120" condition="!Container.Content(addons)">
-				<control type="image">
-					<left>1</left>
-					<top>1</top>
-					<width>119</width>
-					<height>169</height>
-					<aspectratio>stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" background="true">$INFO[ListItem.Icon]</texture>
-					<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
-				</control>
-				<control type="image">
-					<left>1</left>
-					<top>1</top>
-					<width>119</width>
-					<height>169</height>
-					<aspectratio>stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
-					<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
-				</control>
-				<control type="image"><!-- Watched Overlay -->
-					<left>94</left>
-					<top>-6</top>
-					<width>32</width>
-					<height>32</height>
-					<texture>$VAR[Overlay]</texture>
-				</control>
-				<control type="image"><!-- Extras Overlay -->
-					<left>4</left>
-					<top>4</top>
-					<width>16</width>
-					<height>16</height>
-					<texture>$VAR[ExtrasOverlay]</texture>
-					<visible>System.HasAddon(script.videoextras)</visible>
-				</control>
-			</itemlayout>
-			<itemlayout height="120" width="120" condition="Container.Content(addons)">
-				<control type="image">
-					<left>1</left>
-					<top>1</top>
-					<width>119</width>
-					<height>119</height>
-					<aspectratio>keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" background="true">$INFO[ListItem.Icon]</texture>
-					<visible>SubString(ListItem.Icon,Default,Left)</visible>
-				</control>
-				<control type="image">
-					<left>1</left>
-					<top>1</top>
-					<width>119</width>
-					<height>119</height>
-					<aspectratio>keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" fallback="DefaultAddon.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
-					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
-				</control>
-			</itemlayout>
-			<focusedlayout height="169" width="120" condition="!Container.Content(addons)">
+			<itemlayout height="170" width="120">
 				<control type="group">
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)| Container.Content(musicvideos)</visible>
+					<control type="image">
+						<left>1</left>
+						<top>1</top>
+						<width>119</width>
+						<height>169</height>
+						<aspectratio>stretch</aspectratio>
+						<texture colordiffuse="UnFocusedPosters" background="true">$VAR[IconPoster]</texture>
+						<visible>IsEmpty(ListItem.Art(thumb))</visible>
+					</control>
+					<control type="image">
+						<left>1</left>
+						<top>1</top>
+						<width>119</width>
+						<height>169</height>
+						<aspectratio>stretch</aspectratio>
+						<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+						<visible>!IsEmpty(ListItem.Art(thumb))</visible>
+					</control>
+					<control type="image"><!-- Watched Overlay -->
+						<left>94</left>
+						<top>-6</top>
+						<width>32</width>
+						<height>32</height>
+						<texture>$VAR[Overlay]</texture>
+					</control>
+					<control type="image"><!-- Extras Overlay -->
+						<left>4</left>
+						<top>4</top>
+						<width>16</width>
+						<height>16</height>
+						<texture>$VAR[ExtrasOverlay]</texture>
+						<visible>System.HasAddon(script.videoextras)</visible>
+					</control>
+				</control>
+				<control type="group">
+					<visible>!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(episodes) + !Container.Content(musicvideos)</visible>
+					<control type="image">
+						<left>1</left>
+						<top>26</top>
+						<width>119</width>
+						<height>119</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="UnFocusedPosters" background="true">$VAR[IconPoster]</texture>
+						<visible>IsEmpty(ListItem.Art(thumb))</visible>
+					</control>
+					<control type="image">
+						<left>1</left>
+						<top>26</top>
+						<width>119</width>
+						<height>119</height>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+						<visible>!IsEmpty(ListItem.Art(thumb))</visible>
+					</control>
+				</control>
+			</itemlayout>
+			<focusedlayout height="170" width="120">
+				<control type="group">
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)| Container.Content(musicvideos)</visible>
 					<animation effect="zoom" start="90" end="150" center="auto" time="400" tween="back" easing="out" reversible="false">focus</animation>
 					<control type="image">
 						<left>1</left>
@@ -1787,8 +1816,8 @@
 						<width>119</width>
 						<height>169</height>
 						<aspectratio>stretch</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+						<texture background="true">$VAR[IconPoster]</texture>
+						<visible>IsEmpty(ListItem.Art(thumb))</visible>
 					</control>
 					<control type="image">
 						<left>9</left>
@@ -1799,7 +1828,7 @@
 						<texture fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
 						<bordertexture border="7">mask-hilite.png</bordertexture>
 						<bordersize>7</bordersize>
-						<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+						<visible>!IsEmpty(ListItem.Art(thumb))</visible>
 					</control>
 					<control type="image"><!-- Watched Overlay -->
 						<left>80</left>
@@ -1817,29 +1846,16 @@
 						<visible>System.HasAddon(script.videoextras)</visible>
 					</control>
 				</control>
-			</focusedlayout>
-			<focusedlayout height="120" width="120" condition="Container.Content(addons)">
 				<control type="group">
+					<visible>!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(episodes) + !Container.Content(musicvideos)</visible>
 					<animation effect="zoom" start="90" end="160" center="auto" time="400" tween="back" easing="out" reversible="false">focus</animation>
 					<control type="image">
 						<left>1</left>
-						<top>1</top>
+						<top>26</top>
 						<width>119</width>
 						<height>119</height>
 						<aspectratio>keep</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
-						<visible>SubString(ListItem.Icon,Default,Left)</visible>
-					</control>
-					<control type="image">
-						<left>5</left>
-						<top>5</top>
-						<width>110</width>
-						<height>110</height>
-						<aspectratio scalediffuse="false">keep</aspectratio>
-						<texture fallback="DefaultAddon.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
-						<bordertexture border="7">mask-hilite.png</bordertexture>
-						<bordersize>7</bordersize>
-						<visible>!SubString(ListItem.Icon,Default,Left)</visible>
+						<texture background="true">$VAR[IconPoster]</texture>
 					</control>
 				</control>
 			</focusedlayout>
@@ -1855,7 +1871,6 @@
 				<texture>$VAR[VideoLogo]</texture>
 				<aspectratio align="left" aligny="bottom">keep</aspectratio>
 				<animation effect="fade" delay="200" start="0" end="100" time="200">Visible</animation>
-				<visible>!IsEmpty(ListItem.Title)</visible>
 			</control>
 			<control type="label"><!-- Title -->
 				<left>17</left>
@@ -1867,8 +1882,7 @@
 				<label>$INFO[ListItem.Label]</label>
 				<wrapmultiline>true</wrapmultiline>
 				<textoffsetx>0</textoffsetx>
-				<animation effect="fade" delay="200" start="0" end="100" time="200">Visible</animation>
-				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left) + SubString(Control.GetLabel(7116),.,Left)</visible>
+				<visible>IsEmpty(Control.GetLabel(7116)) + !SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 			</control>
 			<control type="label"><!-- Go Back -->
 				<left>17</left>

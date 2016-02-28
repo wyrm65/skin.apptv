@@ -262,6 +262,7 @@
 						<width>48</width>
 						<height>48</height>
 						<texture>$INFO[ListItem.Icon]</texture>
+						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="label">
 						<left>80</left>
@@ -315,6 +316,7 @@
 						<width>48</width>
 						<height>48</height>
 						<texture>$INFO[ListItem.Icon]</texture>
+						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="label">
 						<left>80</left>
@@ -471,6 +473,7 @@
 						<width>48</width>
 						<height>48</height>
 						<texture>$INFO[ListItem.Icon]</texture>
+						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="label">
 						<left>80</left>
@@ -514,6 +517,7 @@
 						<width>48</width>
 						<height>48</height>
 						<texture>$INFO[ListItem.Icon]</texture>
+						<aspectratio>stretch</aspectratio>
 					</control>
 					<control type="label">
 						<left>80</left>
@@ -646,17 +650,19 @@
 					<control type="image">
 						<left>11</left>
 						<top>11</top>
-						<width>38</width>
-						<height>38</height>
+						<width>48</width>
+						<height>48</height>
 						<texture fallback="DefaultTvshows.png">$INFO[ListItem.Icon]</texture>
+						<aspectratio>stretch</aspectratio>
 						<visible>IsEmpty(Window.Property(IsRadio))</visible>
 					</control>
 					<control type="image">
 						<left>11</left>
 						<top>11</top>
-						<width>38</width>
-						<height>38</height>
+						<width>48</width>
+						<height>48</height>
 						<texture fallback="icon-radio.png">$INFO[ListItem.Icon]</texture>
+						<aspectratio>stretch</aspectratio>
 						<visible>!IsEmpty(Window.Property(IsRadio))</visible>
 					</control>
 					<control type="label">
@@ -687,17 +693,19 @@
 					<control type="image">
 						<left>11</left>
 						<top>11</top>
-						<width>38</width>
-						<height>38</height>
+						<width>48</width>
+						<height>48</height>
 						<texture fallback="DefaultTvshows.png">$INFO[ListItem.Icon]</texture>
+						<aspectratio>stretch</aspectratio>
 						<visible>IsEmpty(Window.Property(IsRadio))</visible>
 					</control>
 					<control type="image">
 						<left>11</left>
 						<top>11</top>
-						<width>38</width>
-						<height>38</height>
+						<width>48</width>
+						<height>48</height>
 						<texture fallback="icon-radio.png">$INFO[ListItem.Icon]</texture>
+						<aspectratio>stretch</aspectratio>
 						<visible>!IsEmpty(Window.Property(IsRadio))</visible>
 					</control>
 					<control type="label">
@@ -936,6 +944,7 @@
 							<width>50</width>
 							<height>50</height>
 							<texture>DefaultFolder.png</texture>
+							<aspectratio>stretch</aspectratio>
 							<visible>ListItem.IsFolder + !SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 						</control>
 						<control type="image">
@@ -943,6 +952,7 @@
 							<top>10</top>
 							<width>50</width>
 							<height>50</height>
+							<aspectratio>stretch</aspectratio>
 							<texture fallback="DefaultTvshows.png">$INFO[ListItem.Thumb]</texture>
 							<visible>IsEmpty(Window.Property(IsRadio)) + !ListItem.IsFolder</visible>
 						</control>
@@ -951,6 +961,7 @@
 							<top>10</top>
 							<width>50</width>
 							<height>50</height>
+							<aspectratio>stretch</aspectratio>
 							<texture fallback="icon-radio.png">$INFO[ListItem.Thumb]</texture>
 							<visible>!IsEmpty(Window.Property(IsRadio)) + !ListItem.IsFolder</visible>
 						</control>
@@ -986,6 +997,7 @@
 							<width>50</width>
 							<height>50</height>
 							<texture>DefaultFolder.png</texture>
+							<aspectratio>stretch</aspectratio>
 							<visible>ListItem.IsFolder + !SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 						</control>
 						<control type="image">
@@ -994,6 +1006,7 @@
 							<width>50</width>
 							<height>50</height>
 							<texture fallback="DefaultTvshows.png">$INFO[ListItem.Thumb]</texture>
+							<aspectratio>stretch</aspectratio>
 							<visible>IsEmpty(Window.Property(IsRadio)) + !ListItem.IsFolder</visible>
 						</control>
 						<control type="image">
@@ -1002,6 +1015,7 @@
 							<width>50</width>
 							<height>50</height>
 							<texture fallback="icon-radio.png">$INFO[ListItem.Thumb]</texture>
+							<aspectratio>stretch</aspectratio>
 							<visible>!IsEmpty(Window.Property(IsRadio)) + !ListItem.IsFolder</visible>
 						</control>
 						<control type="label">
@@ -1031,7 +1045,7 @@
 					</focusedlayout>
 				</control>
 				<control type="group">
-					<top>64</top>
+					<top>68</top>
 					<control type="group">
 						<control type="image"><!-- Button focus slider -->
 							<left>674</left>
