@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog">
 	<defaultcontrol always="true">213</defaultcontrol>
-	<visible>[System.HasMediaDVD | Player.HasMedia] + Window.IsActive(PlayerControls) + !Window.IsActive(FullscreenVideo) + !Window.IsActive(Visualisation)</visible>
+	<visible>[System.HasMediaDVD | Player.HasMedia] + Window.IsActive(playercontrols) + !Window.IsActive(fullscreenvideo) + !Window.IsActive(visualisation)</visible>
 	<coordinates>
 		<left>0</left>
 		<top>0</top>
@@ -41,6 +41,7 @@
 				<width>212</width>
 				<height>150</height>
 				<texturefocus>-</texturefocus>
+				<onclick>Dialog.Close(playercontrols)</onclick>
 				<onclick>Fullscreen</onclick>
 				<visible>System.GetBool(input.enablemouse)</visible>
 			</control>
@@ -140,6 +141,7 @@
 				<height>150</height>
 				<texturefocus>-</texturefocus>
 				<texturenofocus>-</texturenofocus>
+				<onclick>Dialog.Close(playercontrols)</onclick>
 				<onclick>Fullscreen</onclick>
 				<visible>System.GetBool(input.enablemouse)</visible>
 			</control>

@@ -189,5 +189,17 @@
 				<visible>MusicPlayer.Content(LiveTV) + RDS.HasRadiotextPlus</visible>
 			</control>
 		</control>
+
+		<control type="button"><!-- Touch button to get out of Fullscreen. Lines up with cover image in visualisation screen -->
+			<left>36</left>
+			<top>475</top>
+			<width>225</width>
+			<height>225</height>
+			<texturefocus>-</texturefocus>
+			<texturenofocus>-</texturenofocus>
+			<onclick>Close</onclick>
+			<onclick>Back</onclick>
+			<visible>System.GetBool(input.enablemouse)</visible>
+		</control>
 	</controls>
 </window>

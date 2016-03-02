@@ -34,7 +34,7 @@
 				<height>215</height>
 				<left>132</left>
 				<top>480</top>
-				<texture fallback="DefaultDVDRom.png">$INFO[Window(Home).Property(SkinHelper.Player.Music.DiscArt)</texture>
+				<texture fallback="DefaultDVDRom.png">$INFO[Window(Home).Property(SkinHelper.Player.Music.DiscArt)]</texture>
 				<aspectratio aligny="bottom">keep</aspectratio>
 				<visible>!SubString(Control.GetLabel(994),DefaultAudio.png,Right) + !SubString(Control.GetLabel(994),icon-radio.png,Right)</visible>
 			</control>
@@ -54,6 +54,16 @@
 				<height>225</height>
 				<texture fallback="DefaultAudio.png">$VAR[PlayerMusicCover]</texture>
 				<aspectratio aligny="bottom">stretch</aspectratio>
+			</control>
+			<control type="button"><!-- Touch button to get out of Fullscreen -->
+				<left>36</left>
+				<top>475</top>
+				<width>225</width>
+				<height>225</height>
+				<texturefocus>-</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<onclick>Back</onclick>
+				<visible>System.GetBool(input.enablemouse)</visible>
 			</control>
 			<control type="label"><!-- Now playing -->
 				<left>370</left>

@@ -81,6 +81,17 @@
 					<aligny>bottom</aligny>
 					<aspectratio>keep</aspectratio>
 				</control>
+				<control type="button" id="1"><!-- Touch button to get out of Fullscreen -->
+					<left>50</left>
+					<top>450</top>
+					<width>192</width>
+					<height>192</height>
+					<texturefocus>-</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<onclick>Close</onclick>
+					<onclick>PreviousMenu</onclick>
+					<visible>System.GetBool(input.enablemouse)</visible>
+				</control>
 			</control>
 			<control type="group" id="1"><!-- Any video other than Movies and TV Episodes -->
 				<visible>![VideoPlayer.Content(Movies) | VideoPlayer.Content(episodes)]</visible>
@@ -93,6 +104,17 @@
 					<aligny>bottom</aligny>
 					<texture diffuse="mask-rect.png">$INFO[Player.Art(thumb)]</texture>
 					<aspectratio scalediffuse="false">keep</aspectratio>
+				</control>
+				<control type="button" id="1"><!-- Touch button to get out of Fullscreen -->
+					<left>56</left>
+					<top>460</top>
+					<width>180</width>
+					<height>180</height>
+					<texturefocus>-</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<onclick>Close</onclick>
+					<onclick>PreviousMenu</onclick>
+					<visible>System.GetBool(input.enablemouse)</visible>
 				</control>
 			</control>
 		</control>
