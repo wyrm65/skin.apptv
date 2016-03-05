@@ -365,6 +365,8 @@
 		<value condition="!IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem.Icon) + Substring(ListItem.Icon,DefaultFolderBack)">$INFO[ListItem.Icon]</value>
 		<value condition="IsEmpty(Container.Content) + !Substring(ListItem.Icon,DefaultFolder)">$INFO[ListItem.Icon]</value>
+		<value condition="Container.Content(studios) + !IsEmpty(Skin.String(custom-moviestudioicons.path))">$INFO[Skin.String(custom-moviestudioicons.path)]$INFO[ListItem.Label]$INFO[Skin.String(custom-moviestudioicons.ext)]</value>
+		<value condition="Container.Content(genres) + !IsEmpty(Skin.String(custom-moviegenresicons.path))">$INFO[Skin.String(custom-moviegenresicons.path)]$INFO[ListItem.Label]$INFO[Skin.String(custom-moviegenresicons.ext)]</value>
 		<value condition="Container.Content(actors) | Container.Content(directors)">icon-profile.png</value>
 		<value condition="Container.Content(years)">DefaultYear.png</value>
 		<value condition="Container.Content(playlists)">DefaultPlaylist.png</value>
