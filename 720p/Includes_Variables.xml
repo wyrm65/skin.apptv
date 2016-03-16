@@ -733,6 +733,9 @@
 		<value condition="!IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
 	</variable>
 	<variable name="PlayerVideoCover">
+		<value condition="Pvr.IsPlayingTv + !IsEmpty(Window(home).Property(SkinHelper.PVR.Poster))">$INFO[Window(home).Property(SkinHelper.PVR.Poster)]</value>
+		<value condition="Pvr.IsPlayingTv + !IsEmpty(Window(home).Property(SkinHelper.PVR.Thumb))">$INFO[Window(home).Property(SkinHelper.PVR.Thumb)]</value>
+		<value condition="Pvr.IsPlayingTv + !IsEmpty(Window(home).Property(SkinHelper.PVR.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.PVR.ChannelLogo)]</value>
 		<value condition="!IsEmpty(Player.Art(poster)) + VideoPlayer.Content(movies)">$INFO[Player.Art(poster)]</value>
 		<value condition="!IsEmpty(VideoPlayer.cover) + VideoPlayer.Content(movies)">$INFO[VideoPlayer.Cover]</value>
 		<value condition="!IsEmpty(Player.Art(tvshow.poster)) + VideoPlayer.Content(episodes)">$INFO[Player.Art(tvshow.poster)]</value>
@@ -740,9 +743,10 @@
 		<value condition="!IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
 	</variable>
 	<variable name="PlayerMusicCover">
-		<value condition="Pvr.IsPlayingRadio">icon-radio.png</value>
+		<value condition="Pvr.IsPlayingRadio + !IsEmpty(Window(Home).Property(SkinHelper.PVR.ChannelLogo))">Window(Home).Property(SkinHelper.PVR.ChannelLogo)</value>
 		<value condition="!IsEmpty(MusicPlayer.Cover)">$INFO[MusicPlayer.Cover]</value>
 		<value condition="!IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
+		<value condition="Pvr.IsPlayingRadio">icon-radio.png</value>
 		<value>DefaultAudio.png</value>
 	</variable>
 	<variable name="PVRIcon">
