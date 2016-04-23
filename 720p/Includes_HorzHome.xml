@@ -13,14 +13,14 @@
 				<left>0</left>
 				<top>192</top>
 				<width>1280</width>
-				<height>102</height>m
+				<height>122</height>m
 				<texture>background-horzshelf.png</texture>
 			</control>
 			<control type="image">
 				<left>0</left>
 				<top>0</top>
 				<width>1280</width>
-				<height>294</height>
+				<height>314</height>
 				<texture>menu-mask.png</texture>
 			</control>
 		</control>
@@ -28,21 +28,21 @@
 		<control type="group"><!-- Main Horizontal menu bar -->
 			<control type="image"><!-- Background image for menu area -->
 				<left>0</left>
-				<top>292</top>
+				<top>312</top>
 				<width>1280</width>
-				<height>428</height>
+				<height>408</height>
 				<texture>background-horzhome.png</texture>
 			</control>
 			<control type="image">
 				<left>0</left>
-				<top>290</top>
+				<top>310</top>
 				<width>1280</width>
 				<height>4</height>
 				<texture>separator.png</texture>
 			</control>
 			<control type="image">
 				<left>0</left>
-				<top>360</top>
+				<top>380</top>
 				<width>1280</width>
 				<height>4</height>
 				<texture>separator.png</texture>
@@ -139,7 +139,7 @@
 			</control>
 
 			<control type="group" id="9355"><!-- Addon icons -->
-				<visible>Control.HasFocus(9350) | Control.HasFocus(9360)</visible>
+				<visible>Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9380)</visible>
 				<control type="group">
 					<visible>StringCompare(Skin.String(shelf-addonimages),$LOCALIZE[31953]) | !IntegerGreaterThan(Container(9360).NumItems,0)</visible>
 					<control type="image">
@@ -251,7 +251,7 @@
 		<control type="group"><!-- Markers for off screen menu bar items -->
 			<control type="image">
 				<left>0</left>
-				<top>322</top>
+				<top>342</top>
 				<height>16</height>
 				<width>16</width>
 				<texture>scroll-left.png</texture>
@@ -259,7 +259,7 @@
 			</control>
 			<control type="image">
 				<left>1264</left>
-				<top>322</top>
+				<top>342</top>
 				<height>16</height>
 				<width>16</width>
 				<texture>scroll-right.png</texture>
@@ -269,7 +269,7 @@
 
 		<control type="grouplist" id="9000"><!-- Home Sub menus -->
 			<left>10</left>
-			<top>295</top>
+			<top>315</top>
 			<width>1260</width>
 			<height>352</height>
 			<itemgap>0</itemgap>
