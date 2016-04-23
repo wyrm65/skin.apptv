@@ -6,8 +6,9 @@
 			<control type="label"><!-- Current time -->
 				<left>780</left>
 				<top>54</top>
-				<width>310</width>
+				<width>470</width>
 				<height>25</height>
+				<align>right</align>
 				<font>font13</font>
 				<label>$INFO[System.Time]</label>
 			</control>
@@ -201,13 +202,14 @@
 				<wrapmultiline>true</wrapmultiline>
 			</control>
 			<control type="label"><!-- Start time -->
-				<visible>!IsEmpty(ListItem.Plot) + !IsEmpty(ListItem.StartTime) + !IsEmpty(ListItem.EndTime)</visible>
-				<left>1250</left>
+				<visible>!IsEmpty(ListItem.StartTime)</visible>
+				<left>930</left>
 				<top>564</top>
 				<width>320</width>
 				<height>24</height>
 				<align>right</align>
-				<label>$INFO[ListItem.StartTime] - $INFO[ListItem.EndTime]</label>
+				<font>font11</font>
+				<label>$LOCALIZE[19126] $INFO[ListItem.StartTime] • $VAR[VideoDuration]</label>
 			</control>
 			<control type="image">
 				<visible>!IsEmpty(ListItem.Title)</visible>
