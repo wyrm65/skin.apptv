@@ -66,23 +66,23 @@
 			<include>screen-settings</include>
 			<include>fadebackground</include>
 			<control type="image"><!-- Button background -->
-				<left>440</left>
+				<left>415</left>
 				<top>46</top>
-				<width>396</width>
+				<width>446</width>
 				<height>628</height>
 				<texture border="8">button-menu-background.png</texture>
 			</control>
 			<control type="label"><!-- Dialog heading -->
-				<left>450</left>
-				<top>56</top>
-				<width>376</width>
+				<left>425</left>
+				<top>54</top>
+				<width>426</width>
 				<height>34</height>
 				<font>font12</font>
-				<label>$LOCALIZE[31557]</label>
+				<label>$LOCALIZE[31557]$INFO[Container(9000).NumItems,(,)]</label>
 				<align>center</align>
 			</control>
 			<control type="button"><!-- Touch Close button -->
-				<left>814</left>
+				<left>838</left>
 				<top>38</top>
 				<width>32</width>
 				<height>32</height>
@@ -93,28 +93,37 @@
 				<visible>System.GetBool(input.enablemouse)</visible>
 			</control>
 			<control type="image">
-				<left>450</left>
-				<top>92</top>
-				<width>376</width>
+				<left>425</left>
+				<top>90</top>
+				<width>426</width>
 				<height>4</height>
 				<texture>separator.png</texture>
 			</control>
 			<control type="grouplist" id="9000">
-				<left>450</left>
-				<top>104</top>
-				<width>376</width>
-				<height>528</height>
+				<left>425</left>
+				<top>102</top>
+				<width>426</width>
+				<height>552</height>
 				<onright>50</onright>
 				<onleft>50</onleft>
 				<control type="button" id="2"><!-- View as button -->
-					<width>376</width>
-					<height>48</height>
+					<width>426</width>
+					<height>46</height>
 					<font>font11</font>
 					<label>$LOCALIZE[100]</label>
 				</control>
-				<control type="radiobutton" id="1198"><!-- Tilt list view icons button  -->
-					<width>376</width>
-					<height>48</height>
+				<control type="button" id="1196"><!-- List view idle animantion delay -->
+					<width>426</width>
+					<height>46</height>
+					<label>$LOCALIZE[31885]</label>
+					<label2>$VAR[DelayListAnimation]</label2>
+					<font>font11</font>
+					<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=listview-idleanim-val,header=$LOCALIZE[31885])</onclick>
+					<visible>SubString(Control.GetLabel(2),$LOCALIZE[31941],Right)</visible>
+				</control>
+				<control type="radiobutton" id="1197"><!-- Tilt list view icons button  -->
+					<width>426</width>
+					<height>46</height>
 					<label>$LOCALIZE[31886]</label>
 					<font>font11</font>
 					<onclick>Skin.ToggleSetting(tiltvideolisticon)</onclick>
@@ -122,9 +131,9 @@
 					<radioposx>330</radioposx>
 					<visible>SubString(Control.GetLabel(2),$LOCALIZE[31941],Right)</visible>
 				</control>
-				<control type="radiobutton" id="1197"><!-- Tilt wall view icons button -->
-					<width>376</width>
-					<height>48</height>
+				<control type="radiobutton" id="1198"><!-- Tilt wall view icons button -->
+					<width>426</width>
+					<height>46</height>
 					<label>$LOCALIZE[31886]</label>
 					<font>font11</font>
 					<onclick>Skin.ToggleSetting(tiltvideowallicon)</onclick>
@@ -133,34 +142,34 @@
 					<visible>SubString(Control.GetLabel(2),$LOCALIZE[31944],Right)</visible>
 				</control>
 				<control type="button" id="3"><!-- Sort by button -->
-					<width>376</width>
-					<height>48</height>
+					<width>426</width>
+					<height>46</height>
 					<font>font11</font>
 					<label>$LOCALIZE[103]</label>
 				</control>
 				<control type="togglebutton" id="4"><!-- Sort direction button -->
-					<width>376</width>
-					<height>48</height>
+					<width>426</width>
+					<height>46</height>
 					<label>$LOCALIZE[21429]: $LOCALIZE[21430]</label>
 					<altlabel>$LOCALIZE[21429]: $LOCALIZE[21431]</altlabel>
 					<font>font11</font>
 				</control>
 				<control type="button" id="10"><!-- Show button -->
-					<width>376</width>
-					<height>48</height>
+					<width>426</width>
+					<height>46</height>
 					<font>font11</font>
 					<visible>!Skin.HasSetting(watched_filtering_toggle)</visible>
 				</control>
 				<control type="button" id="14"><!-- Watched video toggle button -->
-					<width>376</width>
-					<height>48</height>
+					<width>426</width>
+					<height>46</height>
 					<label>$LOCALIZE[20367]</label>
 					<font>font11</font>
 					<visible>Skin.HasSetting(watched_filtering_toggle)</visible>
 				</control>
 				<control type="button" id="210"><!-- Custom Studio Icons Button -->
-					<width>376</width>
-					<height>50</height>
+					<width>426</width>
+					<height>46</height>
 					<label>$LOCALIZE[31878]</label>
 					<font>font11</font>
 					<onclick>RunScript(script.image.resource.select,type=resource.images.studios&amp;property=custom-moviestudioicons)</onclick>
@@ -168,8 +177,8 @@
 					<visible>Container.Content(studios)</visible>
 				</control>
 				<control type="button" id="211"><!-- Custom Genre Icons Button -->
-					<width>376</width>
-					<height>50</height>
+					<width>426</width>
+					<height>46</height>
 					<label>$LOCALIZE[31879]</label>
 					<font>font11</font>
 					<onclick>RunScript(script.image.resource.select,type=resource.images.moviegenreicons&amp;property=custom-moviegenresicons)</onclick>
@@ -177,22 +186,22 @@
 					<visible>Container.Content(genres)</visible>
 				</control>
 				<control type="button" id="8"><!-- Search button -->
-					<width>376</width>
-					<height>48</height>
+					<width>426</width>
+					<height>46</height>
 					<label>$LOCALIZE[137]</label>
 					<font>font11</font>
 				</control>
 				<control type="edit" id="19"><!-- Filter button -->
-					<width>376</width>
-					<height>48</height>
+					<width>426</width>
+					<height>46</height>
 					<font>font11</font>
 					<label>$LOCALIZE[587]</label>
 					<textwidth>340</textwidth>
 					<visible>!Container.CanFilterAdvanced</visible>
 				</control>
 				<control type="radiobutton" id="98"><!-- Advanced filter button -->
-					<width>376</width>
-					<height>48</height>
+					<width>426</width>
+					<height>46</height>
 					<label>$LOCALIZE[587]</label>
 					<font>font11</font>
 					<selected>Container.Filtered</selected>
@@ -201,16 +210,16 @@
 					<visible>Container.CanFilterAdvanced</visible>
 				</control>
 				<control type="button" id="16"><!-- Party mode button -->
-					<width>376</width>
-					<height>48</height>
+					<width>426</width>
+					<height>46</height>
 					<label>$LOCALIZE[589]</label>
 					<font>font11</font>
 					<visible>Container.Content(MusicVideos)</visible>
 				</control>
 				<control type="radiobutton" id="11"><!-- Unlock shares button -->
 					<label>$LOCALIZE[20336]</label>
-					<width>376</width>
-					<height>48</height>
+					<width>426</width>
+					<height>46</height>
 					<font>font11</font>
 					<onclick>Mastermode</onclick>
 					<selected>system.ismaster</selected>
@@ -218,23 +227,23 @@
 					<visible>system.haslocks</visible>
 				</control>
 				<control type="button" id="200"><!-- Clean library button -->
-					<width>376</width>
-					<height>48</height>
+					<width>426</width>
+					<height>46</height>
 					<font>font11</font>
 					<label>$LOCALIZE[334]</label>
 					<onclick>CleanLibrary(video)</onclick>
 				</control>
 				<control type="togglebutton" id="20"><!-- Update library button -->
-					<width>376</width>
-					<height>48</height>
+					<width>426</width>
+					<height>46</height>
 					<font>font11</font>
 					<label>$LOCALIZE[653]</label>
 					<altlabel>$LOCALIZE[13353]</altlabel>
 					<usealttexture>library.isscanningvideo</usealttexture>
 				</control>
 				<control type="button" id="1200"><!-- player controls button -->
-					<width>376</width>
-					<height>48</height>
+					<width>426</width>
+					<height>46</height>
 					<font>font11</font>
 					<label>$LOCALIZE[16003] $LOCALIZE[478]</label>
 					<onclick>ActivateWindow(playercontrols)</onclick>
@@ -242,8 +251,8 @@
 					<visible>Player.HasAudio | Player.HasVideo</visible>
 				</control>
 				<control type="button" id="22"><!-- now playing -->
-					<width>376</width>
-					<height>48</height>
+					<width>426</width>
+					<height>46</height>
 					<font>font11</font>
 					<label>$LOCALIZE[13350]</label>
 					<onclick>ActivateWindow(videoplaylist)</onclick>

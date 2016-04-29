@@ -145,6 +145,12 @@
 		<value condition="Control.IsVisible(3)">$INFO[Container(3).NumItems,(,)]</value>
 		<value condition="Control.IsVisible(6)">$INFO[Container(6).NumItems,(,)]</value>
 	</variable>
+	<variable name="DelayListAnimation">
+		<value condition="StringCompare(Skin.String(listview-idleanim),60)">60$LOCALIZE[31810]</value>
+		<value condition="StringCompare(Skin.String(listview-idleanim),90)">90$LOCALIZE[31810]</value>
+		<value condition="StringCompare(Skin.String(listview-idleanim),120)">120$LOCALIZE[31810]</value>
+		<value>$LOCALIZE[31815]</value>
+	</variable>
 	<variable name="VideoInfoIcons">
 		<value condition="Container.Content(movies)">plugin://script.skin.helper.service/?action=similarmovies&amp;imdbid=$INFO[ListItem.IMDBNumber]&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
 		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">plugin://script.skin.helper.service/?action=similarshows&amp;imdbid=$INFO[ListItem.IMDBNumber]&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
@@ -1027,9 +1033,10 @@
 		<value condition="Control.HasFocus(415)">$LOCALIZE[31332]</value>
 		<value condition="Control.HasFocus(416)">$LOCALIZE[31333]</value>
 		<value condition="Control.HasFocus(417)">$LOCALIZE[31334]</value>
-		<value condition="Control.HasFocus(418)">$LOCALIZE[31335]</value>
-		<value condition="Control.HasFocus(419)">$LOCALIZE[31336]</value>
-		<value condition="Control.HasFocus(420)">$LOCALIZE[31337]</value>
+		<value condition="Control.HasFocus(418)">$LOCALIZE[31338]</value>
+		<value condition="Control.HasFocus(419)">$LOCALIZE[31335]</value>
+		<value condition="Control.HasFocus(420)">$LOCALIZE[31336]</value>
+		<value condition="Control.HasFocus(421)">$LOCALIZE[31337]</value>
 		<value condition="Control.HasFocus(502) | Control.HasFocus(503)">$LOCALIZE[31340]</value>
 		<value condition="Control.HasFocus(504)">$LOCALIZE[31341]</value>
 		<value condition="Control.HasFocus(505)">$LOCALIZE[31342]</value>
