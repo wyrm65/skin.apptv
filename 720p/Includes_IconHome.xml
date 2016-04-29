@@ -280,7 +280,7 @@
 				</item>
 				<item><!-- System menu -->
 					<thumb>special://skin/extras/homeicons/setting.png</thumb>
-					<label>$LOCALIZE[13000]</label>
+					<label>$LOCALIZE[5]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>ActivateWindow(settings,,return)</onclick>
 				</item>
@@ -577,6 +577,13 @@
 					<label>$LOCALIZE[137]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>RunScript(script.globalsearch)</onclick>
+				</item>
+				<item><!-- Filemanager -->
+					<visible>Skin.HasSetting(home-filemanager)</visible>
+					<thumb>special://skin/extras/homeicons/filemanager.png</thumb>
+					<label>$LOCALIZE[10003]</label>
+					<label2>$LOCALIZE[571]</label2>
+					<onclick>ActivateWindow(filemanager)</onclick>
 				</item>
 				<item><!-- Profiles -->
 					<visible>Skin.HasSetting(home-profile)</visible>

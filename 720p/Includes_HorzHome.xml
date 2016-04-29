@@ -62,6 +62,13 @@
 		<include condition="!Skin.HasSetting(home-time)" file="Includes_Shelf.xml">homeshelf-time</include><!-- Show time on home screen -->
 		<include condition="Skin.HasSetting(media-overlay)" file="Includes_Shelf.xml">shelf-nowplaying</include><!-- Now Playing -->
 
+		<control type="button" id="9810"><!-- Dummy button for mouse control -->
+			<left>0</left>
+			<top>0</top>
+			<width>1280</width>
+			<height>720</height>
+			<texturefocus>blank.png</texturefocus>
+		</control>
 		<control type="group" id="9800"><!-- Shelf icons-->
 			<control type="group" id="9155"><!-- Movie icons -->
 				<visible>Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180)</visible>
@@ -189,7 +196,7 @@
 			</control>
 
 			<control type="group"><!-- Default Shelf icons -->
-				<visible>![Control.IsVisible(9155) | Control.IsVisible(9205) | Control.IsVisible(9255) | Control.IsVisible(9355) | Control.IsVisible(9405)]</visible>
+				<visible>![Control.IsVisible(9155) | Control.IsVisible(9205) | Control.IsVisible(9255) | Control.IsVisible(9355) | Control.IsVisible(9405)] | Control.HasFocus(9810)</visible>
 				<control type="image">
 					<left>552</left>
 					<top>38</top>
@@ -282,7 +289,7 @@
 					<left>0</left>
 					<top>0</top>
 					<width>210</width>
-					<height>345</height>
+					<height>352</height>
 					<texturefocus>blank.png</texturefocus>
 					<onup>9005</onup>
 					<ondown>9100</ondown>
@@ -1580,6 +1587,12 @@
 							<label>$LOCALIZE[137]</label>
 							<label2>$LOCALIZE[13000]</label2>
 							<onclick>RunScript(script.globalsearch)</onclick>
+						</item>
+						<item><!-- Filemanager -->
+							<visible>Skin.HasSetting(home-filemanager)</visible>
+							<label>$LOCALIZE[10003]</label>
+							<label2>$LOCALIZE[13000]</label2>
+							<onclick>ActivateWindow(filemanager)</onclick>
 						</item>
 						<item><!-- Play DVD -->
 							<visible>System.HasMediadvd + Skin.HasSetting(home-playdisc)</visible>
