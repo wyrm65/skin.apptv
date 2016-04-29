@@ -571,8 +571,8 @@
 			</control>
 		</control>
 		<control type="group" id="945">
-			<visible>!Skin.HasSetting(lowspec-system) + Control.IsVisible(50) + System.IdleTime(60) + !System.ScreenSaverActive + [Container.Content(movies) | Container.Content(tvshows)]</visible>
-			<animation effect="fade" start="0" end="100" delay="500" time="1000">Visible</animation>
+			<visible>Control.IsVisible(50) + !System.ScreenSaverActive + [Container.Content(movies) | Container.Content(tvshows)]  + [[System.IdleTime(60) + StringCompare(Skin.String(listview-idleanim),60)] | [System.IdleTime(90) + StringCompare(Skin.String(listview-idleanim),90)] | [System.IdleTime(120) + StringCompare(Skin.String(listview-idleanim),120)]]</visible>
+			<animation effect="fade" start="0" end="100" time="1000">Visible</animation>
 			<control type="wraplist" id="950">
 				<left>-10</left>
 				<top>-10</top>
