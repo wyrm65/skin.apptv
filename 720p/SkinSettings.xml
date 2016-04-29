@@ -606,7 +606,15 @@
 						<selected>Skin.HasSetting(home-search)</selected>
 						<radioposx>844</radioposx>
 					</control>
-					<control type="radiobutton" id="418"><!-- Play Disc On Home toggle -->
+					<control type="radiobutton" id="418"><!-- Filemanager On Home toggle -->
+						<include>settings-submenu-common</include>
+						<label>$LOCALIZE[31915]</label>
+						<textwidth>750</textwidth>
+						<onclick>Skin.ToggleSetting(home-filemanager)</onclick>
+						<selected>Skin.HasSetting(home-filemanager)</selected>
+						<radioposx>844</radioposx>
+					</control>
+					<control type="radiobutton" id="419"><!-- Play Disc On Home toggle -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31912]</label>
 						<textwidth>750</textwidth>
@@ -615,7 +623,7 @@
 						<radioposx>844</radioposx>
 						<visible>![System.Platform.IOS | System.Platform.ATV2]</visible>
 					</control>
-					<control type="radiobutton" id="419"><!-- Quit From Home toggle -->
+					<control type="radiobutton" id="420"><!-- Quit From Home toggle -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31913]</label>
 						<textwidth>750</textwidth>
@@ -623,7 +631,7 @@
 						<selected>!Skin.HasSetting(home-shutdown)</selected>
 						<radioposx>844</radioposx>
 					</control>
-					<control type="button" id="420"><!-- Quit action -->
+					<control type="button" id="421"><!-- Quit action -->
 						<include>settings-submenu-common</include>
 						<textwidth>785</textwidth>
 						<label>$LOCALIZE[31914]</label>
@@ -648,6 +656,7 @@
 						<onclick>Skin.Reset(home-weather)</onclick>
 						<onclick>Skin.Reset(home-favorites)</onclick>
 						<onclick>Skin.Reset(home-search)</onclick>
+						<onclick>Skin.Reset(home-filemanager)</onclick>
 						<onclick>Skin.Reset(home-playdisc)</onclick>
 						<onclick>Skin.Reset(home-shutdown)</onclick>
 						<onclick>Skin.Reset(home-quitaction)</onclick>
