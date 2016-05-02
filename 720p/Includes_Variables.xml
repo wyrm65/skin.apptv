@@ -194,6 +194,11 @@
 		<value condition="Container.Content(movies)">videodb://recentlyaddedmovies/</value >
 		<value condition="Container.Content(tvshows)">videodb://recentlyaddedepisodes/</value >
 	</variable>
+	<variable name="ListScrollNav">
+		<value condition="Skin.HasSetting(show-letterbar)">SetFocus(1260)</value >
+		<value condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</value >
+		<value condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1250)</value >
+	</variable>
 	<variable name="PlayerControlRepeatImage">
 		<value condition="Playlist.IsRepeatOne + Control.HasFocus(912)">osd-btn-repeatone-focus.png</value>
 		<value condition="Playlist.IsRepeat + Control.HasFocus(912)">osd-btn-repeatall-focus.png</value>
@@ -1008,7 +1013,8 @@
 		<value condition="Control.HasFocus(106)">$LOCALIZE[31302]</value>
 		<value condition="Control.HasFocus(107)">$LOCALIZE[31303]</value>
 		<value condition="Control.HasFocus(201)">$LOCALIZE[31304]</value>
-		<value condition="Control.HasFocus(202)">$LOCALIZE[31305]</value>
+		<value condition="Control.HasFocus(202)">$LOCALIZE[31309]</value>
+		<value condition="Control.HasFocus(203)">$LOCALIZE[31305]</value>
 		<value condition="Control.HasFocus(205)">$LOCALIZE[31306]</value>
 		<value condition="Control.HasFocus(206)">$LOCALIZE[31307]</value>
 		<value condition="Control.HasFocus(208)">$LOCALIZE[31308]</value>

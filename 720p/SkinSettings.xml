@@ -258,7 +258,15 @@
 						<selected>Skin.HasSetting(lock-screensettings)</selected>
 						<radioposx>844</radioposx>
 					</control>
-					<control type="button" id="202"><!-- Show Scrollbar -->
+					<control type="radiobutton" id="202"><!-- LetterBar Toggle -->
+						<include>settings-submenu-common</include>
+						<label>$LOCALIZE[31884]</label>
+						<textwidth>750</textwidth>
+						<onclick>Skin.ToggleSetting(show-letterbar)</onclick>
+						<selected>Skin.HasSetting(show-letterbar)</selected>
+						<radioposx>844</radioposx>
+					</control>
+					<control type="button" id="203"><!-- Show Scrollbar -->
 						<include>settings-submenu-common</include>
 						<textwidth>785</textwidth>
 						<label>$LOCALIZE[31881]</label>
@@ -301,6 +309,7 @@
 						<label>$LOCALIZE[10041]</label>
 						<textwidth>785</textwidth>
 						<onclick>Skin.Reset(lock-screensettings)</onclick>
+						<onclick>Skin.Reset(show-letterbar)</onclick>
 						<onclick>Skin.Reset(show-scrollbar)</onclick>
 						<onclick>Skin.Reset(sbar)</onclick>
 						<onclick>Skin.Reset(text-autoscroll)</onclick>

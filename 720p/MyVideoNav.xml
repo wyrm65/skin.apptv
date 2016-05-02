@@ -12,16 +12,16 @@
 		<include>background</include>
 		<include>Fake-Overlay</include>
 		<control type="grouplist">
-			<left>946</left>
-			<top>35</top>
+			<left>780</left>
+			<top>25</top>
 			<width>auto</width>
-			<height>72</height>
+			<height>60</height>
 			<align>left</align>
-			<aligny>center</aligny>
+			<aligny>top</aligny>
 			<orientation>horizontal</orientation>
 			<control type="label"><!-- Video screen heading -->
-				<width max="256">auto</width>
-				<height>72</height>
+				<width max="400">auto</width>
+				<height>60</height>
 				<label>$VAR[VideoHeadings]</label>
 				<font>font18</font>
 				<wrapmultiline>true</wrapmultiline>
@@ -29,8 +29,9 @@
 			</control>
 			<control type="label"><!-- Number of files -->
 				<width max="80">auto</width>
-				<height>72</height>
+				<height>60</height>
 				<label>$INFO[Container.NumItems,(,)]</label>
+				<font>font12</font>
 				<aligny>top</aligny>
 			</control>
 		</control>

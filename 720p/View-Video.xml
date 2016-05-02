@@ -4,20 +4,19 @@
 		<control type="fixedlist" id="50">
 			<viewtype label="31941">list</viewtype>
 			<left>668</left>
-			<top>116</top>
+			<top>100</top>
 			<width>555</width>
-			<height>532</height>
+			<height>576</height>
 			<focusposition>2</focusposition>
 			<movement>4</movement>
 			<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
 			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
-			<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
-			<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1250</onright>
+			<onright>$VAR[ListScrollNav]</onright>
 			<onup>50</onup>
 			<ondown>50</ondown>
 			<preloaditems>4</preloaditems>
 			<pagecontrol>1250</pagecontrol>
-			<itemlayout width="575" height="66">
+			<itemlayout width="555" height="64">
 				<control type="image">
 					<left>8</left>
 					<top>22</top>
@@ -177,7 +176,7 @@
 					</control>
 				</control>
 			</itemlayout>
-			<focusedlayout width="575" height="66">
+			<focusedlayout width="555" height="64">
 				<control type="image">
 					<left>8</left>
 					<top>22</top>
@@ -353,31 +352,33 @@
 			</focusedlayout>
 		</control>
 		<control type="group">
-			<top>56</top>
+			<top>42</top>
 			<visible>Control.IsVisible(50)</visible>
 			<control type="group">
 				<control type="image"><!-- Button focus slider -->
-					<left>674</left>
-					<top>330</top>
-					<width>560</width>
-					<height>66</height>
+					<left>670</left>
+					<top>320</top>
+					<width>556</width>
+					<height>64</height>
 					<texture border="6">button-default-focus.png</texture>
 					<aspectratio>stretch</aspectratio>
 				</control>
-				<animation condition="Container(50).Position(0)" effect="slide" start="0,0" end="0,-264"
+				<animation condition="Container(50).Position(0)" effect="slide" start="0,0" end="0,-256"
 					time="0" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(50).Position(1)" effect="slide" start="0,0" end="0,-198"
+				<animation condition="Container(50).Position(1)" effect="slide" start="0,0" end="0,-192"
 					time="0" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(50).Position(2)" effect="slide" start="0,0" end="0,-132"
+				<animation condition="Container(50).Position(2)" effect="slide" start="0,0" end="0,-128"
 					time="0" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(50).Position(3)" effect="slide" start="0,0" end="0,-66"
+				<animation condition="Container(50).Position(3)" effect="slide" start="0,0" end="0,-64"
 					time="0" easing="inout" reversible="true">Conditional</animation>
 				<!-- Animation for postion 4 does nothing, so removed-->
-				<animation condition="Container(50).Position(5)" effect="slide" start="0,0" end="0,66"
+				<animation condition="Container(50).Position(5)" effect="slide" start="0,0" end="0,64"
 					time="0" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(50).Position(6)" effect="slide" start="0,0" end="0,132"
+				<animation condition="Container(50).Position(6)" effect="slide" start="0,0" end="0,128"
 					time="0" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(50).Position(7)" effect="slide" start="0,0" end="0,198"
+				<animation condition="Container(50).Position(7)" effect="slide" start="0,0" end="0,192"
+					time="0" easing="inout" reversible="true">Conditional</animation>
+				<animation condition="Container(50).Position(8)" effect="slide" start="0,0" end="0,256"
 					time="0" easing="inout" reversible="true">Conditional</animation>
 			</control>
 		</control>
@@ -562,12 +563,40 @@
 			<include>SortLetterNotification</include>
 			<control type="scrollbar" id="1250">
 				<left>1246</left>
-				<top>108</top>
-				<width>18</width>
-				<height>546</height>
+				<top>110</top>
+				<width>16</width>
+				<height>576</height>
 				<onleft>50</onleft>
 				<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="Skin.HasSetting(show-letterbar)" effect="slide" end="10,0" reversible="true">Conditional</animation>
 				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+			</control>
+			<control type="panel" id="1260">
+				<visible>Skin.HasSetting(show-letterbar)</visible>
+				<left>1235</left>
+				<top>110</top>
+				<width>20</width>
+				<height>576</height>
+				<onleft>50</onleft>
+				<orientation>vertical</orientation>
+				<itemlayout height="22" width="20">
+					<control type="label">
+						<height>20</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>font10</font>
+						<textcolor>disabled-text</textcolor>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+				</itemlayout>
+				<focusedlayout height="22" width="20">
+					<control type="label">
+						<height>20</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>font10</font>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+				</focusedlayout>
+				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
 			</control>
 		</control>
 		<control type="group" id="945">
