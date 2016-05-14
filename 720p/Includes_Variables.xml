@@ -195,9 +195,19 @@
 		<value condition="Container.Content(tvshows)">videodb://recentlyaddedepisodes/</value >
 	</variable>
 	<variable name="ListScrollNav">
-		<value condition="Skin.HasSetting(show-letterbar)">SetFocus(1260)</value >
-		<value condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</value >
-		<value condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1250)</value >
+		<value condition="Control.IsVisible(50) + Skin.HasSetting(show-letterbar)">SetFocus(1260)</value>
+		<value condition="Control.IsVisible(50) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1250)</value>
+		<value condition="Control.IsVisible(52) + Skin.HasSetting(show-letterbar)">SetFocus(1262)</value>
+		<value condition="Control.IsVisible(52) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1252)</value>
+		<value condition="Control.IsVisible(53) + Skin.HasSetting(show-letterbar)">SetFocus(1263)</value>
+		<value condition="Control.IsVisible(53) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1253)</value>
+		<value condition="Control.IsVisible(54) + Skin.HasSetting(show-letterbar)">SetFocus(1264)</value>
+		<value condition="Control.IsVisible(54) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1254)</value>
+		<value condition="Control.IsVisible(57) + Skin.HasSetting(show-letterbar)">SetFocus(1267)</value>
+		<value condition="Control.IsVisible(57) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1257)</value>
+		<value condition="Control.IsVisible(58) + Skin.HasSetting(show-letterbar)">SetFocus(1268)</value>
+		<value condition="Control.IsVisible(58) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1258)</value>
+		<value>noop</value >
 	</variable>
 	<variable name="PlayerControlRepeatImage">
 		<value condition="Playlist.IsRepeatOne + Control.HasFocus(912)">osd-btn-repeatone-focus.png</value>

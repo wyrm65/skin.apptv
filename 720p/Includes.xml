@@ -4,7 +4,6 @@
 	  CUSTOM WINDOWS LIST
 		_Overlay 1150
 		_3DDialogSelect 1151
-		_SkinSettings 1152
 		_HomeSettings 1153
 		_DialogSelect 1154
 		_AddonsList 1155
@@ -394,7 +393,7 @@
 		<control type="grouplist">
 			<left>592</left>
 			<top>0</top>
-			<width>96</width>
+			<width>128</width>
 			<height>32</height>
 			<orientation>horizontal</orientation>
 			<itemgap>0</itemgap>
@@ -417,13 +416,25 @@
 				<width>32</width>
 				<height>32</height>
 				<texture>groupfocused.png</texture>
-				<visible>![ControlGroup(9000).HasFocus() | StringCompare(Window(Home).Property(ShowScreenSettings),show) | Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258) | Control.HasFocus(1270) | Control.HasFocus(23) | Control.HasFocus(27)]</visible>
+				<visible>![ControlGroup(9000).HasFocus() | StringCompare(Window(Home).Property(ShowScreenSettings),show) | Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258) | Control.HasFocus(1260) | Control.HasFocus(1262) | Control.HasFocus(1263) | Control.HasFocus(1268) | Control.HasFocus(1270) | Control.HasFocus(23) | Control.HasFocus(27)]</visible>
 			</control>
 			<control type="image">
 				<width>32</width>
 				<height>32</height>
 				<texture>groupunfocused.png</texture>
-				<visible>[ControlGroup(9000).HasFocus() | StringCompare(Window(Home).Property(ShowScreenSettings),show) | Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258) | Control.HasFocus(1270) | Control.HasFocus(23) | Control.HasFocus(27)]</visible>
+				<visible>[ControlGroup(9000).HasFocus() | StringCompare(Window(Home).Property(ShowScreenSettings),show) | Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258) | Control.HasFocus(1260) | Control.HasFocus(1262) | Control.HasFocus(1263) | Control.HasFocus(1268) | Control.HasFocus(1270) | Control.HasFocus(23) | Control.HasFocus(27)]</visible>
+			</control>
+			<control type="image">
+				<width>32</width>
+				<height>32</height>
+				<texture>groupfocused.png</texture>
+				<visible>Skin.HasSetting(show-letterbar) + [Control.HasFocus(1260) | Control.HasFocus(1262) | Control.HasFocus(1263) | Control.HasFocus(1268)]</visible>
+			</control>
+			<control type="image">
+				<width>32</width>
+				<height>32</height>
+				<texture>groupunfocused.png</texture>
+				<visible>Skin.HasSetting(show-letterbar) + ![Control.HasFocus(1260) | Control.HasFocus(1262) | Control.HasFocus(1263) | Control.HasFocus(1268)]</visible>
 			</control>
 			<control type="image">
 				<width>32</width>
@@ -443,9 +454,9 @@
 	<include name="group-focushorz">
 		<control type="grouplist">
 			<left>0</left>
-			<top>100</top>
+			<top>150</top>
 			<width>32</width>
-			<height>96</height>
+			<height>128</height>
 			<itemgap>0</itemgap>
 			<aligny>center</aligny>
 			<align>center</align>
@@ -466,13 +477,25 @@
 				<width>32</width>
 				<height>32</height>
 				<texture>groupfocused.png</texture>
-				<visible>![ControlGroup(9000).HasFocus() | StringCompare(Window(Home).Property(ShowScreenSettings),show)] + ![Control.HasFocus(1254) | Control.HasFocus(1257)]</visible>
+				<visible>![ControlGroup(9000).HasFocus() | StringCompare(Window(Home).Property(ShowScreenSettings),show)] + ![Control.HasFocus(1254) | Control.HasFocus(1257) | Control.HasFocus(1264) | Control.HasFocus(1267)]</visible>
 			</control>
 			<control type="image">
 				<width>32</width>
 				<height>32</height>
 				<texture>groupunfocused.png</texture>
-				<visible>[ControlGroup(9000).HasFocus() | StringCompare(Window(Home).Property(ShowScreenSettings),show) | Control.HasFocus(1254) | Control.HasFocus(1257)]</visible>
+				<visible>[ControlGroup(9000).HasFocus() | StringCompare(Window(Home).Property(ShowScreenSettings),show) | Control.HasFocus(1254) | Control.HasFocus(1257) | Control.HasFocus(1264) | Control.HasFocus(1267)]</visible>
+			</control>
+			<control type="image">
+				<width>32</width>
+				<height>32</height>
+				<texture>groupfocused.png</texture>
+				<visible>Skin.HasSetting(show-letterbar) + [Control.HasFocus(1264) | Control.HasFocus(1267)]</visible>
+			</control>
+			<control type="image">
+				<width>32</width>
+				<height>32</height>
+				<texture>groupunfocused.png</texture>
+				<visible>Skin.HasSetting(show-letterbar) + ![Control.HasFocus(1264) | Control.HasFocus(1267)]</visible>
 			</control>
 			<control type="image">
 				<width>32</width>
