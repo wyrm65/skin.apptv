@@ -617,7 +617,7 @@
 		</control>
 		<include>SortLetterNotification</include>
 		<control type="panel" id="1260">
-			<visible>Control.IsVisible(50) + Skin.HasSetting(show-letterbar)</visible>
+			<visible>Control.IsVisible(50) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 			<left>1235</left>
 			<top>110</top>
 			<width>20</width>
@@ -659,10 +659,10 @@
 			<top>110</top>
 			<width>16</width>
 			<height>576</height>
-			<onleft condition="Skin.HasSetting(show-letterbar)">1260</onleft>
+			<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">1260</onleft>
 			<onleft condition="!Skin.HasSetting(show-letterbar)">50</onleft>
 			<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-			<animation condition="Skin.HasSetting(show-letterbar)" effect="slide" end="10,0" reversible="true">Conditional</animation>
+			<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]" effect="slide" end="10,0" reversible="true">Conditional</animation>
 			<visible>Control.IsVisible(50) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 		</control>
 	</include>
@@ -863,7 +863,7 @@
 		</control>
 		<include>SortLetterNotification</include>
 		<control type="panel" id="1262">
-			<visible>Control.IsVisible(52) + Skin.HasSetting(show-letterbar)</visible>
+			<visible>Control.IsVisible(52) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 			<left>1235</left>
 			<top>110</top>
 			<width>20</width>
@@ -904,10 +904,10 @@
 			<top>110</top>
 			<width>16</width>
 			<height>576</height>
-			<onleft condition="Skin.HasSetting(show-letterbar)">1262</onleft>
+			<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">1262</onleft>
 			<onleft condition="!Skin.HasSetting(show-letterbar)">52</onleft>
 			<animation condition="!Control.HasFocus(1252) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-			<animation condition="Skin.HasSetting(show-letterbar)" effect="slide" end="10,0" reversible="true">Conditional</animation>
+			<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]" effect="slide" end="10,0" reversible="true">Conditional</animation>
 			<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Control.IsVisible(52)</visible>
 		</control>
 	</include>
@@ -1362,7 +1362,7 @@
 			</control>
 			<include>SortLetterNotification</include>
 			<control type="panel" id="1264">
-				<visible>Control.IsVisible(54) + Skin.HasSetting(show-letterbar)</visible>
+				<visible>Control.IsVisible(54) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 				<left>68</left>
 				<top>634</top>
 				<width>1232</width>
@@ -1407,10 +1407,10 @@
 				<width>1240</width>
 				<height>16</height>
 				<orientation>horizontal</orientation>
-				<onup condition="Skin.HasSetting(show-letterbar)">1264</onup>
+				<onup condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">1264</onup>
 				<onup condition="!Skin.HasSetting(show-letterbar)">54</onup>
 				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<animation condition="Skin.HasSetting(show-letterbar)" effect="slide" end="0,10" reversible="true">Conditional</animation>
+				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]" effect="slide" end="0,10" reversible="true">Conditional</animation>
 				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Control.IsVisible(54)</visible>
 			</control>
 		</control>
@@ -1419,9 +1419,9 @@
 		<control type="wraplist" id="57">
 			<viewtype label="31945">wrap</viewtype>
 			<left>-130</left>
-			<top>187</top>
+			<top>150</top>
 			<width>1416</width>
-			<height>525</height>
+			<height>400</height>
 			<onleft>57</onleft>
 			<onright>57</onright>
 			<onup condition="Skin.HasSetting(lock-screensettings)">noop</onup>
@@ -1431,8 +1431,8 @@
 			<orientation>horizontal</orientation>
 			<preloaditems>4</preloaditems>
 			<pagecontrol>1257</pagecontrol>
-			<itemlayout height="390" width="140"></itemlayout>
-			<focusedlayout height="410" width="320"></focusedlayout>
+			<itemlayout height="360" width="130"></itemlayout>
+			<focusedlayout height="400" width="376"></focusedlayout>
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(57)</visible>
@@ -1759,7 +1759,6 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(57)</visible>
-			<include>SortLetterNotification</include>
 			<control type="image" id="7018"><!-- Show logo -->
 				<left>523</left>
 				<top>612</top>
@@ -1843,8 +1842,9 @@
 					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 			</control>
+			<include>SortLetterNotification</include>
 			<control type="panel" id="1267">
-				<visible>Control.IsVisible(57) + Skin.HasSetting(show-letterbar)</visible>
+				<visible>Control.IsVisible(57) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 				<left>68</left>
 				<top>564</top>
 				<width>1232</width>
@@ -1889,10 +1889,10 @@
 				<width>1220</width>
 				<height>16</height>
 				<orientation>horizontal</orientation>
-				<onup condition="Skin.HasSetting(show-letterbar)">1267</onup>
+				<onup condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">1267</onup>
 				<onup condition="!Skin.HasSetting(show-letterbar)">57</onup>
 				<animation condition="!Control.HasFocus(1257) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<animation condition="Skin.HasSetting(show-letterbar)" effect="slide" end="0,10" reversible="true">Conditional</animation>
+				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]" effect="slide" end="0,10" reversible="true">Conditional</animation>
 				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Control.IsVisible(57)</visible>
 			</control>
 		</control>
@@ -2151,7 +2151,7 @@
 			</control>
 			<include>SortLetterNotification</include>
 			<control type="panel" id="1268">
-				<visible>Control.IsVisible(58) + Skin.HasSetting(show-letterbar)</visible>
+				<visible>Control.IsVisible(58) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 				<left>1225</left>
 				<top>110</top>
 				<width>20</width>
@@ -2192,10 +2192,10 @@
 				<top>110</top>
 				<width>16</width>
 				<height>576</height>
-				<onleft condition="Skin.HasSetting(show-letterbar)">1268</onleft>
+				<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">1268</onleft>
 				<onleft condition="!Skin.HasSetting(show-letterbar)">58</onleft>
 				<animation condition="!Control.HasFocus(1258) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<animation condition="Skin.HasSetting(show-letterbar)" effect="slide" end="10,0" reversible="true">Conditional</animation>
+				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]" effect="slide" end="10,0" reversible="true">Conditional</animation>
 				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Control.IsVisible(58)</visible>
 			</control>
 		</control>
