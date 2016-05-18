@@ -2150,42 +2150,61 @@
 				</control>
 			</control>
 			<include>SortLetterNotification</include>
-			<control type="panel" id="1268">
+			<control type="group" id="1238">
 				<visible>Control.IsVisible(58) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
-				<left>1225</left>
-				<top>110</top>
-				<width>20</width>
-				<height>594</height>
-				<onleft>58</onleft>
-				<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1258</onright>
-				<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
-				<orientation>vertical</orientation>
-				<itemlayout height="22" width="20">
-					<control type="label">
-						<height>20</height>
-						<label>$INFO[ListItem.Label]</label>
-						<font>font10</font>
-						<textcolor>disabled-text</textcolor>
-						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-					</control>
-					<control type="label">
-						<height>20</height>
-						<label>$INFO[ListItem.Label]</label>
-						<font>font10</font>
-						<textcolor>listselected-text</textcolor>
-						<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
-					</control>
-				</itemlayout>
-				<focusedlayout height="22" width="20">
-					<control type="label">
-						<height>20</height>
-						<label>$INFO[ListItem.Label]</label>
-						<font>font10</font>
-						<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
-						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-					</control>
-				</focusedlayout>
-				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+				<control type="button" id="1248"><!-- Search -->
+					<left>1226</left>
+					<top>88</top>
+					<width>20</width>
+					<height>20</height>
+					<ondown>1268</ondown>
+					<texturefocus>touch-search.png</texturefocus>
+					<texturenofocus>touch-search.png</texturenofocus>
+					<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
+					<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
+					<animation effect="fade" start="100" end="50" time="0" condition="!Control.HasFocus(1248)">Conditional</animation>
+				</control>
+				<control type="panel" id="1268">
+					<left>1225</left>
+					<top>110</top>
+					<width>20</width>
+					<height>594</height>
+					<onleft>58</onleft>
+					<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1258</onright>
+					<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+					<onup>1248</onup>
+					<ondown>noop</ondown>
+					<orientation>vertical</orientation>
+					<itemlayout height="22" width="20">
+						<control type="label">
+							<height>20</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>font10</font>
+							<textcolor>disabled-text</textcolor>
+							<align>center</align>
+							<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						</control>
+						<control type="label">
+							<height>20</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>font10</font>
+							<textcolor>listselected-text</textcolor>
+							<align>center</align>
+							<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout height="22" width="20">
+						<control type="label">
+							<height>20</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>font10</font>
+							<align>center</align>
+							<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
+							<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						</control>
+					</focusedlayout>
+					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+				</control>
 			</control>
 			<control type="scrollbar" id="1258">
 				<left>1246</left>
