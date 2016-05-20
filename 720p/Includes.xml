@@ -203,8 +203,8 @@
 		<value condition="Window.IsVisible(musiclibrary)">ActivateWindow(musiclibrary,&quot;$INFO[ListItem.FolderPath]&quot;,return)</value>
 	</variable>
 	<variable name="ListDynamicContent">
-		<value condition="Container.Content(movies)">videodb://recentlyaddedmovies/</value >
-		<value condition="Container.Content(tvshows)">videodb://recentlyaddedepisodes/</value >
+		<value condition="Container.Content(movies)">special://skin/extras/playlists/video/RecentMovies.xsp</value>
+		<value condition="Container.Content(tvshows)">videodb://recentlyaddedepisodes/</value>
 	</variable>
 	<variable name="ListScrollNav">
 		<value condition="Control.IsVisible(50) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">SetFocus(1260)</value>
@@ -1551,7 +1551,7 @@
 				<width>32</width>
 				<height>32</height>
 				<texture>groupfocused.png</texture>
-				<visible>![ControlGroup(9000).HasFocus() | StringCompare(Window(Home).Property(ShowScreenSettings),show)] + ![Control.HasFocus(1244) | Control.HasFocus(1247) Control.HasFocus(1254) | Control.HasFocus(1257) | Control.HasFocus(1264) | Control.HasFocus(1267)]</visible>
+				<visible>![ControlGroup(9000).HasFocus() | StringCompare(Window(Home).Property(ShowScreenSettings),show) | Control.HasFocus(1244) | Control.HasFocus(1247) | Control.HasFocus(1254) | Control.HasFocus(1257) | Control.HasFocus(1264) | Control.HasFocus(1267)]</visible>
 			</control>
 			<control type="image">
 				<width>32</width>
@@ -1575,13 +1575,13 @@
 				<width>32</width>
 				<height>32</height>
 				<texture>groupfocused.png</texture>
-				<visible>[!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + [IntegerGreaterThan(Container(54).NumItems,6) | IntegerGreaterThan(Container(57).NumItems,9)]] + [Control.HasFocus(1254) | Control.HasFocus(1257)]</visible>
+				<visible>[!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + IntegerGreaterThan(Container().NumPages,1)] + [Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1254) | Control.HasFocus(1257) | Control.HasFocus(1258) | Control.HasFocus(1270) | Control.HasFocus(23) | Control.HasFocus(27)]</visible>
 			</control>
 			<control type="image">
 				<width>32</width>
 				<height>32</height>
 				<texture>groupunfocused.png</texture>
-				<visible>[!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + [IntegerGreaterThan(Container(54).NumItems,6) | IntegerGreaterThan(Container(57).NumItems,9)]] + ![Control.HasFocus(1254) | Control.HasFocus(1257)]</visible>
+				<visible>[!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + IntegerGreaterThan(Container().NumPages,1)] + ![Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1254) | Control.HasFocus(1257) | Control.HasFocus(1258) | Control.HasFocus(1270) | Control.HasFocus(23) | Control.HasFocus(27)]</visible>
 			</control>
 		</control>
 	</include>
