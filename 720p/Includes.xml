@@ -1040,6 +1040,7 @@
 		<value condition="Control.HasFocus(205)">$LOCALIZE[31306]</value>
 		<value condition="Control.HasFocus(206)">$LOCALIZE[31307]</value>
 		<value condition="Control.HasFocus(208)">$LOCALIZE[31308]</value>
+		<value condition="Control.HasFocus(209)">$LOCALIZE[31310]</value>
 		<value condition="Control.HasFocus(212)">$LOCALIZE[31311]</value>
 		<value condition="Control.HasFocus(302)">$LOCALIZE[31312]</value>
 		<value condition="Control.HasFocus(303)">$LOCALIZE[31313]</value>
@@ -1391,7 +1392,7 @@
 
 	<include name="touch-controls">
 		<control type="grouplist" id="8000">
-			<visible>System.GetBool(input.enablemouse)</visible>
+			<visible>Skin.HasSetting(touch-controls)</visible>
 			<left>20</left>
 			<top>684</top>
 			<width>376</width>

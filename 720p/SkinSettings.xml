@@ -297,6 +297,15 @@
 						<selected>Skin.HasSetting(media-case)</selected>
 						<radioposx>844</radioposx>
 					</control>
+					<control type="radiobutton" id="209"><!-- Use Mouse/touch controls Toggle -->
+						<include>settings-submenu-common</include>
+						<label>$LOCALIZE[31890]</label>
+						<textwidth>750</textwidth>
+						<onclick>Skin.ToggleSetting(touch-controls)</onclick>
+						<selected>Skin.HasSetting(touch-controls)</selected>
+						<radioposx>844</radioposx>
+						<enable>System.GetBool(input.enablemouse)</enable>
+					</control>
 					<control type="button" id="212"><!-- TV Logo Downloader Script -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31893]</label>
@@ -315,6 +324,7 @@
 						<onclick>Skin.Reset(text-autoscroll)</onclick>
 						<onclick>Skin.Reset(media-overlay)</onclick>
 						<onclick>Skin.Reset(media-case)</onclick>
+						<onclick>Skin.Reset(touch-controls)</onclick>
 						<onclick>Skin.Reset(media-themetune)</onclick>
 					</control>
 				</control>
