@@ -208,16 +208,20 @@
 	</variable>
 	<variable name="ListScrollNav">
 		<value condition="Control.IsVisible(50) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">SetFocus(1260)</value>
+		<value condition="Control.IsVisible(50) + Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]">SetFocus(1260)</value>
 		<value condition="Control.IsVisible(50) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1250)</value>
 		<value condition="Control.IsVisible(52) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">SetFocus(1262)</value>
 		<value condition="Control.IsVisible(52) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1252)</value>
 		<value condition="Control.IsVisible(53) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">SetFocus(1263)</value>
 		<value condition="Control.IsVisible(53) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1253)</value>
 		<value condition="Control.IsVisible(54) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">SetFocus(1264)</value>
+		<value condition="Control.IsVisible(54) + Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]">SetFocus(1264)</value>
 		<value condition="Control.IsVisible(54) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1254)</value>
 		<value condition="Control.IsVisible(57) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">SetFocus(1267)</value>
+		<value condition="Control.IsVisible(57) + Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]">SetFocus(1267)</value>
 		<value condition="Control.IsVisible(57) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1257)</value>
 		<value condition="Control.IsVisible(58) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">SetFocus(1268)</value>
+		<value condition="Control.IsVisible(58) + Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]">SetFocus(1268)</value>
 		<value condition="Control.IsVisible(58) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1258)</value>
 		<value>noop</value >
 	</variable>
@@ -1233,10 +1237,10 @@
 
 	<include name="SortLetterNotification">
 		<control type="group">
-			<visible>Container.Scrolling + !Window.IsVisible(progressdialog) + [Container.Content(TVshows) | Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | Container.Content(Movies)]</visible>
+			<visible>Container.Scrolling + !Window.IsVisible(progressdialog) + [Container.Content(Movies) | Container.Content(TVshows) | Container.Content(albums) | Container.Content(artists)]</visible>
 			<animation effect="fade" time="200">Visible</animation>
 			<animation effect="fade" time="200" delay="500">Hidden</animation>
-			<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]" effect="fade" start="100" end="0" time="0" reversible="true">Conditional</animation>
+			<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(Movies) | Container.Content(TVshows) | Container.Content(albums) | Container.Content(artists)]" effect="fade" start="100" end="0" time="0" reversible="true">Conditional</animation>
 			<left>598</left>
 			<top>24</top>
 			<width>82</width>
@@ -1509,7 +1513,7 @@
 				<width>32</width>
 				<height>32</height>
 				<texture>groupunfocused.png</texture>
-				<visible>Skin.HasSetting(show-letterbar) + ![Control.HasFocus(1240) | Control.HasFocus(1242) | Control.HasFocus(1243) | Control.HasFocus(1248) | Control.HasFocus(1260) | Control.HasFocus(1262) | Control.HasFocus(1263) | Control.HasFocus(1268)]</visible>
+				<visible>Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(artists) | Container.Content(albums)] + ![Control.HasFocus(1240) | Control.HasFocus(1242) | Control.HasFocus(1243) | Control.HasFocus(1248) | Control.HasFocus(1260) | Control.HasFocus(1262) | Control.HasFocus(1263) | Control.HasFocus(1268)]</visible>
 			</control>
 			<control type="image">
 				<width>32</width>
@@ -1570,7 +1574,7 @@
 				<width>32</width>
 				<height>32</height>
 				<texture>groupunfocused.png</texture>
-				<visible>Skin.HasSetting(show-letterbar) + ![Control.HasFocus(1244) | Control.HasFocus(1247) | Control.HasFocus(1264) | Control.HasFocus(1267)]</visible>
+				<visible>Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(artists) | Container.Content(albums)] + ![Control.HasFocus(1244) | Control.HasFocus(1247) | Control.HasFocus(1264) | Control.HasFocus(1267)]</visible>
 			</control>
 			<control type="image">
 				<width>32</width>
