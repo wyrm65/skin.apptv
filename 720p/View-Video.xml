@@ -681,7 +681,7 @@
 			<width>16</width>
 			<height>576</height>
 			<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">1260</onleft>
-			<onleft condition="!Skin.HasSetting(show-letterbar)">50</onleft>
+			<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(movies) | Container.Content(tvshows)]">50</onleft>
 			<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]" effect="slide" end="10,0" reversible="true">Conditional</animation>
 			<visible>Control.IsVisible(50) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
@@ -946,7 +946,7 @@
 			<width>16</width>
 			<height>576</height>
 			<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">1262</onleft>
-			<onleft condition="!Skin.HasSetting(show-letterbar)">52</onleft>
+			<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(movies) | Container.Content(tvshows)]">52</onleft>
 			<animation condition="!Control.HasFocus(1252) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]" effect="slide" end="10,0" reversible="true">Conditional</animation>
 			<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Control.IsVisible(52)</visible>
@@ -1146,7 +1146,7 @@
 				</control>
 				<include>SortLetterNotification</include>
 				<control type="group" id="1233">
-					<visible>Control.IsVisible(53) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+					<visible>Control.IsVisible(53) + Skin.HasSetting(show-letterbar) + Container.Content(tvshows)</visible>
 					<control type="button" id="1243"><!-- Search -->
 						<left>1222</left>
 						<top>88</top>
@@ -1208,7 +1208,7 @@
 						<width>16</width>
 						<height>516</height>
 						<onleft condition="Skin.HasSetting(show-letterbar)">1263</onleft>
-						<onleft condition="!Skin.HasSetting(show-letterbar)">53</onleft>
+						<onleft condition="!Skin.HasSetting(show-letterbar) | !Container.Content(tvshows)">53</onleft>
 						<animation condition="!Control.HasFocus(1253) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 						<animation condition="Skin.HasSetting(show-letterbar)" effect="slide" end="22,0" reversible="true">Conditional</animation>
 						<visible>Control.IsVisible(53) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
@@ -1498,7 +1498,7 @@
 				<height>16</height>
 				<orientation>horizontal</orientation>
 				<onup condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">1264</onup>
-				<onup condition="!Skin.HasSetting(show-letterbar)">54</onup>
+				<onup condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(movies) | Container.Content(tvshows)]">54</onup>
 				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]" effect="slide" end="0,10" reversible="true">Conditional</animation>
 				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Control.IsVisible(54)</visible>
@@ -2001,7 +2001,7 @@
 				<height>16</height>
 				<orientation>horizontal</orientation>
 				<onup condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">1267</onup>
-				<onup condition="!Skin.HasSetting(show-letterbar)">57</onup>
+				<onup condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(movies) | Container.Content(tvshows)]">57</onup>
 				<animation condition="!Control.HasFocus(1257) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]" effect="slide" end="0,10" reversible="true">Conditional</animation>
 				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Control.IsVisible(57)</visible>
@@ -2325,7 +2325,7 @@
 				<width>16</width>
 				<height>576</height>
 				<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">1268</onleft>
-				<onleft condition="!Skin.HasSetting(show-letterbar)">58</onleft>
+				<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(movies) | Container.Content(tvshows)]">58</onleft>
 				<animation condition="!Control.HasFocus(1258) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]" effect="slide" end="10,0" reversible="true">Conditional</animation>
 				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Control.IsVisible(58)</visible>
