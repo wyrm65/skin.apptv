@@ -11,7 +11,7 @@
 			<left>440</left>
 			<top>102</top>
 			<width>380</width>
-			<height>500</height>
+			<height>512</height>
 			<texture border="8">button-menu-background.png</texture>
 		</control>
 		<control type="label"><!-- Dialog heading -->
@@ -19,44 +19,53 @@
 			<top>112</top>
 			<width>360</width>
 			<height>31</height>
-			<label>$LOCALIZE[31558]</label>
+			<label>$LOCALIZE[31558]$INFO[Container(9000).NumItems,(,)]</label>
 			<align>center</align>
+		</control>
+		<control type="button"><!-- Touch mouse close button -->
+			<left>796</left>
+			<top>94</top>
+			<width>32</width>
+			<height>32</height>
+			<texturefocus>touch-close.png</texturefocus>
+			<texturenofocus>touch-close.png</texturenofocus>
+			<onclick>Close</onclick>
+			<visible>System.GetBool(input.enablemouse)</visible>
 		</control>
 		<control type="image">
 			<left>450</left>
-			<top>144</top>
+			<top>148</top>
 			<width>360</width>
 			<height>4</height>
 			<texture>separator.png</texture>
 		</control>
 		<control type="grouplist" id="9000">
 			<left>450</left>
-			<top>74</top>
+			<top>154</top>
 			<width>360</width>
-			<height>500</height>
-			<onleft>9000</onleft>
-			<onright>9000</onright>
-			<onup>9000</onup>
-			<ondown>9000</ondown>
-			<align>center</align>
+			<height>450</height>
+			<onleft>Close</onleft>
+			<onright>Close</onright>
+			<onup>Close</onup>
+			<ondown>Close</ondown>
+			<align>top</align>
 			<control type="button" id="2"><!-- Exit -->
 				<width>360</width>
 				<height>50</height>
 				<align>center</align>
-				<aligny>top</aligny>
-				<textoffsety>6</textoffsety>
+				<aligny>center</aligny>
 				<textwidth>330</textwidth>
+				<font>font11</font>
 				<onclick>Quit()</onclick>
 				<label>$LOCALIZE[13009]</label>
-				<visible>System.ShowExitButton</visible>
 			</control>
 			<control type="button" id="3"><!-- Shutdown -->
 				<width>360</width>
 				<height>50</height>
 				<align>center</align>
-				<aligny>top</aligny>
-				<textoffsety>6</textoffsety>
+				<aligny>center</aligny>
 				<textwidth>330</textwidth>
+				<font>font11</font>
 				<onclick>Powerdown()</onclick>
 				<visible>System.CanPowerDown</visible>
 				<label>$LOCALIZE[13016]</label>
@@ -65,32 +74,31 @@
 				<width>360</width>
 				<height>50</height>
 				<align>center</align>
-				<aligny>top</aligny>
-				<textoffsety>6</textoffsety>
+				<aligny>center</aligny>
 				<textwidth>330</textwidth>
+				<font>font11</font>
 				<onclick>AlarmClock(shutdowntimer,ShutDown())</onclick>
 				<label>$LOCALIZE[20150]</label>
-				<visible>!System.HasAlarm(shutdowntimer)</visible>
-				<visible>System.CanPowerDown | System.CanSuspend | System.CanHibernate</visible>
+				<visible>!System.HasAlarm(shutdowntimer) + [System.CanPowerDown | System.CanSuspend | System.CanHibernate]</visible>
 			</control>
 			<control type="button" id="5"><!-- Cancel shutdown timer -->
 				<width>360</width>
 				<height>50</height>
 				<align>center</align>
-				<aligny>top</aligny>
-				<textoffsety>6</textoffsety>
+				<aligny>center</aligny>
 				<textwidth>330</textwidth>
+				<font>font11</font>
 				<onclick>CancelAlarm(shutdowntimer)</onclick>
-				<label>$LOCALIZE[20151]</label>
+				<label>$LOCALIZE[20151] $INFO[System.Alarmpos,(,)]</label>
 				<visible>System.HasAlarm(shutdowntimer)</visible>
 			</control>
 			<control type="button" id="6"><!-- Suspend -->
 				<width>360</width>
 				<height>50</height>
 				<align>center</align>
-				<aligny>top</aligny>
-				<textoffsety>6</textoffsety>
+				<aligny>center</aligny>
 				<textwidth>330</textwidth>
+				<font>font11</font>
 				<onclick>Suspend()</onclick>
 				<visible>System.CanSuspend</visible>
 				<label>$LOCALIZE[13011]</label>
@@ -99,9 +107,9 @@
 				<width>360</width>
 				<height>50</height>
 				<align>center</align>
-				<aligny>top</aligny>
-				<textoffsety>6</textoffsety>
+				<aligny>center</aligny>
 				<textwidth>330</textwidth>
+				<font>font11</font>
 				<onclick>Hibernate()</onclick>
 				<visible>System.CanHibernate</visible>
 				<label>$LOCALIZE[13010]</label>
@@ -110,9 +118,9 @@
 				<width>360</width>
 				<height>50</height>
 				<align>center</align>
-				<aligny>top</aligny>
-				<textoffsety>6</textoffsety>
+				<aligny>center</aligny>
 				<textwidth>330</textwidth>
+				<font>font11</font>
 				<onclick>Reset()</onclick>
 				<visible>System.CanReboot</visible>
 				<label>$LOCALIZE[13013]</label>
@@ -121,14 +129,13 @@
 				<width>360</width>
 				<height>50</height>
 				<align>center</align>
-				<aligny>top</aligny>
-				<textoffsety>6</textoffsety>
+				<aligny>center</aligny>
 				<textwidth>330</textwidth>
+				<font>font11</font>
 				<onclick>Dialog.Close(all,true)</onclick>
 				<onclick>System.LogOff</onclick>
 				<label>$LOCALIZE[20126] $INFO[system.profilename]</label>
-				<visible>System.HasLoginScreen | IntegerGreaterThan(System.ProfileCount,1)</visible>
-				<visible>System.Loggedon</visible>
+				<visible>[System.HasLoginScreen | IntegerGreaterThan(System.ProfileCount,1)] + System.Loggedon</visible>
 			</control>
 			<control type="togglebutton" id="10"><!-- Master mode -->
 				<width>360</width>
@@ -136,46 +143,31 @@
 				<label>$LOCALIZE[20046]</label>
 				<altlabel>$LOCALIZE[20045]</altlabel>
 				<align>center</align>
-				<aligny>top</aligny>
-				<textoffsety>6</textoffsety>
+				<aligny>center</aligny>
 				<textwidth>330</textwidth>
+				<font>font11</font>
 				<usealttexture>!System.IsMaster</usealttexture>
 				<onclick>Mastermode</onclick>
 				<visible>System.HasLocks</visible>
-			</control>
-			<control type="group" id="11">
-				<width>360</width>
-				<height>70</height>
-				<visible>System.HasAlarm(shutdowntimer)</visible>
-				<control type="textbox">
-					<left>25</left>
-					<top>20</top>
-					<width>330</width>
-					<height>50</height>
-					<font>font12</font>
-					<align>center</align>
-					<aligny>top</aligny>
-					<label>$LOCALIZE[31329] [B]$INFO[System.Alarmpos][/B]</label>
-				</control>
 			</control>
 			<control type="button" id="12"><!-- Inhibit idle shutdown -->
 				<width>360</width>
 				<height>50</height>
 				<align>center</align>
-				<aligny>top</aligny>
-				<textoffsety>6</textoffsety>
+				<aligny>center</aligny>
 				<textwidth>330</textwidth>
+				<font>font11</font>
 				<onclick>InhibitIdleShutdown(true)</onclick>
 				<label>$LOCALIZE[13017]</label>
-				<visible>System.HasShutdown +!System.IsInhibit</visible>
+				<visible>System.HasShutdown + !System.IsInhibit</visible>
 			</control>
 			<control type="button" id="13"><!-- Allow idel shutdown -->
 				<width>360</width>
 				<height>50</height>
 				<align>center</align>
-				<aligny>top</aligny>
-				<textoffsety>6</textoffsety>
+				<aligny>center</aligny>
 				<textwidth>330</textwidth>
+				<font>font11</font>
 				<onclick>InhibitIdleShutdown(false)</onclick>
 				<label>$LOCALIZE[13018]</label>
 				<visible>System.HasShutdown + System.IsInhibit</visible>
