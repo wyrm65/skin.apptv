@@ -23,7 +23,7 @@
 			<texturefocus>touch-close.png</texturefocus>
 			<texturenofocus>touch-close.png</texturenofocus>
 			<onclick>Dialog.Close(playercontrols)</onclick>
-			<visible>System.GetBool(input.enablemouse)</visible>
+			<visible>Skin.HasSetting(touch-controls)</visible>
 		</control>
 
 		<!-- Media Info -->
@@ -43,7 +43,7 @@
 				<texturefocus>-</texturefocus>
 				<onclick>Dialog.Close(playercontrols)</onclick>
 				<onclick>Fullscreen</onclick>
-				<visible>System.GetBool(input.enablemouse)</visible>
+				<visible>Skin.HasSetting(touch-controls)</visible>
 			</control>
 			<control type="label"><!-- Now playing -->
 				<left>354</left>
@@ -143,7 +143,7 @@
 				<texturenofocus>-</texturenofocus>
 				<onclick>Dialog.Close(playercontrols)</onclick>
 				<onclick>Fullscreen</onclick>
-				<visible>System.GetBool(input.enablemouse)</visible>
+				<visible>Skin.HasSetting(touch-controls)</visible>
 			</control>
 			<control type="label">
 				<left>354</left>
