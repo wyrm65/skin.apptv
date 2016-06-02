@@ -19,7 +19,7 @@
 			<width>496</width>
 			<height>34</height>
 			<font>font12</font>
-			<label>$LOCALIZE[31560]</label>
+			<label>$LOCALIZE[31560]$INFO[Container(996).NumItems, (,)]</label>
 			<align>center</align>
 			<visible>IntegerGreaterThan(Container(996).NumItems,3) | IsEmpty(ListItem.Title)</visible>
 		</control>
@@ -29,7 +29,7 @@
 			<width>496</width>
 			<height>34</height>
 			<font>font12</font>
-			<label>$LOCALIZE[208]</label>
+			<label>$LOCALIZE[208]$INFO[Container(996).NumItems, (,)]</label>
 			<align>center</align>
 			<visible>!IntegerGreaterThan(Container(996).NumItems,3) + !IsEmpty(ListItem.Title)</visible>
 		</control>
