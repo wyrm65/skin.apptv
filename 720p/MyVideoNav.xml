@@ -10,7 +10,7 @@
 	<controls>
 		<visible>!Window.IsVisible(movieinformation)</visible>
 		<include>background</include>
-		<include>Fake-Overlay</include>
+		<include>fake-overlay</include>
 		<control type="grouplist">
 			<left>780</left>
 			<top>25</top>
@@ -44,7 +44,7 @@
 			<include file="View-Video.xml">VideoWrapView</include>
 			<include file="View-Video.xml">VideoCoverflow</include>
 			<include file="View-Video.xml">VideoWallView</include>
-			<include file="View-PVR.xml">PVRLiveTVView</include>
+			<!--<include file="View-PVR.xml">PVRLiveTVView</include>-->
 		</control>
 
 		<control type="group"><!-- No Label tag means video addon is busy pulling in content, so show a busy animation -->
@@ -113,7 +113,7 @@
 					<font>font11</font>
 					<label>$LOCALIZE[100]</label>
 				</control>
-				<control type="button" id="1196"><!-- List view idle animantion delay -->
+				<control type="button" id="1195"><!-- List view idle animantion delay -->
 					<width>426</width>
 					<height>46</height>
 					<label>$LOCALIZE[31885]</label>
@@ -121,6 +121,16 @@
 					<font>font11</font>
 					<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=listview-idleanim-val,header=$LOCALIZE[31885])</onclick>
 					<visible>SubString(Control.GetLabel(2),$LOCALIZE[31941],Right)</visible>
+				</control>
+				<control type="radiobutton" id="1196"><!-- Use animated Artwork  -->
+					<width>426</width>
+					<height>46</height>
+					<label>$LOCALIZE[31867]</label>
+					<font>font11</font>
+					<onclick>Skin.ToggleSetting(SkinHelper.EnableAnimatedPosters)</onclick>
+					<selected>Skin.HasSetting(SkinHelper.EnableAnimatedPosters)</selected>
+					<radioposx>330</radioposx>
+					<visible>Skin.HasSetting(SkinHelper.EnableExtraFanart) + Container.Content(movies)</visible>
 				</control>
 				<control type="radiobutton" id="1197"><!-- Tilt list view icons button  -->
 					<width>426</width>

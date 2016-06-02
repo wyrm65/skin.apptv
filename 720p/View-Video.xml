@@ -707,7 +707,7 @@
 					<width>168</width>
 					<height>168</height>
 					<aspectratio>keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Icon]</texture>
+					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" background="true">$VAR[IconPoster]</texture>
 					<visible>SubString(ListItem.Icon,Default,Left) | ![Container.Content(movies) | Container.Content(tvshows)]</visible>
 				</control>
 				<control type="image">
@@ -716,7 +716,7 @@
 					<width>120</width>
 					<height>168</height>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$INFO[ListItem.Icon]</texture>
+					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 					<visible>!SubString(ListItem.Icon,Default,Left) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 				</control>
 				<control type="image"><!-- Extras Overlay -->
@@ -752,7 +752,7 @@
 					<height>168</height>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 					<animation effect="zoom" start="100" end="124" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
-					<texture background="true" diffuse="mask-rect.png">$INFO[ListItem.Icon]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 					<visible>SubString(ListItem.Icon,Default,Left)</visible>
 				</control>
 				<control type="image">
@@ -760,7 +760,7 @@
 					<top>5</top>
 					<width>168</width>
 					<height>168</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$INFO[ListItem.Icon]</texture>
+					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 					<bordertexture border="7">mask-hilite.png</bordertexture>
 					<bordersize>7</bordersize>
 					<aspectratio scalediffuse="false">keep</aspectratio>
@@ -772,7 +772,7 @@
 					<top>5</top>
 					<width>120</width>
 					<height>168</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$INFO[ListItem.Icon]</texture>
+					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 					<bordertexture border="7">mask-hilite.png</bordertexture>
 					<bordersize>7</bordersize>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
