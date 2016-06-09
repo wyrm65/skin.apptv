@@ -405,7 +405,7 @@
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="IconPoster">
-		<value condition="!IsEmpty(ListItem.Art(animatedposter)) + Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">$INFO[ListItem.Art(animatedposter)]</value>
+		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !IsEmpty(ListItem.Art(animatedposter)) + Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">$INFO[ListItem.Art(animatedposter)]</value>
 		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value condition="!IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem.Icon) + Substring(ListItem.Icon,DefaultFolderBack)">$INFO[ListItem.Icon]</value>
@@ -1394,6 +1394,84 @@
 				</control>
 			</control>
 		</control>
+	</include>
+
+	<include name="listitem-count">
+		<param name="left" default="0"/>
+		<param name="top" default="0"/>
+		<param name="count"/>
+		<param name="size" default="100"/>
+		<definition>
+			<control type="group">
+				<visible>IntegerGreaterThan($PARAM[count],0)</visible>
+				<animation condition="true" effect="zoom" start="100" end="$PARAM[size]" center="auto" time="0">Conditional</animation>
+				<left>$PARAM[left]</left>
+				<top>$PARAM[top]</top>
+				<control type="group">
+					<description> Count (less than 10) </description>
+					<visible>!IntegerGreaterThan($PARAM[count],9)</visible>
+					<control type="image">
+						<left>12</left>
+						<top>0</top>
+						<width>32</width>
+						<height>32</height>
+						<texture>overlaynumberitems.png</texture>
+					</control>
+					<control type="label">
+						<left>22</left>
+						<top>4</top>
+						<width>12</width>
+						<height>20</height>
+						<font>font10</font>
+						<label>$INFO[$PARAM[count]]</label>
+						<shadowcolor></shadowcolor>
+						<align>center</align>
+					</control>
+				</control>
+				<control type="group">
+					<description> Count (10 - 99) </description>
+					<visible>IntegerGreaterThan($PARAM[count],9) + !IntegerGreaterThan($PARAM[count],99)</visible>
+					<control type="image">
+						<left>6</left>
+						<top>0</top>
+						<width>44</width>
+						<height>32</height>
+						<texture border="16,0,16,0">overlaynumberitems.png</texture>
+					</control>
+					<control type="label">
+						<left>16</left>
+						<top>4</top>
+						<width>24</width>
+						<height>20</height>
+						<font>font10</font>
+						<label>$INFO[$PARAM[count]]</label>
+						<shadowcolor></shadowcolor>
+						<align>center</align>
+					</control>
+				</control>
+				<control type="group">
+					<description> Count (100 - 999) </description>
+					<visible>IntegerGreaterThan($PARAM[count],99) + !IntegerGreaterThan($PARAM[count],999)</visible>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>56</width>
+						<height>32</height>
+						<texture border="16,0,16,0">overlaynumberitems.png</texture>
+					</control>
+					<control type="label">
+						<left>10</left>
+						<top>4</top>
+						<width>36</width>
+						<height>20</height>
+						<font>font10</font>
+						<label>$INFO[$PARAM[count]]</label>
+						<shadowcolor></shadowcolor>
+						<align>center</align>
+					</control>
+				</control>
+			</control>
+		</definition>
 	</include>
 
 	<include name="touch-controls">

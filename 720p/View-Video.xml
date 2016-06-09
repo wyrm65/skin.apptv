@@ -516,28 +516,31 @@
 				</control>
 				<control type="group">
 					<visible>[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
-					<control type="group"><!-- Show Icon For TV SHOW/SEASON/EPISODES -->
+					<control type="image"><!-- Show Icon For TV SHOW/SEASON/EPISODES -->
+						<left>314</left>
+						<top>116</top>
+						<width>336</width>
+						<height>336</height>
+						<texture fallback="DefaultTvshows.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+						<aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
 						<visible>!SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
-						<control type="image">
-							<left>314</left>
-							<top>116</top>
-							<width>336</width>
-							<height>336</height>
-							<texture fallback="DefaultTvshows.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-							<aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
-						</control>
 					</control>
-					<control type="group"><!-- Show TV icon as the Default icon -->
+					<control type="image"><!-- Show TV icon as the Default icon -->
+						<left>314</left>
+						<top>116</top>
+						<width>336</width>
+						<height>336</height>
+						<texture>DefaultTvshows.png</texture>
+						<aspectratio align="right" aligny="top">keep</aspectratio>
 						<visible>SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
-						<control type="image">
-							<left>314</left>
-							<top>116</top>
-							<width>336</width>
-							<height>336</height>
-							<texture>DefaultTvshows.png</texture>
-							<aspectratio align="right" aligny="top">keep</aspectratio>
-						</control>
 					</control>
+					<include name="listitem-count">
+						<param name="left" value="592"/>
+						<param name="top" value="418"/>
+						<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
+						<param name="size" value="100"/>
+					</include>
+
 				</control>
 			</control>
 			<control type="group">
@@ -551,15 +554,6 @@
 					<colordiffuse>StarDiffuse</colordiffuse>
 					<aspectratio>keep</aspectratio>
 					<visible>!IsEmpty(ListItem.StarRating)</visible>
-				</control>
-				<control type="label"><!-- Number of unwatched episodes -->
-					<left>17</left>
-					<top>302</top>
-					<width>285</width>
-					<height>31</height>
-					<font>font11</font>
-					<label>$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101]</label>
-					<visible>!IsEmpty(ListItem.Property(UnWatchedEpisodes)) + [Container.Content(tvshows) | Container.Content(seasons)]</visible>
 				</control>
 				<control type="group"><!-- Duration -->
 					<visible>!IsEmpty(listitem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
@@ -734,6 +728,12 @@
 					<height>32</height>
 					<texture>$VAR[Overlay]</texture>
 				</control>
+				<include name="listitem-count">
+					<param name="left" value="146"/>
+					<param name="top" value="132"/>
+					<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
+					<param name="size" value="70"/>
+				</include>
 				<control type="label">
 					<left>10</left>
 					<top>185</top>
@@ -745,56 +745,60 @@
 				</control>
 			</itemlayout>
 			<focusedlayout height="234" width="300">
-				<control type="image">
-					<left>66</left>
-					<top>5</top>
-					<width>168</width>
-					<height>168</height>
-					<aspectratio scalediffuse="false">keep</aspectratio>
+				<control type="group">
 					<animation effect="zoom" start="100" end="124" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
-					<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-					<visible>SubString(ListItem.Icon,Default,Left)</visible>
-				</control>
-				<control type="image">
-					<left>66</left>
-					<top>5</top>
-					<width>168</width>
-					<height>168</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-					<bordertexture border="7">mask-hilite.png</bordertexture>
-					<bordersize>7</bordersize>
-					<aspectratio scalediffuse="false">keep</aspectratio>
-					<animation effect="zoom" start="100" end="124" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
-					<visible>!SubString(ListItem.Icon,Default,Left) + ![Container.Content(movies) | Container.Content(tvshows)]</visible>
-				</control>
-				<control type="image">
-					<left>90</left>
-					<top>5</top>
-					<width>120</width>
-					<height>168</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-					<bordertexture border="7">mask-hilite.png</bordertexture>
-					<bordersize>7</bordersize>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<animation effect="zoom" start="100" end="124" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
-					<visible>!SubString(ListItem.Icon,Default,Left) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
-				</control>
-				<control type="image"><!-- Extras Overlay -->
-					<left>90</left>
-					<top>0</top>
-					<width>16</width>
-					<height>16</height>
-					<texture>$VAR[ExtrasOverlay]</texture>
-					<animation effect="zoom" start="100" end="124" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
-					<visible>System.HasAddon(script.videoextras)</visible>
-				</control>
-				<control type="image"><!-- Watched Overlay -->
-					<left>186</left>
-					<top>-10</top>
-					<width>32</width>
-					<height>32</height>
-					<texture>$VAR[Overlay]</texture>
-					<animation effect="zoom" start="100" end="124" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
+					<control type="image">
+						<left>66</left>
+						<top>5</top>
+						<width>168</width>
+						<height>168</height>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+						<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+						<visible>SubString(ListItem.Icon,Default,Left)</visible>
+					</control>
+					<control type="image">
+						<left>66</left>
+						<top>5</top>
+						<width>168</width>
+						<height>168</height>
+						<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+						<bordertexture border="7">mask-hilite.png</bordertexture>
+						<bordersize>7</bordersize>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+						<visible>!SubString(ListItem.Icon,Default,Left) + ![Container.Content(movies) | Container.Content(tvshows)]</visible>
+					</control>
+					<control type="image">
+						<left>90</left>
+						<top>5</top>
+						<width>120</width>
+						<height>168</height>
+						<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+						<bordertexture border="7">mask-hilite.png</bordertexture>
+						<bordersize>7</bordersize>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<visible>!SubString(ListItem.Icon,Default,Left) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+					</control>
+					<control type="image"><!-- Extras Overlay -->
+						<left>100</left>
+						<top>14</top>
+						<width>16</width>
+						<height>16</height>
+						<texture>$VAR[ExtrasOverlay]</texture>
+						<visible>System.HasAddon(script.videoextras)</visible>
+					</control>
+					<control type="image"><!-- Watched Overlay -->
+						<left>178</left>
+						<top>4</top>
+						<width>32</width>
+						<height>32</height>
+						<texture>$VAR[Overlay]</texture>
+					</control>
+					<include name="listitem-count">
+						<param name="left" value="138"/>
+						<param name="top" value="126"/>
+						<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
+						<param name="size" value="70"/>
+					</include>
 				</control>
 				<control type="label">
 					<left>10</left>
@@ -995,6 +999,12 @@
 						<aspectratio>keep</aspectratio>
 						<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 					</control>
+					<include name="listitem-count">
+						<param name="left" value="486"/>
+						<param name="top" value="66"/>
+						<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
+						<param name="size" value="85"/>
+					</include>
 				</itemlayout>
 				<focusedlayout width="542" height="100">
 					<control type="group">
@@ -1021,6 +1031,12 @@
 							<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 						</control>
 					</control>
+					<include name="listitem-count">
+						<param name="left" value="486"/>
+						<param name="top" value="66"/>
+						<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
+						<param name="size" value="85"/>
+					</include>
 				</focusedlayout>
 			</control>
 			<control type="group">
@@ -1112,14 +1128,6 @@
 						<font>font11</font>
 						<align>center</align>
 						<visible>!IsEmpty(ListItem.Rating)</visible>
-					</control>
-					<control type="label">
-						<width>600</width>
-						<height>28</height>
-						<label>$INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101] $LOCALIZE[20360]</label>
-						<font>font11</font>
-						<align>center</align>
-						<visible>!IsEmpty(ListItem.Property(UnWatchedEpisodes))</visible>
 					</control>
 					<control type="image">
 						<width>600</width>
@@ -1262,6 +1270,12 @@
 					<texture>$VAR[Overlay]</texture>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 				</control>
+				<include name="listitem-count">
+					<param name="left" value="28"/>
+					<param name="top" value="440"/>
+					<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
+					<param name="size" value="54"/>
+				</include>
 				<control type="image">
 					<left>57</left>
 					<top>322</top>
@@ -1330,6 +1344,12 @@
 					<width>40</width>
 					<texture>$VAR[Overlay]</texture>
 				</control>
+				<include name="listitem-count">
+					<param name="left" value="170"/>
+					<param name="top" value="428"/>
+					<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
+					<param name="size" value="90"/>
+				</include>
 				<control type="image">
 					<left>206</left>
 					<top>120</top>
@@ -1848,6 +1868,12 @@
 					<animation condition="!Control.HasFocus(57)" effect="fade" start="100" end="60" time="0" reversible="true">Conditional</animation>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 				</control>
+				<include name="listitem-count">
+					<param name="left" value="716"/>
+					<param name="top" value="364"/>
+					<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
+					<param name="size" value="100"/>
+				</include>
 			</control>
 		</control>
 		<control type="group">
@@ -2063,6 +2089,12 @@
 						<texture>$VAR[ExtrasOverlay]</texture>
 						<visible>System.HasAddon(script.videoextras)</visible>
 					</control>
+					<include name="listitem-count">
+						<param name="left" value="80"/>
+						<param name="top" value="152"/>
+						<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
+						<param name="size" value="70"/>
+					</include>
 				</control>
 				<control type="group">
 					<visible>!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(episodes) + !Container.Content(musicvideos)</visible>
@@ -2125,6 +2157,12 @@
 						<texture>$VAR[ExtrasOverlay]</texture>
 						<visible>System.HasAddon(script.videoextras)</visible>
 					</control>
+					<include name="listitem-count">
+						<param name="left" value="80"/>
+						<param name="top" value="148"/>
+						<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
+						<param name="size" value="70"/>
+					</include>
 				</control>
 				<control type="group">
 					<visible>!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(episodes) + !Container.Content(musicvideos)</visible>
