@@ -537,7 +537,7 @@
 					<include name="listitem-count">
 						<param name="left" value="592"/>
 						<param name="top" value="418"/>
-						<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
+						<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
 						<param name="size" value="100"/>
 					</include>
 
@@ -731,7 +731,7 @@
 				<include name="listitem-count">
 					<param name="left" value="146"/>
 					<param name="top" value="132"/>
-					<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
+					<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
 					<param name="size" value="70"/>
 				</include>
 				<control type="label">
@@ -796,7 +796,7 @@
 					<include name="listitem-count">
 						<param name="left" value="138"/>
 						<param name="top" value="126"/>
-						<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
+						<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
 						<param name="size" value="70"/>
 					</include>
 				</control>
@@ -813,77 +813,88 @@
 				</control>
 			</focusedlayout>
 		</control>
-		<control type="group"><!-- Show the bottom row of icons as long as another row exists -->
-			<visible>[Container.Content(movies) | Container.Content(tvshows)] + Control.IsVisible(52) + Container(52).HasNext + ![Container().OnScrollNext | Container().OnScrollPrevious]</visible>
-			<left>20</left>
-			<animation effect="fade" delay="0" start="0" end="100" time="200">Visible</animation>
-			<control type="image">
-				<left>90</left>
-				<top>574</top>
-				<width>120</width>
-				<height>168</height>
-				<aspectratio>stretch</aspectratio>
-				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(8)Poster]</texture>
+		<control type="group">
+		<visible>Control.IsVisible(52) + Container(52).HasNext + ![Container().OnScrollNext | Container().OnScrollPrevious]</visible>
+			<control type="group"><!-- Show the bottom row of icons as long as another row exists -->
+				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+				<left>20</left>
+				<animation effect="fade" delay="0" start="0" end="100" time="200">Visible</animation>
+				<control type="image">
+					<left>90</left>
+					<top>574</top>
+					<width>120</width>
+					<height>168</height>
+					<aspectratio>stretch</aspectratio>
+					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(8)Poster]</texture>
+				</control>
+				<control type="image">
+					<left>390</left>
+					<top>574</top>
+					<width>120</width>
+					<height>168</height>
+					<aspectratio>stretch</aspectratio>
+					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(9)Poster]</texture>
+				</control>
+				<control type="image">
+					<left>690</left>
+					<top>574</top>
+					<width>120</width>
+					<height>168</height>
+					<aspectratio>stretch</aspectratio>
+					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(10)Poster]</texture>
+				</control>
+				<control type="image">
+					<left>990</left>
+					<top>574</top>
+					<width>120</width>
+					<height>168</height>
+					<aspectratio>stretch</aspectratio>
+					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(11)Poster]</texture>
+				</control>
 			</control>
-			<control type="image">
-				<left>390</left>
-				<top>574</top>
-				<width>120</width>
-				<height>168</height>
-				<aspectratio>stretch</aspectratio>
-				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(9)Poster]</texture>
+			<control type="group"><!-- Show the bottom row of icons as long as another row exists -->
+				<visible>![Container.Content(movies) + Container.Content(tvshows)]</visible>
+				<animation effect="fade" delay="0" start="0" end="100" time="200">Visible</animation>
+				<control type="image">
+					<left>86</left>
+					<top>574</top>
+					<width>168</width>
+					<height>168</height>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(8)VideoIcon]</texture>
+				</control>
+				<control type="image">
+					<left>386</left>
+					<top>574</top>
+					<width>168</width>
+					<height>168</height>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(9)VideoIcon]</texture>
+				</control>
+				<control type="image">
+					<left>686</left>
+					<top>574</top>
+					<width>168</width>
+					<height>168</height>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(10)VideoIcon]</texture>
+				</control>
+				<control type="image">
+					<left>986</left>
+					<top>574</top>
+					<width>168</width>
+					<height>168</height>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(11)VideoIcon]</texture>
+				</control>
 			</control>
-			<control type="image">
-				<left>690</left>
-				<top>574</top>
-				<width>120</width>
-				<height>168</height>
-				<aspectratio>stretch</aspectratio>
-				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(10)Poster]</texture>
-			</control>
-			<control type="image">
-				<left>990</left>
-				<top>574</top>
-				<width>120</width>
-				<height>168</height>
-				<aspectratio>stretch</aspectratio>
-				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(11)Poster]</texture>
-			</control>
-		</control>
-		<control type="group"><!-- Show the bottom row of icons as long as another row exists -->
-			<visible>![Container.Content(movies) | Container.Content(tvshows)] + Control.IsVisible(52) + Container(52).HasNext + ![Container().OnScrollNext | Container().OnScrollPrevious]</visible>
-			<animation effect="fade" delay="0" start="0" end="100" time="200">Visible</animation>
-			<control type="image">
+			<control type="button"><!-- Onfocus, move to next row of icon panel -->
 				<left>86</left>
 				<top>574</top>
-				<width>168</width>
-				<height>168</height>
-				<aspectratio scalediffuse="false">keep</aspectratio>
-				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(8)VideoIcon]</texture>
-			</control>
-			<control type="image">
-				<left>386</left>
-				<top>574</top>
-				<width>168</width>
-				<height>168</height>
-				<aspectratio scalediffuse="false">keep</aspectratio>
-				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(9)VideoIcon]</texture>
-			</control>
-			<control type="image">
-				<left>686</left>
-				<top>574</top>
-				<width>168</width>
-				<height>168</height>
-				<aspectratio scalediffuse="false">keep</aspectratio>
-				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(10)VideoIcon]</texture>
-			</control>
-			<control type="image">
-				<left>986</left>
-				<top>574</top>
-				<width>168</width>
-				<height>168</height>
-				<aspectratio scalediffuse="false">keep</aspectratio>
-				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(11)VideoIcon]</texture>
+				<width>1068</width>
+				<height>146</height>
+				<texturefocus>blank.png</texturefocus>
+				<onfocus>Control.Message(52,moveup)</onfocus>
 			</control>
 		</control>
 		<include>sortletternotification</include>
@@ -1002,7 +1013,7 @@
 					<include name="listitem-count">
 						<param name="left" value="486"/>
 						<param name="top" value="66"/>
-						<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
+						<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
 						<param name="size" value="85"/>
 					</include>
 				</itemlayout>
@@ -1034,7 +1045,7 @@
 					<include name="listitem-count">
 						<param name="left" value="486"/>
 						<param name="top" value="66"/>
-						<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
+						<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
 						<param name="size" value="85"/>
 					</include>
 				</focusedlayout>
@@ -1273,7 +1284,7 @@
 				<include name="listitem-count">
 					<param name="left" value="28"/>
 					<param name="top" value="440"/>
-					<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
+					<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
 					<param name="size" value="54"/>
 				</include>
 				<control type="image">
@@ -1347,7 +1358,7 @@
 				<include name="listitem-count">
 					<param name="left" value="170"/>
 					<param name="top" value="428"/>
-					<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
+					<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
 					<param name="size" value="90"/>
 				</include>
 				<control type="image">
@@ -1871,7 +1882,7 @@
 				<include name="listitem-count">
 					<param name="left" value="716"/>
 					<param name="top" value="364"/>
-					<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
+					<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
 					<param name="size" value="100"/>
 				</include>
 			</control>
@@ -2092,7 +2103,7 @@
 					<include name="listitem-count">
 						<param name="left" value="80"/>
 						<param name="top" value="152"/>
-						<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
+						<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
 						<param name="size" value="70"/>
 					</include>
 				</control>
@@ -2160,7 +2171,7 @@
 					<include name="listitem-count">
 						<param name="left" value="80"/>
 						<param name="top" value="148"/>
-						<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
+						<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
 						<param name="size" value="70"/>
 					</include>
 				</control>
@@ -2314,6 +2325,7 @@
 					<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
 					<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
 					<animation effect="fade" start="100" end="50" time="0" condition="!Control.HasFocus(1248)">Conditional</animation>
+					<animation effect="fade" start="0" end="100" delay="2000" time="200">Visible</animation>
 				</control>
 				<control type="panel" id="1268">
 					<left>1225</left>
