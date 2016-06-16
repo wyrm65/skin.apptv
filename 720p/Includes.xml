@@ -1407,68 +1407,42 @@
 				<animation condition="true" effect="zoom" start="100" end="$PARAM[size]" center="auto" time="0">Conditional</animation>
 				<left>$PARAM[left]</left>
 				<top>$PARAM[top]</top>
-				<control type="group">
+				<control type="image">
 					<description> Count (less than 10) </description>
+					<left>12</left>
+					<top>0</top>
+					<width>32</width>
+					<height>32</height>
+					<texture>overlaynumberitems.png</texture>
 					<visible>!IntegerGreaterThan($PARAM[count],9)</visible>
-					<control type="image">
-						<left>12</left>
-						<top>0</top>
-						<width>32</width>
-						<height>32</height>
-						<texture>overlaynumberitems.png</texture>
-					</control>
-					<control type="label">
-						<left>22</left>
-						<top>4</top>
-						<width>12</width>
-						<height>20</height>
-						<font>font10</font>
-						<label>$INFO[$PARAM[count]]</label>
-						<shadowcolor></shadowcolor>
-						<align>center</align>
-					</control>
 				</control>
-				<control type="group">
+				<control type="image">
 					<description> Count (10 - 99) </description>
+					<left>6</left>
+					<top>0</top>
+					<width>44</width>
+					<height>32</height>
+					<texture border="16,0,16,0">overlaynumberitems.png</texture>
 					<visible>IntegerGreaterThan($PARAM[count],9) + !IntegerGreaterThan($PARAM[count],99)</visible>
-					<control type="image">
-						<left>6</left>
-						<top>0</top>
-						<width>44</width>
-						<height>32</height>
-						<texture border="16,0,16,0">overlaynumberitems.png</texture>
-					</control>
-					<control type="label">
-						<left>16</left>
-						<top>4</top>
-						<width>24</width>
-						<height>20</height>
-						<font>font10</font>
-						<label>$INFO[$PARAM[count]]</label>
-						<shadowcolor></shadowcolor>
-						<align>center</align>
-					</control>
 				</control>
-				<control type="group">
+				<control type="image">
 					<description> Count (100 - 999) </description>
+					<left>0</left>
+					<top>0</top>
+					<width>56</width>
+					<height>32</height>
+					<texture border="16,0,16,0">overlaynumberitems.png</texture>
 					<visible>IntegerGreaterThan($PARAM[count],99) + !IntegerGreaterThan($PARAM[count],999)</visible>
-					<control type="image">
-						<left>0</left>
-						<top>0</top>
-						<width>56</width>
-						<height>32</height>
-						<texture border="16,0,16,0">overlaynumberitems.png</texture>
-					</control>
-					<control type="label">
-						<left>10</left>
-						<top>4</top>
-						<width>36</width>
-						<height>20</height>
-						<font>font10</font>
-						<label>$INFO[$PARAM[count]]</label>
-						<shadowcolor></shadowcolor>
-						<align>center</align>
-					</control>
+				</control>
+				<control type="label">
+					<left>10</left>
+					<top>4</top>
+					<width>36</width>
+					<height>20</height>
+					<font>font10</font>
+					<label>$INFO[$PARAM[count]]</label>
+					<shadowcolor></shadowcolor>
+					<align>center</align>
 				</control>
 			</control>
 		</definition>
