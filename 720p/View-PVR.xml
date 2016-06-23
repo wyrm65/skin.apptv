@@ -927,9 +927,9 @@
 			<visible>Control.IsVisible(50) + IntegerGreaterThan(Container(50).NumItems,0)</visible>
 			<control type="group">
 				<control type="list" id="50">
-					<left>678</left>
+					<left>674</left>
 					<top>118</top>
-					<width>552</width>
+					<width>560</width>
 					<height>560</height>
 					<onup>50</onup>
 					<ondown>50</ondown>
@@ -939,7 +939,7 @@
 					<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">27</onright>
 					<preloaditems>4</preloaditems>
 					<pagecontrol>27</pagecontrol>
-					<itemlayout width="552" height="70">
+					<itemlayout width="560" height="70">
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
@@ -992,7 +992,15 @@
 							<texture>$VAR[PVROverlay]</texture>
 						</control>
 					</itemlayout>
-					<focusedlayout width="552" height="70">
+					<focusedlayout width="560" height="70">
+						<control type="image"><!-- Button focus slider -->
+							<left>6</left>
+							<top>0</top>
+							<width>554</width>
+							<height>70</height>
+							<texture border="6">button-default-focus.png</texture>
+							<aspectratio>stretch</aspectratio>
+						</control>
 						<control type="image">
 							<left>10</left>
 							<top>10</top>
@@ -1045,34 +1053,6 @@
 							<texture>$VAR[PVROverlay]</texture>
 						</control>
 					</focusedlayout>
-				</control>
-				<control type="group">
-					<top>68</top>
-					<control type="group">
-						<control type="image"><!-- Button focus slider -->
-							<left>674</left>
-							<top>330</top>
-							<width>560</width>
-							<height>70</height>
-							<texture border="6">button-default-focus.png</texture>
-							<aspectratio>stretch</aspectratio>
-						</control>
-						<animation condition="Container(50).Position(0)" effect="slide" start="0,0" end="0,-280"
-							time="0" easing="inout" reversible="true">Conditional</animation>
-						<animation condition="Container(50).Position(1)" effect="slide" start="0,0" end="0,-210"
-							time="0" easing="inout" reversible="true">Conditional</animation>
-						<animation condition="Container(50).Position(2)" effect="slide" start="0,0" end="0,-140"
-							time="0" easing="inout" reversible="true">Conditional</animation>
-						<animation condition="Container(50).Position(3)" effect="slide" start="0,0" end="0,-70"
-							time="0" easing="inout" reversible="true">Conditional</animation>
-						<!-- Animation for postion 4 does nothing, so removed-->
-						<animation condition="Container(50).Position(5)" effect="slide" start="0,0" end="0,70"
-							time="0" easing="inout" reversible="true">Conditional</animation>
-						<animation condition="Container(50).Position(6)" effect="slide" start="0,0" end="0,140"
-							time="0" easing="inout" reversible="true">Conditional</animation>
-						<animation condition="Container(50).Position(7)" effect="slide" start="0,0" end="0,210"
-							time="0" easing="inout" reversible="true">Conditional</animation>
-					</control>
 				</control>
 				<control type="group"><!-- Current Icon/Channel playing -->
 					<control type="grouplist">

@@ -49,6 +49,14 @@
 				</control>
 			</itemlayout>
 			<focusedlayout width="575" height="66">
+				<control type="image"><!-- Button focus slider -->
+					<left>6</left>
+					<top>6</top>
+					<width>532</width>
+					<height>66</height>
+					<texture border="6">button-default-focus.png</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
 				<control type="label">
 					<left>46</left>
 					<top>22</top>
@@ -82,35 +90,6 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(50)</visible>
-			<control type="group">
-				<top>56</top>
-				<visible>[IntegerGreaterThan(Container(50).NumItems,0) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(50).NumItems,-1) + System.GetBool(filelists.showparentdiritems)]</visible>
-				<control type="group">
-					<control type="image"><!-- Button focus slider -->
-						<left>702</left>
-						<top>330</top>
-						<width>532</width>
-						<height>66</height>
-						<texture border="6">button-default-focus.png</texture>
-						<aspectratio>stretch</aspectratio>
-					</control>
-					<animation condition="Container(50).Position(0)" effect="slide" start="0,0" end="0,-264"
-						time="0" easing="inout" reversible="true">Conditional</animation>
-					<animation condition="Container(50).Position(1)" effect="slide" start="0,0" end="0,-198"
-						time="0" easing="inout" reversible="true">Conditional</animation>
-					<animation condition="Container(50).Position(2)" effect="slide" start="0,0" end="0,-132"
-						time="0" easing="inout" reversible="true">Conditional</animation>
-					<animation condition="Container(50).Position(3)" effect="slide" start="0,0" end="0,-66"
-						time="0" easing="inout" reversible="true">Conditional</animation>
-					<!-- Animation for postion 4 does nothing, so removed-->
-					<animation condition="Container(50).Position(5)" effect="slide" start="0,0" end="0,66"
-						time="0" easing="inout" reversible="true">Conditional</animation>
-					<animation condition="Container(50).Position(6)" effect="slide" start="0,0" end="0,132"
-						time="0" easing="inout" reversible="true">Conditional</animation>
-					<animation condition="Container(50).Position(7)" effect="slide" start="0,0" end="0,198"
-						time="0" easing="inout" reversible="true">Conditional</animation>
-				</control>
-			</control>
 			<control type="group">
 				<visible>![Window.IsVisible(videoplaylist) | Window.IsVisible(musicplaylist)]</visible>
 				<animation type="TYPE" condition="Skin.HasSetting(tiltmisclisticon)" reversible="false">

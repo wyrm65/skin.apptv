@@ -32,6 +32,24 @@
 					<texture>menu-mask.png</texture>
 				</control>
 			</control>
+			<control type="group">
+				<control type="image"><!-- Hilite first row of icons (first page) -->
+					<left>0</left>
+					<top>314</top>
+					<width>1280</width>
+					<height>200</height>
+					<texture>background-iconhomehilite.png</texture>
+					<visible>Container(9000).Row(0)</visible>
+				</control>
+				<control type="image"><!-- Hilite second row of icons (first page) -->
+					<left>0</left>
+					<top>466</top>
+					<width>1280</width>
+					<height>208</height>
+					<texture>background-iconhomehilite.png</texture>
+					<visible>Container(9000).Row(1)</visible>
+				</control>
+			</control>
 
 			<include condition="!Skin.HasSetting(home-time)" file="Includes_Shelf.xml">homeshelf-time</include><!-- Show time on home screen -->
 			<include condition="Skin.HasSetting(media-overlay)" file="Includes_Shelf.xml">shelf-nowplaying</include><!-- Now Playing -->
@@ -621,21 +639,21 @@
 			<visible>[Container(9000).Row(0) | Container(9000).Row(1)] + !Container(9000).HasPrevious()</visible>
 			<control type="image"><!-- Hide third row of icons if still in the first two rows of panel -->
 				<left>0</left>
-				<top>662</top>
+				<top>674</top>
 				<width>1280</width>
-				<height>58</height>
+				<height>46</height>
 				<texture>background-iconhome.png</texture>
 			</control>
 			<control type="button"><!-- Onfocus, move to next row of icon panel -->
 				<left>0</left>
-				<top>662</top>
+				<top>674</top>
 				<width>1280</width>
-				<height>58</height>
+				<height>46</height>
 				<texturefocus>blank.png</texturefocus>
 				<onfocus>Control.Message(9000,moveup)</onfocus>
 			</control>
-
 		</control>
+
 		<!-- RSS info -->
 		<control type="group" id="9940">
 			<include condition="System.GetBool(lookandfeel.enablerssfeeds)">page-info</include>

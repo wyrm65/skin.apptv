@@ -3,9 +3,9 @@
 	<include name="VideoListView">
 		<control type="fixedlist" id="50">
 			<viewtype label="31941">list</viewtype>
-			<left>668</left>
+			<left>664</left>
 			<top>100</top>
-			<width>555</width>
+			<width>560</width>
 			<height>576</height>
 			<focusposition>2</focusposition>
 			<movement>4</movement>
@@ -16,7 +16,7 @@
 			<ondown>50</ondown>
 			<preloaditems>4</preloaditems>
 			<pagecontrol>1250</pagecontrol>
-			<itemlayout width="555" height="64">
+			<itemlayout width="560" height="64">
 				<control type="image">
 					<left>8</left>
 					<top>22</top>
@@ -33,7 +33,7 @@
 					<visible>System.HasAddon(script.videoextras)</visible>
 				</control>
 				<control type="image">
-					<left>524</left>
+					<left>522</left>
 					<top>38</top>
 					<width>32</width>
 					<height>32</height>
@@ -41,7 +41,7 @@
 					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 				<control type="image">
-					<left>522</left>
+					<left>520</left>
 					<top>36</top>
 					<width>32</width>
 					<height>32</height>
@@ -176,7 +176,15 @@
 					</control>
 				</control>
 			</itemlayout>
-			<focusedlayout width="555" height="64">
+			<focusedlayout width="560" height="64">
+				<control type="image"><!-- Button focus slider -->
+					<left>6</left>
+					<top>6</top>
+					<width>554</width>
+					<height>64</height>
+					<texture border="6">button-default-focus.png</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
 				<control type="image">
 					<left>8</left>
 					<top>22</top>
@@ -193,7 +201,7 @@
 					<visible>System.HasAddon(script.videoextras)</visible>
 				</control>
 				<control type="image">
-					<left>524</left>
+					<left>522</left>
 					<top>38</top>
 					<width>32</width>
 					<height>32</height>
@@ -201,7 +209,7 @@
 					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 				<control type="image">
-					<left>522</left>
+					<left>520</left>
 					<top>36</top>
 					<width>32</width>
 					<height>32</height>
@@ -350,28 +358,6 @@
 					</control>
 				</control>
 			</focusedlayout>
-		</control>
-		<control type="group">
-			<top>42</top>
-			<visible>Control.IsVisible(50)</visible>
-			<control type="image"><!-- Button focus slider -->
-				<left>670</left>
-				<top>320</top>
-				<width>556</width>
-				<height>64</height>
-				<texture border="6">button-default-focus.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			<animation condition="!Control.HasFocus(50)" effect="fade" start="100" end="60" time="0" reversible="true">Conditional</animation>
-			<animation condition="Container(50).Position(0)" effect="slide" start="0,0" end="0,-256" time="0" easing="inout" reversible="true">Conditional</animation>
-			<animation condition="Container(50).Position(1)" effect="slide" start="0,0" end="0,-192" time="0" easing="inout" reversible="true">Conditional</animation>
-			<animation condition="Container(50).Position(2)" effect="slide" start="0,0" end="0,-128" time="0" easing="inout" reversible="true">Conditional</animation>
-			<animation condition="Container(50).Position(3)" effect="slide" start="0,0" end="0,-64" time="0" easing="inout" reversible="true">Conditional</animation>
-			<!-- Animation for postion 4 does nothing, so removed-->
-			<animation condition="Container(50).Position(5)" effect="slide" start="0,0" end="0,64" time="0" easing="inout" reversible="true">Conditional</animation>
-			<animation condition="Container(50).Position(6)" effect="slide" start="0,0" end="0,128" time="0" easing="inout" reversible="true">Conditional</animation>
-			<animation condition="Container(50).Position(7)" effect="slide" start="0,0" end="0,192" time="0" easing="inout" reversible="true">Conditional</animation>
-			<animation condition="Container(50).Position(8)" effect="slide" start="0,0" end="0,256"	time="0" easing="inout" reversible="true">Conditional</animation>
 		</control>
 		<control type="group" id="945">
 			<visible>Control.IsVisible(50) + !System.ScreenSaverActive + [Container.Content(movies) | Container.Content(tvshows)]  + [[System.IdleTime(60) + StringCompare(Skin.String(listview-idleanim),60)] | [System.IdleTime(90) + StringCompare(Skin.String(listview-idleanim),90)] | [System.IdleTime(120) + StringCompare(Skin.String(listview-idleanim),120)]]</visible>
@@ -540,7 +526,6 @@
 						<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
 						<param name="size" value="100"/>
 					</include>
-
 				</control>
 			</control>
 			<control type="group">
@@ -623,6 +608,7 @@
 				<texturefocus>touch-search.png</texturefocus>
 				<texturenofocus>touch-search.png</texturenofocus>
 				<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
+				<animation effect="fade" start="0" end="100" delay="2000" time="200">VisibleChange</animation>
 				<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
 				<animation effect="fade" start="100" end="50" time="0" condition="!Control.HasFocus(1240)">Conditional</animation>
 			</control>
@@ -911,6 +897,7 @@
 				<texturefocus>touch-search.png</texturefocus>
 				<texturenofocus>touch-search.png</texturenofocus>
 				<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
+				<animation effect="fade" start="0" end="100" delay="2000" time="200">Visible</animation>
 				<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
 				<animation effect="fade" start="100" end="50" time="0" condition="!Control.HasFocus(1242)">Conditional</animation>
 			</control>
@@ -1179,6 +1166,7 @@
 						<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
 						<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
 						<animation effect="fade" start="100" end="50" time="0" condition="!Control.HasFocus(1243)">Conditional</animation>
+						<animation effect="fade" start="0" end="100" delay="2000" time="200">Visible</animation>
 					</control>
 					<control type="panel" id="1263">
 						<left>1224</left>
@@ -1479,6 +1467,7 @@
 					<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
 					<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
 					<animation effect="fade" start="100" end="50" time="0" condition="!Control.HasFocus(1244)">Conditional</animation>
+					<animation effect="fade" start="0" end="100" delay="2000" time="200">Visible</animation>
 				</control>
 				<control type="panel" id="1264">
 					<left>68</left>
@@ -1988,6 +1977,7 @@
 					<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
 					<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
 					<animation effect="fade" start="100" end="50" time="0" condition="!Control.HasFocus(1247)">Conditional</animation>
+					<animation effect="fade" start="0" end="100" delay="2000" time="200">Visible</animation>
 				</control>
 				<control type="panel" id="1267">
 					<left>68</left>
