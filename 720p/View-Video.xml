@@ -574,7 +574,7 @@
 					<left>17</left>
 					<top>467</top>
 					<width>636</width>
-					<height>210</height>
+					<height>206</height>
 					<font>font10</font>
 					<label>$INFO[ListItem.PlotOutline]</label>
 					<align>justify</align>
@@ -585,7 +585,7 @@
 					<left>17</left>
 					<top>467</top>
 					<width>636</width>
-					<height>210</height>
+					<height>206</height>
 					<font>font10</font>
 					<label>$INFO[ListItem.Plot]</label>
 					<align>justify</align>
@@ -839,7 +839,7 @@
 				</control>
 			</control>
 			<control type="group"><!-- Show the bottom row of icons as long as another row exists -->
-				<visible>![Container.Content(movies) + Container.Content(tvshows)]</visible>
+				<visible>!Container.Content(movies) + !Container.Content(tvshows)</visible>
 				<animation effect="fade" delay="0" start="0" end="100" time="200">Visible</animation>
 				<control type="image">
 					<left>86</left>
@@ -1226,6 +1226,7 @@
 	</include>
 	<include name="VideoWrapView">
 		<control type="wraplist" id="54">
+			<visible>!Container.Content(episodes)</visible>
 			<viewtype label="31942">wrap</viewtype>
 			<left>0</left>
 			<top>160</top>
@@ -1527,6 +1528,7 @@
 	</include>
 	<include name="VideoCoverflow">
 		<control type="wraplist" id="57">
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos)</visible>
 			<viewtype label="31945">wrap</viewtype>
 			<left>-130</left>
 			<top>150</top>
@@ -2037,6 +2039,7 @@
 	</include>
 	<include name="VideoWallView">
 		<control type="panel" id="58">
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos) | Container.Content(addons)</visible>
 			<left>535</left>
 			<top>120</top>
 			<width>660</width>
@@ -2054,74 +2057,69 @@
 				<effect type="slide" end="70,0" time="0"/>
 				<effect type="zoom" start="100" end="120" center="auto" time="0" tween="back" easing="out"/>
 			</animation>
-			<itemlayout height="187" width="132">
-				<control type="group">
-					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)| Container.Content(musicvideos)</visible>
-					<control type="image">
-						<left>1</left>
-						<top>1</top>
-						<width>131</width>
-						<height>186</height>
-						<aspectratio>stretch</aspectratio>
-						<texture colordiffuse="UnFocusedPosters" background="true">$VAR[IconPoster]</texture>
-						<visible>IsEmpty(ListItem.Art(thumb))</visible>
-					</control>
-					<control type="image">
-						<left>1</left>
-						<top>1</top>
-						<width>131</width>
-						<height>186</height>
-						<aspectratio>stretch</aspectratio>
-						<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
-						<visible>!IsEmpty(ListItem.Art(thumb))</visible>
-					</control>
-					<control type="image"><!-- Watched Overlay -->
-						<left>104</left>
-						<top>-2</top>
-						<width>32</width>
-						<height>32</height>
-						<texture>$VAR[Overlay]</texture>
-					</control>
-					<control type="image"><!-- Extras Overlay -->
-						<left>12</left>
-						<top>6</top>
-						<width>16</width>
-						<height>16</height>
-						<texture>$VAR[ExtrasOverlay]</texture>
-						<visible>System.HasAddon(script.videoextras)</visible>
-					</control>
-					<include name="listitem-count">
-						<param name="left" value="80"/>
-						<param name="top" value="152"/>
-						<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
-						<param name="size" value="70"/>
-					</include>
+			<itemlayout height="187" width="132" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos)">
+				<control type="image">
+					<left>1</left>
+					<top>1</top>
+					<width>131</width>
+					<height>186</height>
+					<aspectratio>stretch</aspectratio>
+					<texture colordiffuse="UnFocusedPosters" background="true">$VAR[IconPoster]</texture>
+					<visible>IsEmpty(ListItem.Art(thumb))</visible>
 				</control>
-				<control type="group">
-					<visible>!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(episodes) + !Container.Content(musicvideos)</visible>
-					<control type="image">
-						<left>1</left>
-						<top>27</top>
-						<width>131</width>
-						<height>131</height>
-						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="UnFocusedPosters" background="true">$VAR[IconPoster]</texture>
-						<visible>IsEmpty(ListItem.Art(thumb))</visible>
-					</control>
-					<control type="image">
-						<left>1</left>
-						<top>27</top>
-						<width>131</width>
-						<height>131</height>
-						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
-						<visible>!IsEmpty(ListItem.Art(thumb))</visible>
-					</control>
+				<control type="image">
+					<left>1</left>
+					<top>1</top>
+					<width>131</width>
+					<height>186</height>
+					<aspectratio>stretch</aspectratio>
+					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+					<visible>!IsEmpty(ListItem.Art(thumb))</visible>
+				</control>
+				<control type="image"><!-- Watched Overlay -->
+					<left>104</left>
+					<top>-2</top>
+					<width>32</width>
+					<height>32</height>
+					<texture>$VAR[Overlay]</texture>
+				</control>
+				<control type="image"><!-- Extras Overlay -->
+					<left>12</left>
+					<top>6</top>
+					<width>16</width>
+					<height>16</height>
+					<texture>$VAR[ExtrasOverlay]</texture>
+					<visible>System.HasAddon(script.videoextras)</visible>
+				</control>
+				<include name="listitem-count">
+					<param name="left" value="80"/>
+					<param name="top" value="152"/>
+					<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
+					<param name="size" value="70"/>
+				</include>
+			</itemlayout>
+			<itemlayout height="140" width="140" condition="Container.Content(addons)">
+				<control type="image">
+					<left>4</left>
+					<top>4</top>
+					<width>132</width>
+					<height>132</height>
+					<aspectratio>keep</aspectratio>
+					<texture diffuse="mask-squ.png" colordiffuse="UnFocusedPosters" background="true">$VAR[IconPoster]</texture>
+					<visible>IsEmpty(ListItem.Art(thumb))</visible>
+				</control>
+				<control type="image">
+					<left>4</left>
+					<top>4</top>
+					<width>132</width>
+					<height>132</height>
+					<aspectratio>keep</aspectratio>
+					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
+					<visible>!IsEmpty(ListItem.Art(thumb))</visible>
 				</control>
 			</itemlayout>
-			<focusedlayout height="187" width="132">
+			<focusedlayout height="187" width="132" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos)">
 				<control type="group">
-					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)| Container.Content(musicvideos)</visible>
 					<animation effect="zoom" start="90" end="114" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					<control type="image">
 						<left>1</left>
@@ -2165,17 +2163,16 @@
 						<param name="size" value="70"/>
 					</include>
 				</control>
-				<control type="group">
-					<visible>!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(episodes) + !Container.Content(musicvideos)</visible>
-					<animation effect="zoom" start="90" end="130" center="auto" time="400" tween="back" easing="out" reversible="false">focus</animation>
-					<control type="image">
-						<left>1</left>
-						<top>27</top>
-						<width>131</width>
-						<height>131</height>
-						<aspectratio>keep</aspectratio>
-						<texture background="true">$VAR[IconPoster]</texture>
-					</control>
+			</focusedlayout>
+			<focusedlayout height="140" width="140" condition="Container.Content(addons)">
+				<control type="image">
+					<left>4</left>
+					<top>4</top>
+					<width>132</width>
+					<height>132</height>
+					<aspectratio>keep</aspectratio>
+					<texture diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
+					<animation effect="zoom" start="90" end="120" center="auto" time="400" tween="back" easing="out" reversible="false">focus</animation>
 				</control>
 			</focusedlayout>
 		</control>
