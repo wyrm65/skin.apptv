@@ -1294,6 +1294,17 @@
 					<texture diffuse="mask-rect.png" background="true" fallback="DefaultVideo.png">$VAR[IconPoster]</texture>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 					<aspectratio scalediffuse="true">keep</aspectratio>
+					<visible>!Container.Content(musicvideos)</visible>
+				</control>
+				<control type="image">
+					<left>4</left>
+					<top>392</top>
+					<height>76</height>
+					<width>76</width>
+					<texture diffuse="mask-rect.png" background="true" fallback="DefaultMusicVideos.png">$VAR[IconPoster]</texture>
+					<colordiffuse>UnFocusedCovers</colordiffuse>
+					<aspectratio scalediffuse="true">keep</aspectratio>
+					<visible>Container.Content(musicvideos)</visible>
 				</control>
 			</itemlayout>
 			<focusedlayout height="405" width="276" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">
@@ -1382,6 +1393,16 @@
 					<width>244</width>
 					<aspectratio scalediffuse="true">keep</aspectratio>
 					<texture diffuse="mask-rect.png" background="true" fallback="DefaultVideo.png">$VAR[IconPoster]</texture>
+					<visible>!Container.Content(musicvideos)</visible>
+				</control>
+				<control type="image">
+					<left>22</left>
+					<top>224</top>
+					<height>244</height>
+					<width>244</width>
+					<aspectratio scalediffuse="true">keep</aspectratio>
+					<texture diffuse="mask-rect.png" background="true" fallback="DefaultMusicVideos.png">$VAR[IconPoster]</texture>
+					<visible>Container.Content(musicvideos)</visible>
 				</control>
 			</focusedlayout>
 		</control>
@@ -1528,7 +1549,7 @@
 	</include>
 	<include name="VideoCoverflow">
 		<control type="wraplist" id="57">
-			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos)</visible>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
 			<viewtype label="31945">wrap</viewtype>
 			<left>-130</left>
 			<top>150</top>
@@ -2057,7 +2078,7 @@
 				<effect type="slide" end="70,0" time="0"/>
 				<effect type="zoom" start="100" end="120" center="auto" time="0" tween="back" easing="out"/>
 			</animation>
-			<itemlayout height="187" width="132" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos)">
+			<itemlayout height="187" width="132" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
 				<control type="image">
 					<left>1</left>
 					<top>1</top>
@@ -2098,27 +2119,27 @@
 					<param name="size" value="70"/>
 				</include>
 			</itemlayout>
-			<itemlayout height="140" width="140" condition="Container.Content(addons)">
+			<itemlayout height="140" width="140" condition="Container.Content(addons) | Container.Content(musicvideos)">
 				<control type="image">
 					<left>4</left>
 					<top>4</top>
 					<width>132</width>
 					<height>132</height>
 					<aspectratio>keep</aspectratio>
-					<texture diffuse="mask-squ.png" colordiffuse="UnFocusedPosters" background="true">$VAR[IconPoster]</texture>
-					<visible>IsEmpty(ListItem.Art(thumb))</visible>
+					<texture colordiffuse="UnFocusedPosters" fallback="DefaultAddon.png" diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
+					<visible>Container.Content(addons)</visible>
 				</control>
 				<control type="image">
 					<left>4</left>
 					<top>4</top>
 					<width>132</width>
 					<height>132</height>
-					<aspectratio>keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
-					<visible>!IsEmpty(ListItem.Art(thumb))</visible>
+					<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+					<texture colordiffuse="UnFocusedPosters" fallback="DefaultMusicVideos.png" diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
+					<visible>Container.Content(musicvideos)</visible>
 				</control>
 			</itemlayout>
-			<focusedlayout height="187" width="132" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(musicvideos)">
+			<focusedlayout height="187" width="132" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
 				<control type="group">
 					<animation effect="zoom" start="90" end="114" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					<control type="image">
@@ -2164,15 +2185,26 @@
 					</include>
 				</control>
 			</focusedlayout>
-			<focusedlayout height="140" width="140" condition="Container.Content(addons)">
+			<focusedlayout height="140" width="140" condition="Container.Content(addons) | Container.Content(musicvideos)">
 				<control type="image">
 					<left>4</left>
 					<top>4</top>
 					<width>132</width>
 					<height>132</height>
 					<aspectratio>keep</aspectratio>
-					<texture diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
-					<animation effect="zoom" start="90" end="120" center="auto" time="400" tween="back" easing="out" reversible="false">focus</animation>
+					<texture fallback="DefaultAddon.png" diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
+					<animation effect="zoom" start="90" end="112" center="auto" time="400" tween="back" easing="out" reversible="false">focus</animation>
+					<visible>Container.Content(addons)</visible>
+				</control>
+				<control type="image">
+					<left>4</left>
+					<top>4</top>
+					<width>132</width>
+					<height>132</height>
+					<aspectratio scalediffuse="false" align="center">scale</aspectratio>
+					<texture fallback="DefaultMusicVideos.png" diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
+					<animation effect="zoom" start="90" end="112" center="auto" time="400" tween="back" easing="out" reversible="false">focus</animation>
+					<visible>Container.Content(musicvideos)</visible>
 				</control>
 			</focusedlayout>
 		</control>
@@ -2192,7 +2224,7 @@
 				<top>112</top>
 				<width>500</width>
 				<height>74</height>
-				<font>font20</font>
+				<font>font18</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<wrapmultiline>true</wrapmultiline>
@@ -2218,29 +2250,35 @@
 					<top>212</top>
 					<width>500</width>
 					<height>37</height>
-					<font>font11</font>
+					<font>font10</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Genre]</label>
 					<textoffsetx>0</textoffsetx>
 					<visible>!IsEmpty(ListItem.Genre)</visible>
-				</control>
-				<control type="label"><!-- Watched TV episodes -->
-					<left>17</left>
-					<top>246</top>
-					<width>354</width>
-					<height>31</height>
-					<font>font12</font>
-					<label>$LOCALIZE[20360]: $INFO[ListItem.Property(NumEpisodes)]</label>
-					<visible>Container.Content(tvshows) + !IsEmpty(ListItem.Property(NumEpisodes))</visible>
 				</control>
 				<control type="label"><!-- Duration -->
 					<left>17</left>
 					<top>250</top>
 					<width>200</width>
 					<height>25</height>
-					<font>font12</font>
+					<font>font11</font>
 					<label>$VAR[VideoDuration]</label>
 					<visible>!IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
+				</control>
+				<control type="image">
+					<left>242</left>
+					<top>248</top>
+					<width>32</width>
+					<height>32</height>
+					<colordiffuse>DropShadow</colordiffuse>
+					<texture>$VAR[ListItemFlags]</texture>
+				</control>
+				<control type="image">
+					<left>240</left>
+					<top>246</top>
+					<width>32</width>
+					<height>32</height>
+					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 				<control type="image"><!-- MPAA Rating -->
 					<left>17</left>
@@ -2250,21 +2288,6 @@
 					<aligny>bottom</aligny>
 					<texture>$VAR[VideoRating]</texture>
 					<aspectratio>keep</aspectratio>
-				</control>
-				<control type="image">
-					<left>242</left>
-					<top>292</top>
-					<width>32</width>
-					<height>32</height>
-					<colordiffuse>DropShadow</colordiffuse>
-					<texture>$VAR[ListItemFlags]</texture>
-				</control>
-				<control type="image">
-					<left>240</left>
-					<top>290</top>
-					<width>32</width>
-					<height>32</height>
-					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 				<control type="image"><!-- Star Rating -->
 					<left>360</left>
@@ -2280,18 +2303,18 @@
 				<control type="textbox"><!-- Plot Outline -->
 					<left>17</left>
 					<top>350</top>
-					<width>490</width>
-					<height>316</height>
-					<font>font12</font>
+					<width>500</width>
+					<height>318</height>
+					<font>font10</font>
 					<label>$INFO[ListItem.PlotOutline]</label>
 					<visible>!IsEmpty(ListItem.PlotOutline)</visible>
 				</control>
 				<control type="textbox"><!-- Plot (Show if no outline available)-->
 					<left>17</left>
 					<top>350</top>
-					<width>490</width>
-					<height>316</height>
-					<font>font12</font>
+					<width>500</width>
+					<height>318</height>
+					<font>font10</font>
 					<label>$INFO[ListItem.Plot]</label>
 					<visible>IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Plot)</visible>
 				</control>
