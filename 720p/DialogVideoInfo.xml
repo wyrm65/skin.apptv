@@ -51,28 +51,44 @@
 				<label>$INFO[ListItem.Label]</label>
 				<textoffsetx>0</textoffsetx>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				<visible>!Container.Content(tvshows) + !Container.Content(movies)</visible>
+				<visible>!Container.Content(tvshows) + !Container.Content(movies) + !Container.Content(musicvideos)</visible>
 			</control>
-			<control type="image"><!-- MPAA Rating Dropshadow-->
-				<left>1121</left>
-				<top>40</top>
-				<width>136</width>
-				<height>40</height>
-				<colordiffuse>DropShadow</colordiffuse>
-				<align>right</align>
-				<aligny>bottom</aligny>
-				<texture fallback="special://skin/extras/images/rating/notrated.png">$VAR[VideoRating]</texture>
-				<aspectratio>keep</aspectratio>
+			<control type="label"><!-- Artist - Title -->
+				<left>340</left>
+				<top>12</top>
+				<width>760</width>
+				<height>72</height>
+				<font>font18</font>
+				<wrapmultiline>true</wrapmultiline>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+				<textoffsetx>0</textoffsetx>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				<visible>Container.Content(musicvideos)</visible>
 			</control>
-			<control type="image"><!-- MPAA Rating -->
-				<left>1120</left>
-				<top>39</top>
-				<width>136</width>
-				<height>40</height>
-				<align>right</align>
-				<aligny>bottom</aligny>
-				<texture fallback="special://skin/extras/images/rating/notrated.png">$VAR[VideoRating]</texture>
-				<aspectratio>keep</aspectratio>
+			<control type="group">
+				<visible>!Container.Content(musicvideos)</visible>
+				<control type="image"><!-- MPAA Rating Dropshadow-->
+					<left>1121</left>
+					<top>40</top>
+					<width>136</width>
+					<height>40</height>
+					<colordiffuse>DropShadow</colordiffuse>
+					<align>right</align>
+					<aligny>bottom</aligny>
+					<texture fallback="special://skin/extras/images/rating/notrated.png">$VAR[VideoRating]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image"><!-- MPAA Rating -->
+					<left>1120</left>
+					<top>39</top>
+					<width>136</width>
+					<height>40</height>
+					<align>right</align>
+					<aligny>bottom</aligny>
+					<texture fallback="special://skin/extras/images/rating/notrated.png">$VAR[VideoRating]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
 			</control>
 			<control type="label"><!-- Studio -->
 				<left>340</left>
@@ -349,6 +365,18 @@
 					<font>font11</font>
 					<textcolor>disabled-text</textcolor>
 					<shadowcolor>shadow-text</shadowcolor>
+					<visible>Container.Content(movies) | Container.Content(episodes)</visible>
+				</control>
+				<control type="label">
+					<left>675</left>
+					<top>240</top>
+					<width>290</width>
+					<height>22</height>
+					<label>$LOCALIZE[133]</label>
+					<font>font11</font>
+					<textcolor>disabled-text</textcolor>
+					<shadowcolor>shadow-text</shadowcolor>
+					<visible>Container.Content(musicvideos)</visible>
 				</control>
 				<control type="label"><!-- Actor 1 -->
 					<left>675</left>
