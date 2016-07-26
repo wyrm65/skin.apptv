@@ -40,7 +40,7 @@
 					<visible>IsEmpty(Control.GetLabel(7018))</visible>
 				</control>
 			</control>
-			<control type="label"><!-- Title -->
+			<control type="label"><!-- Title (Artist - Title for music videos) -->
 				<left>340</left>
 				<top>12</top>
 				<width>760</width>
@@ -51,20 +51,7 @@
 				<label>$INFO[ListItem.Label]</label>
 				<textoffsetx>0</textoffsetx>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				<visible>!Container.Content(tvshows) + !Container.Content(movies) + !Container.Content(musicvideos)</visible>
-			</control>
-			<control type="label"><!-- Artist - Title -->
-				<left>340</left>
-				<top>12</top>
-				<width>760</width>
-				<height>72</height>
-				<font>font18</font>
-				<wrapmultiline>true</wrapmultiline>
-				<aligny>center</aligny>
-				<label>$INFO[ListItem.Label]</label>
-				<textoffsetx>0</textoffsetx>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				<visible>Container.Content(musicvideos)</visible>
+				<visible>!Container.Content(tvshows) + !Container.Content(movies)</visible>
 			</control>
 			<control type="group">
 				<visible>!Container.Content(musicvideos)</visible>
@@ -113,35 +100,35 @@
 				<left>340</left>
 				<top>112</top>
 				<width>900</width>
-				<height>118</height>
+				<height>116</height>
 				<label>$INFO[ListItem.Plot]</label>
 				<font>font10</font>
 				<align>justify</align>
-				<pagecontrol>1023</pagecontrol>
+				<pagecontrol>1123</pagecontrol>
 				<visible>!IsEmpty(ListItem.Plot)</visible>
 			</control>
 			<control type="textbox"><!-- Plot outline (Show if no plot available)-->
 				<left>340</left>
 				<top>112</top>
 				<width>900</width>
-				<height>118</height>
+				<height>116</height>
 				<label fallback="161">$INFO[ListItem.PlotOutline]</label>
 				<font>font10</font>
 				<align>justify</align>
-				<pagecontrol>1023</pagecontrol>
+				<pagecontrol>1123</pagecontrol>
 				<visible>IsEmpty(ListItem.Plot)</visible>
 			</control>
-			<control type="scrollbar" id="1023"><!-- Plot Scrollbar -->
-				<left>1252</left>
-				<top>112</top>
+			<control type="scrollbar" id="1123"><!-- Plot Scrollbar -->
+				<left>1246</left>
+				<top>110</top>
 				<width>16</width>
-				<height>116</height>
-				<onup>1023</onup>
-				<onright>1023</onright>
+				<height>122</height>
+				<onup>1123</onup>
+				<onright>1123</onright>
 				<onleft>999</onleft>
 				<ondown>999</ondown>
-				<animation condition="!Control.HasFocus(1023) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="20" time="200" reversible="true">Conditional</animation>
-				<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876])</visible>
+				<animation condition="!Control.HasFocus(1223) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 			</control>
 			<control type="image">
 				<left>340</left>
@@ -469,7 +456,7 @@
 			<onright>noop</onright>
 			<ondown condition="Control.IsVisible(50)">50</ondown>
 			<ondown condition="Control.IsVisible(950)">950</ondown>
-			<onup>1023</onup>
+			<onup>1123</onup>
 			<control type="togglebutton" id="8"><!-- Play/Browse button -->
 				<include>videoinfo-options-common</include>
 				<label>$LOCALIZE[208]</label>
