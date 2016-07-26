@@ -1053,25 +1053,36 @@
 				<effect type="zoom" start="100" end="115" center="auto" time="0" tween="back" easing="out"/>
 			</animation>
 			<itemlayout height="177" width="177">
-				<control type="image">
-					<left>1</left>
-					<top>1</top>
-					<width>176</width>
-					<height>176</height>
-					<aspectratio>stretch</aspectratio>
-					<colordiffuse>UnFocusedCovers</colordiffuse>
-					<texture diffuse="mask-squ.png" fallback="DefaultAudio.png" background="true">$VAR[IconCover]</texture>
-					<visible>!IsEmpty(ListItem.Art(thumb))</visible>
-				</control>
-				<control type="image">
-					<left>1</left>
-					<top>1</top>
-					<width>176</width>
-					<height>176</height>
-					<colordiffuse>UnFocusedCovers</colordiffuse>
-					<texture fallback="DefaultAudio.png" background="true">$VAR[IconCover]</texture>
-					<visible>IsEmpty(ListItem.Art(thumb))</visible>
-				</control>
+					<control type="image">
+						<left>1</left>
+						<top>1</top>
+						<width>176</width>
+						<height>176</height>
+						<aspectratio>stretch</aspectratio>
+						<colordiffuse>UnFocusedCovers</colordiffuse>
+						<texture diffuse="mask-squ.png" fallback="DefaultAudio.png" background="true">$VAR[IconCover]</texture>
+						<visible>!Container.Content(addons) + !Container.Content(musicvideos)</visible>
+					</control>
+					<control type="image">
+						<left>1</left>
+						<top>1</top>
+						<width>176</width>
+						<height>176</height>
+						<aspectratio>stretch</aspectratio>
+						<colordiffuse>UnFocusedCovers</colordiffuse>
+						<texture diffuse="mask-squ.png" fallback="DefaultAddonMusic.png" background="true">$VAR[IconCover]</texture>
+						<visible>Container.Content(addons)</visible>
+					</control>
+					<control type="image">
+						<left>1</left>
+						<top>1</top>
+						<width>176</width>
+						<height>176</height>
+						<aspectratio>stretch</aspectratio>
+						<colordiffuse>UnFocusedCovers</colordiffuse>
+						<texture diffuse="mask-squ.png" fallback="DefaultMusicVideos.png" background="true">$VAR[IconCover]</texture>
+						<visible>Container.Content(musicvideos)</visible>
+					</control>
 			</itemlayout>
 			<focusedlayout height="177" width="177">
 				<control type="image">
@@ -1079,21 +1090,49 @@
 					<top>1</top>
 					<width>176</width>
 					<height>176</height>
-					<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
+					<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 					<aspectratio>stretch</aspectratio>
-					<bordertexture border="8">mask-hilite.png</bordertexture>
-					<bordersize>8</bordersize>
 					<animation effect="zoom" start="100" end="112" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
-					<visible>!IsEmpty(ListItem.Art(thumb))</visible>
+					<visible>SubString(ListItem.Icon,Default,Left)</visible>
 				</control>
+				<control type="group">
+					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
 					<control type="image">
-					<left>1</left>
-					<top>1</top>
-					<width>176</width>
-					<height>176</height>
-					<animation effect="zoom" start="100" end="112" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
-					<texture fallback="DefaultAudio.png" background="true">$VAR[IconCover]</texture>
-					<visible>IsEmpty(ListItem.Art(thumb))</visible>
+						<left>1</left>
+						<top>1</top>
+						<width>176</width>
+						<height>176</height>
+						<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
+						<aspectratio>stretch</aspectratio>
+						<bordertexture border="8">mask-hilite.png</bordertexture>
+						<bordersize>8</bordersize>
+						<animation effect="zoom" start="100" end="112" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
+						<visible>!Container.Content(addons) + !Container.Content(musicvideos)</visible>
+					</control>
+					<control type="image">
+						<left>1</left>
+						<top>1</top>
+						<width>176</width>
+						<height>176</height>
+						<texture fallback="DefaultAddonMusic.png" background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
+						<aspectratio>stretch</aspectratio>
+						<bordertexture border="8">mask-hilite.png</bordertexture>
+						<bordersize>8</bordersize>
+						<animation effect="zoom" start="100" end="112" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
+						<visible>Container.Content(addons)</visible>
+					</control>
+					<control type="image">
+						<left>1</left>
+						<top>1</top>
+						<width>176</width>
+						<height>176</height>
+						<texture fallback="DefaultMusicVideos.png" background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
+						<aspectratio>stretch</aspectratio>
+						<bordertexture border="8">mask-hilite.png</bordertexture>
+						<bordersize>8</bordersize>
+						<animation effect="zoom" start="100" end="112" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
+						<visible>Container.Content(musicvideos)</visible>
+					</control>
 				</control>
 			</focusedlayout>
 		</control>
