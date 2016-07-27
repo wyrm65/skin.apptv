@@ -5,7 +5,7 @@
 		_Overlay 1150
 		_3DDialogSelect 1151
 		_HomeCustomise 1152
-		_HomeSettings 1153
+		_FUTURE-EXPANSION 1153
 		_DialogSelect 1154
 		_AddonsList 1155
 		_LibraryEntry 1156
@@ -1034,6 +1034,7 @@
 		<value condition="Skin.HasSetting(background-visibiltymed)">$LOCALIZE[392]</value>
 		<value condition="Skin.HasSetting(background-visibiltyhigh)">$LOCALIZE[393]</value>
 	</variable>
+
 	<variable name="SkinSettingHelp"><!-- Help strings for skin settings -->
 		<value condition="Control.HasFocus(102)">$LOCALIZE[31300]</value>
 		<value condition="Control.HasFocus(105)">$LOCALIZE[31301]</value>
@@ -1056,27 +1057,11 @@
 		<value condition="Control.HasFocus(312)">$LOCALIZE[31318]</value>
 		<value condition="ControlGroup(313).HasFocus()">$LOCALIZE[31319]</value>
 		<value condition="Control.HasFocus(402)">$LOCALIZE[31321]</value>
-		<value condition="Control.HasFocus(405)">$LOCALIZE[31322]</value>
-		<value condition="Control.HasFocus(406)">$LOCALIZE[31323]</value>
-		<value condition="Control.HasFocus(407)">$LOCALIZE[31324]</value>
-		<value condition="Control.HasFocus(408)">$LOCALIZE[31325]</value>
-		<value condition="Control.HasFocus(411)">$LOCALIZE[31328]</value>
-		<value condition="Control.HasFocus(412)">$LOCALIZE[31329]</value>
-		<value condition="Control.HasFocus(413)">$LOCALIZE[31330]</value>
-		<value condition="Control.HasFocus(414)">$LOCALIZE[31331]</value>
-		<value condition="Control.HasFocus(415)">$LOCALIZE[31332]</value>
-		<value condition="Control.HasFocus(416)">$LOCALIZE[31333]</value>
-		<value condition="Control.HasFocus(417)">$LOCALIZE[31334]</value>
-		<value condition="Control.HasFocus(418)">$LOCALIZE[31338]</value>
-		<value condition="Control.HasFocus(419)">$LOCALIZE[31335]</value>
-		<value condition="Control.HasFocus(420)">$LOCALIZE[31336]</value>
-		<value condition="Control.HasFocus(421)">$LOCALIZE[31337]</value>
 		<value condition="Control.HasFocus(502) | Control.HasFocus(503)">$LOCALIZE[31340]</value>
 		<value condition="Control.HasFocus(504)">$LOCALIZE[31341]</value>
 		<value condition="Control.HasFocus(505)">$LOCALIZE[31342]</value>
 		<value condition="Control.HasFocus(506)">$LOCALIZE[31343]</value>
 		<value condition="Control.HasFocus(507)">$LOCALIZE[31344]</value>
-		<value condition="Control.HasFocus(508) | Control.HasFocus(509)">$LOCALIZE[31345]</value>
 		<value condition="Control.HasFocus(510)">$LOCALIZE[31346]</value>
 		<value condition="Control.HasFocus(602)">$LOCALIZE[31350]</value>
 		<value condition="Control.HasFocus(603)">$LOCALIZE[31351]</value>
@@ -1084,11 +1069,11 @@
 		<value condition="Control.HasFocus(605)">$LOCALIZE[31353]</value>
 		<value condition="Control.HasFocus(606)">$LOCALIZE[31354]</value>
 		<value condition="Control.HasFocus(607)">$LOCALIZE[31355]</value>
-		<value condition="Control.HasFocus(987)">$LOCALIZE[31360]</value>
 		<value condition="Control.HasFocus(802)">$LOCALIZE[31370]</value>
 		<value condition="Control.HasFocus(803)">$LOCALIZE[31371]</value>
 		<value condition="Control.HasFocus(805)">$LOCALIZE[31372]</value>
 		<value condition="Control.HasFocus(806)">$LOCALIZE[31373]</value>
+		<value condition="Control.HasFocus(984)">$LOCALIZE[31360]</value>
 	</variable>
 	
 	<include file="Defaults.xml" />
@@ -1444,6 +1429,143 @@
 					<shadowcolor></shadowcolor>
 					<align>center</align>
 				</control>
+			</control>
+		</definition>
+	</include>
+
+	<include name="listpanelitems">
+		<param name="itemcustombase" default=""/>
+		<param name="itemthumb"/>
+		<param name="itemlabel"/>
+		<param name="itemcondition"/>
+		<param name="itemtoggle" default=""/>
+		<definition>
+			<item>
+				<thumb>$PARAM[itemthumb]</thumb>
+				<label>$PARAM[itemlabel]</label>
+				<onclick>SetFocus(5000)</onclick>
+				<property name="isActive">true</property>
+				<property name="visibleToggle">$PARAM[itemtoggle]</property>
+				<property name="customBase">$PARAM[itemcustombase]</property>
+				<visible>$PARAM[itemcondition]</visible>
+			</item>
+			<item>
+				<thumb>$PARAM[itemthumb]</thumb>
+				<label>$PARAM[itemlabel]</label>
+				<onclick>SetFocus(5000)</onclick>
+				<property name="isActive">false</property>
+				<property name="visibleToggle">$PARAM[itemtoggle]</property>
+				<property name="customBase">$PARAM[itemcustombase]</property>
+				<visible>!$PARAM[itemcondition]</visible>
+			</item>
+		</definition>
+	</include>
+
+	<include name="apptv-togglebutton">
+		<param name="id"/>
+		<param name="left"/>
+		<param name="top"/>
+		<param name="width" default="0"/>
+		<param name="height" default="0"/>
+		<param name="font" default="font11"/>
+		<param name="label"/>
+		<param name="altlabel"/>
+		<param name="usealtlabel"/>
+		<param name="onclick"/>
+		<param name="visible"/>
+		<definition>
+			<control type="togglebutton" id="$PARAM[id]">
+				<left>$PARAM[left]</left>
+				<top>$PARAM[top]</top>
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<label>$PARAM[label]</label>
+				<altlabel>$PARAM[altlabel]</altlabel>
+				<font>$PARAM[font]</font>
+				<align>center</align>
+				<usealttexture>$PARAM[usealtlabel]</usealttexture>
+				<onclick>$PARAM[onclick]</onclick>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+
+	<include name="apptv-homecustomactivity">
+		<param name="id"/>
+		<param name="left"/>
+		<param name="top"/>
+		<param name="width" default="0"/>
+		<param name="height" default="0"/>
+		<param name="font" default="font11"/>
+		<param name="label"/>
+		<param name="label2"/>
+		<param name="custombase"/>
+		<param name="visible"/>
+		<definition>
+			<control type="button" id="$PARAM[id]">
+				<left>$PARAM[left]</left>
+				<top>$PARAM[top]</top>
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<label>$PARAM[label]</label>
+				<font>$PARAM[font]</font>
+				<align>center</align>
+				<onclick condition="IsEmpty(Window(Home).Property(ItemPath))">RunScript(script.favourites,changetitle=true&amp;property=$PARAM[custombase])</onclick>
+				<onclick condition="!IsEmpty(Window(Home).Property(ItemPath))">Skin.SetString($PARAM[custombase].Path,$INFO[Window(Home).Property(ItemPath)])</onclick>
+				<onclick condition="!IsEmpty(Window(Home).Property(ItemPath))">Skin.SetString($PARAM[custombase].Label,$INFO[Window(Home).Property(ItemName)])</onclick>
+				<onclick condition="!IsEmpty(Window(Home).Property(ItemPath))">Skin.SetString($PARAM[custombase].Icon,$INFO[Window(Home).Property(ItemIcon)])</onclick>
+				<onclick condition="!IsEmpty(Window(Home).Property(ItemPath))">ClearProperty(ItemPath,Home)</onclick>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+
+	<include name="apptv-homecustomicon">
+		<param name="id"/>
+		<param name="left"/>
+		<param name="top"/>
+		<param name="width" default="0"/>
+		<param name="height" default="0"/>
+		<param name="font" default="font11"/>
+		<param name="label"/>
+		<param name="custombase"/>
+		<param name="visible"/>
+		<definition>
+			<control type="button" id="$PARAM[id]">
+				<left>$PARAM[left]</left>
+				<top>$PARAM[top]</top>
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<label>$PARAM[label]</label>
+				<font>$PARAM[font]</font>
+				<align>center</align>
+				<onclick>Skin.SetFile($PARAM[custombase].Icon,.jpg|.png)</onclick>
+				<visible>$PARAM[visible]</visible>
+			</control>
+		</definition>
+	</include>
+
+	<include name="apptv-homecustomlabel">
+		<param name="id"/>
+		<param name="left"/>
+		<param name="top"/>
+		<param name="width" default="0"/>
+		<param name="height" default="0"/>
+		<param name="font" default="font11"/>
+		<param name="label"/>
+		<param name="custombase"/>
+		<param name="visible"/>
+		<definition>
+			<control type="button" id="$PARAM[id]">
+				<left>$PARAM[left]</left>
+				<top>$PARAM[top]</top>
+				<width>$PARAM[width]</width>
+				<height>$PARAM[height]</height>
+				<label>$PARAM[label]</label>
+				<font>$PARAM[font]</font>
+				<align>center</align>
+				<onclick>Skin.SetString($PARAM[custombase].Label)</onclick>
+				<visible>$PARAM[visible]</visible>
 			</control>
 		</definition>
 	</include>

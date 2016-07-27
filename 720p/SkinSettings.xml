@@ -63,10 +63,10 @@
 				<height>56</height>
 				<font>font12</font>
 				<label>$LOCALIZE[31803]</label>
-				<onfocus>Skin.SetString(skinsettingmenu,homemenu)</onfocus>
+				<onfocus>Skin.SetString(skinsettingmenu,custom)</onfocus>
+				<onclick>ActivateWindow(1152)</onclick>
 				<onup>983</onup>
 				<ondown>985</ondown>
-				<onleft>400</onleft>
 			</control>
 			<control type="button" id="985"><!-- Background Settings Menu -->
 				<left>940</left>
@@ -92,31 +92,19 @@
 				<ondown>987</ondown>
 				<onleft>600</onleft>
 			</control>
-			<control type="button" id="987"><!-- Custom Favourites Settings Menu -->
+			<control type="button" id="987"><!-- Support Settings Menu -->
 				<left>940</left>
 				<top>436</top>
 				<width>320</width>
 				<height>56</height>
 				<font>font12</font>
-				<label>$LOCALIZE[31806]</label>
-				<onfocus>Skin.SetString(skinsettingmenu,custom)</onfocus>
-				<onclick>ActivateWindow(1153)</onclick>
-				<enable>System.HasAddon(script.favourites)</enable>
-				<onup>986</onup>
-				<ondown>988</ondown>
-			</control>
-			<control type="button" id="988"><!-- Support Settings Menu -->
-				<left>940</left>
-				<top>490</top>
-				<width>320</width>
-				<height>56</height>
-				<font>font12</font>
 				<label>$LOCALIZE[31807]</label>
 				<onfocus>Skin.SetString(skinsettingmenu,support)</onfocus>
-				<onup>987</onup>
+				<onup>986</onup>
 				<onleft>800</onleft>
 			</control>
 		</control>
+
 		<control type="scrollbar" id="1223">
 			<left>10</left>
 			<top>112</top>
@@ -491,197 +479,17 @@
 			</control>
 			
 			<control type="group" id="400"><!-- Home Menu Settings -->
-				<visible>Skin.String(skinsettingmenu,homemenu)</visible>
-				<control type="image"><!-- Home Settings Button Image -->
-					<left>940</left>
-					<top>274</top>
-					<width>320</width>
-					<height>56</height>
-					<texture border="6">button-default-focus.png</texture>
-					<include>settingbutton-fade</include>
-					<visible>!ControlGroup(999).HasFocus()</visible>
-				</control>
-				<control type="group"><!-- Markers for control area items -->
-					<control type="image">
-						<left>484</left>
-						<top>96</top>
-						<height>16</height>
-						<width>16</width>
-						<texture>scroll-up.png</texture>
-						<visible>Container(401).HasPrevious</visible>
-					</control>
-					<control type="image">
-						<left>484</left>
-						<top>652</top>
-						<height>16</height>
-						<width>16</width>
-						<texture>scroll-down.png</texture>
-						<visible>Container(401).HasNext</visible>
-					</control>
-				</control>
-
-				<control type="grouplist" id="401">
-					<left>53</left>
-					<top>112</top>
-					<width>885</width>
-					<height>542</height>
-					<itemgap>-2</itemgap>
-					<onleft>1223</onleft>
-					<onright>999</onright>
-					<pagecontrol>1223</pagecontrol>
-					<control type="button" id="402"><!-- Home menu type -->
-						<include>settings-submenu-common</include>
-						<textwidth>785</textwidth>
-						<label>$LOCALIZE[31900]</label>
-						<label2>$VAR[MenuType]</label2>
-						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=homemenu-typeval,header=$LOCALIZE[31900])</onclick>
-					</control>
-					<control type="radiobutton" id="405"><!-- Video On Home toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31901]</label>
-						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(home-video)</onclick>
-						<selected>!Skin.HasSetting(home-video)</selected>
-						<radioposx>844</radioposx>
-					</control>
-					<control type="radiobutton" id="406"><!-- Movies On Home toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31902]</label>
-						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(home-movie)</onclick>
-						<selected>!Skin.HasSetting(home-movie)</selected>
-						<radioposx>844</radioposx>
-					</control>
-					<control type="radiobutton" id="407"><!-- TVShows On Home toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31903]</label>
-						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(home-tvshows)</onclick>
-						<selected>!Skin.HasSetting(home-tvshows)</selected>
-						<radioposx>844</radioposx>
-					</control>
-					<control type="radiobutton" id="408"><!-- Music Videos On Home toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31904]</label>
-						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(home-musicvideo)</onclick>
-						<selected>Skin.HasSetting(home-musicvideo)</selected>
-						<radioposx>844</radioposx>
-					</control>
-					<control type="radiobutton" id="411"><!-- Music On Home toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31905]</label>
-						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(home-music)</onclick>
-						<selected>!Skin.HasSetting(home-music)</selected>
-						<radioposx>844</radioposx>
-					</control>
-					<control type="radiobutton" id="412"><!-- Addons On Home toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31906]</label>
-						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(home-programs)</onclick>
-						<selected>!Skin.HasSetting(home-programs)</selected>
-						<radioposx>844</radioposx>
-					</control>
-					<control type="radiobutton" id="413"><!-- Pictures On Home toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31907]</label>
-						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(home-photos)</onclick>
-						<selected>Skin.HasSetting(home-photos)</selected>
-						<radioposx>844</radioposx>
-					</control>
-					<control type="radiobutton" id="414"><!-- Profiles On Home toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31908]</label>
-						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(home-profile)</onclick>
-						<selected>Skin.HasSetting(home-profile)</selected>
-						<radioposx>844</radioposx>
-					</control>
-					<control type="radiobutton" id="415"><!-- Weather On Home toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31909]</label>
-						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(home-weather)</onclick>
-						<selected>Skin.HasSetting(home-weather)</selected>
-						<enable>!IsEmpty(Weather.plugin)</enable>
-						<radioposx>844</radioposx>
-					</control>
-					<control type="radiobutton" id="416"><!-- Favorites On Home toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31910]</label>
-						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(home-favorites)</onclick>
-						<selected>Skin.HasSetting(home-favorites)</selected>
-						<radioposx>844</radioposx>
-					</control>
-					<control type="radiobutton" id="417"><!-- Search On Home toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31911]</label>
-						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(home-search)</onclick>
-						<selected>Skin.HasSetting(home-search)</selected>
-						<radioposx>844</radioposx>
-					</control>
-					<control type="radiobutton" id="418"><!-- Filemanager On Home toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31915]</label>
-						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(home-filemanager)</onclick>
-						<selected>Skin.HasSetting(home-filemanager)</selected>
-						<radioposx>844</radioposx>
-					</control>
-					<control type="radiobutton" id="419"><!-- Play Disc On Home toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31912]</label>
-						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(home-playdisc)</onclick>
-						<selected>Skin.HasSetting(home-playdisc)</selected>
-						<radioposx>844</radioposx>
-						<visible>![System.Platform.IOS | System.Platform.ATV2]</visible>
-					</control>
-					<control type="radiobutton" id="420"><!-- Quit From Home toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31913]</label>
-						<textwidth>750</textwidth>
-						<onclick>Skin.ToggleSetting(home-shutdown)</onclick>
-						<selected>!Skin.HasSetting(home-shutdown)</selected>
-						<radioposx>844</radioposx>
-					</control>
-					<control type="button" id="421"><!-- Quit action -->
-						<include>settings-submenu-common</include>
-						<textwidth>785</textwidth>
-						<label>$LOCALIZE[31914]</label>
-						<label2>$INFO[Skin.String(home-quitaction)]</label2>
-						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=home-quitaction-val,header=$LOCALIZE[31914])</onclick>
-						<enable>!Skin.HasSetting(home-shutdown)</enable>
-					</control>
-					<control type="button" id="423"><!-- Reset Above Settings button -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[10041]</label>
-						<textwidth>785</textwidth>
-						<onclick>Skin.Reset(homemenu-icon)</onclick>
-						<onclick>Skin.Reset(homemenu-vertical)</onclick>
-						<onclick>Skin.Reset(home-video)</onclick>
-						<onclick>Skin.Reset(home-movie)</onclick>
-						<onclick>Skin.Reset(home-tvshows)</onclick>
-						<onclick>Skin.Reset(home-musicvideo)</onclick>
-						<onclick>Skin.Reset(home-music)</onclick>
-						<onclick>Skin.Reset(home-programs)</onclick>
-						<onclick>Skin.Reset(home-photos)</onclick>
-						<onclick>Skin.Reset(home-profile)</onclick>
-						<onclick>Skin.Reset(home-weather)</onclick>
-						<onclick>Skin.Reset(home-favorites)</onclick>
-						<onclick>Skin.Reset(home-search)</onclick>
-						<onclick>Skin.Reset(home-filemanager)</onclick>
-						<onclick>Skin.Reset(home-playdisc)</onclick>
-						<onclick>Skin.Reset(home-shutdown)</onclick>
-						<onclick>Skin.Reset(home-quitaction)</onclick>
-					</control>
+				<visible>Skin.String(skinsettingmenu,custom)</visible>
+				<control type="image"><!-- Skin Logo -->
+					<left>150</left>
+					<top>150</top>
+					<width>512</width>
+					<height>256</height>
+					<aspectratio>keep</aspectratio>
+					<texture>skin-logo-big.png</texture>
 				</control>
 			</control>
+			
 			<control type="group" id="500"><!-- Background Settings -->
 				<visible>Skin.String(skinsettingmenu,background)</visible>
 				<control type="image"><!-- Background Settings Button Image -->
@@ -886,22 +694,12 @@
 					</control>
 				</control>
 			</control>
-			<control type="group" id="700"><!-- Custom Favourites -->
-				<visible>Skin.String(skinsettingmenu,custom)</visible>
-				<control type="image"><!-- Skin Logo -->
-					<left>150</left>
-					<top>150</top>
-					<width>512</width>
-					<height>256</height>
-					<aspectratio>keep</aspectratio>
-					<texture>skin-logo-big.png</texture>
-				</control>
-			</control>
+
 			<control type="group" id="800"><!-- Support Settings -->
 				<visible>Skin.String(skinsettingmenu,support)</visible>
 				<control type="image"><!-- Support Settings Button Image -->
 					<left>940</left>
-					<top>490</top>
+					<top>436</top>
 					<width>320</width>
 					<height>56</height>
 					<texture border="6">button-default-focus.png</texture>
