@@ -1229,7 +1229,7 @@
 				</control>
 			</control>
 			<control type="group" id="9370"><!-- Addons Sub menu -->
-				<visible>!Skin.HasSetting(home-programs)</visible>
+				<visible>!Skin.HasSetting(home-programs) | !IsEmpty(Skin.String(CustomAddon.1.Path)) | !IsEmpty(Skin.String(CustomAddon.2.Path)) | !IsEmpty(Skin.String(CustomAddon.3.Path)) | !IsEmpty(Skin.String(CustomAddon.4.Path)) | !IsEmpty(Skin.String(CustomAddon.5.Path))</visible>
 				<width>210</width>
 				<control type="button" id="9380"><!-- Dummy button for mouse control -->
 					<left>0</left>

@@ -64,7 +64,7 @@
 				<font>font12</font>
 				<label>$LOCALIZE[31803]</label>
 				<onfocus>Skin.SetString(skinsettingmenu,custom)</onfocus>
-				<onclick>ActivateWindow(1152)</onclick>
+				<onclick>ActivateWindow(1152,,return)</onclick>
 				<onup>983</onup>
 				<ondown>985</ondown>
 			</control>
@@ -749,12 +749,20 @@
 						<selected>System.GetBool(debug.showloginfo)</selected>
 						<radioposx>844</radioposx>
 					</control>
-					<control type="image" id="804">
+					<control type="radiobutton" id="804"><!-- Skin Debug toggle -->
+						<include>settings-submenu-common</include>
+						<label>$LOCALIZE[31932]</label>
+						<textwidth>750</textwidth>
+						<onclick>Skin.ToggleDebug</onclick>
+						<selected>System.GetBool(debug.showloginfo)</selected>
+						<radioposx>844</radioposx>
+					</control>
+					<control type="image" id="805">
 						<width>885</width>
 						<height>4</height>
 						<texture>separator.png</texture>
 					</control>
-					<control type="radiobutton" id="805"><!-- Show skin debug grid toggle -->
+					<control type="radiobutton" id="806"><!-- Show skin debug grid toggle -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31933]</label>
 						<textwidth>750</textwidth>
@@ -762,7 +770,7 @@
 						<selected>Skin.HasSetting(debug-grid)</selected>
 						<radioposx>844</radioposx>
 					</control>
-					<control type="radiobutton" id="806"><!-- Show Skin Debug Info toggle -->
+					<control type="radiobutton" id="807"><!-- Show Skin Debug Info toggle -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31934]</label>
 						<textwidth>750</textwidth>
@@ -770,12 +778,12 @@
 						<selected>Skin.HasSetting(debug-info)</selected>
 						<radioposx>844</radioposx>
 					</control>
-					<control type="image" id="807">
+					<control type="image" id="808">
 						<width>885</width>
 						<height>4</height>
 						<texture>separator.png</texture>
 					</control>
-					<control type="button" id="808"><!-- Reset skin settings to defaults -->
+					<control type="button" id="809"><!-- Reset skin settings to defaults -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31935]</label>
 						<textwidth>785</textwidth>

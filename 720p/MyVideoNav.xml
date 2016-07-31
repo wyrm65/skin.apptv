@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">50</defaultcontrol>
-	<views>50,52,53,54,57,58,560</views>
+	<views>50,52,53,54,57,58</views>
 	<onload condition="Skin.HasSetting(media-themetune) + !IsEmpty(Window(Home).Property(script.cinemavision.running))">SetProperty(TvTunesBlocked,true,Home)</onload>
 	<onload>ClearProperty(ShowScreenSettings,Home)</onload>
 	<onunload>ClearProperty(ShowScreenSettings,Home)</onunload>
@@ -44,7 +44,6 @@
 			<include file="View-Video.xml">VideoWrapView</include>
 			<include file="View-Video.xml">VideoCoverflow</include>
 			<include file="View-Video.xml">VideoWallView</include>
-			<!--<include file="View-PVR.xml">PVRLiveTVView</include>-->
 		</control>
 
 		<control type="group"><!-- No Label tag means video addon is busy pulling in content, so show a busy animation -->
