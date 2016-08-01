@@ -45,15 +45,1286 @@
 		<!-- Show apropriate home menu -->
 		<control type="group" id="9000">
 
-			<control type="group" id="9001">
+			<control type="group" id="9001"><!-- Horizontal Home Menu -->
 				<visible>Skin.HasSetting(homemenu-horizontal)</visible>
-				<control type="label">
-					<left>600</left>
-					<top>350</top>
-					<width>430</width>
-					<height>24</height>
-					<font>font13</font>
-					<label>WORK IN PROGRESS</label>
+				<animation condition="true" effect="zoom" start="100" end="80" center="auto" time="0">Conditional</animation>
+				<control type="group"><!-- Main Horizontal menu bar -->
+					<control type="image"><!-- Background image for menu area -->
+						<left>0</left>
+						<top>312</top>
+						<width>1280</width>
+						<height>408</height>
+						<texture>background-horzhome.png</texture>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>310</top>
+						<width>1280</width>
+						<height>4</height>
+						<texture>separator.png</texture>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>380</top>
+						<width>1280</width>
+						<height>4</height>
+						<texture>separator.png</texture>
+					</control>
+				</control>
+				<control type="group"><!-- Markers for off screen menu bar items -->
+					<control type="image">
+						<left>0</left>
+						<top>342</top>
+						<height>16</height>
+						<width>16</width>
+						<texture>scroll-left.png</texture>
+						<visible>Container(9002).HasPrevious</visible>
+					</control>
+					<control type="image">
+						<left>1264</left>
+						<top>342</top>
+						<height>16</height>
+						<width>16</width>
+						<texture>scroll-right.png</texture>
+						<visible>Container(9002).HasNext</visible>
+					</control>
+				</control>
+
+				<control type="grouplist" id="9002"><!-- Home Sub menus -->
+					<left>10</left>
+					<top>315</top>
+					<width>1260</width>
+					<height>352</height>
+					<itemgap>0</itemgap>
+					<orientation>horizontal</orientation>
+					<align>center</align>
+					<control type="group" id="9120"><!-- Video sub menu -->
+						<width>210</width>
+						<control type="button" id="9130"><!-- Dummy button for mouse control -->
+							<left>0</left>
+							<top>0</top>
+							<width>210</width>
+							<height>352</height>
+							<texturefocus>blank.png</texturefocus>
+							<onup>402</onup>
+							<ondown>9100</ondown>
+							<onleft>noop</onleft>
+							<onright>9150</onright>
+						</control>
+						<control type="group">
+							<visible>Control.HasFocus(9100) | Control.HasFocus(9130)</visible>
+							<control type="image"><!-- Menu Heading Hilite-->
+								<left>0</left>
+								<top>0</top>
+								<width>210</width>
+								<height>66</height>
+								<texture>menu-focus.png</texture>
+								<animation effect="fade" start="100" end="35" condition="Skin.HasSetting(home-video)">Conditional</animation>
+							</control>
+							<control type="group"><!-- Markers for control area items -->
+								<animation effect="fade" start="100" end="35" condition="Skin.HasSetting(home-video)">Conditional</animation>
+								<control type="image">
+									<left>96</left>
+									<top>68</top>
+									<height>16</height>
+									<width>16</width>
+									<texture>scroll-up.png</texture>
+									<visible>Container(9100).HasPrevious</visible>
+								</control>
+								<control type="image">
+									<left>96</left>
+									<top>336</top>
+									<height>16</height>
+									<width>16</width>
+									<texture>scroll-down.png</texture>
+									<visible>Container(9100).HasNext</visible>
+								</control>
+							</control>
+						</control>
+						<control type="label"><!-- Menu Heading -->
+							<left>0</left>
+							<top>17</top>
+							<width>210</width>
+							<height>32</height>
+							<font>font18</font>
+							<align>center</align>
+							<label>$INFO[Container(9100).ListItem.Property(menuHeading)]</label>
+							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-video)">Conditional</animation>
+						</control>
+						<control type="list" id="9100">
+							<animation condition="!Control.HasFocus(9100) + !Control.HasFocus(9130)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-video)">Conditional</animation>
+							<left>0</left>
+							<top>84</top>
+							<width>210</width>
+							<height>252</height>
+							<onup>402</onup>
+							<ondown>noop</ondown>
+							<onleft>noop</onleft>
+							<onright>9150</onright>
+							<viewtype label="31941">List</viewtype>
+							<itemlayout height="42" width="210">
+								<include>horzhomelistitem</include>
+							</itemlayout>
+							<focusedlayout height="42" width="210">
+								<control type="image">
+									<left>0</left>
+									<top>0</top>
+									<width>210</width>
+									<height>42</height>
+									<texture border="6">button-default-focus.png</texture>
+									<animation effect="fade" start="100" end="60" condition="IsEmpty(ListItem.Property(isActive))">Conditional</animation>
+								</control>
+								<include>horzhomelistitem</include>
+							</focusedlayout>
+							<content>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[744]"/>
+								<param name="itemcondition" value="!(Skin.HasSetting(home-video))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[3]"/>
+								<param name="itemmenuid" value="9100"/>
+								<param name="itemtoggle" value="home-video"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[14022]"/>
+								<param name="itemcondition" value="!(Skin.HasSetting(home-video))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[3]"/>
+								<param name="itemmenuid" value="9100"/>
+								<param name="itemtoggle" value="home-video"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[342]"/>
+								<param name="itemcondition" value="Library.HasContent(Movies)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[3]"/>
+								<param name="itemmenuid" value="9100"/>
+								<param name="itemtoggle" value="home-video"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[20343]"/>
+								<param name="itemcondition" value="Library.HasContent(TVShows)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[3]"/>
+								<param name="itemmenuid" value="9100"/>
+								<param name="itemtoggle" value="home-video"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[31028]"/>
+								<param name="itemcondition" value="!(Skin.HasSetting(home-video))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[3]"/>
+								<param name="itemmenuid" value="9100"/>
+								<param name="itemtoggle" value="home-video"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[24001]"/>
+								<param name="itemcondition" value="!(Skin.HasSetting(home-video))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[3]"/>
+								<param name="itemmenuid" value="9100"/>
+								<param name="itemtoggle" value="home-video"/>
+							</include>
+							</content>
+						</control>
+					</control>
+					<control type="group" id="9170"><!-- Movie sub menu -->
+						<width>210</width>
+						<control type="button" id="9180"><!-- Dummy button for mouse control -->
+							<left>0</left>
+							<top>0</top>
+							<width>210</width>
+							<height>345</height>
+							<texturefocus>blank.png</texturefocus>
+							<onup>402</onup>
+							<ondown>9150</ondown>
+							<onleft>9100</onleft>
+							<onright>9200</onright>
+						</control>
+						<control type="group">
+							<visible>Control.HasFocus(9150) | Control.HasFocus(9180)</visible>
+							<control type="image"><!-- Menu Heading Hilite-->
+								<left>0</left>
+								<top>0</top>
+								<width>210</width>
+								<height>66</height>
+								<texture>menu-focus.png</texture>
+							</control>
+							<control type="group"><!-- Markers for control area items -->
+								<control type="image">
+									<left>96</left>
+									<top>68</top>
+									<height>16</height>
+									<width>16</width>
+									<texture>scroll-up.png</texture>
+									<visible>Container(9150).HasPrevious</visible>
+								</control>
+								<control type="image">
+									<left>96</left>
+									<top>336</top>
+									<height>16</height>
+									<width>16</width>
+									<texture>scroll-down.png</texture>
+									<visible>Container(9150).HasNext</visible>
+								</control>
+							</control>
+						</control>
+						<control type="label"><!-- Menu Heading -->
+							<left>0</left>
+							<top>17</top>
+							<width>210</width>
+							<height>32</height>
+							<font>font18</font>
+							<align>center</align>
+							<label>$INFO[Container(9150).ListItem.Property(menuHeading)]</label>
+							<animation effect="fade" start="100" end="35" condition="Skin.HasSetting(home-movie) + IsEmpty(Skin.String(CustomMovies.1.Path)) + IsEmpty(Skin.String(CustomMovies.2.Path)) + IsEmpty(Skin.String(CustomMovies.3.Path)) + IsEmpty(Skin.String(CustomMovies.4.Path)) + IsEmpty(Skin.String(CustomMovies.5.Path))">Conditional</animation>
+						</control>
+						<control type="list" id="9150">
+							<animation condition="!Control.HasFocus(9150) + !Control.HasFocus(9180)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+							<left>0</left>
+							<top>84</top>
+							<width>210</width>
+							<height>252</height>
+							<onup>402</onup>
+							<ondown>noop</ondown>
+							<onleft>9100</onleft>
+							<onright>9200</onright>
+							<viewtype label="31941">list</viewtype>
+							<itemlayout height="42" width="210">
+								<include>horzhomelistitem</include>
+							</itemlayout>
+							<focusedlayout height="42" width="210">
+								<control type="image">
+									<left>0</left>
+									<top>0</top>
+									<width>210</width>
+									<height>42</height>
+									<texture border="6">button-default-focus.png</texture>
+									<animation effect="fade" start="100" end="60" condition="IsEmpty(ListItem.Property(isActive))">Conditional</animation>
+								</control>
+								<include>horzhomelistitem</include>
+							</focusedlayout>
+							<content>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[31026]"/>
+								<param name="itemcondition" value="!Skin.HasSetting(home-movie)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[20338]"/>
+								<param name="itemmenuid" value="9150"/>
+								<param name="itemtoggle" value="home-movie"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomMovies.1"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomMovies.1.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMovies.1.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[20338]"/>
+								<param name="itemmenuid" value="9150"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomMovies.2"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomMovies.2.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMovies.2.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[20338]"/>
+								<param name="itemmenuid" value="9150"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomMovies.3"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomMovies.3.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMovies.3.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[20338]"/>
+								<param name="itemmenuid" value="9150"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomMovies.4"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomMovies.4.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMovies.4.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[20338]"/>
+								<param name="itemmenuid" value="9150"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomMovies.5"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomMovies.5.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMovies.5.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[20338]"/>
+								<param name="itemmenuid" value="9150"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[24001]"/>
+								<param name="itemcondition" value="!Skin.HasSetting(home-movie)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[20338]"/>
+								<param name="itemmenuid" value="9150"/>
+								<param name="itemtoggle" value="home-movie"/>
+							</include>
+							</content>
+						</control>
+					</control>
+					<control type="group" id="9220"><!-- TV Shows sub menu -->
+						<width>210</width>
+						<control type="button" id="9230"><!-- Dummy button for mouse control -->
+							<left>0</left>
+							<top>0</top>
+							<width>210</width>
+							<height>345</height>
+							<texturefocus>blank.png</texturefocus>
+							<onup>402</onup>
+							<ondown>9200</ondown>
+							<onleft>9150</onleft>
+							<onright>9500</onright>
+						</control>
+						<control type="group">
+							<visible>Control.HasFocus(9200) | Control.HasFocus(9230)</visible>
+							<control type="image"><!-- Menu Heading Hilite-->
+								<left>0</left>
+								<top>0</top>
+								<width>210</width>
+								<height>66</height>
+								<texture>menu-focus.png</texture>
+							</control>
+							<control type="group"><!-- Markers for control area items -->
+								<control type="image">
+									<left>96</left>
+									<top>68</top>
+									<height>16</height>
+									<width>16</width>
+									<texture>scroll-up.png</texture>
+									<visible>Container(9200).HasPrevious</visible>
+								</control>
+								<control type="image">
+									<left>96</left>
+									<top>336</top>
+									<height>16</height>
+									<width>16</width>
+									<texture>scroll-down.png</texture>
+									<visible>Container(9200).HasNext</visible>
+								</control>
+							</control>
+						</control>
+						<control type="label"><!-- Menu Heading -->
+							<left>0</left>
+							<top>17</top>
+							<width>210</width>
+							<height>32</height>
+							<font>font18</font>
+							<align>center</align>
+							<label>$INFO[Container(9200).ListItem.Property(menuHeading)]</label>
+							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-tvshows) + IsEmpty(Skin.String(CustomTVShow.1.Path)) + IsEmpty(Skin.String(CustomTVShow.2.Path)) + IsEmpty(Skin.String(CustomTVShow.3.Path)) + IsEmpty(Skin.String(CustomTVShow.4.Path)) + IsEmpty(Skin.String(CustomTVShow.5.Path))">Conditional</animation>
+						</control>
+						<control type="list" id="9200">
+							<animation condition="!Control.HasFocus(9200) + !Control.HasFocus(9230)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+							<left>0</left>
+							<top>84</top>
+							<width>210</width>
+							<height>252</height>
+							<onup>402</onup>
+							<ondown>noop</ondown>
+							<onleft>9150</onleft>
+							<onright>9500</onright>
+							<viewtype label="31941">list</viewtype>
+							<itemlayout height="42" width="210">
+								<include>horzhomelistitem</include>
+							</itemlayout>
+							<focusedlayout height="42" width="210">
+								<control type="image">
+									<left>0</left>
+									<top>0</top>
+									<width>210</width>
+									<height>42</height>
+									<texture border="6">button-default-focus.png</texture>
+									<animation effect="fade" start="100" end="60" condition="IsEmpty(ListItem.Property(isActive))">Conditional</animation>
+								</control>
+								<include>horzhomelistitem</include>
+							</focusedlayout>
+							<content>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[31027]"/>
+								<param name="itemcondition" value="!Skin.HasSetting(home-tvshows)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31027]"/>
+								<param name="itemmenuid" value="9200"/>
+								<param name="itemtoggle" value="home-tvshows"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomTVShow.1"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomTVShow.1.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTVShow.1.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31027]"/>
+								<param name="itemmenuid" value="9200"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomTVShow.2"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomTVShow.2.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTVShow.2.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31027]"/>
+								<param name="itemmenuid" value="9200"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomTVShow.3"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomTVShow.3.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTVShow.3.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31027]"/>
+								<param name="itemmenuid" value="9200"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomTVShow.4"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomTVShow.4.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTVShow.4.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31027]"/>
+								<param name="itemmenuid" value="9200"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomTVShow.5"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomTVShow.5.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTVShow.5.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31027]"/>
+								<param name="itemmenuid" value="9200"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[24001]"/>
+								<param name="itemcondition" value="!Skin.HasSetting(home-tvshows)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31027]"/>
+								<param name="itemtoggle" value="home-tvshows"/>
+								<param name="itemmenuid" value="9200"/>
+							</include>
+							</content>
+						</control>
+					</control>
+					<control type="group" id="9520"><!-- Broadcast sub menu -->
+						<width>210</width>
+						<control type="button" id="9530"><!-- Dummy button for mouse control -->
+							<left>0</left>
+							<top>0</top>
+							<width>210</width>
+							<height>345</height>
+							<texturefocus>blank.png</texturefocus>
+							<onup>402</onup>
+							<ondown>9500</ondown>
+							<onleft>9200</onleft>
+							<onright>9250</onright>
+						</control>
+						<control type="group">
+							<visible>Control.HasFocus(9500) | Control.HasFocus(9530)</visible>
+							<control type="image"><!-- Menu Heading Hilite-->
+								<left>0</left>
+								<top>0</top>
+								<width>210</width>
+								<height>66</height>
+								<texture>menu-focus.png</texture>
+							</control>
+							<control type="group"><!-- Markers for control area items -->
+								<control type="image">
+									<left>96</left>
+									<top>68</top>
+									<height>16</height>
+									<width>16</width>
+									<texture>scroll-up.png</texture>
+									<visible>Container(9500).HasPrevious</visible>
+								</control>
+								<control type="image">
+									<left>96</left>
+									<top>336</top>
+									<height>16</height>
+									<width>16</width>
+									<texture>scroll-down.png</texture>
+									<visible>Container(9500).HasNext</visible>
+								</control>
+							</control>
+						</control>
+						<control type="label"><!-- Menu Heading -->
+							<left>0</left>
+							<top>17</top>
+							<width>210</width>
+							<height>32</height>
+							<font>font18</font>
+							<align>center</align>
+							<label>$INFO[Container(9500).ListItem.Property(menuHeading)]</label>
+							<animation effect="fade" start="100" end="40" condition="!Pvr.HasTVChannels + !Pvr.HasRadioChannels + IsEmpty(Skin.String(CustomTV.1.Path)) + IsEmpty(Skin.String(CustomTV.2.Path)) + IsEmpty(Skin.String(CustomTV.3.Path)) + IsEmpty(Skin.String(CustomTV.4.Path)) + IsEmpty(Skin.String(CustomTV.5.Path)) + IsEmpty(Skin.String(CustomRadio.1.Path)) + IsEmpty(Skin.String(CustomRadio.2.Path)) + IsEmpty(Skin.String(CustomRadio.3.Path)) + IsEmpty(Skin.String(CustomRadio.4.Path)) + IsEmpty(Skin.String(CustomRadio.5.Path))">Conditional</animation>
+						</control>
+						<control type="list" id="9500">
+							<animation condition="!Control.HasFocus(9500) + !Control.HasFocus(9530)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+							<left>0</left>
+							<top>84</top>
+							<width>210</width>
+							<height>252</height>
+							<onup>402</onup>
+							<ondown>noop</ondown>
+							<onleft>9200</onleft>
+							<onright>9550</onright>
+							<viewtype label="31941">list</viewtype>
+							<itemlayout height="42" width="210">
+								<include>horzhomelistitem</include>
+							</itemlayout>
+							<focusedlayout height="42" width="210">
+								<control type="image">
+									<left>0</left>
+									<top>0</top>
+									<width>210</width>
+									<height>42</height>
+									<texture border="6">button-default-focus.png</texture>
+									<animation effect="fade" start="100" end="60" condition="IsEmpty(ListItem.Property(isActive))">Conditional</animation>
+								</control>
+								<include>horzhomelistitem</include>
+							</focusedlayout>
+							<content>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[19020]"/>
+								<param name="itemcondition" value="Pvr.HasTVChannels"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31031]"/>
+								<param name="itemmenuid" value="9500"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomTV.1"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomTV.1.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTV.1.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31031]"/>
+								<param name="itemmenuid" value="9500"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomTV.2"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomTV.2.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTV.2.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31031]"/>
+								<param name="itemmenuid" value="9500"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomTV.3"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomTV.3.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTV.3.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31031]"/>
+								<param name="itemmenuid" value="9500"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomTV.4"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomTV.4.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTV.4.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31031]"/>
+								<param name="itemmenuid" value="9500"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomTV.5"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomTV.5.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTV.5.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31031]"/>
+								<param name="itemmenuid" value="9500"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[19021]"/>
+								<param name="itemcondition" value="Pvr.HasRadioChannels"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31031]"/>
+								<param name="itemmenuid" value="9500"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomRadio.1"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomRadio.1.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomRadio.1.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31031]"/>
+								<param name="itemmenuid" value="9500"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomRadio.2"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomRadio.2.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomRadio.2.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31031]"/>
+								<param name="itemmenuid" value="9500"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomRadio.3"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomRadio.3.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomRadio.3.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31031]"/>
+								<param name="itemmenuid" value="9500"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomRadio.4"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomRadio.4.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomRadio.4.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31031]"/>
+								<param name="itemmenuid" value="9500"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomRadio.5"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomRadio.5.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomRadio.5.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31031]"/>
+								<param name="itemmenuid" value="9500"/>
+							</include>
+							</content>
+						</control>
+					</control>
+					<control type="group" id="9570"><!-- Favourites sub menu -->
+						<width>210</width>
+						<control type="button" id="9580"><!-- Dummy button for mouse control -->
+							<left>0</left>
+							<top>0</top>
+							<width>210</width>
+							<height>345</height>
+							<texturefocus>blank.png</texturefocus>
+							<onup>402</onup>
+							<ondown>9550</ondown>
+							<onleft>9500</onleft>
+							<onright>9250</onright>
+						</control>
+						<control type="group">
+							<visible>Control.HasFocus(9550) | Control.HasFocus(9580)</visible>
+							<control type="image"><!-- Menu Heading Hilite-->
+								<left>0</left>
+								<top>0</top>
+								<width>210</width>
+								<height>66</height>
+								<texture>menu-focus.png</texture>
+							</control>
+							<control type="group"><!-- Markers for control area items -->
+								<control type="image">
+									<left>96</left>
+									<top>68</top>
+									<height>16</height>
+									<width>16</width>
+									<texture>scroll-up.png</texture>
+									<visible>Container(9550).HasPrevious</visible>
+								</control>
+								<control type="image">
+									<left>96</left>
+									<top>336</top>
+									<height>16</height>
+									<width>16</width>
+									<texture>scroll-down.png</texture>
+									<visible>Container(9550).HasNext</visible>
+								</control>
+							</control>
+						</control>
+						<control type="label"><!-- Menu Heading -->
+							<left>0</left>
+							<top>17</top>
+							<width>210</width>
+							<height>32</height>
+							<font>font18</font>
+							<align>center</align>
+							<label>$VAR[CustomFavHeading]</label>
+							<animation effect="fade" start="100" end="40" condition="IsEmpty(Skin.String(CustomFav.1.Path)) + IsEmpty(Skin.String(CustomFav.2.Path)) + IsEmpty(Skin.String(CustomFav.3.Path)) + IsEmpty(Skin.String(CustomFav.4.Path)) + IsEmpty(Skin.String(CustomFav.5.Path))">Conditional</animation>
+						</control>
+						<control type="list" id="9550">
+							<animation condition="!Control.HasFocus(9550) + !Control.HasFocus(9580)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+							<left>0</left>
+							<top>84</top>
+							<width>210</width>
+							<height>252</height>
+							<onup>402</onup>
+							<ondown>noop</ondown>
+							<onleft>9500</onleft>
+							<onright>9250</onright>
+							<viewtype label="31941">list</viewtype>
+							<itemlayout height="42" width="210">
+								<include>horzhomelistitem</include>
+							</itemlayout>
+							<focusedlayout height="42" width="210">
+								<control type="image">
+									<left>0</left>
+									<top>0</top>
+									<width>210</width>
+									<height>42</height>
+									<texture border="6">button-default-focus.png</texture>
+									<animation effect="fade" start="100" end="60" condition="IsEmpty(ListItem.Property(isActive))">Conditional</animation>
+								</control>
+								<include>horzhomelistitem</include>
+							</focusedlayout>
+							<content>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomFav.1"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomFav.1.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomFav.1.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31031]"/>
+								<param name="itemmenuid" value="9550"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomFav.2"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomFav.2.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomFav.2.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31031]"/>
+								<param name="itemmenuid" value="9550"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomFav.3"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomFav.3.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomFav.3.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31031]"/>
+								<param name="itemmenuid" value="9550"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomFav.4"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomFav.4.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomFav.4.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31031]"/>
+								<param name="itemmenuid" value="9550"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomFav.5"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomFav.5.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomFav.5.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31031]"/>
+								<param name="itemmenuid" value="9550"/>
+							</include>
+							</content>
+						</control>
+					</control>
+					<control type="group" id="9270"><!-- Music Sub menu -->
+						<width>210</width>
+						<control type="button" id="9280"><!-- Dummy button for mouse control -->
+							<left>0</left>
+							<top>0</top>
+							<width>210</width>
+							<height>345</height>
+							<texturefocus>blank.png</texturefocus>
+							<onup>402</onup>
+							<ondown>9250</ondown>
+							<onleft>9550</onleft>
+							<onright>9300</onright>
+						</control>
+						<control type="group">
+							<visible>Control.HasFocus(9250) | Control.HasFocus(9280)</visible>
+							<control type="image"><!-- Menu Heading Hilite-->
+								<left>0</left>
+								<top>0</top>
+								<width>210</width>
+								<height>66</height>
+								<texture>menu-focus.png</texture>
+							</control>
+							<control type="group"><!-- Markers for control area items -->
+								<control type="image">
+									<left>96</left>
+									<top>68</top>
+									<height>16</height>
+									<width>16</width>
+									<texture>scroll-up.png</texture>
+									<visible>Container(9250).HasPrevious</visible>
+								</control>
+								<control type="image">
+									<left>96</left>
+									<top>336</top>
+									<height>16</height>
+									<width>16</width>
+									<texture>scroll-down.png</texture>
+									<visible>Container(9250).HasNext</visible>
+								</control>
+							</control>
+						</control>
+						<control type="label"><!-- Menu Heading -->
+							<left>0</left>
+							<top>17</top>
+							<width>210</width>
+							<height>32</height>
+							<font>font18</font>
+							<align>center</align>
+							<label>$INFO[Container(9250).ListItem.Property(menuHeading)]</label>
+							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-music) + !Skin.HasSetting(home-musicvideo) + IsEmpty(Skin.String(CustomMusic.1.Path)) + IsEmpty(Skin.String(CustomMusic.2.Path)) + IsEmpty(Skin.String(CustomMusic.3.Path)) + IsEmpty(Skin.String(CustomMusic.4.Path)) + IsEmpty(Skin.String(CustomMusic.5.Path))">Conditional</animation>
+						</control>
+						<control type="list" id="9250">
+							<animation condition="!Control.HasFocus(9250) + !Control.HasFocus(9280)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+							<left>0</left>
+							<top>84</top>
+							<width>210</width>
+							<height>252</height>
+							<onup>402</onup>
+							<ondown>noop</ondown>
+							<onleft>9550</onleft>
+							<onright>9300</onright>
+							<viewtype label="31941">list</viewtype>
+							<itemlayout height="42" width="210">
+								<include>horzhomelistitem</include>
+							</itemlayout>
+							<focusedlayout height="42" width="210">
+								<control type="image">
+									<left>0</left>
+									<top>0</top>
+									<width>210</width>
+									<height>42</height>
+									<texture border="6">button-default-focus.png</texture>
+									<animation effect="fade" start="100" end="60" condition="IsEmpty(ListItem.Property(isActive))">Conditional</animation>
+								</control>
+								<include>horzhomelistitem</include>
+							</focusedlayout>
+							<content>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[31030]"/>
+								<param name="itemcondition" value="!Skin.HasSetting(home-music)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[2]"/>
+								<param name="itemmenuid" value="9250"/>
+								<param name="itemtoggle" value="home-music"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[31028]"/>
+								<param name="itemcondition" value="Skin.HasSetting(home-musicvideo)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[2]"/>
+								<param name="itemmenuid" value="9250"/>
+								<param name="itemtoggle" value="home-musicvideo"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomMusic.1"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomMusic.1.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMusic.1.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[2]"/>
+								<param name="itemmenuid" value="9250"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomMusic.2"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomMusic.2.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMusic.2.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[2]"/>
+								<param name="itemmenuid" value="9250"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomMusic.3"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomMusic.3.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMusic.3.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[2]"/>
+								<param name="itemmenuid" value="9250"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomMusic.4"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomMusic.4.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMusic.4.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[2]"/>
+								<param name="itemmenuid" value="9250"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomMusic.5"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomMusic.5.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMusic.5.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[2]"/>
+								<param name="itemmenuid" value="9250"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[24001]"/>
+								<param name="itemcondition" value="!Skin.HasSetting(home-music)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[2]"/>
+								<param name="itemmenuid" value="9250"/>
+								<param name="itemtoggle" value="home-music"/>
+							</include>
+							</content>
+						</control>
+					</control>
+					<control type="group" id="9320"><!-- Pictures Sub menu -->
+						<width>210</width>
+						<control type="button" id="9330"><!-- Dummy button for mouse control -->
+							<left>0</left>
+							<top>0</top>
+							<width>210</width>
+							<height>345</height>
+							<texturefocus>blank.png</texturefocus>
+							<onup>402</onup>
+							<ondown>9300</ondown>
+							<onleft>9250</onleft>
+							<onright>9350</onright>
+						</control>
+						<control type="image"><!-- Menu Heading Hilite-->
+							<left>0</left>
+							<top>0</top>
+							<width>210</width>
+							<height>66</height>
+							<texture>menu-focus.png</texture>
+							<visible>Control.HasFocus(9300) | Control.HasFocus(9330)</visible>
+						</control>
+						<control type="label"><!-- Menu Heading -->
+							<left>0</left>
+							<top>17</top>
+							<width>210</width>
+							<height>32</height>
+							<font>font18</font>
+							<align>center</align>
+							<label>$INFO[Container(9300).ListItem.Property(menuHeading)]</label>
+							<animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(home-photos)">Conditional</animation>
+						</control>
+						<control type="list" id="9300">
+							<animation condition="!Control.HasFocus(9300) + !Control.HasFocus(9330)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+							<left>0</left>
+							<top>84</top>
+							<width>210</width>
+							<height>252</height>
+							<onup>402</onup>
+							<ondown>noop</ondown>
+							<onleft>9250</onleft>
+							<onright>9350</onright>
+							<viewtype label="31941">List</viewtype>
+							<itemlayout height="42" width="210">
+								<include>horzhomelistitem</include>
+							</itemlayout>
+							<focusedlayout height="42" width="210">
+								<control type="image">
+									<left>0</left>
+									<top>0</top>
+									<width>210</width>
+									<height>42</height>
+									<texture border="6">button-default-focus.png</texture>
+									<animation effect="fade" start="100" end="60" condition="IsEmpty(ListItem.Property(isActive))">Conditional</animation>
+								</control>
+								<include>horzhomelistitem</include>
+							</focusedlayout>
+							<content>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[1]"/>
+								<param name="itemcondition" value="Skin.HasSetting(home-photos)"/>
+								<param name="itemtoggle" value="home-photos"/>
+								<param name="itemmenuheading" value="$LOCALIZE[1]"/>
+								<param name="itemmenuid" value="9300"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[24001]"/>
+								<param name="itemcondition" value="Skin.HasSetting(home-photos)"/>
+								<param name="itemtoggle" value="home-photos"/>
+								<param name="itemmenuheading" value="$LOCALIZE[1]"/>
+								<param name="itemmenuid" value="9300"/>
+							</include>
+							</content>
+						</control>
+					</control>
+					<control type="group" id="9370"><!-- Addons Sub menu -->
+						<width>210</width>
+						<control type="button" id="9380"><!-- Dummy button for mouse control -->
+							<left>0</left>
+							<top>0</top>
+							<width>210</width>
+							<height>345</height>
+							<texturefocus>blank.png</texturefocus>
+							<onup>402</onup>
+							<ondown>9350</ondown>
+							<onleft>9300</onleft>
+							<onright>9400</onright>
+						</control>
+						<control type="group">
+							<visible>Control.HasFocus(9350) | Control.HasFocus(9380)</visible>
+							<control type="image"><!-- Menu Heading Hilite-->
+								<left>0</left>
+								<top>0</top>
+								<width>210</width>
+								<height>66</height>
+								<texture>menu-focus.png</texture>
+							</control>
+							<control type="group"><!-- Markers for control area items -->
+								<control type="image">
+									<left>96</left>
+									<top>68</top>
+									<height>16</height>
+									<width>16</width>
+									<texture>scroll-up.png</texture>
+									<visible>Container(9350).HasPrevious</visible>
+								</control>
+								<control type="image">
+									<left>96</left>
+									<top>336</top>
+									<height>16</height>
+									<width>16</width>
+									<texture>scroll-down.png</texture>
+									<visible>Container(9350).HasNext</visible>
+								</control>
+							</control>
+						</control>
+						<control type="label"><!-- Menu Heading -->
+							<left>0</left>
+							<top>17</top>
+							<width>210</width>
+							<height>32</height>
+							<font>font18</font>
+							<align>center</align>
+							<label>$INFO[Container(9350).ListItem.Property(menuHeading)]</label>
+							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-programs) + IsEmpty(Skin.String(CustomAddon.1.Path)) + IsEmpty(Skin.String(CustomAddon.2.Path)) + IsEmpty(Skin.String(CustomAddon.3.Path)) + IsEmpty(Skin.String(CustomAddon.4.Path)) + IsEmpty(Skin.String(CustomAddon.5.Path))">Conditional</animation>
+						</control>
+						<control type="list" id="9350">
+							<animation condition="!Control.HasFocus(9350) + !Control.HasFocus(9380)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+							<left>0</left>
+							<top>84</top>
+							<width>210</width>
+							<height>252</height>
+							<onup>402</onup>
+							<ondown>noop</ondown>
+							<onleft>9300</onleft>
+							<onright>9400</onright>
+							<viewtype label="31941">list</viewtype>
+							<itemlayout height="42" width="210">
+								<include>horzhomelistitem</include>
+							</itemlayout>
+							<focusedlayout height="42" width="210">
+								<control type="image">
+									<left>0</left>
+									<top>0</top>
+									<width>210</width>
+									<height>42</height>
+									<texture border="6">button-default-focus.png</texture>
+									<animation effect="fade" start="100" end="60" condition="IsEmpty(ListItem.Property(isActive))">Conditional</animation>
+								</control>
+								<include>horzhomelistitem</include>
+							</focusedlayout>
+							<content>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomAddon.1"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomAddon.1.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomAddon.1.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[24001]"/>
+								<param name="itemmenuid" value="9350"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomAddon.2"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomAddon.2.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomAddon.2.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[24001]"/>
+								<param name="itemmenuid" value="9350"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomAddon.3"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomAddon.3.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomAddon.3.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[24001]"/>
+								<param name="itemmenuid" value="9350"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomAddon.4"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomAddon.4.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomAddon.4.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[24001]"/>
+								<param name="itemmenuid" value="9350"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemcustombase" value="CustomAddon.5"/>
+								<param name="itemlabel" value="$INFO[Skin.String(CustomAddon.5.Label)]"/>
+								<param name="itemcondition" value="!IsEmpty(Skin.String(CustomAddon.5.Path))"/>
+								<param name="itemmenuheading" value="$LOCALIZE[24001]"/>
+								<param name="itemmenuid" value="9350"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[157]"/>
+								<param name="itemcondition" value="!Skin.HasSetting(home-programs)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[24001]"/>
+								<param name="itemmenuid" value="9350"/>
+								<param name="itemtoggle" value="home-programs"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[2]"/>
+								<param name="itemcondition" value="!Skin.HasSetting(home-programs)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[24001]"/>
+								<param name="itemmenuid" value="9350"/>
+								<param name="itemtoggle" value="home-programs"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[1]"/>
+								<param name="itemcondition" value="!Skin.HasSetting(home-programs)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[24001]"/>
+								<param name="itemmenuid" value="9350"/>
+								<param name="itemtoggle" value="home-programs"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[0]"/>
+								<param name="itemcondition" value="!Skin.HasSetting(home-programs)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[24001]"/>
+								<param name="itemmenuid" value="9350"/>
+								<param name="itemtoggle" value="home-programs"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[21452]"/>
+								<param name="itemcondition" value="!Skin.HasSetting(home-programs)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[24001]"/>
+								<param name="itemmenuid" value="9350"/>
+								<param name="itemtoggle" value="home-programs"/>
+							</include>
+							</content>
+						</control>
+					</control>
+					<control type="group" id="9420"><!-- Weather Sub menu -->
+						<width>210</width>
+						<control type="button" id="9430"><!-- Dummy button for mouse control -->
+							<left>0</left>
+							<top>0</top>
+							<width>210</width>
+							<height>345</height>
+							<texturefocus>blank.png</texturefocus>
+							<onup>402</onup>
+							<ondown>9400</ondown>
+							<onleft>9350</onleft>
+							<onright>9450</onright>
+						</control>
+						<control type="image"><!-- Menu Heading Hilite-->
+							<left>0</left>
+							<top>0</top>
+							<width>210</width>
+							<height>66</height>
+							<texture>menu-focus.png</texture>
+							<visible>Control.HasFocus(9400) | Control.HasFocus(9430)</visible>
+						</control>
+						<control type="label"><!-- Menu Heading -->
+							<left>0</left>
+							<top>17</top>
+							<width>210</width>
+							<height>32</height>
+							<font>font18</font>
+							<align>center</align>
+							<label>$INFO[Container(9400).ListItem.Property(menuHeading)]</label>
+							<animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(home-weather) + !Skin.HasSetting(home-currentweather)">Conditional</animation>
+						</control>
+						<control type="list" id="9400">
+							<animation condition="!Control.HasFocus(9400) + !Control.HasFocus(9430)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+							<left>0</left>
+							<top>84</top>
+							<width>210</width>
+							<height>252</height>
+							<onup>402</onup>
+							<ondown>noop</ondown>
+							<onleft>9350</onleft>
+							<onright>9450</onright>
+							<viewtype label="31941">list</viewtype>
+							<itemlayout height="42" width="210">
+								<include>horzhomelistitem</include>
+							</itemlayout>
+							<focusedlayout height="42" width="210">
+								<control type="image">
+									<left>0</left>
+									<top>0</top>
+									<width>210</width>
+									<height>42</height>
+									<texture border="6">button-default-focus.png</texture>
+									<animation effect="fade" start="100" end="60" condition="IsEmpty(ListItem.Property(isActive))">Conditional</animation>
+								</control>
+								<include>horzhomelistitem</include>
+							</focusedlayout>
+							<content>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[8]"/>
+								<param name="itemcondition" value="Skin.HasSetting(home-weather)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[8]"/>
+								<param name="itemmenuid" value="9400"/>
+								<param name="itemtoggle" value="home-weather"/>
+							</include>
+							</content>
+						</control>
+					</control>
+					<control type="group" id="9470"><!-- Settings Sub menu -->
+						<width>210</width>
+						<control type="button" id="9480"><!-- Dummy button for mouse control -->
+							<left>0</left>
+							<top>0</top>
+							<width>210</width>
+							<height>345</height>
+							<texturefocus>blank.png</texturefocus>
+							<onup>402</onup>
+							<ondown>9450</ondown>
+							<onleft>9400</onleft>
+							<onright>noop</onright>
+						</control>
+						<control type="group">
+							<visible>Control.HasFocus(9450) | Control.HasFocus(9480)</visible>
+							<control type="image"><!-- Menu Heading Hilite-->
+								<left>0</left>
+								<top>0</top>
+								<width>210</width>
+								<height>66</height>
+								<texture>menu-focus.png</texture>
+							</control>
+							<control type="group"><!-- Markers for control area items -->
+								<control type="image">
+									<left>96</left>
+									<top>68</top>
+									<height>16</height>
+									<width>16</width>
+									<texture>scroll-up.png</texture>
+									<visible>Container(9450).HasPrevious</visible>
+								</control>
+								<control type="image">
+									<left>96</left>
+									<top>336</top>
+									<height>16</height>
+									<width>16</width>
+									<texture>scroll-down.png</texture>
+									<visible>Container(9450).HasNext</visible>
+								</control>
+							</control>
+						</control>
+						<control type="label"><!-- Menu Heading -->
+							<left>0</left>
+							<top>17</top>
+							<width>210</width>
+							<height>32</height>
+							<font>font18</font>
+							<align>center</align>
+							<label>$INFO[Container(9450).ListItem.Property(menuHeading)]</label>
+							<animation condition="Control.HasFocus(402)" effect="fade" start="100" end="65">Conditional</animation>
+						</control>
+						<control type="list" id="9450">
+							<animation condition="!Control.HasFocus(9450) + !Control.HasFocus(9480)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+							<animation condition="Control.HasFocus(402)" effect="fade" start="100" end="65">Conditional</animation>
+							<left>0</left>
+							<top>84</top>
+							<width>210</width>
+							<height>252</height>
+							<onup>402</onup>
+							<ondown>noop</ondown>
+							<onleft>9400</onleft>
+							<onright>noop</onright>
+							<viewtype label="31941">list</viewtype>
+							<itemlayout height="42" width="210">
+								<include>horzhomelistitem</include>
+							</itemlayout>
+							<focusedlayout height="42" width="210">
+								<control type="image">
+									<left>0</left>
+									<top>0</top>
+									<width>210</width>
+									<height>42</height>
+									<texture border="6">button-default-focus.png</texture>
+									<animation effect="fade" start="100" end="60" condition="IsEmpty(ListItem.Property(isActive))">Conditional</animation>
+								</control>
+								<include>horzhomelistitem</include>
+							</focusedlayout>
+							<content>
+								<item>
+									<label>$LOCALIZE[5]</label>
+									<onclick>noop</onclick>
+									<property name="isActive">true</property>
+									<property name="menuHeading">$LOCALIZE[13000]</property>
+								</item>
+								<item><!-- System info -->
+									<label>$LOCALIZE[130]</label>
+									<property name="isActive">true</property>
+									<property name="menuHeading">$LOCALIZE[13000]</property>
+									<onclick>noop</onclick>
+								</item>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[31652]"/>
+								<param name="itemcondition" value="Skin.HasSetting(home-favorites)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[13000]"/>
+								<param name="itemmenuid" value="9450"/>
+								<param name="itemtoggle" value="home-favorites"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[20092]"/>
+								<param name="itemcondition" value="Skin.HasSetting(home-profile)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[13000]"/>
+								<param name="itemmenuid" value="9450"/>
+								<param name="itemtoggle" value="home-profile"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[137]"/>
+								<param name="itemcondition" value="Skin.HasSetting(home-search)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[13000]"/>
+								<param name="itemmenuid" value="9450"/>
+								<param name="itemtoggle" value="home-search"/>
+							</include>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[10003]"/>
+								<param name="itemcondition" value="Skin.HasSetting(home-filemanager)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[13000]"/>
+								<param name="itemmenuid" value="9450"/>
+								<param name="itemtoggle" value="home-filemanager"/>
+							</include>
+								<item><!-- Play DVD -->
+									<label>$LOCALIZE[31036]</label>
+									<property name="isActive">true</property>
+									<property name="menuHeading">$LOCALIZE[13000]</property>
+									<onclick>noop</onclick>
+								</item>
+								<item><!-- Media OSD -->
+									<label>$LOCALIZE[16003] $LOCALIZE[478]</label>
+									<property name="isActive">true</property>
+									<property name="menuHeading">$LOCALIZE[13000]</property>
+									<onclick>noop</onclick>
+								</item>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[13009]"/>
+								<param name="itemcondition" value="!Skin.HasSetting(home-shutdown)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[13000]"/>
+								<param name="itemmenuid" value="9450"/>
+								<param name="itemtoggle" value="home-shutdown"/>
+							</include>
+							</content>
+						</control>
+					</control>
 				</control>
 			</control>
 
@@ -124,30 +1395,35 @@
 						<param name="itemthumb" value="special://skin/extras/homeicons/video.png"/>
 						<param name="itemlabel" value="$LOCALIZE[3]"/>
 						<param name="itemcondition" value="!Skin.HasSetting(home-video)"/>
+						<param name="itemmenuid" value="9021"/>
 						<param name="itemtoggle" value="home-video"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="special://skin/extras/homeicons/movie.png"/>
 						<param name="itemlabel" value="$LOCALIZE[31026]"/>
 						<param name="itemcondition" value="!Skin.HasSetting(home-movie)"/>
+						<param name="itemmenuid" value="9021"/>
 						<param name="itemtoggle" value="home-movie"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="special://skin/extras/homeicons/tv.png"/>
 						<param name="itemlabel" value="$LOCALIZE[20343]"/>
 						<param name="itemcondition" value="!Skin.HasSetting(home-tvshows)"/>
+						<param name="itemmenuid" value="9021"/>
 						<param name="itemtoggle" value="home-tvshows"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="special://skin/extras/homeicons/music.png"/>
 						<param name="itemlabel" value="$LOCALIZE[2]"/>
 						<param name="itemcondition" value="!Skin.HasSetting(home-music)"/>
+						<param name="itemmenuid" value="9021"/>
 						<param name="itemtoggle" value="home-music"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="special://skin/extras/homeicons/weather.png"/>
 						<param name="itemlabel" value="$LOCALIZE[8]"/>
 						<param name="itemcondition" value="!IsEmpty(Weather.plugin)+[Skin.HasSetting(home-weather)|Skin.HasSetting(home-currentweather)]"/>
+						<param name="itemmenuid" value="9021"/>
 						<param name="itemtoggle" value="home-weather"/>
 					</include>
 					<item>
@@ -157,240 +1433,321 @@
 						<property name="isActive">true</property>
 						<property name="visibleToggle"></property>
 						<property name="customBase"></property>
+						<property name="menuID">9021</property>
 					</item>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="special://skin/extras/homeicons/musicvideo.png"/>
 						<param name="itemlabel" value="$LOCALIZE[31028]"/>
 						<param name="itemcondition" value="Skin.HasSetting(home-musicvideo)"/>
+						<param name="itemmenuid" value="9021"/>
 						<param name="itemtoggle" value="home-musicvideo"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="special://skin/extras/homeicons/livetv.png"/>
 						<param name="itemlabel" value="$LOCALIZE[19020]"/>
 						<param name="itemcondition" value="Pvr.HasTVChannels"/>
+						<param name="itemmenuid" value="9021"/>
 						<param name="itemtoggle" value="home-tv"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="special://skin/extras/homeicons/radio.png"/>
 						<param name="itemlabel" value="$LOCALIZE[19021]"/>
 						<param name="itemcondition" value="Pvr.HasRadioChannels"/>
+						<param name="itemmenuid" value="9021"/>
 						<param name="itemtoggle" value="home-radio"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="special://skin/extras/homeicons/addons.png"/>
 						<param name="itemlabel" value="$LOCALIZE[24001]"/>
 						<param name="itemcondition" value="!Skin.HasSetting(home-programs)"/>
+						<param name="itemmenuid" value="9021"/>
 						<param name="itemtoggle" value="home-programs"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="special://skin/extras/homeicons/pics.png"/>
 						<param name="itemlabel" value="$LOCALIZE[1]"/>
 						<param name="itemcondition" value="Skin.HasSetting(home-photos)"/>
+						<param name="itemmenuid" value="9021"/>
 						<param name="itemtoggle" value="home-photos"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="special://skin/extras/homeicons/favs.png"/>
 						<param name="itemlabel" value="$LOCALIZE[31652]"/>
 						<param name="itemcondition" value="Skin.HasSetting(home-favorites)"/>
+						<param name="itemmenuid" value="9021"/>
 						<param name="itemtoggle" value="home-favorites"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomMovies.1"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomMovies.1.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomMovies.1.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMovies.1.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomMovies.2"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomMovies.2.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomMovies.2.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMovies.2.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomMovies.3"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomMovies.3.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomMovies.3.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMovies.3.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomMovies.4"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomMovies.4.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomMovies.4.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMovies.4.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomMovies.5"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomMovies.5.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomMovies.5.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMovies.5.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomTVShow.1"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomTVShow.1.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomTVShow.1.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTVShow.1.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomTVShow.2"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomTVShow.2.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomTVShow.2.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTVShow.2.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomTVShow.3"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomTVShow.3.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomTVShow.3.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTVShow.3.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomTVShow.4"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomTVShow.4.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomTVShow.4.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTVShow.4.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomTVShow.5"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomTVShow.5.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomTVShow.5.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTVShow.5.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomTV.1"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomTV.1.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomTV.1.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTV.1.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomTV.2"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomTV.2.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomTV.2.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTV.2.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomTV.3"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomTV.3.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomTV.3.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTV.3.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomTV.4"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomTV.4.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomTV.4.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTV.4.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomTV.5"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomTV.5.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomTV.5.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTV.5.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomRadio.1"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomRadio.1.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomRadio.1.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomRadio.1.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomRadio.2"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomRadio.2.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomRadio.2.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomRadio.2.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomRadio.3"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomRadio.3.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomRadio.3.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomRadio.3.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomRadio.4"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomRadio.4.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomRadio.4.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomRadio.4.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomRadio.5"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomRadio.5.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomRadio.5.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomRadio.5.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomFav.1"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomFav.1.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomFav.1.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomFav.1.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomFav.2"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomFav.2.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomFav.2.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomFav.2.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomFav.3"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomFav.3.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomFav.3.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomFav.3.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomFav.4"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomFav.4.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomFav.4.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomFav.4.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomFav.5"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomFav.5.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomFav.5.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomFav.5.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomMusic.1"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomMusic.1.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomMusic.1.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMusic.1.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomMusic.2"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomMusic.2.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomMusic.2.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMusic.2.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomMusic.3"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomMusic.3.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomMusic.3.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMusic.3.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomMusic.4"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomMusic.4.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomMusic.4.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMusic.4.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomMusic.5"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomMusic.5.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomMusic.5.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMusic.5.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomAddon.1"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomAddon.1.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomAddon.1.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomAddon.1.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomAddon.2"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomAddon.2.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomAddon.2.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomAddon.2.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomAddon.3"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomAddon.3.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomAddon.3.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomAddon.3.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomAddon.4"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomAddon.4.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomAddon.4.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomAddon.4.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
+						<param name="itemcustombase" value="CustomAddon.5"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomAddon.5.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomAddon.5.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomAddon.5.Path))"/>
+						<param name="itemmenuid" value="9021"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="special://skin/extras/homeicons/search.png"/>
 						<param name="itemlabel" value="$LOCALIZE[137]"/>
 						<param name="itemcondition" value="Skin.HasSetting(home-search)"/>
+						<param name="itemmenuid" value="9021"/>
 						<param name="itemtoggle" value="home-search"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="special://skin/extras/homeicons/filemanager.png"/>
 						<param name="itemlabel" value="$LOCALIZE[10003]"/>
 						<param name="itemcondition" value="Skin.HasSetting(home-filemanager)"/>
+						<param name="itemmenuid" value="9021"/>
 						<param name="itemtoggle" value="home-filemanager"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="special://skin/extras/homeicons/users.png"/>
 						<param name="itemlabel" value="$LOCALIZE[20092]"/>
 						<param name="itemcondition" value="Skin.HasSetting(home-profile)"/>
+						<param name="itemmenuid" value="9021"/>
 						<param name="itemtoggle" value="home-profile"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="special://skin/extras/homeicons/quit.png"/>
 						<param name="itemlabel" value="$LOCALIZE[13009]"/>
 						<param name="itemcondition" value="!Skin.HasSetting(home-shutdown)"/>
+						<param name="itemmenuid" value="9021"/>
 						<param name="itemtoggle" value="home-shutdown"/>
 					</include>
 					</content>
@@ -458,12 +1815,14 @@
 						<param name="itemthumb" value="DefaultVideo.png"/>
 						<param name="itemlabel" value="$LOCALIZE[3]"/>
 						<param name="itemcondition" value="!Skin.HasSetting(home-video)"/>
+						<param name="itemmenuid" value="9031"/>
 						<param name="itemtoggle" value="home-video"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="DefaultVideo.png"/>
 						<param name="itemlabel" value="$LOCALIZE[31026]"/>
 						<param name="itemcondition" value="!Skin.HasSetting(home-movie)"/>
+						<param name="itemmenuid" value="9031"/>
 						<param name="itemtoggle" value="home-movie"/>
 					</include>
 					<include name="listpanelitems">
@@ -471,35 +1830,41 @@
 						<param name="itemthumb" value="$INFO[Skin.String(CustomMovies.1.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomMovies.1.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMovies.1.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomMovies.2"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomMovies.2.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomMovies.2.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMovies.2.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomMovies.3"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomMovies.3.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomMovies.3.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMovies.3.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomMovies.4"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomMovies.4.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomMovies.4.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMovies.4.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomMovies.5"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomMovies.5.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomMovies.5.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMovies.5.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="DefaultTVShows.png"/>
 						<param name="itemlabel" value="$LOCALIZE[20343]"/>
 						<param name="itemcondition" value="!Skin.HasSetting(home-tvshows)"/>
+						<param name="itemmenuid" value="9031"/>
 						<param name="itemtoggle" value="home-tvshows"/>
 					</include>
 					<include name="listpanelitems">
@@ -507,41 +1872,48 @@
 						<param name="itemthumb" value="$INFO[Skin.String(CustomTVShow.1.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomTVShow.1.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTVShow.1.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomTVShow.2"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomTVShow.2.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomTVShow.2.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTVShow.2.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomTVShow.3"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomTVShow.3.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomTVShow.3.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTVShow.3.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomTVShow.4"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomTVShow.4.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomTVShow.4.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTVShow.4.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomTVShow.5"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomTVShow.5.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomTVShow.5.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTVShow.5.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="DefaultMusicVideos.png"/>
 						<param name="itemlabel" value="$LOCALIZE[31028]"/>
 						<param name="itemcondition" value="Skin.HasSetting(home-musicvideo)"/>
+						<param name="itemmenuid" value="9031"/>
 						<param name="itemtoggle" value="home-musicvideo"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="icon-livetv.png"/>
 						<param name="itemlabel" value="$LOCALIZE[19020]"/>
 						<param name="itemcondition" value="Pvr.HasTVChannels"/>
+						<param name="itemmenuid" value="9031"/>
 						<param name="itemtoggle" value="home-tv"/>
 					</include>
 					<include name="listpanelitems">
@@ -549,35 +1921,41 @@
 						<param name="itemthumb" value="$INFO[Skin.String(CustomTV.1.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomTV.1.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTV.1.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomTV.2"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomTV.2.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomTV.2.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTV.2.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomTV.3"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomTV.3.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomTV.3.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTV.3.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomTV.4"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomTV.4.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomTV.4.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTV.4.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomTV.5"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomTV.5.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomTV.5.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomTV.5.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="icon-radio.png"/>
 						<param name="itemlabel" value="$LOCALIZE[19021]"/>
 						<param name="itemcondition" value="Pvr.HasRadioChannels"/>
+						<param name="itemmenuid" value="9031"/>
 						<param name="itemtoggle" value="home-radio"/>
 					</include>
 					<include name="listpanelitems">
@@ -585,65 +1963,76 @@
 						<param name="itemthumb" value="$INFO[Skin.String(CustomRadio.1.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomRadio.1.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomRadio.1.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomRadio.2"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomRadio.2.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomRadio.2.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomRadio.2.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomRadio.3"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomRadio.3.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomRadio.3.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomRadio.3.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomRadio.4"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomRadio.4.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomRadio.4.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomRadio.4.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomRadio.5"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomRadio.5.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomRadio.5.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomRadio.5.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomFav.1"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomFav.1.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomFav.1.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomFav.1.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomFav.2"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomFav.2.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomFav.2.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomFav.2.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomFav.3"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomFav.3.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomFav.3.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomFav.3.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomFav.4"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomFav.4.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomFav.4.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomFav.4.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomFav.5"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomFav.5.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomFav.5.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomFav.5.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="DefaultMusicSongs.png"/>
 						<param name="itemlabel" value="$LOCALIZE[31030]"/>
 						<param name="itemcondition" value="!Skin.HasSetting(home-music)"/>
+						<param name="itemmenuid" value="9031"/>
 						<param name="itemtoggle" value="home-music"/>
 					</include>
 					<include name="listpanelitems">
@@ -651,35 +2040,41 @@
 						<param name="itemthumb" value="$INFO[Skin.String(CustomMusic.1.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomMusic.1.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMusic.1.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomMusic.2"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomMusic.2.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomMusic.2.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMusic.2.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomMusic.3"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomMusic.3.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomMusic.3.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMusic.3.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomMusic.4"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomMusic.4.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomMusic.4.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMusic.4.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomMusic.5"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomMusic.5.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomMusic.5.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomMusic.5.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="DefaultAddon.png"/>
 						<param name="itemlabel" value="$LOCALIZE[24001]"/>
 						<param name="itemcondition" value="!Skin.HasSetting(home-programs)"/>
+						<param name="itemmenuid" value="9031"/>
 						<param name="itemtoggle" value="home-programs"/>
 					</include>
 					<include name="listpanelitems">
@@ -687,71 +2082,83 @@
 						<param name="itemthumb" value="$INFO[Skin.String(CustomAddon.1.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomAddon.1.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomAddon.1.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomAddon.2"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomAddon.2.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomAddon.2.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomAddon.2.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomAddon.3"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomAddon.3.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomAddon.3.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomAddon.3.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomAddon.4"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomAddon.4.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomAddon.4.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomAddon.4.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemcustombase" value="CustomAddon.5"/>
 						<param name="itemthumb" value="$INFO[Skin.String(CustomAddon.5.Icon)]"/>
 						<param name="itemlabel" value="$INFO[Skin.String(CustomAddon.5.Label)]"/>
 						<param name="itemcondition" value="!IsEmpty(Skin.String(CustomAddon.5.Path))"/>
+						<param name="itemmenuid" value="9031"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="DefaultPicture.png"/>
 						<param name="itemlabel" value="$LOCALIZE[1]"/>
 						<param name="itemcondition" value="Skin.HasSetting(home-photos)"/>
+						<param name="itemmenuid" value="9031"/>
 						<param name="itemtoggle" value="home-photos"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="icon-weather.png"/>
 						<param name="itemlabel" value="$LOCALIZE[31032]"/>
 						<param name="itemcondition" value="!IsEmpty(Weather.plugin)+[Skin.HasSetting(home-weather)|Skin.HasSetting(home-currentweather)]"/>
+						<param name="itemmenuid" value="9031"/>
 						<param name="itemtoggle" value="home-weather"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="icon-fav.png"/>
 						<param name="itemlabel" value="$LOCALIZE[31652]"/>
 						<param name="itemcondition" value="Skin.HasSetting(home-favorites)"/>
+						<param name="itemmenuid" value="9031"/>
 						<param name="itemtoggle" value="home-favorites"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="icon-search.png"/>
 						<param name="itemlabel" value="$LOCALIZE[137]"/>
 						<param name="itemcondition" value="Skin.HasSetting(home-search)"/>
+						<param name="itemmenuid" value="9031"/>
 						<param name="itemtoggle" value="home-search"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="icon-filemanager.png"/>
 						<param name="itemlabel" value="$LOCALIZE[10003]"/>
 						<param name="itemcondition" value="Skin.HasSetting(home-filemanager)"/>
+						<param name="itemmenuid" value="9031"/>
 						<param name="itemtoggle" value="home-filemanager"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="icon-profile.png"/>
 						<param name="itemlabel" value="$LOCALIZE[20092]"/>
 						<param name="itemcondition" value="Skin.HasSetting(home-profile)"/>
+						<param name="itemmenuid" value="9031"/>
 						<param name="itemtoggle" value="home-profile"/>
 					</include>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="DefaultDVDRom.png"/>
 						<param name="itemlabel" value="$LOCALIZE[31036]"/>
 						<param name="itemcondition" value="Skin.HasSetting(home-playdisc)"/>
+						<param name="itemmenuid" value="9031"/>
 						<param name="itemtoggle" value="home-playdisc"/>
 					</include>
 					<item>
@@ -761,11 +2168,13 @@
 						<property name="isActive">true</property>
 						<property name="visibleToggle"></property>
 						<property name="customBase"></property>
+						<property name="menuID">9031</property>
 					</item>
 					<include name="listpanelitems">
 						<param name="itemthumb" value="icon-power.png"/>
 						<param name="itemlabel" value="$LOCALIZE[13009]"/>
 						<param name="itemcondition" value="!Skin.HasSetting(home-shutdown)"/>
+						<param name="itemmenuid" value="9031"/>
 						<param name="itemtoggle" value="home-shutdown"/>
 					</include>
 					</content>
@@ -804,7 +2213,7 @@
 			<include>fadebackground</include>
 			<control type="image"><!-- Button background -->
 				<left>440</left>
-				<top>152</top>
+				<top>212</top>
 				<width>396</width>
 				<height>286</height>
 				<texture border="9">button-menu-background.png</texture>
@@ -816,12 +2225,13 @@
 				<height>720</height>
 				<texturefocus>blank.png</texturefocus>
 				<texturenofocus>blank.png</texturenofocus>
+				<onclick condition="Skin.HasSetting(homemenu-horizontal)">SetFocus(9002)</onclick>
 				<onclick condition="Skin.HasSetting(homemenu-icon)">SetFocus(9021)</onclick>
 				<onclick condition="Skin.HasSetting(homemenu-vertical)">SetFocus(9031)</onclick>
 			</control>
 			<control type="label"><!-- Dialog heading -->
 				<left>450</left>
-				<top>166</top>
+				<top>226</top>
 				<width>372</width>
 				<height>34</height>
 				<font>font11</font>
@@ -830,66 +2240,88 @@
 			</control>
 			<control type="button"><!-- Touch Close button -->
 				<left>814</left>
-				<top>142</top>
+				<top>202</top>
 				<width>32</width>
 				<height>32</height>
 				<texturefocus>touch-close.png</texturefocus>
 				<texturenofocus>touch-close.png</texturenofocus>
+				<onclick condition="Skin.HasSetting(homemenu-horizontal)">SetFocus(9002)</onclick>
 				<onclick condition="Skin.HasSetting(homemenu-icon)">SetFocus(9021)</onclick>
 				<onclick condition="Skin.HasSetting(homemenu-vertical)">SetFocus(9031)</onclick>
 				<visible>Skin.HasSetting(touch-controls)</visible>
 			</control>
 			<control type="image">
 				<left>450</left>
-				<top>202</top>
+				<top>262</top>
 				<width>372</width>
 				<height>4</height>
 				<texture>separator.png</texture>
 			</control>
+			<control type="label"><!-- Debug -->
+				<left>10</left>
+				<top>10</top>
+				<width>600</width>
+				<height>34</height>
+				<font>font11</font>
+				<label>$INFO[Window(settings).Property(ListToggle)]</label>
+				<align>center</align>
+			</control>
+
 			<control type="grouplist" id="5000">
 				<left>450</left>
-				<top>214</top>
+				<top>274</top>
 				<width>376</width>
 				<height>192</height>
-				<menucontrol>SetFocus(9000)</menucontrol>
+				<onright condition="Skin.HasSetting(homemenu-horizontal)">9002</onright>
 				<onright condition="Skin.HasSetting(homemenu-icon)">9021</onright>
 				<onright condition="Skin.HasSetting(homemenu-vertical)">9031</onright>
+				<onleft condition="Skin.HasSetting(homemenu-horizontal)">9002</onleft>
 				<onleft condition="Skin.HasSetting(homemenu-icon)">9021</onleft>
 				<onleft condition="Skin.HasSetting(homemenu-vertical)">9031</onleft>
-				<include name="apptv-togglebutton">
-					<param name="id" value="5102"/>
-					<param name="width" value="376"/>
-					<param name="height" value="48"/>
-					<param name="label" value="$LOCALIZE[24022]"/>
-					<param name="altlabel" value="$LOCALIZE[24021]"/>
-					<param name="usealtlabel" value="Container(9021).ListItem.Property(isActive)"/>
-					<param name="onclick" value="$INFO[Container(9021).ListItem.Property(visibleToggle),Skin.ToggleSetting(,)]"/>
-					<param name="visible" value="Skin.HasSetting(homemenu-icon)+!IsEmpty(Container(9021).ListItem.Property(visibleToggle))"/>
-				</include>
-				<include name="apptv-homecustomactivity">
-					<param name="id" value="5103"/>
-					<param name="width" value="376"/>
-					<param name="height" value="48"/>
-					<param name="label" value="$LOCALIZE[20333]"/>
-					<param name="custombase" value="$INFO[Container(9021).ListItem.Property(customBase)]"/>
-					<param name="visible" value="Skin.HasSetting(homemenu-icon)+IsEmpty(Container(9021).ListItem.Property(visibleToggle))"/>
-				</include>
-				<include name="apptv-homecustomicon">
-					<param name="id" value="5104"/>
-					<param name="width" value="376"/>
-					<param name="height" value="48"/>
-					<param name="label" value="$LOCALIZE[19284]"/>
-					<param name="custombase" value="$INFO[Container(9021).ListItem.Property(customBase)]"/>
-					<param name="visible" value="Skin.HasSetting(homemenu-icon)+IsEmpty(Container(9021).ListItem.Property(visibleToggle))"/>
-				</include>
-				<include name="apptv-homecustomlabel">
-					<param name="id" value="5105"/>
-					<param name="width" value="376"/>
-					<param name="height" value="48"/>
-					<param name="label" value="$LOCALIZE[13334]"/>
-					<param name="custombase" value="$INFO[Container(9021).ListItem.Property(customBase)]"/>
-					<param name="visible" value="Skin.HasSetting(homemenu-icon)+IsEmpty(Container(9021).ListItem.Property(visibleToggle))"/>
-				</include>
+				<control type="togglebutton" id="5102">
+					<width>376</width>
+					<height>48</height>
+					<label>$LOCALIZE[24022]</label>
+					<altlabel>$LOCALIZE[24021]</altlabel>
+					<font>font11</font>
+					<align>center</align>
+					<usealttexture>!IsEmpty(Window(settings).Property(ListActive))</usealttexture>
+					<onclick>Skin.ToggleSetting($INFO[Window(settings).Property(ListToggle)])</onclick>
+					<onclick>SetFocus(9000)</onclick>
+					<visible>IsEmpty(Window(settings).Property(ListCustomBase))</visible>
+				</control>
+				<control type="button" id="5103">
+					<width>376</width>
+					<height>48</height>
+					<label>$LOCALIZE[20333]</label>
+					<font>font11</font>
+					<align>center</align>
+					<onclick condition="IsEmpty(Window(Home).Property(ItemPath))">RunScript(script.favourites,changetitle=true&amp;property=$INFO[Window(settings).Property(ListCustomBase)])</onclick>
+					<onclick condition="!IsEmpty(Window(Home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase)].Path,$INFO[Window(Home).Property(ItemPath)])</onclick>
+					<onclick condition="!IsEmpty(Window(Home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase)].Label,$INFO[Window(Home).Property(ItemName)])</onclick>
+					<onclick condition="!IsEmpty(Window(Home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase)].Icon,$INFO[Window(Home).Property(ItemIcon)])</onclick>
+					<onclick condition="!IsEmpty(Window(Home).Property(ItemPath))">ClearProperty(ItemPath,Home)</onclick>
+					<visible>!IsEmpty(Window(settings).Property(ListCustomBase))</visible>
+				</control>
+				<control type="button" id="5104">
+					<width>376</width>
+					<height>48</height>
+					<label>$LOCALIZE[19284]</label>
+					<font>font11</font>
+					<align>center</align>
+					<onclick>Skin.SetFile($INFO[Window(settings).Property(ListCustomBase),,.Icon],.jpg|.png)</onclick>
+					<enable>!Skin.HasSetting(homemenu-horizontal)</enable>
+					<visible>!IsEmpty(Window(settings).Property(ListCustomBase))</visible>
+				</control>
+				<control type="button" id="5105">
+					<width>376</width>
+					<height>48</height>
+					<label>$LOCALIZE[13334]</label>
+					<font>font11</font>
+					<align>center</align>
+					<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label])</onclick>
+					<visible>!IsEmpty(Window(settings).Property(ListCustomBase))</visible>
+				</control>
 				<control type="button" id="5106"><!-- Quit action -->
 					<width>376</width>
 					<height>48</height>
@@ -899,52 +2331,7 @@
 					<font>font11</font>
 					<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=home-quitaction-val,header=$LOCALIZE[31914])</onclick>
 					<enable>!Skin.HasSetting(home-shutdown)</enable>
-					<visible>Skin.HasSetting(homemenu-icon) + StringCompare(Container(9021).ListItem.Property(visibleToggle),home-shutdown)</visible>
-				</control>
-				<include name="apptv-togglebutton">
-					<param name="id" value="5107"/>
-					<param name="width" value="376"/>
-					<param name="height" value="48"/>
-					<param name="label" value="$LOCALIZE[24022]"/>
-					<param name="altlabel" value="$LOCALIZE[24021]"/>
-					<param name="usealtlabel" value="Container(9031).ListItem.Property(isActive)"/>
-					<param name="onclick" value="$INFO[Container(9031).ListItem.Property(visibleToggle),Skin.ToggleSetting(,)]"/>
-					<param name="visible" value="Skin.HasSetting(homemenu-vertical)+!IsEmpty(Container(9031).ListItem.Property(visibleToggle))"/>
-				</include>
-				<include name="apptv-homecustomactivity">
-					<param name="id" value="5108"/>
-					<param name="width" value="376"/>
-					<param name="height" value="48"/>
-					<param name="label" value="$LOCALIZE[20333]"/>
-					<param name="custombase" value="$INFO[Container(9031).ListItem.Property(customBase)]"/>
-					<param name="visible" value="Skin.HasSetting(homemenu-vertical)+IsEmpty(Container(9031).ListItem.Property(visibleToggle))"/>
-				</include>
-				<include name="apptv-homecustomicon">
-					<param name="id" value="5109"/>
-					<param name="width" value="376"/>
-					<param name="height" value="48"/>
-					<param name="label" value="$LOCALIZE[19284]"/>
-					<param name="custombase" value="$INFO[Container(9031).ListItem.Property(customBase)]"/>
-					<param name="visible" value="Skin.HasSetting(homemenu-vertical)+IsEmpty(Container(9031).ListItem.Property(visibleToggle))"/>
-				</include>
-				<include name="apptv-homecustomlabel">
-					<param name="id" value="5110"/>
-					<param name="width" value="376"/>
-					<param name="height" value="48"/>
-					<param name="label" value="$LOCALIZE[13334]"/>
-					<param name="custombase" value="$INFO[Container(9031).ListItem.Property(customBase)]"/>
-					<param name="visible" value="Skin.HasSetting(homemenu-vertical)+IsEmpty(Container(9031).ListItem.Property(visibleToggle))"/>
-				</include>
-				<control type="button" id="5111"><!-- Quit action -->
-					<width>376</width>
-					<height>48</height>
-					<textwidth>350</textwidth>
-					<label>$LOCALIZE[31914]</label>
-					<label2>$INFO[Skin.String(home-quitaction)]</label2>
-					<font>font11</font>
-					<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=home-quitaction-val,header=$LOCALIZE[31914])</onclick>
-					<enable>!Skin.HasSetting(home-shutdown)</enable>
-					<visible>Skin.HasSetting(homemenu-vertical) + StringCompare(Container(9031).ListItem.Property(visibleToggle),home-shutdown)</visible>
+					<visible>StringCompare(Window(settings).Property(ListLabel),$LOCALIZE[13009])</visible>
 				</control>
 			</control>
 		</control>

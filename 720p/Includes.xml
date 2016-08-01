@@ -1071,8 +1071,9 @@
 		<value condition="Control.HasFocus(607)">$LOCALIZE[31355]</value>
 		<value condition="Control.HasFocus(802)">$LOCALIZE[31370]</value>
 		<value condition="Control.HasFocus(803)">$LOCALIZE[31371]</value>
-		<value condition="Control.HasFocus(805)">$LOCALIZE[31372]</value>
-		<value condition="Control.HasFocus(806)">$LOCALIZE[31373]</value>
+		<value condition="Control.HasFocus(804)">$LOCALIZE[31369]</value>
+		<value condition="Control.HasFocus(806)">$LOCALIZE[31372]</value>
+		<value condition="Control.HasFocus(807)">$LOCALIZE[31373]</value>
 		<value condition="Control.HasFocus(984)">$LOCALIZE[31360]</value>
 	</variable>
 	
@@ -1433,140 +1434,61 @@
 		</definition>
 	</include>
 
+	<include name="horzhomelistitem">
+		<control type="label">
+			<left>8</left>
+			<top>8</top>
+			<width>194</width>
+			<height>22</height>
+			<font>font11</font>
+			<align>center</align>
+			<label fallback="20333">$INFO[ListItem.Label]</label>
+			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+			<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
+		</control>
+	</include>
+
 	<include name="listpanelitems">
-		<param name="itemcustombase" default=""/>
+		<param name="itemcustombase"/>
 		<param name="itemthumb"/>
 		<param name="itemlabel"/>
+		<param name="itemmenuheading"/>
+		<param name="itemmenuid"/>
 		<param name="itemcondition"/>
-		<param name="itemtoggle" default=""/>
+		<param name="itemtoggle"/>
 		<definition>
 			<item>
 				<thumb>$PARAM[itemthumb]</thumb>
 				<label>$PARAM[itemlabel]</label>
-				<onclick>SetFocus(5000)</onclick>
 				<property name="isActive">true</property>
 				<property name="visibleToggle">$PARAM[itemtoggle]</property>
 				<property name="customBase">$PARAM[itemcustombase]</property>
+				<property name="menuHeading">$PARAM[itemmenuheading]</property>
+				<property name="menuID">$PARAM[itemmenuid]</property>
+				<onclick>SetProperty(ListActive,true,settings)</onclick>
+				<onclick>SetProperty(ListLabel,$PARAM[itemlabel],settings)</onclick>
+				<onclick>SetProperty(ListID,$PARAM[itemmenuid],settings)</onclick>
+				<onclick>SetProperty(ListToggle,$PARAM[itemtoggle],settings)</onclick>
+				<onclick>SetProperty(ListCustomBase,$PARAM[itemcustombase],settings)</onclick>
+				<onclick>SetFocus(5000,1)</onclick>
 				<visible>$PARAM[itemcondition]</visible>
 			</item>
 			<item>
 				<thumb>$PARAM[itemthumb]</thumb>
 				<label>$PARAM[itemlabel]</label>
-				<onclick>SetFocus(5000)</onclick>
 				<property name="isActive">false</property>
 				<property name="visibleToggle">$PARAM[itemtoggle]</property>
 				<property name="customBase">$PARAM[itemcustombase]</property>
+				<property name="menuHeading">$PARAM[itemmenuheading]</property>
+				<property name="menuID">$PARAM[itemmenuid]</property>
+				<onclick>ClearProperty(ListActive,settings)</onclick>
+				<onclick>SetProperty(ListLabel,$PARAM[itemlabel],settings)</onclick>
+				<onclick>SetProperty(ListID,$PARAM[itemmenuid],settings)</onclick>
+				<onclick>SetProperty(ListToggle,$PARAM[itemtoggle],settings)</onclick>
+				<onclick>SetProperty(ListCustomBase,$PARAM[itemcustombase],settings)</onclick>
+				<onclick>SetFocus(5000,1)</onclick>
 				<visible>!$PARAM[itemcondition]</visible>
 			</item>
-		</definition>
-	</include>
-
-	<include name="apptv-togglebutton">
-		<param name="id"/>
-		<param name="left"/>
-		<param name="top"/>
-		<param name="width" default="0"/>
-		<param name="height" default="0"/>
-		<param name="font" default="font11"/>
-		<param name="label"/>
-		<param name="altlabel"/>
-		<param name="usealtlabel"/>
-		<param name="onclick"/>
-		<param name="visible"/>
-		<definition>
-			<control type="togglebutton" id="$PARAM[id]">
-				<left>$PARAM[left]</left>
-				<top>$PARAM[top]</top>
-				<width>$PARAM[width]</width>
-				<height>$PARAM[height]</height>
-				<label>$PARAM[label]</label>
-				<altlabel>$PARAM[altlabel]</altlabel>
-				<font>$PARAM[font]</font>
-				<align>center</align>
-				<usealttexture>$PARAM[usealtlabel]</usealttexture>
-				<onclick>$PARAM[onclick]</onclick>
-				<visible>$PARAM[visible]</visible>
-			</control>
-		</definition>
-	</include>
-
-	<include name="apptv-homecustomactivity">
-		<param name="id"/>
-		<param name="left"/>
-		<param name="top"/>
-		<param name="width" default="0"/>
-		<param name="height" default="0"/>
-		<param name="font" default="font11"/>
-		<param name="label"/>
-		<param name="label2"/>
-		<param name="custombase"/>
-		<param name="visible"/>
-		<definition>
-			<control type="button" id="$PARAM[id]">
-				<left>$PARAM[left]</left>
-				<top>$PARAM[top]</top>
-				<width>$PARAM[width]</width>
-				<height>$PARAM[height]</height>
-				<label>$PARAM[label]</label>
-				<font>$PARAM[font]</font>
-				<align>center</align>
-				<onclick condition="IsEmpty(Window(Home).Property(ItemPath))">RunScript(script.favourites,changetitle=true&amp;property=$PARAM[custombase])</onclick>
-				<onclick condition="!IsEmpty(Window(Home).Property(ItemPath))">Skin.SetString($PARAM[custombase].Path,$INFO[Window(Home).Property(ItemPath)])</onclick>
-				<onclick condition="!IsEmpty(Window(Home).Property(ItemPath))">Skin.SetString($PARAM[custombase].Label,$INFO[Window(Home).Property(ItemName)])</onclick>
-				<onclick condition="!IsEmpty(Window(Home).Property(ItemPath))">Skin.SetString($PARAM[custombase].Icon,$INFO[Window(Home).Property(ItemIcon)])</onclick>
-				<onclick condition="!IsEmpty(Window(Home).Property(ItemPath))">ClearProperty(ItemPath,Home)</onclick>
-				<visible>$PARAM[visible]</visible>
-			</control>
-		</definition>
-	</include>
-
-	<include name="apptv-homecustomicon">
-		<param name="id"/>
-		<param name="left"/>
-		<param name="top"/>
-		<param name="width" default="0"/>
-		<param name="height" default="0"/>
-		<param name="font" default="font11"/>
-		<param name="label"/>
-		<param name="custombase"/>
-		<param name="visible"/>
-		<definition>
-			<control type="button" id="$PARAM[id]">
-				<left>$PARAM[left]</left>
-				<top>$PARAM[top]</top>
-				<width>$PARAM[width]</width>
-				<height>$PARAM[height]</height>
-				<label>$PARAM[label]</label>
-				<font>$PARAM[font]</font>
-				<align>center</align>
-				<onclick>Skin.SetFile($PARAM[custombase].Icon,.jpg|.png)</onclick>
-				<visible>$PARAM[visible]</visible>
-			</control>
-		</definition>
-	</include>
-
-	<include name="apptv-homecustomlabel">
-		<param name="id"/>
-		<param name="left"/>
-		<param name="top"/>
-		<param name="width" default="0"/>
-		<param name="height" default="0"/>
-		<param name="font" default="font11"/>
-		<param name="label"/>
-		<param name="custombase"/>
-		<param name="visible"/>
-		<definition>
-			<control type="button" id="$PARAM[id]">
-				<left>$PARAM[left]</left>
-				<top>$PARAM[top]</top>
-				<width>$PARAM[width]</width>
-				<height>$PARAM[height]</height>
-				<label>$PARAM[label]</label>
-				<font>$PARAM[font]</font>
-				<align>center</align>
-				<onclick>Skin.SetString($PARAM[custombase].Label)</onclick>
-				<visible>$PARAM[visible]</visible>
-			</control>
 		</definition>
 	</include>
 
@@ -1654,7 +1576,7 @@
 			<itemgap>0</itemgap>
 			<aligny>center</aligny>
 			<align>center</align>
-			<visible>[[Window.IsVisible(MyPVRChannels.xml) + [Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(12)]] | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | SubString(Control.GetLabel(2),$LOCALIZE[31941],Right) | SubString(Control.GetLabel(2),$LOCALIZE[31943],Right) | SubString(Control.GetLabel(2),$LOCALIZE[31944],Right) | SubString(Control.GetLabel(2),$LOCALIZE[31946],Right) | Control.IsVisible(560)] + [!Skin.HasSetting(lock-screensettings) | [!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + IntegerGreaterThan(Container().NumPages,1)]]</visible>
+			<visible>[[Window.IsVisible(MyPVRChannels.xml) + [Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(12)]] | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | SubString(Control.GetLabel(2),$LOCALIZE[31941],Right) | SubString(Control.GetLabel(2),$LOCALIZE[31943],Right) | SubString(Control.GetLabel(2),$LOCALIZE[31944],Right) | SubString(Control.GetLabel(2),$LOCALIZE[31946],Right)] + [!Skin.HasSetting(lock-screensettings) | [!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + IntegerGreaterThan(Container().NumPages,1)]]</visible>
 			<control type="image">
 				<width>32</width>
 				<height>32</height>
