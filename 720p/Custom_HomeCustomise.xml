@@ -2257,15 +2257,6 @@
 				<height>4</height>
 				<texture>separator.png</texture>
 			</control>
-			<control type="label"><!-- Debug -->
-				<left>10</left>
-				<top>10</top>
-				<width>600</width>
-				<height>34</height>
-				<font>font11</font>
-				<label>$INFO[Window(settings).Property(ListToggle)]</label>
-				<align>center</align>
-			</control>
 
 			<control type="grouplist" id="5000">
 				<left>450</left>
@@ -2278,7 +2269,7 @@
 				<onleft condition="Skin.HasSetting(homemenu-horizontal)">9002</onleft>
 				<onleft condition="Skin.HasSetting(homemenu-icon)">9021</onleft>
 				<onleft condition="Skin.HasSetting(homemenu-vertical)">9031</onleft>
-				<control type="togglebutton" id="5102">
+				<control type="togglebutton" id="5102"><!-- Show/Hide menu item -->
 					<width>376</width>
 					<height>48</height>
 					<label>$LOCALIZE[24022]</label>
@@ -2290,7 +2281,7 @@
 					<onclick>SetFocus(9000)</onclick>
 					<visible>IsEmpty(Window(settings).Property(ListCustomBase))</visible>
 				</control>
-				<control type="button" id="5103">
+				<control type="button" id="5103"><!-- Assign action to custom menu item -->
 					<width>376</width>
 					<height>48</height>
 					<label>$LOCALIZE[20333]</label>
@@ -2303,7 +2294,7 @@
 					<onclick condition="!IsEmpty(Window(Home).Property(ItemPath))">ClearProperty(ItemPath,Home)</onclick>
 					<visible>!IsEmpty(Window(settings).Property(ListCustomBase))</visible>
 				</control>
-				<control type="button" id="5104">
+				<control type="button" id="5104"><!-- Change Icon of custom menu item -->
 					<width>376</width>
 					<height>48</height>
 					<label>$LOCALIZE[19284]</label>
@@ -2313,7 +2304,7 @@
 					<enable>!Skin.HasSetting(homemenu-horizontal)</enable>
 					<visible>!IsEmpty(Window(settings).Property(ListCustomBase))</visible>
 				</control>
-				<control type="button" id="5105">
+				<control type="button" id="5105"><!-- Change Label of custom menu item -->
 					<width>376</width>
 					<height>48</height>
 					<label>$LOCALIZE[13334]</label>
