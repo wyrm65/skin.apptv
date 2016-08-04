@@ -130,7 +130,19 @@
 				<visible>System.CanReboot</visible>
 				<label>$LOCALIZE[13013]</label>
 			</control>
-			<control type="button" id="9"><!-- Logoff -->
+		   <control type="button" id="9"><!-- Reboot to NAND -->
+				<width>360</width>
+				<height>50</height>
+				<align>center</align>
+				<aligny>center</aligny>
+				<textwidth>330</textwidth>
+				<font>font11</font>
+				<onclick>SetProperty(ShutdownKodi,true,Home)</onclick>
+				<onclick>System.ExecWait("/usr/sbin/rebootfromnand")</onclick>
+				<visible>System.Platform.Android + System.CanReboot</visible>
+				<label>$LOCALIZE[31554]</label>
+			</control>
+			<control type="button" id="10"><!-- Logoff -->
 				<width>360</width>
 				<height>50</height>
 				<align>center</align>
@@ -142,7 +154,7 @@
 				<label>$LOCALIZE[20126] $INFO[system.profilename]</label>
 				<visible>[System.HasLoginScreen | IntegerGreaterThan(System.ProfileCount,1)] + System.Loggedon</visible>
 			</control>
-			<control type="togglebutton" id="10"><!-- Master mode -->
+			<control type="togglebutton" id="11"><!-- Master mode -->
 				<width>360</width>
 				<height>50</height>
 				<label>$LOCALIZE[20046]</label>

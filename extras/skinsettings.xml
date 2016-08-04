@@ -97,6 +97,9 @@
 	<setting id="home-quitaction-val" value="6" label="$LOCALIZE[13013]" condition="System.CanReboot" icon="blank.png" description=""><!-- Reboot -->
 		<onselect condition="True">Skin.SetString(home-quitaction,$LOCALIZE[13013])</onselect>
 	</setting>
+		<setting id="home-quitaction-val" value="7" label="$LOCALIZE[31554]" condition="System.Platform.Android + System.CanReboot" icon="blank.png" description=""><!-- Reboot to NAND -->
+		<onselect condition="True">Skin.SetString(home-quitaction,$LOCALIZE[31554])</onselect>
+	</setting>
 
 	<!-- Home Menu type -->
 	<setting id="backgroundvisibilty-val" value="1" label="$LOCALIZE[391]" condition="" icon="blank.png" description="" default="true"><!-- Low -->
