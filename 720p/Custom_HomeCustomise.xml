@@ -106,6 +106,7 @@
 							<width>210</width>
 							<height>352</height>
 							<texturefocus>blank.png</texturefocus>
+							<texturenofocus>blank.png</texturenofocus>
 							<onup>402</onup>
 							<ondown>9100</ondown>
 							<onleft>noop</onleft>
@@ -231,6 +232,7 @@
 							<width>210</width>
 							<height>345</height>
 							<texturefocus>blank.png</texturefocus>
+							<texturenofocus>blank.png</texturenofocus>
 							<onup>402</onup>
 							<ondown>9150</ondown>
 							<onleft>9100</onleft>
@@ -360,6 +362,7 @@
 							<width>210</width>
 							<height>345</height>
 							<texturefocus>blank.png</texturefocus>
+							<texturenofocus>blank.png</texturenofocus>
 							<onup>402</onup>
 							<ondown>9200</ondown>
 							<onleft>9150</onleft>
@@ -489,6 +492,7 @@
 							<width>210</width>
 							<height>345</height>
 							<texturefocus>blank.png</texturefocus>
+							<texturenofocus>blank.png</texturenofocus>
 							<onup>402</onup>
 							<ondown>9500</ondown>
 							<onleft>9200</onleft>
@@ -651,6 +655,7 @@
 							<width>210</width>
 							<height>345</height>
 							<texturefocus>blank.png</texturefocus>
+							<texturenofocus>blank.png</texturenofocus>
 							<onup>402</onup>
 							<ondown>9550</ondown>
 							<onleft>9500</onleft>
@@ -692,7 +697,7 @@
 							<font>font18</font>
 							<align>center</align>
 							<label>$VAR[CustomFavHeading]</label>
-							<animation effect="fade" start="100" end="40" condition="IsEmpty(Skin.String(CustomFav.1.Path)) + IsEmpty(Skin.String(CustomFav.2.Path)) + IsEmpty(Skin.String(CustomFav.3.Path)) + IsEmpty(Skin.String(CustomFav.4.Path)) + IsEmpty(Skin.String(CustomFav.5.Path))">Conditional</animation>
+							<animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(home-favorites) + IsEmpty(Skin.String(CustomFav.1.Path)) + IsEmpty(Skin.String(CustomFav.2.Path)) + IsEmpty(Skin.String(CustomFav.3.Path)) + IsEmpty(Skin.String(CustomFav.4.Path)) + IsEmpty(Skin.String(CustomFav.5.Path))">Conditional</animation>
 						</control>
 						<control type="list" id="9550">
 							<animation condition="!Control.HasFocus(9550) + !Control.HasFocus(9580)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
@@ -720,6 +725,13 @@
 								<include>horzhomelistitem</include>
 							</focusedlayout>
 							<content>
+							<include name="listpanelitems">
+								<param name="itemlabel" value="$LOCALIZE[31652]"/>
+								<param name="itemcondition" value="Skin.HasSetting(home-favorites)"/>
+								<param name="itemmenuheading" value="$LOCALIZE[31031]"/>
+								<param name="itemmenuid" value="9550"/>
+								<param name="itemtoggle" value="home-favorites"/>
+							</include>
 							<include name="listpanelitems">
 								<param name="itemcustombase" value="CustomFav.1"/>
 								<param name="itemlabel" value="$INFO[Skin.String(CustomFav.1.Label)]"/>
@@ -766,6 +778,7 @@
 							<width>210</width>
 							<height>345</height>
 							<texturefocus>blank.png</texturefocus>
+							<texturenofocus>blank.png</texturenofocus>
 							<onup>402</onup>
 							<ondown>9250</ondown>
 							<onleft>9550</onleft>
@@ -902,6 +915,7 @@
 							<width>210</width>
 							<height>345</height>
 							<texturefocus>blank.png</texturefocus>
+							<texturenofocus>blank.png</texturenofocus>
 							<onup>402</onup>
 							<ondown>9300</ondown>
 							<onleft>9250</onleft>
@@ -976,6 +990,7 @@
 							<width>210</width>
 							<height>345</height>
 							<texturefocus>blank.png</texturefocus>
+							<texturenofocus>blank.png</texturenofocus>
 							<onup>402</onup>
 							<ondown>9350</ondown>
 							<onleft>9300</onleft>
@@ -1126,6 +1141,7 @@
 							<width>210</width>
 							<height>345</height>
 							<texturefocus>blank.png</texturefocus>
+							<texturenofocus>blank.png</texturenofocus>
 							<onup>402</onup>
 							<ondown>9400</ondown>
 							<onleft>9350</onleft>
@@ -1193,6 +1209,7 @@
 							<width>210</width>
 							<height>345</height>
 							<texturefocus>blank.png</texturefocus>
+							<texturenofocus>blank.png</texturenofocus>
 							<onup>402</onup>
 							<ondown>9450</ondown>
 							<onleft>9400</onleft>
@@ -1275,13 +1292,6 @@
 									<property name="menuHeading">$LOCALIZE[13000]</property>
 									<onclick>noop</onclick>
 								</item>
-							<include name="listpanelitems">
-								<param name="itemlabel" value="$LOCALIZE[31652]"/>
-								<param name="itemcondition" value="Skin.HasSetting(home-favorites)"/>
-								<param name="itemmenuheading" value="$LOCALIZE[13000]"/>
-								<param name="itemmenuid" value="9450"/>
-								<param name="itemtoggle" value="home-favorites"/>
-							</include>
 							<include name="listpanelitems">
 								<param name="itemlabel" value="$LOCALIZE[20092]"/>
 								<param name="itemcondition" value="Skin.HasSetting(home-profile)"/>
@@ -2215,7 +2225,7 @@
 				<left>440</left>
 				<top>212</top>
 				<width>396</width>
-				<height>286</height>
+				<height>270</height>
 				<texture border="9">button-menu-background.png</texture>
 			</control>
 			<control type="button" id="403"><!-- Dummy button for touch/mouse focus issues -->
@@ -2263,6 +2273,7 @@
 				<top>274</top>
 				<width>376</width>
 				<height>192</height>
+				<itemgap>0</itemgap>
 				<onright condition="Skin.HasSetting(homemenu-horizontal)">9002</onright>
 				<onright condition="Skin.HasSetting(homemenu-icon)">9021</onright>
 				<onright condition="Skin.HasSetting(homemenu-vertical)">9031</onright>
@@ -2323,6 +2334,16 @@
 					<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=home-quitaction-val,header=$LOCALIZE[31914])</onclick>
 					<enable>!Skin.HasSetting(home-shutdown)</enable>
 					<visible>StringCompare(Window(settings).Property(ListLabel),$LOCALIZE[13009])</visible>
+				</control>
+				<control type="button" id="5107"><!-- Custom Favourite Heading -->
+					<width>376</width>
+					<height>48</height>
+					<textwidth>350</textwidth>
+					<label>$LOCALIZE[33061] $LOCALIZE[19075]</label>
+					<label2>$VAR[CustomFavHeading]</label2>
+					<font>font11</font>
+					<onclick>Skin.SetString(CustomFav.Heading)</onclick>
+					<visible>Skin.HasSetting(homemenu-horizontal) + StringCompare(Window(settings).Property(ListID),9550)</visible>
 				</control>
 			</control>
 		</control>

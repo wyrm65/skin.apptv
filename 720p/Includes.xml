@@ -254,7 +254,7 @@
 		<value condition="!Player.Seeking + Player.DisplayAfterSeek">$INFO[Player.SeekOffset]</value>
 	</variable>
 	<variable name="VideoDuration">
-		<value condition="!IsEmpty(Window(Home).Property(SkinHelper.ListItemDuration)) + !StringCompare(Window(Home).Property(SkinHelper.ListItemDuration.Hours),0)">$INFO[Window(Home).Property(SkinHelper.ListItemDuration.Hours)]h$INFO[Window(Home).Property(SkinHelper.ListItemDuration.Minutes)]m</value>
+		<value condition="!IsEmpty(Window(Home).Property(SkinHelper.ListItemDuration)) + !StringCompare(Window(Home).Property(SkinHelper.ListItemDuration.Hours),0)">$INFO[Window(Home).Property(SkinHelper.ListItemDuration.Hours),,h]$INFO[Window(Home).Property(SkinHelper.ListItemDuration.Minutes),,m]</value>
 		<value>$INFO[ListItem.Duration] $LOCALIZE[12391]</value>
 	</variable>
 	<variable name="MovieLibEntry">
