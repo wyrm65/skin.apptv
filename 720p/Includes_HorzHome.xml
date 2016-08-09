@@ -68,6 +68,7 @@
 			<width>1280</width>
 			<height>720</height>
 			<texturefocus>blank.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
 		</control>
 		<control type="group" id="9800"><!-- Shelf icons-->
 			<control type="group" id="9155"><!-- Movie icons -->
@@ -276,7 +277,7 @@
 
 		<control type="grouplist" id="9000"><!-- Home Sub menus -->
 			<left>10</left>
-			<top>315</top>
+			<top>314</top>
 			<width>1260</width>
 			<height>352</height>
 			<itemgap>0</itemgap>
@@ -291,6 +292,7 @@
 					<width>210</width>
 					<height>352</height>
 					<texturefocus>blank.png</texturefocus>
+					<texturenofocus>blank.png</texturenofocus>
 					<onup>9005</onup>
 					<ondown>9100</ondown>
 					<onleft>9005</onleft>
@@ -302,7 +304,7 @@
 						<left>0</left>
 						<top>0</top>
 						<width>210</width>
-						<height>66</height>
+						<height>68</height>
 						<texture>menu-focus.png</texture>
 					</control>
 					<control type="group"><!-- Markers for control area items -->
@@ -422,6 +424,7 @@
 					<width>210</width>
 					<height>345</height>
 					<texturefocus>blank.png</texturefocus>
+					<texturenofocus>blank.png</texturenofocus>
 					<onup>9155</onup>
 					<ondown>9150</ondown>
 					<onleft>9100</onleft>
@@ -433,7 +436,7 @@
 						<left>0</left>
 						<top>0</top>
 						<width>210</width>
-						<height>66</height>
+						<height>68</height>
 						<texture>menu-focus.png</texture>
 						<animation condition="Control.HasFocus(9160)" effect="fade" start="100" end="65">Conditional</animation>
 					</control>
@@ -563,6 +566,7 @@
 					<width>210</width>
 					<height>345</height>
 					<texturefocus>blank.png</texturefocus>
+					<texturenofocus>blank.png</texturenofocus>
 					<onup>9205</onup>
 					<ondown>9200</ondown>
 					<onleft>9150</onleft>
@@ -574,7 +578,7 @@
 						<left>0</left>
 						<top>0</top>
 						<width>210</width>
-						<height>66</height>
+						<height>68</height>
 						<texture>menu-focus.png</texture>
 						<animation condition="Control.HasFocus(9210)" effect="fade" start="100" end="65">Conditional</animation>
 					</control>
@@ -704,6 +708,7 @@
 					<width>210</width>
 					<height>345</height>
 					<texturefocus>blank.png</texturefocus>
+					<texturenofocus>blank.png</texturenofocus>
 					<onup>9005</onup>
 					<ondown>9500</ondown>
 					<onleft>9200</onleft>
@@ -715,7 +720,7 @@
 						<left>0</left>
 						<top>0</top>
 						<width>210</width>
-						<height>66</height>
+						<height>68</height>
 						<texture>menu-focus.png</texture>
 					</control>
 					<control type="group"><!-- Markers for control area items -->
@@ -866,7 +871,7 @@
 				</control>
 			</control>
 			<control type="group" id="9570"><!-- Favourites sub menu -->
-				<visible>!IsEmpty(Skin.String(CustomFav.1.Path)) | !IsEmpty(Skin.String(CustomFav.2.Path)) | !IsEmpty(Skin.String(CustomFav.3.Path)) | !IsEmpty(Skin.String(CustomFav.4.Path)) | !IsEmpty(Skin.String(CustomFav.5.Path))</visible>
+				<visible>Skin.HasSetting(home-favorites) | !IsEmpty(Skin.String(CustomFav.1.Path)) | !IsEmpty(Skin.String(CustomFav.2.Path)) | !IsEmpty(Skin.String(CustomFav.3.Path)) | !IsEmpty(Skin.String(CustomFav.4.Path)) | !IsEmpty(Skin.String(CustomFav.5.Path))</visible>
 				<width>210</width>
 				<control type="button" id="9580"><!-- Dummy button for mouse control -->
 					<left>0</left>
@@ -874,6 +879,7 @@
 					<width>210</width>
 					<height>345</height>
 					<texturefocus>blank.png</texturefocus>
+					<texturenofocus>blank.png</texturenofocus>
 					<onup>9005</onup>
 					<ondown>9550</ondown>
 					<onleft>9500</onleft>
@@ -885,7 +891,7 @@
 						<left>0</left>
 						<top>0</top>
 						<width>210</width>
-						<height>66</height>
+						<height>68</height>
 						<texture>menu-focus.png</texture>
 					</control>
 					<control type="group"><!-- Markers for control area items -->
@@ -960,6 +966,12 @@
 						</control>
 					</focusedlayout>
 					<content>
+						<item><!-- Favourites -->
+							<visible>Skin.HasSetting(home-favorites)</visible>
+							<label>$LOCALIZE[1036]</label>
+							<label2>$LOCALIZE[31031]</label2>
+							<onclick>ActivateWindow(favourites,,return)</onclick>
+						</item>
 						<item><!-- Custom Favourite 1 -->
 							<visible>!IsEmpty(Skin.String(CustomFav.1.Path))</visible>
 							<label>$INFO[Skin.String(CustomFav.1.Label)]</label>
@@ -1002,6 +1014,7 @@
 					<width>210</width>
 					<height>345</height>
 					<texturefocus>blank.png</texturefocus>
+					<texturenofocus>blank.png</texturenofocus>
 					<onup>9255</onup>
 					<ondown>9250</ondown>
 					<onleft>9550</onleft>
@@ -1013,7 +1026,7 @@
 						<left>0</left>
 						<top>0</top>
 						<width>210</width>
-						<height>66</height>
+						<height>68</height>
 						<texture>menu-focus.png</texture>
 						<animation condition="Control.HasFocus(9260)" effect="fade" start="100" end="65">Conditional</animation>
 					</control>
@@ -1149,6 +1162,7 @@
 					<width>210</width>
 					<height>345</height>
 					<texturefocus>blank.png</texturefocus>
+					<texturenofocus>blank.png</texturenofocus>
 					<onup>9005</onup>
 					<ondown>9300</ondown>
 					<onleft>9250</onleft>
@@ -1158,7 +1172,7 @@
 					<left>0</left>
 					<top>0</top>
 					<width>210</width>
-					<height>66</height>
+					<height>68</height>
 					<texture>menu-focus.png</texture>
 					<visible>Control.HasFocus(9300) | Control.HasFocus(9330)</visible>
 				</control>
@@ -1237,6 +1251,7 @@
 					<width>210</width>
 					<height>345</height>
 					<texturefocus>blank.png</texturefocus>
+					<texturenofocus>blank.png</texturenofocus>
 					<onup>9355</onup>
 					<ondown>9350</ondown>
 					<onleft>9300</onleft>
@@ -1248,7 +1263,7 @@
 						<left>0</left>
 						<top>0</top>
 						<width>210</width>
-						<height>66</height>
+						<height>68</height>
 						<texture>menu-focus.png</texture>
 						<animation condition="Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
 					</control>
@@ -1392,6 +1407,7 @@
 					<width>210</width>
 					<height>345</height>
 					<texturefocus>blank.png</texturefocus>
+					<texturenofocus>blank.png</texturenofocus>
 					<onup>9005</onup>
 					<ondown>9400</ondown>
 					<onleft>9350</onleft>
@@ -1401,7 +1417,7 @@
 					<left>0</left>
 					<top>0</top>
 					<width>210</width>
-					<height>66</height>
+					<height>68</height>
 					<texture>menu-focus.png</texture>
 					<visible>Control.HasFocus(9400) | Control.HasFocus(9430)</visible>
 				</control>
@@ -1474,6 +1490,7 @@
 					<width>210</width>
 					<height>345</height>
 					<texturefocus>blank.png</texturefocus>
+					<texturenofocus>blank.png</texturenofocus>
 					<onup>9005</onup>
 					<ondown>9450</ondown>
 					<onleft>9400</onleft>
@@ -1485,7 +1502,7 @@
 						<left>0</left>
 						<top>0</top>
 						<width>210</width>
-						<height>66</height>
+						<height>68</height>
 						<texture>menu-focus.png</texture>
 					</control>
 					<control type="group"><!-- Markers for control area items -->
@@ -1569,12 +1586,6 @@
 							<label>$LOCALIZE[130]</label>
 							<label2>$LOCALIZE[13000]</label2>
 							<onclick>ActivateWindow(systeminfo,,return)</onclick>
-						</item>
-						<item><!-- Favourites -->
-							<visible>Skin.HasSetting(home-favorites)</visible>
-							<label>$LOCALIZE[1036]</label>
-							<label2>$LOCALIZE[13000]</label2>
-							<onclick>ActivateWindow(favourites,,return)</onclick>
 						</item>
 						<item><!-- Profiles -->
 							<visible>Skin.HasSetting(home-profile)</visible>

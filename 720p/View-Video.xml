@@ -7,6 +7,7 @@
 			<top>100</top>
 			<width>560</width>
 			<height>576</height>
+			<itemgap>0</itemgap>
 			<focusposition>2</focusposition>
 			<movement>4</movement>
 			<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
@@ -18,14 +19,22 @@
 			<pagecontrol>1250</pagecontrol>
 			<itemlayout width="560" height="64">
 				<control type="image">
-					<left>8</left>
-					<top>22</top>
+					<left>0</left>
+					<top>0</top>
+					<width>554</width>
+					<height>64</height>
+					<texture border="6">button-default.png</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="image">
+					<left>2</left>
+					<top>16</top>
 					<width>32</width>
 					<height>32</height>
 					<texture>$VAR[Overlay]</texture>
 				</control>
 				<control type="image">
-					<left>532</left>
+					<left>526</left>
 					<top>16</top>
 					<width>16</width>
 					<height>16</height>
@@ -33,16 +42,16 @@
 					<visible>System.HasAddon(script.videoextras)</visible>
 				</control>
 				<control type="image">
-					<left>522</left>
-					<top>38</top>
+					<left>516</left>
+					<top>32</top>
 					<width>32</width>
 					<height>32</height>
 					<colordiffuse>DropShadow</colordiffuse>
 					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 				<control type="image">
-					<left>520</left>
-					<top>36</top>
+					<left>514</left>
+					<top>30</top>
 					<width>32</width>
 					<height>32</height>
 					<texture>$VAR[ListItemFlags]</texture>
@@ -50,8 +59,8 @@
 				<control type="group">
 					<visible>![Container.Content(movies) | Container.Content(musicvideos) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(addons)]</visible>
 					<control type="label">
-						<left>38</left>
-						<top>22</top>
+						<left>32</left>
+						<top>16</top>
 						<width>480</width>
 						<height>23</height>
 						<font>font12</font>
@@ -61,16 +70,16 @@
 					<control type="group">
 						<visible>!IsEmpty(ListItem.Label2)</visible>
 						<control type="label">
-							<left>38</left>
-							<top>14</top>
+							<left>32</left>
+							<top>8</top>
 							<width>480</width>
 							<height>23</height>
 							<font>font11</font>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
-							<left>38</left>
-							<top>38</top>
+							<left>32</left>
+							<top>32</top>
 							<width>480</width>
 							<height>23</height>
 							<font>font11</font>
@@ -82,8 +91,8 @@
 				<control type="group">
 					<visible>Container.Content(addons)</visible>
 					<control type="label">
-						<left>38</left>
-						<top>22</top>
+						<left>32</left>
+						<top>16</top>
 						<width>480</width>
 						<height>23</height>
 						<font>font12</font>
@@ -93,16 +102,16 @@
 					<control type="group">
 						<visible>!IsEmpty(ListItem.Property(Addon.Description))</visible>
 						<control type="label">
-							<left>38</left>
-							<top>14</top>
+							<left>32</left>
+							<top>8</top>
 							<width>480</width>
 							<height>23</height>
 							<font>font11</font>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
-							<left>38</left>
-							<top>38</top>
+							<left>32</left>
+							<top>32</top>
 							<width>480</width>
 							<height>23</height>
 							<font>font11</font>
@@ -114,8 +123,8 @@
 				<control type="group">
 					<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
 					<control type="label">
-						<left>38</left>
-						<top>22</top>
+						<left>32</left>
+						<top>16</top>
 						<width>480</width>
 						<height>23</height>
 						<font>font12</font>
@@ -125,16 +134,16 @@
 					<control type="group">
 						<visible>!IsEmpty(ListItem.PlotOutline)</visible>
 						<control type="label">
-							<left>38</left>
-							<top>14</top>
+							<left>32</left>
+							<top>8</top>
 							<width>480</width>
 							<height>23</height>
 							<font>font11</font>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
-							<left>38</left>
-							<top>38</top>
+							<left>32</left>
+							<top>32</top>
 							<width>480</width>
 							<height>23</height>
 							<font>font11</font>
@@ -146,8 +155,8 @@
 				<control type="group">
 					<visible>Container.Content(movies) | Container.Content(musicvideos) | Container.Content(episodes)</visible>
 					<control type="label">
-						<left>38</left>
-						<top>22</top>
+						<left>32</left>
+						<top>16</top>
 						<width>480</width>
 						<height>23</height>
 						<font>font12</font>
@@ -157,60 +166,60 @@
 					<control type="group">
 						<visible>!IsEmpty(ListItem.Duration)</visible>
 						<control type="label">
-							<left>38</left>
-							<top>14</top>
+							<left>32</left>
+							<top>8</top>
 							<width>480</width>
 							<height>23</height>
 							<font>font11</font>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
-							<left>38</left>
-							<top>38</top>
+							<left>32</left>
+							<top>32</top>
 							<width>480</width>
 							<height>23</height>
 							<font>font11</font>
 							<textcolor>disabled-text</textcolor>
-							<label>$INFO[ListItem.Duration] $LOCALIZE[12391]</label>
+							<label>$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
 						</control>
 					</control>
 				</control>
 			</itemlayout>
 			<focusedlayout width="560" height="64">
 				<control type="image"><!-- Button focus slider -->
-					<left>6</left>
-					<top>6</top>
-					<width>554</width>
+					<left>0</left>
+					<top>0</top>
+					<width>560</width>
 					<height>64</height>
 					<texture border="6">button-default-focus.png</texture>
 					<aspectratio>stretch</aspectratio>
 				</control>
 				<control type="image">
-					<left>8</left>
-					<top>22</top>
+					<left>2</left>
+					<top>16</top>
 					<width>32</width>
 					<height>32</height>
 					<texture>$VAR[Overlay]</texture>
 				</control>
 				<control type="image">
-					<left>532</left>
-					<top>16</top>
+					<left>526</left>
+					<top>10</top>
 					<width>16</width>
 					<height>16</height>
 					<texture>$VAR[ExtrasOverlay]</texture>
 					<visible>System.HasAddon(script.videoextras)</visible>
 				</control>
 				<control type="image">
-					<left>522</left>
-					<top>38</top>
+					<left>516</left>
+					<top>32</top>
 					<width>32</width>
 					<height>32</height>
 					<colordiffuse>DropShadow</colordiffuse>
 					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 				<control type="image">
-					<left>520</left>
-					<top>36</top>
+					<left>514</left>
+					<top>30</top>
 					<width>32</width>
 					<height>32</height>
 					<texture>$VAR[ListItemFlags]</texture>
@@ -218,8 +227,8 @@
 				<control type="group">
 					<visible>![Container.Content(movies) | Container.Content(musicvideos) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(addons)]</visible>
 					<control type="label">
-						<left>38</left>
-						<top>22</top>
+						<left>32</left>
+						<top>16</top>
 						<width>480</width>
 						<height>23</height>
 						<font>font12</font>
@@ -230,8 +239,8 @@
 					<control type="group">
 						<visible>!IsEmpty(ListItem.Label2)</visible>
 						<control type="label">
-							<left>38</left>
-							<top>14</top>
+							<left>32</left>
+							<top>8</top>
 							<width>480</width>
 							<height>23</height>
 							<font>font11</font>
@@ -239,8 +248,8 @@
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 						<control type="label">
-							<left>38</left>
-							<top>38</top>
+							<left>32</left>
+							<top>32</top>
 							<width>480</width>
 							<height>23</height>
 							<font>font11</font>
@@ -253,8 +262,8 @@
 				<control type="group">
 					<visible>Container.Content(addons)</visible>
 					<control type="label">
-						<left>38</left>
-						<top>22</top>
+						<left>32</left>
+						<top>16</top>
 						<width>480</width>
 						<height>23</height>
 						<font>font12</font>
@@ -266,8 +275,8 @@
 					<control type="group">
 						<visible>!IsEmpty(ListItem.Property(Addon.Description))</visible>
 						<control type="label">
-							<left>38</left>
-							<top>14</top>
+							<left>32</left>
+							<top>8</top>
 							<width>480</width>
 							<height>23</height>
 							<font>font11</font>
@@ -276,8 +285,8 @@
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 						<control type="label">
-							<left>38</left>
-							<top>38</top>
+							<left>32</left>
+							<top>32</top>
 							<width>480</width>
 							<height>23</height>
 							<font>font11</font>
@@ -290,8 +299,8 @@
 				<control type="group">
 					<visible>Container.Content(tvshows) | Container.Content(seasons)</visible>
 					<control type="label">
-						<left>38</left>
-						<top>22</top>
+						<left>32</left>
+						<top>16</top>
 						<width>480</width>
 						<height>23</height>
 						<font>font12</font>
@@ -302,8 +311,8 @@
 					<control type="group">
 						<visible>!IsEmpty(ListItem.PlotOutline)</visible>
 						<control type="label">
-							<left>38</left>
-							<top>14</top>
+							<left>32</left>
+							<top>8</top>
 							<width>480</width>
 							<height>23</height>
 							<font>font11</font>
@@ -311,8 +320,8 @@
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 						<control type="label">
-							<left>38</left>
-							<top>38</top>
+							<left>32</left>
+							<top>32</top>
 							<width>480</width>
 							<height>23</height>
 							<font>font11</font>
@@ -325,8 +334,8 @@
 				<control type="group">
 					<visible>Container.Content(movies) | Container.Content(musicvideos) | Container.Content(episodes)</visible>
 					<control type="label">
-						<left>38</left>
-						<top>22</top>
+						<left>32</left>
+						<top>16</top>
 						<width>480</width>
 						<height>23</height>
 						<font>font12</font>
@@ -337,8 +346,8 @@
 					<control type="group">
 						<visible>!IsEmpty(ListItem.Duration)</visible>
 						<control type="label">
-							<left>38</left>
-							<top>14</top>
+							<left>32</left>
+							<top>8</top>
 							<width>480</width>
 							<height>23</height>
 							<font>font11</font>
@@ -346,13 +355,13 @@
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 						<control type="label">
-							<left>38</left>
-							<top>38</top>
+							<left>32</left>
+							<top>32</top>
 							<width>480</width>
 							<height>23</height>
 							<font>font11</font>
 							<textcolor>disabled-text</textcolor>
-							<label>$INFO[ListItem.Duration] $LOCALIZE[12391]</label>
+							<label>$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</control>
@@ -682,25 +691,25 @@
 			<pagecontrol>1252</pagecontrol>
 			<itemlayout height="234" width="300">
 				<control type="image">
-					<left>66</left>
+					<left>60</left>
 					<top>5</top>
-					<width>168</width>
-					<height>168</height>
+					<width>180</width>
+					<height>180</height>
 					<aspectratio>keep</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" background="true">$VAR[IconPoster]</texture>
 					<visible>SubString(ListItem.Icon,Default,Left) | ![Container.Content(movies) | Container.Content(tvshows)]</visible>
 				</control>
 				<control type="image">
-					<left>90</left>
+					<left>86</left>
 					<top>5</top>
-					<width>120</width>
-					<height>168</height>
+					<width>128</width>
+					<height>180</height>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 					<visible>!SubString(ListItem.Icon,Default,Left) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 				</control>
 				<control type="image"><!-- Extras Overlay -->
-					<left>92</left>
+					<left>96</left>
 					<top>8</top>
 					<width>16</width>
 					<height>16</height>
@@ -708,15 +717,15 @@
 					<visible>System.HasAddon(script.videoextras)</visible>
 				</control>
 				<control type="image"><!-- Watched Overlay -->
-					<left>184</left>
+					<left>188</left>
 					<top>-2</top>
 					<width>32</width>
 					<height>32</height>
 					<texture>$VAR[Overlay]</texture>
 				</control>
 				<include name="listitem-count">
-					<param name="left" value="146"/>
-					<param name="top" value="132"/>
+					<param name="left" value="150"/>
+					<param name="top" value="144"/>
 					<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
 					<param name="size" value="70"/>
 				</include>
@@ -725,19 +734,19 @@
 				<control type="group">
 					<animation effect="zoom" start="100" end="124" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
 					<control type="image">
-						<left>66</left>
+						<left>60</left>
 						<top>5</top>
-						<width>168</width>
-						<height>168</height>
+						<width>180</width>
+						<height>180</height>
 						<aspectratio scalediffuse="false">keep</aspectratio>
 						<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 						<visible>SubString(ListItem.Icon,Default,Left)</visible>
 					</control>
 					<control type="image">
-						<left>66</left>
+						<left>60</left>
 						<top>5</top>
-						<width>168</width>
-						<height>168</height>
+						<width>180</width>
+						<height>180</height>
 						<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 						<bordertexture border="7">mask-hilite.png</bordertexture>
 						<bordersize>7</bordersize>
@@ -745,10 +754,10 @@
 						<visible>!SubString(ListItem.Icon,Default,Left) + ![Container.Content(movies) | Container.Content(tvshows)]</visible>
 					</control>
 					<control type="image">
-						<left>90</left>
+						<left>86</left>
 						<top>5</top>
-						<width>120</width>
-						<height>168</height>
+						<width>128</width>
+						<height>180</height>
 						<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 						<bordertexture border="7">mask-hilite.png</bordertexture>
 						<bordersize>7</bordersize>
@@ -756,7 +765,7 @@
 						<visible>!SubString(ListItem.Icon,Default,Left) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 					</control>
 					<control type="image"><!-- Extras Overlay -->
-						<left>100</left>
+						<left>104</left>
 						<top>14</top>
 						<width>16</width>
 						<height>16</height>
@@ -764,25 +773,25 @@
 						<visible>System.HasAddon(script.videoextras)</visible>
 					</control>
 					<control type="image"><!-- Watched Overlay -->
-						<left>178</left>
+						<left>182</left>
 						<top>4</top>
 						<width>32</width>
 						<height>32</height>
 						<texture>$VAR[Overlay]</texture>
 					</control>
 					<include name="listitem-count">
-						<param name="left" value="138"/>
-						<param name="top" value="126"/>
+						<param name="left" value="144"/>
+						<param name="top" value="138"/>
 						<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
 						<param name="size" value="70"/>
 					</include>
 				</control>
 				<control type="label">
-					<left>10</left>
-					<top>185</top>
-					<width>280</width>
+					<left>0</left>
+					<top>200</top>
+					<width>300</width>
 					<height>22</height>
-					<font>font11</font>
+					<font>font10</font>
 					<align>center</align>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Label]</label>
@@ -797,34 +806,34 @@
 				<left>20</left>
 				<animation effect="fade" delay="0" start="0" end="100" time="200">Visible</animation>
 				<control type="image">
-					<left>90</left>
+					<left>86</left>
 					<top>574</top>
-					<width>120</width>
-					<height>168</height>
+					<width>128</width>
+					<height>180</height>
 					<aspectratio>stretch</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(8)Poster]</texture>
 				</control>
 				<control type="image">
-					<left>390</left>
+					<left>386</left>
 					<top>574</top>
-					<width>120</width>
-					<height>168</height>
+					<width>128</width>
+					<height>180</height>
 					<aspectratio>stretch</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(9)Poster]</texture>
 				</control>
 				<control type="image">
-					<left>690</left>
+					<left>686</left>
 					<top>574</top>
-					<width>120</width>
-					<height>168</height>
+					<width>128</width>
+					<height>180</height>
 					<aspectratio>stretch</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(10)Poster]</texture>
 				</control>
 				<control type="image">
-					<left>990</left>
+					<left>986</left>
 					<top>574</top>
-					<width>120</width>
-					<height>168</height>
+					<width>128</width>
+					<height>180</height>
 					<aspectratio>stretch</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(11)Poster]</texture>
 				</control>
@@ -833,34 +842,34 @@
 				<visible>!Container.Content(movies) + !Container.Content(tvshows)</visible>
 				<animation effect="fade" delay="0" start="0" end="100" time="200">Visible</animation>
 				<control type="image">
-					<left>86</left>
+					<left>80</left>
 					<top>574</top>
-					<width>168</width>
-					<height>168</height>
+					<width>180</width>
+					<height>180</height>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(8)VideoIcon]</texture>
 				</control>
 				<control type="image">
-					<left>386</left>
+					<left>380</left>
 					<top>574</top>
-					<width>168</width>
-					<height>168</height>
+					<width>180</width>
+					<height>180</height>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(9)VideoIcon]</texture>
 				</control>
 				<control type="image">
-					<left>686</left>
+					<left>680</left>
 					<top>574</top>
-					<width>168</width>
-					<height>168</height>
+					<width>180</width>
+					<height>180</height>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(10)VideoIcon]</texture>
 				</control>
 				<control type="image">
-					<left>986</left>
+					<left>980</left>
 					<top>574</top>
-					<width>168</width>
-					<height>168</height>
+					<width>180</width>
+					<height>180</height>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(11)VideoIcon]</texture>
 				</control>
@@ -871,6 +880,7 @@
 				<width>1068</width>
 				<height>146</height>
 				<texturefocus>blank.png</texturefocus>
+				<texturenofocus>blank.png</texturenofocus>
 				<onfocus>Control.Message(52,moveup)</onfocus>
 			</control>
 		</control>
