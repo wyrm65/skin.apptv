@@ -338,6 +338,188 @@
 			</control>
 		</control>
 	</include>
+	<include name="AlbumIconView">
+		<control type="panel" id="52">
+			<left>20</left>
+			<top>130</top>
+			<width>1200</width>
+			<height>440</height>
+			<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
+			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
+			<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+			<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1262</onright>
+			<onup>52</onup>
+			<ondown>52</ondown>
+			<viewtype label="31943">icon</viewtype>
+			<pagecontrol>1252</pagecontrol>
+			<itemlayout height="220" width="240">
+				<control type="image">
+					<left>40</left>
+					<top>10</top>
+					<width>160</width>
+					<height>160</height>
+					<texture colordiffuse="UnFocusedPosters" fallback="DefaultAudio.png" diffuse="mask-squ.png" background="true">$VAR[IconCover]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="image">
+					<left>132</left>
+					<top>93</top>
+					<width>49</width>
+					<height>35</height>
+					<texture>$INFO[ListItem.Overlay]</texture>
+				</control>
+			</itemlayout>
+			<focusedlayout height="220" width="240">
+				<control type="image">
+					<left>40</left>
+					<top>10</top>
+					<width>160</width>
+					<height>160</height>
+					<texture fallback="DefaultAudio.png" diffuse="mask-squ.png" background="true">$VAR[IconCover]</texture>
+					<aspectratio>keep</aspectratio>
+					<animation effect="zoom" start="100" end="110" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
+				</control>
+				<control type="image">
+					<left>141</left>
+					<top>100</top>
+					<width>49</width>
+					<height>35</height>
+					<texture>$INFO[ListItem.Overlay]</texture>
+				</control>
+				<control type="label">
+					<left>0</left>
+					<top>180</top>
+					<width>240</width>
+					<height>20</height>
+					<font>font10</font>
+					<align>center</align>
+					<label>$INFO[ListItem.Label]</label>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
+			</focusedlayout>
+		</control>
+		<control type="group"><!-- Show the bottom row of icons as long as another row exists -->
+			<visible>Control.IsVisible(52) + Container(52).HasNext + ![Container().OnScrollNext | Container().OnScrollPrevious]</visible>
+			<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
+			<control type="image">
+				<left>60</left>
+				<top>574</top>
+				<width>160</width>
+				<height>160</height>
+				<aspectratio>keep</aspectratio>
+				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(10)Thumb]</texture>
+			</control>
+			<control type="image">
+				<left>300</left>
+				<top>574</top>
+				<width>160</width>
+				<height>160</height>
+				<aspectratio>keep</aspectratio>
+				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(11)Thumb]</texture>
+			</control>
+			<control type="image">
+				<left>540</left>
+				<top>574</top>
+				<width>160</width>
+				<height>160</height>
+				<aspectratio>keep</aspectratio>
+				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(12)Thumb]</texture>
+			</control>
+			<control type="image">
+				<left>780</left>
+				<top>574</top>
+				<width>160</width>
+				<height>160</height>
+				<aspectratio>keep</aspectratio>
+				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(13)Thumb]</texture>
+			</control>
+			<control type="image">
+				<left>1020</left>
+				<top>574</top>
+				<width>160</width>
+				<height>160</height>
+				<aspectratio>keep</aspectratio>
+				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(14)Thumb]</texture>
+			</control>
+		</control>
+		<control type="button"><!-- Onfocus, move to next row of icon panel -->
+			<left>0</left>
+			<top>574</top>
+			<width>1220</width>
+			<height>160</height>
+			<texturefocus>blank.png</texturefocus>
+			<onfocus>Control.Message(52,moveup)</onfocus>
+		</control>
+		<include>sortletternotification</include>
+		<control type="group" id="1232">
+			<visible>Control.IsVisible(52) + Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]</visible>
+			<control type="button" id="1242"><!-- Search -->
+				<left>1221</left>
+				<top>88</top>
+				<width>20</width>
+				<height>20</height>
+				<onleft>52</onleft>
+				<onright>1252</onright>
+				<ondown>1262</ondown>
+				<texturefocus>touch-search.png</texturefocus>
+				<texturenofocus>touch-search.png</texturenofocus>
+				<onclick>RunScript(script.skin.helper.service,action=musicsearch)</onclick>
+				<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
+				<animation effect="fade" start="100" end="50" time="0" condition="!Control.HasFocus(1240)">Conditional</animation>
+			</control>
+			<control type="panel" id="1262">
+				<left>1220</left>
+				<top>110</top>
+				<width>20</width>
+				<height>594</height>
+				<onleft>52</onleft>
+				<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1252</onright>
+				<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+				<onup>1242</onup>
+				<ondown>noop</ondown>
+				<orientation>vertical</orientation>
+				<itemlayout height="22" width="20">
+					<control type="label">
+						<height>20</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>font10</font>
+						<textcolor>disabled-text</textcolor>
+						<align>center</align>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+					<control type="label">
+						<height>20</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>font10</font>
+						<textcolor>listselected-text</textcolor>
+						<align>center</align>
+						<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+					</control>
+				</itemlayout>
+				<focusedlayout height="22" width="20">
+					<control type="label">
+						<height>20</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>font10</font>
+						<align>center</align>
+						<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
+						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+					</control>
+				</focusedlayout>
+				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+			</control>
+		</control>
+		<control type="scrollbar" id="1252">
+			<left>1246</left>
+			<top>130</top>
+			<width>16</width>
+			<height>530</height>
+			<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]">1262</onleft>
+			<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(artists) | Container.Content(albums)]">52</onleft>
+			<animation condition="!Control.HasFocus(1252) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Control.IsVisible(52)</visible>
+		</control>
+	</include>
 	<include name="AlbumWrapView">
 		<control type="wraplist" id="54">
 			<viewtype label="31942">wrap</viewtype>
