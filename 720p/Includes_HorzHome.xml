@@ -1597,7 +1597,8 @@
 							<visible>Skin.HasSetting(home-search)</visible>
 							<label>$LOCALIZE[137]</label>
 							<label2>$LOCALIZE[13000]</label2>
-							<onclick>RunScript(script.globalsearch)</onclick>
+							<onclick condition="!System.HasAddon(script.globalsearch)">RunPlugin(plugin://script.globalsearch)</onclick>
+							<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
 						</item>
 						<item><!-- Filemanager -->
 							<visible>Skin.HasSetting(home-filemanager)</visible>

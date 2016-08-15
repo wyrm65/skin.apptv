@@ -2298,7 +2298,8 @@
 					<label>$LOCALIZE[20333]</label>
 					<font>font11</font>
 					<align>center</align>
-					<onclick condition="IsEmpty(Window(Home).Property(ItemPath))">RunScript(script.favourites,changetitle=true&amp;property=$INFO[Window(settings).Property(ListCustomBase)])</onclick>
+					<onclick condition="!System.HasAddon(script.favourites)">RunPlugin(plugin://script.favourites)</onclick>
+					<onclick condition="IsEmpty(Window(Home).Property(ItemPath)) + System.HasAddon(script.favourites)">RunScript(script.favourites,changetitle=true&amp;property=$INFO[Window(settings).Property(ListCustomBase)])</onclick>
 					<onclick condition="!IsEmpty(Window(Home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase)].Path,$INFO[Window(Home).Property(ItemPath)])</onclick>
 					<onclick condition="!IsEmpty(Window(Home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase)].Label,$INFO[Window(Home).Property(ItemName)])</onclick>
 					<onclick condition="!IsEmpty(Window(Home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase)].Icon,$INFO[Window(Home).Property(ItemIcon)])</onclick>

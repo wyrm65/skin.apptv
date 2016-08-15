@@ -1556,7 +1556,7 @@
 				<height>32</height>
 				<texturefocus>touch-search.png</texturefocus>
 				<texturenofocus>touch-search.png</texturenofocus>
-				<onclick condition="!System.HasAddon(script.globalsearch)">VideoLibrary.Search</onclick>
+				<onclick condition="!System.HasAddon(script.globalsearch)">RunPlugin(plugin://script.globalsearch)</onclick>
 				<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
 			</control>
 			<control type="image">

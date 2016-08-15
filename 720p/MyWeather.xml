@@ -145,15 +145,17 @@
 					<width>476</width>
 					<height>50</height>
 					<label>$LOCALIZE[31866]</label>
-					<onclick>SetFocus(6000)</onclick>
-					<onclick>RunScript(script.image.resource.select,type=resource.images.weatherfanart&amp;property=background-customweather)</onclick>
+					<onclick condition="!System.HasAddon(script.image.resource.select)">RunPlugin(plugin://script.image.resource.select)</onclick>
+					<onclick condition="System.HasAddon(script.image.resource.select)">SetFocus(6000)</onclick>
+					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,type=resource.images.weatherfanart&amp;property=background-customweather)</onclick>
 				</control>
 				<control type="button" id="209"><!-- Custom Weather Icons Button -->
 					<width>476</width>
 					<height>50</height>
 					<label>$LOCALIZE[31873]</label>
-					<onclick>SetFocus(6000)</onclick>
-					<onclick>RunScript(script.image.resource.select,type=resource.images.weathericons&amp;property=custom-weathericons)</onclick>
+					<onclick condition="!System.HasAddon(script.image.resource.select)">RunPlugin(plugin://script.image.resource.select)</onclick>
+					<onclick condition="System.HasAddon(script.image.resource.select)">SetFocus(6000)</onclick>
+					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,type=resource.images.weathericons&amp;property=custom-weathericons)</onclick>
 				</control>
 				<control type="radiobutton" id="210"><!-- Alerts  -->
 					<width>476</width>

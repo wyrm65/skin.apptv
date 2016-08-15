@@ -182,7 +182,8 @@
 					<height>46</height>
 					<label>$LOCALIZE[31878]</label>
 					<font>font11</font>
-					<onclick>RunScript(script.image.resource.select,type=resource.images.studios&amp;property=custom-moviestudioicons)</onclick>
+					<onclick condition="!System.HasAddon(script.image.resource.select)">RunPlugin(plugin://script.image.resource.select)</onclick>
+					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,type=resource.images.studios&amp;property=custom-moviestudioicons)</onclick>
 					<enable>SubString(Control.GetLabel(2),$LOCALIZE[31941]) | SubString(Control.GetLabel(2),$LOCALIZE[31945])</enable>
 					<visible>Container.Content(studios)</visible>
 				</control>
@@ -191,7 +192,8 @@
 					<height>46</height>
 					<label>$LOCALIZE[31879]</label>
 					<font>font11</font>
-					<onclick>RunScript(script.image.resource.select,type=resource.images.moviegenreicons&amp;property=custom-moviegenresicons)</onclick>
+					<onclick condition="!System.HasAddon(script.image.resource.select)">RunPlugin(plugin://script.image.resource.select)</onclick>
+					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,type=resource.images.moviegenreicons&amp;property=custom-moviegenresicons)</onclick>
 					<enable>[SubString(Control.GetLabel(2),$LOCALIZE[31941]) | SubString(Control.GetLabel(2),$LOCALIZE[31945])]</enable>
 					<visible>Container.Content(genres)</visible>
 				</control>
