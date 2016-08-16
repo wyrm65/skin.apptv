@@ -165,7 +165,7 @@
 			<itemlayout height="225" width="240">
 				<control type="image">
 					<left>40</left>
-					<top>10</top>
+					<top>7</top>
 					<width>160</width>
 					<height>160</height>
 					<texture colordiffuse="UnFocusedPosters">$INFO[ListItem.Icon]</texture>
@@ -173,7 +173,7 @@
 				</control>
 				<control type="image">
 					<left>132</left>
-					<top>93</top>
+					<top>90</top>
 					<width>49</width>
 					<height>35</height>
 					<texture>$INFO[ListItem.Overlay]</texture>
@@ -182,29 +182,42 @@
 			<focusedlayout height="225" width="240">
 				<control type="image">
 					<left>40</left>
-					<top>10</top>
+					<top>7</top>
 					<width>160</width>
 					<height>160</height>
-					<texture>$INFO[ListItem.Icon]</texture>
+					<texture diffuse="mask-squ.png" background="true">$INFO[ListItem.Icon]</texture>
 					<aspectratio>keep</aspectratio>
-					<animation effect="zoom" start="100" end="115" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
+					<animation effect="zoom" start="100" end="110" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
+					<visible>SubString(ListItem.Icon,Default,Left)</visible>
+				</control>
+				<control type="image">
+					<left>33</left>
+					<top>0</top>
+					<width>174</width>
+					<height>174</height>
+					<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
+					<bordertexture border="7">mask-hilitesqu.png</bordertexture>
+					<bordersize>7</bordersize>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<animation effect="zoom" start="100" end="110" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
+					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
 				</control>
 				<control type="image">
 					<left>141</left>
-					<top>100</top>
+					<top>93</top>
 					<width>49</width>
 					<height>35</height>
 					<texture>$INFO[ListItem.Overlay]</texture>
 				</control>
-				<control type="label">
+				<control type="textbox">
 					<left>0</left>
-					<top>190</top>
+					<top>174</top>
 					<width>240</width>
-					<height>25</height>
+					<height>46</height>
 					<font>font10</font>
-					<align>center</align>
 					<label>$INFO[ListItem.Label]</label>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					<align>center</align>
+					<autoscroll time="2000" delay="3000" repeat="6000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
 				</control>
 			</focusedlayout>
 		</control>
