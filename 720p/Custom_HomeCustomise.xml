@@ -1432,7 +1432,7 @@
 					<include name="listpanelitems">
 						<param name="itemthumb" value="special://skin/extras/homeicons/weather.png"/>
 						<param name="itemlabel" value="$LOCALIZE[8]"/>
-						<param name="itemcondition" value="!IsEmpty(Weather.plugin)+[Skin.HasSetting(home-weather)|Skin.HasSetting(home-currentweather)]"/>
+						<param name="itemcondition" value="Skin.HasSetting(home-weather)"/>
 						<param name="itemmenuid" value="9021"/>
 						<param name="itemtoggle" value="home-weather"/>
 					</include>
@@ -2132,7 +2132,7 @@
 					<include name="listpanelitems">
 						<param name="itemthumb" value="icon-weather.png"/>
 						<param name="itemlabel" value="$LOCALIZE[31032]"/>
-						<param name="itemcondition" value="!IsEmpty(Weather.plugin)+[Skin.HasSetting(home-weather)|Skin.HasSetting(home-currentweather)]"/>
+						<param name="itemcondition" value="Skin.HasSetting(home-weather)"/>
 						<param name="itemmenuid" value="9031"/>
 						<param name="itemtoggle" value="home-weather"/>
 					</include>
@@ -2219,7 +2219,7 @@
 			<left>0</left>
 			<top>720</top>
 			<animation effect="slide" time="0" start="0,0" end="0,-720">Visible</animation>
-			<visible allowhiddenfocus="true">[ControlGroup(5000).HasFocus() | Control.HasFocus(403)] + !Skin.HasSetting(lock-screensettings)</visible>
+			<visible allowhiddenfocus="true">!Skin.HasSetting(lock-screensettings) + [ControlGroup(5000).HasFocus() | Control.HasFocus(5001)]</visible>
 			<include>fadebackground</include>
 			<control type="image"><!-- Button background -->
 				<left>440</left>
@@ -2228,16 +2228,14 @@
 				<height>270</height>
 				<texture border="9">button-menu-background.png</texture>
 			</control>
-			<control type="button" id="403"><!-- Dummy button for touch/mouse focus issues -->
+			<control type="button" id="5001"><!-- Dummy button for touch/mouse focus issues -->
 				<left>0</left>
 				<top>0</top>
 				<width>1280</width>
 				<height>720</height>
 				<texturefocus>blank.png</texturefocus>
 				<texturenofocus>blank.png</texturenofocus>
-				<onclick condition="Skin.HasSetting(homemenu-horizontal)">SetFocus(9002)</onclick>
-				<onclick condition="Skin.HasSetting(homemenu-icon)">SetFocus(9021)</onclick>
-				<onclick condition="Skin.HasSetting(homemenu-vertical)">SetFocus(9031)</onclick>
+				<onclick>SetFocus(9000)</onclick>
 			</control>
 			<control type="label"><!-- Dialog heading -->
 				<left>450</left>
@@ -2255,9 +2253,7 @@
 				<height>32</height>
 				<texturefocus>touch-close.png</texturefocus>
 				<texturenofocus>touch-close.png</texturenofocus>
-				<onclick condition="Skin.HasSetting(homemenu-horizontal)">SetFocus(9002)</onclick>
-				<onclick condition="Skin.HasSetting(homemenu-icon)">SetFocus(9021)</onclick>
-				<onclick condition="Skin.HasSetting(homemenu-vertical)">SetFocus(9031)</onclick>
+				<onclick>SetFocus(9000)</onclick>
 				<visible>Skin.HasSetting(touch-controls)</visible>
 			</control>
 			<control type="image">
@@ -2274,12 +2270,8 @@
 				<width>376</width>
 				<height>192</height>
 				<itemgap>0</itemgap>
-				<onright condition="Skin.HasSetting(homemenu-horizontal)">9002</onright>
-				<onright condition="Skin.HasSetting(homemenu-icon)">9021</onright>
-				<onright condition="Skin.HasSetting(homemenu-vertical)">9031</onright>
-				<onleft condition="Skin.HasSetting(homemenu-horizontal)">9002</onleft>
-				<onleft condition="Skin.HasSetting(homemenu-icon)">9021</onleft>
-				<onleft condition="Skin.HasSetting(homemenu-vertical)">9031</onleft>
+				<onright>9000</onright>
+				<onleft>9000</onleft>
 				<control type="togglebutton" id="5102"><!-- Show/Hide menu item -->
 					<width>376</width>
 					<height>48</height>
@@ -2299,11 +2291,12 @@
 					<font>font11</font>
 					<align>center</align>
 					<onclick condition="!System.HasAddon(script.favourites)">RunPlugin(plugin://script.favourites)</onclick>
-					<onclick condition="IsEmpty(Window(Home).Property(ItemPath)) + System.HasAddon(script.favourites)">RunScript(script.favourites,changetitle=true&amp;property=$INFO[Window(settings).Property(ListCustomBase)])</onclick>
-					<onclick condition="!IsEmpty(Window(Home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase)].Path,$INFO[Window(Home).Property(ItemPath)])</onclick>
-					<onclick condition="!IsEmpty(Window(Home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase)].Label,$INFO[Window(Home).Property(ItemName)])</onclick>
-					<onclick condition="!IsEmpty(Window(Home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase)].Icon,$INFO[Window(Home).Property(ItemIcon)])</onclick>
-					<onclick condition="!IsEmpty(Window(Home).Property(ItemPath))">ClearProperty(ItemPath,Home)</onclick>
+					<onclick condition="IsEmpty(Window(home).Property(ItemPath)) + System.HasAddon(script.favourites)">RunScript(script.favourites,changetitle=true&amp;property=$INFO[Window(settings).Property(ListCustomBase)])</onclick>
+					<onclick condition="!IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase)].Path,$INFO[Window(home).Property(ItemPath)])</onclick>
+					<onclick condition="!IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase)].Label,$INFO[Window(home).Property(ItemName)])</onclick>
+					<onclick condition="!IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase)].Icon,$INFO[Window(home).Property(ItemIcon)])</onclick>
+					<onclick condition="!IsEmpty(Window(home).Property(ItemPath))">ClearProperty(ItemPath,Home)</onclick>
+					<onclick>SetFocus(9000)</onclick>
 					<visible>!IsEmpty(Window(settings).Property(ListCustomBase))</visible>
 				</control>
 				<control type="button" id="5104"><!-- Change Icon of custom menu item -->
@@ -2313,6 +2306,7 @@
 					<font>font11</font>
 					<align>center</align>
 					<onclick>Skin.SetFile($INFO[Window(settings).Property(ListCustomBase),,.Icon],.jpg|.png)</onclick>
+					<onclick>SetFocus(9000)</onclick>
 					<enable>!Skin.HasSetting(homemenu-horizontal)</enable>
 					<visible>!IsEmpty(Window(settings).Property(ListCustomBase))</visible>
 				</control>
@@ -2323,6 +2317,7 @@
 					<font>font11</font>
 					<align>center</align>
 					<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label])</onclick>
+					<onclick>SetFocus(9000)</onclick>
 					<visible>!IsEmpty(Window(settings).Property(ListCustomBase))</visible>
 				</control>
 				<control type="button" id="5106"><!-- Quit action -->
@@ -2333,6 +2328,7 @@
 					<label2>$INFO[Skin.String(home-quitaction)]</label2>
 					<font>font11</font>
 					<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=home-quitaction-val,header=$LOCALIZE[31914])</onclick>
+					<onclick>SetFocus(9000)</onclick>
 					<enable>!Skin.HasSetting(home-shutdown)</enable>
 					<visible>StringCompare(Window(settings).Property(ListLabel),$LOCALIZE[13009])</visible>
 				</control>
@@ -2344,6 +2340,7 @@
 					<label2>$VAR[CustomFavHeading]</label2>
 					<font>font11</font>
 					<onclick>Skin.SetString(CustomFav.Heading)</onclick>
+					<onclick>SetFocus(9000)</onclick>
 					<visible>Skin.HasSetting(homemenu-horizontal) + StringCompare(Window(settings).Property(ListID),9550)</visible>
 				</control>
 			</control>
