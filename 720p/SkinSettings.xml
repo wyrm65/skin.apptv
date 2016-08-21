@@ -441,13 +441,21 @@
 						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=shelf-musicimages-val,header=$LOCALIZE[31939] - $LOCALIZE[2])</onclick>
 						<visible>!Skin.HasSetting(homemenu-vertical)</visible>
 					</control>
-					<control type="group" id="313">
-						<visible>!Skin.HasSetting(homemenu-vertical)</visible>
+					<control type="button" id="313"><!-- Broadcast Shelf icon type -->
+						<include>settings-submenu-common</include>
+						<textwidth>785</textwidth>
+						<label>$LOCALIZE[31031]</label>
+						<label2>$INFO[Skin.String(shelf-broadcastimages)]</label2>
+						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=shelf-broadcastimages-val,header=$LOCALIZE[31939] - $LOCALIZE[31031])</onclick>
+						<visible>Skin.HasSetting(homemenu-horizontal)</visible>
+					</control>
+					<control type="group" id="314">
+						<visible>Skin.HasSetting(homemenu-horizontal)</visible>
 						<height>56</height>
 						<width>885</width>
-						<control type="togglebutton" id="314"><!-- Addons Shelf image type -->
-							<onup>312</onup>
-							<ondown>316</ondown>
+						<control type="togglebutton" id="315"><!-- Addons Shelf image type -->
+							<onup>313</onup>
+							<ondown>317</ondown>
 							<onright>999</onright>
 							<include>settings-submenu-common</include>
 							<textwidth>785</textwidth>
@@ -456,13 +464,13 @@
 							<onclick>Skin.SetString(shelf-addonimages,$LOCALIZE[31652])</onclick>
 							<altclick>Skin.SetString(shelf-addonimages,$LOCALIZE[31953])</altclick>
 						</control>
-						<control type="label" id="315">
+						<control type="label" id="316">
 							<include>settings-submenu-common</include>
 							<label>$LOCALIZE[24001]</label>
 							<textoffsetx>18</textoffsetx>
 						</control>
 					</control>
-					<control type="button" id="316"><!-- Reset Above Settings button -->
+					<control type="button" id="317"><!-- Reset Above Settings button -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[10041]</label>
 						<textwidth>785</textwidth>
@@ -473,6 +481,7 @@
 						<onclick>Skin.Reset(shelf-tvshowimages)</onclick>
 						<onclick>Skin.Reset(shelf-tvshowimgtyp)</onclick>
 						<onclick>Skin.Reset(shelf-musicimages)</onclick>
+						<onclick>Skin.Reset(shelf-broadcastimages)</onclick>
 						<onclick>Skin.Reset(shelf-addonimages)</onclick>
 					</control>
 				</control>
