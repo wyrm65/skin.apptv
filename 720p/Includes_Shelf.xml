@@ -148,6 +148,7 @@
 						<height>214</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					</control>
 					<control type="image">
 						<left>25</left>
@@ -156,11 +157,12 @@
 						<height>214</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture fallback="DefaultVideo.png" flipy="true" diffuse="mask-fade.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+						<animation effect="zoom" start="100" end="104" center="125,104" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					</control>
 					<control type="textbox">
 						<left>0</left>
-						<top>215</top>
-						<height>50</height>
+						<top>218</top>
+						<height>48</height>
 						<width>210</width>
 						<font>font10</font>
 						<align>center</align>
@@ -174,44 +176,28 @@
 					<include condition="StringCompare(Skin.String(shelf-movieimages),$LOCALIZE[31954])">MovieRecent</include>
 					<include condition="StringCompare(Skin.String(shelf-movieimages),$LOCALIZE[31955])">MovieRecommended</include>
 			</control>
-			<control type="group">
-				<visible>Control.HasFocus(9160)</visible>
-				<left>0</left>
-				<top>38</top>
-				<control type="image"><!-- Focus slider -->
-					<left>26</left>
-					<top>0</top>
-					<width>176</width>
-					<height>230</height>
-					<texture border="8">mask-hilite2.png</texture>
-					<aspectratio>stretch</aspectratio>
-				</control>
-				<animation condition="Container(9160).Position(1)" effect="slide" start="0,0" end="210,0" time="150" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9160).Position(2)" effect="slide" start="0,0" end="420,0" time="150" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9160).Position(3)" effect="slide" start="0,0" end="630,0" time="150" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9160).Position(4)" effect="slide" start="0,0" end="840,0" time="150" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9160).Position(5)" effect="slide" start="0,0" end="1050,0" time="150" easing="inout" reversible="true">Conditional</animation>
-			</control>
 		</control>
 	</include>
 	<include name="tvshow-shelfbanner">
 		<control type="image">
 			<left>10</left>
-			<top>24</top>
+			<top>26</top>
 			<width>232</width>
 			<height>130</height>
 			<aligny>bottom</aligny>
 			<aspectratio>stretch</aspectratio>
 			<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+			<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 		</control>
 		<control type="image">
 			<left>10</left>
-			<top>154</top>
+			<top>156</top>
 			<width>232</width>
 			<height>42</height>
 			<aligny>bottom</aligny>
 			<aspectratio>stretch</aspectratio>
 			<texture background="true">$INFO[ListItem.Art(tvshow.banner)]</texture>
+			<animation effect="zoom" start="100" end="104" center="125,104" time="200" tween="back" easing="out" reversible="false">focus</animation>
 		</control>
 		<control type="image">
 			<left>10</left>
@@ -220,6 +206,7 @@
 			<height>42</height>
 			<aspectratio>stretch</aspectratio>
 			<texture flipy="true" diffuse="mask-fade.png" background="true">$INFO[ListItem.Art(tvshow.banner)]</texture>
+			<animation effect="zoom" start="100" end="104" center="125,104" time="200" tween="back" easing="out" reversible="false">focus</animation>
 		</control>
 	</include>
 	<include name="tvshow-shelfposter">
@@ -230,6 +217,7 @@
 			<height>214</height>
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<texture diffuse="mask-rect.png" fallback="DefaultTvshows.png" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+			<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 		</control>
 		<control type="image">
 			<left>46</left>
@@ -238,6 +226,7 @@
 			<height>214</height>
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<texture flipy="true" diffuse="mask-fade.png" fallback="DefaultTvshows.png" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+			<animation effect="zoom" start="100" end="104" center="125,104" time="200" tween="back" easing="out" reversible="false">focus</animation>
 		</control>
 	</include>
 	<include name="tvshow-shelficons">
@@ -260,7 +249,7 @@
 					<left>0</left>
 					<top>72</top>
 					<width>232</width>
-					<height>160</height>
+					<height>130</height>
 					<aligny>bottom</aligny>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfArt0]</texture>
@@ -268,7 +257,7 @@
 				</control>
 				<control type="image">
 					<left>0</left>
-					<top>190</top>
+					<top>202</top>
 					<width>232</width>
 					<height>42</height>
 					<aligny>bottom</aligny>
@@ -280,20 +269,20 @@
 					<left>1048</left>
 					<top>72</top>
 					<width>232</width>
-					<height>160</height>
+					<height>130</height>
 					<aligny>bottom</aligny>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfArt7]</texture>
+					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfArt6]</texture>
 					<animation effect="rotatey" center="1280" end="60" time="300" condition="true">Conditional</animation>
 				</control>
 				<control type="image">
 					<left>1048</left>
-					<top>190</top>
+					<top>202</top>
 					<width>232</width>
 					<height>42</height>
 					<aligny>bottom</aligny>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfIcon7]</texture>
+					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfIcon6]</texture>
 					<animation effect="rotatey" center="1280" end="60" time="300" condition="true">Conditional</animation>
 				</control>
 			</control>
@@ -316,7 +305,7 @@
 					<width>178</width>
 					<height>178</height>
 					<aspectratio scalediffuse="false">keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfIcon7]</texture>
+					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfIcon6]</texture>
 					<animation effect="rotatey" center="1280" end="60" time="300" condition="true">Conditional</animation>
 				</control>
 			</control>
@@ -343,7 +332,7 @@
 						<visible>Control.HasFocus(9210)</visible>
 						<control type="label">
 							<left>0</left>
-							<top>215</top>
+							<top>218</top>
 							<height>22</height>
 							<width>252</width>
 							<label>$INFO[ListItem.Title]</label>
@@ -354,7 +343,7 @@
 						</control>
 						<control type="label">
 							<left>0</left>
-							<top>239</top>
+							<top>242</top>
 							<height>22</height>
 							<width>252</width>
 							<label>$LOCALIZE[20373] $INFO[ListItem.Season] $LOCALIZE[20359] $INFO[ListItem.Episode]</label>
@@ -366,7 +355,7 @@
 						</control>
 						<control type="label">
 							<left>0</left>
-							<top>239</top>
+							<top>242</top>
 							<height>22</height>
 							<width>252</width>
 							<label>$LOCALIZE[20381] $INFO[ListItem.Episode]</label>
@@ -380,40 +369,6 @@
 				</focusedlayout>
 				<include condition="StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31954])">EpisodeRecent</include>
 				<include condition="StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31955])">EpisodeRecommended</include>
-			</control>
-			<control type="group">
-				<visible>Control.HasFocus(9210) + StringCompare(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31949])</visible>
-				<left>0</left>
-				<top>48</top>
-				<control type="image"><!-- Focus slider -->
-					<left>10</left>
-					<top>16</top>
-					<width>248</width>
-					<height>188</height>
-					<texture border="8">mask-hilite2.png</texture>
-					<aspectratio>stretch</aspectratio>
-				</control>
-				<animation condition="Container(9210).Position(1)" effect="slide" start="0,0" end="252,0" time="150" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9210).Position(2)" effect="slide" start="0,0" end="504,0" time="150" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9210).Position(3)" effect="slide" start="0,0" end="756,0" time="150" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9210).Position(4)" effect="slide" start="0,0" end="1008,0" time="150" easing="inout" reversible="true">Conditional</animation>
-			</control>
-			<control type="group">
-				<visible>Control.HasFocus(9210) + StringCompare(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31950])</visible>
-				<left>0</left>
-				<top>38</top>
-				<control type="image"><!-- Focus slider -->
-					<left>48</left>
-					<top>0</top>
-					<width>176</width>
-					<height>230</height>
-					<texture border="8">mask-hilite2.png</texture>
-					<aspectratio>stretch</aspectratio>
-				</control>
-				<animation condition="Container(9210).Position(1)" effect="slide" start="0,0" end="252,0" time="150" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9210).Position(2)" effect="slide" start="0,0" end="504,0" time="150" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9210).Position(3)" effect="slide" start="0,0" end="756,0" time="150" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9210).Position(4)" effect="slide" start="0,0" end="1008,0" time="150" easing="inout" reversible="true">Conditional</animation>
 			</control>
 		</control>
 	</include>
@@ -468,7 +423,7 @@
 				<orientation>horizontal</orientation>
 				<itemlayout height="270" width="252">
 					<control type="image">
-						<left>20</left>
+						<left>21</left>
 						<top>5</top>
 						<width>210</width>
 						<height>210</height>
@@ -477,7 +432,7 @@
 						<texture diffuse="mask-squ.png" fallback="DefaultAudio.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 					</control>
 					<control type="image">
-						<left>20</left>
+						<left>21</left>
 						<top>216</top>
 						<width>210</width>
 						<height>210</height>
@@ -488,22 +443,24 @@
 				</itemlayout>
 				<focusedlayout height="270" width="252">
 					<control type="image">
-						<left>20</left>
+						<left>21</left>
 						<top>5</top>
 						<width>210</width>
 						<height>210</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<aligny>top</aligny>
 						<texture diffuse="mask-squ.png" fallback="DefaultAudio.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					</control>
 					<control type="image">
-						<left>20</left>
+						<left>21</left>
 						<top>216</top>
 						<width>210</width>
 						<height>210</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<aligny>top</aligny>
 						<texture fallback="DefaultAudio.png" flipy="true" diffuse="mask-fadesqu.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+						<animation effect="zoom" start="100" end="104" center="125,104" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					</control>
 					<control type="textbox">
 						<left>0</left>
@@ -522,21 +479,6 @@
 				<include condition="StringCompare(Skin.String(shelf-musicimages),$LOCALIZE[31954])">AlbumRecent</include>
 				<include condition="StringCompare(Skin.String(shelf-musicimages),$LOCALIZE[31955])">AlbumRecommended</include>
 			</control>
-			<control type="group">
-				<visible>Control.HasFocus(9260) + !IsEmpty(Container(9260).ListItem.Thumb)</visible>
-				<control type="image"><!-- Focus slider -->
-					<left>22</left>
-					<top>38</top>
-					<width>226</width>
-					<height>226</height>
-					<texture border="8">mask-hilite2.png</texture>
-					<aspectratio>stretch</aspectratio>
-				</control>
-				<animation condition="Container(9260).Position(1)" effect="slide" start="0,0" end="252,0" time="100" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9260).Position(2)" effect="slide" start="0,0" end="504,0" time="100" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9260).Position(3)" effect="slide" start="0,0" end="756,0" time="100" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9260).Position(4)" effect="slide" start="0,0" end="1008,0" time="100" easing="inout" reversible="true">Conditional</animation>
-			</control>
 		</control>
 	</include>
 
@@ -553,7 +495,7 @@
 			</control>
 			<control type="list" id="9360">
 				<left>10</left>
-				<top>50</top>
+				<top>40</top>
 				<width>1260</width>
 				<height>270</height>
 				<onleft>9056</onleft>
@@ -564,8 +506,8 @@
 				<orientation>horizontal</orientation>
 				<itemlayout height="270" width="252">
 					<control type="image">
-						<left>20</left>
-						<top>6</top>
+						<left>21</left>
+						<top>5</top>
 						<width>210</width>
 						<height>210</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
@@ -573,7 +515,7 @@
 						<texture diffuse="mask-squ.png" fallback="DefaultAddon.png" background="true">$INFO[ListItem.Thumb]</texture>
 					</control>
 					<control type="image">
-						<left>20</left>
+						<left>21</left>
 						<top>216</top>
 						<width>210</width>
 						<height>210</height>
@@ -584,110 +526,50 @@
 				</itemlayout>
 				<focusedlayout height="270" width="252">
 					<control type="image">
-						<left>20</left>
-						<top>6</top>
+						<left>21</left>
+						<top>5</top>
 						<width>210</width>
 						<height>210</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<aligny>top</aligny>
 						<texture diffuse="mask-squ.png" fallback="DefaultAddon.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					</control>
 					<control type="image">
-						<left>20</left>
+						<left>21</left>
 						<top>216</top>
 						<width>210</width>
 						<height>210</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<aligny>top</aligny>
 						<texture fallback="DefaultAddon.png" flipy="true" diffuse="mask-fade.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<animation effect="zoom" start="100" end="104" center="125,104" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					</control>
-					<control type="group">
+					<control type="textbox">
+						<left>0</left>
+						<top>218</top>
+						<height>48</height>
+						<width>252</width>
+						<font>font10</font>
+						<align>center</align>
+						<aligny>top</aligny>
+						<label>$INFO[ListItem.Label]</label>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<animation effect="fade" time="100" delay="100">Focus</animation>
 						<visible>Control.HasFocus(9360)</visible>
-						<control type="label">
-							<left>0</left>
-							<top>218</top>
-							<height>22</height>
-							<width>252</width>
-							<label>$INFO[ListItem.Label]</label>
-							<font>font10</font>
-							<align>center</align>
-							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-						</control>
 					</control>
 				</focusedlayout>
 				<content>
 					<include condition="StringCompare(Skin.String(shelf-addonimages),$LOCALIZE[31652])">AddonFavourites</include>
 				</content>
 			</control>
-			<control type="group">
-				<visible>Control.HasFocus(9360) + !IsEmpty(Container(9360).ListItem.Thumb)</visible>
-				<control type="image"><!-- Focus slider -->
-					<left>22</left>
-					<top>48</top>
-					<width>226</width>
-					<height>226</height>
-					<texture border="8">mask-hilite2.png</texture>
-					<aspectratio>stretch</aspectratio>
-				</control>
-				<animation condition="Container(9360).Position(1)" effect="slide" start="0,0" end="252,0" time="150" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9360).Position(2)" effect="slide" start="0,0" end="504,0" time="150" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9360).Position(3)" effect="slide" start="0,0" end="756,0" time="150" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9360).Position(4)" effect="slide" start="0,0" end="1008,0" time="150" easing="inout" reversible="true">Conditional</animation>
-			</control>
 		</control>
 	</include>
 
-	<include name="broadcast-shelfbanner">
-		<control type="image">
-			<left>10</left>
-			<top>24</top>
-			<width>232</width>
-			<height>130</height>
-			<aligny>bottom</aligny>
-			<aspectratio>stretch</aspectratio>
-			<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
-		</control>
-		<control type="image">
-			<left>10</left>
-			<top>154</top>
-			<width>232</width>
-			<height>42</height>
-			<aligny>bottom</aligny>
-			<aspectratio>stretch</aspectratio>
-			<texture background="true">$INFO[ListItem.Art(tvshow.banner)]</texture>
-		</control>
-		<control type="image">
-			<left>10</left>
-			<top>200</top>
-			<width>232</width>
-			<height>42</height>
-			<aspectratio>stretch</aspectratio>
-			<texture flipy="true" diffuse="mask-fade.png" background="true">$INFO[ListItem.Art(tvshow.banner)]</texture>
-		</control>
-	</include>
-	<include name="broadcast-shelfposter">
-		<control type="image">
-			<left>46</left>
-			<top>0</top>
-			<width>160</width>
-			<height>214</height>
-			<aspectratio scalediffuse="false">stretch</aspectratio>
-			<texture diffuse="mask-rect.png" fallback="DefaultTvshows.png" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
-		</control>
-		<control type="image">
-			<left>46</left>
-			<top>215</top>
-			<width>160</width>
-			<height>214</height>
-			<aspectratio scalediffuse="false">stretch</aspectratio>
-			<texture flipy="true" diffuse="mask-fade.png" fallback="DefaultTvshows.png" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
-		</control>
-	</include>
 	<include name="broadcast-shelficons">
 		<animation effect="slide" end="252,0" condition="![Control.HasFocus(9510) + Container(9510).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
-			<control type="label"><!-- TV Episodes shelf icons label -->
+			<control type="label"><!-- Broadcast shelf icons label -->
 				<left>55</left>
 				<top>12</top>
 				<height>22</height>
@@ -697,53 +579,6 @@
 				<visible>IntegerGreaterThan(Container(9510).NumItems,0)</visible>
 			</control>
 			<control type="group">
-				<visible>StringCompare(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31949])</visible><!-- Banners -->
-				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]]</visible>
-				<camera x="640" y="180" />
-				<control type="image">
-					<left>0</left>
-					<top>72</top>
-					<width>232</width>
-					<height>160</height>
-					<aligny>bottom</aligny>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfArt0]</texture>
-					<animation effect="rotatey" center="0" end="-60" time="300" condition="true">Conditional</animation>
-				</control>
-				<control type="image">
-					<left>0</left>
-					<top>190</top>
-					<width>232</width>
-					<height>42</height>
-					<aligny>bottom</aligny>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfIcon0]</texture>
-					<animation effect="rotatey" center="0" end="-60" time="300" condition="true">Conditional</animation>
-				</control>
-				<control type="image">
-					<left>1048</left>
-					<top>72</top>
-					<width>232</width>
-					<height>160</height>
-					<aligny>bottom</aligny>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfArt7]</texture>
-					<animation effect="rotatey" center="1280" end="60" time="300" condition="true">Conditional</animation>
-				</control>
-				<control type="image">
-					<left>1048</left>
-					<top>190</top>
-					<width>232</width>
-					<height>42</height>
-					<aligny>bottom</aligny>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfIcon7]</texture>
-					<animation effect="rotatey" center="1280" end="60" time="300" condition="true">Conditional</animation>
-				</control>
-			</control>
-			<control type="group">
-				<visible>[IsEmpty(Skin.String(shelf-tvshowimgtyp)) | StringCompare(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31950])]</visible><!-- Posters -->
-				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))]]</visible>
 				<camera x="640" y="159" />
 				<control type="image">
 					<left>-30</left>
@@ -751,7 +586,7 @@
 					<width>178</width>
 					<height>178</height>
 					<aspectratio scalediffuse="false">keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfIcon0]</texture>
+					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[BroadcastShelfIcon0]</texture>
 					<animation effect="rotatey" center="0" end="-60" time="300" condition="true">Conditional</animation>
 				</control>
 				<control type="image">
@@ -760,7 +595,7 @@
 					<width>178</width>
 					<height>178</height>
 					<aspectratio scalediffuse="false">keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfIcon7]</texture>
+					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[BroadcastShelfIcon6]</texture>
 					<animation effect="rotatey" center="1280" end="60" time="300" condition="true">Conditional</animation>
 				</control>
 			</control>
@@ -769,25 +604,59 @@
 				<top>46</top>
 				<width>1260</width>
 				<height>270</height>
-				<onleft>9052</onleft>
-				<onright>9052</onright>
-				<onup>9052</onup>
+				<onleft>9058</onleft>
+				<onright>9058</onright>
+				<onup>9058</onup>
 				<ondown>9000</ondown>
 				<viewtype label="31028">list</viewtype>
 				<orientation>horizontal</orientation>
 				<itemlayout height="270" width="252">
-					<include condition="IsEmpty(Skin.String(shelf-tvshowimgtyp)) | StringCompare(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31950])">tvshow-shelfposter</include>
-					<include condition="StringCompare(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31949])">tvshow-shelfbanner</include>
+					<control type="image">
+						<left>21</left>
+						<top>5</top>
+						<width>210</width>
+						<height>210</height>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+						<aligny>bottom</aligny>
+						<texture diffuse="mask-rect.png" fallback="icon-broadcast.png" background="true">$INFO[ListItem.Icon]</texture>
+					</control>
+					<control type="image">
+						<left>21</left>
+						<top>215</top>
+						<width>210</width>
+						<height>210</height>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+						<aligny>top</aligny>
+						<texture flipy="true" diffuse="mask-fade.png" fallback="icon-broadcast.png" background="true">$INFO[ListItem.Icon]</texture>
+					</control>
 				</itemlayout>
 				<focusedlayout height="270" width="252">
-					<include condition="IsEmpty(Skin.String(shelf-tvshowimgtyp)) | StringCompare(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31950])">tvshow-shelfposter</include>
-					<include condition="StringCompare(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31949])">tvshow-shelfbanner</include>
+					<control type="image">
+						<left>21</left>
+						<top>5</top>
+						<width>210</width>
+						<height>210</height>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+						<aligny>bottom</aligny>
+						<texture diffuse="mask-rect.png" fallback="icon-broadcast.png" background="true">$INFO[ListItem.Icon]</texture>
+						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+					</control>
+					<control type="image">
+						<left>21</left>
+						<top>215</top>
+						<width>210</width>
+						<height>210</height>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+						<aligny>top</aligny>
+						<texture flipy="true" diffuse="mask-fade.png" fallback="icon-broadcast.png" background="true">$INFO[ListItem.Icon]</texture>
+						<animation effect="zoom" start="100" end="104" center="125,104" time="200" tween="back" easing="out" reversible="false">focus</animation>
+					</control>
 					<control type="group">
 						<animation effect="fade" time="100" delay="100">Focus</animation>
 						<visible>Control.HasFocus(9510)</visible>
 						<control type="label">
 							<left>0</left>
-							<top>215</top>
+							<top>218</top>
 							<height>22</height>
 							<width>252</width>
 							<label>$INFO[ListItem.Title]</label>
@@ -798,7 +667,7 @@
 						</control>
 						<control type="label">
 							<left>0</left>
-							<top>239</top>
+							<top>242</top>
 							<height>22</height>
 							<width>252</width>
 							<label>$LOCALIZE[20373] $INFO[ListItem.Season] $LOCALIZE[20359] $INFO[ListItem.Episode]</label>
@@ -810,7 +679,7 @@
 						</control>
 						<control type="label">
 							<left>0</left>
-							<top>239</top>
+							<top>242</top>
 							<height>22</height>
 							<width>252</width>
 							<label>$LOCALIZE[20381] $INFO[ListItem.Episode]</label>
@@ -825,40 +694,6 @@
 				<include condition="StringCompare(Skin.String(shelf-broadcastimages),$LOCALIZE[31956])">AiringToday</include>
 				<include condition="StringCompare(Skin.String(shelf-broadcastimages),$LOCALIZE[31957])">PVRChannels</include>
 				<include condition="StringCompare(Skin.String(shelf-broadcastimages),$LOCALIZE[31958])">LatestRecordings</include>
-			</control>
-			<control type="group">
-				<visible>Control.HasFocus(9510) + StringCompare(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31949])</visible>
-				<left>0</left>
-				<top>48</top>
-				<control type="image"><!-- Focus slider -->
-					<left>10</left>
-					<top>16</top>
-					<width>248</width>
-					<height>188</height>
-					<texture border="8">mask-hilite2.png</texture>
-					<aspectratio>stretch</aspectratio>
-				</control>
-				<animation condition="Container(9510).Position(1)" effect="slide" start="0,0" end="252,0" time="150" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9510).Position(2)" effect="slide" start="0,0" end="504,0" time="150" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9510).Position(3)" effect="slide" start="0,0" end="756,0" time="150" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9510).Position(4)" effect="slide" start="0,0" end="1008,0" time="150" easing="inout" reversible="true">Conditional</animation>
-			</control>
-			<control type="group">
-				<visible>Control.HasFocus(9510) + StringCompare(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31950])</visible>
-				<left>0</left>
-				<top>38</top>
-				<control type="image"><!-- Focus slider -->
-					<left>48</left>
-					<top>0</top>
-					<width>176</width>
-					<height>230</height>
-					<texture border="8">mask-hilite2.png</texture>
-					<aspectratio>stretch</aspectratio>
-				</control>
-				<animation condition="Container(9510).Position(1)" effect="slide" start="0,0" end="252,0" time="150" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9510).Position(2)" effect="slide" start="0,0" end="504,0" time="150" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9510).Position(3)" effect="slide" start="0,0" end="756,0" time="150" easing="inout" reversible="true">Conditional</animation>
-				<animation condition="Container(9510).Position(4)" effect="slide" start="0,0" end="1008,0" time="150" easing="inout" reversible="true">Conditional</animation>
 			</control>
 		</control>
 	</include>
@@ -1275,7 +1110,7 @@
 					<top>56</top>
 					<width>180</width>
 					<height>180</height>
-					<texture diffuse="mask-rect.png" background="true" fallback="icon-livetv.png">$INFO[Player.Art(thumb)]</texture>
+					<texture diffuse="mask-rect.png" background="true" fallback="icon-broadcast.png">$INFO[Player.Art(thumb)]</texture>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<aligny>top</aligny>
 					<visible>Pvr.IsPlayingTv</visible>
@@ -1287,7 +1122,7 @@
 					<height>180</height>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<aligny>top</aligny>
-					<texture diffuse="mask-fade.png" background="true" flipy="true" fallback="icon-livetv.png">$INFO[Player.Art(thumb)]</texture>
+					<texture diffuse="mask-fade.png" background="true" flipy="true" fallback="icon-broadcast.png">$INFO[Player.Art(thumb)]</texture>
 					<visible>Pvr.IsPlayingTv</visible>
 				</control>
 				<control type="button"><!-- Fake fullscreen button as a touch screen work around -->
