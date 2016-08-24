@@ -17,12 +17,20 @@
 			<preloaditems>4</preloaditems>
 			<pagecontrol>1250</pagecontrol>
 			<itemlayout width="560" height="64">
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>554</width>
+					<height>64</height>
+					<texture border="6">button-default.png</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
 				<control type="label">
 					<left>38</left>
-					<top>22</top>
+					<top>20</top>
 					<width>480</width>
 					<height>23</height>
-					<font>font12</font>
+					<font>font11</font>
 					<label>$INFO[ListItem.Label]</label>
 					<visible>IsEmpty(ListItem.Label2)</visible>
 				</control>
@@ -30,7 +38,7 @@
 					<visible>!IsEmpty(ListItem.Label2)</visible>
 					<control type="label">
 						<left>38</left>
-						<top>14</top>
+						<top>7</top>
 						<width>480</width>
 						<height>23</height>
 						<font>font11</font>
@@ -38,10 +46,10 @@
 					</control>
 					<control type="label">
 						<left>38</left>
-						<top>38</top>
+						<top>30</top>
 						<width>480</width>
 						<height>23</height>
-						<font>font11</font>
+						<font>font10</font>
 						<textcolor>disabled-text</textcolor>
 						<label>$INFO[ListItem.Label2]</label>
 					</control>
@@ -49,8 +57,8 @@
 			</itemlayout>
 			<focusedlayout width="560" height="64">
 				<control type="image"><!-- Button focus slider -->
-					<left>6</left>
-					<top>6</top>
+					<left>0</left>
+					<top>0</top>
 					<width>554</width>
 					<height>64</height>
 					<texture border="6">button-default-focus.png</texture>
@@ -58,10 +66,10 @@
 				</control>
 				<control type="label">
 					<left>38</left>
-					<top>22</top>
+					<top>20</top>
 					<width>480</width>
 					<height>23</height>
-					<font>font12</font>
+					<font>font11</font>
 					<label>$INFO[ListItem.Label]</label>
 					<visible>IsEmpty(ListItem.Label2)</visible>
 				</control>
@@ -69,7 +77,7 @@
 					<visible>!IsEmpty(ListItem.Label2)</visible>
 					<control type="label">
 						<left>38</left>
-						<top>14</top>
+						<top>7</top>
 						<width>480</width>
 						<height>23</height>
 						<font>font11</font>
@@ -77,10 +85,10 @@
 					</control>
 					<control type="label">
 						<left>38</left>
-						<top>38</top>
+						<top>30</top>
 						<width>480</width>
 						<height>23</height>
-						<font>font11</font>
+						<font>font10</font>
 						<textcolor>disabled-text</textcolor>
 						<label>$INFO[ListItem.Label2]</label>
 					</control>
@@ -134,7 +142,7 @@
 				<control type="image">
 					<left>20</left>
 					<top>512</top>
-					<width>665</width>
+					<width>624</width>
 					<height>4</height>
 					<texture>separator.png</texture>
 				</control>
@@ -150,11 +158,11 @@
 				<control type="label"><!-- Artist -->
 					<left>160</left>
 					<top>525</top>
-					<width>513</width>
+					<width>484</width>
 					<height>25</height>
 					<label>$INFO[ListItem.Artist]</label>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<font>font11</font>
+					<font>font10</font>
 				</control>
 				<control type="label"><!-- Genre heading -->
 					<left>20</left>
@@ -168,11 +176,11 @@
 				<control type="label"><!-- Genre -->
 					<left>160</left>
 					<top>550</top>
-					<width>513</width>
+					<width>484</width>
 					<height>25</height>
 					<label>$INFO[ListItem.Genre]</label>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<font>font11</font>
+					<font>font10</font>
 				</control>
 				<control type="label"><!-- Year heading -->
 					<left>20</left>
@@ -186,10 +194,10 @@
 				<control type="label"><!-- Year -->
 					<left>160</left>
 					<top>575</top>
-					<width>513</width>
+					<width>484</width>
 					<height>25</height>
 					<label>$INFO[ListItem.Year]</label>
-					<font>font11</font>
+					<font>font10</font>
 				</control>
 				<control type="label"><!-- Rating heading -->
 					<left>20</left>
@@ -211,7 +219,7 @@
 				<control type="image">
 					<left>20</left>
 					<top>634</top>
-					<width>665</width>
+					<width>624</width>
 					<height>4</height>
 					<texture>separator.png</texture>
 				</control>
