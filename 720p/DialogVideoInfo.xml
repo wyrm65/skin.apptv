@@ -630,7 +630,7 @@
 		</control>
 		<control type="list" id="50"><!-- Cast -->
 			<left>10</left>
-			<top>515</top>
+			<top>514</top>
 			<width>1260</width>
 			<height>200</height>
 			<onleft>noop</onleft>
@@ -656,6 +656,7 @@
 					<height>146</height>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture fallback="icon-profile.png" diffuse="mask-rect.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -683,25 +684,6 @@
 				</control>
 			</focusedlayout>
 		</control>
-		<control type="group">
-			<visible>Control.HasFocus(50)</visible>
-			<left>10</left>
-			<top>508</top>
-			<control type="image"><!-- Focus slider -->
-				<left>41</left>
-				<top>0</top>
-				<width>128</width>
-				<height>162</height>
-				<texture border="8">mask-hilite2.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			<animation condition="Container(50).Position(0)" effect="slide" start="0,0" end="0,0" time="200" easing="inout" reversible="true">Conditional</animation>
-			<animation condition="Container(50).Position(1)" effect="slide" start="0,0" end="210,0" time="200" easing="inout" reversible="true">Conditional</animation>
-			<animation condition="Container(50).Position(2)" effect="slide" start="0,0" end="420,0" time="200" easing="inout" reversible="true">Conditional</animation>
-			<animation condition="Container(50).Position(3)" effect="slide" start="0,0" end="630,0" time="200" easing="inout" reversible="true">Conditional</animation>
-			<animation condition="Container(50).Position(4)" effect="slide" start="0,0" end="840,0" time="200" easing="inout" reversible="true">Conditional</animation>
-			<animation condition="Container(50).Position(5)" effect="slide" start="0,0" end="1050,0" time="200" easing="inout" reversible="true">Conditional</animation>
-		</control>
 		<control type="group"><!-- Markers for control area items -->
 			<visible>Control.HasFocus(50)</visible>
 			<control type="image">
@@ -724,7 +706,7 @@
 		<control type="list" id="950">
 			<visible>!SubString(Control.GetLabel(5),$LOCALIZE[207])</visible>
 			<left>10</left>
-			<top>508</top>
+			<top>518</top>
 			<width>1260</width>
 			<height>208</height>
 			<onleft>noop</onleft>
@@ -735,18 +717,18 @@
 			<itemlayout height="208" width="210">
 				<control type="image">
 					<left>48</left>
-					<top>8</top>
+					<top>0</top>
 					<width>114</width>
-					<height>150</height>
+					<height>148</height>
 					<aspectratio scalediffuse="true">keep</aspectratio>
 					<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Art(poster)]</texture>
 					<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
 				</control>
 				<control type="image">
 					<left>48</left>
-					<top>8</top>
+					<top>0</top>
 					<width>114</width>
-					<height>150</height>
+					<height>148</height>
 					<aspectratio scalediffuse="true">keep</aspectratio>
 					<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Art(poster)]</texture>
 					<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
@@ -757,18 +739,18 @@
 					<visible>!Control.HasFocus(950)</visible>
 					<control type="image">
 						<left>48</left>
-						<top>8</top>
+						<top>0</top>
 						<width>114</width>
-						<height>150</height>
+						<height>148</height>
 						<aspectratio scalediffuse="true">keep</aspectratio>
 						<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Art(poster)]</texture>
 						<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
 					<control type="image">
 						<left>48</left>
-						<top>8</top>
+						<top>0</top>
 						<width>114</width>
-						<height>150</height>
+						<height>148</height>
 						<aspectratio scalediffuse="true">keep</aspectratio>
 						<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Art(poster)]</texture>
 						<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
@@ -777,31 +759,29 @@
 				<control type="group">
 					<visible>Control.HasFocus(950)</visible>
 					<control type="image">
-						<left>40</left>
+						<left>48</left>
 						<top>0</top>
-						<width>130</width>
-						<height>166</height>
+						<width>114</width>
+						<height>148</height>
 						<aspectratio scalediffuse="true">keep</aspectratio>
 						<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Art(poster)]</texture>
-						<bordertexture border="8">mask-hilite2.png</bordertexture>
-						<bordersize>8</bordersize>
+						<animation effect="zoom" start="100" end="108" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 						<visible>![Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
 					<control type="image">
-						<left>40</left>
+						<left>48</left>
 						<top>0</top>
-						<width>130</width>
-						<height>166</height>
+						<width>114</width>
+						<height>148</height>
 						<aspectratio scalediffuse="true">keep</aspectratio>
 						<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Art(poster)]</texture>
-						<bordertexture border="8">mask-hilite2.png</bordertexture>
-						<bordersize>8</bordersize>
+						<animation effect="zoom" start="100" end="108" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 						<visible>Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)</visible>
 					</control>
 				</control>
 				<control type="textbox">
 					<left>0</left>
-					<top>160</top>
+					<top>152</top>
 					<width>210</width>
 					<height>48</height>
 					<label>$INFO[ListItem.Label]</label>

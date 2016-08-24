@@ -238,18 +238,7 @@
 					<height>150</height>
 					<aspectratio scalediffuse="true">keep</aspectratio>
 					<texture diffuse="mask-squ.png" fallback="DefaultMusicSongs.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-					<visible>!Control.HasFocus(950)</visible>
-				</control>
-				<control type="image">
-					<left>22</left>
-					<top>0</top>
-					<width>166</width>
-					<height>166</height>
-					<aspectratio scalediffuse="true">keep</aspectratio>
-					<texture diffuse="mask-squ.png" fallback="DefaultMusicSongs.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-					<bordertexture border="8">mask-hilite2.png</bordertexture>
-					<bordersize>8</bordersize>
-					<visible>Control.HasFocus(950)</visible>
+					<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 				</control>
 				<control type="textbox">
 					<left>0</left>

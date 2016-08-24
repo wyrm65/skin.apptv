@@ -345,18 +345,7 @@
 						<width>150</width>
 						<height>150</height>
 						<texture diffuse="mask-squ.png" fallback="DefaultMusicSongs.png" background="true">$INFO[ListItem.Icon]</texture>
-						<visible>!Control.HasFocus(50) | SubString(ListItem.Icon,Default,Left)</visible>
-					</control>
-					<control type="image">
-						<left>22</left>
-						<top>0</top>
-						<width>166</width>
-						<height>166</height>
-						<aspectratio scalediffuse="true">keep</aspectratio>
-						<texture diffuse="mask-squ.png" fallback="DefaultMusicSongs.png" background="true">$INFO[ListItem.Icon]</texture>
-						<bordertexture border="8">mask-hilite2.png</bordertexture>
-						<bordersize>8</bordersize>
-						<visible>Control.HasFocus(50) + !SubString(ListItem.Icon,Default,Left)</visible>
+						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					</control>
 				</control>
 				<control type="image">
@@ -366,6 +355,7 @@
 					<height>150</height>
 					<texture>DefaultCDDA.png</texture>
 					<animation condition="!Control.HasFocus(50)" effect="fade" start="100" end="62">Conditional</animation>
+					<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					<visible>Container.Content(albums)</visible>
 				</control>
 				<control type="textbox">
