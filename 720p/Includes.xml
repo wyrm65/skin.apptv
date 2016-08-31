@@ -14,8 +14,9 @@
 
 	<!-- Skin Variable section -->
 	<variable name="BackgndImage">
-		<value condition="Window.IsActive(weather) + Skin.HasSetting(background-customweather.multi) + !IsEmpty(Skin.String(background-customweather))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(Weather).Property(Current.FanartCode)]</value>
-		<value condition="Window.IsActive(weather) + !Skin.HasSetting(background-customweather.multi) + !IsEmpty(Skin.String(background-customweather))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(Weather).Property(Current.FanartCode),,.jpg]</value>
+		<value condition="Window.IsActive(weather) + Skin.HasSetting(background-customweather.multi) + !IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(Weather).Property(Current.FanartCode)]</value>
+		<value condition="Window.IsActive(weather) + !Skin.HasSetting(background-customweather.multi) + IsEmpty(Window(Weather).Property(Current.FanartCode)) + !IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(Weather).Property(Current.FanartCode)]</value>
+		<value condition="Window.IsActive(weather) + !Skin.HasSetting(background-customweather.multi) + !IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$INFO[Skin.String(background-customweather.ext)]</value>
 		<value condition="Skin.HasSetting(background-slideshow) + Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia)) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow))">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</value>
 		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + Skin.HasSetting(SkinHelper.EnableAnimatedPosters) + !IsEmpty(ListItem.Art(animatedfanart))">$INFO[ListItem.Art(animatedfanart)]</value>
 		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))">$INFO[Window(home).Property(SkinHelper.Player.Music.ExtraFanArt)]</value>
@@ -1094,7 +1095,7 @@
 		<value condition="Control.HasFocus(984)">$LOCALIZE[31360]</value>
 		<value condition="Window.IsVisible(Custom_HomeCustomise.xml) + !IsEmpty(Window(home).Property(ItemPath))">$LOCALIZE[31374]</value>
 	</variable>
-	
+
 	<include file="Defaults.xml" />
 
 	<include name="fullscreenimage"><!-- Postion and size of fullscreen image -->

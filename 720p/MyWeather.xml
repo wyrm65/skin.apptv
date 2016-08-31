@@ -77,6 +77,7 @@
 			<font>font10</font>
 			<align>right</align>
 			<label>$LOCALIZE[31531] $INFO[Window(Weather).Property(Updated)]</label>
+			<visible>!IsEmpty(Window(Weather).Property(Updated))</visible>
 		</control>
 
 		<control type="group"><!-- Screen-settings Menu -->
@@ -182,6 +183,8 @@
 			<width>96</width>
 			<height>32</height>
 			<orientation>horizontal</orientation>
+			<itemgap>0</itemgap>
+			<align>center</align>
 			<visible>!Skin.HasSetting(lock-screensettings)</visible>
 			<control type="image">
 				<width>32</width>
