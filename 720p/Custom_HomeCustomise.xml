@@ -1379,10 +1379,10 @@
 					</itemlayout>
 					<focusedlayout height="160" width="252">
 						<control type="image"><!-- Focused icon image -->
-							<left>6</left>
+							<left>7</left>
 							<top>0</top>
-							<width>240</width>
-							<height>144</height>
+							<width>238</width>
+							<height>142</height>
 							<aspectratio>keep</aspectratio>
 							<texture diffuse="homeiconmask.png" fallback="special://skin/extras/homeicons/fallback.png">$INFO[ListItem.thumb]</texture>
 							<bordertexture border="10">homeiconhilite.png</bordertexture>
@@ -2320,7 +2320,17 @@
 					<onclick>SetFocus(9000)</onclick>
 					<visible>!IsEmpty(Window(settings).Property(ListCustomBase))</visible>
 				</control>
-				<control type="button" id="5106"><!-- Quit action -->
+				<!--<control type="button" id="5106"> Change Icon of Icon menu default items (future addition to skin)
+					<width>376</width>
+					<height>48</height>
+					<label>$LOCALIZE[19284]</label>
+					<font>font11</font>
+					<align>center</align>
+					<onclick>Skin.SetFile($INFO[Window(settings).Property(ListToggle),,.icon],.jpg|.png)</onclick>
+					<onclick>SetFocus(9000)</onclick>
+					<visible>Skin.HasSetting(homemenu-icon) + !IsEmpty(Window(settings).Property(ListToggle))</visible>
+				</control> -->
+				<control type="button" id="5107"><!-- Quit action -->
 					<width>376</width>
 					<height>48</height>
 					<textwidth>350</textwidth>
@@ -2332,7 +2342,7 @@
 					<enable>!Skin.HasSetting(home-shutdown)</enable>
 					<visible>StringCompare(Window(settings).Property(ListLabel),$LOCALIZE[13009])</visible>
 				</control>
-				<control type="button" id="5107"><!-- Custom Favourite Heading -->
+				<control type="button" id="5108"><!-- Custom Favourite Heading -->
 					<width>376</width>
 					<height>48</height>
 					<textwidth>350</textwidth>
