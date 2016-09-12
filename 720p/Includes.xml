@@ -1051,7 +1051,190 @@
 		<value condition="Skin.HasSetting(background-visibiltymed)">$LOCALIZE[392]</value>
 		<value condition="Skin.HasSetting(background-visibiltyhigh)">$LOCALIZE[393]</value>
 	</variable>
-
+	<variable name="WeatherIconCurrent">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window.Property(Current.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window.Property(Current.FanartCode),,.png]</value>
+		<value>$INFO[Window(Weather).Property(Current.ConditionIcon)]</value>
+	</variable>
+	<variable name="WeatherIconDay1">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day1.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day1.FanartCode),,.png]</value>
+		<value>$INFO[Window(Weather).Property(Day1.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIconDay2">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day2.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day2.FanartCode),,.png]</value>
+		<value>$INFO[Window(Weather).Property(Day2.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIconDay3">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day3.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day3.FanartCode),,.png]</value>
+		<value>$INFO[Window(Weather).Property(Day3.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIconDay4">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day4.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day4.FanartCode),,.png]</value>
+		<value>$INFO[Window(Weather).Property(Day4.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIconDay5">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day5.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day5.FanartCode),,.png]</value>
+		<value>$INFO[Window(Weather).Property(Day5.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIconDay6">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day6.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day6.FanartCode),,.png]</value>
+		<value>$INFO[Window(Weather).Property(Day6.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIconWeekend1">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Weekend.1.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Weekend.1.OutlookIcon)]</value>
+		<value>resource://resource.images.weathericons.default/$INFO[Window(Weather).Property(Weekend.1.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIconWeekend2">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Weekend.2.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Weekend.2.OutlookIcon)]</value>
+		<value>resource://resource.images.weathericons.default/$INFO[Window(Weather).Property(Weekend.2.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIcon36Hour1">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(36Hour.1.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window.Property(36Hour.1.OutlookIcon)]</value>
+		<value>resource://resource.images.weathericons.default/$INFO[Window.Property(36Hour.1.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIcon36Hour2">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(36Hour.2.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window.Property(36Hour.2.OutlookIcon)]</value>
+		<value>resource://resource.images.weathericons.default/$INFO[Window.Property(36Hour.2.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIcon36Hour3">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(36Hour.3.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window.Property(36Hour.3.OutlookIcon)]</value>
+		<value>resource://resource.images.weathericons.default/$INFO[Window.Property(36Hour.3.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIconHourly1">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.1.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.1.OutlookIcon)]</value>
+		<value>$INFO[Window(Weather).Property(Hourly.1.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIconHourly2">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.2.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.2.OutlookIcon)]</value>
+		<value>$INFO[Window(Weather).Property(Hourly.2.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIconHourly3">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.3.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.3.OutlookIcon)]</value>
+		<value>$INFO[Window(Weather).Property(Hourly.3.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIconHourly4">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.4.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.4.OutlookIcon)]</value>
+		<value>$INFO[Window(Weather).Property(Hourly.4.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIconHourly5">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.5.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.5.OutlookIcon)]</value>
+		<value>$INFO[Window(Weather).Property(Hourly.5.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIconHourly6">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.6.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.6.OutlookIcon)]</value>
+		<value>$INFO[Window(Weather).Property(Hourly.6.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIconHourly7">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.7.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.7.OutlookIcon)]</value>
+		<value>$INFO[Window(Weather).Property(Hourly.7.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIconHourly8">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.8.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.8.OutlookIcon)]</value>
+		<value>$INFO[Window(Weather).Property(Hourly.8.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIconHourly9">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.9.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.9.OutlookIcon)]</value>
+		<value>$INFO[Window(Weather).Property(Hourly.9.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIconHourly10">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.10.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.10.OutlookIcon)]</value>
+		<value>$INFO[Window(Weather).Property(Hourly.10.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIconHourly11">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.11.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.11.OutlookIcon)]</value>
+		<value>$INFO[Window(Weather).Property(Hourly.11.OutlookIcon)]</value>
+	</variable>
+	<variable name="WeatherIconHourly12">
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.12.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.12.OutlookIcon)]</value>
+		<value>$INFO[Window(Weather).Property(Hourly.12.OutlookIcon)]</value>
+	</variable>
+	<variable name="HomeVideoIcon">
+		<value condition="!IsEmpty(Skin.String(home-video-icon))">$INFO[Skin.String(home-video-icon)]</value>
+		<value>special://skin/extras/homeicons/video.png</value>
+	</variable>
+	<variable name="HomeMovieIcon">
+		<value condition="!IsEmpty(Skin.String(home-movie-icon))">$INFO[Skin.String(home-movie-icon)]</value>
+		<value>special://skin/extras/homeicons/movie.png</value>
+	</variable>
+	<variable name="HomeTVShowsIcon">
+		<value condition="!IsEmpty(Skin.String(home-tvshows-icon))">$INFO[Skin.String(home-tvshows-icon)]</value>
+		<value>special://skin/extras/homeicons/tv.png</value>
+	</variable>
+	<variable name="HomeMusicIcon">
+		<value condition="!IsEmpty(Skin.String(home-music-icon))">$INFO[Skin.String(home-music-icon)]</value>
+		<value>special://skin/extras/homeicons/music.png</value>
+	</variable>
+	<variable name="HomeWeatherIcon">
+		<value condition="!IsEmpty(Skin.String(home-weather-icon))">$INFO[Skin.String(home-weather-icon)]</value>
+		<value>special://skin/extras/homeicons/weather.png</value>
+	</variable>
+	<variable name="HomeMusicVideoIcon">
+		<value condition="!IsEmpty(Skin.String(home-musicvideo-icon))">$INFO[Skin.String(home-musicvideo-icon)]</value>
+		<value>special://skin/extras/homeicons/musicvideo.png</value>
+	</variable>
+	<variable name="HomeTVIcon">
+		<value condition="!IsEmpty(Skin.String(home-tv-icon))">$INFO[Skin.String(home-tv-icon)]</value>
+		<value>special://skin/extras/homeicons/livetv.png</value>
+	</variable>
+	<variable name="HomeRadioIcon">
+		<value condition="!IsEmpty(Skin.String(home-radio-icon))">$INFO[Skin.String(home-radio-icon)]</value>
+		<value>special://skin/extras/homeicons/radio.png</value>
+	</variable>
+	<variable name="HomeProgramsIcon">
+		<value condition="!IsEmpty(Skin.String(home-programs-icon))">$INFO[Skin.String(home-programs-icon)]</value>
+		<value>special://skin/extras/homeicons/addons.png</value>
+	</variable>
+	<variable name="HomePhotosIcon">
+		<value condition="!IsEmpty(Skin.String(home-photos-icon))">$INFO[Skin.String(home-photos-icon)]</value>
+		<value>special://skin/extras/homeicons/pics.png</value>
+	</variable>
+	<variable name="HomeFavoritesIcon">
+		<value condition="!IsEmpty(Skin.String(home-favorites-icon))">$INFO[Skin.String(home-favorites-icon)]</value>
+		<value>special://skin/extras/homeicons/favs.png</value>
+	</variable>
+	<variable name="HomeSearchIcon">
+		<value condition="!IsEmpty(Skin.String(home-search-icon))">$INFO[Skin.String(home-search-icon)]</value>
+		<value>special://skin/extras/homeicons/search.png</value>
+	</variable>
+	<variable name="HomeFileManagerIcon">
+		<value condition="!IsEmpty(Skin.String(home-filemanager-icon))">$INFO[Skin.String(home-filemanager-icon)]</value>
+		<value>special://skin/extras/homeicons/filemanager.png</value>
+	</variable>
+	<variable name="HomeProfileIcon">
+		<value condition="!IsEmpty(Skin.String(home-profile-icon))">$INFO[Skin.String(home-profile-icon)]</value>
+		<value>special://skin/extras/homeicons/users.png</value>
+	</variable>
+	<variable name="HomeShutdownIcon">
+		<value condition="!IsEmpty(Skin.String(home-shutdown-icon))">$INFO[Skin.String(home-shutdown-icon)]</value>
+		<value>special://skin/extras/homeicons/quit.png</value>
+	</variable>
+	<variable name="HomeSettingsIcon">
+		<value condition="!IsEmpty(Skin.String(home-settings-icon))">$INFO[Skin.String(home-settings-icon)]]</value>
+		<value>special://skin/extras/homeicons/setting.png</value>
+	</variable>
 	<variable name="SkinSettingHelp"><!-- Help strings for skin settings -->
 		<value condition="Control.HasFocus(102)">$LOCALIZE[31300]</value>
 		<value condition="Control.HasFocus(105)">$LOCALIZE[31301]</value>
@@ -1745,6 +1928,10 @@
 	<include name="scrolltext">
 		<scroll>true</scroll>
 		<visible>![System.ScreenSaverActive]</visible>
+	</include>
+
+	<include name="focus-zoom">
+		<animation effect="zoom" start="100" end="120" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 	</include>
 
 	<include name="settingbutton-fade">
