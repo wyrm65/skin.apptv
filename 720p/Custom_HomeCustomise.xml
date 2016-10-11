@@ -1378,7 +1378,7 @@
 						</control>
 					</itemlayout>
 					<focusedlayout height="160" width="252">
-						<control type="image"><!-- Focused icon image -->
+						<control type="image"><!-- Focused non settings icon image -->
 							<left>7</left>
 							<top>0</top>
 							<width>238</width>
@@ -1391,7 +1391,7 @@
 						</control>
 						<control type="label">
 							<left>0</left>
-							<top>138</top>
+							<top>137</top>
 							<width>250</width>
 							<height>22</height>
 							<align>center</align>
@@ -2212,146 +2212,6 @@
 						<aspectratio aligny="top">keep</aspectratio>
 						<animation effect="fade" start="100" end="35" condition="!Container(9031).ListItem.Property(isActive)">Conditional</animation>
 					</control>
-				</control>
-			</control>
-		</control>
-		<control type="group"><!-- Home Customization Context Menu -->
-			<left>0</left>
-			<top>720</top>
-			<animation effect="slide" time="0" start="0,0" end="0,-720">Visible</animation>
-			<visible allowhiddenfocus="true">!Skin.HasSetting(lock-screensettings) + [ControlGroup(5000).HasFocus() | Control.HasFocus(5001)]</visible>
-			<include>fadebackground</include>
-			<control type="image"><!-- Button background -->
-				<left>440</left>
-				<top>212</top>
-				<width>396</width>
-				<height>270</height>
-				<texture border="9">button-menu-background.png</texture>
-			</control>
-			<control type="button" id="5001"><!-- Dummy button for touch/mouse focus issues -->
-				<left>0</left>
-				<top>0</top>
-				<width>1280</width>
-				<height>720</height>
-				<texturefocus>blank.png</texturefocus>
-				<texturenofocus>blank.png</texturenofocus>
-				<onclick>SetFocus(9000)</onclick>
-			</control>
-			<control type="label"><!-- Dialog heading -->
-				<left>450</left>
-				<top>226</top>
-				<width>372</width>
-				<height>34</height>
-				<font>font11</font>
-				<label>$LOCALIZE[31803] $LOCALIZE[5]$INFO[Container(5000).NumItems, (,)]</label>
-				<align>center</align>
-			</control>
-			<control type="button"><!-- Touch Close button -->
-				<left>814</left>
-				<top>202</top>
-				<width>32</width>
-				<height>32</height>
-				<texturefocus>touch-close.png</texturefocus>
-				<texturenofocus>touch-close.png</texturenofocus>
-				<onclick>SetFocus(9000)</onclick>
-				<visible>Skin.HasSetting(touch-controls)</visible>
-			</control>
-			<control type="image">
-				<left>450</left>
-				<top>262</top>
-				<width>372</width>
-				<height>4</height>
-				<texture>separator.png</texture>
-			</control>
-
-			<control type="grouplist" id="5000">
-				<left>450</left>
-				<top>274</top>
-				<width>376</width>
-				<height>192</height>
-				<itemgap>0</itemgap>
-				<onright>9000</onright>
-				<onleft>9000</onleft>
-				<control type="togglebutton" id="5102"><!-- Show/Hide menu item -->
-					<width>376</width>
-					<height>48</height>
-					<label>$LOCALIZE[24022]</label>
-					<altlabel>$LOCALIZE[24021]</altlabel>
-					<font>font11</font>
-					<align>center</align>
-					<usealttexture>!IsEmpty(Window(settings).Property(ListActive))</usealttexture>
-					<onclick>Skin.ToggleSetting($INFO[Window(settings).Property(ListToggle)])</onclick>
-					<onclick>SetFocus(9000)</onclick>
-					<visible>IsEmpty(Window(settings).Property(ListCustomBase))</visible>
-				</control>
-				<control type="button" id="5103"><!-- Assign action to custom menu item -->
-					<width>376</width>
-					<height>48</height>
-					<label>$LOCALIZE[20333]</label>
-					<font>font11</font>
-					<align>center</align>
-					<onclick condition="!System.HasAddon(script.favourites)">RunPlugin(plugin://script.favourites)</onclick>
-					<onclick condition="IsEmpty(Window(home).Property(ItemPath)) + System.HasAddon(script.favourites)">RunScript(script.favourites,changetitle=true&amp;property=$INFO[Window(settings).Property(ListCustomBase)])</onclick>
-					<onclick condition="!IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase)].Path,$INFO[Window(home).Property(ItemPath)])</onclick>
-					<onclick condition="!IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase)].Label,$INFO[Window(home).Property(ItemName)])</onclick>
-					<onclick condition="!IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase)].Icon,$INFO[Window(home).Property(ItemIcon)])</onclick>
-					<onclick condition="!IsEmpty(Window(home).Property(ItemPath))">ClearProperty(ItemPath,Home)</onclick>
-					<onclick>SetFocus(9000)</onclick>
-					<visible>!IsEmpty(Window(settings).Property(ListCustomBase))</visible>
-				</control>
-				<control type="button" id="5104"><!-- Change Icon of custom menu item -->
-					<width>376</width>
-					<height>48</height>
-					<label>$LOCALIZE[19284]</label>
-					<font>font11</font>
-					<align>center</align>
-					<onclick>Skin.SetFile($INFO[Window(settings).Property(ListCustomBase),,.Icon],.jpg|.png)</onclick>
-					<onclick>SetFocus(9000)</onclick>
-					<enable>!Skin.HasSetting(homemenu-horizontal)</enable>
-					<visible>!IsEmpty(Window(settings).Property(ListCustomBase))</visible>
-				</control>
-				<control type="button" id="5105"><!-- Change Label of custom menu item -->
-					<width>376</width>
-					<height>48</height>
-					<label>$LOCALIZE[13334]</label>
-					<font>font11</font>
-					<align>center</align>
-					<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label])</onclick>
-					<onclick>SetFocus(9000)</onclick>
-					<visible>!IsEmpty(Window(settings).Property(ListCustomBase))</visible>
-				</control>
-				<control type="button" id="5106"> <!-- Change Icon of Icon menu default items -->
-					<width>376</width>
-					<height>48</height>
-					<label>$LOCALIZE[19284]</label>
-					<font>font11</font>
-					<align>center</align>
-					<onclick>Skin.SetImage($INFO[Window(settings).Property(ListToggle)]-icon)</onclick>
-					<onclick>SetFocus(9000)</onclick>
-					<visible>Skin.HasSetting(homemenu-icon) + !IsEmpty(Window(settings).Property(ListToggle))</visible>
-				</control>
-				<control type="button" id="5107"><!-- Quit action -->
-					<width>376</width>
-					<height>48</height>
-					<textwidth>350</textwidth>
-					<label>$LOCALIZE[31914]</label>
-					<label2>$INFO[Skin.String(home-quitaction)]</label2>
-					<font>font11</font>
-					<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=home-quitaction-val,header=$LOCALIZE[31914])</onclick>
-					<onclick>SetFocus(9000)</onclick>
-					<enable>!Skin.HasSetting(home-shutdown)</enable>
-					<visible>StringCompare(Window(settings).Property(ListLabel),$LOCALIZE[13009])</visible>
-				</control>
-				<control type="button" id="5108"><!-- Custom Favourite Heading -->
-					<width>376</width>
-					<height>48</height>
-					<textwidth>350</textwidth>
-					<label>$LOCALIZE[33061] $LOCALIZE[19075]</label>
-					<label2>$VAR[CustomFavHeading]</label2>
-					<font>font11</font>
-					<onclick>Skin.SetString(CustomFav.Heading)</onclick>
-					<onclick>SetFocus(9000)</onclick>
-					<visible>Skin.HasSetting(homemenu-horizontal) + StringCompare(Window(settings).Property(ListID),9550)</visible>
 				</control>
 			</control>
 		</control>
