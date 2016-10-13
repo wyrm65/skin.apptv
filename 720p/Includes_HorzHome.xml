@@ -174,7 +174,7 @@
 			<control type="group" id="9405"><!-- Weather icons -->
 				<visible>Control.HasFocus(9400) | Control.HasFocus(9430)</visible>
 				<control type="group">
-					<visible>!Weather.IsFetched | IsEmpty(Window(Weather).Property(Current.Temperature))</visible>
+					<visible>!Weather.IsFetched | IsEmpty(Window(weather).Property(Current.Temperature))</visible>
 					<control type="image">
 						<left>552</left>
 						<top>38</top>
@@ -415,35 +415,35 @@
 						<item><!-- Files -->
 							<label>$LOCALIZE[744]</label>
 							<label2>$LOCALIZE[3]</label2>
-							<onclick>ActivateWindow(Videos,Files,return)</onclick>
+							<onclick>ActivateWindow(videos,Files,return)</onclick>
 						</item>
 						<item><!-- Library root -->
 							<label>$LOCALIZE[14022]</label>
 							<label2>$LOCALIZE[3]</label2>
-							<onclick>ActivateWindow(Videolibrary,root,return)</onclick>
+							<onclick>ActivateWindow(videos,Root,return)</onclick>
 						</item>
 						<item><!-- Movies -->
 							<visible>Library.HasContent(Movies)</visible>
 							<label>$LOCALIZE[342]</label>
 							<label2>$LOCALIZE[3]</label2>
-							<onclick>ActivateWindow(Videos,Movies,return)</onclick>
+							<onclick>ActivateWindow(videos,Movies,return)</onclick>
 						</item>
 						<item><!-- TV shows -->
 							<visible>Library.HasContent(TVShows)</visible>
 							<label>$LOCALIZE[20343]</label>
 							<label2>$LOCALIZE[3]</label2>
-							<onclick>ActivateWindow(Videos,TvShows,return)</onclick>
+							<onclick>ActivateWindow(videos,TvShows,return)</onclick>
 						</item>
 						<item><!-- Music videos -->
 							<visible>Library.HasContent(MusicVideos)</visible>
 							<label>$LOCALIZE[20389]</label>
 							<label2>$LOCALIZE[3]</label2>
-							<onclick>ActivateWindow(Videos,MusicVideos,return)</onclick>
+							<onclick>ActivateWindow(videos,MusicVideos,return)</onclick>
 						</item>
 						<item><!-- Addons -->
 							<label>$LOCALIZE[24001]</label>
 							<label2>$LOCALIZE[3]</label2>
-							<onclick>ActivateWindow(Videos,Addons,return)</onclick>
+							<onclick>ActivateWindow(videos,Addons,return)</onclick>
 						</item>
 					</content>
 				</control>
@@ -1183,7 +1183,7 @@
 						<item><!-- Music addons -->
 							<label>$LOCALIZE[24001]</label>
 							<label2>$LOCALIZE[2]</label2>
-							<onclick>ActivateWindow(Music,addons://sources/audio/,return)</onclick>
+							<onclick>ActivateWindow(music,addons://sources/audio/,return)</onclick>
 						</item>
 					</content>
 				</control>
@@ -1267,12 +1267,12 @@
 						<item><!-- Pictures -->
 							<label>$LOCALIZE[1]</label>
 							<label2>$LOCALIZE[1]</label2>
-							<onclick>ActivateWindow(Pictures,,return)</onclick>
+							<onclick>ActivateWindow(pictures,,return)</onclick>
 						</item>
 						<item><!-- Picture addons -->
 							<label>$LOCALIZE[24001]</label>
 							<label2>$LOCALIZE[1]</label2>
-							<onclick>ActivateWindow(Pictures,Addons,return)</onclick>
+							<onclick>ActivateWindow(pictures,Addons,return)</onclick>
 						</item>
 					</content>
 				</control>
@@ -1408,22 +1408,22 @@
 						<item><!-- Video addons -->
 							<label>$LOCALIZE[157]</label>
 							<label2>$LOCALIZE[24001]</label2>
-							<onclick>ActivateWindow(Videos,Addons,return)</onclick>
+							<onclick>ActivateWindow(videos,Addons,return)</onclick>
 						</item>
 						<item><!-- Music addons -->
 							<label>$LOCALIZE[2]</label>
 							<label2>$LOCALIZE[24001]</label2>
-							<onclick>ActivateWindow(Music,addons://sources/audio/,return)</onclick>
+							<onclick>ActivateWindow(music,addons://sources/audio/,return)</onclick>
 						</item>
 						<item><!-- Picture addons -->
 							<label>$LOCALIZE[1]</label>
 							<label2>$LOCALIZE[24001]</label2>
-							<onclick>ActivateWindow(Pictures,Addons,return)</onclick>
+							<onclick>ActivateWindow(pictures,Addons,return)</onclick>
 						</item>
 						<item><!-- Program addons -->
 							<label>$LOCALIZE[0]</label>
 							<label2>$LOCALIZE[24001]</label2>
-							<onclick>ActivateWindow(Programs,Addons,return)</onclick>
+							<onclick>ActivateWindow(programs,Addons,return)</onclick>
 						</item>
 						<item><!-- Addon browser -->
 							<label>$LOCALIZE[21452]</label>
@@ -1512,7 +1512,7 @@
 						<item><!-- Weather -->
 							<label>$LOCALIZE[8]</label>
 							<label2>$LOCALIZE[8]</label2>
-							<onclick>ActivateWindow(Weather,,return)</onclick>
+							<onclick>ActivateWindow(weather,,return)</onclick>
 						</item>
 					</content>
 				</control>
@@ -1615,7 +1615,7 @@
 						<item><!-- Settings -->
 							<label>$LOCALIZE[5]</label>
 							<label2>$LOCALIZE[13000]</label2>
-							<onclick>ActivateWindow(settings,,return)</onclick>
+							<onclick>ActivateWindow(settings)</onclick>
 						</item>
 						<item><!-- System info -->
 							<label>$LOCALIZE[130]</label>
@@ -1658,7 +1658,7 @@
 							<visible>!Skin.HasSetting(home-shutdown)</visible>
 							<label>$LOCALIZE[13009]</label>
 							<label2>$LOCALIZE[13000]</label2>
-							<onclick condition="!StringCompare(Skin.String(home-quitaction),$LOCALIZE[31558])">SetProperty(ShutdownKodi,true,Home)</onclick>
+							<onclick condition="!StringCompare(Skin.String(home-quitaction),$LOCALIZE[31558])">SetProperty(ShutdownKodi,true,home)</onclick>
 							<onclick>$VAR[QuitAction]</onclick>
 						</item>
 					</content>

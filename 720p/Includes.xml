@@ -14,12 +14,12 @@
 
 	<!-- Skin Variable section -->
 	<variable name="BackgndImage">
-		<value condition="Window.IsActive(weather) + Skin.HasSetting(background-customweather.multi) + !IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(Weather).Property(Current.FanartCode)]</value>
-		<value condition="Window.IsActive(weather) + !Skin.HasSetting(background-customweather.multi) + IsEmpty(Window(Weather).Property(Current.FanartCode)) + !IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(Weather).Property(Current.FanartCode)]</value>
-		<value condition="Window.IsActive(weather) + !Skin.HasSetting(background-customweather.multi) + !IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(Weather).Property(Current.FanartCode)]$INFO[Skin.String(background-customweather.ext)]</value>
-		<value condition="Skin.HasSetting(background-slideshow) + Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia)) + !IsEmpty(Window(Visualisation).Property(ArtistSlideshow))">$INFO[Window(Visualisation).Property(ArtistSlideshow)]</value>
+		<value condition="Window.IsActive(weather) + Skin.HasSetting(background-customweather.multi) + !IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(weather).Property(Current.FanartCode)]</value>
+		<value condition="Window.IsActive(weather) + !Skin.HasSetting(background-customweather.multi) + IsEmpty(Window(weather).Property(Current.FanartCode)) + !IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(weather).Property(Current.FanartCode)]</value>
+		<value condition="Window.IsActive(weather) + !Skin.HasSetting(background-customweather.multi) + !IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(weather).Property(Current.FanartCode)]$INFO[Skin.String(background-customweather.ext)]</value>
+		<value condition="Skin.HasSetting(background-slideshow) + Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia)) + !IsEmpty(Window(visualisation).Property(ArtistSlideshow))">$INFO[Window(visualisation).Property(ArtistSlideshow)]</value>
 		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + Skin.HasSetting(SkinHelper.EnableAnimatedPosters) + !IsEmpty(ListItem.Art(animatedfanart))">$INFO[ListItem.Art(animatedfanart)]</value>
-		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))">$INFO[Window(home).Property(SkinHelper.Player.Music.ExtraFanArt)]</value>
+		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))">$INFO[Window(home).Property(SkinHelper.Player.Music.ExtraFanArt)]</value>
 		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !IsEmpty(Window(home).Property(SkinHelper.Music.ExtraFanArt))">$INFO[Window(home).Property(SkinHelper.Music.ExtraFanArt)]</value>
 		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !IsEmpty(Window(home).Property(SkinHelper.ExtraFanArtPath))">$INFO[Window(home).Property(SkinHelper.ExtraFanArtPath)]</value>
 		<value condition="Window.IsActive(visualisation) + !IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
@@ -202,8 +202,8 @@
 	</variable>
 	<variable name="ListItemShortcut">
 		<value condition="Container.Content(movies) | Container.Content(episodes) | Container.Content(songs) | Container.Content(playlists)">PlayMedia(&quot;$INFO[ListItem.FilenameAndPath]&quot;)</value>
-		<value condition="Window.IsVisible(videolibrary)">ActivateWindow(videolibrary,&quot;$INFO[ListItem.FolderPath]&quot;,return)</value>
-		<value condition="Window.IsVisible(musiclibrary)">ActivateWindow(musiclibrary,&quot;$INFO[ListItem.FolderPath]&quot;,return)</value>
+		<value condition="Window.IsVisible(videos)">ActivateWindow(videos,&quot;$INFO[ListItem.FolderPath]&quot;,return)</value>
+		<value condition="Window.IsVisible(musics)">ActivateWindow(music,&quot;$INFO[ListItem.FolderPath]&quot;,return)</value>
 	</variable>
 	<variable name="ListDynamicContent">
 		<value condition="Container.Content(movies)">special://skin/extras/playlists/video/RecentMovies.xsp</value>
@@ -259,34 +259,34 @@
 		<value>$INFO[ListItem.Duration] $LOCALIZE[12391]</value>
 	</variable>
 	<variable name="MovieLibEntry">
-		<value condition="!Library.HasContent(Movies)">ActivateWindow(Videos,Files,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[369])">ActivateWindow(Videos,MovieTitles,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[20108])">ActivateWindow(Videos,Movies,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[20386])">ActivateWindow(Videos,RecentlyAddedMovies,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[135])">ActivateWindow(Videos,MovieGenres,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[652])">ActivateWindow(Videos,MovieYears,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[344])">ActivateWindow(Videos,MovieActors,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[20348])">ActivateWindow(Videos,MovieDirectors,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[20388])">ActivateWindow(Videos,MovieStudios,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[20434])">ActivateWindow(Videos,MovieSets,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[20451])">ActivateWindow(Videos,MovieCountries,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[20459])">ActivateWindow(Videos,MovieTags,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[744])">ActivateWindow(Videos,Files,return)</value>
+		<value condition="!Library.HasContent(Movies)">ActivateWindow(videos,Files,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[369])">ActivateWindow(videos,MovieTitles,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[20108])">ActivateWindow(videos,Movies,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[20386])">ActivateWindow(videos,RecentlyAddedMovies,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[135])">ActivateWindow(videos,MovieGenres,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[652])">ActivateWindow(videos,MovieYears,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[344])">ActivateWindow(videos,MovieActors,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[20348])">ActivateWindow(videos,MovieDirectors,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[20388])">ActivateWindow(videos,MovieStudios,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[20434])">ActivateWindow(videos,MovieSets,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[20451])">ActivateWindow(videos,MovieCountries,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[20459])">ActivateWindow(videos,MovieTags,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[744])">ActivateWindow(videos,Files,return)</value>
 		<value condition="StringCompare(Skin.String(libraryentry-movie),$LOCALIZE[31652])">$INFO[Skin.String(CustomMovieEntry.Path)]</value>
-		<value>ActivateWindow(Videos,MovieTitles,return)</value>
+		<value>ActivateWindow(videos,MovieTitles,return)</value>
 	</variable>
 	<variable name="TVLibEntry">
-		<value condition="!Library.HasContent(TVShows)">ActivateWindow(Videos,Files,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[369])">ActivateWindow(Videos,TvShowTitles,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[20108])">ActivateWindow(Videos,TvShows,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[20387])">ActivateWindow(Videos,RecentlyAddedEpisodes,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[135])">ActivateWindow(Videos,TvShowGenres,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[652])">ActivateWindow(Videos,TvShowYears,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[344])">ActivateWindow(Videos,TvShowActors,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[20388])">ActivateWindow(Videos,TvShowStudios,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[744])">ActivateWindow(Videos,Files,return)</value>
+		<value condition="!Library.HasContent(TVShows)">ActivateWindow(videos,Files,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[369])">ActivateWindow(videos,TvShowTitles,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[20108])">ActivateWindow(videos,TvShows,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[20387])">ActivateWindow(videos,RecentlyAddedEpisodes,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[135])">ActivateWindow(videos,TvShowGenres,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[652])">ActivateWindow(videos,TvShowYears,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[344])">ActivateWindow(videos,TvShowActors,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[20388])">ActivateWindow(videos,TvShowStudios,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[744])">ActivateWindow(videos,Files,return)</value>
 		<value condition="StringCompare(Skin.String(libraryentry-tvshow),$LOCALIZE[31652])">$INFO[Skin.String(CustomTVShowEntry.Path)]</value>
-		<value>ActivateWindow(Videos,TvShowTitles,return)</value>
+		<value>ActivateWindow(videos,TvShowTitles,return)</value>
 	</variable>
 	<variable name="TVEntry">
 		<value condition="StringCompare(Skin.String(libraryentry-tv),$LOCALIZE[31703])">PlayPvrTV</value>
@@ -307,37 +307,37 @@
 		<value>ActivateWindow(radioguide,return)</value>
 	</variable>
 	<variable name="MusicLibEntry">
-		<value condition="!Library.HasContent(Music)">ActivateWindow(Music,Files,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[20108])">ActivateWindow(Music,root,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[132])">ActivateWindow(Music,Albums,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[135])">ActivateWindow(Music,Genres,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[133])">ActivateWindow(Music,Artists,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[134])">ActivateWindow(Music,Songs,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[10504])">ActivateWindow(Music,Top100Songs,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[10505])">ActivateWindow(Music,Top100Albums,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[359])">ActivateWindow(Music,RecentlyAddedAlbums,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[517])">ActivateWindow(Music,RecentlyPlayedAlbums,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[521])">ActivateWindow(Music,Compilations,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[652])">ActivateWindow(Music,Years,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[1050])">ActivateWindow(Music,Singles,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[744])">ActivateWindow(Music,Files,return)</value>
+		<value condition="!Library.HasContent(music)">ActivateWindow(Music,Files,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[20108])">ActivateWindow(music,Root,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[132])">ActivateWindow(music,Albums,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[135])">ActivateWindow(music,Genres,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[133])">ActivateWindow(music,Artists,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[134])">ActivateWindow(music,Songs,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[10504])">ActivateWindow(music,Top100Songs,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[10505])">ActivateWindow(music,Top100Albums,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[359])">ActivateWindow(music,RecentlyAddedAlbums,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[517])">ActivateWindow(music,RecentlyPlayedAlbums,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[521])">ActivateWindow(music,Compilations,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[652])">ActivateWindow(music,Years,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[1050])">ActivateWindow(music,Singles,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[744])">ActivateWindow(music,Files,return)</value>
 		<value condition="StringCompare(Skin.String(libraryentry-music),$LOCALIZE[31652])">$INFO[Skin.String(CustomMusicEntry.Path)]</value>
-		<value>ActivateWindow(Music,Albums,return)</value>
+		<value>ActivateWindow(music,Albums,return)</value>
 	</variable>
 	<variable name="MusicVideoLibEntry">
-		<value condition="!Library.HasContent(MusicVideos)">ActivateWindow(Videos,Files,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[369])">ActivateWindow(Music,videodb://musicvideos/titles/,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[20108])">ActivateWindow(Music,videodb://musicvideos/,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[20390])">ActivateWindow(Music,videodb://recentlyaddedmusicvideos/,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[135])">ActivateWindow(Music,videodb://musicvideos/genres/,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[652])">ActivateWindow(Music,videodb://musicvideos/years/,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[133])">ActivateWindow(Music,videodb://musicvideos/artists/,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[132])">ActivateWindow(Music,videodb://musicvideos/albums/,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[20348])">ActivateWindow(Music,videodb://musicvideos/directors/,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[20388])">ActivateWindow(Music,videodb://musicvideos/studios/,return)</value>
-		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[744])">ActivateWindow(Videos,Files,return)</value>
+		<value condition="!Library.HasContent(MusicVideos)">ActivateWindow(videos,Files,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[369])">ActivateWindow(music,videodb://musicvideos/titles/,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[20108])">ActivateWindow(music,videodb://musicvideos/,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[20390])">ActivateWindow(music,videodb://recentlyaddedmusicvideos/,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[135])">ActivateWindow(music,videodb://musicvideos/genres/,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[652])">ActivateWindow(music,videodb://musicvideos/years/,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[133])">ActivateWindow(music,videodb://musicvideos/artists/,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[132])">ActivateWindow(music,videodb://musicvideos/albums/,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[20348])">ActivateWindow(music,videodb://musicvideos/directors/,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[20388])">ActivateWindow(music,videodb://musicvideos/studios/,return)</value>
+		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[744])">ActivateWindow(videos,Files,return)</value>
 		<value condition="StringCompare(Skin.String(libraryentry-musicvideo),$LOCALIZE[31652])">$INFO[Skin.String(CustomMusicVideoEntry.Path)]</value>
-		<value>ActivateWindow(Music,videodb://musicvideos/titles/,return)</value>
+		<value>ActivateWindow(music,videodb://musicvideos/titles/,return)</value>
 	</variable>
 	<variable name="VideoHeadings">
 		<value condition="Container.Content(movies)">$LOCALIZE[20342]</value>
@@ -1047,10 +1047,9 @@
 		<value>$LOCALIZE[31952]</value>
 	</variable>
 	<variable name="HomeItemType">
-		<value condition="StringCompare(Window(settings).Property(ActionType),$LOCALIZE[31652])">$LOCALIZE[31652]</value><!-- Favourite -->
-		<value condition="StringCompare(Window(settings).Property(ActionType),$LOCALIZE[31660])">$LOCALIZE[31660]</value><!-- Kodi Playlist -->
-		<value condition="StringCompare(Window(settings).Property(ActionType),$LOCALIZE[31661])">$LOCALIZE[31661]</value><!-- Skin Playlist -->
-		<value condition="StringCompare(Window(settings).Property(ActionType),$LOCALIZE[31653])">$LOCALIZE[31653]</value><!-- Command -->
+		<value condition="StringCompare(Window(settings).Property(CurrentType),$LOCALIZE[31660])">$LOCALIZE[31660]</value>
+		<value condition="StringCompare(Window(settings).Property(CurrentType),$LOCALIZE[31661])">$LOCALIZE[31661]</value>
+		<value condition="StringCompare(Window(settings).Property(CurrentType),$LOCALIZE[31653])">$LOCALIZE[31653]</value>
 		<value>$LOCALIZE[31652]</value><!-- Default to Favourite -->
 	</variable>
 	<variable name="HomeItemDefaultAction">
@@ -1065,122 +1064,122 @@
 	<variable name="WeatherIconCurrent">
 		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window.Property(Current.FanartCode)]</value>
 		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window.Property(Current.FanartCode),,.png]</value>
-		<value>$INFO[Window(Weather).Property(Current.ConditionIcon)]</value>
+		<value>$INFO[Window(weather).Property(Current.ConditionIcon)]</value>
 	</variable>
 	<variable name="WeatherIconDay1">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day1.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day1.FanartCode),,.png]</value>
-		<value>$INFO[Window(Weather).Property(Day1.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Day1.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Day1.FanartCode),,.png]</value>
+		<value>$INFO[Window(weather).Property(Day1.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIconDay2">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day2.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day2.FanartCode),,.png]</value>
-		<value>$INFO[Window(Weather).Property(Day2.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Day2.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Day2.FanartCode),,.png]</value>
+		<value>$INFO[Window(weather).Property(Day2.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIconDay3">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day3.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day3.FanartCode),,.png]</value>
-		<value>$INFO[Window(Weather).Property(Day3.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Day3.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Day3.FanartCode),,.png]</value>
+		<value>$INFO[Window(weather).Property(Day3.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIconDay4">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day4.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day4.FanartCode),,.png]</value>
-		<value>$INFO[Window(Weather).Property(Day4.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Day4.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Day4.FanartCode),,.png]</value>
+		<value>$INFO[Window(weather).Property(Day4.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIconDay5">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day5.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day5.FanartCode),,.png]</value>
-		<value>$INFO[Window(Weather).Property(Day5.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Day5.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Day5.FanartCode),,.png]</value>
+		<value>$INFO[Window(weather).Property(Day5.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIconDay6">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day6.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day6.FanartCode),,.png]</value>
-		<value>$INFO[Window(Weather).Property(Day6.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Day6.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Day6.FanartCode),,.png]</value>
+		<value>$INFO[Window(weather).Property(Day6.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIconWeekend1">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Weekend.1.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Weekend.1.OutlookIcon)]</value>
-		<value>resource://resource.images.weathericons.default/$INFO[Window(Weather).Property(Weekend.1.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Weekend.1.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Weekend.1.OutlookIcon)]</value>
+		<value>resource://resource.images.weathericons.default/$INFO[Window(weather).Property(Weekend.1.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIconWeekend2">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Weekend.2.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Weekend.2.OutlookIcon)]</value>
-		<value>resource://resource.images.weathericons.default/$INFO[Window(Weather).Property(Weekend.2.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Weekend.2.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Weekend.2.OutlookIcon)]</value>
+		<value>resource://resource.images.weathericons.default/$INFO[Window(weather).Property(Weekend.2.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIcon36Hour1">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(36Hour.1.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window.Property(36Hour.1.OutlookIcon)]</value>
-		<value>resource://resource.images.weathericons.default/$INFO[Window.Property(36Hour.1.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(36Hour.1.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(36Hour.1.OutlookIcon)]</value>
+		<value>resource://resource.images.weathericons.default/$INFO[Window(weather).Property(36Hour.1.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIcon36Hour2">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(36Hour.2.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window.Property(36Hour.2.OutlookIcon)]</value>
-		<value>resource://resource.images.weathericons.default/$INFO[Window.Property(36Hour.2.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(36Hour.2.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(36Hour.2.OutlookIcon)]</value>
+		<value>resource://resource.images.weathericons.default/$INFO[Window(weather).Property(36Hour.2.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIcon36Hour3">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(36Hour.3.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window.Property(36Hour.3.OutlookIcon)]</value>
-		<value>resource://resource.images.weathericons.default/$INFO[Window.Property(36Hour.3.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(36Hour.3.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(36Hour.3.OutlookIcon)]</value>
+		<value>resource://resource.images.weathericons.default/$INFO[Window(weather).Property(36Hour.3.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIconHourly1">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.1.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.1.OutlookIcon)]</value>
-		<value>$INFO[Window(Weather).Property(Hourly.1.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.1.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.1.OutlookIcon)]</value>
+		<value>$INFO[Window(weather).Property(Hourly.1.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIconHourly2">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.2.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.2.OutlookIcon)]</value>
-		<value>$INFO[Window(Weather).Property(Hourly.2.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.2.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.2.OutlookIcon)]</value>
+		<value>$INFO[Window(weather).Property(Hourly.2.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIconHourly3">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.3.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.3.OutlookIcon)]</value>
-		<value>$INFO[Window(Weather).Property(Hourly.3.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.3.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.3.OutlookIcon)]</value>
+		<value>$INFO[Window(weather).Property(Hourly.3.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIconHourly4">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.4.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.4.OutlookIcon)]</value>
-		<value>$INFO[Window(Weather).Property(Hourly.4.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.4.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.4.OutlookIcon)]</value>
+		<value>$INFO[Window(weather).Property(Hourly.4.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIconHourly5">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.5.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.5.OutlookIcon)]</value>
-		<value>$INFO[Window(Weather).Property(Hourly.5.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.5.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.5.OutlookIcon)]</value>
+		<value>$INFO[Window(weather).Property(Hourly.5.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIconHourly6">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.6.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.6.OutlookIcon)]</value>
-		<value>$INFO[Window(Weather).Property(Hourly.6.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.6.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.6.OutlookIcon)]</value>
+		<value>$INFO[Window(weather).Property(Hourly.6.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIconHourly7">
 		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.7.FanartCode)]</value>
 		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.7.OutlookIcon)]</value>
-		<value>$INFO[Window(Weather).Property(Hourly.7.OutlookIcon)]</value>
+		<value>$INFO[Window(weather).Property(Hourly.7.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIconHourly8">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.8.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.8.OutlookIcon)]</value>
-		<value>$INFO[Window(Weather).Property(Hourly.8.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.8.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.8.OutlookIcon)]</value>
+		<value>$INFO[Window(weather).Property(Hourly.8.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIconHourly9">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.9.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.9.OutlookIcon)]</value>
-		<value>$INFO[Window(Weather).Property(Hourly.9.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.9.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.9.OutlookIcon)]</value>
+		<value>$INFO[Window(weather).Property(Hourly.9.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIconHourly10">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.10.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.10.OutlookIcon)]</value>
-		<value>$INFO[Window(Weather).Property(Hourly.10.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.10.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.10.OutlookIcon)]</value>
+		<value>$INFO[Window(weather).Property(Hourly.10.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIconHourly11">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.11.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.11.OutlookIcon)]</value>
-		<value>$INFO[Window(Weather).Property(Hourly.11.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.11.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.11.OutlookIcon)]</value>
+		<value>$INFO[Window(weather).Property(Hourly.11.OutlookIcon)]</value>
 	</variable>
 	<variable name="WeatherIconHourly12">
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.12.FanartCode)]</value>
-		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Hourly.12.OutlookIcon)]</value>
-		<value>$INFO[Window(Weather).Property(Hourly.12.OutlookIcon)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.12.FanartCode)]</value>
+		<value condition="!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Hourly.12.OutlookIcon)]</value>
+		<value>$INFO[Window(weather).Property(Hourly.12.OutlookIcon)]</value>
 	</variable>
 	<variable name="HomeVideoIcon">
 		<value condition="!IsEmpty(Skin.String(home-video-icon))">$INFO[Skin.String(home-video-icon)]</value>
@@ -1242,44 +1241,39 @@
 		<value condition="!IsEmpty(Skin.String(home-shutdown-icon))">$INFO[Skin.String(home-shutdown-icon)]</value>
 		<value>special://skin/extras/homeicons/quit.png</value>
 	</variable>
-	<variable name="CustomSkinOptionType"><!-- Show custom skin item type in customisation dialog -->
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.1)">$INFO[Skin.String(CustomMovies.1.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.2)">$INFO[Skin.String(CustomMovies.2.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.3)">$INFO[Skin.String(CustomMovies.3.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.4)">$INFO[Skin.String(CustomMovies.4.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.5)">$INFO[Skin.String(CustomMovies.5.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.1)">$INFO[Skin.String(CustomTVShow.1.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.2)">$INFO[Skin.String(CustomTVShow.2.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.3)">$INFO[Skin.String(CustomTVShow.3.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.4)">$INFO[Skin.String(CustomTVShow.4.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.5)">$INFO[Skin.String(CustomTVShow.5.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.1)">$INFO[Skin.String(CustomTV.1.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.2)">$INFO[Skin.String(CustomTV.2.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.3)">$INFO[Skin.String(CustomTV.3.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.4)">$INFO[Skin.String(CustomTV.4.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.5)">$INFO[Skin.String(CustomTV.5.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.1)">$INFO[Skin.String(CustomRadio.1.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.2)">$INFO[Skin.String(CustomRadio.2.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.3)">$INFO[Skin.String(CustomRadio.3.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.4)">$INFO[Skin.String(CustomRadio.4.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.5)">$INFO[Skin.String(CustomRadio.5.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.1)">$INFO[Skin.String(CustomFav.1.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.2)">$INFO[Skin.String(CustomFav.2.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.3)">$INFO[Skin.String(CustomFav.3.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.4)">$INFO[Skin.String(CustomFav.4.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.5)">$INFO[Skin.String(CustomFav.5.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.1)">$INFO[Skin.String(CustomMusic.1.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.2)">$INFO[Skin.String(CustomMusic.2.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.3)">$INFO[Skin.String(CustomMusic.3.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.4)">$INFO[Skin.String(CustomMusic.4.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.5)">$INFO[Skin.String(CustomMusic.5.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.1)">$INFO[Skin.String(CustomAddon.1.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.2)">$INFO[Skin.String(CustomAddon.2.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.3)">$INFO[Skin.String(CustomAddon.3.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.4)">$INFO[Skin.String(CustomAddon.4.Type)]</value>
-		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.5)">$INFO[Skin.String(CustomAddon.5.Type)]</value>
+	<variable name="CustomDefaultIcon"><!-- Show custom icon for default menu items in customisation dialog -->
+		<value condition="SubString(Window(settings).Property(ListToggle),home-video) + !IsEmpty(Skin.String(home-video-icon))">$INFO[Skin.String(home-video-icon)]</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-video)">special://skin/extras/homeicons/video.png</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-movie) + !IsEmpty(Skin.String(home-movie-icon))">$INFO[Skin.String(home-movie-icon)]</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-movie)">special://skin/extras/homeicons/movie.png</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-tvshows) + !IsEmpty(Skin.String(home-tvshows-icon))">$INFO[Skin.String(home-tvshows-icon)]</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-tvshows)">special://skin/extras/homeicons/tv.png</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-music) + !IsEmpty(Skin.String(home-music-icon))">$INFO[Skin.String(home-music-icon)]</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-music)">special://skin/extras/homeicons/music.png</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-weather) + !IsEmpty(Skin.String(home-weather-icon))">$INFO[Skin.String(home-weather-icon)]</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-weather)">special://skin/extras/homeicons/weather.png</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-musicvideo) + !IsEmpty(Skin.String(home-musicvideo-icon))">$INFO[Skin.String(home-musicvideo-icon)]</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-musicvideo)">special://skin/extras/homeicons/musicvideo.png</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-tv) + !IsEmpty(Skin.String(home-tv-icon))">$INFO[Skin.String(home-tv-icon)]</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-tv)">special://skin/extras/homeicons/livetv.png</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-radio) + !IsEmpty(Skin.String(home-radio-icon))">$INFO[Skin.String(home-radio-icon)]</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-radio)">special://skin/extras/homeicons/radio.png</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-programs) + !IsEmpty(Skin.String(home-programs-icon))">$INFO[Skin.String(home-programs-icon)]</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-programs)">special://skin/extras/homeicons/addons.png</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-photos) + !IsEmpty(Skin.String(home-photos-icon))">$INFO[Skin.String(home-photos-icon)]</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-photos)">special://skin/extras/homeicons/pics.png</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-favorites) + !IsEmpty(Skin.String(home-favorites-icon))">$INFO[Skin.String(home-favorites-icon)]</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-favorites)">special://skin/extras/homeicons/favs.png</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-search) + !IsEmpty(Skin.String(home-search-icon))">$INFO[Skin.String(home-search-icon)]</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-search)">special://skin/extras/homeicons/search.png</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-filemanager) + !IsEmpty(Skin.String(home-filemanager-icon))">$INFO[Skin.String(home-filemanager-icon)]</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-filemanager)">special://skin/extras/homeicons/filemanager.png</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-profile) + !IsEmpty(Skin.String(home-profile-icon))">$INFO[Skin.String(home-profile-icon)]</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-profile)">special://skin/extras/homeicons/users.png</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-shutdown) + !IsEmpty(Skin.String(home-shutdown-icon))">$INFO[Skin.String(home-shutdown-icon)]</value>
+		<value condition="SubString(Window(settings).Property(ListToggle),home-shutdown)">special://skin/extras/homeicons/quit.png</value>
 	</variable>
-	<variable name="CustomSkinOptionAction"><!-- Show custom skin item action in customisation dialog -->
+	<variable name="CustomSkinAction"><!-- Show custom skin item action in customisation dialog -->
 		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.1)">$INFO[Skin.String(CustomMovies.1.Path)]</value>
 		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.2)">$INFO[Skin.String(CustomMovies.2.Path)]</value>
 		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.3)">$INFO[Skin.String(CustomMovies.3.Path)]</value>
@@ -1316,7 +1310,7 @@
 		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.4)">$INFO[Skin.String(CustomAddon.4.Path)]</value>
 		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.5)">$INFO[Skin.String(CustomAddon.5.Path)]</value>
 	</variable>
-	<variable name="CustomSkinOptionIcon"><!-- Show custom skin item icon in customisation dialog -->
+	<variable name="CustomSkinIcon"><!-- Show custom skin item icon in customisation dialog -->
 		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.1)">$INFO[Skin.String(CustomMovies.1.Icon)]</value>
 		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.2)">$INFO[Skin.String(CustomMovies.2.Icon)]</value>
 		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.3)">$INFO[Skin.String(CustomMovies.3.Icon)]</value>
@@ -1353,7 +1347,7 @@
 		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.4)">$INFO[Skin.String(CustomAddon.4.Icon)]</value>
 		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.5)">$INFO[Skin.String(CustomAddon.5.Icon)]</value>
 	</variable>
-	<variable name="CustomSkinOptionLabel"><!-- Show custom skin item label in customisation dialog -->
+	<variable name="CustomSkinLabel"><!-- Show custom skin item label in customisation dialog -->
 		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.1)">$INFO[Skin.String(CustomMovies.1.Label)]</value>
 		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.2)">$INFO[Skin.String(CustomMovies.2.Label)]</value>
 		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.3)">$INFO[Skin.String(CustomMovies.3.Label)]</value>
@@ -1479,7 +1473,7 @@
 					<include>fullscreenimage</include>
 					<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
 					<animation effect="fade" time="200">VisibleChange</animation>
-					<visible>Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
+					<visible>Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
 				</control>
 			</control>
 		</control>
@@ -1657,7 +1651,7 @@
 				</control>
 			</control>
 			<control type="group"><!-- Audio Stuff -->
-				<visible>Player.HasAudio + IsEmpty(Window(VideoLibrary).Property(PlayingBackgroundMedia))</visible>
+				<visible>Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
 				<control type="group"><!-- Non Radio Audio -->
 					<visible>!Pvr.IsPlayingRadio</visible>
 					<control type="image">
@@ -1743,14 +1737,6 @@
 		</definition>
 	</include>
 
-	<include name="use-compareaction">
-		<param name="actionstring"/>
-		<param name="actiontype"/>
-		<definition>
-			<visible>StringCompare($PARAM[actionstring],$PARAM[actiontype])</visible>
-		</definition>
-	</include>
-
 	<include name="listitem-count">
 		<param name="left" default="0"/>
 		<param name="top" default="0"/>
@@ -1822,7 +1808,6 @@
 		<param name="itemcustombase"/>
 		<param name="itemthumb"/>
 		<param name="itemlabel"/>
-		<param name="itemtype"/>
 		<param name="itemmenuheading"/>
 		<param name="itemmenuid"/>
 		<param name="itemcondition"/>
@@ -1838,10 +1823,10 @@
 				<property name="menuID">$PARAM[itemmenuid]</property>
 				<onclick>SetProperty(ListActive,true,settings)</onclick>
 				<onclick>SetProperty(ListLabel,$PARAM[itemlabel],settings)</onclick>
-				<onclick>SetProperty(ListType,$PARAM[itemtype],settings)</onclick>
 				<onclick>SetProperty(ListID,$PARAM[itemmenuid],settings)</onclick>
 				<onclick>SetProperty(ListToggle,$PARAM[itemtoggle],settings)</onclick>
 				<onclick>SetProperty(ListCustomBase,$PARAM[itemcustombase],settings)</onclick>
+				<onclick>SetProperty(CurrentType,$INFO[Skin.String($PARAM[itemcustombase].Type)],settings)</onclick>
 				<onclick>SetProperty(CurrentAction,$PARAM[itemcustombase].Path,settings)</onclick>
 				<onclick>SetProperty(CurrentLabel,$PARAM[itemcustombase].Label,settings)</onclick>
 				<onclick>SetProperty(CurrentIcon,$PARAM[itemcustombase].Icon,settings)</onclick>
@@ -1858,10 +1843,10 @@
 				<property name="menuID">$PARAM[itemmenuid]</property>
 				<onclick>ClearProperty(ListActive,settings)</onclick>
 				<onclick>SetProperty(ListLabel,$PARAM[itemlabel],settings)</onclick>
-				<onclick>SetProperty(ListType,$PARAM[itemtype],settings)</onclick>
 				<onclick>SetProperty(ListID,$PARAM[itemmenuid],settings)</onclick>
 				<onclick>SetProperty(ListToggle,$PARAM[itemtoggle],settings)</onclick>
 				<onclick>SetProperty(ListCustomBase,$PARAM[itemcustombase],settings)</onclick>
+				<onclick>SetProperty(CurrentType,$INFO[Skin.String($PARAM[itemcustombase].Type)],settings)</onclick>
 				<onclick>SetProperty(CurrentAction,$PARAM[itemcustombase].Path,settings)</onclick>
 				<onclick>SetProperty(CurrentLabel,$PARAM[itemcustombase].Label,settings)</onclick>
 				<onclick>SetProperty(CurrentIcon,$PARAM[itemcustombase].Icon,settings)</onclick>
@@ -1938,8 +1923,8 @@
 				<height>32</height>
 				<texturefocus>touch-settings.png</texturefocus>
 				<texturenofocus>touch-settings.png</texturenofocus>
-				<onclick condition="!StringCompare(Window(home).Property(ShowScreenSettings),show)">SetProperty(ShowScreenSettings,show,Home)</onclick>
-				<onclick condition="StringCompare(Window(home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,Home)</onclick>
+				<onclick condition="!StringCompare(Window(home).Property(ShowScreenSettings),show)">SetProperty(ShowScreenSettings,show,home)</onclick>
+				<onclick condition="StringCompare(Window(home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,home)</onclick>
 				<visible>!Skin.HasSetting(lock-screensettings)</visible>
 			</control>
 		</control>

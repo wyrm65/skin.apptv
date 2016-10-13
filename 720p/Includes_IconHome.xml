@@ -280,7 +280,7 @@
 					<thumb>$VAR[HomeVideoIcon]</thumb>
 					<label>$LOCALIZE[3]</label>
 					<label2>$LOCALIZE[571]</label2>
-					<onclick>ActivateWindow(Videolibrary,root,return)</onclick>
+					<onclick>ActivateWindow(videos,Root,return)</onclick>
 				</item>
 				<item><!-- Movies -->
 					<visible>!Skin.HasSetting(home-movie)</visible>
@@ -316,7 +316,7 @@
 					<thumb>special://skin/extras/homeicons/setting.png</thumb>
 					<label>$LOCALIZE[5]</label>
 					<label2>$LOCALIZE[571]</label2>
-					<onclick>ActivateWindow(settings,,return)</onclick>
+					<onclick>ActivateWindow(settings)</onclick>
 				</item>
 				<item><!-- Music Videos -->
 					<visible>Skin.HasSetting(home-musicvideo)</visible>
@@ -633,7 +633,7 @@
 					<thumb>$VAR[HomeShutdownIcon]</thumb>
 					<label>$LOCALIZE[13009]</label>
 					<label2>$LOCALIZE[571]</label2>
-					<onclick condition="!StringCompare(Skin.String(home-quitaction),$LOCALIZE[31558])">SetProperty(ShutdownKodi,true,Home)</onclick>
+					<onclick condition="!StringCompare(Skin.String(home-quitaction),$LOCALIZE[31558])">SetProperty(ShutdownKodi,true,home)</onclick>
 					<onclick>$VAR[QuitAction]</onclick>
 				</item>
 			</content>

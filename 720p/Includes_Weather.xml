@@ -2,7 +2,7 @@
 <includes>
 	<include name="standardweather">
 		<control type="group">
-			<visible>!Weather.IsFetched | SubString(Window(Weather).Property(Current.ConditionIcon),na.png,right)</visible>
+			<visible>!Weather.IsFetched | SubString(Window(weather).Property(Current.ConditionIcon),na.png,right)</visible>
 			<control type="image">
 				<left>480</left>
 				<top>100</top>
@@ -33,7 +33,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>Weather.IsFetched + !SubString(Window(Weather).Property(Current.ConditionIcon),na.png,right)</visible>
+			<visible>Weather.IsFetched + !SubString(Window(weather).Property(Current.ConditionIcon),na.png,right)</visible>
 			<control type="group"><!-- Standard Forecast -->
 				<visible>[StringCompare(Skin.String(weather-view),$LOCALIZE[10508]) | IsEmpty(Skin.String(weather-view))]</visible>
 				<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
@@ -90,7 +90,7 @@
 						<width>150</width>
 						<height>38</height>
 						<shadowcolor>80000000</shadowcolor>
-						<label>[COLOR red]$INFO[Window(Weather).Property(Day0.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(Weather).Property(Day0.LowTemp)][/COLOR]</label>
+						<label>[COLOR red]$INFO[Window(weather).Property(Day0.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(weather).Property(Day0.LowTemp)][/COLOR]</label>
 						<font>font22</font>
 						<align>center</align>
 						<aligny>bottom</aligny>
@@ -182,8 +182,8 @@
 					</control>
 				</control>
 				<control type="group">
-					<animation effect="slide" end="210,0" condition="SubString(Window(Weather).Property(Day5.OutlookIcon),na.png,right)" reversible="true">Conditional</animation>
-					<animation effect="slide" end="105,0" condition="SubString(Window(Weather).Property(Day6.OutlookIcon),na.png,right) + !SubString(Window(Weather).Property(Day5.OutlookIcon),na.png,right)" reversible="true">Conditional</animation>
+					<animation effect="slide" end="210,0" condition="SubString(Window(weather).Property(Day5.OutlookIcon),na.png,right)" reversible="true">Conditional</animation>
+					<animation effect="slide" end="105,0" condition="SubString(Window(weather).Property(Day6.OutlookIcon),na.png,right) + !SubString(Window(weather).Property(Day5.OutlookIcon),na.png,right)" reversible="true">Conditional</animation>
 					<control type="group"><!-- Day 1 -->
 						<left>10</left>
 						<top>430</top>
@@ -192,7 +192,7 @@
 							<top>30</top>
 							<height>26</height>
 							<width>200</width>
-							<label>$INFO[Window(Weather).Property(Day1.Title)]</label>
+							<label>$INFO[Window(weather).Property(Day1.Title)]</label>
 							<align>center</align>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
@@ -213,7 +213,7 @@
 							<height>38</height>
 							<width>200</width>
 							<shadowcolor>80000000</shadowcolor>
-							<label>[COLOR red]$INFO[Window(Weather).Property(Day1.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(Weather).Property(Day1.LowTemp)][/COLOR]</label>
+							<label>[COLOR red]$INFO[Window(weather).Property(Day1.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(weather).Property(Day1.LowTemp)][/COLOR]</label>
 							<align>center</align>
 							<font>font13</font>
 						</control>
@@ -222,7 +222,7 @@
 							<top>184</top>
 							<height>42</height>
 							<width>200</width>
-							<label>$INFO[Window(Weather).Property(Day1.Outlook)]</label>
+							<label>$INFO[Window(weather).Property(Day1.Outlook)]</label>
 							<align>center</align>
 							<wrapmultiline>true</wrapmultiline>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
@@ -237,7 +237,7 @@
 							<top>30</top>
 							<height>26</height>
 							<width>200</width>
-							<label>$INFO[Window(Weather).Property(Day2.Title)]</label>
+							<label>$INFO[Window(weather).Property(Day2.Title)]</label>
 							<align>center</align>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
@@ -258,7 +258,7 @@
 							<height>38</height>
 							<width>200</width>
 							<shadowcolor>80000000</shadowcolor>
-							<label>[COLOR red]$INFO[Window(Weather).Property(Day2.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(Weather).Property(Day2.LowTemp)][/COLOR]</label>
+							<label>[COLOR red]$INFO[Window(weather).Property(Day2.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(weather).Property(Day2.LowTemp)][/COLOR]</label>
 							<align>center</align>
 							<font>font13</font>
 						</control>
@@ -267,7 +267,7 @@
 							<top>184</top>
 							<height>42</height>
 							<width>200</width>
-							<label>$INFO[Window(Weather).Property(Day2.Outlook)]</label>
+							<label>$INFO[Window(weather).Property(Day2.Outlook)]</label>
 							<align>center</align>
 							<wrapmultiline>true</wrapmultiline>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
@@ -282,7 +282,7 @@
 							<top>30</top>
 							<height>26</height>
 							<width>200</width>
-							<label>$INFO[Window(Weather).Property(Day3.Title)]</label>
+							<label>$INFO[Window(weather).Property(Day3.Title)]</label>
 							<align>center</align>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
@@ -303,7 +303,7 @@
 							<height>38</height>
 							<width>200</width>
 							<shadowcolor>80000000</shadowcolor>
-							<label>[COLOR red]$INFO[Window(Weather).Property(Day3.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(Weather).Property(Day3.LowTemp)][/COLOR]</label>
+							<label>[COLOR red]$INFO[Window(weather).Property(Day3.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(weather).Property(Day3.LowTemp)][/COLOR]</label>
 							<align>center</align>
 							<font>font13</font>
 						</control>
@@ -312,7 +312,7 @@
 							<top>184</top>
 							<height>42</height>
 							<width>200</width>
-							<label>$INFO[Window(Weather).Property(Day3.Outlook)]</label>
+							<label>$INFO[Window(weather).Property(Day3.Outlook)]</label>
 							<align>center</align>
 							<wrapmultiline>true</wrapmultiline>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
@@ -327,7 +327,7 @@
 							<top>30</top>
 							<height>26</height>
 							<width>200</width>
-							<label>$INFO[Window(Weather).Property(Day4.Title)]</label>
+							<label>$INFO[Window(weather).Property(Day4.Title)]</label>
 							<align>center</align>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
@@ -348,7 +348,7 @@
 							<height>38</height>
 							<width>200</width>
 							<shadowcolor>80000000</shadowcolor>
-							<label>[COLOR red]$INFO[Window(Weather).Property(Day4.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(Weather).Property(Day4.LowTemp)][/COLOR]</label>
+							<label>[COLOR red]$INFO[Window(weather).Property(Day4.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(weather).Property(Day4.LowTemp)][/COLOR]</label>
 							<align>center</align>
 							<font>font13</font>
 						</control>
@@ -357,7 +357,7 @@
 							<top>184</top>
 							<height>42</height>
 							<width>200</width>
-							<label>$INFO[Window(Weather).Property(Day4.Outlook)]</label>
+							<label>$INFO[Window(weather).Property(Day4.Outlook)]</label>
 							<align>center</align>
 							<wrapmultiline>true</wrapmultiline>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
@@ -367,13 +367,13 @@
 					<control type="group"><!-- Day 5 -->
 						<left>850</left>
 						<top>430</top>
-						<visible>!SubString(Window(Weather).Property(Day5.OutlookIcon),na.png,right)</visible>
+						<visible>!SubString(Window(weather).Property(Day5.OutlookIcon),na.png,right)</visible>
 						<control type="label">
 							<left>5</left>
 							<top>30</top>
 							<height>26</height>
 							<width>200</width>
-							<label>$INFO[Window(Weather).Property(Day5.Title)]</label>
+							<label>$INFO[Window(weather).Property(Day5.Title)]</label>
 							<align>center</align>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
@@ -394,7 +394,7 @@
 							<height>38</height>
 							<width>200</width>
 							<shadowcolor>80000000</shadowcolor>
-							<label>[COLOR red]$INFO[Window(Weather).Property(Day5.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(Weather).Property(Day5.LowTemp)][/COLOR]</label>
+							<label>[COLOR red]$INFO[Window(weather).Property(Day5.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(weather).Property(Day5.LowTemp)][/COLOR]</label>
 							<align>center</align>
 							<font>font13</font>
 						</control>
@@ -403,7 +403,7 @@
 							<top>184</top>
 							<height>42</height>
 							<width>200</width>
-							<label>$INFO[Window(Weather).Property(Day5.Outlook)]</label>
+							<label>$INFO[Window(weather).Property(Day5.Outlook)]</label>
 							<align>center</align>
 							<wrapmultiline>true</wrapmultiline>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
@@ -413,13 +413,13 @@
 					<control type="group"><!-- Day 6 -->
 						<left>1060</left>
 						<top>430</top>
-						<visible>!SubString(Window(Weather).Property(Day6.OutlookIcon),na.png,right)</visible>
+						<visible>!SubString(Window(weather).Property(Day6.OutlookIcon),na.png,right)</visible>
 						<control type="label">
 							<left>5</left>
 							<top>30</top>
 							<height>26</height>
 							<width>200</width>
-							<label>$INFO[Window(Weather).Property(Day6.Title)]</label>
+							<label>$INFO[Window(weather).Property(Day6.Title)]</label>
 							<align>center</align>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
@@ -440,7 +440,7 @@
 							<height>38</height>
 							<width>200</width>
 							<shadowcolor>80000000</shadowcolor>
-							<label>[COLOR red]$INFO[Window(Weather).Property(Day6.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(Weather).Property(Day6.LowTemp)][/COLOR]</label>
+							<label>[COLOR red]$INFO[Window(weather).Property(Day6.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(weather).Property(Day6.LowTemp)][/COLOR]</label>
 							<align>center</align>
 							<font>font13</font>
 						</control>
@@ -449,7 +449,7 @@
 							<top>184</top>
 							<height>42</height>
 							<width>200</width>
-							<label>$INFO[Window(Weather).Property(Day6.Outlook)]</label>
+							<label>$INFO[Window(weather).Property(Day6.Outlook)]</label>
 							<align>center</align>
 							<wrapmultiline>true</wrapmultiline>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
@@ -475,7 +475,7 @@
 					<align>center</align>
 					<aligny>bottom</aligny>
 					<label>$INFO[Window.Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
-					<visible>!IsEmpty(Window.Property(Current.Temperature))</visible>
+					<visible>!IsEmpty(Window(weather).Property(Current.Temperature))</visible>
 				</control>
 				<control type="label"><!-- Current temperature range -->
 					<left>892</left>
@@ -483,11 +483,11 @@
 					<width>150</width>
 					<height>38</height>
 					<shadowcolor>80000000</shadowcolor>
-					<label>[COLOR red]$INFO[Window(Weather).Property(Day0.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(Weather).Property(Day0.LowTemp)][/COLOR]</label>
+					<label>[COLOR red]$INFO[Window(weather).Property(Day0.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(weather).Property(Day0.LowTemp)][/COLOR]</label>
 					<font>font22</font>
 					<align>center</align>
 					<aligny>bottom</aligny>
-					<visible>!IsEmpty(Window.Property(Day0.HighTemp))</visible>
+					<visible>!IsEmpty(Window(weather).Property(Day0.HighTemp))</visible>
 				</control>
 				<control type="label"><!-- Current feels like heading -->
 					<left>690</left>
@@ -534,44 +534,44 @@
 					<top>222</top>
 					<width>366</width>
 					<height>30</height>
-					<label>$INFO[Window.Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
-					<visible>!IsEmpty(Window.Property(Current.FeelsLike))</visible>
+					<label>$INFO[Window(weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
+					<visible>!IsEmpty(Window(weather).Property(Current.FeelsLike))</visible>
 				</control>
 				<control type="label"><!-- Current dew value -->
 					<left>980</left>
 					<top>252</top>
 					<width>366</width>
 					<height>30</height>
-					<label>$INFO[Window.Property(Current.DewPoint)]$INFO[System.TemperatureUnits]</label>
-					<visible>!IsEmpty(Window.Property(Current.DewPoint))</visible>
+					<label>$INFO[Window(weather).Property(Current.DewPoint)]$INFO[System.TemperatureUnits]</label>
+					<visible>!IsEmpty(Window(weather).Property(Current.DewPoint))</visible>
 				</control>
 				<control type="label"><!-- Current humidity value -->
 					<left>980</left>
 					<top>282</top>
 					<width>366</width>
 					<height>30</height>
-					<label>$INFO[Window.Property(Current.Humidity)]</label>
+					<label>$INFO[Window(weather).Property(Current.Humidity)]</label>
 				</control>
 				<control type="label"><!-- Current UV index value -->
 					<left>980</left>
 					<top>312</top>
 					<width>366</width>
 					<height>30</height>
-					<label>$INFO[Window.Property(Current.UVIndex)]</label>
+					<label>$INFO[Window(weather).Property(Current.UVIndex)]</label>
 				</control>
 				<control type="label"><!-- Current wind value -->
 					<left>980</left>
 					<top>342</top>
 					<width>366</width>
 					<height>30</height>
-					<label>$INFO[Window.Property(Current.Wind)]</label>
+					<label>$INFO[Window(weather).Property(Current.Wind)]</label>
 				</control>
 				<control type="label"><!-- Current long condition -->
 					<left>680</left>
 					<top>392</top>
 					<width>580</width>
 					<height>260</height>
-					<label>$INFO[Window.Property(Current.ConditionLong)]</label>
+					<label>$INFO[Window(weather).Property(Current.ConditionLong)]</label>
 					<wrapmultiline>true</wrapmultiline>
 					<font>font11</font>
 					<align>left</align>
@@ -584,49 +584,49 @@
 				<top>100</top>
 				<width>512</width>
 				<height>546</height>
-				<texture>special://profile/addon_data/weather.ozweather/radarbackgrounds/$INFO[Window.Property(Radar)]/legend.png</texture>
+				<texture>special://profile/addon_data/weather.ozweather/radarbackgrounds/$INFO[Window(weather).Property(Radar)]/legend.png</texture>
 			</control>
 			<control type="image">
 				<left>100</left>
 				<top>100</top>
 				<width>512</width>
 				<height>512</height>
-				<texture>special://profile/addon_data/weather.ozweather/radarbackgrounds/$INFO[Window.Property(Radar)]/background.png</texture>
+				<texture>special://profile/addon_data/weather.ozweather/radarbackgrounds/$INFO[Window(weather).Property(Radar)]/background.png</texture>
 			</control>
 			<control type="image">
 				<left>100</left>
 				<top>100</top>
 				<width>512</width>
 				<height>512</height>
-				<texture>special://profile/addon_data/weather.ozweather/radarbackgrounds/$INFO[Window.Property(Radar)]/topography.png</texture>
+				<texture>special://profile/addon_data/weather.ozweather/radarbackgrounds/$INFO[Window(weather).Property(Radar)]/topography.png</texture>
 			</control>
 			<control type="image">
 				<left>100</left>
 				<top>100</top>
 				<width>512</width>
 				<height>512</height>
-				<texture>special://profile/addon_data/weather.ozweather/radarbackgrounds/$INFO[Window.Property(Radar)]/catchments.png</texture>
+				<texture>special://profile/addon_data/weather.ozweather/radarbackgrounds/$INFO[Window(weather).Property(Radar)]/catchments.png</texture>
 			</control>
 			<control type="image">
 				<left>100</left>
 				<top>100</top>
 				<width>512</width>
 				<height>512</height>
-				<texture>special://profile/addon_data/weather.ozweather/radarbackgrounds/$INFO[Window.Property(Radar)]/range.png</texture>
+				<texture>special://profile/addon_data/weather.ozweather/radarbackgrounds/$INFO[Window(weather).Property(Radar)]/range.png</texture>
 			</control>
 			<control type="image">
 				<left>100</left>
 				<top>100</top>
 				<width>512</width>
 				<height>512</height>
-				<texture>special://profile/addon_data/weather.ozweather/radarbackgrounds/$INFO[Window.Property(Radar)]/locations.png</texture>
+				<texture>special://profile/addon_data/weather.ozweather/radarbackgrounds/$INFO[Window(weather).Property(Radar)]/locations.png</texture>
 			</control>
 			<control type="multiimage"><!-- Radar Overlay Images -->
 				<left>100</left>
 				<top>93</top>
 				<width>512</width>
 				<height>512</height>
-				<imagepath>special://profile/addon_data/weather.ozweather/currentloop/$INFO[Window.Property(Radar)]/</imagepath>
+				<imagepath>special://profile/addon_data/weather.ozweather/currentloop/$INFO[Window(weather).Property(Radar)]/</imagepath>
 				<timeperimage>500</timeperimage>
 				<pauseatend>1000</pauseatend>
 				<fadetime>0</fadetime>
@@ -642,13 +642,13 @@
 				<aspectratio>keep</aspectratio>
 				<animation effect="fade" start="0" end="100" time="100" delay="10000">Visible</animation>
 				<animation effect="rotate" start="360" end="0" center="auto" time="5400" loop="true" condition="true">conditional</animation>
-				<visible>IsEmpty(Window.Property(Radar))</visible>
+				<visible>IsEmpty(Window(weather).Property(Radar))</visible>
 			</control>
 		</control>
 	</include>
 	<include name="openweatherextended">
 		<control type="group">
-			<visible>StringCompare(Skin.String(weather-view),$LOCALIZE[33037]) + !IsEmpty(Window.Property(Current.Temperature))</visible><!-- Weekend -->
+			<visible>StringCompare(Skin.String(weather-view),$LOCALIZE[33037]) + !IsEmpty(Window(weather).Property(Current.Temperature))</visible><!-- Weekend -->
 			<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
 			<control type="group"><!-- Weekend 1 -->
 				<left>100</left>
@@ -660,7 +660,7 @@
 					<height>30</height>
 					<align>center</align>
 					<font>font18</font>
-					<label>$INFO[Window.Property(Weekend.1.LongDay)]</label>
+					<label>$INFO[Window(weather).Property(Weekend.1.LongDay)]</label>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -669,7 +669,7 @@
 					<height>23</height>
 					<align>center</align>
 					<font>font11</font>
-					<label>$INFO[Window.Property(Weekend.1.LongDate)]</label>
+					<label>$INFO[Window(weather).Property(Weekend.1.LongDate)]</label>
 				</control>
 				<control type="multiimage"><!-- Weekend Day 1 weather condition icon -->
 					<left>122</left>
@@ -689,7 +689,7 @@
 					<align>center</align>
 					<font>font22</font>
 					<shadowcolor>80000000</shadowcolor>
-					<label>[COLOR red]$INFO[Window.Property(Weekend.1.HighTemperature)][/COLOR]</label>
+					<label>[COLOR red]$INFO[Window(weather).Property(Weekend.1.HighTemperature)][/COLOR]</label>
 				</control>
 				<control type="label">
 					<left>375</left>
@@ -699,7 +699,7 @@
 					<align>center</align>
 					<font>font22</font>
 					<shadowcolor>80000000</shadowcolor>
-					<label>[COLOR lightblue]$INFO[Window.Property(Weekend.1.LowTemperature)][/COLOR]</label>
+					<label>[COLOR lightblue]$INFO[Window(weather).Property(Weekend.1.LowTemperature)][/COLOR]</label>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -708,7 +708,7 @@
 					<height>25</height>
 					<align>center</align>
 					<font>font13</font>
-					<label>$INFO[Window.Property(Weekend.1.Outlook)]</label>
+					<label>$INFO[Window(weather).Property(Weekend.1.Outlook)]</label>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -717,7 +717,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$LOCALIZE[33021]: [B]$INFO[Window.Property(Weekend.1.Precipitation)][/B]</label>
+					<label>$LOCALIZE[33021]: [B]$INFO[Window(weather).Property(Weekend.1.Precipitation)][/B]</label>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -726,7 +726,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$LOCALIZE[404]: [B]$INFO[Window.Property(Weekend.1.WindSpeed)] $INFO[Window.Property(Weekend.1.WindDirection)][/B]</label>
+					<label>$LOCALIZE[404]: [B]$INFO[Window(weather).Property(Weekend.1.WindSpeed)] $INFO[Window.Property(Weekend.1.WindDirection)][/B]</label>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -735,7 +735,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$LOCALIZE[406]: [B]$INFO[Window.Property(Weekend.1.Humidity)][/B]</label>
+					<label>$LOCALIZE[406]: [B]$INFO[Window(weather).Property(Weekend.1.Humidity)][/B]</label>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -744,7 +744,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$LOCALIZE[405]: [B]$INFO[Window.Property(Weekend.1.DewPoint)][/B]</label>
+					<label>$LOCALIZE[405]: [B]$INFO[Window(weather).Property(Weekend.1.DewPoint)][/B]</label>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -753,7 +753,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$LOCALIZE[402]: [B]$INFO[Window.Property(Weekend.1.FeelsLike)][/B]</label>
+					<label>$LOCALIZE[402]: [B]$INFO[Window(weather).Property(Weekend.1.FeelsLike)][/B]</label>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -762,7 +762,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$LOCALIZE[387]: [B]$INFO[Window.Property(Weekend.1.Cloudiness)][/B]</label>
+					<label>$LOCALIZE[387]: [B]$INFO[Window(weather).Property(Weekend.1.Cloudiness)][/B]</label>
 				</control>
 			</control>
 			<control type="group"><!-- Weekend 2 -->
@@ -775,7 +775,7 @@
 					<height>30</height>
 					<align>center</align>
 					<font>font18</font>
-					<label>$INFO[Window.Property(Weekend.2.LongDay)]</label>
+					<label>$INFO[Window(weather).Property(Weekend.2.LongDay)]</label>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -784,7 +784,7 @@
 					<height>23</height>
 					<align>center</align>
 					<font>font11</font>
-					<label>$INFO[Window.Property(Weekend.2.LongDate)]</label>
+					<label>$INFO[Window(weather).Property(Weekend.2.LongDate)]</label>
 				</control>
 				<control type="multiimage"><!-- Weekend Day 2 weather condition icon -->
 					<left>122</left>
@@ -804,7 +804,7 @@
 					<align>center</align>
 					<font>font22</font>
 					<shadowcolor>80000000</shadowcolor>
-					<label>[COLOR red]$INFO[Window.Property(Weekend.2.HighTemperature)][/COLOR]</label>
+					<label>[COLOR red]$INFO[Window(weather).Property(Weekend.2.HighTemperature)][/COLOR]</label>
 				</control>
 				<control type="label">
 					<left>375</left>
@@ -814,7 +814,7 @@
 					<align>center</align>
 					<font>font22</font>
 					<shadowcolor>80000000</shadowcolor>
-					<label>[COLOR lightblue]$INFO[Window.Property(Weekend.2.LowTemperature)][/COLOR]</label>
+					<label>[COLOR lightblue]$INFO[Window(weather).Property(Weekend.2.LowTemperature)][/COLOR]</label>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -823,7 +823,7 @@
 					<height>25</height>
 					<align>center</align>
 					<font>font13</font>
-					<label>$INFO[Window.Property(Weekend.2.Outlook)]</label>
+					<label>$INFO[Window(weather).Property(Weekend.2.Outlook)]</label>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -832,7 +832,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$LOCALIZE[33021]: [B]$INFO[Window.Property(Weekend.2.Precipitation)][/B]</label>
+					<label>$LOCALIZE[33021]: [B]$INFO[Window(weather).Property(Weekend.2.Precipitation)][/B]</label>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -841,7 +841,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$LOCALIZE[404]: [B]$INFO[Window.Property(Weekend.2.WindSpeed)] $INFO[Window.Property(Weekend.2.WindDirection)][/B]</label>
+					<label>$LOCALIZE[404]: [B]$INFO[Window(weather).Property(Weekend.2.WindSpeed)] $INFO[Window.Property(Weekend.2.WindDirection)][/B]</label>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -850,7 +850,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$LOCALIZE[406]: [B]$INFO[Window.Property(Weekend.2.Humidity)][/B]</label>
+					<label>$LOCALIZE[406]: [B]$INFO[Window(weather).Property(Weekend.2.Humidity)][/B]</label>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -859,7 +859,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$LOCALIZE[405]: [B]$INFO[Window.Property(Weekend.2.DewPoint)][/B]</label>
+					<label>$LOCALIZE[405]: [B]$INFO[Window(weather).Property(Weekend.2.DewPoint)][/B]</label>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -868,7 +868,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$LOCALIZE[402]: [B]$INFO[Window.Property(Weekend.2.FeelsLike)][/B]</label>
+					<label>$LOCALIZE[402]: [B]$INFO[Window(weather).Property(Weekend.2.FeelsLike)][/B]</label>
 				</control>
 				<control type="label">
 					<left>0</left>
@@ -877,12 +877,12 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$LOCALIZE[387]: [B]$INFO[Window.Property(Weekend.2.Cloudiness)][/B]</label>
+					<label>$LOCALIZE[387]: [B]$INFO[Window(weather).Property(Weekend.2.Cloudiness)][/B]</label>
 				</control>
 			</control>
 		</control>
 		<control type="group">
-			<visible>StringCompare(Skin.String(weather-view),$LOCALIZE[33034]) + !IsEmpty(Window(Weather).Property(Hourly.IsFetched))</visible><!-- 36 Hour -->
+			<visible>StringCompare(Skin.String(weather-view),$LOCALIZE[33034]) + !IsEmpty(Window(weather).Property(Hourly.IsFetched))</visible><!-- 36 Hour -->
 			<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
 			<control type="group">
 				<control type="group"><!-- 36 Hour 1 -->
@@ -895,7 +895,7 @@
 						<height>30</height>
 						<align>center</align>
 						<font>font18</font>
-						<label>$INFO[Window.Property(36Hour.1.Heading)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.1.Heading)]</label>
 					</control>
 					<control type="multiimage"><!-- 36 hour 1 weather condition icon -->
 						<left>65</left>
@@ -914,7 +914,7 @@
 						<height>25</height>
 						<align>center</align>
 						<font>font13</font>
-						<label>$INFO[Window.Property(36Hour.1.Outlook)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.1.Outlook)]</label>
 					</control>
 					<control type="label">
 						<left>0</left>
@@ -923,7 +923,7 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font12</font>
-						<label>$INFO[Window.Property(36Hour.1.TemperatureHeading)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.1.TemperatureHeading)]</label>
 					</control>
 					<control type="label">
 						<left>0</left>
@@ -932,7 +932,7 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font11</font>
-						<label>$INFO[Window.Property(36Hour.1.Temperature)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.1.Temperature)]</label>
 					</control>
 					<control type="label">
 						<left>193</left>
@@ -950,7 +950,7 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font11</font>
-						<label>$INFO[Window.Property(36Hour.1.Precipitation)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.1.Precipitation)]</label>
 					</control>
 					<control type="label">
 						<left>0</left>
@@ -968,7 +968,7 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font11</font>
-						<label>$INFO[Window.Property(36Hour.1.WindSpeed)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.1.WindSpeed)]</label>
 					</control>
 					<control type="label">
 						<left>193</left>
@@ -986,7 +986,7 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font11</font>
-						<label>$INFO[Window.Property(36Hour.1.Humidity)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.1.Humidity)]</label>
 					</control>
 					<control type="label">
 						<left>0</left>
@@ -1004,7 +1004,7 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font11</font>
-						<label>$INFO[Window.Property(36Hour.1.Cloudiness)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.1.Cloudiness)]</label>
 					</control>
 					<control type="label">
 						<left>193</left>
@@ -1022,7 +1022,7 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font11</font>
-						<label>$INFO[Window.Property(36Hour.1.FeelsLike)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.1.FeelsLike)]</label>
 					</control>
 				</control>
 				<control type="group"><!-- 36 Hour 2 -->
@@ -1035,7 +1035,7 @@
 						<height>30</height>
 						<align>center</align>
 						<font>font18</font>
-						<label>$INFO[Window.Property(36Hour.2.Heading)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.2.Heading)]</label>
 					</control>
 					<control type="multiimage"><!-- 36 hour 2 weather condition icon -->
 						<left>65</left>
@@ -1054,7 +1054,7 @@
 						<height>25</height>
 						<align>center</align>
 						<font>font13</font>
-						<label>$INFO[Window.Property(36Hour.2.Outlook)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.2.Outlook)]</label>
 					</control>
 					<control type="label">
 						<left>0</left>
@@ -1063,7 +1063,7 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font12</font>
-						<label>$INFO[Window.Property(36Hour.2.TemperatureHeading)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.2.TemperatureHeading)]</label>
 					</control>
 					<control type="label">
 						<left>193</left>
@@ -1081,7 +1081,7 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font11</font>
-						<label>$INFO[Window.Property(36Hour.2.Temperature)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.2.Temperature)]</label>
 					</control>
 					<control type="label">
 						<left>193</left>
@@ -1090,7 +1090,7 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font11</font>
-						<label>$INFO[Window.Property(36Hour.2.Precipitation)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.2.Precipitation)]</label>
 					</control>
 					<control type="label">
 						<left>0</left>
@@ -1117,7 +1117,7 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font11</font>
-						<label>$INFO[Window.Property(36Hour.2.WindSpeed)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.2.WindSpeed)]</label>
 					</control>
 					<control type="label">
 						<left>193</left>
@@ -1126,7 +1126,7 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font11</font>
-						<label>$INFO[Window.Property(36Hour.2.Humidity)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.2.Humidity)]</label>
 					</control>
 					<control type="label">
 						<left>0</left>
@@ -1153,7 +1153,7 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font11</font>
-						<label>$INFO[Window.Property(36Hour.2.Cloudiness)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.2.Cloudiness)]</label>
 					</control>
 					<control type="label">
 						<left>193</left>
@@ -1162,7 +1162,7 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font11</font>
-						<label>$INFO[Window.Property(36Hour.2.FeelsLike)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.2.FeelsLike)]</label>
 					</control>
 				</control>
 				<control type="group"><!-- 36 Hour 3 -->
@@ -1175,7 +1175,7 @@
 						<height>30</height>
 						<align>center</align>
 						<font>font18</font>
-						<label>$INFO[Window.Property(36Hour.3.Heading)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.3.Heading)]</label>
 					</control>
 					<control type="multiimage"><!-- 36 hour 3 weather condition icon -->
 						<left>65</left>
@@ -1194,7 +1194,7 @@
 						<height>25</height>
 						<align>center</align>
 						<font>font13</font>
-						<label>$INFO[Window.Property(36Hour.3.Outlook)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.3.Outlook)]</label>
 					</control>
 					<control type="label">
 						<left>0</left>
@@ -1203,7 +1203,7 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font12</font>
-						<label>$INFO[Window.Property(36Hour.3.TemperatureHeading)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.3.TemperatureHeading)]</label>
 					</control>
 					<control type="label">
 						<left>193</left>
@@ -1221,7 +1221,7 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font11</font>
-						<label>$INFO[Window.Property(36Hour.3.Temperature)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.3.Temperature)]</label>
 					</control>
 					<control type="label">
 						<left>193</left>
@@ -1230,7 +1230,7 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font11</font>
-						<label>$INFO[Window.Property(36Hour.3.Precipitation)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.3.Precipitation)]</label>
 					</control>
 					<control type="label">
 						<left>0</left>
@@ -1257,7 +1257,7 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font11</font>
-						<label>$INFO[Window.Property(36Hour.3.WindSpeed)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.3.WindSpeed)]</label>
 					</control>
 					<control type="label">
 						<left>193</left>
@@ -1266,7 +1266,7 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font11</font>
-						<label>$INFO[Window.Property(36Hour.3.Humidity)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.3.Humidity)]</label>
 					</control>
 					<control type="label">
 						<left>0</left>
@@ -1293,7 +1293,7 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font11</font>
-						<label>$INFO[Window.Property(36Hour.3.Cloudiness)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.3.Cloudiness)]</label>
 					</control>
 					<control type="label">
 						<left>193</left>
@@ -1302,13 +1302,13 @@
 						<height>23</height>
 						<align>center</align>
 						<font>font11</font>
-						<label>$INFO[Window.Property(36Hour.3.FeelsLike)]</label>
+						<label>$INFO[Window(weather).Property(36Hour.3.FeelsLike)]</label>
 					</control>
 				</control>
 			</control>
 		</control>
 		<control type="group">
-			<visible>StringCompare(Skin.String(weather-view),$LOCALIZE[33036]) + !IsEmpty(Window(Weather).Property(Hourly.IsFetched))</visible><!-- Hourly -->
+			<visible>StringCompare(Skin.String(weather-view),$LOCALIZE[33036]) + !IsEmpty(Window(weather).Property(Hourly.IsFetched))</visible><!-- Hourly -->
 			<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
 			<control type="group"><!-- Hourly 1 -->
 				<left>10</left>
@@ -1320,7 +1320,7 @@
 					<height>22</height>
 					<align>center</align>
 					<font>font11</font>
-					<label>[B]$INFO[Window.Property(Hourly.1.Time)]$INFO[Window.Property(Hourly.1.ShortDate), - ][/B]</label>
+					<label>[B]$INFO[Window(weather).Property(Hourly.1.Time)]$INFO[Window(weather).Property(Hourly.1.ShortDate), - ][/B]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1329,7 +1329,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.1.Outlook)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.1.Outlook)]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1339,7 +1339,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font18</font>
-					<label>$INFO[Window.Property(Hourly.1.Temperature)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.1.Temperature)]</label>
 				</control>
 				<control type="multiimage"><!-- Hourly 1 condition icon -->
 					<left>108</left>
@@ -1359,7 +1359,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.1.Precipitation),$LOCALIZE[33022]:[CR]]</label>
+					<label>$INFO[Window(weather).Property(Hourly.1.Precipitation),$LOCALIZE[33022]:[CR]]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1368,7 +1368,7 @@
 					<height>40</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.1.Windspeed),$LOCALIZE[404]: ] $INFO[Window.Property(Hourly.1.WindDirection)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.1.Windspeed),$LOCALIZE[404]: ] $INFO[Window(weather).Property(Hourly.1.WindDirection)]</label>
 				</control>
 			</control>
 			<control type="group"><!-- Hourly 2 -->
@@ -1381,7 +1381,7 @@
 					<height>22</height>
 					<align>center</align>
 					<font>font11</font>
-					<label>[B]$INFO[Window.Property(Hourly.2.Time)]$INFO[Window.Property(Hourly.2.ShortDate), - ][/B]</label>
+					<label>[B]$INFO[Window(weather).Property(Hourly.2.Time)]$INFO[Window(weather).Property(Hourly.2.ShortDate), - ][/B]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1390,7 +1390,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.2.Outlook)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.2.Outlook)]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1400,7 +1400,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font18</font>
-					<label>$INFO[Window.Property(Hourly.2.Temperature)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.2.Temperature)]</label>
 				</control>
 				<control type="multiimage"><!-- Hourly 2 condition icon -->
 					<left>108</left>
@@ -1420,7 +1420,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.2.Precipitation),$LOCALIZE[33022]:[CR]]</label>
+					<label>$INFO[Window(weather).Property(Hourly.2.Precipitation),$LOCALIZE[33022]:[CR]]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1429,7 +1429,7 @@
 					<height>40</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.2.Windspeed),$LOCALIZE[404]: ] $INFO[Window.Property(Hourly.2.WindDirection)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.2.Windspeed),$LOCALIZE[404]: ] $INFO[Window(weather).Property(Hourly.2.WindDirection)]</label>
 				</control>
 			</control>
 			<control type="group"><!-- Hourly 3 -->
@@ -1442,7 +1442,7 @@
 					<height>22</height>
 					<align>center</align>
 					<font>font11</font>
-					<label>[B]$INFO[Window.Property(Hourly.3.Time)]$INFO[Window.Property(Hourly.3.ShortDate), - ][/B]</label>
+					<label>[B]$INFO[Window(weather).Property(Hourly.3.Time)]$INFO[Window(weather).Property(Hourly.3.ShortDate), - ][/B]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1451,7 +1451,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.3.Outlook)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.3.Outlook)]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1461,7 +1461,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font18</font>
-					<label>$INFO[Window.Property(Hourly.3.Temperature)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.3.Temperature)]</label>
 				</control>
 				<control type="multiimage"><!-- Hourly 3 condition icon -->
 					<left>108</left>
@@ -1481,7 +1481,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.3.Precipitation),$LOCALIZE[33022]:[CR]]</label>
+					<label>$INFO[Window(weather).Property(Hourly.3.Precipitation),$LOCALIZE[33022]:[CR]]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1490,7 +1490,7 @@
 					<height>40</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.3.Windspeed),$LOCALIZE[404]: ] $INFO[Window.Property(Hourly.3.WindDirection)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.3.Windspeed),$LOCALIZE[404]: ] $INFO[Window(weather).Property(Hourly.3.WindDirection)]</label>
 				</control>
 			</control>
 			<control type="group"><!-- Hourly 4 -->
@@ -1503,7 +1503,7 @@
 					<height>22</height>
 					<align>center</align>
 					<font>font11</font>
-					<label>[B]$INFO[Window.Property(Hourly.4.Time)]$INFO[Window.Property(Hourly.4.ShortDate), - ][/B]</label>
+					<label>[B]$INFO[Window(weather).Property(Hourly.4.Time)]$INFO[Window(weather).Property(Hourly.4.ShortDate), - ][/B]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1512,7 +1512,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.4.Outlook)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.4.Outlook)]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1522,7 +1522,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font18</font>
-					<label>$INFO[Window.Property(Hourly.4.Temperature)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.4.Temperature)]</label>
 				</control>
 				<control type="multiimage"><!-- Hourly 4 condition icon -->
 					<left>108</left>
@@ -1542,7 +1542,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.4.Precipitation),$LOCALIZE[33022]:[CR]]</label>
+					<label>$INFO[Window(weather).Property(Hourly.4.Precipitation),$LOCALIZE[33022]:[CR]]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1551,7 +1551,7 @@
 					<height>40</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.4.Windspeed),$LOCALIZE[404]: ] $INFO[Window.Property(Hourly.4.WindDirection)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.4.Windspeed),$LOCALIZE[404]: ] $INFO[Window(weather).Property(Hourly.4.WindDirection)]</label>
 				</control>
 			</control>
 			<control type="group"><!-- Hourly 5 -->
@@ -1564,7 +1564,7 @@
 					<height>22</height>
 					<align>center</align>
 					<font>font11</font>
-					<label>[B]$INFO[Window.Property(Hourly.5.Time)]$INFO[Window.Property(Hourly.5.ShortDate), - ][/B]</label>
+					<label>[B]$INFO[Window(weather).Property(Hourly.5.Time)]$INFO[Window(weather).Property(Hourly.5.ShortDate), - ][/B]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1573,7 +1573,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.5.Outlook)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.5.Outlook)]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1583,7 +1583,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font18</font>
-					<label>$INFO[Window.Property(Hourly.5.Temperature)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.5.Temperature)]</label>
 				</control>
 				<control type="multiimage"><!-- Hourly 5 condition icon -->
 					<left>108</left>
@@ -1603,7 +1603,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.5.Precipitation),$LOCALIZE[33022]:[CR]]</label>
+					<label>$INFO[Window(weather).Property(Hourly.5.Precipitation),$LOCALIZE[33022]:[CR]]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1612,7 +1612,7 @@
 					<height>40</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.5.Windspeed),$LOCALIZE[404]: ] $INFO[Window.Property(Hourly.5.WindDirection)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.5.Windspeed),$LOCALIZE[404]: ] $INFO[Window(weather).Property(Hourly.5.WindDirection)]</label>
 				</control>
 			</control>
 			<control type="group"><!-- Hourly 6 -->
@@ -1625,7 +1625,7 @@
 					<height>22</height>
 					<align>center</align>
 					<font>font11</font>
-					<label>[B]$INFO[Window.Property(Hourly.6.Time)]$INFO[Window.Property(Hourly.6.ShortDate), - ][/B]</label>
+					<label>[B]$INFO[Window(weather).Property(Hourly.6.Time)]$INFO[Window(weather).Property(Hourly.6.ShortDate), - ][/B]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1634,7 +1634,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.6.Outlook)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.6.Outlook)]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1644,7 +1644,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font18</font>
-					<label>$INFO[Window.Property(Hourly.6.Temperature)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.6.Temperature)]</label>
 				</control>
 				<control type="multiimage"><!-- Hourly 6 condition icon -->
 					<left>108</left>
@@ -1664,7 +1664,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.6.Precipitation),$LOCALIZE[33022]:[CR]]</label>
+					<label>$INFO[Window(weather).Property(Hourly.6.Precipitation),$LOCALIZE[33022]:[CR]]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1673,7 +1673,7 @@
 					<height>40</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.6.Windspeed),$LOCALIZE[404]: ] $INFO[Window.Property(Hourly.6.WindDirection)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.6.Windspeed),$LOCALIZE[404]: ] $INFO[Window(weather).Property(Hourly.6.WindDirection)]</label>
 				</control>
 			</control>
 			<control type="group"><!-- Hourly 7 -->
@@ -1686,7 +1686,7 @@
 					<height>22</height>
 					<align>center</align>
 					<font>font11</font>
-					<label>[B]$INFO[Window.Property(Hourly.7.Time)]$INFO[Window.Property(Hourly.7.ShortDate), - ][/B]</label>
+					<label>[B]$INFO[Window(weather).Property(Hourly.7.Time)]$INFO[Window(weather).Property(Hourly.7.ShortDate), - ][/B]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1695,7 +1695,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.7.Outlook)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.7.Outlook)]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1705,7 +1705,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font18</font>
-					<label>$INFO[Window.Property(Hourly.7.Temperature)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.7.Temperature)]</label>
 				</control>
 				<control type="multiimage"><!-- Hourly 7 condition icon -->
 					<left>108</left>
@@ -1725,7 +1725,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.7.Precipitation),$LOCALIZE[33022]:[CR]]</label>
+					<label>$INFO[Window(weather).Property(Hourly.7.Precipitation),$LOCALIZE[33022]:[CR]]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1734,7 +1734,7 @@
 					<height>40</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.7.Windspeed),$LOCALIZE[404]: ] $INFO[Window.Property(Hourly.7.WindDirection)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.7.Windspeed),$LOCALIZE[404]: ] $INFO[Window(weather).Property(Hourly.7.WindDirection)]</label>
 				</control>
 			</control>
 			<control type="group"><!-- Hourly 8 -->
@@ -1747,7 +1747,7 @@
 					<height>22</height>
 					<align>center</align>
 					<font>font11</font>
-					<label>[B]$INFO[Window.Property(Hourly.8.Time)]$INFO[Window.Property(Hourly.8.ShortDate), - ][/B]</label>
+					<label>[B]$INFO[Window(weather).Property(Hourly.8.Time)]$INFO[Window(weather).Property(Hourly.8.ShortDate), - ][/B]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1756,7 +1756,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.8.Outlook)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.8.Outlook)]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1766,7 +1766,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font18</font>
-					<label>$INFO[Window.Property(Hourly.8.Temperature)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.8.Temperature)]</label>
 				</control>
 				<control type="multiimage"><!-- Hourly 8 condition icon -->
 					<left>108</left>
@@ -1786,7 +1786,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.8.Precipitation),$LOCALIZE[33022]:[CR]]</label>
+					<label>$INFO[Window(weather).Property(Hourly.8.Precipitation),$LOCALIZE[33022]:[CR]]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1795,7 +1795,7 @@
 					<height>40</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.8.Windspeed),$LOCALIZE[404]: ] $INFO[Window.Property(Hourly.8.WindDirection)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.8.Windspeed),$LOCALIZE[404]: ] $INFO[Window(weather).Property(Hourly.8.WindDirection)]</label>
 				</control>
 			</control>
 			<control type="group"><!-- Hourly 9 -->
@@ -1808,7 +1808,7 @@
 					<height>22</height>
 					<align>center</align>
 					<font>font11</font>
-					<label>[B]$INFO[Window.Property(Hourly.9.Time)]$INFO[Window.Property(Hourly.9.ShortDate), - ][/B]</label>
+					<label>[B]$INFO[Window(weather).Property(Hourly.9.Time)]$INFO[Window(weather).Property(Hourly.9.ShortDate), - ][/B]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1817,7 +1817,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.9.Outlook)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.9.Outlook)]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1827,7 +1827,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font18</font>
-					<label>$INFO[Window.Property(Hourly.9.Temperature)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.9.Temperature)]</label>
 				</control>
 				<control type="multiimage"><!-- Hourly 9 condition icon -->
 					<left>108</left>
@@ -1847,7 +1847,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.9.Precipitation),$LOCALIZE[33022]:[CR]]</label>
+					<label>$INFO[Window(weather).Property(Hourly.9.Precipitation),$LOCALIZE[33022]:[CR]]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1856,7 +1856,7 @@
 					<height>40</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.9.Windspeed),$LOCALIZE[404]: ] $INFO[Window.Property(Hourly.9.WindDirection)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.9.Windspeed),$LOCALIZE[404]: ] $INFO[Window(weather).Property(Hourly.9.WindDirection)]</label>
 				</control>
 			</control>
 			<control type="group"><!-- Hourly 10 -->
@@ -1869,7 +1869,7 @@
 					<height>22</height>
 					<align>center</align>
 					<font>font11</font>
-					<label>[B]$INFO[Window.Property(Hourly.10.Time)]$INFO[Window.Property(Hourly.10.ShortDate), - ][/B]</label>
+					<label>[B]$INFO[Window(weather).Property(Hourly.10.Time)]$INFO[Window(weather).Property(Hourly.10.ShortDate), - ][/B]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1878,7 +1878,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.10.Outlook)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.10.Outlook)]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1888,7 +1888,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font18</font>
-					<label>$INFO[Window.Property(Hourly.10.Temperature)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.10.Temperature)]</label>
 				</control>
 				<control type="multiimage"><!-- Hourly 10 animated custom condition icon -->
 					<left>108</left>
@@ -1908,7 +1908,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.10.Precipitation),$LOCALIZE[33022]:[CR]]</label>
+					<label>$INFO[Window(weather).Property(Hourly.10.Precipitation),$LOCALIZE[33022]:[CR]]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1917,7 +1917,7 @@
 					<height>40</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.10.Windspeed),$LOCALIZE[404]: ] $INFO[Window.Property(Hourly.10.WindDirection)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.10.Windspeed),$LOCALIZE[404]: ] $INFO[Window(weather).Property(Hourly.10.WindDirection)]</label>
 				</control>
 			</control>
 			<control type="group"><!-- Hourly 11 -->
@@ -1930,7 +1930,7 @@
 					<height>22</height>
 					<align>center</align>
 					<font>font11</font>
-					<label>[B]$INFO[Window.Property(Hourly.11.Time)]$INFO[Window.Property(Hourly.11.ShortDate), - ][/B]</label>
+					<label>[B]$INFO[Window(weather).Property(Hourly.11.Time)]$INFO[Window(weather).Property(Hourly.11.ShortDate), - ][/B]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1939,7 +1939,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.11.Outlook)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.11.Outlook)]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1949,7 +1949,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font18</font>
-					<label>$INFO[Window.Property(Hourly.11.Temperature)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.11.Temperature)]</label>
 				</control>
 				<control type="multiimage"><!-- Hourly 11 condition icon -->
 					<left>108</left>
@@ -1969,7 +1969,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.11.Precipitation),$LOCALIZE[33022]:[CR]]</label>
+					<label>$INFO[Window(weather).Property(Hourly.11.Precipitation),$LOCALIZE[33022]:[CR]]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -1978,7 +1978,7 @@
 					<height>40</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.11.Windspeed),$LOCALIZE[404]: ] $INFO[Window.Property(Hourly.11.WindDirection)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.11.Windspeed),$LOCALIZE[404]: ] $INFO[Window(weather).Property(Hourly.11.WindDirection)]</label>
 				</control>
 			</control>
 			<control type="group"><!-- Hourly 12 -->
@@ -1991,7 +1991,7 @@
 					<height>22</height>
 					<align>center</align>
 					<font>font11</font>
-					<label>[B]$INFO[Window.Property(Hourly.12.Time)]$INFO[Window.Property(Hourly.12.ShortDate), - ][/B]</label>
+					<label>[B]$INFO[Window(weather).Property(Hourly.12.Time)]$INFO[Window(weather).Property(Hourly.12.ShortDate), - ][/B]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -2000,7 +2000,7 @@
 					<height>20</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.12.Outlook)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.12.Outlook)]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -2010,7 +2010,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font18</font>
-					<label>$INFO[Window.Property(Hourly.12.Temperature)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.12.Temperature)]</label>
 				</control>
 				<control type="multiimage"><!-- Hourly 12 condition icon -->
 					<left>108</left>
@@ -2030,7 +2030,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.12.Precipitation),$LOCALIZE[33022]:[CR]]</label>
+					<label>$INFO[Window(weather).Property(Hourly.12.Precipitation),$LOCALIZE[33022]:[CR]]</label>
 				</control>
 				<control type="label">
 					<left>5</left>
@@ -2039,12 +2039,12 @@
 					<height>40</height>
 					<align>center</align>
 					<font>font10</font>
-					<label>$INFO[Window.Property(Hourly.12.Windspeed),$LOCALIZE[404]: ] $INFO[Window.Property(Hourly.12.WindDirection)]</label>
+					<label>$INFO[Window(weather).Property(Hourly.12.Windspeed),$LOCALIZE[404]: ] $INFO[Window(weather).Property(Hourly.12.WindDirection)]</label>
 				</control>
 			</control>
 		</control>
 		<control type="group">
-			<visible>StringCompare(Skin.String(weather-view),$LOCALIZE[33035]) + !IsEmpty(Window.Property(Current.Temperature))</visible><!-- Maps -->
+			<visible>StringCompare(Skin.String(weather-view),$LOCALIZE[33035]) + !IsEmpty(Window(weather).Property(Current.Temperature))</visible><!-- Maps -->
 			<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
 			<!-- Current forecast -->
 			<control type="group">
@@ -2056,8 +2056,8 @@
 					<font>Clock</font>
 					<align>center</align>
 					<aligny>bottom</aligny>
-					<label>$INFO[Window.Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
-					<visible>!IsEmpty(Window.Property(Current.Temperature))</visible>
+					<label>$INFO[Window(weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
+					<visible>!IsEmpty(Window(weather).Property(Current.Temperature))</visible>
 				</control>
 				<control type="label"><!-- Current temperature range -->
 					<left>892</left>
@@ -2065,11 +2065,11 @@
 					<width>150</width>
 					<height>38</height>
 					<shadowcolor>80000000</shadowcolor>
-					<label>[COLOR red]$INFO[Window(Weather).Property(Day0.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(Weather).Property(Day0.LowTemp)][/COLOR]</label>
+					<label>[COLOR red]$INFO[Window(weather).Property(Day0.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(weather).Property(Day0.LowTemp)][/COLOR]</label>
 					<font>font22</font>
 					<align>center</align>
 					<aligny>bottom</aligny>
-					<visible>!IsEmpty(Window.Property(Day0.HighTemp))</visible>
+					<visible>!IsEmpty(Window(weather).Property(Day0.HighTemp))</visible>
 				</control>
 				<control type="label"><!-- Current feels like heading -->
 					<left>690</left>
@@ -2116,44 +2116,44 @@
 					<top>222</top>
 					<width>366</width>
 					<height>30</height>
-					<label>$INFO[Window.Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
-					<visible>!IsEmpty(Window.Property(Current.FeelsLike))</visible>
+					<label>$INFO[Window(weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
+					<visible>!IsEmpty(Window(weather).Property(Current.FeelsLike))</visible>
 				</control>
 				<control type="label"><!-- Current dew value -->
 					<left>980</left>
 					<top>252</top>
 					<width>366</width>
 					<height>30</height>
-					<label>$INFO[Window.Property(Current.DewPoint)]$INFO[System.TemperatureUnits]</label>
-					<visible>!IsEmpty(Window.Property(Current.DewPoint))</visible>
+					<label>$INFO[Window(weather).Property(Current.DewPoint)]$INFO[System.TemperatureUnits]</label>
+					<visible>!IsEmpty(Window(weather).Property(Current.DewPoint))</visible>
 				</control>
 				<control type="label"><!-- Current humidity value -->
 					<left>980</left>
 					<top>282</top>
 					<width>366</width>
 					<height>30</height>
-					<label>$INFO[Window.Property(Current.Humidity)]</label>
+					<label>$INFO[Window(weather).Property(Current.Humidity)]</label>
 				</control>
 				<control type="label"><!-- Current UV index value -->
 					<left>980</left>
 					<top>312</top>
 					<width>366</width>
 					<height>30</height>
-					<label>$INFO[Window.Property(Current.UVIndex)]</label>
+					<label>$INFO[Window(weather).Property(Current.UVIndex)]</label>
 				</control>
 				<control type="label"><!-- Current wind value -->
 					<left>980</left>
 					<top>342</top>
 					<width>366</width>
 					<height>30</height>
-					<label>$INFO[Window.Property(Current.Wind)]</label>
+					<label>$INFO[Window(weather).Property(Current.Wind)]</label>
 				</control>
 				<control type="label"><!-- Current condition -->
 					<left>760</left>
 					<top>392</top>
 					<width>416</width>
 					<height>72</height>
-					<label>$INFO[Window.Property(Current.Condition)]</label>
+					<label>$INFO[Window(weather).Property(Current.Condition)]</label>
 					<wrapmultiline>true</wrapmultiline>
 					<font>font22</font>
 					<align>center</align>
@@ -2209,7 +2209,7 @@
 				<viewtype label="535">list</viewtype>
 				<scrolltime>0</scrolltime>
 				<orientation>vertical</orientation>
-				<visible>!IsEmpty(Window.Property(Map.IsFetched))</visible>
+				<visible>!IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
 				<itemlayout height="350" width="600">
 					<control type="image"><!-- Layer Image -->
 						<left>0</left>
@@ -2264,44 +2264,44 @@
 				</focusedlayout>
 				<content>
 					<item>
-						<label>$INFO[Window.Property(Map.1.Heading)]</label>
-						<label2>$INFO[Window.Property(Map.1.Legend)]</label2>
-						<icon>$INFO[Window.Property(Map.1.Area)]</icon>
-						<property name="Layer">$INFO[Window.Property(Map.1.Layer)]</property>
+						<label>$INFO[Window(weather).Property(Map.1.Heading)]</label>
+						<label2>$INFO[Window(weather).Property(Map.1.Legend)]</label2>
+						<icon>$INFO[Window(weather).Property(Map.1.Area)]</icon>
+						<property name="Layer">$INFO[Window(weather).Property(Map.1.Layer)]</property>
 						<onclick>noop</onclick>
-						<visible>Weather.IsFetched + !IsEmpty(Window.Property(Map.1.Area)) + !IsEmpty(Window.Property(Map.IsFetched))</visible>
+						<visible>Weather.IsFetched + !IsEmpty(Window(weather).Property(Map.1.Area)) + !IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
 					</item>
 					<item>
-						<label>$INFO[Window.Property(Map.2.Heading)]</label>
-						<label2>$INFO[Window.Property(Map.2.Legend)]</label2>
-						<icon>$INFO[Window.Property(Map.2.Area)]</icon>
-						<property name="Layer">$INFO[Window.Property(Map.2.Layer)]</property>
+						<label>$INFO[Window(weather).Property(Map.2.Heading)]</label>
+						<label2>$INFO[Window(weather).Property(Map.2.Legend)]</label2>
+						<icon>$INFO[Window(weather).Property(Map.2.Area)]</icon>
+						<property name="Layer">$INFO[Window(weather).Property(Map.2.Layer)]</property>
 						<onclick>noop</onclick>
-						<visible>Weather.IsFetched + !IsEmpty(Window.Property(Map.2.Area)) + !IsEmpty(Window.Property(Map.IsFetched))</visible>
+						<visible>Weather.IsFetched + !IsEmpty(Window.Property(Map.2.Area)) + !IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
 					</item>
 					<item>
-						<label>$INFO[Window.Property(Map.3.Heading)]</label>
-						<label2>$INFO[Window.Property(Map.3.Legend)]</label2>
-						<icon>$INFO[Window.Property(Map.3.Area)]</icon>
-						<property name="Layer">$INFO[Window.Property(Map.3.Layer)]</property>
+						<label>$INFO[Window(weather).Property(Map.3.Heading)]</label>
+						<label2>$INFO[Window(weather).Property(Map.3.Legend)]</label2>
+						<icon>$INFO[Window(weather).Property(Map.3.Area)]</icon>
+						<property name="Layer">$INFO[Window(weather).Property(Map.3.Layer)]</property>
 						<onclick>noop</onclick>
-						<visible>Weather.IsFetched + !IsEmpty(Window.Property(Map.3.Area)) + !IsEmpty(Window.Property(Map.IsFetched))</visible>
+						<visible>Weather.IsFetched + !IsEmpty(Window(weather).Property(Map.3.Area)) + !IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
 					</item>
 					<item>
-						<label>$INFO[Window.Property(Map.4.Heading)]</label>
-						<label2>$INFO[Window.Property(Map.4.Legend)]</label2>
-						<icon>$INFO[Window.Property(Map.4.Area)]</icon>
-						<property name="Layer">$INFO[Window.Property(Map.4.Layer)]</property>
+						<label>$INFO[Window(weather).Property(Map.4.Heading)]</label>
+						<label2>$INFO[Window(weather).Property(Map.4.Legend)]</label2>
+						<icon>$INFO[Window(weather).Property(Map.4.Area)]</icon>
+						<property name="Layer">$INFO[Window(weather).Property(Map.4.Layer)]</property>
 						<onclick>noop</onclick>
-						<visible>Weather.IsFetched + !IsEmpty(Window.Property(Map.4.Area)) + !IsEmpty(Window.Property(Map.IsFetched))</visible>
+						<visible>Weather.IsFetched + !IsEmpty(Window(weather).Property(Map.4.Area)) + !IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
 					</item>
 					<item>
-						<label>$INFO[Window.Property(Map.5.Heading)]</label>
-						<label2>$INFO[Window.Property(Map.5.Legend)]</label2>
-						<icon>$INFO[Window.Property(Map.5.Area)]</icon>
-						<property name="Layer">$INFO[Window.Property(Map.5.Layer)]</property>
+						<label>$INFO[Window(weather).Property(Map.5.Heading)]</label>
+						<label2>$INFO[Window(weather).Property(Map.5.Legend)]</label2>
+						<icon>$INFO[Window(weather).Property(Map.5.Area)]</icon>
+						<property name="Layer">$INFO[Window(weather).Property(Map.5.Layer)]</property>
 						<onclick>noop</onclick>
-						<visible>Weather.IsFetched + !IsEmpty(Window.Property(Map.5.Area)) + !IsEmpty(Window.Property(Map.IsFetched))</visible>
+						<visible>Weather.IsFetched + !IsEmpty(Window(weather).Property(Map.5.Area)) + !IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
 					</item>
 				</content>
 			</control>
@@ -2318,7 +2318,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>Skin.HasSetting(weather-alerts) + !IsEmpty(Window.Property(Alerts.RSS))</visible><!-- Alerts -->
+			<visible>Skin.HasSetting(weather-alerts) + !IsEmpty(Window(weather).Property(Alerts.RSS))</visible><!-- Alerts -->
 			<control type="group">
 				<control type="image">
 					<left>310</left>
@@ -2336,7 +2336,7 @@
 					<font>font11</font>
 					<scrollout>false</scrollout>
 					<pauseatend>4000</pauseatend>
-					<label>[B]$INFO[Window.Property(Alerts)][/B]</label>
+					<label>[B]$INFO[Window(weather).Property(Alerts)][/B]</label>
 					<autoscroll time="3000" delay="10000" repeat="5000">true</autoscroll>
 				</control>
 			</control>

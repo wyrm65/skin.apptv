@@ -3,8 +3,8 @@
 	<defaultcontrol always="true">50</defaultcontrol>
 	<menucontrol>9000</menucontrol>
 	<views>50,52,54,57,58</views>
-	<onload>ClearProperty(ShowScreenSettings,Home)</onload>
-	<onunload>ClearProperty(ShowScreenSettings,Home)</onunload>
+	<onload>ClearProperty(ShowScreenSettings,home)</onload>
+	<onunload>ClearProperty(ShowScreenSettings,home)</onunload>
 	<controls>
 		<include>background</include>
 		<include>fake-overlay</include>
@@ -68,8 +68,8 @@
 				<height>32</height>
 				<texturefocus>touch-close.png</texturefocus>
 				<texturenofocus>touch-close.png</texturenofocus>
-				<onclick condition="!StringCompare(Window(home).Property(ShowScreenSettings),show)">SetProperty(ShowScreenSettings,show,Home)</onclick>
-				<onclick condition="StringCompare(Window(home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,Home)</onclick>
+				<onclick condition="!StringCompare(Window(home).Property(ShowScreenSettings),show)">SetProperty(ShowScreenSettings,show,home)</onclick>
+				<onclick condition="StringCompare(Window(home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,home)</onclick>
 				<visible>Skin.HasSetting(touch-controls)</visible>
 			</control>
 			<control type="image">
