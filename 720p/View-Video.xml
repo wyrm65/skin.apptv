@@ -34,14 +34,6 @@
 					<texture>$VAR[Overlay]</texture>
 				</control>
 				<control type="image">
-					<left>526</left>
-					<top>16</top>
-					<width>16</width>
-					<height>16</height>
-					<texture>$VAR[ExtrasOverlay]</texture>
-					<visible>System.HasAddon(script.videoextras)</visible>
-				</control>
-				<control type="image">
 					<left>516</left>
 					<top>32</top>
 					<width>32</width>
@@ -200,14 +192,6 @@
 					<width>32</width>
 					<height>32</height>
 					<texture>$VAR[Overlay]</texture>
-				</control>
-				<control type="image">
-					<left>526</left>
-					<top>10</top>
-					<width>16</width>
-					<height>16</height>
-					<texture>$VAR[ExtrasOverlay]</texture>
-					<visible>System.HasAddon(script.videoextras)</visible>
 				</control>
 				<control type="image">
 					<left>516</left>
@@ -708,14 +692,6 @@
 					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 					<visible>!SubString(ListItem.Icon,Default,Left) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 				</control>
-				<control type="image"><!-- Extras Overlay -->
-					<left>96</left>
-					<top>8</top>
-					<width>16</width>
-					<height>16</height>
-					<texture>$VAR[ExtrasOverlay]</texture>
-					<visible>System.HasAddon(script.videoextras)</visible>
-				</control>
 				<control type="image"><!-- Watched Overlay -->
 					<left>188</left>
 					<top>-2</top>
@@ -763,14 +739,6 @@
 						<bordersize>7</bordersize>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<visible>!SubString(ListItem.Icon,Default,Left) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
-					</control>
-					<control type="image"><!-- Extras Overlay -->
-						<left>104</left>
-						<top>14</top>
-						<width>16</width>
-						<height>16</height>
-						<texture>$VAR[ExtrasOverlay]</texture>
-						<visible>System.HasAddon(script.videoextras)</visible>
 					</control>
 					<control type="image"><!-- Watched Overlay -->
 						<left>182</left>
@@ -1277,14 +1245,6 @@
 					<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
 					<param name="size" value="54"/>
 				</include>
-				<control type="image">
-					<left>57</left>
-					<top>322</top>
-					<width>16</width>
-					<height>16</height>
-					<texture>$VAR[ExtrasOverlay]</texture>
-					<visible>System.HasAddon(script.videoextras)</visible>
-				</control>
 			</itemlayout>
 			<itemlayout height="292" width="90" condition="!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes)">
 				<control type="image">
@@ -1362,14 +1322,6 @@
 					<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
 					<param name="size" value="90"/>
 				</include>
-				<control type="image">
-					<left>206</left>
-					<top>120</top>
-					<width>24</width>
-					<height>24</height>
-					<texture>$VAR[ExtrasOverlay]</texture>
-					<visible>System.HasAddon(script.videoextras)</visible>
-				</control>
 				<control type="image">
 					<left>114</left>
 					<top>114</top>
@@ -2105,14 +2057,6 @@
 					<height>32</height>
 					<texture>$VAR[Overlay]</texture>
 				</control>
-				<control type="image"><!-- Extras Overlay -->
-					<left>12</left>
-					<top>6</top>
-					<width>16</width>
-					<height>16</height>
-					<texture>$VAR[ExtrasOverlay]</texture>
-					<visible>System.HasAddon(script.videoextras)</visible>
-				</control>
 				<include name="listitem-count">
 					<param name="left" value="80"/>
 					<param name="top" value="152"/>
@@ -2169,14 +2113,6 @@
 						<width>32</width>
 						<height>32</height>
 						<texture>$VAR[Overlay]</texture>
-					</control>
-					<control type="image"><!-- Extras Overlay -->
-						<left>5</left>
-						<top>12</top>
-						<width>16</width>
-						<height>16</height>
-						<texture>$VAR[ExtrasOverlay]</texture>
-						<visible>System.HasAddon(script.videoextras)</visible>
 					</control>
 					<include name="listitem-count">
 						<param name="left" value="80"/>

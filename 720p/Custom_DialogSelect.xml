@@ -104,12 +104,6 @@
 							<visible>StringCompare(Window(home).Property(SelectDialogType),videoinfomore) + System.HasAddon(script.artwork.downloader) + [Container.Content(tvshows) | Container.Content(movies) | Container.Content(musicvideos)] + !IsEmpty(ListItem.DBID)</visible>
 						</item>
 						<item>
-							<label>$LOCALIZE[31892]</label>
-							<onclick>Dialog.Close(1154)</onclick>
-							<onclick>RunScript(script.tvtunes,mode=solo)</onclick>
-							<visible>StringCompare(Window(home).Property(SelectDialogType),videoinfomore) + System.HasAddon(script.tvtunes) + [Container.Content(tvshows) | Container.Content(movies) | Container.Content(musicvideos)]</visible>
-						</item>
-						<item>
 							<label>$LOCALIZE[38023]</label>
 							<onclick>Dialog.Close(1154)</onclick>
 							<onclick>SendClick(movieinformation,7)</onclick>

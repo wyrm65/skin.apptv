@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">999</defaultcontrol>
-	<onload condition="System.HasAddon(script.videoextras)">RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
 	<controls>
 		<include>background</include>
 		<control type="label">
@@ -484,14 +483,6 @@
 				<texturenofocus>button-info-trailer.png</texturenofocus>
 				<enable>!IsEmpty(ListItem.Trailer)</enable>
 				<visible>Container.Content(movies)</visible>
-			</control>
-			<control type="button" id="100"><!-- Video Extras -->
-				<include>videoinfo-options-common</include>
-				<label>$ADDON[script.videoextras 32001]</label>
-				<texturefocus>button-info-extras-focus.png</texturefocus>
-				<texturenofocus>button-info-extras.png</texturenofocus>
-				<onclick>RunScript(script.videoextras,display,"$INFO[ListItem.FilenameAndPath]")</onclick>
-				<visible>System.HasAddon(script.videoextras) + !Container.Content(files) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(TVShows) | Container.Content(musicvideos)]</visible>
 			</control>
 			<control type="group" id="905">
 				<visible>!Container.Content(musicvideos)</visible>
