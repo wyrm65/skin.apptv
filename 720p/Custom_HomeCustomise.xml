@@ -10,7 +10,7 @@
 			<width>309</width>
 			<height>31</height>
 			<label>$LOCALIZE[31803]</label>
-			<font>font18</font>
+			<font>apptv30</font>
 		</control>
 		<control type="label"><!-- Settings label line 2 -->
 			<left>946</left>
@@ -18,7 +18,7 @@
 			<width>309</width>
 			<height>31</height>
 			<label>$LOCALIZE[5]</label>
-			<font>font18</font>
+			<font>apptv30</font>
 		</control>
 
 		<control type="button" id="402"><!-- Home menu type -->
@@ -30,7 +30,7 @@
 			<texturenofocus border="6">button-default-focus.png</texturenofocus>
 			<textwidth>310</textwidth>
 			<label>$LOCALIZE[31900] - $VAR[MenuType]</label>
-			<font>font10</font>
+			<font>apptv20</font>
 			<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=homemenu-typeval,header=$LOCALIZE[31900])</onclick>
 			<ondown condition="Skin.HasSetting(homemenu-horizontal)">9001</ondown>
 			<ondown condition="Skin.HasSetting(homemenu-icon)">9021</ondown>
@@ -147,7 +147,7 @@
 							<top>17</top>
 							<width>210</width>
 							<height>32</height>
-							<font>font18</font>
+							<font>apptv30</font>
 							<align>center</align>
 							<label>$INFO[Container(9100).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-video)">Conditional</animation>
@@ -271,7 +271,7 @@
 							<top>17</top>
 							<width>210</width>
 							<height>32</height>
-							<font>font18</font>
+							<font>apptv30</font>
 							<align>center</align>
 							<label>$INFO[Container(9150).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="35" condition="Skin.HasSetting(home-movie) + IsEmpty(Skin.String(CustomMovies.1.Path)) + IsEmpty(Skin.String(CustomMovies.2.Path)) + IsEmpty(Skin.String(CustomMovies.3.Path)) + IsEmpty(Skin.String(CustomMovies.4.Path)) + IsEmpty(Skin.String(CustomMovies.5.Path))">Conditional</animation>
@@ -401,7 +401,7 @@
 							<top>17</top>
 							<width>210</width>
 							<height>32</height>
-							<font>font18</font>
+							<font>apptv30</font>
 							<align>center</align>
 							<label>$INFO[Container(9200).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-tvshows) + IsEmpty(Skin.String(CustomTVShow.1.Path)) + IsEmpty(Skin.String(CustomTVShow.2.Path)) + IsEmpty(Skin.String(CustomTVShow.3.Path)) + IsEmpty(Skin.String(CustomTVShow.4.Path)) + IsEmpty(Skin.String(CustomTVShow.5.Path))">Conditional</animation>
@@ -531,7 +531,7 @@
 							<top>17</top>
 							<width>210</width>
 							<height>32</height>
-							<font>font18</font>
+							<font>apptv30</font>
 							<align>center</align>
 							<label>$INFO[Container(9500).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="!Pvr.HasTVChannels + !Pvr.HasRadioChannels + IsEmpty(Skin.String(CustomTV.1.Path)) + IsEmpty(Skin.String(CustomTV.2.Path)) + IsEmpty(Skin.String(CustomTV.3.Path)) + IsEmpty(Skin.String(CustomTV.4.Path)) + IsEmpty(Skin.String(CustomTV.5.Path)) + IsEmpty(Skin.String(CustomRadio.1.Path)) + IsEmpty(Skin.String(CustomRadio.2.Path)) + IsEmpty(Skin.String(CustomRadio.3.Path)) + IsEmpty(Skin.String(CustomRadio.4.Path)) + IsEmpty(Skin.String(CustomRadio.5.Path))">Conditional</animation>
@@ -694,7 +694,7 @@
 							<top>17</top>
 							<width>210</width>
 							<height>32</height>
-							<font>font18</font>
+							<font>apptv30</font>
 							<align>center</align>
 							<label>$VAR[CustomFavHeading]</label>
 							<animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(home-favorites) + IsEmpty(Skin.String(CustomFav.1.Path)) + IsEmpty(Skin.String(CustomFav.2.Path)) + IsEmpty(Skin.String(CustomFav.3.Path)) + IsEmpty(Skin.String(CustomFav.4.Path)) + IsEmpty(Skin.String(CustomFav.5.Path))">Conditional</animation>
@@ -817,7 +817,7 @@
 							<top>17</top>
 							<width>210</width>
 							<height>32</height>
-							<font>font18</font>
+							<font>apptv30</font>
 							<align>center</align>
 							<label>$INFO[Container(9250).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-music) + !Skin.HasSetting(home-musicvideo) + IsEmpty(Skin.String(CustomMusic.1.Path)) + IsEmpty(Skin.String(CustomMusic.2.Path)) + IsEmpty(Skin.String(CustomMusic.3.Path)) + IsEmpty(Skin.String(CustomMusic.4.Path)) + IsEmpty(Skin.String(CustomMusic.5.Path))">Conditional</animation>
@@ -934,7 +934,7 @@
 							<top>17</top>
 							<width>210</width>
 							<height>32</height>
-							<font>font18</font>
+							<font>apptv30</font>
 							<align>center</align>
 							<label>$INFO[Container(9300).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(home-photos)">Conditional</animation>
@@ -1029,7 +1029,7 @@
 							<top>17</top>
 							<width>210</width>
 							<height>32</height>
-							<font>font18</font>
+							<font>apptv30</font>
 							<align>center</align>
 							<label>$INFO[Container(9350).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-programs) + IsEmpty(Skin.String(CustomAddon.1.Path)) + IsEmpty(Skin.String(CustomAddon.2.Path)) + IsEmpty(Skin.String(CustomAddon.3.Path)) + IsEmpty(Skin.String(CustomAddon.4.Path)) + IsEmpty(Skin.String(CustomAddon.5.Path))">Conditional</animation>
@@ -1160,7 +1160,7 @@
 							<top>17</top>
 							<width>210</width>
 							<height>32</height>
-							<font>font18</font>
+							<font>apptv30</font>
 							<align>center</align>
 							<label>$INFO[Container(9400).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(home-weather) + !Skin.HasSetting(home-currentweather)">Conditional</animation>
@@ -1248,7 +1248,7 @@
 							<top>17</top>
 							<width>210</width>
 							<height>32</height>
-							<font>font18</font>
+							<font>apptv30</font>
 							<align>center</align>
 							<label>$INFO[Container(9450).ListItem.Property(menuHeading)]</label>
 							<animation condition="Control.HasFocus(402)" effect="fade" start="100" end="65">Conditional</animation>
@@ -1396,7 +1396,7 @@
 							<height>22</height>
 							<align>center</align>
 							<label fallback="20333">$INFO[ListItem.label]</label>
-							<font>font11</font>
+							<font>apptv22</font>
 							<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
 						</control>
 					</focusedlayout>
@@ -2220,7 +2220,7 @@
 			<top>666</top>
 			<width>1260</width>
 			<height>50</height>
-			<font>font10</font>
+			<font>apptv20</font>
 			<align>center</align>
 			<label>$VAR[SkinSettingHelp]</label>
 		</control>

@@ -189,11 +189,6 @@
 		<value condition="ListItem.IsRecording">overlayisrecording.png</value>
 		<value condition="ListItem.HasTimer + !ListItem.IsRecording">overlayhastimer.png</value>
 	</variable>
-	<variable name="ExtrasOverlay">
-		<value condition="Container.Content(movies)">$INFO[ListItem.DBID,special://profile/addon_data/script.videoextras/movies/,.png]</value>
-		<value condition="Container.Content(tvshows)">$INFO[ListItem.DBID,special://profile/addon_data/script.videoextras/tvshows/,.png]</value>
-		<value condition="Container.Content(musicvideos)">$INFO[ListItem.DBID,special://profile/addon_data/script.videoextras/musicvideos/,.png]</value>
-	</variable>
 	<variable name="ListItemFlags">
 		<value condition="ListItem.IsStereoscopic">listitem/3D.png</value>
 		<value condition="!IsEmpty(ListItem.VideoResolution) + IntegerGreaterThan(ListItem.VideoResolution,2000)">listitem/4K.png</value>
@@ -1310,6 +1305,192 @@
 		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.4)">$INFO[Skin.String(CustomAddon.4.Path)]</value>
 		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.5)">$INFO[Skin.String(CustomAddon.5.Path)]</value>
 	</variable>
+	<variable name="CustomPlaylistAction"><!-- Show custom skin playlist action in customisation dialog -->
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.1) + !Skin.HasSetting(CustomMovies.1.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.2) + !Skin.HasSetting(CustomMovies.2.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.3) + !Skin.HasSetting(CustomMovies.3.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.4) + !Skin.HasSetting(CustomMovies.4.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.5) + !Skin.HasSetting(CustomMovies.5.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.1) + !Skin.HasSetting(CustomTVShow.1.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.2) + !Skin.HasSetting(CustomTVShow.2.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.3) + !Skin.HasSetting(CustomTVShow.3.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.4) + !Skin.HasSetting(CustomTVShow.4.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.5) + !Skin.HasSetting(CustomTVShow.5.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.1) + !Skin.HasSetting(CustomTV.1.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.2) + !Skin.HasSetting(CustomTV.2.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.3) + !Skin.HasSetting(CustomTV.3.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.4) + !Skin.HasSetting(CustomTV.4.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.5) + !Skin.HasSetting(CustomTV.5.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.1) + !Skin.HasSetting(CustomRadio.1.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.2) + !Skin.HasSetting(CustomRadio.2.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.3) + !Skin.HasSetting(CustomRadio.3.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.4) + !Skin.HasSetting(CustomRadio.4.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.5) + !Skin.HasSetting(CustomRadio.5.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.1) + !Skin.HasSetting(CustomFav.1.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.2) + !Skin.HasSetting(CustomFav.2.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.3) + !Skin.HasSetting(CustomFav.3.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.4) + !Skin.HasSetting(CustomFav.4.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.5) + !Skin.HasSetting(CustomFav.5.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.1) + !Skin.HasSetting(CustomMusic.1.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.2) + !Skin.HasSetting(CustomMusic.2.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.3) + !Skin.HasSetting(CustomMusic.3.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.4) + !Skin.HasSetting(CustomMusic.4.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.5) + !Skin.HasSetting(CustomMusic.5.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.1) + !Skin.HasSetting(CustomAddon.1.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.2) + !Skin.HasSetting(CustomAddon.2.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.3) + !Skin.HasSetting(CustomAddon.3.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.4) + !Skin.HasSetting(CustomAddon.4.Show)">$LOCALIZE[14098]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.5) + !Skin.HasSetting(CustomAddon.5.Show)">$LOCALIZE[14098]</value>
+		<value>$LOCALIZE[31941]</value>
+	</variable>
+	<variable name="CustomSkinPlaylist"><!-- Show custom skin item playlist in customisation dialog -->
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.1)">$INFO[Skin.String(CustomMovies.1.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.2)">$INFO[Skin.String(CustomMovies.2.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.3)">$INFO[Skin.String(CustomMovies.3.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.4)">$INFO[Skin.String(CustomMovies.4.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.5)">$INFO[Skin.String(CustomMovies.5.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.1)">$INFO[Skin.String(CustomTVShow.1.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.2)">$INFO[Skin.String(CustomTVShow.2.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.3)">$INFO[Skin.String(CustomTVShow.3.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.4)">$INFO[Skin.String(CustomTVShow.4.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.5)">$INFO[Skin.String(CustomTVShow.5.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.1)">$INFO[Skin.String(CustomTV.1.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.2)">$INFO[Skin.String(CustomTV.2.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.3)">$INFO[Skin.String(CustomTV.3.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.4)">$INFO[Skin.String(CustomTV.4.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.5)">$INFO[Skin.String(CustomTV.5.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.1)">$INFO[Skin.String(CustomRadio.1.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.2)">$INFO[Skin.String(CustomRadio.2.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.3)">$INFO[Skin.String(CustomRadio.3.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.4)">$INFO[Skin.String(CustomRadio.4.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.5)">$INFO[Skin.String(CustomRadio.5.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.1)">$INFO[Skin.String(CustomFav.1.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.2)">$INFO[Skin.String(CustomFav.2.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.3)">$INFO[Skin.String(CustomFav.3.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.4)">$INFO[Skin.String(CustomFav.4.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.5)">$INFO[Skin.String(CustomFav.5.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.1)">$INFO[Skin.String(CustomMusic.1.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.2)">$INFO[Skin.String(CustomMusic.2.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.3)">$INFO[Skin.String(CustomMusic.3.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.4)">$INFO[Skin.String(CustomMusic.4.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.5)">$INFO[Skin.String(CustomMusic.5.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.1)">$INFO[Skin.String(CustomAddon.1.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.2)">$INFO[Skin.String(CustomAddon.2.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.3)">$INFO[Skin.String(CustomAddon.3.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.4)">$INFO[Skin.String(CustomAddon.4.List)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.5)">$INFO[Skin.String(CustomAddon.5.List)]</value>
+	</variable>
+	<variable name="CustomPlaylistMusic"><!-- Custom skin item playlist action (List Music) in customisation dialog -->
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.1)">"ActivateWindow(music,"$INFO[Skin.String(CustomMovies.1.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.2)">"ActivateWindow(music,"$INFO[Skin.String(CustomMovies.2.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.3)">"ActivateWindow(music,"$INFO[Skin.String(CustomMovies.3.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.4)">"ActivateWindow(music,"$INFO[Skin.String(CustomMovies.4.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.5)">"ActivateWindow(music,"$INFO[Skin.String(CustomMovies.5.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.1)">"ActivateWindow(music,"$INFO[Skin.String(CustomTVShow.1.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.2)">"ActivateWindow(music,"$INFO[Skin.String(CustomTVShow.2.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.3)">"ActivateWindow(music,"$INFO[Skin.String(CustomTVShow.3.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.4)">"ActivateWindow(music,"$INFO[Skin.String(CustomTVShow.4.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.5)">"ActivateWindow(music,"$INFO[Skin.String(CustomTVShow.5.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.1)">"ActivateWindow(music,"$INFO[Skin.String(CustomTV.1.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.2)">"ActivateWindow(music,"$INFO[Skin.String(CustomTV.2.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.3)">"ActivateWindow(music,"$INFO[Skin.String(CustomTV.3.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.4)">"ActivateWindow(music,"$INFO[Skin.String(CustomTV.4.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.5)">"ActivateWindow(music,"$INFO[Skin.String(CustomTV.5.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.1)">"ActivateWindow(music,"$INFO[Skin.String(CustomRadio.1.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.2)">"ActivateWindow(music,"$INFO[Skin.String(CustomRadio.2.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.3)">"ActivateWindow(music,"$INFO[Skin.String(CustomRadio.3.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.4)">"ActivateWindow(music,"$INFO[Skin.String(CustomRadio.4.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.5)">"ActivateWindow(music,"$INFO[Skin.String(CustomRadio.5.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.1)">"ActivateWindow(music,"$INFO[Skin.String(CustomFav.1.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.2)">"ActivateWindow(music,"$INFO[Skin.String(CustomFav.2.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.3)">"ActivateWindow(music,"$INFO[Skin.String(CustomFav.3.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.4)">"ActivateWindow(music,"$INFO[Skin.String(CustomFav.4.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.5)">"ActivateWindow(music,"$INFO[Skin.String(CustomFav.5.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.1)">"ActivateWindow(music,"$INFO[Skin.String(CustomMusic.1.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.2)">"ActivateWindow(music,"$INFO[Skin.String(CustomMusic.2.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.3)">"ActivateWindow(music,"$INFO[Skin.String(CustomMusic.3.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.4)">"ActivateWindow(music,"$INFO[Skin.String(CustomMusic.4.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.5)">"ActivateWindow(music,"$INFO[Skin.String(CustomMusic.5.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.1)">"ActivateWindow(music,"$INFO[Skin.String(CustomAddon.1.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.2)">"ActivateWindow(music,"$INFO[Skin.String(CustomAddon.2.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.3)">"ActivateWindow(music,"$INFO[Skin.String(CustomAddon.3.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.4)">"ActivateWindow(music,"$INFO[Skin.String(CustomAddon.4.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.5)">"ActivateWindow(music,"$INFO[Skin.String(CustomAddon.5.List)]",return)"</value>
+	</variable>
+	<variable name="CustomPlaylistVideo"><!-- Custom skin item playlist action (List Video) in customisation dialog -->
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.1)">"ActivateWindow(video,"$INFO[Skin.String(CustomMovies.1.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.2)">"ActivateWindow(video,"$INFO[Skin.String(CustomMovies.2.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.3)">"ActivateWindow(video,"$INFO[Skin.String(CustomMovies.3.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.4)">"ActivateWindow(video,"$INFO[Skin.String(CustomMovies.4.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.5)">"ActivateWindow(video,"$INFO[Skin.String(CustomMovies.5.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.1)">"ActivateWindow(video,"$INFO[Skin.String(CustomTVShow.1.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.2)">"ActivateWindow(video,"$INFO[Skin.String(CustomTVShow.2.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.3)">"ActivateWindow(video,"$INFO[Skin.String(CustomTVShow.3.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.4)">"ActivateWindow(video,"$INFO[Skin.String(CustomTVShow.4.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.5)">"ActivateWindow(video,"$INFO[Skin.String(CustomTVShow.5.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.1)">"ActivateWindow(video,"$INFO[Skin.String(CustomTV.1.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.2)">"ActivateWindow(video,"$INFO[Skin.String(CustomTV.2.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.3)">"ActivateWindow(video,"$INFO[Skin.String(CustomTV.3.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.4)">"ActivateWindow(video,"$INFO[Skin.String(CustomTV.4.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.5)">"ActivateWindow(video,"$INFO[Skin.String(CustomTV.5.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.1)">"ActivateWindow(video,"$INFO[Skin.String(CustomRadio.1.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.2)">"ActivateWindow(video,"$INFO[Skin.String(CustomRadio.2.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.3)">"ActivateWindow(video,"$INFO[Skin.String(CustomRadio.3.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.4)">"ActivateWindow(video,"$INFO[Skin.String(CustomRadio.4.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.5)">"ActivateWindow(video,"$INFO[Skin.String(CustomRadio.5.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.1)">"ActivateWindow(video,"$INFO[Skin.String(CustomFav.1.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.2)">"ActivateWindow(video,"$INFO[Skin.String(CustomFav.2.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.3)">"ActivateWindow(video,"$INFO[Skin.String(CustomFav.3.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.4)">"ActivateWindow(video,"$INFO[Skin.String(CustomFav.4.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.5)">"ActivateWindow(video,"$INFO[Skin.String(CustomFav.5.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.1)">"ActivateWindow(video,"$INFO[Skin.String(CustomMusic.1.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.2)">"ActivateWindow(video,"$INFO[Skin.String(CustomMusic.2.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.3)">"ActivateWindow(video,"$INFO[Skin.String(CustomMusic.3.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.4)">"ActivateWindow(video,"$INFO[Skin.String(CustomMusic.4.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.5)">"ActivateWindow(video,"$INFO[Skin.String(CustomMusic.5.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.1)">"ActivateWindow(video,"$INFO[Skin.String(CustomAddon.1.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.2)">"ActivateWindow(video,"$INFO[Skin.String(CustomAddon.2.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.3)">"ActivateWindow(video,"$INFO[Skin.String(CustomAddon.3.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.4)">"ActivateWindow(video,"$INFO[Skin.String(CustomAddon.4.List)]",return)"</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.5)">"ActivateWindow(video,"$INFO[Skin.String(CustomAddon.5.List)]",return)"</value>
+	</variable>
+	<variable name="CustomPlaylistPlay"><!-- Custom skin item playlist action (Play playlist) in customisation dialog -->
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.1)">$INFO[Skin.String(CustomMovies.1.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.2)">$INFO[Skin.String(CustomMovies.2.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.3)">$INFO[Skin.String(CustomMovies.3.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.4)">$INFO[Skin.String(CustomMovies.4.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.5)">$INFO[Skin.String(CustomMovies.5.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.1)">$INFO[Skin.String(CustomTVShow.1.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.2)">$INFO[Skin.String(CustomTVShow.2.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.3)">$INFO[Skin.String(CustomTVShow.3.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.4)">$INFO[Skin.String(CustomTVShow.4.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTVShow.5)">$INFO[Skin.String(CustomTVShow.5.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.1)">$INFO[Skin.String(CustomTV.1.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.2)">$INFO[Skin.String(CustomTV.2.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.3)">$INFO[Skin.String(CustomTV.3.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.4)">$INFO[Skin.String(CustomTV.4.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomTV.5)">$INFO[Skin.String(CustomTV.5.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.1)">$INFO[Skin.String(CustomRadio.1.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.2)">$INFO[Skin.String(CustomRadio.2.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.3)">$INFO[Skin.String(CustomRadio.3.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.4)">$INFO[Skin.String(CustomRadio.4.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomRadio.5)">$INFO[Skin.String(CustomRadio.5.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.1)">$INFO[Skin.String(CustomFav.1.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.2)">$INFO[Skin.String(CustomFav.2.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.3)">$INFO[Skin.String(CustomFav.3.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.4)">$INFO[Skin.String(CustomFav.4.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomFav.5)">$INFO[Skin.String(CustomFav.5.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.1)">$INFO[Skin.String(CustomMusic.1.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.2)">$INFO[Skin.String(CustomMusic.2.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.3)">$INFO[Skin.String(CustomMusic.3.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.4)">$INFO[Skin.String(CustomMusic.4.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMusic.5)">$INFO[Skin.String(CustomMusic.5.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.1)">$INFO[Skin.String(CustomAddon.1.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.2)">$INFO[Skin.String(CustomAddon.2.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.3)">$INFO[Skin.String(CustomAddon.3.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.4)">$INFO[Skin.String(CustomAddon.4.List),PlayMedia(&quot;,&quot;)]</value>
+		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomAddon.5)">$INFO[Skin.String(CustomAddon.5.List),PlayMedia(&quot;,&quot;)]</value>
+	</variable>
 	<variable name="CustomSkinIcon"><!-- Show custom skin item icon in customisation dialog -->
 		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.1)">$INFO[Skin.String(CustomMovies.1.Icon)]</value>
 		<value condition="SubString(Window(settings).Property(ListCustomBase),CustomMovies.2)">$INFO[Skin.String(CustomMovies.2.Icon)]</value>
@@ -1549,7 +1730,7 @@
 				<top>684</top>
 				<width>1240</width>
 				<height>22</height>
-				<font>font10</font>
+				<font>apptv20</font>
 				<urlset>1</urlset>
 				<textcolor>info-text</textcolor>
 				<titlecolor>rss-title-text</titlecolor>
@@ -1561,7 +1742,7 @@
 				<top>684</top>
 				<width>1064</width>
 				<height>22</height>
-				<font>font10</font>
+				<font>apptv20</font>
 				<urlset>1</urlset>
 				<textcolor>info-text</textcolor>
 				<titlecolor>rss-title-text</titlecolor>
@@ -1596,7 +1777,7 @@
 				<height>48</height>
 				<align>center</align>
 				<label>$INFO[ListItem.SortLetter]</label>
-				<font>font28</font>
+				<font>apptv48</font>
 			</control>
 		</control>
 	</include>
@@ -1618,7 +1799,7 @@
 					<width>430</width>
 					<height>25</height>
 					<label>$LOCALIZE[31037]</label>
-					<font>font12</font>
+					<font>apptv23</font>
 					<textcolor>listselected-text</textcolor>
 				</control>
 				<control type="label">
@@ -1627,7 +1808,7 @@
 					<width>430</width>
 					<height>25</height>
 					<label>$INFO[VideoPlayer.Title]</label>
-					<font>font12</font>
+					<font>apptv23</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>!Pvr.IsPlayingTv</visible>
 				</control>
@@ -1637,7 +1818,7 @@
 					<width>430</width>
 					<height>25</height>
 					<label>$INFO[VideoPlayer.ChannelNumberLabel] - $INFO[VideoPlayer.ChannelName]</label>
-					<font>font12</font>
+					<font>apptv23</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>Pvr.IsPlayingTv</visible>
 				</control>
@@ -1647,7 +1828,7 @@
 					<width>430</width>
 					<height>25</height>
 					<label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
-					<font>font12</font>
+					<font>apptv23</font>
 				</control>
 			</control>
 			<control type="group"><!-- Audio Stuff -->
@@ -1668,7 +1849,7 @@
 						<width>475</width>
 						<height>25</height>
 						<label>$INFO[MusicPlayer.Artist]</label>
-						<font>font11</font>
+						<font>apptv22</font>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="label">
@@ -1677,7 +1858,7 @@
 						<width>475</width>
 						<height>25</height>
 						<label>$INFO[MusicPlayer.Title]</label>
-						<font>font11</font>
+						<font>apptv22</font>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="label">
@@ -1686,7 +1867,7 @@
 						<width>475</width>
 						<height>25</height>
 						<label>$INFO[MusicPlayer.Album]</label>
-						<font>font11</font>
+						<font>apptv22</font>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="label">
@@ -1695,7 +1876,7 @@
 						<width>475</width>
 						<height>25</height>
 						<label>$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ]</label>
-						<font>font12</font>
+						<font>apptv23</font>
 					</control>
 				</control>
 				<control type="group"><!-- Radio -->
@@ -1714,7 +1895,7 @@
 						<width>475</width>
 						<height>25</height>
 						<label>$LOCALIZE[19021] - $INFO[MusicPlayer.ChannelName]</label>
-						<font>font13</font>
+						<font>apptv25</font>
 					</control>
 					<control type="label"><!-- Radio Program name -->
 						<left>145</left>
@@ -1722,7 +1903,7 @@
 						<width>475</width>
 						<height>25</height>
 						<label>$INFO[MusicPlayer.Title]</label>
-						<font>font11</font>
+						<font>apptv22</font>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 				</control>
@@ -1780,7 +1961,7 @@
 					<top>4</top>
 					<width>36</width>
 					<height>20</height>
-					<font>font10</font>
+					<font>apptv20</font>
 					<label>$INFO[$PARAM[count]]</label>
 					<textcolor>white</textcolor>
 					<shadowcolor></shadowcolor>
@@ -1796,7 +1977,7 @@
 			<top>8</top>
 			<width>194</width>
 			<height>22</height>
-			<font>font11</font>
+			<font>apptv22</font>
 			<align>center</align>
 			<label fallback="20333">$INFO[ListItem.Label]</label>
 			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
@@ -2056,13 +2237,13 @@
 	<include name="settings-submenu-common">
 		<width>885</width>
 		<height>56</height>
-		<font>font11</font>
+		<font>apptv22</font>
 	</include>
 
 	<include name="videoinfo-options-common">
 			<height>96</height>
 			<width>96</width>
-			<font>font10</font>
+			<font>apptv20</font>
 			<textcolor>disabled-text</textcolor>
 			<focusedcolor>button-text</focusedcolor>
 			<align>center</align>
@@ -2079,7 +2260,7 @@
 		<textcolor>keyboard-focus-text</textcolor>
 		<focusedcolor>keyboard-focus-text</focusedcolor>
 		<shadowcolor></shadowcolor>
-		<font>font13</font>
+		<font>apptv25</font>
 		<align>center</align>
 		<aligny>center</aligny>
 	</include>
