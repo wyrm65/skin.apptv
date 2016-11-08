@@ -53,8 +53,8 @@
 			<top>55</top>
 			<width>640</width>
 			<height>400</height>
-			<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
-			<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">23</onright>
+			<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+			<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">23</onright>
 			<ondown>999</ondown>
 			<viewtype label="31943">icon</viewtype>
 			<pagecontrol>23</pagecontrol>
@@ -106,8 +106,8 @@
 			<height>400</height>
 			<ondown>999</ondown>
 			<onleft>11</onleft>
-			<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-			<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+			<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 		</control>
 		<control type="grouplist" id="999"><!-- Option buttons -->
 			<left>58</left>

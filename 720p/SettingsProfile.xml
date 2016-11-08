@@ -22,8 +22,8 @@
 			<height>450</height>
 			<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
 			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
-			<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
-			<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">23</onright>
+			<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+			<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">23</onright>
 			<onup>2</onup>
 			<ondown>2</ondown>
 			<viewtype label="31941">list</viewtype>
@@ -72,8 +72,8 @@
 			<width>18</width>
 			<height>450</height>
 			<onleft>2</onleft>
-			<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-			<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+			<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 		</control>
 		<control type="image">
 			<left>198</left>
@@ -130,8 +130,8 @@
 				<height>32</height>
 				<texturefocus>touch-close.png</texturefocus>
 				<texturenofocus>touch-close.png</texturenofocus>
-				<onclick condition="!StringCompare(Window(home).Property(ShowScreenSettings),show)">SetProperty(ShowScreenSettings,show,home)</onclick>
-				<onclick condition="StringCompare(Window(home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,home)</onclick>
+				<onclick condition="!String.IsEqual(Window(home).Property(ShowScreenSettings),show)">SetProperty(ShowScreenSettings,show,home)</onclick>
+				<onclick condition="String.IsEqual(Window(home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,home)</onclick>
 				<visible>Skin.HasSetting(touch-controls)</visible>
 			</control>
 			<control type="image">

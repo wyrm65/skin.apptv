@@ -138,7 +138,7 @@
 				<align>right</align>
 				<label>$INFO[Playlist.Position(music),$LOCALIZE[554]: ]$INFO[Playlist.Length(music), / ]</label>
 				<font>apptv23</font>
-				<visible>!MusicPartyMode.Enabled + !StringCompare(Playlist.Length(music),0)</visible>
+				<visible>!MusicPartyMode.Enabled + !String.IsEqual(Playlist.Length(music),0)</visible>
 			</control>
 			<control type="progress" id="1">
 				<left>558</left>
@@ -150,54 +150,11 @@
 			</control>
 			<control type="slider" id="402"><!-- Seek slider -->
 				<left>558</left>
-				<top>678</top>
+				<top>680</top>
 				<width>685</width>
-				<height>20</height>
+				<height>16</height>
 				<action>seek</action>
 				<visible>!Pvr.IsPlayingRadio</visible>
-			</control>
-		</control>
-		<control type="group"><!-- Codec -->
-			<visible>Player.ShowCodec</visible>
-			<control type="image"><!-- Preset background image -->
-				<left>0</left>
-				<top>0</top>
-				<width>1280</width>
-				<height>90</height>
-				<texture>background.png</texture>
-				<colordiffuse>mask-background</colordiffuse>
-			</control>
-			<control type="label"><!-- Codec info -->
-				<left>132</left>
-				<top>12</top>
-				<width>1062</width>
-				<height>37</height>
-				<label>$LOCALIZE[292] | $INFO[musicplayer.Codec,Codec:,]$INFO[musicplayer.Bitrate, - Bitrate:,kbps]$INFO[musicplayer.bitspersample, - Bits:,bit]$INFO[musicplayer.Samplerate, - Freq.: ,kHz]$INFO[musicplayer.Channels, - Channels: ]</label>
-				<font>apptv22</font>
-			</control>
-			<control type="label"><!-- Presets labels -->
-				<left>132</left>
-				<top>43</top>
-				<width>220</width>
-				<height>37</height>
-				<label>Visual | fps: $INFO[System.FPS]</label>
-				<font>apptv22</font>
-			</control>
-			<control type="label">
-				<left>398</left>
-				<top>43</top>
-				<width>743</width>
-				<height>37</height>
-				<label>$INFO[Visualisation.Name]$INFO[Visualisation.Preset, - ]</label>
-				<font>apptv22</font>
-			</control>
-			<control type="image"><!-- Preset locked image -->
-				<left>364</left>
-				<top>42</top>
-				<width>32</width>
-				<height>32</height>
-				<texture>overlaylocked.png</texture>
-				<visible>Visualisation.Locked</visible>
 			</control>
 		</control>
 	</controls>

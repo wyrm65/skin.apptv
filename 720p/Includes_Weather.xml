@@ -35,7 +35,7 @@
 		<control type="group">
 			<visible>Weather.IsFetched + !SubString(Window(weather).Property(Current.ConditionIcon),na.png,right)</visible>
 			<control type="group"><!-- Standard Forecast -->
-				<visible>[StringCompare(Skin.String(weather-view),$LOCALIZE[10508]) | IsEmpty(Skin.String(weather-view))]</visible>
+				<visible>[String.IsEqual(Skin.String(weather-view),$LOCALIZE[10508]) | IsEmpty(Skin.String(weather-view))]</visible>
 				<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
 				<control type="group">
 					<left>24</left>
@@ -462,7 +462,7 @@
 	</include>
 	<include name="ozweather">
 		<control type="group">
-			<visible>StringCompare(Skin.String(weather-view),$LOCALIZE[33035]) + !IsEmpty(Window.Property(Current.Temperature))</visible><!-- Maps -->
+			<visible>String.IsEqual(Skin.String(weather-view),$LOCALIZE[33035]) + !IsEmpty(Window.Property(Current.Temperature))</visible><!-- Maps -->
 			<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
 			<!-- Current forecast -->
 			<control type="group">
@@ -648,7 +648,7 @@
 	</include>
 	<include name="openweatherextended">
 		<control type="group">
-			<visible>StringCompare(Skin.String(weather-view),$LOCALIZE[33037]) + !IsEmpty(Window(weather).Property(Current.Temperature))</visible><!-- Weekend -->
+			<visible>String.IsEqual(Skin.String(weather-view),$LOCALIZE[33037]) + !IsEmpty(Window(weather).Property(Current.Temperature))</visible><!-- Weekend -->
 			<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
 			<control type="group"><!-- Weekend 1 -->
 				<left>100</left>
@@ -882,7 +882,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>StringCompare(Skin.String(weather-view),$LOCALIZE[33034]) + !IsEmpty(Window(weather).Property(Hourly.IsFetched))</visible><!-- 36 Hour -->
+			<visible>String.IsEqual(Skin.String(weather-view),$LOCALIZE[33034]) + !IsEmpty(Window(weather).Property(Hourly.IsFetched))</visible><!-- 36 Hour -->
 			<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
 			<control type="group">
 				<control type="group"><!-- 36 Hour 1 -->
@@ -1308,7 +1308,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>StringCompare(Skin.String(weather-view),$LOCALIZE[33036]) + !IsEmpty(Window(weather).Property(Hourly.IsFetched))</visible><!-- Hourly -->
+			<visible>String.IsEqual(Skin.String(weather-view),$LOCALIZE[33036]) + !IsEmpty(Window(weather).Property(Hourly.IsFetched))</visible><!-- Hourly -->
 			<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
 			<control type="group"><!-- Hourly 1 -->
 				<left>10</left>
@@ -2044,7 +2044,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>StringCompare(Skin.String(weather-view),$LOCALIZE[33035]) + !IsEmpty(Window(weather).Property(Current.Temperature))</visible><!-- Maps -->
+			<visible>String.IsEqual(Skin.String(weather-view),$LOCALIZE[33035]) + !IsEmpty(Window(weather).Property(Current.Temperature))</visible><!-- Maps -->
 			<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
 			<!-- Current forecast -->
 			<control type="group">

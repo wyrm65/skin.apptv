@@ -62,43 +62,6 @@
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 				</focusedlayout>
-				<content>
-					<item id="91">
-						<label>1. $LOCALIZE[15057]</label>
-						<label2>$LOCALIZE[15114]</label2>
-						<visible>true</visible>
-						<onclick>noop</onclick>
-						<property name="currentMode">InputResampling</property>
-					</item>
-					<item id="92">
-						<label>2. $LOCALIZE[15058]</label>
-						<label2>$LOCALIZE[15113]</label2>
-						<visible>true</visible>
-						<onclick>noop</onclick>
-						<property name="currentMode">Preprocessing</property>
-					</item>
-					<item id="93">
-						<label>3. $LOCALIZE[15059]</label>
-						<label2>$LOCALIZE[15115]</label2>
-						<visible>true</visible>
-						<onclick>noop</onclick>
-						<property name="currentMode">Masterprocessing</property>
-					</item>
-					<item id="94">
-						<label>4. $LOCALIZE[15060]</label>
-						<label2>$LOCALIZE[15117]</label2>
-						<visible>true</visible>
-						<onclick>noop</onclick>
-						<property name="currentMode">Postprocessing</property>
-					</item>
-					<item id="95">
-						<label>5. $LOCALIZE[15061]</label>
-						<label2>$LOCALIZE[15116]</label2>
-						<visible>true</visible>
-						<onclick>noop</onclick>
-						<property name="currentMode">OutputResampling</property>
-					</item>
-				</content>
 			</control>
 			<control type="image">
 				<left>10</left>
@@ -210,8 +173,8 @@
 					<onright>21</onright>
 					<ondown>60</ondown>
 					<onup>60</onup>
-					<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-					<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+					<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 					<orientation>vertical</orientation>
 				</control>
 				<control type="label">
@@ -316,8 +279,8 @@
 					<onright>20</onright>
 					<ondown>61</ondown>
 					<onup>61</onup>
-					<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-					<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+					<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 					<orientation>vertical</orientation>
 				</control>
 			</control>

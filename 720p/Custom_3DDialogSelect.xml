@@ -67,7 +67,7 @@
 				<label>$LOCALIZE[305]</label>
 				<radioposx>330</radioposx>
 				<onclick>ToggleStereoMode</onclick>
-				<selected>IntegerGreaterThan(System.StereoscopicMode,0)</selected>
+				<selected>Integer.IsGreater(System.StereoscopicMode,0)</selected>
 			</control>
 			<control type="button" id="502">
 				<height>50</height>
@@ -85,7 +85,7 @@
 				<label>$LOCALIZE[31126]</label>
 				<radioposx>330</radioposx>
 				<onclick>StereoModeToMono</onclick>
-				<selected>StringCompare(System.StereoscopicMode,7)</selected>
+				<selected>String.IsEqual(System.StereoscopicMode,7)</selected>
 			</control>
 		</control>
 	</controls>

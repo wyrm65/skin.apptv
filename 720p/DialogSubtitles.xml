@@ -49,8 +49,8 @@
 					<top>130</top>
 					<width>860</width>
 					<height>460</height>
-					<onleft condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>
-					<onleft condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1258</onleft>
+					<onleft condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>
+					<onleft condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">1258</onleft>
 					<onright>150</onright>
 					<onup>120</onup>
 					<ondown>120</ondown>
@@ -175,8 +175,8 @@
 					<width>18</width>
 					<height>460</height>
 					<onright>120</onright>
-					<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-					<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+					<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 				</control>
 				<control type="group" id="130">
 					<control type="grouplist">

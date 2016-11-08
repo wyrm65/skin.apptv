@@ -24,21 +24,30 @@
 		<!-- Player action labels -->
 		<control type="group">
 			<visible>[Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation)] + ![Window.IsVisible(sliderdialog) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdaudiodspsettings) | Window.IsVisible(subtitlesearch) | Window.IsVisible(videobookmarks)]</visible>
+			<control type="image"><!-- Seekbar Dialog background image -->
+				<left>376</left>
+				<top>296</top>
+				<height>128</height>
+				<width>528</width>
+				<texture border="12">backgroundmsg.png</texture>
+				<colordiffuse>mask-background</colordiffuse>
+			</control>
 			<control type="grouplist">
 				<left>408</left>
-				<top>657</top>
+				<top>328</top>
 				<width>464</width>
 				<height>64</height>
 				<align>center</align>
 				<aligny>center</aligny>
 				<orientation>horizontal</orientation>
-				<control type="image">
+				<control type="image" id="750">
 					<width>64</width>
 					<height>64</height>
 					<texture>$VAR[PlayStateImage]</texture>
+					<animation effect="rotate" start="360" end="0" center="auto" time="5400" loop="true" condition="SubString(Control.GetLabel(750),busy.png)">conditional</animation>
 				</control>
 				<control type="label"><!-- Player state text -->
-					<width min="150" max="400">auto</width>
+					<width min="0" max="400">auto</width>
 					<height>64</height>
 					<label>$VAR[PlayStateTxt]</label>
 					<font>apptv38</font>
@@ -88,16 +97,16 @@
 
 				<control type="slider" id="401"><!-- Seek Slider -->
 					<left>238</left>
-					<top>650</top>
+					<top>652</top>
 					<width>800</width>
-					<height>20</height>
+					<height>16</height>
 					<action>seek</action>
 				</control>
 			</control>
 		</control>
-		<!-- Start Progress Control for all Windows Except VideoFullScreen , MusicVisualisation, MyMusicPlaylist, PVRGuide, PlayerControls, Pin Sentry dialogs and Nextup Notification dialogs -->
+		<!-- Start Progress Control for all Windows Except VideoFullScreen , MusicVisualisation, MyMusicPlaylist, PVRGuide, PlayerControls and Nextup Notification dialogs -->
 		<control type="group">
-			<visible>![Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation) | Window.IsActive(musicplaylist) | Window.IsActive(tvguide) | Window.IsActive(playercontrols) | Window.IsVisible(pinsentry-background.xml) | Window.IsVisible(script-nextup-notification-StillWatchingInfo.xml) | Window.IsVisible(script-nextup-notification-NextUpInfo.xml) | Pvr.IsPlayingTv | Pvr.IsPlayingRadio]</visible>
+			<visible>![Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation) | Window.IsActive(musicplaylist) | Window.IsActive(tvguide) | Window.IsActive(playercontrols) | Window.IsVisible(script-nextup-notification-StillWatchingInfo.xml) | Window.IsVisible(script-nextup-notification-NextUpInfo.xml) | Pvr.IsPlayingTv | Pvr.IsPlayingRadio]</visible>
 			<control type="image"><!-- Dialog background image -->
 				<left>463</left>
 				<top>648</top>

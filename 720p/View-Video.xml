@@ -89,10 +89,10 @@
 						<height>23</height>
 						<font>apptv23</font>
 						<label>$INFO[ListItem.Label]</label>
-						<visible>IsEmpty(ListItem.Property(Addon.Description))</visible>
+						<visible>IsEmpty(ListItem.AddonDescription)</visible>
 					</control>
 					<control type="group">
-						<visible>!IsEmpty(ListItem.Property(Addon.Description))</visible>
+						<visible>!IsEmpty(ListItem.AddonDescription)</visible>
 						<control type="label">
 							<left>32</left>
 							<top>8</top>
@@ -108,7 +108,7 @@
 							<height>23</height>
 							<font>apptv22</font>
 							<textcolor>disabled-text</textcolor>
-							<label>$INFO[ListItem.Property(Addon.Description)]</label>
+							<label>$INFO[ListItem.AddonDescription]</label>
 						</control>
 					</control>
 				</control>
@@ -254,10 +254,10 @@
 						<selectedcolor>listselected-text</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-						<visible>IsEmpty(ListItem.Property(Addon.Description))</visible>
+						<visible>IsEmpty(ListItem.AddonDescription)</visible>
 					</control>
 					<control type="group">
-						<visible>!IsEmpty(ListItem.Property(Addon.Description))</visible>
+						<visible>!IsEmpty(ListItem.AddonDescription)</visible>
 						<control type="label">
 							<left>32</left>
 							<top>8</top>
@@ -275,7 +275,7 @@
 							<height>23</height>
 							<font>apptv22</font>
 							<textcolor>disabled-text</textcolor>
-							<label>$INFO[ListItem.Property(Addon.Description)]</label>
+							<label>$INFO[ListItem.AddonDescription]</label>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 					</control>
@@ -353,7 +353,7 @@
 			</focusedlayout>
 		</control>
 		<control type="group" id="945">
-			<visible>Control.IsVisible(50) + !System.ScreenSaverActive + [Container.Content(movies) | Container.Content(tvshows)]  + [[System.IdleTime(60) + StringCompare(Skin.String(listview-idleanim),60)] | [System.IdleTime(90) + StringCompare(Skin.String(listview-idleanim),90)] | [System.IdleTime(120) + StringCompare(Skin.String(listview-idleanim),120)]]</visible>
+			<visible>Control.IsVisible(50) + !System.ScreenSaverActive + [Container.Content(movies) | Container.Content(tvshows)]  + [[System.IdleTime(60) + String.IsEqual(Skin.String(listview-idleanim),60)] | [System.IdleTime(90) + String.IsEqual(Skin.String(listview-idleanim),90)] | [System.IdleTime(120) + String.IsEqual(Skin.String(listview-idleanim),120)]]</visible>
 			<animation effect="fade" start="0" end="100" time="1000">Visible</animation>
 			<control type="wraplist" id="950">
 				<left>-10</left>
@@ -434,7 +434,7 @@
 							<width>336</width>
 							<height>336</height>
 							<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-							<aspectratio scalediffuse="false" align="right" aligny="top">keep</aspectratio>
+							<aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
 						</control>
 					</control>
 				</control>
@@ -513,7 +513,7 @@
 						<aspectratio align="right" aligny="top">keep</aspectratio>
 						<visible>SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
 					</control>
-					<include name="listitem-count">
+					<include content="listitem-count">
 						<param name="left" value="592"/>
 						<param name="top" value="418"/>
 						<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
@@ -611,8 +611,8 @@
 				<width>20</width>
 				<height>594</height>
 				<onleft>50</onleft>
-				<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1250</onright>
-				<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+				<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">1250</onright>
+				<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
 				<onup>1240</onup>
 				<ondown>noop</ondown>
 				<orientation>vertical</orientation>
@@ -631,7 +631,7 @@
 						<font>apptv20</font>
 						<align>center</align>
 						<textcolor>listselected-text</textcolor>
-						<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+						<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
 					</control>
 				</itemlayout>
 				<focusedlayout height="22" width="20">
@@ -655,9 +655,9 @@
 			<height>576</height>
 			<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">1260</onleft>
 			<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(movies) | Container.Content(tvshows)]">50</onleft>
-			<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]" effect="slide" end="10,0" reversible="true">Conditional</animation>
-			<visible>Control.IsVisible(50) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+			<visible>Control.IsVisible(50) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 		</control>
 	</include>
 	<include name="VideoIconView">
@@ -699,7 +699,7 @@
 					<height>32</height>
 					<texture>$VAR[Overlay]</texture>
 				</control>
-				<include name="listitem-count">
+				<include content="listitem-count">
 					<param name="left" value="150"/>
 					<param name="top" value="144"/>
 					<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
@@ -747,7 +747,7 @@
 						<height>32</height>
 						<texture>$VAR[Overlay]</texture>
 					</control>
-					<include name="listitem-count">
+					<include content="listitem-count">
 						<param name="left" value="144"/>
 						<param name="top" value="138"/>
 						<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
@@ -876,8 +876,8 @@
 				<width>20</width>
 				<height>594</height>
 				<onleft>52</onleft>
-				<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1252</onright>
-				<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+				<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">1252</onright>
+				<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
 				<onup>1242</onup>
 				<orientation>vertical</orientation>
 				<itemlayout height="22" width="20">
@@ -895,7 +895,7 @@
 						<font>apptv20</font>
 						<align>center</align>
 						<textcolor>listselected-text</textcolor>
-						<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+						<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
 					</control>
 				</itemlayout>
 				<focusedlayout height="22" width="20">
@@ -918,9 +918,9 @@
 			<height>576</height>
 			<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">1262</onleft>
 			<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(movies) | Container.Content(tvshows)]">52</onleft>
-			<animation condition="!Control.HasFocus(1252) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<animation condition="!Control.HasFocus(1252) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]" effect="slide" end="10,0" reversible="true">Conditional</animation>
-			<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Control.IsVisible(52)</visible>
+			<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Control.IsVisible(52)</visible>
 		</control>
 	</include>
 	<include name="BannerView">
@@ -966,7 +966,7 @@
 						<aspectratio>keep</aspectratio>
 						<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 					</control>
-					<include name="listitem-count">
+					<include content="listitem-count">
 						<param name="left" value="486"/>
 						<param name="top" value="66"/>
 						<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
@@ -998,7 +998,7 @@
 							<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
 						</control>
 					</control>
-					<include name="listitem-count">
+					<include content="listitem-count">
 						<param name="left" value="486"/>
 						<param name="top" value="66"/>
 						<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
@@ -1143,8 +1143,8 @@
 						<width>20</width>
 						<height>594</height>
 						<onleft>53</onleft>
-						<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1253</onright>
-						<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+						<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">1253</onright>
+						<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
 						<onup>1243</onup>
 						<orientation>vertical</orientation>
 						<itemlayout height="22" width="20">
@@ -1162,7 +1162,7 @@
 								<font>apptv20</font>
 								<align>center</align>
 								<textcolor>listselected-text</textcolor>
-								<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+								<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
 							</control>
 						</itemlayout>
 						<focusedlayout height="22" width="20">
@@ -1185,9 +1185,9 @@
 						<height>516</height>
 						<onleft condition="Skin.HasSetting(show-letterbar)">1263</onleft>
 						<onleft condition="!Skin.HasSetting(show-letterbar) | !Container.Content(tvshows)">53</onleft>
-						<animation condition="!Control.HasFocus(1253) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+						<animation condition="!Control.HasFocus(1253) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 						<animation condition="Skin.HasSetting(show-letterbar)" effect="slide" end="22,0" reversible="true">Conditional</animation>
-						<visible>Control.IsVisible(53) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+						<visible>Control.IsVisible(53) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 					</control>
 				</control>
 			</control>
@@ -1239,7 +1239,7 @@
 					<texture>$VAR[Overlay]</texture>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 				</control>
-				<include name="listitem-count">
+				<include content="listitem-count">
 					<param name="left" value="28"/>
 					<param name="top" value="440"/>
 					<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
@@ -1316,7 +1316,7 @@
 					<width>40</width>
 					<texture>$VAR[Overlay]</texture>
 				</control>
-				<include name="listitem-count">
+				<include content="listitem-count">
 					<param name="left" value="170"/>
 					<param name="top" value="428"/>
 					<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
@@ -1392,7 +1392,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>stringcompare(ListItem.Icon,DefaultFolderBack.png)</visible>
+				<visible>String.IsEqual(ListItem.Icon,DefaultFolderBack.png)</visible>
 			</control>
 			<control type="group">
 				<visible>!IsEmpty(ListItem.Title)</visible>
@@ -1450,8 +1450,8 @@
 					<width>1232</width>
 					<height>22</height>
 					<onup>54</onup>
-					<ondown condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1254</ondown>
-					<ondown condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</ondown>
+					<ondown condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">1254</ondown>
+					<ondown condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</ondown>
 					<onleft>1244</onleft>
 					<onright>noop</onright>
 					<orientation>horizontal</orientation>
@@ -1470,7 +1470,7 @@
 							<font>apptv20</font>
 							<textcolor>listselected-text</textcolor>
 							<align>center</align>
-							<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
 						</control>
 					</itemlayout>
 					<focusedlayout height="22" width="44">
@@ -1494,9 +1494,9 @@
 				<orientation>horizontal</orientation>
 				<onup condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">1264</onup>
 				<onup condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(movies) | Container.Content(tvshows)]">54</onup>
-				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]" effect="slide" end="0,10" reversible="true">Conditional</animation>
-				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Control.IsVisible(54)</visible>
+				<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Control.IsVisible(54)</visible>
 			</control>
 		</control>
 	</include>
@@ -1537,7 +1537,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,10) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,9) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,10) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,9) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
 					<left>106</left>
@@ -1548,7 +1548,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="10" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,8) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,7) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,8) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,7) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
 					<left>194</left>
@@ -1559,7 +1559,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,6) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,5) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,6) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,5) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
 					<left>282</left>
@@ -1570,7 +1570,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="110" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,4) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,3) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,4) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,3) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
 					<left>956</left>
@@ -1581,7 +1581,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1320" start="60" end="60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,5) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,4) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,5) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,4) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
 					<left>868</left>
@@ -1592,7 +1592,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1270" start="60" end="60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,3) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,2) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,3) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,2) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
 					<left>780</left>
@@ -1603,7 +1603,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1220" start="60" end="60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,1) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,0) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,1) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,0) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="group">
 					<visible>Container(57).OnNext</visible>
@@ -1615,7 +1615,7 @@
 						<height>400</height>
 						<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-1)Poster]</texture>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<visible>[IntegerGreaterThan(Container(57).NumItems,2) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,1) + System.GetBool(filelists.showparentdiritems)]</visible>
+						<visible>[Integer.IsGreater(Container(57).NumItems,2) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,1) + System.GetBool(filelists.showparentdiritems)]</visible>
 						<animation condition="!Control.HasFocus(57)" effect="fade" start="100" end="60" time="0" reversible="true">Conditional</animation>
 						<animation effect="rotatey" center="220" start="0" end="-60" time="200" reversible="false">Hidden</animation>
 					</control>
@@ -1647,7 +1647,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,6) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,5) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,6) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,5) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
 					<left>106</left>
@@ -1658,7 +1658,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="10" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,4) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,3) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,4) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,3) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
 					<left>194</left>
@@ -1669,7 +1669,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,2) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,1) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,2) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,1) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
 					<left>956</left>
@@ -1680,7 +1680,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1320" start="60" end="60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,9) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,8) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,9) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,8) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
 					<left>868</left>
@@ -1691,7 +1691,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1270" start="60" end="60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,7) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,6) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,7) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,6) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
 					<left>780</left>
@@ -1702,7 +1702,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1220" start="60" end="60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,5) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,4) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,5) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,4) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
 					<left>692</left>
@@ -1713,7 +1713,7 @@
 					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(2)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<animation effect="rotatey" center="1170" start="60" end="60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,3) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,2) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,3) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,2) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="group">
 					<visible>Container(57).OnPrevious</visible>
@@ -1727,7 +1727,7 @@
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<animation condition="!Control.HasFocus(57)" effect="fade" start="100" end="60" time="0" reversible="true">Conditional</animation>
 						<animation effect="rotatey" center="500" start="0" end="60" time="200" reversible="false">Hidden</animation>
-						<visible>[IntegerGreaterThan(Container(57).NumItems,1) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,0) + System.GetBool(filelists.showparentdiritems)]</visible>
+						<visible>[Integer.IsGreater(Container(57).NumItems,1) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,0) + System.GetBool(filelists.showparentdiritems)]</visible>
 					</control>
 					<control type="image">
 						<left>282</left>
@@ -1756,7 +1756,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,8) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,7) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,8) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,7) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
 					<left>106</left>
@@ -1767,7 +1767,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="10" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,6) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,5) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,6) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,5) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
 					<left>194</left>
@@ -1778,7 +1778,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,4) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,3) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,4) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,3) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
 					<left>282</left>
@@ -1789,7 +1789,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="110" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,2) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,1) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,2) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,1) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
 					<left>956</left>
@@ -1800,7 +1800,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1320" start="60" end="60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,7) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,6) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,7) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,6) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
 					<left>868</left>
@@ -1811,7 +1811,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1270" start="60" end="60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,5) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,4) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,5) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,4) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
 					<left>780</left>
@@ -1822,7 +1822,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1220" start="60" end="60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,3) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,2) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,3) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,2) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
 					<left>692</left>
@@ -1833,7 +1833,7 @@
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1170" start="60" end="60" time="0" condition="true">Conditional</animation>
-					<visible>[IntegerGreaterThan(Container(57).NumItems,1) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(57).NumItems,0) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,1) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,0) + System.GetBool(filelists.showparentdiritems)]</visible>
 				</control>
 				<control type="image">
 					<left>488</left>
@@ -1961,8 +1961,8 @@
 					<width>1232</width>
 					<height>22</height>
 					<onup>57</onup>
-					<ondown condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1257</ondown>
-					<ondown condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</ondown>
+					<ondown condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">1257</ondown>
+					<ondown condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</ondown>
 					<onleft>1247</onleft>
 					<onright>noop</onright>
 					<orientation>horizontal</orientation>
@@ -1981,7 +1981,7 @@
 							<font>apptv20</font>
 							<textcolor>listselected-text</textcolor>
 							<align>center</align>
-							<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
 						</control>
 					</itemlayout>
 					<focusedlayout height="22" width="44">
@@ -2005,9 +2005,9 @@
 				<orientation>horizontal</orientation>
 				<onup condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">1267</onup>
 				<onup condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(movies) | Container.Content(tvshows)]">57</onup>
-				<animation condition="!Control.HasFocus(1257) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(1257) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]" effect="slide" end="0,10" reversible="true">Conditional</animation>
-				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Control.IsVisible(57)</visible>
+				<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Control.IsVisible(57)</visible>
 			</control>
 		</control>
 	</include>
@@ -2057,7 +2057,7 @@
 					<height>32</height>
 					<texture>$VAR[Overlay]</texture>
 				</control>
-				<include name="listitem-count">
+				<include content="listitem-count">
 					<param name="left" value="80"/>
 					<param name="top" value="152"/>
 					<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
@@ -2114,7 +2114,7 @@
 						<height>32</height>
 						<texture>$VAR[Overlay]</texture>
 					</control>
-					<include name="listitem-count">
+					<include content="listitem-count">
 						<param name="left" value="80"/>
 						<param name="top" value="148"/>
 						<param name="count" value="ListItem.Property(UnwatchedEpisodes)"/>
@@ -2280,8 +2280,8 @@
 					<width>20</width>
 					<height>594</height>
 					<onleft>58</onleft>
-					<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">1258</onright>
-					<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+					<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">1258</onright>
+					<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
 					<onup>1248</onup>
 					<ondown>noop</ondown>
 					<orientation>vertical</orientation>
@@ -2300,7 +2300,7 @@
 							<font>apptv20</font>
 							<textcolor>listselected-text</textcolor>
 							<align>center</align>
-							<visible>StringCompare(ListItem.Label,Container.ListItem.SortLetter)</visible>
+							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
 						</control>
 					</itemlayout>
 					<focusedlayout height="22" width="20">
@@ -2323,9 +2323,9 @@
 				<height>576</height>
 				<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">1268</onleft>
 				<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(movies) | Container.Content(tvshows)]">58</onleft>
-				<animation condition="!Control.HasFocus(1258) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(1258) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]" effect="slide" end="10,0" reversible="true">Conditional</animation>
-				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Control.IsVisible(58)</visible>
+				<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Control.IsVisible(58)</visible>
 			</control>
 		</control>
 	</include>

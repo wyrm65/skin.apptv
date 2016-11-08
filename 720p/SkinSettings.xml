@@ -111,8 +111,8 @@
 			<width>18</width>
 			<height>542</height>
 			<onright>998</onright>
-			<animation condition="!Control.HasFocus(1223) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-			<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877]) + !Skin.String(skinsettingmenu,custom)</visible>
+			<animation condition="!Control.HasFocus(1223) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + !Skin.String(skinsettingmenu,custom)</visible>
 		</control>
 		<control type="group" id="998">
 			<control type="group" id="100"><!-- Startup Settings -->
@@ -164,11 +164,11 @@
 					<control type="button" id="105"><!-- Startup Screen Path -->
 						<include>settings-submenu-common</include>
 						<textwidth>785</textwidth>
-						<enable>StringCompare(Skin.String(startup-screentype),$LOCALIZE[31858]) | StringCompare(Skin.String(startup-screentype),$LOCALIZE[31857])</enable>
+						<enable>String.IsEqual(Skin.String(startup-screentype),$LOCALIZE[31858]) | String.IsEqual(Skin.String(startup-screentype),$LOCALIZE[31857])</enable>
 						<label>- $LOCALIZE[31851] </label>
 						<label2>$INFO[Skin.String(startup-screenpath)]</label2>
-						<onclick condition="StringCompare(Skin.String(startup-screentype),$LOCALIZE[31857])">Skin.SetImage(startup-screenpath)</onclick>
-						<onclick condition="StringCompare(Skin.String(startup-screentype),$LOCALIZE[31858])">Skin.SetFile(startup-screenpath)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(startup-screentype),$LOCALIZE[31857])">Skin.SetImage(startup-screenpath)</onclick>
+						<onclick condition="String.IsEqual(Skin.String(startup-screentype),$LOCALIZE[31858])">Skin.SetFile(startup-screenpath)</onclick>
 					</control>
 					<control type="radiobutton" id="106"><!-- Startup Playlist toggle -->
 						<include>settings-submenu-common</include>
@@ -425,7 +425,7 @@
 							<align>right</align>
 							<onclick>Skin.SetString(shelf-tvshowimgtyp,$LOCALIZE[31950])</onclick>
 							<altclick>Skin.SetString(shelf-tvshowimgtyp,$LOCALIZE[31949])</altclick>
-							<enable>StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31955]) | StringCompare(Skin.String(shelf-tvshowimages),$LOCALIZE[31954])</enable>
+							<enable>String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31955]) | String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31954])</enable>
 						</control>
 						<control type="label" id="311">
 							<include>settings-submenu-common</include>
@@ -680,7 +680,7 @@
 						<label>$LOCALIZE[31924]</label>
 						<label2>$INFO[Skin.String(libraryentry-tv)]</label2>
 						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=libraryentry-tv-val,header=$LOCALIZE[31924])</onclick>
-						<enable>[System.GetBool(pvrmanager.enabled) + Pvr.HasTVChannels]</enable>
+						<enable>Pvr.HasTVChannels</enable>
 					</control>
 					<control type="button" id="607"><!-- Set Radio library entry point -->
 						<include>settings-submenu-common</include>
@@ -688,7 +688,7 @@
 						<label>$LOCALIZE[31925]</label>
 						<label2>$INFO[Skin.String(libraryentry-radio)]</label2>
 						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=libraryentry-radio-val,header=$LOCALIZE[31925])</onclick>
-						<enable>[System.GetBool(pvrmanager.enabled) + Pvr.HasRadioChannels]</enable>
+						<enable>Pvr.HasRadioChannels</enable>
 					</control>
 					<control type="button" id="608"><!-- Reset Above Settings button -->
 						<include>settings-submenu-common</include>
@@ -756,7 +756,7 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31930]</label>
 						<textwidth>750</textwidth>
-						<onclick condition="!System.HasAddon(script.xbmc.debug.log)">RunPlugin(plugin://script.kodi.loguploader)</onclick>
+						<onclick condition="!System.HasAddon(script.xbmc.debug.log)">InstallAddon(script.kodi.loguploader)</onclick>
 						<onclick condition="System.HasAddon(script.xbmc.debug.log)">RunScript(script.kodi.loguploader)</onclick>
 						<enable>System.GetBool(debug.extralogging)</enable>
 					</control>

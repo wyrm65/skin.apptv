@@ -42,25 +42,25 @@
 					<width>40</width>
 					<height>30</height>
 					<texture background="true">special://skin/extras/images/audio/$INFO[Container(100).ListItem.Property(AudioCodec),,.png]</texture>
-					<visible>!IsEmpty(Container(100).ListItem.Property(AudioCodec)) + !StringCompare(Control.GetLabel(761),blank.png)</visible>
+					<visible>!IsEmpty(Container(100).ListItem.Property(AudioCodec)) + !String.IsEqual(Control.GetLabel(761),blank.png)</visible>
 				</control>
 				<control type="image" id="772"><!-- Video Codec -->
 					<width>40</width>
 					<height>30</height>
 					<texture background="true">special://skin/extras/images/video/$INFO[Container(100).ListItem.Property(VideoCodec),,.png]</texture>
-					<visible>!IsEmpty(Container(100).ListItem.Property(VideoCodec)) + !StringCompare(Control.GetLabel(762),blank.png)</visible>
+					<visible>!IsEmpty(Container(100).ListItem.Property(VideoCodec)) + !String.IsEqual(Control.GetLabel(762),blank.png)</visible>
 				</control>
 				<control type="image" id="773"><!-- Video Aspect Ratio -->
 					<width>40</width>
 					<height>30</height>
 					<texture background="true">special://skin/extras/images/aspectratio/$INFO[Container(100).ListItem.Property(VideoAspect),,.png]</texture>
-					<visible>!IsEmpty(Container(100).ListItem.Property(VideoAspect)) + !StringCompare(Control.GetLabel(763),blank.png)</visible>
+					<visible>!IsEmpty(Container(100).ListItem.Property(VideoAspect)) + !String.IsEqual(Control.GetLabel(763),blank.png)</visible>
 				</control>
 				<control type="image" id="774"><!-- Video Resolution -->
 					<width>40</width>
 					<height>30</height>
 					<texture background="true">special://skin/extras/images/resolution/$INFO[Container(100).ListItem.Property(VideoResolution),,.png]</texture>
-					<visible>!IsEmpty(Container(100).ListItem.Property(VideoResolution)) + !StringCompare(Control.GetLabel(764),blank.png)</visible>
+					<visible>!IsEmpty(Container(100).ListItem.Property(VideoResolution)) + !String.IsEqual(Control.GetLabel(764),blank.png)</visible>
 				</control>
 				<control type="image" id="761">
 					<width>1</width>
@@ -92,7 +92,7 @@
 				</control>
 			</control>
 			<control type="grouplist" id="960"><!-- Plot/Description Scrollbars -->
-				<visible>StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875]) | StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31876])</visible>
+				<visible>String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875]) | String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31876])</visible>
 				<left>1252</left>
 				<top>112</top>
 				<width>16</width>
@@ -105,55 +105,55 @@
 				<control type="scrollbar" id="113"><!-- Movie Plot Scrollbar -->
 					<width>16</width>
 					<height>116</height>
-					<animation condition="!Control.HasFocus(113) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(113) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 					<visible>Control.IsVisible(110)</visible>
 				</control>
 				<control type="scrollbar" id="123"><!-- TVShow Plot Scrollbar -->
 					<width>16</width>
 					<height>116</height>
-					<animation condition="!Control.HasFocus(123) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(123) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 					<visible>Control.IsVisible(120)</visible>
 				</control>
 				<control type="scrollbar" id="133"><!-- TV Season Plot Scrollbar -->
 					<width>16</width>
 					<height>116</height>
-					<animation condition="!Control.HasFocus(133) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(133) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 					<visible>Control.IsVisible(130)</visible>
 				</control>
 				<control type="scrollbar" id="143"><!-- TV Episode Plot Scrollbar -->
 					<width>16</width>
 					<height>116</height>
-					<animation condition="!Control.HasFocus(143) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(143) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 					<visible>Control.IsVisible(140)</visible>
 				</control>
 				<control type="scrollbar" id="153"><!-- Music Video Plot Scrollbar -->
 					<width>16</width>
 					<height>116</height>
-					<animation condition="!Control.HasFocus(153) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(153) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 					<visible>Control.IsVisible(150)</visible>
 				</control>
 				<control type="scrollbar" id="163"><!-- Artist Scrollbar -->
 					<width>16</width>
 					<height>116</height>
-					<animation condition="!Control.HasFocus(163) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(163) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 					<visible>Control.IsVisible(160)</visible>
 				</control>
 				<control type="scrollbar" id="173"><!-- Album Scrollbar -->
 					<width>16</width>
 					<height>116</height>
-					<animation condition="!Control.HasFocus(173) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(173) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 					<visible>Control.IsVisible(170)</visible>
 				</control>
 				<control type="scrollbar" id="183"><!-- Song Scrollbar -->
 					<width>16</width>
 					<height>116</height>
-					<animation condition="!Control.HasFocus(183) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(183) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 					<visible>Control.IsVisible(180)</visible>
 				</control>
 				<control type="scrollbar" id="203"><!-- EPG Scrollbar -->
 					<width>16</width>
 					<height>116</height>
-					<animation condition="!Control.HasFocus(203) + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(203) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 					<visible>Control.IsVisible(200)</visible>
 				</control>
 			</control>

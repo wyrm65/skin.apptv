@@ -18,8 +18,9 @@
 			<left>450</left>
 			<top>112</top>
 			<width>360</width>
-			<height>31</height>
+			<height>30</height>
 			<label>$LOCALIZE[31558]$INFO[Container(9000).NumItems,(,)]</label>
+			<font>apptv25</font>
 			<align>center</align>
 		</control>
 		<control type="button"><!-- Touch mouse close button -->
@@ -152,7 +153,7 @@
 				<onclick>Dialog.Close(all,true)</onclick>
 				<onclick>System.LogOff</onclick>
 				<label>$LOCALIZE[20126] $INFO[system.profilename]</label>
-				<visible>[System.HasLoginScreen | IntegerGreaterThan(System.ProfileCount,1)] + System.Loggedon</visible>
+				<visible>[System.HasLoginScreen | Integer.IsGreater(System.ProfileCount,1)] + System.Loggedon</visible>
 			</control>
 			<control type="togglebutton" id="11"><!-- Master mode -->
 				<width>360</width>

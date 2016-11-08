@@ -126,8 +126,8 @@
 				<onright>1123</onright>
 				<onleft>999</onleft>
 				<ondown>999</ondown>
-				<animation condition="!Control.HasFocus(1223) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+				<animation condition="!Control.HasFocus(1223) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 			</control>
 			<control type="image">
 				<left>340</left>
@@ -225,7 +225,7 @@
 			<control type="group">
 				<visible>Container.Content(tvshows)</visible>
 				<control type="group">
-					<visible>StringCompare(Container.FolderPath,videodb://tvshows/titles/)</visible>
+					<visible>String.IsEqual(Container.FolderPath,videodb://tvshows/titles/)</visible>
 					<control type="label"><!-- Seasons -->
 						<left>340</left>
 						<top>315</top>
@@ -236,7 +236,7 @@
 					</control>
 				</control>
 				<control type="group">
-					<visible>!StringCompare(Container.FolderPath,videodb://tvshows/titles/)</visible>
+					<visible>!String.IsEqual(Container.FolderPath,videodb://tvshows/titles/)</visible>
 					<control type="label"><!-- Current TVShow Season -->
 						<left>340</left>
 						<top>315</top>
@@ -270,25 +270,25 @@
 					<width>40</width>
 					<height>30</height>
 					<texture background="true">$INFO[Listitem.AudioCodec,special://skin/extras/images/audio/,.png]</texture>
-					<visible>!IsEmpty(ListItem.AudioCodec) + !StringCompare(Control.GetLabel(161),.)</visible>
+					<visible>!IsEmpty(ListItem.AudioCodec) + !String.IsEqual(Control.GetLabel(161),.)</visible>
 				</control>
 				<control type="image" id="172"><!-- Video codec -->
 					<width>40</width>
 					<height>30</height>
 					<texture background="true">$INFO[Listitem.VideoCodec,special://skin/extras/images/video/,.png]</texture>
-					<visible>!IsEmpty(ListItem.VideoCodec) + !StringCompare(Control.GetLabel(162),.)</visible>
+					<visible>!IsEmpty(ListItem.VideoCodec) + !String.IsEqual(Control.GetLabel(162),.)</visible>
 				</control>
 				<control type="image" id="173"><!-- Video aspect ratio -->
 					<width>40</width>
 					<height>30</height>
 					<texture background="true">$INFO[ListItem.VideoAspect,special://skin/extras/images/aspectratio/,.png]</texture>
-					<visible>!IsEmpty(ListItem.VideoAspect) + !StringCompare(Control.GetLabel(163),.)</visible>
+					<visible>!IsEmpty(ListItem.VideoAspect) + !String.IsEqual(Control.GetLabel(163),.)</visible>
 				</control>
 				<control type="image" id="174"><!-- Video resolution -->
 					<width>40</width>
 					<height>30</height>
 					<texture background="true">$INFO[Listitem.VideoResolution,special://skin/extras/images/resolution/,.png]</texture>
-					<visible>!IsEmpty(ListItem.VideoResolution) + !StringCompare(Control.GetLabel(164),.)</visible>
+					<visible>!IsEmpty(ListItem.VideoResolution) + !String.IsEqual(Control.GetLabel(164),.)</visible>
 				</control>
 				<!-- Hack to check if media flag image is available -->
 				<control type="image" id="161">
@@ -504,25 +504,25 @@
 					<width>96</width>
 					<height>96</height>
 					<texture>button-info-cast.png</texture>
-					<visible>!Control.HasFocus(5) + StringCompare(Control.GetLabel(5),$LOCALIZE[206])</visible>
+					<visible>!Control.HasFocus(5) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[206])</visible>
 				</control>
 				<control type="image">
 					<width>96</width>
 					<height>96</height>
 					<texture>button-info-cast-focus.png</texture>
-					<visible>Control.HasFocus(5) + StringCompare(Control.GetLabel(5),$LOCALIZE[206])</visible>
+					<visible>Control.HasFocus(5) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[206])</visible>
 				</control>
 				<control type="image">
 					<width>96</width>
 					<height>96</height>
 					<texture>button-info-plot.png</texture>
-					<visible>!Control.HasFocus(5) + StringCompare(Control.GetLabel(5),$LOCALIZE[207])</visible>
+					<visible>!Control.HasFocus(5) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
 				</control>
 				<control type="image">
 					<width>96</width>
 					<height>96</height>
 					<texture>button-info-plot-focus.png</texture>
-					<visible>Control.HasFocus(5) + StringCompare(Control.GetLabel(5),$LOCALIZE[207])</visible>
+					<visible>Control.HasFocus(5) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
 				</control>
 				<control type="label">
 					<width>96</width>
@@ -535,7 +535,7 @@
 					<aligny>top</aligny>
 					<textoffsetx>10</textoffsetx>
 					<textoffsety>60</textoffsety>
-					<visible>Control.HasFocus(5) + StringCompare(Control.GetLabel(5),$LOCALIZE[206])</visible>
+					<visible>Control.HasFocus(5) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[206])</visible>
 				</control>
 				<control type="label">
 					<width>96</width>
@@ -548,7 +548,7 @@
 					<aligny>top</aligny>
 					<textoffsetx>10</textoffsetx>
 					<textoffsety>60</textoffsety>
-					<visible>!Control.HasFocus(5) + StringCompare(Control.GetLabel(5),$LOCALIZE[206])</visible>
+					<visible>!Control.HasFocus(5) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[206])</visible>
 				</control>
 				<control type="label">
 					<width>96</width>
@@ -561,7 +561,7 @@
 					<aligny>top</aligny>
 					<textoffsetx>10</textoffsetx>
 					<textoffsety>60</textoffsety>
-					<visible>Control.HasFocus(5) + StringCompare(Control.GetLabel(5),$LOCALIZE[207])</visible>
+					<visible>Control.HasFocus(5) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
 				</control>
 				<control type="label">
 					<width>96</width>
@@ -574,7 +574,7 @@
 					<aligny>top</aligny>
 					<textoffsetx>10</textoffsetx>
 					<textoffsety>60</textoffsety>
-					<visible>!Control.HasFocus(5) + StringCompare(Control.GetLabel(5),$LOCALIZE[207])</visible>
+					<visible>!Control.HasFocus(5) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
 				</control>
 			</control>
 			<control type="button" id="6"><!-- Refresh button -->

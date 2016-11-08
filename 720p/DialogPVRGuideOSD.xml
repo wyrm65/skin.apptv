@@ -38,8 +38,8 @@
 				<top>130</top>
 				<width>410</width>
 				<height>490</height>
-				<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
-				<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">60</onright>
+				<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+				<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">60</onright>
 				<onup>11</onup>
 				<ondown>11</ondown>
 				<viewtype label="535">list</viewtype>
@@ -157,8 +157,8 @@
 				<onleft>11</onleft>
 				<ondown>61</ondown>
 				<onup>61</onup>
-				<animation condition="!Control.HasFocus(60) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+				<animation condition="!Control.HasFocus(60) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 			</control>
 			<control type="label"><!-- Page count -->
 				<right>850</right>

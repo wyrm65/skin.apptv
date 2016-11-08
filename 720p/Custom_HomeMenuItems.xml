@@ -26,6 +26,7 @@
 				<height>30</height>
 				<align>center</align>
 				<label>$LOCALIZE[31926]</label>
+				<font>apptv25</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="image">
@@ -34,6 +35,15 @@
 				<width>954</width>
 				<height>4</height>
 				<texture>separator.png</texture>
+			</control>
+			<control type="label" id="4999"><!-- Workaround to determine if video playlist, Compare against this label to see if a video playlist -->
+				<left>0</left>
+				<top>-150</top>
+				<width>954</width>
+				<height>48</height>
+				<label>$VAR[CustomSkinPlaylist]</label>
+				<font>apptv20</font>
+				<visible>false</visible>
 			</control>
 			<control type="grouplist" id="5000">
 				<left>25</left>
@@ -79,8 +89,8 @@
 						<ondown>5005</ondown>
 						<font>apptv22</font>
 						<align>right</align>
-						<include name="use-alttexture">
-							<param name="condition" value="Window(settings).Property(ListActive)"/>
+						<include content="use-alttexture">
+							<param name="altcondition" value="Window(settings).Property(ListActive)"/>
 						</include>
 						<onclick>Skin.ToggleSetting($INFO[Window(settings).Property(ListToggle)])</onclick>
 					</control>
@@ -140,15 +150,13 @@
 					<label>- [I]$LOCALIZE[559][/I]</label>
 					<label2>$VAR[CustomSkinPlaylist]</label2>
 					<font>apptv22</font>
-					<onclick>Skin.SetFile($INFO[Window(settings).Property(ListCustomBase)].List,.xsp|.m3u,special://videoplaylists/..)</onclick>
-					<onclick>SetProperty(PlaylistPath,$INFO[Window(settings).Property(ListCustomBase),,.List],settings)</onclick>
-					<onclick condition="SubString(Control.GetLabel(5007),$LOCALIZE[14098]">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],$VAR[CustomPlaylistPlay])</onclick>
-					<onclick condition="SubString(Control.GetLabel(5007),$LOCALIZE[31941] + SubString(Window(settings).Property(PlaylistPath),music)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],$VAR[CustomPlaylistMusic])</onclick>
-					<onclick condition="SubString(Control.GetLabel(5007),$LOCALIZE[31941] + !SubString(Window(settings).Property(PlaylistPath),music)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],$VAR[CustomPlaylistVideo])</onclick>
+					<onclick>Skin.SetFile($INFO[Window(settings).Property(ListCustomBase),,.List],.xsp|.m3u,special://profile/playlists)</onclick>
+					<onclick condition="String.Contains(Control.GetLabel(5007),$LOCALIZE[14098])">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],$VAR[CustomPlaylistPlay])</onclick>
+					<onclick condition="String.Contains(Control.GetLabel(5007),$LOCALIZE[31941]) + !String.Contains(Control.GetLabel(4999),/video/)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],$VAR[CustomPlaylistMusic])</onclick>
+					<onclick condition="String.Contains(Control.GetLabel(5007),$LOCALIZE[31941]) + String.Contains(Control.GetLabel(4999),/video/)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],$VAR[CustomPlaylistVideo])</onclick>
 					<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],DefaultPlaylist.png)</onclick>
 					<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/filemanager.png)</onclick>
 					<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],Playlist)</onclick>
-					<onclick>ClearProperty(PlaylistPath,settings)</onclick>
 					<visible>!IsEmpty(Window(settings).Property(ListCustomBase)) + StringCompare(Window(settings).Property(CurrentType),$LOCALIZE[31660])</visible>
 				</control>
 				<control type="button" id="5009"><!-- Assign Skin playlist action to custom menu item -->
@@ -157,15 +165,13 @@
 					<label>- [I]$LOCALIZE[559][/I]</label>
 					<label2>$VAR[CustomSkinPlaylist]</label2>
 					<font>apptv22</font>
-					<onclick>Skin.SetFile($INFO[Window(settings).Property(ListCustomBase)].List,.xsp|.m3u,special://skin/extras/playlists/)</onclick>
-					<onclick>SetProperty(PlaylistPath,$INFO[Window(settings).Property(ListCustomBase),,.List],settings)</onclick>
-					<onclick condition="SubString(Control.GetLabel(5007),$LOCALIZE[14098]">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],$VAR[CustomPlaylistPlay])</onclick>
-					<onclick condition="SubString(Control.GetLabel(5007),$LOCALIZE[31941] + SubString(Window(settings).Property(PlaylistPath),music)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],$VAR[CustomPlaylistMusic])</onclick>
-					<onclick condition="SubString(Control.GetLabel(5007),$LOCALIZE[31941] + !SubString(Window(settings).Property(PlaylistPath),music)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],$VAR[CustomPlaylistVideo])</onclick>
+					<onclick>Skin.SetFile($INFO[Window(settings).Property(ListCustomBase),,.List],.xsp|.m3u,special://skin/extras/playlists)</onclick>
+					<onclick condition="String.Contains(Control.GetLabel(5007),$LOCALIZE[14098])">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],$VAR[CustomPlaylistPlay])</onclick>
+					<onclick condition="String.Contains(Control.GetLabel(5007),$LOCALIZE[31941]) + !String.Contains(Control.GetLabel(4999),/video/)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],$VAR[CustomPlaylistMusic])</onclick>
+					<onclick condition="String.Contains(Control.GetLabel(5007),$LOCALIZE[31941]) + String.Contains(Control.GetLabel(4999),/video/)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],$VAR[CustomPlaylistVideo])</onclick>
 					<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],DefaultPlaylist.png)</onclick>
 					<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/filemanager.png)</onclick>
 					<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],Playlist)</onclick>
-					<onclick>ClearProperty(PlaylistPath,settings)</onclick>
 					<visible>!IsEmpty(Window(settings).Property(ListCustomBase)) + StringCompare(Window(settings).Property(CurrentType),$LOCALIZE[31661])</visible>
 				</control>
 				<control type="button" id="5010"><!-- Assign Command action to custom menu item -->
@@ -308,7 +314,7 @@
 				<top>236</top>
 				<width>350</width>
 				<height>34</height>
-				<font>apptv23</font>
+				<font>apptv25</font>
 				<label>$LOCALIZE[31928]</label>
 				<align>center</align>
 			</control>
@@ -424,7 +430,7 @@
 				<top>286</top>
 				<width>350</width>
 				<height>34</height>
-				<font>apptv23</font>
+				<font>apptv25</font>
 				<label>$LOCALIZE[31929]$INFO[Container(6011).NumItems,(,)]</label>
 				<align>center</align>
 			</control>

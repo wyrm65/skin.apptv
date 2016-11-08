@@ -2,7 +2,7 @@
 <includes>
 	<include name="PVRTimelineView">
 		<control type="group"><!-- TV guide timeline -->
-			<visible>Control.IsVisible(10) + IntegerGreaterThan(Container(10).NumItems,0)</visible>
+			<visible>Control.IsVisible(10) + Integer.IsGreater(Container(10).NumItems,0)</visible>
 			<control type="label"><!-- Current time -->
 				<left>780</left>
 				<top>54</top>
@@ -284,8 +284,8 @@
 				<height>500</height>
 				<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
 				<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
-				<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
-				<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">27</onright>
+				<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+				<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">27</onright>
 				<onup>14</onup>
 				<ondown>14</ondown>
 				<viewtype label="536">list</viewtype>
@@ -329,7 +329,7 @@
 						<width>32</width>
 						<height>32</height>
 						<texture>groupfocused.png</texture>
-						<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !IsEmpty(ListItem.ChannelName)</visible>
+						<visible>!String.IsEqual(ListItem.Comment,$LOCALIZE[305]) + !IsEmpty(ListItem.ChannelName)</visible>
 					</control>
 					<control type="image">
 						<left>1170</left>
@@ -337,7 +337,7 @@
 						<width>32</width>
 						<height>32</height>
 						<texture>OverlayUnwatched.png</texture>
-						<visible>StringCompare(ListItem.Comment,$LOCALIZE[305]) + !IsEmpty(ListItem.ChannelName)</visible>
+						<visible>String.IsEqual(ListItem.Comment,$LOCALIZE[305]) + !IsEmpty(ListItem.ChannelName)</visible>
 					</control>
 				</itemlayout>
 				<focusedlayout height="50">
@@ -378,7 +378,7 @@
 						<width>32</width>
 						<height>32</height>
 						<texture>groupfocused.png</texture>
-						<visible>!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !IsEmpty(ListItem.ChannelName)</visible>
+						<visible>!String.IsEqual(ListItem.Comment,$LOCALIZE[305]) + !IsEmpty(ListItem.ChannelName)</visible>
 					</control>
 					<control type="image">
 						<left>1170</left>
@@ -386,7 +386,7 @@
 						<width>32</width>
 						<height>32</height>
 						<texture>OverlayUnwatched.png</texture>
-						<visible>StringCompare(ListItem.Comment,$LOCALIZE[305]) + !IsEmpty(ListItem.ChannelName)</visible>
+						<visible>String.IsEqual(ListItem.Comment,$LOCALIZE[305]) + !IsEmpty(ListItem.ChannelName)</visible>
 					</control>
 				</focusedlayout>
 			</control>
@@ -407,14 +407,14 @@
 				<width>18</width>
 				<height>500</height>
 				<onleft>14</onleft>
-				<animation condition="!Control.HasFocus(27) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+				<animation condition="!Control.HasFocus(27) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 			</control>
 		</control>
 	</include>
 	<include name="PVRListView">
 		<control type="group">
-			<visible>Control.IsVisible(50) + IntegerGreaterThan(Container(50).NumItems,0)</visible>
+			<visible>Control.IsVisible(50) + Integer.IsGreater(Container(50).NumItems,0)</visible>
 			<control type="group">
 				<control type="list" id="50">
 					<left>674</left>
@@ -425,8 +425,8 @@
 					<ondown>50</ondown>
 					<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
 					<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
-					<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
-					<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">27</onright>
+					<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+					<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">27</onright>
 					<preloaditems>4</preloaditems>
 					<pagecontrol>27</pagecontrol>
 					<itemlayout width="560" height="70">
@@ -629,8 +629,8 @@
 					<width>18</width>
 					<height>565</height>
 					<onleft>50</onleft>
-					<animation condition="!Control.HasFocus(27) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-					<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+					<animation condition="!Control.HasFocus(27) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 				</control>
 			</control>
 		</control>
@@ -691,8 +691,8 @@
 				<height>506</height>
 				<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
 				<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
-				<onright condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
-				<onright condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">27</onright>
+				<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+				<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">27</onright>
 				<onup>17</onup>
 				<ondown>17</ondown>
 				<viewtype label="536">list</viewtype>
@@ -787,8 +787,8 @@
 				<width>18</width>
 				<height>506</height>
 				<onleft>17</onleft>
-				<animation condition="!Control.HasFocus(27) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+				<animation condition="!Control.HasFocus(27) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 			</control>
 		</control>
 	</include>

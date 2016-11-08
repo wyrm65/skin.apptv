@@ -11,7 +11,7 @@
 			<texturefocus>-</texturefocus>
 			<texturenofocus>-</texturenofocus>
 			<onclick>noop</onclick>
-			<visible>![StringCompare(Skin.String(weather-view),$LOCALIZE[33035]) + SubString(Weather.plugin,weather.openweathermap.extended)]</visible>
+			<visible>![String.IsEqual(Skin.String(weather-view),$LOCALIZE[33035]) + SubString(Weather.plugin,weather.openweathermap.extended)]</visible>
 		</control>
 
 		<control type="label"><!-- Weather heading label -->
@@ -108,8 +108,8 @@
 				<height>32</height>
 				<texturefocus>touch-close.png</texturefocus>
 				<texturenofocus>touch-close.png</texturenofocus>
-				<onclick condition="!StringCompare(Window(home).Property(ShowScreenSettings),show)">SetProperty(ShowScreenSettings,show,home)</onclick>
-				<onclick condition="StringCompare(Window(home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,home)</onclick>
+				<onclick condition="!String.IsEqual(Window(home).Property(ShowScreenSettings),show)">SetProperty(ShowScreenSettings,show,home)</onclick>
+				<onclick condition="String.IsEqual(Window(home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,home)</onclick>
 				<visible>Skin.HasSetting(touch-controls)</visible>
 			</control>
 			<control type="image">
@@ -146,7 +146,7 @@
 					<width>476</width>
 					<height>50</height>
 					<label>$LOCALIZE[31866]</label>
-					<onclick condition="!System.HasAddon(script.image.resource.select)">RunPlugin(plugin://script.image.resource.select)</onclick>
+					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select)">SetFocus(6000)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,type=resource.images.weatherfanart&amp;property=background-customweather)</onclick>
 				</control>
@@ -154,7 +154,7 @@
 					<width>476</width>
 					<height>50</height>
 					<label>$LOCALIZE[31873]</label>
-					<onclick condition="!System.HasAddon(script.image.resource.select)">RunPlugin(plugin://script.image.resource.select)</onclick>
+					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select)">SetFocus(6000)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,type=resource.images.weathericons&amp;property=custom-weathericons)</onclick>
 				</control>
@@ -190,25 +190,25 @@
 				<width>32</width>
 				<height>32</height>
 				<texture>groupfocused.png</texture>
-				<visible>[ControlGroup(9000).HasFocus() | StringCompare(Window(home).Property(ShowScreenSettings),show)] + !Skin.HasSetting(lock-screensettings)</visible>
+				<visible>[ControlGroup(9000).HasFocus() | String.IsEqual(Window(home).Property(ShowScreenSettings),show)] + !Skin.HasSetting(lock-screensettings)</visible>
 			</control>
 			<control type="image">
 				<width>32</width>
 				<height>32</height>
 				<texture>groupunfocused.png</texture>
-				<visible>![ControlGroup(9000).HasFocus() | StringCompare(Window(home).Property(ShowScreenSettings),show)] + !Skin.HasSetting(lock-screensettings)</visible>
+				<visible>![ControlGroup(9000).HasFocus() | String.IsEqual(Window(home).Property(ShowScreenSettings),show)] + !Skin.HasSetting(lock-screensettings)</visible>
 			</control>
 			<control type="image">
 				<width>32</width>
 				<height>32</height>
 				<texture>groupfocused.png</texture>
-				<visible>![ControlGroup(9000).HasFocus() | StringCompare(Window(home).Property(ShowScreenSettings),show) | Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258)]</visible>
+				<visible>![ControlGroup(9000).HasFocus() | String.IsEqual(Window(home).Property(ShowScreenSettings),show) | Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258)]</visible>
 			</control>
 			<control type="image">
 				<width>32</width>
 				<height>32</height>
 				<texture>groupunfocused.png</texture>
-				<visible>[ControlGroup(9000).HasFocus() | StringCompare(Window(home).Property(ShowScreenSettings),show) | Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258)]</visible>
+				<visible>[ControlGroup(9000).HasFocus() | String.IsEqual(Window(home).Property(ShowScreenSettings),show) | Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258)]</visible>
 			</control>
 		</control>
 

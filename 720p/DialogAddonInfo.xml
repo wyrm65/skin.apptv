@@ -19,7 +19,7 @@
 				<width>708</width>
 				<height>38</height>
 				<font>apptv38</font>
-				<label>[B]$INFO[ListItem.Property(Addon.Name)][/B]</label>
+				<label>[B]$INFO[ListItem.AddonName][/B]</label>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="group">
@@ -38,7 +38,7 @@
 					<top>0</top>
 					<width>601</width>
 					<height>31</height>
-					<label>$INFO[ListItem.Property(Addon.Type)]</label>
+					<label>$INFO[ListItem.AddonType]</label>
 					<font>apptv22</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
@@ -55,7 +55,7 @@
 					<top>37</top>
 					<width>601</width>
 					<height>31</height>
-					<label>$INFO[ListItem.Property(Addon.Creator)]</label>
+					<label>$INFO[ListItem.AddonCreator]</label>
 					<font>apptv22</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
@@ -72,7 +72,7 @@
 					<top>75</top>
 					<width>601</width>
 					<height>31</height>
-					<label>$INFO[ListItem.Property(Addon.Version)]</label>
+					<label>$INFO[ListItem.AddonVersion]</label>
 					<font>apptv22</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
@@ -89,7 +89,7 @@
 					<top>112</top>
 					<width>601</width>
 					<height>31</height>
-					<label>$INFO[ListItem.Property(Addon.Summary)]</label>
+					<label>$INFO[ListItem.AddonSummary]</label>
 					<font>apptv22</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
@@ -107,17 +107,17 @@
 					<height>31</height>
 					<label>[B]$LOCALIZE[21821][/B]</label>
 					<font>apptv23</font>
-					<visible>!IsEmpty(ListItem.Property(Addon.Description))</visible>
+					<visible>!IsEmpty(ListItem.AddonDescription)</visible>
 				</control>
 				<control type="group">
-					<visible>!IsEmpty(ListItem.Property(Addon.Disclaimer))</visible>
+					<visible>!IsEmpty(ListItem.AddonDisclaimer)</visible>
 					<control type="textbox">
 						<left>17</left>
 						<top>244</top>
 						<width>734</width>
 						<height>176</height>
 						<font>apptv22</font>
-						<label>$INFO[ListItem.Property(Addon.Description)]</label>
+						<label>$INFO[ListItem.AddonDescription]</label>
 						<pagecontrol>60</pagecontrol>
 					</control>
 					<control type="scrollbar" id="60">
@@ -127,7 +127,7 @@
 						<height>182</height>
 						<onleft>9000</onleft>
 						<ondown>61</ondown>
-						<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+						<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 					</control>
 					<control type="label"><!-- Disclaimer heading -->
 						<left>0</left>
@@ -143,7 +143,7 @@
 						<width>734</width>
 						<height>76</height>
 						<font>apptv22</font>
-						<label>$INFO[ListItem.Property(Addon.Disclaimer)]</label>
+						<label>$INFO[ListItem.AddonDisclaimer]</label>
 						<autoscroll time="2000" delay="3000" repeat="5000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
 						<pagecontrol>61</pagecontrol>
 					</control>
@@ -154,18 +154,18 @@
 						<height>76</height>
 						<onleft>9000</onleft>
 						<onup>60</onup>
-						<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+						<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 					</control>
 				</control>
 				<control type="group">
-					<visible>IsEmpty(ListItem.Property(Addon.Disclaimer))</visible>
+					<visible>IsEmpty(ListItem.AddonDisclaimer)</visible>
 					<control type="textbox">
 						<left>17</left>
 						<top>244</top>
 						<width>734</width>
 						<height>278</height>
 						<font>apptv22</font>
-						<label>$INFO[ListItem.Property(Addon.Description)]</label>
+						<label>$INFO[ListItem.AddonDescription]</label>
 						<pagecontrol>62</pagecontrol>
 					</control>
 					<control type="scrollbar" id="62">
@@ -174,7 +174,7 @@
 						<width>16</width>
 						<height>278</height>
 						<onleft>9000</onleft>
-						<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+						<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 					</control>
 				</control>
 			</control>
@@ -191,10 +191,10 @@
 				<top>370</top>
 				<width>305</width>
 				<height>334</height>
-				<onright condition="!IsEmpty(ListItem.Property(Addon.Disclaimer)) + Control.IsVisible(60)">60</onright>
-				<onright condition="IsEmpty(ListItem.Property(Addon.Disclaimer)) + Control.IsVisible(62)">62</onright>
-				<onright condition="!IsEmpty(ListItem.Property(Addon.Disclaimer)) + !Control.IsVisible(60)">8995</onright>
-				<onright condition="IsEmpty(ListItem.Property(Addon.Disclaimer)) + !Control.IsVisible(62)">8995</onright>
+				<onright condition="!IsEmpty(ListItem.AddonDisclaimer) + Control.IsVisible(60)">60</onright>
+				<onright condition="IsEmpty(ListItem.AddonDisclaimer) + Control.IsVisible(62)">62</onright>
+				<onright condition="!IsEmpty(ListItem.AddonDisclaimer) + !Control.IsVisible(60)">8995</onright>
+				<onright condition="IsEmpty(ListItem.AddonDisclaimer) + !Control.IsVisible(62)">8995</onright>
 				<onleft>8995</onleft>
 				<onup>8995</onup>
 				<ondown>8995</ondown>
@@ -233,12 +233,6 @@
 					<width>305</width>
 					<height>46</height>
 					<label>$LOCALIZE[518]</label>
-					<align>center</align>
-				</control>
-				<control type="button" id="10"><!-- Changelog button -->
-					<width>305</width>
-					<height>46</height>
-					<label>$LOCALIZE[24036]</label>
 					<align>center</align>
 				</control>
 			</control>

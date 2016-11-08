@@ -20,7 +20,7 @@
 			<width>1192</width>
 			<height>36</height>
 			<align>center</align>
-			<font>apptv30</font>
+			<font>apptv25</font>
 		</control>
 		<control type="image">
 			<left>44</left>
@@ -46,8 +46,8 @@
 			<itemgap>0</itemgap>
 			<pagecontrol>30</pagecontrol>
 			<ondown>9001</ondown>
-			<onleft condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>
-			<onleft condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">30</onleft>
+			<onleft condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>
+			<onleft condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">30</onleft>
 			<onright>9</onright>
 		</control>
 		<control type="scrollbar" id="30">
@@ -56,8 +56,8 @@
 			<width>18</width>
 			<height>506</height>
 			<onright>2</onright>
-			<animation condition="!Control.HasFocus(30) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-			<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+			<animation condition="!Control.HasFocus(30) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 		</control>
 		<control type="group" id="9001">
 			<left>132</left>

@@ -77,8 +77,8 @@
 			<top>106</top>
 			<width>885</width>
 			<height>526</height>
-			<onleft condition="StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>
-			<onleft condition="!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])">23</onleft>
+			<onleft condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>
+			<onleft condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">23</onleft>
 			<onright>3</onright>
 			<pagecontrol>23</pagecontrol>
 		</control>
@@ -89,8 +89,8 @@
 			<height>526</height>
 			<onleft>9000</onleft>
 			<onright>5</onright>
-			<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-			<visible>!StringCompare(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+			<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 		</control>
 		<control type="textbox" id="6"><!-- Settings description area -->
 			<left>10</left>
