@@ -106,6 +106,7 @@
 					<font>apptv22</font>
 					<textcolor>disabled-text</textcolor>
 					<shadowcolor>shadow-text</shadowcolor>
+					<visible>!IsEmpty(ListItem.PlayCount)</visible>
 				</control>
 				<control type="label">
 					<left>970</left>
@@ -158,13 +159,16 @@
 			</control>
 		</control>
 		<control type="label"><!-- Artist Name -->
-			<left>662</left>
-			<top>28</top>
-			<width>598</width>
-			<height>64</height>
-			<label>$INFO[ListItem.Artist]</label>
+			<left>340</left>
+			<top>12</top>
+			<width>920</width>
+			<height>62</height>
 			<font>apptv30</font>
 			<wrapmultiline>true</wrapmultiline>
+			<aligny>center</aligny>
+			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+			<label>$INFO[ListItem.Artist]</label>
+			<textoffsetx>0</textoffsetx>
 			<visible>String.IsEqual(ListItem.DBTYPE,artist)</visible>
 		</control>
 		<control type="image"><!-- Artist Image -->
@@ -172,7 +176,7 @@
 			<top>80</top>
 			<width>256</width>
 			<height>256</height>
-			<texture diffuse="mask-squ.png" fallback="icon-profile.png" background="true">$INFO[ListItem.Icon]</texture>
+			<texture diffuse="mask-squ.png" fallback="DefaultUser.png" background="true">$INFO[ListItem.Icon]</texture>
 			<aspectratio>stretch</aspectratio>
 			<align>center</align>
 			<visible>String.IsEqual(ListItem.DBTYPE,artist)</visible>
@@ -317,7 +321,7 @@
 			<visible>Skin.HasSetting(media-case) + !SubString(ListItem.Icon,Default,Left) + String.IsEqual(ListItem.DBTYPE,album)</visible>
 		</control>
 		<control type="group"><!-- Album info -->
-			<visible>Container.Content(albums)</visible>
+			<visible>String.IsEqual(ListItem.DBTYPE,album)</visible>
 			<control type="label"><!-- Record Label value -->
 				<left>340</left>
 				<top>82</top>

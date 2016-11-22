@@ -6,8 +6,8 @@
 			<control type="group" id="1">
 				<control type="image" id="1"><!-- Dialog background -->
 					<left>0</left>
-					<top>462</top>
-					<height>264</height>
+					<top>460</top>
+					<height>262</height>
 					<width>1280</width>
 					<texture colordiffuse="mask-background">background-mask.png</texture>
 				</control>
@@ -69,8 +69,8 @@
 				<left>290</left>
 				<top>494</top>
 				<width>960</width>
-				<height>104</height>
-				<font>apptv22</font>
+				<height>116</height>
+				<font>apptv20</font>
 				<label>$INFO[VideoPlayer.Plot]</label>
 				<align>justify</align>
 				<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
@@ -80,43 +80,43 @@
 				<left>290</left>
 				<top>494</top>
 				<width>960</width>
-				<height>104</height>
-				<font>apptv22</font>
+				<height>116</height>
+				<font>apptv20</font>
 				<label>$INFO[VideoPlayer.PlotOutline]</label>
 				<align>justify</align>
 				<visible>!IsEmpty(VideoPlayer.PlotOutline) + IsEmpty(VideoPlayer.Plot)</visible>
 			</control>
 
 			<control type="grouplist" id="1"><!-- Media flags -->
-				<left>670</left>
-				<top>606</top>
-				<width>232</width>
-				<height>40</height>
+				<left>1074</left>
+				<top>612</top>
+				<width>180</width>
+				<height>38</height>
 				<align>center</align>
 				<orientation>horizontal</orientation>
 				<itemgap>-8</itemgap>
 				<animation effect="fade" start="0" end="100" time="1000">WindowOpen</animation>
 				<control type="image" id="1"><!-- Audio Codec -->
-					<width>54</width>
-					<height>40</height>
+					<width>51</width>
+					<height>38</height>
 					<texture background="true">$INFO[VideoPlayer.AudioCodec,special://skin/extras/images/audio/,.png]</texture>
 					<visible>!Player.ChannelPreviewActive</visible>
 				</control>
 				<control type="image" id="1"><!-- Video Codec -->
-					<width>54</width>
-					<height>40</height>
+					<width>51</width>
+					<height>38</height>
 					<texture background="true">$INFO[VideoPlayer.VideoCodec,special://skin/extras/images/video/,.png]</texture>
 					<visible>!Player.ChannelPreviewActive</visible>
 				</control>
 				<control type="image" id="1"><!-- Video Aspect Ratio -->
-					<width>54</width>
-					<height>40</height>
+					<width>51</width>
+					<height>38</height>
 					<texture background="true">$INFO[VideoPlayer.VideoAspect,special://skin/extras/images/aspectratio/,.png]</texture>
 					<visible>!Player.ChannelPreviewActive</visible>
 				</control>
 				<control type="image" id="1"><!-- Video Resolution -->
-					<width>54</width>
-					<height>40</height>
+					<width>51</width>
+					<height>38</height>
 					<texture background="true">$INFO[VideoPlayer.VideoResolution,special://skin/extras/images/resolution/,.png]</texture>
 					<visible>!Player.ChannelPreviewActive</visible>
 				</control>
@@ -125,42 +125,41 @@
 			<control type="group" id="1">
 				<visible>[Window.IsVisible(fullscreenvideo)] + ![Window.IsVisible(sliderdialog) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(videobookmarks) | Window.IsVisible(script-nextup-notification-StillWatchingInfo.xml) | Window.IsVisible(script-nextup-notification-NextUpInfo.xml)]</visible>
 				<control type="label" id="1">
-					<left>8</left>
-					<top>644</top>
-					<width>220</width>
-					<height>26</height>
+					<left>228</left>
+					<top>688</top>
+					<width>230</width>
+					<height>20</height>
 					<font>apptv20</font>
 					<label>[COLOR=disabled-text]($INFO[System.Time])[/COLOR] $INFO[VideoPlayer.Time]</label>
 					<align>right</align>
 				</control>
 				<control type="label" id="1">
-					<left>1048</left>
-					<top>644</top>
-					<width>220</width>
-					<height>26</height>
+					<left>1078</left>
+					<top>688</top>
+					<width>230</width>
+					<height>20</height>
 					<font>apptv20</font>
 					<label>-$INFO[VideoPlayer.TimeRemaining] [COLOR=disabled-text]($INFO[Player.FinishTime])[/COLOR]</label>
 				</control>
-
 				<control type="progress" id="1">
-					<left>238</left>
-					<top>652</top>
-					<width>800</width>
+					<left>478</left>
+					<top>694</top>
+					<width>580</width>
 					<height>16</height>
 					<info>Player.ProgressCache</info>
 					<colordiffuse>CacheBarColor</colordiffuse>
 				</control>
 				<control type="progress" id="1">
-					<left>238</left>
-					<top>652</top>
-					<width>800</width>
+					<left>478</left>
+					<top>694</top>
+					<width>580</width>
 					<height>16</height>
 					<info>Player.Progress</info>
 				</control>
 				<control type="slider" id="1">
-					<left>238</left>
-					<top>652</top>
-					<width>800</width>
+					<left>478</left>
+					<top>694</top>
+					<width>580</width>
 					<height>16</height>
 					<info>Player.Progress</info>
 				</control>

@@ -161,8 +161,9 @@
 					<font>apptv22</font>
 					<textoffsetx>10</textoffsetx>
 					<label>$LOCALIZE[16003] $LOCALIZE[478]</label>
-					<onclick>ActivateWindow(playercontrols)</onclick>
 					<onclick>SetFocus(50)</onclick>
+					<onclick condition="String.IsEqual(Window(home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,home)</onclick>
+					<onclick>ActivateWindow(playercontrols)</onclick>
 					<enable>Player.HasAudio | Player.HasVideo</enable>
 				</control>
 			</control>

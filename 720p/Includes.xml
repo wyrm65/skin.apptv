@@ -8,7 +8,6 @@
 		_HomeMenuItems 1153
 		_DialogSelect 1154
 		_AddonsList 1155
-		_LibraryEntry 1156
 		_DummyDialog 1157
 	-->
 
@@ -77,6 +76,48 @@
 		<value condition="SubString(ListItem.Mpaa,TV-PG)">special://skin/extras/images/rating/TV-PG.png</value>
 		<value condition="SubString(ListItem.Mpaa,TV-14)">special://skin/extras/images/rating/TV-14.png</value>
 		<value condition="SubString(ListItem.Mpaa,TV-MA)">special://skin/extras/images/rating/TV-MA.png</value>
+	</variable>
+	<variable name="PlayerVideoRating">
+		<value condition="SubString(VideoPlayer.Mpaa,Rated G) | SubString(VideoPlayer.Mpaa,Rated: G)">special://skin/extras/images/rating/mpaa_general.png</value>
+		<value condition="[SubString(VideoPlayer.Mpaa,Rated PG) | SubString(VideoPlayer.Mpaa,Rated: PG)] + !SubString(VideoPlayer.Mpaa,Rated PG-13) + !SubString(VideoPlayer.Mpaa,Rated: PG-13)">special://skin/extras/images/rating/mpaa_pg.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,Rated PG-13) | SubString(VideoPlayer.Mpaa,Rated: PG-13)">special://skin/extras/images/rating/mpaa_pg13.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,Rated R) | SubString(VideoPlayer.Mpaa,Rated: R)">special://skin/extras/images/rating/mpaa_restricted.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,Rated NC-17) | SubString(VideoPlayer.Mpaa,Rated: NC-17)">special://skin/extras/images/rating/mpaa_nc17.png</value>
+		<value condition="String.IsEqual(VideoPlayer.Mpaa,UK:U)">special://skin/extras/images/rating/bbfc_u.png</value>
+		<value condition="String.IsEqual(VideoPlayer.Mpaa,UK:UC)">special://skin/extras/images/rating/bbfc_uc.png</value>
+		<value condition="String.IsEqual(VideoPlayer.Mpaa,UK:PG)">special://skin/extras/images/rating/bbfc_pg.png</value>
+		<value condition="String.IsEqual(VideoPlayer.Mpaa,UK:12)">special://skin/extras/images/rating/bbfc_12.png</value>
+		<value condition="String.IsEqual(VideoPlayer.Mpaa,UK:12A)">special://skin/extras/images/rating/bbfc_12A.png</value>
+		<value condition="String.IsEqual(VideoPlayer.Mpaa,UK:15)">special://skin/extras/images/rating/bbfc_15.png</value>
+		<value condition="String.IsEqual(VideoPlayer.Mpaa,UK:18)">special://skin/extras/images/rating/bbfc_18.png</value>
+		<value condition="String.IsEqual(VideoPlayer.Mpaa,UK:R18)">special://skin/extras/images/rating/bbfc_R18.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,FSK0) | SubString(VideoPlayer.Mpaa,FSK 0) | SubString(VideoPlayer.Mpaa,FSK o.A.)">special://skin/extras/images/rating/FSK-0.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,FSK6) | SubString(VideoPlayer.Mpaa,FSK 6)">special://skin/extras/images/rating/FSK-6.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,FSK12) | SubString(VideoPlayer.Mpaa,FSK 12)">special://skin/extras/images/rating/FSK-12.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,FSK16) | SubString(VideoPlayer.Mpaa,FSK 16)">special://skin/extras/images/rating/FSK-16.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,FSK18) | SubString(VideoPlayer.Mpaa,FSK 18)">special://skin/extras/images/rating/FSK-18.png</value>
+		<value condition="String.IsEqual(VideoPlayer.Mpaa,Australia:G) | String.IsEqual(VideoPlayer.Mpaa,Australia:TV-G) | String.IsEqual(VideoPlayer.Mpaa,Australia:TV-C) | String.IsEqual(VideoPlayer.Mpaa,Australia:TV-P)">special://skin/extras/images/rating/australia_g.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,Australia:MA) | SubString(VideoPlayer.Mpaa,Australia:TV-MA) | SubString(VideoPlayer.Mpaa,Australia:TV-MAV) | SubString(VideoPlayer.Mpaa,Australia:TV-AV)">special://skin/extras/images/rating/australia_ma.png</value>
+		<value condition="String.IsEqual(VideoPlayer.Mpaa,Australia:M) | String.IsEqual(VideoPlayer.Mpaa,Australia:TV-M)">special://skin/extras/images/rating/australia_m.png</value>
+		<value condition="String.IsEqual(VideoPlayer.Mpaa,Australia:PG) | String.IsEqual(VideoPlayer.Mpaa,Australia:TV-PG)">special://skin/extras/images/rating/australia_pg.png</value>
+		<value condition="String.IsEqual(VideoPlayer.Mpaa,Australia:R) | String.IsEqual(VideoPlayer.Mpaa,Australia:TV-R)">special://skin/extras/images/rating/australia_r.png</value>
+		<value condition="String.IsEqual(VideoPlayer.Mpaa,Australia:X)">special://skin/extras/images/rating/australia_x.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,Brazil:Livre) | SubString(VideoPlayer.Mpaa,Livre)">special://skin/extras/images/Brazil_Livre.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,Brazil:10) | SubString(VideoPlayer.Mpaa,10 anos)">special://skin/extras/images/Brazil_10.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,Brazil:12) | SubString(VideoPlayer.Mpaa,12 anos)">special://skin/extras/images/Brazil_12.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,Brazil:14) | SubString(VideoPlayer.Mpaa,14 anos)">special://skin/extras/images/Brazil_14.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,Brazil:16) | SubString(VideoPlayer.Mpaa,16 anos)">special://skin/extras/images/Brazil_16.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,Brazil:18) | SubString(VideoPlayer.Mpaa,18 anos)">special://skin/extras/images/Brazil_18.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,HU-KN)">special://skin/extras/images/rating/HU_KN.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,HU-12)">special://skin/extras/images/rating/HU_12.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,HU-16)">special://skin/extras/images/rating/HU_16.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,HU-18)">special://skin/extras/images/rating/HU_18.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,TV-Y) + ![SubString(VideoPlayer.Mpaa,TV-Y7) | SubString(VideoPlayer.Mpaa,TV-Y7-FV)]">special://skin/extras/images/rating/TV-Y.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,TV-Y7) | SubString(VideoPlayer.Mpaa,TV-Y7-FV)">special://skin/extras/images/rating/TV-Y7.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,TV-G)">special://skin/extras/images/rating/TV-G.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,TV-PG)">special://skin/extras/images/rating/TV-PG.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,TV-14)">special://skin/extras/images/rating/TV-14.png</value>
+		<value condition="SubString(VideoPlayer.Mpaa,TV-MA)">special://skin/extras/images/rating/TV-MA.png</value>
 	</variable>
 	<variable name="GlobalSearchRating">
 		<value condition="SubString(Container(100).ListItem.Property(Mpaa),Rated G) | SubString(Container(100).ListItem.Property(Mpaa),Rated: G)">special://skin/extras/images/rating/mpaa_general.png</value>
@@ -167,8 +208,8 @@
 		<value>$LOCALIZE[31815]</value>
 	</variable>
 	<variable name="VideoInfoIcons">
-		<value condition="Container.Content(movies)">plugin://script.skin.helper.service/?action=similarmovies&amp;imdbid=$INFO{ListItem.IMDBNumber}&amp;reload=$INFO{Window(home).Property(widgetreload-movies)}</value>
-		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">plugin://script.skin.helper.service/?action=similarshows&amp;reload=$INFO{Window(home).Property(widgetreload2)}</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,movie)">plugin://script.skin.helper.service/?action=similarmovies&amp;imdbid=$INFO{ListItem.IMDBNumber}&amp;reload=$INFO{Window(home).Property(widgetreload-movies)}</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)">plugin://script.skin.helper.service/?action=similarshows&amp;reload=$INFO{Window(home).Property(widgetreload2)}</value>
 	</variable>
 	<variable name="SearchInfoIcons">
 		<value condition="Control.IsVisible(110)">plugin://script.skin.helper.service/?action=similarmovies&amp;reload=$INFO[Window(home).Property(widgetreload2)]</value>
@@ -224,9 +265,9 @@
 		<value>noop</value >
 	</variable>
 	<variable name="PlayerControlRepeatImage">
-		<value condition="Playlist.IsRepeatOne + Control.HasFocus(912)">osd-btn-repeatone-focus.png</value>
-		<value condition="Playlist.IsRepeat + Control.HasFocus(912)">osd-btn-repeatall-focus.png</value>
-		<value condition="Control.HasFocus(912)">osd-btn-repeat-focus.png</value>
+		<value condition="Playlist.IsRepeatOne + Control.HasFocus(674)">osd-btn-repeatone-focus.png</value>
+		<value condition="Playlist.IsRepeat + Control.HasFocus(674)">osd-btn-repeatall-focus.png</value>
+		<value condition="Control.HasFocus(674)">osd-btn-repeat-focus.png</value>
 		<value condition="Playlist.IsRepeatOne">osd-btn-repeatone.png</value>
 		<value condition="Playlist.IsRepeat">osd-btn-repeatall.png</value>
 		<value>osd-btn-repeat.png</value>
@@ -238,7 +279,6 @@
 		<value condition="Player.Rewinding">osd-btn-rewind.png</value>
 		<value condition="!Player.Seeking + [Player.Rewinding2x | Player.Rewinding4x | Player.Rewinding8x | Player.Rewinding16x | Player.Rewinding32x]">osd-btn-rewind.png</value>
 		<value condition="!Player.Seeking + [Player.Forwarding2x | Player.Forwarding4x | Player.Forwarding8x | Player.Forwarding16x | Player.Forwarding32x]">osd-btn-fastfwd.png</value>
-		<value condition="!Player.Seeking + Player.DisplayAfterSeek">osd-btn-play.png</value>
 	</variable>
 	<variable name="PlayStateTxt">
 		<value condition="Player.Paused + Player.Caching + !Player.Seeking + !Player.DisplayAfterSeek"> $LOCALIZE[15107] $INFO[Player.CacheLevel]%</value>
@@ -250,7 +290,6 @@
 		<value condition="!Player.Seeking + [Player.Rewinding8x | Player.Forwarding8x]">x8</value>
 		<value condition="!Player.Seeking + [Player.Rewinding16x | Player.Forwarding16x]">x16</value>
 		<value condition="!Player.Seeking + [Player.Rewinding32x | Player.Forwarding32x]">x32</value>
-		<value condition="!Player.Seeking + Player.DisplayAfterSeek">$INFO[Player.SeekOffset]</value>
 	</variable>
 	<variable name="VideoDuration">
 		<value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItemDuration)) + !String.IsEqual(Window(home).Property(SkinHelper.ListItemDuration.Hours),0)">$INFO[Window(home).Property(SkinHelper.ListItemDuration.Hours),,h]$INFO[Window(home).Property(SkinHelper.ListItemDuration.Minutes),,m]</value>
@@ -408,11 +447,11 @@
 		<value condition="IsEmpty(Container.Content) + !Substring(ListItem.Icon,Default)">$INFO[ListItem.Icon]</value>
 		<value condition="Container.Content(studios) + !IsEmpty(Skin.String(custom-moviestudioicons.path))">$INFO[Skin.String(custom-moviestudioicons.path)]$INFO[ListItem.Label]$INFO[Skin.String(custom-moviestudioicons.ext)]</value>
 		<value condition="Container.Content(genres) + !IsEmpty(Skin.String(custom-moviegenresicons.path))">$INFO[Skin.String(custom-moviegenresicons.path)]$INFO[ListItem.Label]$INFO[Skin.String(custom-moviegenresicons.ext)]</value>
-		<value condition="Container.Content(actors) | Container.Content(directors)">icon-profile.png</value>
+		<value condition="Container.Content(actors) | Container.Content(directors)">DefaultUser.png</value>
 		<value condition="Container.Content(years)">DefaultYear.png</value>
 		<value condition="Container.Content(playlists)">DefaultPlaylist.png</value>
 		<value condition="Container.Content(musicvideos)">DefaultMusicVideos.png</value>
-		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
 		<value>DefaultVideo.png</value>
 	</variable>
 	<variable name="Icon(-5)Poster">
@@ -426,7 +465,7 @@
 	<variable name="Icon(-3)Poster">
 		<value condition="!IsEmpty(ListItem(-3).Art(poster))">$INFO[ListItem(-3).Art(poster)]</value>
 		<value>$INFO[ListItem(-3).Icon]</value>
-	</variable>
+		</variable>
 	<variable name="Icon(-2)Poster">
 		<value condition="!IsEmpty(ListItem(-2).Art(poster))">$INFO[ListItem(-2).Art(poster)]</value>
 		<value>$INFO[ListItem(-2).Icon]</value>
@@ -464,9 +503,9 @@
 		<value condition="!IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem.Icon) + Substring(ListItem.Icon,DefaultFolderBack)">$INFO[ListItem.Icon]</value>
 		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem.Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
-		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(artists)">DefaultUser.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
-		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
 		<value>DefaultAudio.png</value>
 	</variable>
 	<variable name="Icon(-5)Cover">
@@ -474,9 +513,9 @@
 		<value condition="!IsEmpty(ListItem(-5).Art(thumb))">$INFO[ListItem(-5).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(-5).Icon) + Substring(ListItem(-5).Icon,DefaultFolderBack)">$INFO[ListItem(-5).Icon]</value>
 		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(-5).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
-		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(artists)">DefaultUser.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
-		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
 		<value>DefaultAudio.png</value>
 	</variable>
 	<variable name="Icon(-4)Cover">
@@ -484,9 +523,9 @@
 		<value condition="!IsEmpty(ListItem(-4).Art(thumb))">$INFO[ListItem(-4).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(-4).Icon) + Substring(ListItem(-4).Icon,DefaultFolderBack)">$INFO[ListItem(-4).Icon]</value>
 		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(-4).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
-		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(artists)">DefaultUser.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
-		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
 		<value>DefaultAudio.png</value>
 	</variable>
 	<variable name="Icon(-3)Cover">
@@ -494,9 +533,9 @@
 		<value condition="!IsEmpty(ListItem(-3).Art(thumb))">$INFO[ListItem(-3).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(-3).Icon) + Substring(ListItem(-3).Icon,DefaultFolderBack)">$INFO[ListItem(-3).Icon]</value>
 		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(-3).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
-		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(artists)">DefaultUser.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
-		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
 		<value>DefaultAudio.png</value>
 	</variable>
 	<variable name="Icon(-2)Cover">
@@ -504,9 +543,9 @@
 		<value condition="!IsEmpty(ListItem(-2).Art(thumb))">$INFO[ListItem(-2).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(-2).Icon) + Substring(ListItem(-2).Icon,DefaultFolderBack)">$INFO[ListItem(-2).Icon]</value>
 		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(-2).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
-		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(artists)">DefaultUser.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
-		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
 		<value>DefaultAudio.png</value>
 	</variable>
 	<variable name="Icon(-1)Cover">
@@ -514,9 +553,9 @@
 		<value condition="!IsEmpty(ListItem(-1).Art(thumb))">$INFO[ListItem(-1).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(-1).Icon) + Substring(ListItem(-1).Icon,DefaultFolderBack)">$INFO[ListItem(-1).Icon]</value>
 		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(-1).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
-		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(artists)">DefaultUser.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
-		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
 		<value>DefaultAudio.png</value>
 	</variable>
 	<variable name="Icon(0)Cover">
@@ -524,9 +563,9 @@
 		<value condition="!IsEmpty(ListItem(0).Art(thumb))">$INFO[ListItem(0).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(0).Icon) + Substring(ListItem(0).Icon,DefaultFolderBack)">$INFO[ListItem(0).Icon]</value>
 		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(0).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
-		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(artists)">DefaultUser.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
-		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
 		<value>DefaultAudio.png</value>
 	</variable>
 	<variable name="Icon(1)Cover">
@@ -534,9 +573,9 @@
 		<value condition="!IsEmpty(ListItem(1).Art(thumb))">$INFO[ListItem(1).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(1).Icon) + Substring(ListItem(1).Icon,DefaultFolderBack)">$INFO[ListItem(1).Icon]</value>
 		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(1).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
-		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(artists)">DefaultUser.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
-		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
 		<value>DefaultAudio.png</value>
 	</variable>
 	<variable name="Icon(2)Cover">
@@ -544,9 +583,9 @@
 		<value condition="!IsEmpty(ListItem(2).Art(thumb))">$INFO[ListItem(2).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(2).Icon) + Substring(ListItem(2).Icon,DefaultFolderBack)">$INFO[ListItem(2).Icon]</value>
 		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(2).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
-		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(artists)">DefaultUser.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
-		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
 		<value>DefaultAudio.png</value>
 	</variable>
 	<variable name="Icon(3)Cover">
@@ -554,9 +593,9 @@
 		<value condition="!IsEmpty(ListItem(3).Art(thumb))">$INFO[ListItem(3).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(3).Icon) + Substring(ListItem(3).Icon,DefaultFolderBack)">$INFO[ListItem(3).Icon]</value>
 		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(3).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
-		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(artists)">DefaultUser.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
-		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
 		<value>DefaultAudio.png</value>
 	</variable>
 	<variable name="Icon(4)Cover">
@@ -564,9 +603,9 @@
 		<value condition="!IsEmpty(ListItem(4).Art(thumb))">$INFO[ListItem(4).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(4).Icon) + Substring(ListItem(4).Icon,DefaultFolderBack)">$INFO[ListItem(4).Icon]</value>
 		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(4).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
-		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(artists)">DefaultUser.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
-		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
 		<value>DefaultAudio.png</value>
 	</variable>
 	<variable name="Icon(5)Cover">
@@ -574,9 +613,9 @@
 		<value condition="!IsEmpty(ListItem(5).Art(thumb))">$INFO[ListItem(5).Art(thumb)]</value>
 		<value condition="!IsEmpty(ListItem(5).Icon) + Substring(ListItem(5).Icon,DefaultFolderBack)">$INFO[ListItem(5).Icon]</value>
 		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem(5).Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
-		<value condition="Container.Content(artists)">icon-profile.png</value>
+		<value condition="Container.Content(artists)">DefaultUser.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
-		<value condition="Container.Content(Addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
 		<value>DefaultAudio.png</value>
 	</variable>
 	<variable name="Icon(8)Poster">
@@ -1670,23 +1709,23 @@
 				<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible><!-- Movies or Tv Episodes -->
 				<animation effect="fade" time="200">VisibleChange</animation>
 				<control type="image" id="1">
-					<left>50</left>
-					<top>450</top>
-					<width>192</width>
-					<height>192</height>
+					<left>10</left>
+					<top>468</top>
+					<width>240</width>
+					<height>240</height>
 					<texture>$VAR[PlayerVideoArt]</texture>
 					<aligny>bottom</aligny>
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="button" id="1"><!-- Touch button to get out of Fullscreen -->
-					<left>50</left>
-					<top>450</top>
-					<width>192</width>
-					<height>192</height>
-					<texturefocus>-</texturefocus>
-					<texturenofocus>-</texturenofocus>
+					<left>10</left>
+					<top>468</top>
+					<width>240</width>
+					<height>240</height>
+					<texturefocus>blank.png</texturefocus>
+					<texturenofocus>blank.png</texturenofocus>
 					<onclick>Close</onclick>
-					<onclick>PreviousMenu</onclick>
+					<onclick>FullScreen</onclick>
 					<visible>Skin.HasSetting(touch-controls)</visible>
 				</control>
 			</control>
@@ -1695,7 +1734,7 @@
 				<animation effect="fade" time="200">VisibleChange</animation>
 				<control type="image" id="1"><!-- Fallback to Thumb image if not TV Episode or Movie playing -->
 					<left>56</left>
-					<top>460</top>
+					<top>468</top>
 					<width>180</width>
 					<height>180</height>
 					<aligny>bottom</aligny>
@@ -1704,11 +1743,11 @@
 				</control>
 				<control type="button" id="1"><!-- Touch button to get out of Fullscreen -->
 					<left>56</left>
-					<top>460</top>
+					<top>468</top>
 					<width>180</width>
 					<height>180</height>
-					<texturefocus>-</texturefocus>
-					<texturenofocus>-</texturenofocus>
+					<texturefocus>blank.png</texturefocus>
+					<texturenofocus>blank.png</texturenofocus>
 					<onclick>Close</onclick>
 					<onclick>PreviousMenu</onclick>
 					<visible>Skin.HasSetting(touch-controls)</visible>
@@ -2281,7 +2320,7 @@
 	</include>
 
 	<include name="focus-zoom">
-		<animation effect="zoom" start="100" end="120" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+		<animation effect="zoom" start="100" end="116" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 	</include>
 
 	<include name="settingbutton-fade">

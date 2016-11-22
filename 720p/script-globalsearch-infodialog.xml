@@ -1180,7 +1180,7 @@
 						<top>80</top>
 						<width>256</width>
 						<height>256</height>
-						<texture fallback="icon-profile.png" diffuse="mask-rect.png">$INFO[Container(100).ListItem.Icon]</texture>
+						<texture fallback="DefaultUser.png" diffuse="mask-rect.png">$INFO[Container(100).ListItem.Icon]</texture>
 						<aspectratio scalediffuse="false">keep</aspectratio>
 					</control>
 					<control type="label"><!-- Details heading -->
@@ -1577,7 +1577,7 @@
 						<label>$INFO[Container(100).ListItem.Label]</label>
 						<textoffsetx>0</textoffsetx>
 					</control>
-					<control type="label"><!-- Channel number and name -->
+					<control type="label"><!-- Channel name -->
 						<left>340</left>
 						<top>82</top>
 						<width>920</width>
@@ -1586,7 +1586,7 @@
 						<textcolor>disabled-text</textcolor>
 						<shadowcolor>shadow-text</shadowcolor>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-						<label>$INFO[Container(100).ListItem.Property(ChannelNumber),, - ]$INFO[Container(100).ListItem.Property(ChannelName)]</label>
+						<label>$INFO[Container(100).ListItem.Property(ChannelName)]</label>
 						<textoffsetx>0</textoffsetx>
 						<visible>!IsEmpty(Container(100).ListItem.Property(ChannelName))</visible>
 					</control>

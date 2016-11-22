@@ -16,9 +16,9 @@
 			</control>
 			<control type="image"><!-- media info background image -->
 				<left>0</left>
-				<top>570</top>
+				<top>515</top>
 				<width>1280</width>
-				<height>155</height>
+				<height>205</height>
 				<texture>background.png</texture>
 				<colordiffuse>mask-background</colordiffuse>
 			</control>
@@ -33,14 +33,14 @@
 				<width>215</width>
 				<height>215</height>
 				<left>132</left>
-				<top>480</top>
+				<top>490</top>
 				<texture fallback="DefaultDVDRom.png">$INFO[Window(home).Property(SkinHelper.Player.Music.DiscArt)]</texture>
 				<aspectratio aligny="bottom">keep</aspectratio>
 				<visible>!SubString(Control.GetLabel(994),DefaultAudio.png,Right) + !SubString(Control.GetLabel(994),icon-radio.png,Right)</visible>
 			</control>
 			<control type="image">
 				<left>10</left>
-				<top>455</top>
+				<top>465</top>
 				<height>265</height>
 				<width>265</width>
 				<texture>case-cd.png</texture>
@@ -49,7 +49,7 @@
 			</control>
 			<control type="image" id="994"><!-- Cover image -->
 				<left>36</left>
-				<top>475</top>
+				<top>485</top>
 				<width>225</width>
 				<height>225</height>
 				<texture fallback="DefaultAudio.png">$VAR[PlayerMusicCover]</texture>
@@ -57,17 +57,17 @@
 			</control>
 			<control type="button"><!-- Touch button to get out of Fullscreen -->
 				<left>36</left>
-				<top>475</top>
+				<top>485</top>
 				<width>225</width>
 				<height>225</height>
-				<texturefocus>-</texturefocus>
-				<texturenofocus>-</texturenofocus>
+				<texturefocus>blank.png</texturefocus>
+				<texturenofocus>blank.png</texturenofocus>
 				<onclick>Back</onclick>
 				<visible>Skin.HasSetting(touch-controls)</visible>
 			</control>
 			<control type="label"><!-- Now playing -->
 				<left>370</left>
-				<top>520</top>
+				<top>518</top>
 				<width>682</width>
 				<height>25</height>
 				<label>$LOCALIZE[31037]</label>
@@ -77,81 +77,82 @@
 			<control type="label"><!-- Partymode enabled -->
 				<left>990</left>
 				<top>520</top>
-				<width>250</width>
-				<height>25</height>
+				<width>266</width>
+				<height>23</height>
 				<label>$LOCALIZE[589]</label>
 				<align>right</align>
 				<font>apptv23</font>
 				<visible>MusicPartyMode.Enabled</visible>
 			</control>
+			<control type="label"><!-- Playlist label -->
+				<left>974</left>
+				<top>520</top>
+				<width>266</width>
+				<height>23</height>
+				<align>right</align>
+				<label>$INFO[Playlist.Position(music),$LOCALIZE[554]: ]$INFO[Playlist.Length(music), / ]</label>
+				<font>apptv23</font>
+				<visible>!MusicPartyMode.Enabled + !String.IsEqual(Playlist.Length(music),0)</visible>
+			</control>
 			<control type="label"><!-- Title label -->
 				<left>370</left>
-				<top>548</top>
-				<width>682</width>
+				<top>547</top>
+				<width>880</width>
 				<height>25</height>
-				<font>apptv23</font>
+				<font>apptv25</font>
 				<label>$LOCALIZE[19021] - $INFO[MusicPlayer.ChannelName]</label>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<visible>Pvr.IsPlayingRadio</visible>
 			</control>
 			<control type="label"><!-- Title label -->
 				<left>370</left>
-				<top>572</top>
-				<width>656</width>
-				<height>45</height>
+				<top>547</top>
+				<width>880</width>
+				<height>25</height>
 				<font>apptv25</font>
 				<label>$INFO[MusicPlayer.Title]</label>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				<visible>!Pvr.IsPlayingRadio</visible>
 			</control>
 			<control type="label"><!-- Artist label -->
 				<left>370</left>
-				<top>608</top>
-				<width>682</width>
-				<height>37</height>
+				<top>576</top>
+				<width>880</width>
+				<height>22</height>
 				<font>apptv22</font>
 				<label>$INFO[MusicPlayer.Artist]</label>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="label"><!-- Album label -->
 				<left>370</left>
-				<top>638</top>
-				<width>656</width>
-				<height>37</height>
+				<top>602</top>
+				<width>880</width>
+				<height>22</height>
 				<font>apptv22</font>
 				<label>$INFO[MusicPlayer.Album]</label>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="label"><!-- Time label -->
 				<left>370</left>
-				<top>668</top>
-				<width>656</width>
-				<height>37</height>
+				<top>689</top>
+				<width>200</width>
+				<height>22</height>
 				<label>$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ]</label>
-				<font>apptv23</font>
+				<font>apptv22</font>
 				<visible>!Pvr.IsPlayingRadio</visible>
 			</control>
-			<control type="label"><!-- Playlist label -->
-				<left>974</left>
-				<top>580</top>
-				<width>265</width>
-				<height>37</height>
-				<align>right</align>
-				<label>$INFO[Playlist.Position(music),$LOCALIZE[554]: ]$INFO[Playlist.Length(music), / ]</label>
-				<font>apptv23</font>
-				<visible>!MusicPartyMode.Enabled + !String.IsEqual(Playlist.Length(music),0)</visible>
-			</control>
 			<control type="progress" id="1">
-				<left>558</left>
-				<top>680</top>
-				<width>685</width>
+				<left>575</left>
+				<top>692</top>
+				<width>675</width>
 				<height>16</height>
 				<info>Player.Progress</info>
 				<visible>!Pvr.IsPlayingRadio</visible>
 			</control>
 			<control type="slider" id="402"><!-- Seek slider -->
-				<left>558</left>
-				<top>680</top>
-				<width>685</width>
+				<left>575</left>
+				<top>692</top>
+				<width>675</width>
 				<height>16</height>
 				<action>seek</action>
 				<visible>!Pvr.IsPlayingRadio</visible>
