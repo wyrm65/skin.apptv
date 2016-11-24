@@ -141,7 +141,7 @@
 				<control type="image"><!-- Star Rating Dropshadow-->
 					<left>341</left>
 					<top>371</top>
-					<width>144</width>
+					<width>90</width>
 					<height>18</height>
 					<texture>$VAR[MediaRating]</texture>
 					<colordiffuse>DropShadow</colordiffuse>
@@ -150,10 +150,9 @@
 				<control type="image"><!-- Star Rating -->
 					<left>340</left>
 					<top>370</top>
-					<width>144</width>
+					<width>90</width>
 					<height>18</height>
 					<texture>$VAR[MediaRating]</texture>
-					<colordiffuse>StarDiffuse</colordiffuse>
 					<aspectratio>keep</aspectratio>
 				</control>
 			</control>
@@ -416,7 +415,7 @@
 			<control type="image"><!-- Star Rating Dropshadow-->
 				<left>341</left>
 				<top>371</top>
-				<width>144</width>
+				<width>90</width>
 				<height>18</height>
 				<texture>$VAR[MediaRating]</texture>
 				<colordiffuse>DropShadow</colordiffuse>
@@ -425,10 +424,9 @@
 			<control type="image"><!-- Star Rating -->
 				<left>340</left>
 				<top>370</top>
-				<width>144</width>
+				<width>90</width>
 				<height>18</height>
 				<texture>$VAR[MediaRating]</texture>
-				<colordiffuse>StarDiffuse</colordiffuse>
 				<aspectratio>keep</aspectratio>
 			</control>
 		</control>
@@ -539,7 +537,7 @@
 						<height>150</height>
 						<colordiffuse>UnFocusedCovers</colordiffuse>
 						<aspectratio scalediffuse="true">stretch</aspectratio>
-						<texture>DefaultCDDA.png</texture>
+						<texture diffuse="mask-squ.png" fallback="DefaultCDDA.png" background="true">$INFO[ListItem.Icon]</texture>
 						<visible>String.IsEqual(ListItem.DBTYPE,album)</visible>
 					</control>
 				</itemlayout>
@@ -562,7 +560,7 @@
 						<top>8</top>
 						<width>150</width>
 						<height>150</height>
-						<texture>DefaultCDDA.png</texture>
+						<texture diffuse="mask-squ.png" fallback="DefaultCDDA.png" background="true">$INFO[ListItem.Icon]</texture>
 						<aspectratio scalediffuse="true">stretch</aspectratio>
 						<animation condition="!Control.HasFocus(50)" effect="fade" start="100" end="62">Conditional</animation>
 						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>

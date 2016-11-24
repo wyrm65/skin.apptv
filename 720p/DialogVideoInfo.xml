@@ -118,7 +118,7 @@
 				<visible>IsEmpty(ListItem.Plot)</visible>
 			</control>
 			<control type="scrollbar" id="1123"><!-- Plot Scrollbar -->
-				<left>1046</left>
+				<left>1246</left>
 				<top>110</top>
 				<width>16</width>
 				<height>122</height>
@@ -323,22 +323,19 @@
 			<control type="image"><!-- Star Rating Dropshadow-->
 				<left>341</left>
 				<top>371</top>
-				<width>144</width>
+				<width>90</width>
 				<height>18</height>
 				<texture>$VAR[MediaRating]</texture>
 				<colordiffuse>DropShadow</colordiffuse>
 				<aspectratio>keep</aspectratio>
-				<visible>!IsEmpty(ListItem.StarRating)</visible>
 			</control>
 			<control type="image"><!-- Star Rating -->
 				<left>340</left>
 				<top>370</top>
-				<width>144</width>
+				<width>90</width>
 				<height>18</height>
 				<texture>$VAR[MediaRating]</texture>
-				<colordiffuse>StarDiffuse</colordiffuse>
 				<aspectratio>keep</aspectratio>
-				<visible>!IsEmpty(ListItem.StarRating)</visible>
 			</control>
 			<control type="group">
 				<visible>String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
