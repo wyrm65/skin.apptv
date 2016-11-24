@@ -8,8 +8,8 @@
 		<control type="button" id="6000"><!-- Fake button to steal focus, don't show if Open weather map screen is showing -->
 			<onleft>9000</onleft>
 			<onright>noop</onright>
-			<texturefocus>-</texturefocus>
-			<texturenofocus>-</texturenofocus>
+			<texturefocus>blank.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
 			<onclick>noop</onclick>
 			<visible>![String.IsEqual(Skin.String(weather-view),$LOCALIZE[33035]) + SubString(Weather.plugin,weather.openweathermap.extended)]</visible>
 		</control>

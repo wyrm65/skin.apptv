@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">654</defaultcontrol>
+	<defaultcontrol always="true">655</defaultcontrol>
 	<visible>[System.HasMediaDVD | Player.HasMedia] + Window.IsActive(playercontrols) + !Window.IsActive(fullscreenvideo) + !Window.IsActive(visualisation)</visible>
 	<coordinates>
 		<left>0</left>
@@ -53,7 +53,7 @@
 				<top>137</top>
 				<width>212</width>
 				<height>150</height>
-				<texturefocus>-</texturefocus>
+				<texturefocus>blank.png</texturefocus>
 				<onclick>Dialog.Close(playercontrols)</onclick>
 				<onclick>Fullscreen</onclick>
 				<visible>Skin.HasSetting(touch-controls)</visible>
@@ -149,8 +149,8 @@
 				<top>137</top>
 				<width>150</width>
 				<height>150</height>
-				<texturefocus>-</texturefocus>
-				<texturenofocus>-</texturenofocus>
+				<texturefocus>blank.png</texturefocus>
+				<texturenofocus>blank.png</texturenofocus>
 				<onclick>Dialog.Close(playercontrols)</onclick>
 				<onclick>Fullscreen</onclick>
 				<visible>Skin.HasSetting(touch-controls)</visible>
