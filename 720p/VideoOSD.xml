@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<defaultcontrol always="true">654</defaultcontrol>
+	<defaultcontrol always="true">655</defaultcontrol>
 	<controls>
 		<visible>Player.HasMedia</visible>
 		<control type="group">
@@ -66,7 +66,6 @@
 					<height>32</height>
 					<texturenofocus>osd-btn-subtitle.png</texturenofocus>
 					<texturefocus>osd-btn-subtitle-focus.png</texturefocus>
-					<onclick>Dialog.Close(playercontrols)</onclick>
 					<onclick>ActivateWindow(subtitlesearch)</onclick>
 					<include>focus-zoom</include>
 					<visible>Player.HasVideo</visible>
@@ -76,11 +75,19 @@
 					<height>32</height>
 					<texturefocus>osd-btn-3D-focus.png</texturefocus>
 					<texturenofocus>osd-btn-3D.png</texturenofocus>
-					<onclick>Dialog.Close(playercontrols)</onclick>
 					<onclick>ActivateWindow(1151)</onclick>
 					<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=libraryentry-radio-val,header=$LOCALIZE[31561])</onclick>
 					<include>focus-zoom</include>
 					<visible>VideoPlayer.IsStereoscopic</visible>
+				</control>
+				<control type="button" id="633"><!-- Colour management Menu -->
+					<width>32</width>
+					<height>32</height>
+					<texturefocus>osd-btn-cms-focus.png</texturefocus>
+					<texturenofocus>osd-btn-cms.png</texturenofocus>
+					<onclick>ActivateWindow(osdcmssettings)</onclick>
+					<include>focus-zoom</include>
+					<visible>System.HasCMS</visible>
 				</control>
 				<control type="button" id="635"><!-- Audio Menu -->
 					<width>32</width>
