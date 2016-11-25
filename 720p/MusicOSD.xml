@@ -46,6 +46,7 @@
 				<texturenofocus>osd-btn-vis.png</texturenofocus>
 				<onclick>ActivateWindow(visualisationpresetlist)</onclick>
 				<include>focus-zoom</include>
+				<visible>Visualisation.Enabled + Visualisation.HasPresets</visible>
 			</control>
 			<control type="button" id="634"><!-- Popup Vis Settings -->
 				<width>32</width>
@@ -54,6 +55,7 @@
 				<texturenofocus>osd-btn-vissetting.png</texturenofocus>
 				<onclick>Addon.Default.OpenSettings(xbmc.player.musicviz)</onclick>
 				<include>focus-zoom</include>
+				<visible>Visualisation.Enabled + Visualisation.HasPresets</visible>
 			</control>
 			<control type="button" id="635"><!-- Audio Menu -->
 				<width>32</width>
