@@ -172,6 +172,16 @@
 		<value condition="SubString(ListItem.UserRating,3)">rating3.png</value>
 		<value condition="SubString(ListItem.UserRating,2)">rating2.png</value>
 		<value condition="SubString(ListItem.UserRating,1)">rating1.png</value>
+		<value condition="SubString(ListItem.Rating,10)">rating10.png</value>
+		<value condition="SubString(ListItem.Rating,9)">rating9.png</value>
+		<value condition="SubString(ListItem.Rating,8)">rating8.png</value>
+		<value condition="SubString(ListItem.Rating,7)">rating7.png</value>
+		<value condition="SubString(ListItem.Rating,6)">rating6.png</value>
+		<value condition="SubString(ListItem.Rating,5)">rating5.png</value>
+		<value condition="SubString(ListItem.Rating,4)">rating4.png</value>
+		<value condition="SubString(ListItem.Rating,3)">rating3.png</value>
+		<value condition="SubString(ListItem.Rating,2)">rating2.png</value>
+		<value condition="SubString(ListItem.Rating,1)">rating1.png</value>
 		<value>blank.png</value>
 	</variable>
 	<variable name="SelectDialogNumObjects">
@@ -1629,6 +1639,12 @@
 
 	<include file="Defaults.xml"/>
 
+	<include name="defaultskinsettings">
+		<!-- various default settings  -->
+		<onload>Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
+		<onload>Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
+		<onload>Skin.SetBool(SkinHelper.EnableExtraFanart)</onload>
+	</include>
 	<include name="fullscreenimage"><!-- Postion and size of fullscreen image -->
 			<left>0</left>
 			<top>0</top>
