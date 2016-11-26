@@ -24,11 +24,11 @@
 				<texture>separator.png</texture>
 			</control>
 			<control type="label"><!-- Controller Types Label -->
-				<left>10</left>
+				<left>30</left>
 				<top>108</top>
-				<width>310</width>
-				<height>50</height>
-				<label>$LOCALIZE[35050]</label>
+				<width>300</width>
+				<height>48</height>
+				<label>[I]$LOCALIZE[35050][/I]</label>
 				<font>apptv23</font>
 				<align>center</align>
 			</control>
@@ -36,7 +36,8 @@
 				<left>30</left>
 				<top>160</top>
 				<width>300</width>
-				<height>500</height>
+				<height>480</height>
+				<itemgap>0</itemgap>
 				<pagecontrol>60</pagecontrol>
 				<onleft>5</onleft>
 				<onright>60</onright>
@@ -44,40 +45,42 @@
 				<ondown>9000</ondown>
 			</control>
 			<control type="button" id="10"><!-- Default button -->
-				<height>50</height>
-				<font>apptv22</font>
+				<width>300</width>
+				<height>48</height>
+				<font>apptv20</font>
+				<align>center</align>
 			</control>
 			<control type="scrollbar" id="60">
 				<left>8</left>
 				<top>160</top>
 				<width>16</width>
-				<height>500</height>
+				<height>480</height>
 				<onleft>3</onleft>
 				<onright>5</onright>
-				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
 				<animation condition="!Control.HasFocus(60) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			</control>
 			<control type="gamecontroller" id="31">
-				<left>330</left>
+				<left>350</left>
 				<top>174</top>
-				<width>620</width>
-				<height>370</height>
+				<width>568</width>
+				<height>340</height>
 			</control>
 			<control type="label"><!-- Feature Types Label -->
-				<left>958</left>
+				<left>938</left>
 				<top>108</top>
 				<width>300</width>
-				<height>50</height>
-				<label>$LOCALIZE[35059]</label>
+				<height>48</height>
+				<label>[I]$LOCALIZE[35059][/I]</label>
 				<font>apptv23</font>
 				<align>center</align>
 			</control>
 			<control type="grouplist" id="5">
 				<left>938</left>
 				<top>160</top>
-				<width>320</width>
-				<height>500</height>
+				<width>300</width>
+				<height>480</height>
+				<itemgap>0</itemgap>
 				<pagecontrol>61</pagecontrol>
 				<onleft>3</onleft>
 				<onright>61</onright>
@@ -87,16 +90,20 @@
 			<control type="button" id="7"><!-- Default Button -->
 				<left>0</left>
 				<top>0</top>
-				<height>50</height>
-				<font>apptv22</font>
+				<width>300</width>
+				<height>48</height>
+				<font>apptv20</font>
+				<align>center</align>
 			</control>
 			<control type="label" id="8"><!-- Separator label -->
-				<height>25</height>
+				<width>300</width>
+				<height>48</height>
 				<font>apptv22</font>
 				<align>center</align>
 				<aligny>bottom</aligny>
 			</control>
 			<control type="image" id="9"><!-- Default Seperator -->
+				<width>300</width>
 				<height>4</height>
 				<texture>separator.png</texture>
 			</control>
@@ -104,10 +111,9 @@
 				<left>1256</left>
 				<top>160</top>
 				<width>16</width>
-				<height>500</height>
+				<height>480</height>
 				<onleft>5</onleft>
 				<onright>3</onright>
-				<showonepage>false</showonepage>
 				<orientation>vertical</orientation>
 				<animation condition="!Control.HasFocus(61) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			</control>
@@ -131,15 +137,15 @@
 				<control type="button" id="18"><!-- OK -->
 					<width>300</width>
 					<height>50</height>
-					<font>apptv25</font>
+					<font>apptv23</font>
 					<align>center</align>
 					<aligny>center</aligny>
-					<label>$LOCALIZE[186</label>
+					<label>$LOCALIZE[186]</label>
 				</control>
 				<control type="button" id="19"><!-- Reset -->
 					<width>300</width>
 					<height>50</height>
-					<font>apptv25</font>
+					<font>apptv23</font>
 					<align>center</align>
 					<aligny>center</aligny>
 					<label>$LOCALIZE[10035]</label>
@@ -147,7 +153,7 @@
 				<control type="button" id="20"><!-- More -->
 					<width>300</width>
 					<height>50</height>
-					<font>apptv25</font>
+					<font>apptv23</font>
 					<align>center</align>
 					<aligny>center</aligny>
 					<label>$LOCALIZE[21452]</label>
