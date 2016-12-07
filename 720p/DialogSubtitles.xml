@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
+	<onload condition="!System.HasAddon(resource.images.languageflags.colour) + !Skin.HasSetting(languageflagschecked)">InstallAddon(resource.images.languageflags.colour)</onload>
+	<onload condition="!System.HasAddon(script.image.resource.select) + !Skin.HasSetting(languageflagschecked)">Skin.ToggleSetting(languageflagschecked)</onload>
+	<!-- RunScript(script.skin.helper.service,action=dialogyesno,header[yourheadertext],message=[your message body],yesaction=[action for yes],noaction=[optional action for no]) -->
 	<coordinates>
 		<left>0</left>
 		<top>0</top>
@@ -58,11 +61,11 @@
 					<pagecontrol>23</pagecontrol>
 					<itemlayout width="860" height="46">
 						<control type="image">
-							<left>5</left>
-							<top>10</top>
-							<width>26</width>
-							<height>26</height>
-							<texture>special://skin/extras/flags/$INFO[ListItem.Thumb].png</texture>
+							<left>6</left>
+							<top>11</top>
+							<width>24</width>
+							<height>24</height>
+							<texture>$INFO[ListItem.Thumb,resource://resource.images.languageflags.colour/,.png]</texture>
 						</control>
 						<control type="label">
 							<left>40</left>
@@ -76,7 +79,7 @@
 						</control>
 						<control type="image">
 							<left>132</left>
-							<top>13</top>
+							<top>9</top>
 							<width>28</width>
 							<height>28</height>
 							<texture>osd-btn-subtitle.png</texture>
@@ -86,7 +89,7 @@
 							<left>160</left>
 							<top>17</top>
 							<width>40</width>
-							<height>12</height>
+							<height>13</height>
 							<texture>icon-sync.png</texture>
 							<visible>ListItem.property(sync)</visible>
 						</control>
@@ -101,10 +104,10 @@
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 						<control type="image">
-							<left>765</left>
+							<left>770</left>
 							<top>15</top>
-							<width>90</width>
-							<height>17</height>
+							<width>80</width>
+							<height>16</height>
 							<texture>rating$INFO[ListItem.ActualIcon].png</texture>
 						</control>
 					</itemlayout>
@@ -118,11 +121,11 @@
 							<visible>Control.HasFocus(120)</visible>
 						</control>
 						<control type="image">
-							<left>5</left>
-							<top>10</top>
-							<width>26</width>
-							<height>26</height>
-							<texture>special://skin/extras/flags/$INFO[ListItem.Thumb].png</texture>
+							<left>6</left>
+							<top>11</top>
+							<width>24</width>
+							<height>24</height>
+							<texture>$INFO[ListItem.Thumb,resource://resource.images.languageflags.colour/,.png]</texture>
 						</control>
 						<control type="label">
 							<left>40</left>
@@ -136,7 +139,7 @@
 						</control>
 						<control type="image">
 							<left>132</left>
-							<top>13</top>
+							<top>9</top>
 							<width>28</width>
 							<height>28</height>
 							<texture>osd-btn-subtitle.png</texture>
@@ -146,7 +149,7 @@
 							<left>160</left>
 							<top>17</top>
 							<width>40</width>
-							<height>12</height>
+							<height>13</height>
 							<texture>icon-sync.png</texture>
 							<visible>ListItem.property(sync)</visible>
 						</control>
@@ -161,11 +164,11 @@
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
 						<control type="image">
-							<left>765</left>
+							<left>770</left>
 							<top>15</top>
-							<width>90</width>
-							<height>17</height>
-							<texture>rating$INFO[ListItem.ActualIcon].png</texture>
+							<width>80</width>
+							<height>16</height>
+							<texture>$INFO[ListItem.ActualIcon,rating,.png]</texture>
 						</control>
 					</focusedlayout>
 				</control>
