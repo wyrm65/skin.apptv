@@ -270,45 +270,45 @@
 					<width>40</width>
 					<height>30</height>
 					<texture background="true">$INFO[Listitem.AudioCodec,special://skin/extras/images/audio/,.png]</texture>
-					<visible>!IsEmpty(ListItem.AudioCodec) + !String.IsEqual(Control.GetLabel(161),.)</visible>
+					<visible>!IsEmpty(ListItem.AudioCodec) + !String.IsEqual(Control.GetLabel(161),blank.png)</visible>
 				</control>
 				<control type="image" id="172"><!-- Video codec -->
 					<width>40</width>
 					<height>30</height>
 					<texture background="true">$INFO[Listitem.VideoCodec,special://skin/extras/images/video/,.png]</texture>
-					<visible>!IsEmpty(ListItem.VideoCodec) + !String.IsEqual(Control.GetLabel(162),.)</visible>
+					<visible>!IsEmpty(ListItem.VideoCodec) + !String.IsEqual(Control.GetLabel(162),blank.png)</visible>
 				</control>
 				<control type="image" id="173"><!-- Video aspect ratio -->
 					<width>40</width>
 					<height>30</height>
 					<texture background="true">$INFO[ListItem.VideoAspect,special://skin/extras/images/aspectratio/,.png]</texture>
-					<visible>!IsEmpty(ListItem.VideoAspect) + !String.IsEqual(Control.GetLabel(163),.)</visible>
+					<visible>!IsEmpty(ListItem.VideoAspect) + !String.IsEqual(Control.GetLabel(163),blank.png)</visible>
 				</control>
 				<control type="image" id="174"><!-- Video resolution -->
 					<width>40</width>
 					<height>30</height>
 					<texture background="true">$INFO[Listitem.VideoResolution,special://skin/extras/images/resolution/,.png]</texture>
-					<visible>!IsEmpty(ListItem.VideoResolution) + !String.IsEqual(Control.GetLabel(164),.)</visible>
+					<visible>!IsEmpty(ListItem.VideoResolution) + !String.IsEqual(Control.GetLabel(164),blank.png)</visible>
 				</control>
 				<!-- Hack to check if media flag image is available -->
 				<control type="image" id="161">
 					<width>1</width>
 					<height>30</height>
 					<colordiffuse>HideControl</colordiffuse>
-					<texture background="true" fallback=".">$INFO[Listitem.AudioCodec,special://skin/extras/images/audio/,.png]</texture>
+					<texture background="true" fallback="blank.png">$INFO[Listitem.AudioCodec,special://skin/extras/images/audio/,.png]</texture>
 					<visible>!IsEmpty(ListItem.AudioCodec)</visible>
 				</control>
 				<control type="image" id="162">
 					<width>1</width>
 					<height>30</height>
 					<colordiffuse>HideControl</colordiffuse>
-					<texture background="true" fallback=".">$INFO[Listitem.VideoCodec,special://skin/extras/images/video/,.png]</texture>
+					<texture background="true" fallback="blank.png">$INFO[Listitem.VideoCodec,special://skin/extras/images/video/,.png]</texture>
 					<visible>!IsEmpty(ListItem.VideoCodec)</visible>
 				</control>
 				<control type="image" id="163">
 					<width>1</width>
 					<height>30</height>
-					<texture background="true" fallback=".">$INFO[ListItem.VideoAspect,special://skin/extras/images/aspectratio/,.png]</texture>
+					<texture background="true" fallback="blank.png">$INFO[ListItem.VideoAspect,special://skin/extras/images/aspectratio/,.png]</texture>
 					<colordiffuse>HideControl</colordiffuse>
 					<visible>!IsEmpty(ListItem.VideoAspect)</visible>
 				</control>
@@ -316,7 +316,7 @@
 					<width>1</width>
 					<height>30</height>
 					<colordiffuse>HideControl</colordiffuse>
-					<texture background="true" fallback=".">$INFO[Listitem.VideoResolution,special://skin/extras/images/resolution/,.png]</texture>
+					<texture background="true" fallback="blank.png">$INFO[Listitem.VideoResolution,special://skin/extras/images/resolution/,.png]</texture>
 					<visible>!IsEmpty(ListItem.VideoResolution)</visible>
 				</control>
 			</control>
