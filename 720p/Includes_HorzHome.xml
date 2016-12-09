@@ -13,63 +13,21 @@
 				<left>0</left>
 				<top>192</top>
 				<width>1280</width>
-				<height>122</height>m
+				<height>120</height>m
 				<texture>background-horzshelf.png</texture>
 			</control>
 			<control type="image">
 				<left>0</left>
 				<top>0</top>
 				<width>1280</width>
-				<height>314</height>
+				<height>312</height>
 				<texture>menu-mask.png</texture>
 			</control>
-		</control>
-
-		<control type="group"><!-- Main Horizontal menu bar -->
-			<control type="image"><!-- Background image for menu area -->
-				<left>0</left>
-				<top>312</top>
-				<width>1280</width>
-				<height>408</height>
-				<texture>background-horzhome.png</texture>
-			</control>
-			<control type="image">
-				<left>0</left>
-				<top>310</top>
-				<width>1280</width>
-				<height>4</height>
-				<texture>separator.png</texture>
-			</control>
-			<control type="image">
-				<left>0</left>
-				<top>380</top>
-				<width>1280</width>
-				<height>4</height>
-				<texture>separator.png</texture>
-			</control>
-		</control>
-
-		<control type="image"><!-- Home menu watermark -->
-			<left>1100</left>
-			<top>592</top>
-			<width>128</width>
-			<height>128</height>
-			<aspectratio aligny="top">keep</aspectratio>
-			<texture colordiffuse="UnFocusedPosters" background="true">$INFO[Skin.String(custom-watermark)]</texture>
-			<visible>!IsEmpty(Skin.String(custom-watermark))</visible>
 		</control>
 
 		<include condition="!Skin.HasSetting(home-time)" file="Includes_Shelf.xml">homeshelf-time</include><!-- Show time on home screen -->
 		<include condition="Skin.HasSetting(media-overlay)" file="Includes_Shelf.xml">shelf-nowplaying</include><!-- Now Playing -->
 
-		<control type="button" id="9810"><!-- Dummy button for mouse control -->
-			<left>0</left>
-			<top>0</top>
-			<width>1280</width>
-			<height>720</height>
-			<texturefocus>blank.png</texturefocus>
-			<texturenofocus>blank.png</texturenofocus>
-		</control>
 		<control type="group" id="9800"><!-- Shelf icons-->
 			<control type="group" id="9155"><!-- Movie icons -->
 				<visible>Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180)</visible>
@@ -238,6 +196,48 @@
 					<texture flipy="true" diffuse="mask-fadesqu.png">$VAR[HorzHomeShelfIcon]</texture>
 				</control>
 			</control>
+		</control>
+
+		<control type="group"><!-- Main Horizontal menu bar -->
+			<control type="image"><!-- Background image for menu area -->
+				<left>0</left>
+				<top>312</top>
+				<width>1280</width>
+				<height>408</height>
+				<texture>background-horzhome.png</texture>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>310</top>
+				<width>1280</width>
+				<height>4</height>
+				<texture>separator.png</texture>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>380</top>
+				<width>1280</width>
+				<height>4</height>
+				<texture>separator.png</texture>
+			</control>
+		</control>
+
+		<control type="button" id="9810"><!-- Dummy button for mouse control -->
+			<left>0</left>
+			<top>0</top>
+			<width>1280</width>
+			<height>720</height>
+			<texturefocus>blank.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+		</control>
+		<control type="image"><!-- Home menu watermark -->
+			<left>1100</left>
+			<top>592</top>
+			<width>128</width>
+			<height>128</height>
+			<aspectratio aligny="top">keep</aspectratio>
+			<texture colordiffuse="UnFocusedPosters" background="true">$INFO[Skin.String(custom-watermark)]</texture>
+			<visible>!IsEmpty(Skin.String(custom-watermark))</visible>
 		</control>
 
 		<control type="button" id="9005"><!-- Play bump sound if user tries to leave menu by undefined direction -->
@@ -1632,7 +1632,7 @@
 							<visible>Skin.HasSetting(home-search)</visible>
 							<label>$LOCALIZE[137]</label>
 							<label2>$LOCALIZE[13000]</label2>
-							<onclick condition="!System.HasAddon(script.globalsearch)">RunPlugin(plugin://script.globalsearch)</onclick>
+							<onclick condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
 							<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
 						</item>
 						<item><!-- Filemanager -->
