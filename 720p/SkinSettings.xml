@@ -760,12 +760,12 @@
 						<onclick condition="System.HasAddon(script.xbmc.debug.log)">RunScript(script.kodi.loguploader)</onclick>
 						<enable>System.GetBool(debug.extralogging)</enable>
 					</control>
-					<control type="image" id="805">
+					<control type="image" id="804">
 						<width>885</width>
 						<height>4</height>
 						<texture>separator.png</texture>
 					</control>
-					<control type="radiobutton" id="806"><!-- Show skin debug grid toggle -->
+					<control type="radiobutton" id="805"><!-- Show skin debug grid toggle -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31933]</label>
 						<textwidth>750</textwidth>
@@ -773,7 +773,7 @@
 						<selected>Skin.HasSetting(debug-grid)</selected>
 						<radioposx>844</radioposx>
 					</control>
-					<control type="radiobutton" id="807"><!-- Show Skin Debug Info toggle -->
+					<control type="radiobutton" id="806"><!-- Show Skin Debug Info toggle -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31934]</label>
 						<textwidth>750</textwidth>
@@ -781,12 +781,26 @@
 						<selected>Skin.HasSetting(debug-info)</selected>
 						<radioposx>844</radioposx>
 					</control>
-					<control type="image" id="808">
+					<control type="image" id="807">
 						<width>885</width>
 						<height>4</height>
 						<texture>separator.png</texture>
 					</control>
-					<control type="button" id="809"><!-- Reset skin settings to defaults -->
+					<control type="button" id="808"><!-- Backup skin settings -->
+						<include>settings-submenu-common</include>
+						<label>$LOCALIZE[31980]</label>
+						<textwidth>750</textwidth>
+						<onclick condition="!System.HasAddon(script.skin.helper.skinbackup)">InstallAddon(script.skin.helper.skinbackup)</onclick>
+						<onclick condition="System.HasAddon(script.skin.helper.skinbackup)">RunScript(script.skin.helper.skinbackup,action=backup)</onclick>
+					</control>
+					<control type="button" id="809"><!-- Restore skin settings -->
+						<include>settings-submenu-common</include>
+						<label>$LOCALIZE[31981]</label>
+						<textwidth>750</textwidth>
+						<onclick condition="!System.HasAddon(script.skin.helper.skinbackup)">InstallAddon(script.skin.helper.skinbackup)</onclick>
+						<onclick condition="System.HasAddon(script.skin.helper.skinbackup)">RunScript(script.skin.helper.skinbackup,action=restore)</onclick>
+					</control>
+					<control type="button" id="810"><!-- Reset skin settings to defaults -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31935]</label>
 						<textwidth>785</textwidth>
