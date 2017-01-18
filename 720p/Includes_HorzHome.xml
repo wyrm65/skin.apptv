@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="HorzHomeMenu">
 		<control type="group"><!-- Build up home menu shelf image -->
@@ -423,16 +423,16 @@
 							<onclick>ActivateWindow(videos,Root,return)</onclick>
 						</item>
 						<item><!-- Movies -->
-							<visible>Library.HasContent(Movies)</visible>
+							<visible>Library.HasContent(movies)</visible>
 							<label>$LOCALIZE[342]</label>
 							<label2>$LOCALIZE[3]</label2>
 							<onclick>ActivateWindow(videos,Movies,return)</onclick>
 						</item>
 						<item><!-- TV shows -->
-							<visible>Library.HasContent(TVShows)</visible>
+							<visible>Library.HasContent(tvShows)</visible>
 							<label>$LOCALIZE[20343]</label>
 							<label2>$LOCALIZE[3]</label2>
-							<onclick>ActivateWindow(videos,TvShows,return)</onclick>
+							<onclick>ActivateWindow(videos,TVShows,return)</onclick>
 						</item>
 						<item><!-- Music videos -->
 							<visible>Library.HasContent(MusicVideos)</visible>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">10</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
 	<include>defaultskinsettings</include>
-	<animation effect="fade" end="100" time="400">WindowOpen</animation>
 	<controls>
 		<control type="image"><!-- Default startup screen image -->
 			<include>fullscreenimage</include>
@@ -14,9 +14,9 @@
 			<top>-12</top>
 			<width>1</width>
 			<height>1</height>
+			<onfocus>ReplaceWindow($INFO[System.StartupWindow])</onfocus>
 			<onfocus condition="String.IsEqual(Skin.String(startup-screentype),$LOCALIZE[31858])">PlayMedia($ESCINFO[Skin.String(startup-screenpath)])</onfocus>
 			<onfocus condition="Skin.HasSetting(startup-playlist)">PlayMedia($ESCINFO[Skin.String(startup-playlistpath)],isdir)</onfocus>
-			<onfocus>ReplaceWindow($INFO[System.StartupWindow])</onfocus>
 			<animation effect="fade" delay="1000" end="100">Focus</animation>
 		</control>
 		<control type="group">
