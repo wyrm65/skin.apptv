@@ -18,12 +18,13 @@
 				<top>100</top>
 				<width>1220</width>
 				<height>451</height>
-				<pagecontrol>10</pagecontrol>
+				<pagecontrol>60</pagecontrol>
 				<scrolltime>350</scrolltime>
 				<timeblocks>40</timeblocks>
 				<progresstexture border="0,32,4,0">progress-timeline.png</progresstexture>
 				<rulerunit>6</rulerunit>
 				<onleft>9000</onleft>
+				<onright>60</onright>
 				<onup>10</onup>
 				<ondown>10</ondown>
 				<rulerlayout height="35" width="40">
@@ -192,6 +193,15 @@
 					</control>
 				</focusedlayout>
 			</control>
+			<control type="scrollbar" id="60">
+				<left>1258</left>
+				<top>134</top>
+				<width>16</width>
+				<height>420</height>
+				<onleft>10</onleft>
+				<animation condition="!Control.HasFocus(60) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+			</control>
 			<control type="label">
 				<left>30</left>
 				<top>556</top>
@@ -203,9 +213,9 @@
 			</control>
 			<control type="label"><!-- Start time -->
 				<visible>!IsEmpty(ListItem.StartTime)</visible>
-				<left>930</left>
+				<left>850</left>
 				<top>564</top>
-				<width>320</width>
+				<width>400</width>
 				<height>24</height>
 				<align>right</align>
 				<font>apptv22</font>

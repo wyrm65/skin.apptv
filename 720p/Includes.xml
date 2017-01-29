@@ -240,7 +240,8 @@
 	</variable>
 	<variable name="VideoDuration">
 		<value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItemDuration)) + !String.IsEqual(Window(home).Property(SkinHelper.ListItemDuration.Hours),0)">$INFO[Window(home).Property(SkinHelper.ListItemDuration.Hours),,h]$INFO[Window(home).Property(SkinHelper.ListItemDuration.Minutes),,m]</value>
-		<value>$INFO[ListItem.Duration] $LOCALIZE[12391]</value>
+		<value condition="!Window.IsVisible(tvguide) + !Window.IsVisible(radioguide)">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>
+		<value>$INFO[ListItem.Duration]</value>
 	</variable>
 	<variable name="MovieLibEntry">
 		<value condition="!Library.HasContent(movies)">ActivateWindow(videos,Files,return)</value>
