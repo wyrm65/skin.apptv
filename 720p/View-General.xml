@@ -346,7 +346,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+				<visible>ListItem.IsParentFolder</visible>
 			</control>
 			<control type="label"><!-- Label -->
 				<left>17</left>
@@ -358,7 +358,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+				<visible>!ListItem.IsParentFolder</visible>
 			</control>
 		</control>
 	</include>
@@ -452,7 +452,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+				<visible>ListItem.IsParentFolder</visible>
 			</control>
 			<control type="label"><!-- Label -->
 				<left>17</left>
@@ -464,7 +464,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+				<visible>!ListItem.IsParentFolder</visible>
 			</control>
 			<control type="label"><!-- Resolution -->
 				<left>283</left>
@@ -915,7 +915,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+				<visible>!ListItem.IsParentFolder</visible>
 			</control>
 			<control type="label"><!-- Go Back -->
 				<left>200</left>
@@ -927,7 +927,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+				<visible>ListItem.IsParentFolder</visible>
 			</control>
 			<control type="scrollbar" id="1258">
 				<left>1244</left>
@@ -1016,7 +1016,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>!SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+				<visible>!ListItem.IsParentFolder</visible>
 			</control>
 			<!-- Go Back -->
 			<control type="label">
@@ -1029,7 +1029,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+				<visible>ListItem.IsParentFolder</visible>
 			</control>
 			<!-- Resolution -->
 			<control type="label">

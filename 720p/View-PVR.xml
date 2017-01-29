@@ -445,7 +445,7 @@
 							<height>50</height>
 							<texture>DefaultFolder.png</texture>
 							<aspectratio>stretch</aspectratio>
-							<visible>ListItem.IsFolder + !SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+							<visible>ListItem.IsFolder + !ListItem.IsParentFolder</visible>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -506,7 +506,7 @@
 							<height>50</height>
 							<texture>DefaultFolder.png</texture>
 							<aspectratio>stretch</aspectratio>
-							<visible>ListItem.IsFolder + !SubString(ListItem.Icon,DefaultFolderBack.png,Left)</visible>
+							<visible>ListItem.IsFolder + !ListItem.IsParentFolder</visible>
 						</control>
 						<control type="image">
 							<left>10</left>
