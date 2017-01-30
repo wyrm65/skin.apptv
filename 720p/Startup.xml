@@ -29,7 +29,7 @@
 				<height>256</height>
 				<aspectratio>keep</aspectratio>
 				<texture>skin-logo-big.png</texture>
-				<visible>IsEmpty(Skin.String(startup-screentype)) | String.IsEqual(Skin.String(startup-screentype),$LOCALIZE[31856])</visible>
+				<visible>String.IsEmpty(Skin.String(startup-screentype)) | String.IsEqual(Skin.String(startup-screentype),$LOCALIZE[31856])</visible>
 			</control>
 			<control type="image"><!-- Custom Startup Screen Image -->
 				<include>fullscreenimage</include>

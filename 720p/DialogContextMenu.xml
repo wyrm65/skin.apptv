@@ -21,7 +21,7 @@
 			<font>apptv25</font>
 			<label>$LOCALIZE[31560]$INFO[Container(996).NumItems, (,)]</label>
 			<align>center</align>
-			<visible>Integer.IsGreater(Container(996).NumItems,3) | IsEmpty(ListItem.Title)</visible>
+			<visible>Integer.IsGreater(Container(996).NumItems,3) | String.IsEmpty(ListItem.Title)</visible>
 		</control>
 		<control type="label"><!-- Dialog heading (Play) -->
 			<left>394</left>
@@ -31,7 +31,7 @@
 			<font>apptv25</font>
 			<label>$LOCALIZE[208]$INFO[Container(996).NumItems, (,)]</label>
 			<align>center</align>
-			<visible>!Integer.IsGreater(Container(996).NumItems,3) + !IsEmpty(ListItem.Title)</visible>
+			<visible>!Integer.IsGreater(Container(996).NumItems,3) + !String.IsEmpty(ListItem.Title)</visible>
 		</control>
 		<control type="button">
 			<left>878</left>

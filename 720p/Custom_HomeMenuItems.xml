@@ -46,10 +46,10 @@
 				<height>48</height>
 				<label></label>
 				<font>apptv22</font>
-				<onfocus condition="!IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],$INFO[Window(home).Property(ItemPath)])</onfocus>
-				<onfocus condition="!IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$INFO[Window(home).Property(ItemName)])</onfocus>
-				<onfocus condition="!IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],$INFO[Window(home).Property(ItemIcon)])</onfocus>
-				<onfocus condition="!IsEmpty(Window(home).Property(ItemPath))">ClearProperty(ItemPath,home)</onfocus>
+				<onfocus condition="!String.IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],$INFO[Window(home).Property(ItemPath)])</onfocus>
+				<onfocus condition="!String.IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$INFO[Window(home).Property(ItemName)])</onfocus>
+				<onfocus condition="!String.IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],$INFO[Window(home).Property(ItemIcon)])</onfocus>
+				<onfocus condition="!String.IsEmpty(Window(home).Property(ItemPath))">ClearProperty(ItemPath,home)</onfocus>
 				<onfocus>SetFocus(5000)</onfocus>
 			</control>
 			<control type="grouplist" id="5000">
@@ -69,7 +69,7 @@
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>noop</onclick>
 					<font>apptv22</font>
-					<visible>!IsEmpty(Window(settings).Property(ListToggle))</visible>
+					<visible>!String.IsEmpty(Window(settings).Property(ListToggle))</visible>
 				</control>
 				<control type="button" id="5002"><!-- Menuitem Custom type -->
 					<width>954</width>
@@ -79,14 +79,14 @@
 					<onclick>SetProperty(ShowAction,true,settings)</onclick>
 					<onclick>SetFocus(6000)</onclick>
 					<font>apptv22</font>
-					<visible>!IsEmpty(Window(settings).Property(ListCustomBase))</visible>
+					<visible>!String.IsEmpty(Window(settings).Property(ListCustomBase))</visible>
 				</control>
 				<control type="group" id="5003"><!-- Show/Hide menu item -->
 					<left>0</left>
 					<top>0</top>
 					<width>954</width>
 					<height>48</height>
-					<visible>IsEmpty(Window(settings).Property(ListCustomBase))</visible>
+					<visible>String.IsEmpty(Window(settings).Property(ListCustomBase))</visible>
 					<control type="togglebutton" id="5004">
 						<width>954</width>
 						<height>48</height>
@@ -116,19 +116,19 @@
 					<label2>$VAR[CustomSkinAction]</label2>
 					<font>apptv22</font>
 					<onclick condition="!System.HasAddon(script.favourites)">InstallAddon(script.favourites)</onclick>
-					<onclick condition="IsEmpty(Window(home).Property(ItemPath)) + System.HasAddon(script.favourites)">RunScript(script.favourites,changetitle=true&amp;property=$INFO[Window(settings).Property(ListCustomBase)])</onclick>
-					<onclick condition="!IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],$INFO[Window(home).Property(ItemPath)])</onclick>
-					<onclick condition="!IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$INFO[Window(home).Property(ItemName)])</onclick>
-					<onclick condition="!IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],$INFO[Window(home).Property(ItemIcon)])</onclick>
-					<onclick condition="!IsEmpty(Window(home).Property(ItemPath))">ClearProperty(ItemPath,home)</onclick>
-					<visible>!IsEmpty(Window(settings).Property(ListCustomBase)) + [StringCompare(Window(settings).Property(CurrentType),$LOCALIZE[31652]) | IsEmpty(Window(settings).Property(CurrentType))]</visible>
+					<onclick condition="String.IsEmpty(Window(home).Property(ItemPath)) + System.HasAddon(script.favourites)">RunScript(script.favourites,changetitle=true&amp;property=$INFO[Window(settings).Property(ListCustomBase)])</onclick>
+					<onclick condition="!String.IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],$INFO[Window(home).Property(ItemPath)])</onclick>
+					<onclick condition="!String.IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$INFO[Window(home).Property(ItemName)])</onclick>
+					<onclick condition="!String.IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],$INFO[Window(home).Property(ItemIcon)])</onclick>
+					<onclick condition="!String.IsEmpty(Window(home).Property(ItemPath))">ClearProperty(ItemPath,home)</onclick>
+					<visible>!String.IsEmpty(Window(settings).Property(ListCustomBase)) + [StringCompare(Window(settings).Property(CurrentType),$LOCALIZE[31652]) | String.IsEmpty(Window(settings).Property(CurrentType))]</visible>
 				</control>
 				<control type="group" id="5006"><!-- List/Play playlist -->
 					<left>0</left>
 					<top>0</top>
 					<width>954</width>
 					<height>48</height>
-					<visible>!IsEmpty(Window(settings).Property(ListCustomBase)) + [StringCompare(Window(settings).Property(CurrentType),$LOCALIZE[31660]) | StringCompare(Window(settings).Property(CurrentType),$LOCALIZE[31661])]</visible>
+					<visible>!String.IsEmpty(Window(settings).Property(ListCustomBase)) + [StringCompare(Window(settings).Property(CurrentType),$LOCALIZE[31660]) | StringCompare(Window(settings).Property(CurrentType),$LOCALIZE[31661])]</visible>
 					<control type="button" id="5007">
 						<width>954</width>
 						<height>48</height>
@@ -163,7 +163,7 @@
 					<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[31660])</onclick>
 					<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],DefaultPlaylist.png)</onclick>
 					<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/filemanager.png)</onclick>
-					<visible>!IsEmpty(Window(settings).Property(ListCustomBase)) + String.Contains(Window(settings).Property(CurrentType),$LOCALIZE[31660])</visible>
+					<visible>!String.IsEmpty(Window(settings).Property(ListCustomBase)) + String.Contains(Window(settings).Property(CurrentType),$LOCALIZE[31660])</visible>
 				</control> 
 				<control type="button" id="5009"><!-- Assign Skin playlist action to custom menu item -->
 					<width>954</width>
@@ -176,7 +176,7 @@
 					<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[31661])</onclick>
 					<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],DefaultPlaylist.png)</onclick>
 					<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/filemanager.png)</onclick>
-					<visible>!IsEmpty(Window(settings).Property(ListCustomBase)) + String.Contains(Window(settings).Property(CurrentType),$LOCALIZE[31661])</visible>
+					<visible>!String.IsEmpty(Window(settings).Property(ListCustomBase)) + String.Contains(Window(settings).Property(CurrentType),$LOCALIZE[31661])</visible>
 				</control>
 				<control type="button" id="5010"><!-- Assign Command action to custom menu item -->
 					<width>954</width>
@@ -186,14 +186,14 @@
 					<onclick>SetProperty(ShowCommands,true,settings)</onclick>
 					<onclick>SetFocus(6010)</onclick>
 					<font>apptv22</font>
-					<visible>!IsEmpty(Window(settings).Property(ListCustomBase)) + StringCompare(Window(settings).Property(CurrentType),$LOCALIZE[31653])</visible>
+					<visible>!String.IsEmpty(Window(settings).Property(ListCustomBase)) + StringCompare(Window(settings).Property(CurrentType),$LOCALIZE[31653])</visible>
 				</control>
 				<control type="group" id="5011"><!-- Change Icon of custom menu item -->
 					<left>0</left>
 					<top>0</top>
 					<width>954</width>
 					<height>48</height>
-					<visible>!IsEmpty(Window(settings).Property(ListCustomBase))</visible>
+					<visible>!String.IsEmpty(Window(settings).Property(ListCustomBase))</visible>
 					<control type="button" id="5012"><!-- Change Icon of custom menu item -->
 						<width>954</width>
 						<height>48</height>
@@ -219,7 +219,7 @@
 					<top>0</top>
 					<width>954</width>
 					<height>48</height>
-					<visible>Skin.HasSetting(homemenu-icon) + !IsEmpty(Window(settings).Property(ListToggle))</visible>
+					<visible>Skin.HasSetting(homemenu-icon) + !String.IsEmpty(Window(settings).Property(ListToggle))</visible>
 					<control type="button" id="5014"><!-- Change Icon of icon menu default item -->
 						<width>954</width>
 						<height>48</height>
@@ -247,7 +247,7 @@
 					<label2>$VAR[CustomSkinLabel]</label2>
 					<font>apptv22</font>
 					<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label])</onclick>
-					<enable>!IsEmpty(Window(settings).Property(ListCustomBase))</enable>
+					<enable>!String.IsEmpty(Window(settings).Property(ListCustomBase))</enable>
 				</control>
 			</control>
 		</control>
@@ -305,7 +305,7 @@
 			<left>0</left>
 			<top>720</top>
 			<animation effect="slide" time="0" start="0,0" end="0,-720">Visible</animation>
-			<visible allowhiddenfocus="true">!IsEmpty(Window(settings).Property(ShowAction))</visible>
+			<visible allowhiddenfocus="true">!String.IsEmpty(Window(settings).Property(ShowAction))</visible>
 			<control type="image"><!-- Dialog background -->
 				<left>796</left>
 				<top>228</top>
@@ -421,7 +421,7 @@
 			<left>0</left>
 			<top>720</top>
 			<animation effect="slide" time="0" start="0,0" end="0,-720">Visible</animation>
-			<visible allowhiddenfocus="true">!IsEmpty(Window(settings).Property(ShowCommands))</visible>
+			<visible allowhiddenfocus="true">!String.IsEmpty(Window(settings).Property(ShowCommands))</visible>
 			<control type="image"><!-- Dialog background -->
 				<left>796</left>
 				<top>276</top>

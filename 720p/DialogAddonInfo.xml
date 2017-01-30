@@ -38,7 +38,7 @@
 				<font>apptv20</font>
 				<align>justify</align>
 				<pagecontrol>1123</pagecontrol>
-				<visible>!IsEmpty(ListItem.AddonDescription)</visible>
+				<visible>!String.IsEmpty(ListItem.AddonDescription)</visible>
 			</control>
 			<control type="textbox"><!-- Addon summary (Show if no description available)-->
 				<left>380</left>
@@ -49,7 +49,7 @@
 				<font>apptv20</font>
 				<align>justify</align>
 				<pagecontrol>1123</pagecontrol>
-				<visible>IsEmpty(ListItem.AddonDescription)</visible>
+				<visible>String.IsEmpty(ListItem.AddonDescription)</visible>
 			</control>
 			<control type="scrollbar" id="1123"><!-- Addon description scrollbar -->
 				<left>1246</left>
@@ -125,7 +125,7 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="group">
-					<visible>!IsEmpty(ListItem.AddonDisclaimer)</visible>
+					<visible>!String.IsEmpty(ListItem.AddonDisclaimer)</visible>
 					<control type="label"><!-- Disclaimer heading -->
 						<left>0</left>
 						<top>52</top>

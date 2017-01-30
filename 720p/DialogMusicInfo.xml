@@ -29,7 +29,7 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Artist]$INFO[ListItem.Album, : ,]</label>
 					<textoffsetx>0</textoffsetx>
-					<visible>!IsEmpty(ListItem.Artist)</visible>
+					<visible>!String.IsEmpty(ListItem.Artist)</visible>
 				</control>
 				<control type="image">
 					<left>340</left>
@@ -95,7 +95,7 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$LOCALIZE[135] : $INFO[ListItem.Genre]</label>
 					<textoffsetx>0</textoffsetx>
-					<visible>!IsEmpty(ListItem.Genre)</visible>
+					<visible>!String.IsEmpty(ListItem.Genre)</visible>
 				</control>
 				<control type="label"><!-- Playcount heading-->
 					<left>970</left>
@@ -106,7 +106,7 @@
 					<font>apptv22</font>
 					<textcolor>disabled-text</textcolor>
 					<shadowcolor>shadow-text</shadowcolor>
-					<visible>!IsEmpty(ListItem.PlayCount)</visible>
+					<visible>!String.IsEmpty(ListItem.PlayCount)</visible>
 				</control>
 				<control type="label">
 					<left>970</left>
@@ -116,7 +116,7 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.PlayCount]</label>
 					<font>apptv20</font>
-					<visible>!IsEmpty(ListItem.PlayCount)</visible>
+					<visible>!String.IsEmpty(ListItem.PlayCount)</visible>
 				</control>
 				<control type="label"><!-- Duration -->
 					<left>340</left>
@@ -125,7 +125,7 @@
 					<height>20</height>
 					<font>apptv20</font>
 					<label>$LOCALIZE[31133] $INFO[ListItem.Duration]</label>
-					<visible>!IsEmpty(ListItem.Duration)</visible>
+					<visible>!String.IsEmpty(ListItem.Duration)</visible>
 				</control>
 				<control type="label"><!-- Release date -->
 					<left>340</left>
@@ -136,7 +136,7 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$LOCALIZE[172] : $INFO[ListItem.Year]</label>
 					<textoffsetx>0</textoffsetx>
-					<visible>!IsEmpty(ListItem.Year)</visible>
+					<visible>!String.IsEmpty(ListItem.Year)</visible>
 				</control>
 				<control type="image"><!-- Star Rating Dropshadow-->
 					<left>341</left>
@@ -193,7 +193,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Property(Artist_Born)]$INFO[ListItem.Property(Artist_Died), - ,]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>!IsEmpty(ListItem.Property(Artist_Born))</visible>
+				<visible>!String.IsEmpty(ListItem.Property(Artist_Born))</visible>
 			</control>
 			<control type="label"><!-- Artist formed/disbanded -->
 				<left>340</left>
@@ -206,7 +206,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Property(Artist_Formed)]$INFO[ListItem.Property(Artist_Disbanded), - ,]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>!IsEmpty(ListItem.Property(Artist_Formed))</visible>
+				<visible>!String.IsEmpty(ListItem.Property(Artist_Formed))</visible>
 			</control>
 			<control type="image">
 				<left>340</left>
@@ -251,7 +251,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[135] : $INFO[ListItem.Genre]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>!IsEmpty(ListItem.Genre)</visible>
+				<visible>!String.IsEmpty(ListItem.Genre)</visible>
 			</control>
 			<control type="label"><!-- Moods -->
 				<left>340</left>
@@ -262,7 +262,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[175] : $INFO[ListItem.Property(Album_Mood)]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>!IsEmpty(ListItem.Property(Album_Mood))</visible>
+				<visible>!String.IsEmpty(ListItem.Property(Album_Mood))</visible>
 			</control>
 			<control type="label"><!-- Styles -->
 				<left>340</left>
@@ -273,7 +273,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[176] : $INFO[ListItem.Property(Album_Style)]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>!IsEmpty(ListItem.Property(Album_Style))</visible>
+				<visible>!String.IsEmpty(ListItem.Property(Album_Style))</visible>
 			</control>
 			<control type="label"><!-- Active -->
 				<left>340</left>
@@ -284,7 +284,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[21898] : $INFO[ListItem.Property(Artist_YearsActive)]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>!IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
+				<visible>!String.IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
 			</control>
 		</control>
 
@@ -332,7 +332,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Property(Album_Label)]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>!IsEmpty(ListItem.Property(Album_Label))</visible>
+				<visible>!String.IsEmpty(ListItem.Property(Album_Label))</visible>
 			</control>
 			<control type="image">
 				<left>340</left>
@@ -377,7 +377,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[135] : $INFO[ListItem.Genre]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>!IsEmpty(ListItem.Genre)</visible>
+				<visible>!String.IsEmpty(ListItem.Genre)</visible>
 			</control>
 			<control type="label"><!-- Moods -->
 				<left>340</left>
@@ -388,7 +388,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[175] : $INFO[ListItem.Property(Album_Mood)]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>!IsEmpty(ListItem.Property(Album_Mood))</visible>
+				<visible>!String.IsEmpty(ListItem.Property(Album_Mood))</visible>
 			</control>
 			<control type="label"><!-- Style -->
 				<left>340</left>
@@ -399,7 +399,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[176] : $INFO[ListItem.Property(Album_Style)]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>!IsEmpty(ListItem.Property(Album_Style))</visible>
+				<visible>!String.IsEmpty(ListItem.Property(Album_Style))</visible>
 			</control>
 			<control type="label"><!-- Release date -->
 				<left>340</left>
@@ -410,7 +410,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[172] : $INFO[ListItem.Year]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>!IsEmpty(ListItem.Year)</visible>
+				<visible>!String.IsEmpty(ListItem.Year)</visible>
 			</control>
 			<control type="image"><!-- Star Rating Dropshadow-->
 				<left>341</left>
