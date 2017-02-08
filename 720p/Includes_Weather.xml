@@ -2,7 +2,7 @@
 <includes>
 	<include name="standardweather">
 		<control type="group">
-			<visible>!Weather.IsFetched | SubString(Window(weather).Property(Current.ConditionIcon),na.png,right)</visible>
+			<visible>!Weather.IsFetched | String.EndsWith(Window(weather).Property(Current.ConditionIcon),na.png)</visible>
 			<control type="image">
 				<left>480</left>
 				<top>100</top>
@@ -33,9 +33,9 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>Weather.IsFetched + !SubString(Window(weather).Property(Current.ConditionIcon),na.png,right)</visible>
+			<visible>Weather.IsFetched + !String.EndsWith(Window(weather).Property(Current.ConditionIcon),na.png)</visible>
 			<control type="group"><!-- Standard Forecast -->
-				<visible>[String.IsEqual(Skin.String(weather-view),$LOCALIZE[10508]) | IsEmpty(Skin.String(weather-view))]</visible>
+				<visible>[String.IsEqual(Skin.String(weather-view),$LOCALIZE[10508]) | String.IsEmpty(Skin.String(weather-view))]</visible>
 				<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
 				<control type="group">
 					<left>24</left>
@@ -71,7 +71,7 @@
 						<wrapmultiline>true</wrapmultiline>
 						<font>apptv22</font>
 						<align>left</align>
-						<visible>SubString(Weather.plugin,weather.ozweather)</visible>
+						<visible>String.Contains(Weather.plugin,weather.ozweather)</visible>
 					</control>
 					<control type="label"><!-- Current temp heading -->
 						<left>892</left>
@@ -82,7 +82,7 @@
 						<align>center</align>
 						<aligny>bottom</aligny>
 						<label>$INFO[Window.Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
-						<visible>!IsEmpty(Window.Property(Current.Temperature))</visible>
+						<visible>!String.IsEmpty(Window.Property(Current.Temperature))</visible>
 					</control>
 					<control type="label"><!-- Current temperature range -->
 						<left>892</left>
@@ -94,7 +94,7 @@
 						<font>apptv38</font>
 						<align>center</align>
 						<aligny>bottom</aligny>
-						<visible>!IsEmpty(Window.Property(Day0.HighTemp))</visible>
+						<visible>!String.IsEmpty(Window.Property(Day0.HighTemp))</visible>
 					</control>
 					<control type="label"><!-- Current feels like heading -->
 						<left>690</left>
@@ -142,7 +142,7 @@
 						<width>366</width>
 						<height>30</height>
 						<label>$INFO[Window.Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
-						<visible>!IsEmpty(Window.Property(Current.FeelsLike))</visible>
+						<visible>!String.IsEmpty(Window.Property(Current.FeelsLike))</visible>
 					</control>
 					<control type="label"><!-- Current dew value -->
 						<left>980</left>
@@ -150,7 +150,7 @@
 						<width>366</width>
 						<height>30</height>
 						<label>$INFO[Window.Property(Current.DewPoint)]$INFO[System.TemperatureUnits]</label>
-						<visible>!IsEmpty(Window.Property(Current.DewPoint))</visible>
+						<visible>!String.IsEmpty(Window.Property(Current.DewPoint))</visible>
 					</control>
 					<control type="label"><!-- Current humidity value -->
 						<left>980</left>
@@ -182,8 +182,8 @@
 					</control>
 				</control>
 				<control type="group">
-					<animation effect="slide" end="210,0" condition="SubString(Window(weather).Property(Day5.OutlookIcon),na.png,right)" reversible="true">Conditional</animation>
-					<animation effect="slide" end="105,0" condition="SubString(Window(weather).Property(Day6.OutlookIcon),na.png,right) + !SubString(Window(weather).Property(Day5.OutlookIcon),na.png,right)" reversible="true">Conditional</animation>
+					<animation effect="slide" end="210,0" condition="String.EndsWith(Window(weather).Property(Day5.OutlookIcon),na.png)" reversible="true">Conditional</animation>
+					<animation effect="slide" end="105,0" condition="String.EndsWith(Window(weather).Property(Day6.OutlookIcon),na.png) + !String.EndsWith(Window(weather).Property(Day5.OutlookIcon),na.png)" reversible="true">Conditional</animation>
 					<control type="group"><!-- Day 1 -->
 						<left>10</left>
 						<top>430</top>
@@ -367,7 +367,7 @@
 					<control type="group"><!-- Day 5 -->
 						<left>850</left>
 						<top>430</top>
-						<visible>!SubString(Window(weather).Property(Day5.OutlookIcon),na.png,right)</visible>
+						<visible>!String.EndsWith(Window(weather).Property(Day5.OutlookIcon),na.png)</visible>
 						<control type="label">
 							<left>5</left>
 							<top>30</top>
@@ -413,7 +413,7 @@
 					<control type="group"><!-- Day 6 -->
 						<left>1060</left>
 						<top>430</top>
-						<visible>!SubString(Window(weather).Property(Day6.OutlookIcon),na.png,right)</visible>
+						<visible>!String.EndsWith(Window(weather).Property(Day6.OutlookIcon),na.png)</visible>
 						<control type="label">
 							<left>5</left>
 							<top>30</top>
@@ -462,7 +462,7 @@
 	</include>
 	<include name="ozweather">
 		<control type="group">
-			<visible>String.IsEqual(Skin.String(weather-view),$LOCALIZE[33035]) + !IsEmpty(Window.Property(Current.Temperature))</visible><!-- Maps -->
+			<visible>String.IsEqual(Skin.String(weather-view),$LOCALIZE[33035]) + !String.IsEmpty(Window.Property(Current.Temperature))</visible><!-- Maps -->
 			<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
 			<!-- Current forecast -->
 			<control type="group">
@@ -475,7 +475,7 @@
 					<align>center</align>
 					<aligny>bottom</aligny>
 					<label>$INFO[Window.Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
-					<visible>!IsEmpty(Window(weather).Property(Current.Temperature))</visible>
+					<visible>!String.IsEmpty(Window(weather).Property(Current.Temperature))</visible>
 				</control>
 				<control type="label"><!-- Current temperature range -->
 					<left>892</left>
@@ -487,7 +487,7 @@
 					<font>apptv38</font>
 					<align>center</align>
 					<aligny>bottom</aligny>
-					<visible>!IsEmpty(Window(weather).Property(Day0.HighTemp))</visible>
+					<visible>!String.IsEmpty(Window(weather).Property(Day0.HighTemp))</visible>
 				</control>
 				<control type="label"><!-- Current feels like heading -->
 					<left>690</left>
@@ -535,7 +535,7 @@
 					<width>366</width>
 					<height>30</height>
 					<label>$INFO[Window(weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
-					<visible>!IsEmpty(Window(weather).Property(Current.FeelsLike))</visible>
+					<visible>!String.IsEmpty(Window(weather).Property(Current.FeelsLike))</visible>
 				</control>
 				<control type="label"><!-- Current dew value -->
 					<left>980</left>
@@ -543,7 +543,7 @@
 					<width>366</width>
 					<height>30</height>
 					<label>$INFO[Window(weather).Property(Current.DewPoint)]$INFO[System.TemperatureUnits]</label>
-					<visible>!IsEmpty(Window(weather).Property(Current.DewPoint))</visible>
+					<visible>!String.IsEmpty(Window(weather).Property(Current.DewPoint))</visible>
 				</control>
 				<control type="label"><!-- Current humidity value -->
 					<left>980</left>
@@ -575,7 +575,7 @@
 					<wrapmultiline>true</wrapmultiline>
 					<font>apptv22</font>
 					<align>left</align>
-					<visible>SubString(Weather.plugin,weather.ozweather)</visible>
+					<visible>String.Contains(Weather.plugin,weather.ozweather)</visible>
 				</control>
 			</control>
 			<!-- RADAR BACKGROUND IMAGES -->
@@ -642,13 +642,13 @@
 				<aspectratio>keep</aspectratio>
 				<animation effect="fade" start="0" end="100" time="100" delay="10000">Visible</animation>
 				<animation effect="rotate" start="360" end="0" center="auto" time="5400" loop="true" condition="true">conditional</animation>
-				<visible>IsEmpty(Window(weather).Property(Radar))</visible>
+				<visible>String.IsEmpty(Window(weather).Property(Radar))</visible>
 			</control>
 		</control>
 	</include>
 	<include name="openweatherextended">
 		<control type="group">
-			<visible>String.IsEqual(Skin.String(weather-view),$LOCALIZE[33037]) + !IsEmpty(Window(weather).Property(Current.Temperature))</visible><!-- Weekend -->
+			<visible>String.IsEqual(Skin.String(weather-view),$LOCALIZE[33037]) + !String.IsEmpty(Window(weather).Property(Current.Temperature))</visible><!-- Weekend -->
 			<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
 			<control type="group"><!-- Weekend 1 -->
 				<left>100</left>
@@ -882,7 +882,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>String.IsEqual(Skin.String(weather-view),$LOCALIZE[33034]) + !IsEmpty(Window(weather).Property(Hourly.IsFetched))</visible><!-- 36 Hour -->
+			<visible>String.IsEqual(Skin.String(weather-view),$LOCALIZE[33034]) + !String.IsEmpty(Window(weather).Property(Hourly.IsFetched))</visible><!-- 36 Hour -->
 			<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
 			<control type="group">
 				<control type="group"><!-- 36 Hour 1 -->
@@ -1308,7 +1308,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>String.IsEqual(Skin.String(weather-view),$LOCALIZE[33036]) + !IsEmpty(Window(weather).Property(Hourly.IsFetched))</visible><!-- Hourly -->
+			<visible>String.IsEqual(Skin.String(weather-view),$LOCALIZE[33036]) + !String.IsEmpty(Window(weather).Property(Hourly.IsFetched))</visible><!-- Hourly -->
 			<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
 			<control type="group"><!-- Hourly 1 -->
 				<left>10</left>
@@ -2044,7 +2044,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>String.IsEqual(Skin.String(weather-view),$LOCALIZE[33035]) + !IsEmpty(Window(weather).Property(Current.Temperature))</visible><!-- Maps -->
+			<visible>String.IsEqual(Skin.String(weather-view),$LOCALIZE[33035]) + !String.IsEmpty(Window(weather).Property(Current.Temperature))</visible><!-- Maps -->
 			<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
 			<!-- Current forecast -->
 			<control type="group">
@@ -2057,7 +2057,7 @@
 					<align>center</align>
 					<aligny>bottom</aligny>
 					<label>$INFO[Window(weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
-					<visible>!IsEmpty(Window(weather).Property(Current.Temperature))</visible>
+					<visible>!String.IsEmpty(Window(weather).Property(Current.Temperature))</visible>
 				</control>
 				<control type="label"><!-- Current temperature range -->
 					<left>892</left>
@@ -2069,7 +2069,7 @@
 					<font>apptv38</font>
 					<align>center</align>
 					<aligny>bottom</aligny>
-					<visible>!IsEmpty(Window(weather).Property(Day0.HighTemp))</visible>
+					<visible>!String.IsEmpty(Window(weather).Property(Day0.HighTemp))</visible>
 				</control>
 				<control type="label"><!-- Current feels like heading -->
 					<left>690</left>
@@ -2117,7 +2117,7 @@
 					<width>366</width>
 					<height>30</height>
 					<label>$INFO[Window(weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
-					<visible>!IsEmpty(Window(weather).Property(Current.FeelsLike))</visible>
+					<visible>!String.IsEmpty(Window(weather).Property(Current.FeelsLike))</visible>
 				</control>
 				<control type="label"><!-- Current dew value -->
 					<left>980</left>
@@ -2125,7 +2125,7 @@
 					<width>366</width>
 					<height>30</height>
 					<label>$INFO[Window(weather).Property(Current.DewPoint)]$INFO[System.TemperatureUnits]</label>
-					<visible>!IsEmpty(Window(weather).Property(Current.DewPoint))</visible>
+					<visible>!String.IsEmpty(Window(weather).Property(Current.DewPoint))</visible>
 				</control>
 				<control type="label"><!-- Current humidity value -->
 					<left>980</left>
@@ -2209,7 +2209,7 @@
 				<viewtype label="535">list</viewtype>
 				<scrolltime>0</scrolltime>
 				<orientation>vertical</orientation>
-				<visible>!IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
+				<visible>!String.IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
 				<itemlayout height="350" width="600">
 					<control type="image"><!-- Layer Image -->
 						<left>0</left>
@@ -2269,7 +2269,7 @@
 						<icon>$INFO[Window(weather).Property(Map.1.Area)]</icon>
 						<property name="Layer">$INFO[Window(weather).Property(Map.1.Layer)]</property>
 						<onclick>noop</onclick>
-						<visible>Weather.IsFetched + !IsEmpty(Window(weather).Property(Map.1.Area)) + !IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
+						<visible>Weather.IsFetched + !String.IsEmpty(Window(weather).Property(Map.1.Area)) + !String.IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
 					</item>
 					<item>
 						<label>$INFO[Window(weather).Property(Map.2.Heading)]</label>
@@ -2277,7 +2277,7 @@
 						<icon>$INFO[Window(weather).Property(Map.2.Area)]</icon>
 						<property name="Layer">$INFO[Window(weather).Property(Map.2.Layer)]</property>
 						<onclick>noop</onclick>
-						<visible>Weather.IsFetched + !IsEmpty(Window.Property(Map.2.Area)) + !IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
+						<visible>Weather.IsFetched + !String.IsEmpty(Window.Property(Map.2.Area)) + !String.IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
 					</item>
 					<item>
 						<label>$INFO[Window(weather).Property(Map.3.Heading)]</label>
@@ -2285,7 +2285,7 @@
 						<icon>$INFO[Window(weather).Property(Map.3.Area)]</icon>
 						<property name="Layer">$INFO[Window(weather).Property(Map.3.Layer)]</property>
 						<onclick>noop</onclick>
-						<visible>Weather.IsFetched + !IsEmpty(Window(weather).Property(Map.3.Area)) + !IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
+						<visible>Weather.IsFetched + !String.IsEmpty(Window(weather).Property(Map.3.Area)) + !String.IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
 					</item>
 					<item>
 						<label>$INFO[Window(weather).Property(Map.4.Heading)]</label>
@@ -2293,7 +2293,7 @@
 						<icon>$INFO[Window(weather).Property(Map.4.Area)]</icon>
 						<property name="Layer">$INFO[Window(weather).Property(Map.4.Layer)]</property>
 						<onclick>noop</onclick>
-						<visible>Weather.IsFetched + !IsEmpty(Window(weather).Property(Map.4.Area)) + !IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
+						<visible>Weather.IsFetched + !String.IsEmpty(Window(weather).Property(Map.4.Area)) + !String.IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
 					</item>
 					<item>
 						<label>$INFO[Window(weather).Property(Map.5.Heading)]</label>
@@ -2301,7 +2301,7 @@
 						<icon>$INFO[Window(weather).Property(Map.5.Area)]</icon>
 						<property name="Layer">$INFO[Window(weather).Property(Map.5.Layer)]</property>
 						<onclick>noop</onclick>
-						<visible>Weather.IsFetched + !IsEmpty(Window(weather).Property(Map.5.Area)) + !IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
+						<visible>Weather.IsFetched + !String.IsEmpty(Window(weather).Property(Map.5.Area)) + !String.IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
 					</item>
 				</content>
 			</control>
@@ -2314,11 +2314,11 @@
 				<aspectratio>keep</aspectratio>
 				<animation effect="fade" start="0" end="100" time="100" delay="10000">Visible</animation>
 				<animation effect="rotate" start="360" end="0" center="auto" time="5400" loop="true" condition="true">conditional</animation>
-				<visible>IsEmpty(Container(5998).ListItem.Label)</visible>
+				<visible>String.IsEmpty(Container(5998).ListItem.Label)</visible>
 			</control>
 		</control>
 		<control type="group">
-			<visible>Skin.HasSetting(weather-alerts) + !IsEmpty(Window(weather).Property(Alerts.RSS))</visible><!-- Alerts -->
+			<visible>Skin.HasSetting(weather-alerts) + !String.IsEmpty(Window(weather).Property(Alerts.RSS))</visible><!-- Alerts -->
 			<control type="group">
 				<control type="image">
 					<left>310</left>

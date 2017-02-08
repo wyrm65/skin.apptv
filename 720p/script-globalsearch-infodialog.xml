@@ -20,7 +20,7 @@
 				<aspectratio>stretch</aspectratio>
 				<texture>$INFO[Skin.String(background-custom)]</texture>
 				<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
-				<visible>!IsEmpty(Skin.String(background-custom))</visible>
+				<visible>!String.IsEmpty(Skin.String(background-custom))</visible>
 			</control>
 			<control type="image"><!-- Fanart background -->
 				<include>fullscreenimage</include>
@@ -42,53 +42,53 @@
 					<width>40</width>
 					<height>30</height>
 					<texture background="true">special://skin/extras/images/audio/$INFO[Container(100).ListItem.Property(AudioCodec),,.png]</texture>
-					<visible>!IsEmpty(Container(100).ListItem.Property(AudioCodec)) + !String.IsEqual(Control.GetLabel(761),blank.png)</visible>
+					<visible>!String.IsEmpty(Container(100).ListItem.Property(AudioCodec)) + !String.IsEqual(Control.GetLabel(761),blank.png)</visible>
 				</control>
 				<control type="image" id="772"><!-- Video Codec -->
 					<width>40</width>
 					<height>30</height>
 					<texture background="true">special://skin/extras/images/video/$INFO[Container(100).ListItem.Property(VideoCodec),,.png]</texture>
-					<visible>!IsEmpty(Container(100).ListItem.Property(VideoCodec)) + !String.IsEqual(Control.GetLabel(762),blank.png)</visible>
+					<visible>!String.IsEmpty(Container(100).ListItem.Property(VideoCodec)) + !String.IsEqual(Control.GetLabel(762),blank.png)</visible>
 				</control>
 				<control type="image" id="773"><!-- Video Aspect Ratio -->
 					<width>40</width>
 					<height>30</height>
 					<texture background="true">special://skin/extras/images/aspectratio/$INFO[Container(100).ListItem.Property(VideoAspect),,.png]</texture>
-					<visible>!IsEmpty(Container(100).ListItem.Property(VideoAspect)) + !String.IsEqual(Control.GetLabel(763),blank.png)</visible>
+					<visible>!String.IsEmpty(Container(100).ListItem.Property(VideoAspect)) + !String.IsEqual(Control.GetLabel(763),blank.png)</visible>
 				</control>
 				<control type="image" id="774"><!-- Video Resolution -->
 					<width>40</width>
 					<height>30</height>
 					<texture background="true">special://skin/extras/images/resolution/$INFO[Container(100).ListItem.Property(VideoResolution),,.png]</texture>
-					<visible>!IsEmpty(Container(100).ListItem.Property(VideoResolution)) + !String.IsEqual(Control.GetLabel(764),blank.png)</visible>
+					<visible>!String.IsEmpty(Container(100).ListItem.Property(VideoResolution)) + !String.IsEqual(Control.GetLabel(764),blank.png)</visible>
 				</control>
 				<control type="image" id="761">
 					<width>1</width>
 					<height>30</height>
 					<colordiffuse>HideControl</colordiffuse>
 					<texture background="true" fallback="blank.png">special://skin/extras/images/audio/$INFO[Container(100).ListItem.Property(AudioCodec),,.png]</texture>
-					<visible>!IsEmpty(Container(100).ListItem.Property(AudioCodec))</visible>
+					<visible>!String.IsEmpty(Container(100).ListItem.Property(AudioCodec))</visible>
 				</control>
 				<control type="image" id="762">
 					<width>1</width>
 					<height>30</height>
 					<colordiffuse>HideControl</colordiffuse>
 					<texture background="true" fallback="blank.png">special://skin/extras/images/video/$INFO[Container(100).ListItem.Property(VideoCodec),,.png]</texture>
-					<visible>!IsEmpty(Container(100).ListItem.Property(VideoCodec))</visible>
+					<visible>!String.IsEmpty(Container(100).ListItem.Property(VideoCodec))</visible>
 				</control>
 				<control type="image" id="763">
 					<width>1</width>
 					<height>30</height>
 					<texture background="true" fallback="blank.png">special://skin/extras/images/aspectratio/$INFO[Container(100).ListItem.Property(VideoAspect),,.png]</texture>
 					<colordiffuse>HideControl</colordiffuse>
-					<visible>!IsEmpty(Container(100).ListItem.Property(VideoAspect))</visible>
+					<visible>!String.IsEmpty(Container(100).ListItem.Property(VideoAspect))</visible>
 				</control>
 				<control type="image" id="764">
 					<width>1</width>
 					<height>30</height>
 					<colordiffuse>HideControl</colordiffuse>
 					<texture background="true" fallback="blank.png">special://skin/extras/images/resolution/$INFO[Container(100).ListItem.Property(VideoResolution),,.png]</texture>
-					<visible>!IsEmpty(Container(100).ListItem.Property(VideoResolution))</visible>
+					<visible>!String.IsEmpty(Container(100).ListItem.Property(VideoResolution))</visible>
 				</control>
 			</control>
 			<control type="grouplist" id="960"><!-- Plot/Description Scrollbars -->
@@ -236,7 +236,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[Container(100).ListItem.Property(Genre)]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Genre))</visible>
 					</control>
 					<control type="label"><!-- Year released -->
 						<left>340</left>
@@ -268,7 +268,7 @@
 						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="group"><!-- Duration -->
-						<visible>!IsEmpty(Container(100).ListItem.Property(Duration))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Duration))</visible>
 						<control type="label">
 							<left>340</left>
 							<top>314</top>
@@ -276,7 +276,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
-							<visible>SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+							<visible>String.Contains(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
 							<left>340</left>
@@ -285,7 +285,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
-							<visible>SubString(Container(100).ListItem.Property(Duration),min) + !SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+							<visible>String.Contains(Container(100).ListItem.Property(Duration),min) + !String.Contains(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
 							<left>340</left>
@@ -294,7 +294,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration),, mins]</label>
-							<visible>!SubString(Container(100).ListItem.Property(Duration),min)</visible>
+							<visible>!String.Contains(Container(100).ListItem.Property(Duration),min)</visible>
 						</control>
 					</control>
 					<control type="image"><!-- Star Rating Dropshadow-->
@@ -333,7 +333,7 @@
 						<label>$INFO[Container(100).ListItem.Property(Director)]</label>
 						<font>apptv20</font>
 						<wrapmultiline>true</wrapmultiline>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Director))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Director))</visible>
 					</control>
 					<control type="label"><!-- Playcount heading-->
 						<left>970</left>
@@ -353,7 +353,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[Container(100).ListItem.Property(Playcount)]</label>
 						<font>apptv20</font>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
 					</control>
 				</control>
 				<control type="list" id="110">
@@ -444,7 +444,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[Container(100).ListItem.Property(Genre)]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Genre))</visible>
 					</control>
 					<control type="label"><!-- Premiered -->
 						<left>340</left>
@@ -476,7 +476,7 @@
 						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="group"><!-- Duration -->
-						<visible>!IsEmpty(Container(100).ListItem.Property(Duration))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Duration))</visible>
 						<control type="label">
 							<left>340</left>
 							<top>314</top>
@@ -484,7 +484,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
-							<visible>SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+							<visible>String.Contains(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
 							<left>340</left>
@@ -493,7 +493,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
-							<visible>SubString(Container(100).ListItem.Property(Duration),min) + !SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+							<visible>String.Contains(Container(100).ListItem.Property(Duration),min) + !String.Contains(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
 							<left>340</left>
@@ -502,7 +502,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration),, mins]</label>
-							<visible>!SubString(Container(100).ListItem.Property(Duration),min)</visible>
+							<visible>!String.Contains(Container(100).ListItem.Property(Duration),min)</visible>
 						</control>
 					</control>
 					<control type="image"><!-- Star Rating Dropshadow-->
@@ -540,7 +540,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[Container(100).ListItem.Property(Playcount)]</label>
 						<font>apptv20</font>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
 					</control>
 				</control>
 				<control type="list" id="120">
@@ -631,7 +631,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[Container(100).ListItem.Property(Genre)]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Genre))</visible>
 					</control>
 					<control type="label"><!-- Premiered released -->
 						<left>340</left>
@@ -663,7 +663,7 @@
 						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="group"><!-- Duration -->
-						<visible>!IsEmpty(Container(100).ListItem.Property(Duration))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Duration))</visible>
 						<control type="label">
 							<left>340</left>
 							<top>314</top>
@@ -671,7 +671,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
-							<visible>SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+							<visible>String.Contains(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
 							<left>340</left>
@@ -680,7 +680,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
-							<visible>SubString(Container(100).ListItem.Property(Duration),min) + !SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+							<visible>String.Contains(Container(100).ListItem.Property(Duration),min) + !String.Contains(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
 							<left>340</left>
@@ -689,7 +689,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration),, mins]</label>
-							<visible>!SubString(Container(100).ListItem.Property(Duration),min)</visible>
+							<visible>!String.Contains(Container(100).ListItem.Property(Duration),min)</visible>
 						</control>
 					</control>
 					<control type="image"><!-- Star Rating Dropshadow-->
@@ -727,7 +727,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[Container(100).ListItem.Property(Playcount)]</label>
 						<font>apptv20</font>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
 					</control>
 				</control>
 				<control type="list" id="130">
@@ -838,7 +838,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[Container(100).ListItem.Property(Playcount)]</label>
 						<font>apptv20</font>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
 					</control>
 					<control type="label"><!-- Details heading -->
 						<left>340</left>
@@ -859,7 +859,7 @@
 						<label>$LOCALIZE[172] $INFO[Container(100).ListItem.Property(Premiered)]</label>
 					</control>
 					<control type="group"><!-- Duration -->
-						<visible>!IsEmpty(Container(100).ListItem.Property(Duration))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Duration))</visible>
 						<control type="label">
 							<left>340</left>
 							<top>290</top>
@@ -867,7 +867,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
-							<visible>SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+							<visible>String.Contains(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
 							<left>340</left>
@@ -876,7 +876,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
-							<visible>SubString(Container(100).ListItem.Property(Duration),min) + !SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+							<visible>String.Contains(Container(100).ListItem.Property(Duration),min) + !String.Contains(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
 							<left>340</left>
@@ -885,7 +885,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration),, mins]</label>
-							<visible>!SubString(Container(100).ListItem.Property(Duration),min)</visible>
+							<visible>!String.Contains(Container(100).ListItem.Property(Duration),min)</visible>
 						</control>
 					</control>
 					<control type="image"><!-- Star Rating Dropshadow-->
@@ -994,7 +994,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[Container(100).ListItem.Property(Genre)]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Genre))</visible>
 					</control>
 					<control type="label"><!-- Year released -->
 						<left>340</left>
@@ -1005,7 +1005,7 @@
 						<label>$LOCALIZE[172] $INFO[Container(100).ListItem.Property(Year)]</label>
 					</control>
 					<control type="group"><!-- Duration -->
-						<visible>!IsEmpty(Container(100).ListItem.Property(Duration))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Duration))</visible>
 						<control type="label">
 							<left>340</left>
 							<top>314</top>
@@ -1013,7 +1013,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
-							<visible>SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+							<visible>String.Contains(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
 							<left>340</left>
@@ -1022,7 +1022,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
-							<visible>SubString(Container(100).ListItem.Property(Duration),min) + !SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+							<visible>String.Contains(Container(100).ListItem.Property(Duration),min) + !String.Contains(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
 							<left>340</left>
@@ -1031,7 +1031,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration),, mins]</label>
-							<visible>!SubString(Container(100).ListItem.Property(Duration),min)</visible>
+							<visible>!String.Contains(Container(100).ListItem.Property(Duration),min)</visible>
 						</control>
 					</control>
 					<control type="image"><!-- Star Rating Dropshadow-->
@@ -1060,7 +1060,7 @@
 						<font>apptv22</font>
 						<textcolor>disabled-text</textcolor>
 						<shadowcolor>shadow-text</shadowcolor>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Director))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Director))</visible>
 					</control>
 					<control type="label">
 						<left>970</left>
@@ -1071,7 +1071,7 @@
 						<label>$INFO[Container(100).ListItem.Property(Director)]</label>
 						<font>apptv20</font>
 						<wrapmultiline>true</wrapmultiline>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Director))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Director))</visible>
 					</control>
 					<control type="label"><!-- Playcount heading-->
 						<left>970</left>
@@ -1082,7 +1082,7 @@
 						<font>apptv22</font>
 						<textcolor>disabled-text</textcolor>
 						<shadowcolor>shadow-text</shadowcolor>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
 					</control>
 					<control type="label">
 						<left>970</left>
@@ -1092,7 +1092,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[Container(100).ListItem.Property(Playcount)]</label>
 						<font>apptv20</font>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
 					</control>
 				</control>
 				<control type="list" id="150">
@@ -1131,7 +1131,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[Container(100).ListItem.Property(Artist_Born)]$INFO[Container(100).ListItem.Property(Artist_Died), - ,]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Born))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Artist_Born))</visible>
 					</control>
 					<control type="label"><!-- Artist formed/disbanded -->
 						<left>340</left>
@@ -1144,7 +1144,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[Container(100).ListItem.Property(Artist_Formed)]$INFO[Container(100).ListItem.Property(Artist_Disbanded), - ,]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Formed))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Artist_Formed))</visible>
 					</control>
 					<control type="image">
 						<left>340</left>
@@ -1197,7 +1197,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$LOCALIZE[135] : $INFO[Container(100).ListItem.Property(Artist_Genre)]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Genre))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Artist_Genre))</visible>
 					</control>
 					<control type="label"><!-- Moods -->
 						<left>340</left>
@@ -1208,7 +1208,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$LOCALIZE[175] : $INFO[Container(100).ListItem.Property(Artist_Mood)]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Mood))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Artist_Mood))</visible>
 					</control>
 					<control type="label"><!-- Styles -->
 						<left>340</left>
@@ -1219,7 +1219,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$LOCALIZE[176] : $INFO[Container(100).ListItem.Property(Artist_Style)]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_Style))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Artist_Style))</visible>
 					</control>
 					<control type="label"><!-- Active -->
 						<left>340</left>
@@ -1230,7 +1230,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$LOCALIZE[21898] : $INFO[Container(100).ListItem.Property(Artist_YearsActive)]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Artist_YearsActive))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Artist_YearsActive))</visible>
 					</control>
 				</control>
 				<control type="list" id="160">
@@ -1269,7 +1269,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[Container(100).ListItem.Property(Artist)]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Artist))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Artist))</visible>
 					</control>
 					<control type="image">
 						<left>340</left>
@@ -1322,7 +1322,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$LOCALIZE[135] : $INFO[Container(100).ListItem.Property(Genre)]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Genre))</visible>
 					</control>
 					<control type="label"><!-- Moods -->
 						<left>340</left>
@@ -1333,7 +1333,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$LOCALIZE[175] : $INFO[Container(100).ListItem.Property(Album_Mood)]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Album_Mood))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Album_Mood))</visible>
 					</control>
 					<control type="label"><!-- Style -->
 						<left>340</left>
@@ -1344,7 +1344,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$LOCALIZE[176] : $INFO[Container(100).ListItem.Property(Album_Style)]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Album_Style))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Album_Style))</visible>
 					</control>
 					<control type="label"><!-- Release date -->
 						<left>340</left>
@@ -1355,7 +1355,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$LOCALIZE[172] : $INFO[Container(100).ListItem.Property(Year)]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Year))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Year))</visible>
 					</control>
 					<control type="image"><!-- Star Rating Dropshadow-->
 						<left>341</left>
@@ -1411,7 +1411,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[Container(100).ListItem.Property(Artist)]$INFO[Container(100).ListItem.Property(Album), : ,]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Artist))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Artist))</visible>
 					</control>
 					<control type="image">
 						<left>340</left>
@@ -1464,7 +1464,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$LOCALIZE[135] : $INFO[Container(100).ListItem.Property(Genre)]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Genre))</visible>
 					</control>
 					<control type="label"><!-- Playcount heading-->
 						<left>970</left>
@@ -1484,10 +1484,10 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[Container(100).ListItem.Property(Playcount)]</label>
 						<font>apptv20</font>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Playcount))</visible>
 					</control>
 					<control type="group"><!-- Duration -->
-						<visible>!IsEmpty(Container(100).ListItem.Property(Duration))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Duration))</visible>
 						<control type="label">
 							<left>340</left>
 							<top>318</top>
@@ -1495,7 +1495,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
-							<visible>SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+							<visible>String.Contains(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
 							<left>340</left>
@@ -1504,7 +1504,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
-							<visible>SubString(Container(100).ListItem.Property(Duration),min) + !SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+							<visible>String.Contains(Container(100).ListItem.Property(Duration),min) + !String.Contains(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
 							<left>340</left>
@@ -1513,7 +1513,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration),, mins]</label>
-							<visible>!SubString(Container(100).ListItem.Property(Duration),min)</visible>
+							<visible>!String.Contains(Container(100).ListItem.Property(Duration),min)</visible>
 						</control>
 					</control>
 					<control type="label"><!-- Release date -->
@@ -1525,7 +1525,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$LOCALIZE[172] : $INFO[Container(100).ListItem.Property(Year)]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Year))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Year))</visible>
 					</control>
 					<control type="image"><!-- Star Rating Dropshadow-->
 						<left>341</left>
@@ -1581,7 +1581,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[Container(100).ListItem.Property(ChannelName)]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(ChannelName))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(ChannelName))</visible>
 					</control>
 					<control type="image">
 						<left>340</left>
@@ -1634,10 +1634,10 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$LOCALIZE[135] : $INFO[Container(100).ListItem.Property(Genre)]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Genre))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Genre))</visible>
 					</control>
 					<control type="group"><!-- Duration -->
-						<visible>!IsEmpty(Container(100).ListItem.Property(Duration))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Duration))</visible>
 						<control type="label">
 							<left>340</left>
 							<top>318</top>
@@ -1645,7 +1645,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
-							<visible>SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+							<visible>String.Contains(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
 							<left>340</left>
@@ -1654,7 +1654,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration)]</label>
-							<visible>SubString(Container(100).ListItem.Property(Duration),min) + !SubString(Container(100).ListItem.Property(Duration),hrs)</visible>
+							<visible>String.Contains(Container(100).ListItem.Property(Duration),min) + !String.Contains(Container(100).ListItem.Property(Duration),hrs)</visible>
 						</control>
 						<control type="label">
 							<left>340</left>
@@ -1663,7 +1663,7 @@
 							<height>20</height>
 							<font>apptv20</font>
 							<label>$LOCALIZE[31133] $INFO[Container(100).ListItem.Property(Duration),, mins]</label>
-							<visible>!SubString(Container(100).ListItem.Property(Duration),min)</visible>
+							<visible>!String.Contains(Container(100).ListItem.Property(Duration),min)</visible>
 						</control>
 					</control>
 					<control type="label"><!-- Start/End Times -->
@@ -1675,7 +1675,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[Container(100).ListItem.Property(Starttime),, - ]$INFO[Container(100).ListItem.Property(Endtime)]</label>
 						<textoffsetx>0</textoffsetx>
-						<visible>!IsEmpty(Container(100).ListItem.Property(Starttime)) + !IsEmpty(Container(100).ListItem.Property(Endtime))</visible>
+						<visible>!String.IsEmpty(Container(100).ListItem.Property(Starttime)) + !String.IsEmpty(Container(100).ListItem.Property(Endtime))</visible>
 					</control>
 				</control>
 				<control type="list" id="200">
@@ -1768,7 +1768,7 @@
 				<label>$LOCALIZE[31691]</label>
 				<font>apptv20</font>
 				<align>right</align>
-				<visible>![IsEmpty(Container(950).ListItem.Label)]</visible>
+				<visible>![String.IsEmpty(Container(950).ListItem.Label)]</visible>
 			</control>
 			<control type="image">
 				<left>340</left>
@@ -1776,7 +1776,7 @@
 				<width>900</width>
 				<height>4</height>
 				<texture>separator.png</texture>
-				<visible>![IsEmpty(Container(950).ListItem.Label)]</visible>
+				<visible>![String.IsEmpty(Container(950).ListItem.Label)]</visible>
 			</control>
 			<control type="list" id="950">
 				<left>10</left>
@@ -1876,7 +1876,7 @@
 							<aspectratio scalediffuse="true">keep</aspectratio>
 							<texture diffuse="mask-rect.png" background="true">$INFO[ListItem.Thumb]</texture>
 							<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
-							<visible>[Control.IsVisible(110) | Control.IsVisible(150)] + !IsEmpty(ListItem.Thumb) + !SubString(ListItem.Thumb,Default,Left)</visible>
+							<visible>[Control.IsVisible(110) | Control.IsVisible(150)] + !String.IsEmpty(ListItem.Thumb) + !String.StartsWith(ListItem.Thumb,Default)</visible>
 						</control>
 						<control type="image">
 							<left>22</left>
@@ -1885,7 +1885,7 @@
 							<height>166</height>
 							<aspectratio>keep</aspectratio>
 							<texture>DefaultVideo.png</texture>
-							<visible>[Control.IsVisible(110) | Control.IsVisible(150)] + [IsEmpty(ListItem.Thumb) | SubString(ListItem.Thumb,Default,Left)]</visible>
+							<visible>[Control.IsVisible(110) | Control.IsVisible(150)] + [String.IsEmpty(ListItem.Thumb) | String.StartsWith(ListItem.Thumb,Default)]</visible>
 						</control>
 						<control type="image">
 							<left>40</left>
@@ -1895,7 +1895,7 @@
 							<aspectratio scalediffuse="true">keep</aspectratio>
 							<texture diffuse="mask-rect.png" background="true">$INFO[ListItem.Thumb]</texture>
 							<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
-							<visible>[Control.IsVisible(120) | Control.IsVisible(130) | Control.IsVisible(140)] + !IsEmpty(ListItem.Thumb) + !SubString(ListItem.Thumb,Default,Left)</visible>
+							<visible>[Control.IsVisible(120) | Control.IsVisible(130) | Control.IsVisible(140)] + !String.IsEmpty(ListItem.Thumb) + !String.StartsWith(ListItem.Thumb,Default)</visible>
 						</control>
 						<control type="image">
 							<left>22</left>
@@ -1904,7 +1904,7 @@
 							<height>166</height>
 							<aspectratio>keep</aspectratio>
 							<texture>DefaultTVShows.png</texture>
-							<visible>[Control.IsVisible(120) | Control.IsVisible(130) | Control.IsVisible(140)] + [IsEmpty(ListItem.Thumb) | SubString(ListItem.Thumb,Default,Left)]</visible>
+							<visible>[Control.IsVisible(120) | Control.IsVisible(130) | Control.IsVisible(140)] + [String.IsEmpty(ListItem.Thumb) | String.StartsWith(ListItem.Thumb,Default)]</visible>
 						</control>
 						<control type="image">
 							<left>22</left>
@@ -1914,7 +1914,7 @@
 							<aspectratio scalediffuse="true">keep</aspectratio>
 							<texture diffuse="mask-rect.png" background="true">$INFO[ListItem.Thumb]</texture>
 							<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
-							<visible>[Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180)] + !IsEmpty(ListItem.Thumb) + !SubString(ListItem.Thumb,Default,Left)</visible>
+							<visible>[Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180)] + !String.IsEmpty(ListItem.Thumb) + !String.StartsWith(ListItem.Thumb,Default)</visible>
 						</control>
 						<control type="image">
 							<left>22</left>
@@ -1923,7 +1923,7 @@
 							<height>166</height>
 							<aspectratio>keep</aspectratio>
 							<texture>DefaultAudio.png</texture>
-							<visible>[Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180)] + [IsEmpty(ListItem.Thumb) | SubString(ListItem.Thumb,Default,Left)]</visible>
+							<visible>[Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180)] + [String.IsEmpty(ListItem.Thumb) | String.StartsWith(ListItem.Thumb,Default)]</visible>
 						</control>
 						<control type="image">
 							<left>22</left>
@@ -1933,7 +1933,7 @@
 							<aspectratio scalediffuse="true">keep</aspectratio>
 							<texture diffuse="mask-rect.png" background="true">$INFO[ListItem.Thumb]</texture>
 							<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
-							<visible>Control.IsVisible(200) + !IsEmpty(ListItem.Thumb) + !SubString(ListItem.Thumb,Default,Left)</visible>
+							<visible>Control.IsVisible(200) + !String.IsEmpty(ListItem.Thumb) + !String.StartsWith(ListItem.Thumb,Default)</visible>
 						</control>
 						<control type="image">
 							<left>22</left>
@@ -1942,7 +1942,7 @@
 							<height>166</height>
 							<aspectratio>keep</aspectratio>
 							<texture>icon-livetv.png</texture>
-							<visible>Control.IsVisible(200) + [IsEmpty(ListItem.Thumb) | SubString(ListItem.Thumb,Default,Left)]</visible>
+							<visible>Control.IsVisible(200) + [String.IsEmpty(ListItem.Thumb) | String.StartsWith(ListItem.Thumb,Default)]</visible>
 						</control>
 					</control>
 					<control type="textbox">

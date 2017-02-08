@@ -42,40 +42,40 @@
 			<onclick>$INFO[Skin.String(CustomAddon.1.Path)]</onclick>
 			<thumb>$INFO[Skin.String(CustomAddon.1.Icon)]</thumb>
 			<property name="ItemType">$LOCALIZE[31652]</property>
-			<visible>!IsEmpty(Skin.String(CustomAddon.1.Path))</visible>
+			<visible>!String.IsEmpty(Skin.String(CustomAddon.1.Path))</visible>
 		</item>
 		<item>
 			<label>$INFO[Skin.String(CustomAddon.2.Label)]</label>
 			<onclick>$INFO[Skin.String(CustomAddon.2.Path)]</onclick>
 			<thumb>$INFO[Skin.String(CustomAddon.2.Icon)]</thumb>
 			<property name="ItemType">$LOCALIZE[31652]</property>
-			<visible>!IsEmpty(Skin.String(CustomAddon.2.Path))</visible>
+			<visible>!String.IsEmpty(Skin.String(CustomAddon.2.Path))</visible>
 		</item>
 		<item>
 			<label>$INFO[Skin.String(CustomAddon.3.Label)]</label>
 			<onclick>$INFO[Skin.String(CustomAddon.3.Path)]</onclick>
 			<thumb>$INFO[Skin.String(CustomAddon.3.Icon)]</thumb>
 			<property name="ItemType">$LOCALIZE[31652]</property>
-			<visible>!IsEmpty(Skin.String(CustomAddon.3.Path))</visible>
+			<visible>!String.IsEmpty(Skin.String(CustomAddon.3.Path))</visible>
 		</item>
 		<item>
 			<label>$INFO[Skin.String(CustomAddon.4.Label)]</label>
 			<onclick>$INFO[Skin.String(CustomAddon.4.Path)]</onclick>
 			<thumb>$INFO[Skin.String(CustomAddon.4.Icon)]</thumb>
 			<property name="ItemType">$LOCALIZE[31652]</property>
-			<visible>!IsEmpty(Skin.String(CustomAddon.4.Path))</visible>
+			<visible>!String.IsEmpty(Skin.String(CustomAddon.4.Path))</visible>
 		</item>
 		<item>
 			<label>$INFO[Skin.String(CustomAddon.5.Label)]</label>
 			<onclick>$INFO[Skin.String(CustomAddon.5.Path)]</onclick>
 			<thumb>$INFO[Skin.String(CustomAddon.5.Icon)]</thumb>
 			<property name="ItemType">$LOCALIZE[31652]</property>
-			<visible>!IsEmpty(Skin.String(CustomAddon.5.Path))</visible>
+			<visible>!String.IsEmpty(Skin.String(CustomAddon.5.Path))</visible>
 		</item>
 	</include>
 
 	<include name="movie-shelficons">
-		<animation effect="slide" end="210,0" condition="![Control.HasFocus(9160) + Container(9160).Position(5)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
+		<animation effect="slide" end="210,0" condition="![Control.HasFocus(9160) + Container(9160).Position(5)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
 			<control type="label"><!-- Movie shelf icons label -->
 				<left>35</left>
@@ -87,7 +87,7 @@
 				<visible>Integer.IsGreater(Container(9160).NumItems,0)</visible>
 			</control>
 			<control type="group">
-				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
+				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
 				<control type="image">
 					<left>0</left>
 					<top>58</top>
@@ -230,7 +230,7 @@
 		</control>
 	</include>
 	<include name="tvshow-shelficons">
-		<animation effect="slide" end="252,0" condition="![Control.HasFocus(9210) + Container(9210).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
+		<animation effect="slide" end="252,0" condition="![Control.HasFocus(9210) + Container(9210).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
 			<control type="label"><!-- TV Episodes shelf icons label -->
 				<left>55</left>
@@ -243,7 +243,7 @@
 			</control>
 			<control type="group">
 				<visible>String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31949])</visible><!-- Banners -->
-				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
+				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
 				<camera x="640" y="180" />
 				<control type="image">
 					<left>0</left>
@@ -287,8 +287,8 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>[IsEmpty(Skin.String(shelf-tvshowimgtyp)) | String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31950])]</visible><!-- Posters -->
-				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
+				<visible>[String.IsEmpty(Skin.String(shelf-tvshowimgtyp)) | String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31950])]</visible><!-- Posters -->
+				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
 				<camera x="640" y="159" />
 				<control type="image">
 					<left>-30</left>
@@ -321,11 +321,11 @@
 				<viewtype label="31028">list</viewtype>
 				<orientation>horizontal</orientation>
 				<itemlayout height="270" width="252">
-					<include condition="IsEmpty(Skin.String(shelf-tvshowimgtyp)) | String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31950])">tvshow-shelfposter</include>
+					<include condition="String.IsEmpty(Skin.String(shelf-tvshowimgtyp)) | String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31950])">tvshow-shelfposter</include>
 					<include condition="String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31949])">tvshow-shelfbanner</include>
 				</itemlayout>
 				<focusedlayout height="270" width="252">
-					<include condition="IsEmpty(Skin.String(shelf-tvshowimgtyp)) | String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31950])">tvshow-shelfposter</include>
+					<include condition="String.IsEmpty(Skin.String(shelf-tvshowimgtyp)) | String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31950])">tvshow-shelfposter</include>
 					<include condition="String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31949])">tvshow-shelfbanner</include>
 					<control type="group">
 						<animation effect="fade" time="100" delay="100">Focus</animation>
@@ -351,7 +351,7 @@
 							<selectedcolor>button-text</selectedcolor>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 							<font>apptv20</font>
-							<visible>!IsEmpty(ListItem.Season) + !ListItem.Property(IsSpecial)</visible>
+							<visible>!String.IsEmpty(ListItem.Season) + !ListItem.Property(IsSpecial)</visible>
 						</control>
 						<control type="label">
 							<left>0</left>
@@ -375,7 +375,7 @@
 							<selectedcolor>button-text</selectedcolor>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 							<font>apptv20</font>
-							<visible>IsEmpty(ListItem.Season)</visible>
+							<visible>String.IsEmpty(ListItem.Season)</visible>
 						</control>
 					</control>
 				</focusedlayout>
@@ -386,7 +386,7 @@
 	</include>
 
 	<include name="music-shelficons">
-		<animation effect="slide" end="244,0" condition="![Control.HasFocus(9260) + Container(9260).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
+		<animation effect="slide" end="244,0" condition="![Control.HasFocus(9260) + Container(9260).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
 			<control type="label"><!-- Album shelf icon label-->
 				<left>30</left>
@@ -398,7 +398,7 @@
 				<visible>Integer.IsGreater(Container(9260).NumItems,0)</visible>
 			</control>
 			<control type="group">
-				<visible>![[Skin.HasSetting(media-overlay) + [Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
+				<visible>![[Skin.HasSetting(media-overlay) + [Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
 				<control type="image">
 					<left>0</left>
 					<top>65</top>
@@ -495,7 +495,7 @@
 	</include>
 
 	<include name="addons-shelficons">
-		<animation effect="slide" end="244,0" condition="![Control.HasFocus(9360) + Container(9360).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
+		<animation effect="slide" end="244,0" condition="![Control.HasFocus(9360) + Container(9360).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
 			<control type="label"><!-- Addon shelf icon label-->
 				<left>55</left>
@@ -579,7 +579,7 @@
 	</include>
 
 	<include name="broadcast-shelficons">
-		<animation effect="slide" end="252,0" condition="![Control.HasFocus(9510) + Container(9510).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
+		<animation effect="slide" end="252,0" condition="![Control.HasFocus(9510) + Container(9510).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
 			<control type="label"><!-- Broadcast shelf icons label -->
 				<left>55</left>
@@ -687,7 +687,7 @@
 							<selectedcolor>button-text</selectedcolor>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 							<font>apptv20</font>
-							<visible>!IsEmpty(ListItem.Season)</visible>
+							<visible>!String.IsEmpty(ListItem.Season)</visible>
 						</control>
 						<control type="label">
 							<left>0</left>
@@ -699,7 +699,7 @@
 							<selectedcolor>button-text</selectedcolor>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 							<font>apptv20</font>
-							<visible>IsEmpty(ListItem.Season)</visible>
+							<visible>String.IsEmpty(ListItem.Season)</visible>
 						</control>
 					</control>
 				</focusedlayout>
@@ -711,9 +711,9 @@
 	</include>
 
 	<include name="ShelfWeather">
-		<animation effect="slide" end="210,0" condition="Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
+		<animation effect="slide" end="210,0" condition="Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
-			<visible>!IsEmpty(Window(weather).Property(Current.Temperature))</visible>
+			<visible>!String.IsEmpty(Window(weather).Property(Current.Temperature))</visible>
 			<control type="group">
 				<left>10</left>
 				<top>0</top>
@@ -734,7 +734,7 @@
 					<font>apptv22</font>
 					<label>$INFO[Window(weather).Property(WeatherProvider),$LOCALIZE[31536] - ]</label>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<visible>IsEmpty(Window(weather).Property(WeatherProviderLogo))</visible>
+					<visible>String.IsEmpty(Window(weather).Property(WeatherProviderLogo))</visible>
 				</control>
 				<control type="group">
 					<control type="image"><!-- Weather provider logo shadow -->
@@ -776,7 +776,7 @@
 					<timeperimage>100</timeperimage>
 					<randomize>false</randomize>
 					<fadetime>1</fadetime>
-					<visible>!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)</visible>
+					<visible>!String.IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)</visible>
 				</control>
 				<control type="image"><!-- Todays custom weather condition icon -->
 					<left>72</left>
@@ -785,7 +785,7 @@
 					<height>96</height>
 					<texture>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Current.FanartCode),,.png]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)</visible>
+					<visible>!String.IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)</visible>
 				</control>
 				<control type="image"><!-- Todays default weather condition icon -->
 					<left>72</left>
@@ -794,7 +794,7 @@
 					<height>96</height>
 					<texture>$INFO[Window(weather).Property(Current.ConditionIcon)]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>IsEmpty(Skin.String(custom-weathericons.path))</visible>
+					<visible>String.IsEmpty(Skin.String(custom-weathericons.path))</visible>
 				</control>
 				<control type="label"><!-- Todays temperature range -->
 					<left>0</left>
@@ -840,7 +840,7 @@
 					<timeperimage>100</timeperimage>
 					<randomize>false</randomize>
 					<fadetime>1</fadetime>
-					<visible>!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)</visible>
+					<visible>!String.IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)</visible>
 				</control>
 				<control type="image"><!-- Day 1 custom weather condition icon -->
 					<left>80</left>
@@ -849,7 +849,7 @@
 					<height>80</height>
 					<texture>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day1.FanartCode),,.png]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)</visible>
+					<visible>!String.IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)</visible>
 				</control>
 				<control type="image"><!-- Day 1 weather condition icon -->
 					<left>80</left>
@@ -858,7 +858,7 @@
 					<height>80</height>
 					<texture>$INFO[Window(weather).Property(Day1.OutlookIcon)]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>IsEmpty(Skin.String(custom-weathericons.path))</visible>
+					<visible>String.IsEmpty(Skin.String(custom-weathericons.path))</visible>
 				</control>
 				<control type="label"><!-- Day 1 temperature range -->
 					<left>0</left>
@@ -904,7 +904,7 @@
 					<timeperimage>100</timeperimage>
 					<randomize>false</randomize>
 					<fadetime>1</fadetime>
-					<visible>!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)</visible>
+					<visible>!String.IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)</visible>
 				</control>
 				<control type="image"><!-- Day 2 custom weather condition icon -->
 					<left>80</left>
@@ -913,7 +913,7 @@
 					<height>80</height>
 					<texture>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Day2.FanartCode),,.png]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)</visible>
+					<visible>!String.IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)</visible>
 				</control>
 				<control type="image"><!-- Day 2 weather condition icon -->
 					<left>80</left>
@@ -922,7 +922,7 @@
 					<height>80</height>
 					<texture>$INFO[Window(weather).Property(Day2.OutlookIcon)]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>IsEmpty(Skin.String(custom-weathericons.path))</visible>
+					<visible>String.IsEmpty(Skin.String(custom-weathericons.path))</visible>
 				</control>
 				<control type="label"><!-- Day 2 temperature range -->
 					<left>0</left>
@@ -968,7 +968,7 @@
 					<timeperimage>100</timeperimage>
 					<randomize>false</randomize>
 					<fadetime>1</fadetime>
-					<visible>!IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)</visible>
+					<visible>!String.IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)</visible>
 				</control>
 				<control type="image"><!-- Day 3 custom weather condition icon -->
 					<left>80</left>
@@ -977,7 +977,7 @@
 					<height>80</height>
 					<texture>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Day3.FanartCode),,.png]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>!IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)</visible>
+					<visible>!String.IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)</visible>
 				</control>
 				<control type="image"><!-- Day 3 weather condition icon -->
 					<left>80</left>
@@ -986,7 +986,7 @@
 					<height>80</height>
 					<texture>$INFO[Window(weather).Property(Day3.OutlookIcon)]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>IsEmpty(Skin.String(custom-weathericons.path))</visible>
+					<visible>String.IsEmpty(Skin.String(custom-weathericons.path))</visible>
 				</control>
 				<control type="label"><!-- Day3 temperature range -->
 					<left>0</left>
@@ -1011,7 +1011,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]]</visible>
+				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + String.IsEmpty(Window(Videos).Property(PlayingBackgroundMedia))]]</visible>
 				<left>1020</left>
 				<top>62</top>
 				<control type="label">
@@ -1033,7 +1033,7 @@
 					<timeperimage>100</timeperimage>
 					<randomize>false</randomize>
 					<fadetime>1</fadetime>
-					<visible>[!IsEmpty(Skin.String(custom-weathericons.path))] + Skin.HasSetting(custom-weathericons.multi)</visible>
+					<visible>[!String.IsEmpty(Skin.String(custom-weathericons.path))] + Skin.HasSetting(custom-weathericons.multi)</visible>
 				</control>
 				<control type="image"><!-- Day 4 custom weather condition icon -->
 					<left>80</left>
@@ -1042,7 +1042,7 @@
 					<height>80</height>
 					<texture>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day4.FanartCode),,.png]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>[!IsEmpty(Skin.String(custom-weathericons.path))] + [!Skin.HasSetting(custom-weathericons.multi)]</visible>
+					<visible>[!String.IsEmpty(Skin.String(custom-weathericons.path))] + [!Skin.HasSetting(custom-weathericons.multi)]</visible>
 				</control>
 				<control type="image"><!-- Day 4 weather condition icon -->
 					<left>80</left>
@@ -1051,7 +1051,7 @@
 					<height>80</height>
 					<texture>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day4.OutlookIcon)]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>IsEmpty(Skin.String(custom-weathericons.path))</visible>
+					<visible>String.IsEmpty(Skin.String(custom-weathericons.path))</visible>
 				</control>
 				<control type="label"><!-- Day 4 temp range -->
 					<left>0</left>
@@ -1092,7 +1092,7 @@
 
 	<include name="shelf-nowplaying">
 		<control type="group">
-			<visible>!Container(9160).Position(5) + !Container(9210).Position(4) + !Container(9260).Position(4) + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
+			<visible>!Container(9160).Position(5) + !Container(9210).Position(4) + !Container(9260).Position(4) + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
 			<control type="label"><!-- Now playing -->
 				<left>10</left>
 				<top>10</top>
@@ -1184,7 +1184,7 @@
 				</control>
 			</control>
 			<control type="group"><!-- Audio Stuff -->
-				<visible>Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
+				<visible>Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
 				<control type="group"><!-- Playing Non Radio Audio -->
 					<visible>!Pvr.IsPlayingRadio</visible>
 					<control type="image">

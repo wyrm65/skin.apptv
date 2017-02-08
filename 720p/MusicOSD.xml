@@ -33,11 +33,11 @@
 				<alttexturefocus>osd-btn-lyric-focus.png</alttexturefocus>
 				<onclick>Skin.SetAddon(osd-lyricpath,xbmc.python.lyrics)</onclick>
 				<onclick>Dialog.Close(musicosd)</onclick>
-				<onclick condition="!IsEmpty(Skin.String(osd-lyricpath))">RunScript($INFO[Skin.String(osd-lyricpath)])</onclick>
+				<onclick condition="!String.IsEmpty(Skin.String(osd-lyricpath))">RunScript($INFO[Skin.String(osd-lyricpath)])</onclick>
 				<altclick>Skin.SetAddon(osd-lyricpath,xbmc.python.lyrics)</altclick>
 				<altclick>Dialog.Close(musicosd)</altclick>
 				<altclick>RunScript($INFO[Skin.String(osd-lyricpath)])</altclick>
-				<usealttexture>IsEmpty(Skin.String(osd-lyricpath))</usealttexture>
+				<usealttexture>String.IsEmpty(Skin.String(osd-lyricpath))</usealttexture>
 			</control>
 			<control type="button" id="633"><!-- Popup Vis Preset List -->
 				<width>32</width>

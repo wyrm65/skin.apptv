@@ -11,14 +11,14 @@
 			<texture>$INFO[Skin.String(background-custom)]</texture>
 			<aspectratio>stretch</aspectratio>
 			<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
-			<visible>!IsEmpty(Skin.String(background-custom))</visible>
+			<visible>!String.IsEmpty(Skin.String(background-custom))</visible>
 		</control>
 		<control type="image"><!-- Fanart background -->
 			<include>fullscreenimage</include>
 			<texture background="true">$VAR[NextAiredFanart]</texture>
 			<aspectratio>scale</aspectratio>
 			<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
-			<visible>!IsEmpty(Window(home).Property(TVGuide.BackgroundFanart)) + !Skin.HasSetting(background-fanarts)</visible>
+			<visible>!String.IsEmpty(Window(home).Property(TVGuide.BackgroundFanart)) + !Skin.HasSetting(background-fanarts)</visible>
 		</control>
 
 		<control type="grouplist">
@@ -1467,7 +1467,7 @@
 					<font>apptv30</font>
 					<align>center</align>
 					<wrapmultiline>true</wrapmultiline>
-					<visible>SubString(Control.GetLabel(7018),.,Left)</visible>
+					<visible>String.IsEqual(Control.GetLabel(7018),.)</visible>
 				</control>
 				<control type="image"><!-- Next Aired Poster -->
 					<left>128</left>
@@ -1475,7 +1475,7 @@
 					<width>154</width>
 					<height>220</height>
 					<texture>$VAR[NextAiredImage1]</texture>
-					<visible>IsEmpty(Window(home).Property(TVGuide.PreviewThumbs)) + [String.IsEqual(Window(home).Property(TVGuide.ThumbType),0) | String.IsEqual(Window(home).Property(TVGuide.ThumbType),2)]</visible>
+					<visible>String.IsEmpty(Window(home).Property(TVGuide.PreviewThumbs)) + [String.IsEqual(Window(home).Property(TVGuide.ThumbType),0) | String.IsEqual(Window(home).Property(TVGuide.ThumbType),2)]</visible>
 				</control>
 				<control type="image"><!-- Next Aired Banner -->
 					<left>33</left>
@@ -1483,7 +1483,7 @@
 					<width>244</width>
 					<height>45</height>
 					<texture>$VAR[NextAiredImage5]</texture>
-					<visible>IsEmpty(Window(home).Property(TVGuide.PreviewThumbs)) + String.IsEqual(Window(home).Property(TVGuide.ThumbType),1)</visible>
+					<visible>String.IsEmpty(Window(home).Property(TVGuide.PreviewThumbs)) + String.IsEqual(Window(home).Property(TVGuide.ThumbType),1)</visible>
 				</control>
 				<control type="image"><!-- Next Aired Landscape Thumb -->
 					<left>23</left>
@@ -1492,7 +1492,7 @@
 					<height>170</height>
 					<aspectratio>keep</aspectratio>
 					<texture>$VAR[NextAiredImage2]</texture>
-					<visible>!IsEmpty(Window(home).Property(TVGuide.PreviewThumbs))</visible>
+					<visible>!String.IsEmpty(Window(home).Property(TVGuide.PreviewThumbs))</visible>
 				</control>
 				<control type="label"><!-- Next Aired Episode Title -->
 					<left>0</left>

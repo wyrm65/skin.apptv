@@ -121,14 +121,14 @@
 					<onclick condition="!String.IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$INFO[Window(home).Property(ItemName)])</onclick>
 					<onclick condition="!String.IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],$INFO[Window(home).Property(ItemIcon)])</onclick>
 					<onclick condition="!String.IsEmpty(Window(home).Property(ItemPath))">ClearProperty(ItemPath,home)</onclick>
-					<visible>!String.IsEmpty(Window(settings).Property(ListCustomBase)) + [StringCompare(Window(settings).Property(CurrentType),$LOCALIZE[31652]) | String.IsEmpty(Window(settings).Property(CurrentType))]</visible>
+					<visible>!String.IsEmpty(Window(settings).Property(ListCustomBase)) + [String.Contains(Window(settings).Property(CurrentType),$LOCALIZE[31652]) | String.IsEmpty(Window(settings).Property(CurrentType))]</visible>
 				</control>
 				<control type="group" id="5006"><!-- List/Play playlist -->
 					<left>0</left>
 					<top>0</top>
 					<width>954</width>
 					<height>48</height>
-					<visible>!String.IsEmpty(Window(settings).Property(ListCustomBase)) + [StringCompare(Window(settings).Property(CurrentType),$LOCALIZE[31660]) | StringCompare(Window(settings).Property(CurrentType),$LOCALIZE[31661])]</visible>
+					<visible>!String.IsEmpty(Window(settings).Property(ListCustomBase)) + [String.Contains(Window(settings).Property(CurrentType),$LOCALIZE[31660]) | String.Contains(Window(settings).Property(CurrentType),$LOCALIZE[31661])]</visible>
 					<control type="button" id="5007">
 						<width>954</width>
 						<height>48</height>
@@ -186,7 +186,7 @@
 					<onclick>SetProperty(ShowCommands,true,settings)</onclick>
 					<onclick>SetFocus(6010)</onclick>
 					<font>apptv22</font>
-					<visible>!String.IsEmpty(Window(settings).Property(ListCustomBase)) + StringCompare(Window(settings).Property(CurrentType),$LOCALIZE[31653])</visible>
+					<visible>!String.IsEmpty(Window(settings).Property(ListCustomBase)) + String.Contains(Window(settings).Property(CurrentType),$LOCALIZE[31653])</visible>
 				</control>
 				<control type="group" id="5011"><!-- Change Icon of custom menu item -->
 					<left>0</left>

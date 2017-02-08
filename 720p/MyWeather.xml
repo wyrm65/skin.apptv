@@ -11,7 +11,7 @@
 			<texturefocus>blank.png</texturefocus>
 			<texturenofocus>blank.png</texturenofocus>
 			<onclick>noop</onclick>
-			<visible>![String.IsEqual(Skin.String(weather-view),$LOCALIZE[33035]) + SubString(Weather.plugin,weather.openweathermap.extended)]</visible>
+			<visible>![String.IsEqual(Skin.String(weather-view),$LOCALIZE[33035]) + String.Contains(Weather.plugin,weather.openweathermap.extended)]</visible>
 		</control>
 
 		<control type="label"><!-- Weather heading label -->
@@ -26,7 +26,7 @@
 		<control type="group">
 			<visible>Weather.IsFetched</visible>
 			<control type="group">
-				<visible>!IsEmpty(Window(weather).Property(WeatherProviderLogo))</visible>
+				<visible>!String.IsEmpty(Window(weather).Property(WeatherProviderLogo))</visible>
 				<control type="image"><!-- Weather provider logo -->
 					<left>18</left>
 					<top>3</top>
@@ -52,7 +52,7 @@
 				<height>20</height>
 				<font>apptv22</font>
 				<label>$INFO[Window(weather).Property(WeatherProvider),$LOCALIZE[31536] - ]</label>
-				<visible>IsEmpty(Window(weather).Property(WeatherProviderLogo))</visible>
+				<visible>String.IsEmpty(Window(weather).Property(WeatherProviderLogo))</visible>
 			</control>
 			<control type="label"><!-- Weather location label -->
 				<left>17</left>
@@ -66,8 +66,8 @@
 		</control>
 
 		<include file="Includes_Weather.xml">standardweather</include>
-		<include condition="SubString(Weather.plugin,weather.ozweather)" file="Includes_Weather.xml">ozweather</include>
-		<include condition="SubString(Weather.plugin,weather.openweathermap.extended)" file="Includes_Weather.xml">openweatherextended</include>
+		<include condition="String.Contains(Weather.plugin,weather.ozweather)" file="Includes_Weather.xml">ozweather</include>
+		<include condition="String.Contains(Weather.plugin,weather.openweathermap.extended)" file="Includes_Weather.xml">openweatherextended</include>
 
 		<control type="label"><!-- Update label -->
 			<left>900</left>
@@ -77,7 +77,7 @@
 			<font>apptv20</font>
 			<align>right</align>
 			<label>$LOCALIZE[31531] $INFO[Window(weather).Property(Updated)]</label>
-			<visible>!IsEmpty(Window(weather).Property(Updated))</visible>
+			<visible>!String.IsEmpty(Window(weather).Property(Updated))</visible>
 		</control>
 
 		<control type="group"><!-- Screen-settings Menu -->
@@ -165,7 +165,7 @@
 					<onclick>Skin.ToggleSetting(weather-alerts)</onclick>
 					<selected>Skin.HasSetting(weather-alerts)</selected>
 					<radioposx>440</radioposx>
-					<enable>SubString(Weather.plugin,weather.openweathermap.extended)</enable>
+					<enable>String.Contains(Weather.plugin,weather.openweathermap.extended)</enable>
 				</control>
 				<control type="button" id="4"><!-- Settings button -->
 					<width>476</width>

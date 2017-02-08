@@ -34,7 +34,7 @@
 		</control>
 
 		<control type="group"><!-- Weather Condition -->
-			<visible>Skin.HasSetting(home-currentweather) + !IsEmpty(Weather.plugin) + Weather.IsFetched</visible>
+			<visible>Skin.HasSetting(home-currentweather) + !String.IsEmpty(Weather.plugin) + Weather.IsFetched</visible>
 			<control type="label"><!-- Can't get current weather conditions -->
 				<left>1185</left>
 				<top>31</top>
@@ -43,10 +43,10 @@
 				<wrapmultiline>true</wrapmultiline>
 				<label>$LOCALIZE[412]</label>
 				<align>right</align>
-				<visible>IsEmpty(Weather.Conditions)</visible>
+				<visible>String.IsEmpty(Weather.Conditions)</visible>
 			</control>
 			<control type="group">
-				<visible>!IsEmpty(Weather.Conditions)</visible>
+				<visible>!String.IsEmpty(Weather.Conditions)</visible>
 				<control type="label"><!-- Current temperature -->
 					<left>920</left>
 					<top>2</top>
@@ -160,31 +160,31 @@
 					<thumb>$INFO[Skin.String(CustomMovies.1.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomMovies.1.Label)] </label>
 					<onclick>$INFO[Skin.String(CustomMovies.1.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomMovies.1.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomMovies.1.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomMovies.2.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomMovies.2.Label)] </label>
 					<onclick>$INFO[Skin.String(CustomMovies.2.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomMovies.2.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomMovies.2.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomMovies.3.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomMovies.3.Label)] </label>
 					<onclick>$INFO[Skin.String(CustomMovies.3.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomMovies.3.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomMovies.3.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomMovies.4.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomMovies.4.Label)] </label>
 					<onclick>$INFO[Skin.String(CustomMovies.4.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomMovies.4.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomMovies.4.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomMovies.5.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomMovies.5.Label)] </label>
 					<onclick>$INFO[Skin.String(CustomMovies.5.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomMovies.5.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomMovies.5.Path))</visible>
 				</item>
 				<item>
 					<thumb>DefaultTVShows.png</thumb>
@@ -196,31 +196,31 @@
 					<thumb>$INFO[Skin.String(CustomTVShow.1.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomTVShow.1.Label)] </label>
 					<onclick>$INFO[Skin.String(CustomTVShow.1.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomTVShow.1.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomTVShow.1.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomTVShow.2.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomTVShow.2.Label)] </label>
 					<onclick>$INFO[Skin.String(CustomTVShow.2.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomTVShow.2.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomTVShow.2.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomTVShow.3.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomTVShow.3.Label)] </label>
 					<onclick>$INFO[Skin.String(CustomTVShow.3.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomTVShow.3.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomTVShow.3.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomTVShow.4.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomTVShow.4.Label)] </label>
 					<onclick>$INFO[Skin.String(CustomTVShow.4.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomTVShow.4.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomTVShow.4.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomTVShow.5.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomTVShow.5.Label)] </label>
 					<onclick>$INFO[Skin.String(CustomTVShow.5.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
 				</item>
 				<item>
 					<thumb>DefaultMusicVideos.png</thumb>
@@ -238,31 +238,31 @@
 					<thumb>$INFO[Skin.String(CustomTV.1.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomTV.1.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomTV.1.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomTV.1.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomTV.1.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomTV.2.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomTV.2.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomTV.2.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomTV.2.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomTV.2.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomTV.3.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomTV.3.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomTV.3.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomTV.3.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomTV.3.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomTV.4.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomTV.4.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomTV.4.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomTV.4.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomTV.4.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomTV.5.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomTV.5.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomTV.5.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomTV.5.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomTV.5.Path))</visible>
 				</item>
 				<item>
 					<thumb>icon-radio.png</thumb>
@@ -274,61 +274,61 @@
 					<thumb>$INFO[Skin.String(CustomRadio.1.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomRadio.1.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomRadio.1.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomRadio.1.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomRadio.1.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomRadio.2.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomRadio.2.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomRadio.2.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomRadio.2.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomRadio.2.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomRadio.3.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomRadio.3.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomRadio.3.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomRadio.3.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomRadio.3.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomRadio.4.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomRadio.4.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomRadio.4.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomRadio.4.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomRadio.4.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomRadio.5.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomRadio.5.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomRadio.5.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomRadio.5.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomRadio.5.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomFav.1.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomFav.1.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomFav.1.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomFav.1.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomFav.1.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomFav.2.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomFav.2.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomFav.2.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomFav.2.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomFav.2.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomFav.3.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomFav.3.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomFav.3.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomFav.3.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomFav.3.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomFav.4.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomFav.4.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomFav.4.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomFav.4.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomFav.4.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomFav.5.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomFav.5.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomFav.5.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomFav.5.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomFav.5.Path))</visible>
 				</item>
 				<item>
 					<thumb>DefaultMusicSongs.png</thumb>
@@ -340,31 +340,31 @@
 					<thumb>$INFO[Skin.String(CustomMusic.1.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomMusic.1.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomMusic.1.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomMusic.1.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomMusic.1.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomMusic.2.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomMusic.2.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomMusic.2.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomMusic.2.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomMusic.2.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomMusic.3.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomMusic.3.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomMusic.3.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomMusic.3.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomMusic.3.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomMusic.4.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomMusic.4.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomMusic.4.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomMusic.4.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomMusic.4.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomMusic.5.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomMusic.5.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomMusic.5.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomMusic.5.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomMusic.5.Path))</visible>
 				</item>
 				<item>
 					<thumb>DefaultAddon.png</thumb>
@@ -376,31 +376,31 @@
 					<thumb>$INFO[Skin.String(CustomAddon.1.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomAddon.1.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomAddon.1.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomAddon.1.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomAddon.1.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomAddon.2.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomAddon.2.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomAddon.2.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomAddon.2.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomAddon.2.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomAddon.3.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomAddon.3.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomAddon.3.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomAddon.3.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomAddon.3.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomAddon.4.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomAddon.4.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomAddon.4.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomAddon.4.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomAddon.4.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomAddon.5.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomAddon.5.Label)]</label>
 					<onclick>$INFO[Skin.String(CustomAddon.5.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomAddon.5.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomAddon.5.Path))</visible>
 				</item>
 				<item>
 					<thumb>DefaultPicture.png</thumb>
@@ -412,7 +412,7 @@
 					<thumb>icon-weather.png</thumb>
 					<label>$LOCALIZE[31032]</label>
 					<onclick>ActivateWindow(weather,,return)</onclick>
-					<visible>Skin.HasSetting(home-weather) + !IsEmpty(Weather.plugin)</visible>
+					<visible>Skin.HasSetting(home-weather) + !String.IsEmpty(Weather.plugin)</visible>
 				</item>
 				<item>
 					<thumb>icon-fav.png</thumb>
@@ -762,7 +762,7 @@
 			<height>128</height>
 			<aspectratio aligny="top">keep</aspectratio>
 			<texture colordiffuse="UnFocusedPosters" background="true">$INFO[Skin.String(custom-watermark)]</texture>
-			<visible>!IsEmpty(Skin.String(custom-watermark))</visible>
+			<visible>!String.IsEmpty(Skin.String(custom-watermark))</visible>
 		</control>
 		<!-- RSS info -->
 		<include condition="System.GetBool(lookandfeel.enablerssfeeds)">page-info</include>
@@ -770,7 +770,7 @@
 		<control type="group" id="9950">
 			<visible>Skin.HasSetting(media-overlay) + !Window.IsActive(playercontrols)</visible>
 			<control type="group" id="9960">
-				<visible>Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
+				<visible>Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
 				<control type="image">
 					<left>20</left>
 					<top>536</top>

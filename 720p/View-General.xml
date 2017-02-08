@@ -33,10 +33,10 @@
 					<height>23</height>
 					<font>apptv23</font>
 					<label>$INFO[ListItem.Label]</label>
-					<visible>IsEmpty(ListItem.Label2)</visible>
+					<visible>String.IsEmpty(ListItem.Label2)</visible>
 				</control>
 				<control type="group">
-					<visible>!IsEmpty(ListItem.Label2)</visible>
+					<visible>!String.IsEmpty(ListItem.Label2)</visible>
 					<control type="label">
 						<left>46</left>
 						<top>8</top>
@@ -72,10 +72,10 @@
 					<height>23</height>
 					<font>apptv23</font>
 					<label>$INFO[ListItem.Label]</label>
-					<visible>IsEmpty(ListItem.Label2)</visible>
+					<visible>String.IsEmpty(ListItem.Label2)</visible>
 				</control>
 				<control type="group">
-					<visible>!IsEmpty(ListItem.Label2)</visible>
+					<visible>!String.IsEmpty(ListItem.Label2)</visible>
 					<control type="label">
 						<left>46</left>
 						<top>8</top>
@@ -119,7 +119,7 @@
 				<control type="group">
 					<visible>Container.Content(addons)</visible>
 					<control type="group">
-						<visible>!SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
+						<visible>!String.StartsWith(ListItem.Icon,DefaultFolder.png)</visible>
 						<control type="image">
 							<left>122</left>
 							<top>150</top>
@@ -130,7 +130,7 @@
 						</control>
 					</control>
 					<control type="group">
-						<visible>SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
+						<visible>String.StartsWith(ListItem.Icon,DefaultFolder.png)</visible>
 						<control type="image">
 							<left>122</left>
 							<top>150</top>
@@ -196,7 +196,7 @@
 					<texture diffuse="mask-squ.png" background="true">$INFO[ListItem.Icon]</texture>
 					<aspectratio>keep</aspectratio>
 					<animation effect="zoom" start="100" end="110" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
-					<visible>SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>$EXP[isDefaultIcon]</visible>
 				</control>
 				<control type="image">
 					<left>33</left>
@@ -208,7 +208,7 @@
 					<bordersize>7</bordersize>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 					<animation effect="zoom" start="100" end="110" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
-					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>$EXP[isnotDefaultIcon]</visible>
 				</control>
 				<control type="image">
 					<left>141</left>
@@ -389,7 +389,7 @@
 					<texture background="true" fallback="DefaultPicture.png">$INFO[ListItem.Icon]</texture>
 					<fadetime>300</fadetime>
 					<aspectratio aligny="bottom">keep</aspectratio>
-					<visible>SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>$EXP[isDefaultIcon]</visible>
 				</control>
 				<control type="image">
 					<left>5</left>
@@ -401,7 +401,7 @@
 					<bordertexture border="12">picturepanel.png</bordertexture>
 					<bordersize>12</bordersize>
 					<fadetime>300</fadetime>
-					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>$EXP[isnotDefaultIcon]</visible>
 				</control>
 			</itemlayout>
 			<focusedlayout height="448" width="448">
@@ -415,7 +415,7 @@
 					<bordertexture border="16">picturepanel.png</bordertexture>
 					<bordersize>16</bordersize>
 					<fadetime>300</fadetime>
-					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>$EXP[isnotDefaultIcon]</visible>
 				</control>
 				<control type="image">
 					<left>16</left>
@@ -425,7 +425,7 @@
 					<texture background="true" fallback="DefaultPicture.png">$INFO[ListItem.Icon]</texture>
 					<aspectratio aligny="bottom">keep</aspectratio>
 					<fadetime>300</fadetime>
-					<visible>SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>$EXP[isDefaultIcon]</visible>
 				</control>
 			</focusedlayout>
 		</control>
@@ -440,7 +440,7 @@
 				<onup>54</onup>
 				<orientation>horizontal</orientation>
 				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + SubString(Container.Viewmode,Wrap,Left)</visible>
+				<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + String.StartsWith(Container.Viewmode,Wrap)</visible>
 			</control>
 			<control type="label"><!-- Go Back -->
 				<left>17</left>
@@ -889,7 +889,7 @@
 					<bordertexture border="9">mask-hilite.png</bordertexture>
 					<bordersize>9</bordersize>
 					<animation effect="zoom" start="90" end="140" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
-					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>$EXP[isnotDefaultIcon]</visible>
 				</control>
 				<control type="image">
 					<left>8</left>
@@ -899,7 +899,7 @@
 					<aspectratio>keep</aspectratio>
 					<animation effect="zoom" start="90" end="140" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
 					<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
-					<visible>SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>$EXP[isDefaultIcon]</visible>
 				</control>
 			</focusedlayout>
 		</control>
@@ -966,7 +966,7 @@
 					<aspectratio>keep</aspectratio>
 					<bordertexture border="10">picturepanel.png</bordertexture>
 					<bordersize>10</bordersize>
-					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>$EXP[isnotDefaultIcon]</visible>
 				</control>
 				<control type="image">
 					<left>8</left>
@@ -975,7 +975,7 @@
 					<height>128</height>
 					<aspectratio>keep</aspectratio>
 					<texture background="true">$INFO[ListItem.Icon]</texture>
-					<visible>SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>$EXP[isDefaultIcon]</visible>
 				</control>
 			</itemlayout>
 			<focusedlayout height="144" width="144">
@@ -989,7 +989,7 @@
 					<bordertexture border="10">picturepanel.png</bordertexture>
 					<bordersize>10</bordersize>
 					<animation effect="zoom" start="90" end="150" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
-					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>$EXP[isnotDefaultIcon]</visible>
 				</control>
 				<control type="image">
 					<left>8</left>
@@ -999,7 +999,7 @@
 					<aspectratio>keep</aspectratio>
 					<animation effect="zoom" start="90" end="150" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
 					<texture background="true">$INFO[ListItem.Icon]</texture>
-					<visible>SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>$EXP[isDefaultIcon]</visible>
 				</control>
 			</focusedlayout>
 		</control>

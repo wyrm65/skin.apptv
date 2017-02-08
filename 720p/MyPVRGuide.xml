@@ -103,32 +103,32 @@
 					<height>48</height>
 					<label>$LOCALIZE[19019]</label>
 					<font>apptv22</font>
-					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(tvchannels)</onclick>
-					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(radiochannels)</onclick>
+					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(tvchannels)</onclick>
+					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(radiochannels)</onclick>
 				</control>
 				<control type="button" id="903"><!-- Recordings -->
 					<width>376</width>
 					<height>48</height>
 					<label>$LOCALIZE[19163]</label>
 					<font>apptv22</font>
-					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(tvrecordings)</onclick>
-					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(radiorecordings)</onclick>
+					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(tvrecordings)</onclick>
+					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(radiorecordings)</onclick>
 				</control>
 				<control type="button" id="904"><!-- Search -->
 					<width>376</width>
 					<height>48</height>
 					<label>$LOCALIZE[137]</label>
 					<font>apptv22</font>
-					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(tvsearch)</onclick>
-					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(radiosearch)</onclick>
+					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(tvsearch)</onclick>
+					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(radiosearch)</onclick>
 				</control>
 				<control type="button" id="905"><!-- Timers -->
 					<width>376</width>
 					<height>48</height>
 					<label>$LOCALIZE[19040]</label>
 					<font>apptv22</font>
-					<onclick condition="IsEmpty(Window.Property(IsRadio))">ActivateWindow(tvtimers)</onclick>
-					<onclick condition="!IsEmpty(Window.Property(IsRadio))">ActivateWindow(radiotimers)</onclick>
+					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(tvtimers)</onclick>
+					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(radiotimers)</onclick>
 				</control>
 			</control>
 		</control>

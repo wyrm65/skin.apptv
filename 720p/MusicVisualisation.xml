@@ -36,7 +36,7 @@
 				<top>490</top>
 				<texture fallback="DefaultDVDRom.png">$INFO[Window(Home).Property(SkinHelper.Player.Art.DiscArt)]</texture>
 				<aspectratio aligny="bottom">keep</aspectratio>
-				<visible>!SubString(Control.GetLabel(994),DefaultAudio.png,Right) + !SubString(Control.GetLabel(994),icon-radio.png,Right)</visible>
+				<visible>!String.EndsWith(Control.GetLabel(994),DefaultAudio.png) + !String.EndsWith(Control.GetLabel(994),icon-radio.png)</visible>
 			</control>
 			<control type="image">
 				<left>10</left>
@@ -45,7 +45,7 @@
 				<width>265</width>
 				<texture>case-cd.png</texture>
 				<aspectratio>stretch</aspectratio>
-				<visible>Skin.HasSetting(media-case) + !SubString(Control.GetLabel(994),DefaultAudio.png,Right) + !SubString(Control.GetLabel(994),icon-radio.png,Right)</visible>
+				<visible>Skin.HasSetting(media-case) + !String.EndsWith(Control.GetLabel(994),DefaultAudio.png) + !String.EndsWith(Control.GetLabel(994),icon-radio.png)</visible>
 			</control>
 			<control type="image" id="994"><!-- Cover image -->
 				<left>36</left>

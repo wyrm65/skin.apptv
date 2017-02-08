@@ -132,7 +132,7 @@
 			<control type="group" id="9405"><!-- Weather icons -->
 				<visible>Control.HasFocus(9400) | Control.HasFocus(9430)</visible>
 				<control type="group">
-					<visible>!Weather.IsFetched | IsEmpty(Window(weather).Property(Current.Temperature))</visible>
+					<visible>!Weather.IsFetched | String.IsEmpty(Window(weather).Property(Current.Temperature))</visible>
 					<control type="image">
 						<left>552</left>
 						<top>38</top>
@@ -150,7 +150,7 @@
 				</control>
 				<control type="group">
 					<visible>Weather.IsFetched</visible>
-					<include condition="!IsEmpty(Weather.plugin) + [Skin.HasSetting(home-weather) | Skin.HasSetting(home-currentweather)]" file="Includes_Shelf.xml">ShelfWeather</include>
+					<include condition="!String.IsEmpty(Weather.plugin) + [Skin.HasSetting(home-weather) | Skin.HasSetting(home-currentweather)]" file="Includes_Shelf.xml">ShelfWeather</include>
 				</control>
 			</control>
 
@@ -237,7 +237,7 @@
 			<height>128</height>
 			<aspectratio aligny="top">keep</aspectratio>
 			<texture colordiffuse="UnFocusedPosters" background="true">$INFO[Skin.String(custom-watermark)]</texture>
-			<visible>!IsEmpty(Skin.String(custom-watermark))</visible>
+			<visible>!String.IsEmpty(Skin.String(custom-watermark))</visible>
 		</control>
 
 		<control type="button" id="9005"><!-- Play bump sound if user tries to leave menu by undefined direction -->
@@ -449,7 +449,7 @@
 				</control>
 			</control>
 			<control type="group" id="9170"><!-- Movie sub menu -->
-				<visible>!Skin.HasSetting(home-movie) | !IsEmpty(Skin.String(CustomMovies.1.Path)) | !IsEmpty(Skin.String(CustomMovies.2.Path)) | !IsEmpty(Skin.String(CustomMovies.3.Path)) | !IsEmpty(Skin.String(CustomMovies.4.Path)) | !IsEmpty(Skin.String(CustomMovies.5.Path))</visible>
+				<visible>!Skin.HasSetting(home-movie) | !String.IsEmpty(Skin.String(CustomMovies.1.Path)) | !String.IsEmpty(Skin.String(CustomMovies.2.Path)) | !String.IsEmpty(Skin.String(CustomMovies.3.Path)) | !String.IsEmpty(Skin.String(CustomMovies.4.Path)) | !String.IsEmpty(Skin.String(CustomMovies.5.Path))</visible>
 				<width>210</width>
 				<control type="button" id="9180"><!-- Dummy button for mouse control -->
 					<left>0</left>
@@ -553,31 +553,31 @@
 							<onclick>$VAR[MovieLibEntry]</onclick>
 						</item>
 						<item><!-- Custom Movie 1 -->
-							<visible>!IsEmpty(Skin.String(CustomMovies.1.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomMovies.1.Path))</visible>
 							<label>$INFO[Skin.String(CustomMovies.1.Label)]</label>
 							<label2>$LOCALIZE[20338]</label2>
 							<onclick>$INFO[Skin.String(CustomMovies.1.Path)]</onclick>
 						</item>
 						<item><!-- Custom Movie 2 -->
-							<visible>!IsEmpty(Skin.String(CustomMovies.2.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomMovies.2.Path))</visible>
 							<label>$INFO[Skin.String(CustomMovies.2.Label)]</label>
 							<label2>$LOCALIZE[20338]</label2>
 							<onclick>$INFO[Skin.String(CustomMovies.2.Path)]</onclick>
 						</item>
 						<item><!-- Custom Movie 3 -->
-							<visible>!IsEmpty(Skin.String(CustomMovies.3.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomMovies.3.Path))</visible>
 							<label>$INFO[Skin.String(CustomMovies.3.Label)]</label>
 							<label2>$LOCALIZE[20338]</label2>
 							<onclick>$INFO[Skin.String(CustomMovies.3.Path)]</onclick>
 						</item>
 						<item><!-- Custom Movie 4 -->
-							<visible>!IsEmpty(Skin.String(CustomMovies.4.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomMovies.4.Path))</visible>
 							<label>$INFO[Skin.String(CustomMovies.4.Label)]</label>
 							<label2>$LOCALIZE[20338]</label2>
 							<onclick>$INFO[Skin.String(CustomMovies.4.Path)]</onclick>
 						</item>
 						<item><!-- Custom Movie 5 -->
-							<visible>!IsEmpty(Skin.String(CustomMovies.5.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomMovies.5.Path))</visible>
 							<label>$INFO[Skin.String(CustomMovies.5.Label)]</label>
 							<label2>$LOCALIZE[20338]</label2>
 							<onclick>$INFO[Skin.String(CustomMovies.5.Path)]</onclick>
@@ -591,7 +591,7 @@
 				</control>
 			</control>
 			<control type="group" id="9220"><!-- TV Shows sub menu -->
-				<visible>!Skin.HasSetting(home-tvshows) | !IsEmpty(Skin.String(CustomTVShow.1.Path)) | !IsEmpty(Skin.String(CustomTVShow.2.Path)) | !IsEmpty(Skin.String(CustomTVShow.3.Path)) | !IsEmpty(Skin.String(CustomTVShow.4.Path)) | !IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
+				<visible>!Skin.HasSetting(home-tvshows) | !String.IsEmpty(Skin.String(CustomTVShow.1.Path)) | !String.IsEmpty(Skin.String(CustomTVShow.2.Path)) | !String.IsEmpty(Skin.String(CustomTVShow.3.Path)) | !String.IsEmpty(Skin.String(CustomTVShow.4.Path)) | !String.IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
 				<width>210</width>
 				<control type="button" id="9230"><!-- Dummy button for mouse control -->
 					<left>0</left>
@@ -695,31 +695,31 @@
 							<onclick>$VAR[TVLibEntry]</onclick>
 						</item>
 						<item><!-- Custom TV Shows 1 -->
-							<visible>!IsEmpty(Skin.String(CustomTVShow.1.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomTVShow.1.Path))</visible>
 							<label>$INFO[Skin.String(CustomTVShow.1.Label)]</label>
 							<label2>$LOCALIZE[31027]</label2>
 							<onclick>$INFO[Skin.String(CustomTVShow.1.Path)]</onclick>
 						</item>
 						<item><!-- Custom TV Shows 2 -->
-							<visible>!IsEmpty(Skin.String(CustomTVShow.2.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomTVShow.2.Path))</visible>
 							<label>$INFO[Skin.String(CustomTVShow.2.Label)]</label>
 							<label2>$LOCALIZE[31027]</label2>
 							<onclick>$INFO[Skin.String(CustomTVShow.2.Path)]</onclick>
 						</item>
 						<item><!-- Custom TV Shows 3 -->
-							<visible>!IsEmpty(Skin.String(CustomTVShow.3.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomTVShow.3.Path))</visible>
 							<label>$INFO[Skin.String(CustomTVShow.3.Label)]</label>
 							<label2>$LOCALIZE[31027]</label2>
 							<onclick>$INFO[Skin.String(CustomTVShow.3.Path)]</onclick>
 						</item>
 						<item><!-- Custom TV Shows 4 -->
-							<visible>!IsEmpty(Skin.String(CustomTVShow.4.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomTVShow.4.Path))</visible>
 							<label>$INFO[Skin.String(CustomTVShow.4.Label)]</label>
 							<label2>$LOCALIZE[31027]</label2>
 							<onclick>$INFO[Skin.String(CustomTVShow.4.Path)]</onclick>
 						</item>
 						<item><!-- Custom TV Shows 5 -->
-							<visible>!IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
 							<label>$INFO[Skin.String(CustomTVShow.5.Label)]</label>
 							<label2>$LOCALIZE[31027]</label2>
 							<onclick>$INFO[Skin.String(CustomTVShow.5.Path)]</onclick>
@@ -733,7 +733,7 @@
 				</control>
 			</control>
 			<control type="group" id="9520"><!-- Broadcast sub menu -->
-				<visible>[Pvr.HasTVChannels] | [Pvr.HasRadioChannels] | !IsEmpty(Skin.String(CustomTV.1.Path)) | !IsEmpty(Skin.String(CustomTV.2.Path)) | !IsEmpty(Skin.String(CustomTV.3.Path)) | !IsEmpty(Skin.String(CustomTV.4.Path)) | !IsEmpty(Skin.String(CustomTV.5.Path)) | !IsEmpty(Skin.String(CustomRadio.1.Path)) | !IsEmpty(Skin.String(CustomRadio.2.Path)) | !IsEmpty(Skin.String(CustomRadio.3.Path)) | !IsEmpty(Skin.String(CustomRadio.4.Path)) | !IsEmpty(Skin.String(CustomRadio.5.Path))</visible>
+				<visible>[Pvr.HasTVChannels] | [Pvr.HasRadioChannels] | !String.IsEmpty(Skin.String(CustomTV.1.Path)) | !String.IsEmpty(Skin.String(CustomTV.2.Path)) | !String.IsEmpty(Skin.String(CustomTV.3.Path)) | !String.IsEmpty(Skin.String(CustomTV.4.Path)) | !String.IsEmpty(Skin.String(CustomTV.5.Path)) | !String.IsEmpty(Skin.String(CustomRadio.1.Path)) | !String.IsEmpty(Skin.String(CustomRadio.2.Path)) | !String.IsEmpty(Skin.String(CustomRadio.3.Path)) | !String.IsEmpty(Skin.String(CustomRadio.4.Path)) | !String.IsEmpty(Skin.String(CustomRadio.5.Path))</visible>
 				<width>210</width>
 				<control type="button" id="9530"><!-- Dummy button for mouse control -->
 					<left>0</left>
@@ -837,31 +837,31 @@
 							<onclick>$VAR[TVEntry]</onclick>
 						</item>
 						<item><!-- Custom TV 1 -->
-							<visible>!IsEmpty(Skin.String(CustomTV.1.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomTV.1.Path))</visible>
 							<label>$INFO[Skin.String(CustomTV.1.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomTV.1.Path)]</onclick>
 						</item>
 						<item><!-- Custom TV 2 -->
-							<visible>!IsEmpty(Skin.String(CustomTV.2.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomTV.2.Path))</visible>
 							<label>$INFO[Skin.String(CustomTV.2.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomTV.2.Path)]</onclick>
 						</item>
 						<item><!-- Custom TV 3 -->
-							<visible>!IsEmpty(Skin.String(CustomTV.3.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomTV.3.Path))</visible>
 							<label>$INFO[Skin.String(CustomTV.3.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomTV.3.Path)]</onclick>
 						</item>
 						<item><!-- Custom TV 4 -->
-							<visible>!IsEmpty(Skin.String(CustomTV.4.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomTV.4.Path))</visible>
 							<label>$INFO[Skin.String(CustomTV.4.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomTV.4.Path)]</onclick>
 						</item>
 						<item><!-- Custom TV 5 -->
-							<visible>!IsEmpty(Skin.String(CustomTV.5.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomTV.5.Path))</visible>
 							<label>$INFO[Skin.String(CustomTV.5.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomTV.5.Path)]</onclick>
@@ -873,31 +873,31 @@
 							<onclick>$VAR[RadioEntry]</onclick>
 						</item>
 						<item><!-- Custom Radio 1 -->
-							<visible>!IsEmpty(Skin.String(CustomRadio.1.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomRadio.1.Path))</visible>
 							<label>$INFO[Skin.String(CustomRadio.1.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomRadio.1.Path)]</onclick>
 						</item>
 						<item><!-- Custom Radio 2 -->
-							<visible>!IsEmpty(Skin.String(CustomRadio.2.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomRadio.2.Path))</visible>
 							<label>$INFO[Skin.String(CustomRadio.2.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomRadio.2.Path)]</onclick>
 						</item>
 						<item><!-- Custom Radio 3 -->
-							<visible>!IsEmpty(Skin.String(CustomRadio.3.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomRadio.3.Path))</visible>
 							<label>$INFO[Skin.String(CustomRadio.3.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomRadio.3.Path)]</onclick>
 						</item>
 						<item><!-- Custom Radio 4 -->
-							<visible>!IsEmpty(Skin.String(CustomRadio.4.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomRadio.4.Path))</visible>
 							<label>$INFO[Skin.String(CustomRadio.4.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomRadio.4.Path)]</onclick>
 						</item>
 						<item><!-- Custom Radio 5 -->
-							<visible>!IsEmpty(Skin.String(CustomRadio.5.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomRadio.5.Path))</visible>
 							<label>$INFO[Skin.String(CustomRadio.5.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomRadio.5.Path)]</onclick>
@@ -906,7 +906,7 @@
 				</control>
 			</control>
 			<control type="group" id="9570"><!-- Favourites sub menu -->
-				<visible>Skin.HasSetting(home-favorites) | !IsEmpty(Skin.String(CustomFav.1.Path)) | !IsEmpty(Skin.String(CustomFav.2.Path)) | !IsEmpty(Skin.String(CustomFav.3.Path)) | !IsEmpty(Skin.String(CustomFav.4.Path)) | !IsEmpty(Skin.String(CustomFav.5.Path))</visible>
+				<visible>Skin.HasSetting(home-favorites) | !String.IsEmpty(Skin.String(CustomFav.1.Path)) | !String.IsEmpty(Skin.String(CustomFav.2.Path)) | !String.IsEmpty(Skin.String(CustomFav.3.Path)) | !String.IsEmpty(Skin.String(CustomFav.4.Path)) | !String.IsEmpty(Skin.String(CustomFav.5.Path))</visible>
 				<width>210</width>
 				<control type="button" id="9580"><!-- Dummy button for mouse control -->
 					<left>0</left>
@@ -1008,31 +1008,31 @@
 							<onclick>ActivateWindow(favourites,,return)</onclick>
 						</item>
 						<item><!-- Custom Favourite 1 -->
-							<visible>!IsEmpty(Skin.String(CustomFav.1.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomFav.1.Path))</visible>
 							<label>$INFO[Skin.String(CustomFav.1.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomFav.1.Path)]</onclick>
 						</item>
 						<item><!-- Custom Favourite 2 -->
-							<visible>!IsEmpty(Skin.String(CustomFav.2.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomFav.2.Path))</visible>
 							<label>$INFO[Skin.String(CustomFav.2.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomFav.2.Path)]</onclick>
 						</item>
 						<item><!-- Custom Favourite 3 -->
-							<visible>!IsEmpty(Skin.String(CustomFav.3.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomFav.3.Path))</visible>
 							<label>$INFO[Skin.String(CustomFav.3.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomFav.3.Path)]</onclick>
 						</item>
 						<item><!-- Custom Favourite 4 -->
-							<visible>!IsEmpty(Skin.String(CustomFav.4.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomFav.4.Path))</visible>
 							<label>$INFO[Skin.String(CustomFav.4.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomFav.4.Path)]</onclick>
 						</item>
 						<item><!-- Custom Favourite 5 -->
-							<visible>!IsEmpty(Skin.String(CustomFav.5.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomFav.5.Path))</visible>
 							<label>$INFO[Skin.String(CustomFav.5.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomFav.5.Path)]</onclick>
@@ -1041,7 +1041,7 @@
 				</control>
 			</control>
 			<control type="group" id="9270"><!-- Music Sub menu -->
-				<visible>!Skin.HasSetting(home-music) | Skin.HasSetting(home-musicvideo) | !IsEmpty(Skin.String(CustomMusic.1.Path)) | !IsEmpty(Skin.String(CustomMusic.2.Path)) | !IsEmpty(Skin.String(CustomMusic.3.Path)) | !IsEmpty(Skin.String(CustomMusic.4.Path)) | !IsEmpty(Skin.String(CustomMusic.5.Path))</visible>
+				<visible>!Skin.HasSetting(home-music) | Skin.HasSetting(home-musicvideo) | !String.IsEmpty(Skin.String(CustomMusic.1.Path)) | !String.IsEmpty(Skin.String(CustomMusic.2.Path)) | !String.IsEmpty(Skin.String(CustomMusic.3.Path)) | !String.IsEmpty(Skin.String(CustomMusic.4.Path)) | !String.IsEmpty(Skin.String(CustomMusic.5.Path))</visible>
 				<width>210</width>
 				<control type="button" id="9280"><!-- Dummy button for mouse control -->
 					<left>0</left>
@@ -1151,31 +1151,31 @@
 							<onclick>$VAR[MusicVideoLibEntry]</onclick>
 						</item>
 						<item><!-- Custom Music 1 -->
-							<visible>!IsEmpty(Skin.String(CustomMusic.1.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomMusic.1.Path))</visible>
 							<label>$INFO[Skin.String(CustomMusic.1.Label)]</label>
 							<label2>$LOCALIZE[2]</label2>
 							<onclick>$INFO[Skin.String(CustomMusic.1.Path)]</onclick>
 						</item>
 						<item><!-- Custom Music 2 -->
-							<visible>!IsEmpty(Skin.String(CustomMusic.2.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomMusic.2.Path))</visible>
 							<label>$INFO[Skin.String(CustomMusic.2.Label)]</label>
 							<label2>$LOCALIZE[2]</label2>
 							<onclick>$INFO[Skin.String(CustomMusic.2.Path)]</onclick>
 						</item>
 						<item><!-- Custom Music 3 -->
-							<visible>!IsEmpty(Skin.String(CustomMusic.3.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomMusic.3.Path))</visible>
 							<label>$INFO[Skin.String(CustomMusic.3.Label)]</label>
 							<label2>$LOCALIZE[2]</label2>
 							<onclick>$INFO[Skin.String(CustomMusic.3.Path)]</onclick>
 						</item>
 						<item><!-- Custom Music 4 -->
-							<visible>!IsEmpty(Skin.String(CustomMusic.4.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomMusic.4.Path))</visible>
 							<label>$INFO[Skin.String(CustomMusic.4.Label)]</label>
 							<label2>$LOCALIZE[2]</label2>
 							<onclick>$INFO[Skin.String(CustomMusic.4.Path)]</onclick>
 						</item>
 						<item><!-- Custom Music 5 -->
-							<visible>!IsEmpty(Skin.String(CustomMusic.5.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomMusic.5.Path))</visible>
 							<label>$INFO[Skin.String(CustomMusic.5.Label)]</label>
 							<label2>$LOCALIZE[2]</label2>
 							<onclick>$INFO[Skin.String(CustomMusic.5.Path)]</onclick>
@@ -1278,7 +1278,7 @@
 				</control>
 			</control>
 			<control type="group" id="9370"><!-- Addons Sub menu -->
-				<visible>!Skin.HasSetting(home-programs) | !IsEmpty(Skin.String(CustomAddon.1.Path)) | !IsEmpty(Skin.String(CustomAddon.2.Path)) | !IsEmpty(Skin.String(CustomAddon.3.Path)) | !IsEmpty(Skin.String(CustomAddon.4.Path)) | !IsEmpty(Skin.String(CustomAddon.5.Path))</visible>
+				<visible>!Skin.HasSetting(home-programs) | !String.IsEmpty(Skin.String(CustomAddon.1.Path)) | !String.IsEmpty(Skin.String(CustomAddon.2.Path)) | !String.IsEmpty(Skin.String(CustomAddon.3.Path)) | !String.IsEmpty(Skin.String(CustomAddon.4.Path)) | !String.IsEmpty(Skin.String(CustomAddon.5.Path))</visible>
 				<width>210</width>
 				<control type="button" id="9380"><!-- Dummy button for mouse control -->
 					<left>0</left>
@@ -1376,31 +1376,31 @@
 					</focusedlayout>
 					<content>
 						<item><!-- Custom addons 1 -->
-							<visible>!IsEmpty(Skin.String(CustomAddon.1.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomAddon.1.Path))</visible>
 							<label>$INFO[Skin.String(CustomAddon.1.Label)]</label>
 							<label2>$LOCALIZE[24001]</label2>
 							<onclick>$INFO[Skin.String(CustomAddon.1.Path)]</onclick>
 						</item>
 						<item><!-- Custom addons 2 -->
-							<visible>!IsEmpty(Skin.String(CustomAddon.2.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomAddon.2.Path))</visible>
 							<label>$INFO[Skin.String(CustomAddon.2.Label)]</label>
 							<label2>$LOCALIZE[24001]</label2>
 							<onclick>$INFO[Skin.String(CustomAddon.2.Path)]</onclick>
 						</item>
 						<item><!-- Custom addons 3 -->
-							<visible>!IsEmpty(Skin.String(CustomAddon.3.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomAddon.3.Path))</visible>
 							<label>$INFO[Skin.String(CustomAddon.3.Label)]</label>
 							<label2>$LOCALIZE[24001]</label2>
 							<onclick>$INFO[Skin.String(CustomAddon.3.Path)]</onclick>
 						</item>
 						<item><!-- Custom addons 4 -->
-							<visible>!IsEmpty(Skin.String(CustomAddon.4.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomAddon.4.Path))</visible>
 							<label>$INFO[Skin.String(CustomAddon.4.Label)]</label>
 							<label2>$LOCALIZE[24001]</label2>
 							<onclick>$INFO[Skin.String(CustomAddon.4.Path)]</onclick>
 						</item>
 						<item><!-- Custom addons 5 -->
-							<visible>!IsEmpty(Skin.String(CustomAddon.5.Path))</visible>
+							<visible>!String.IsEmpty(Skin.String(CustomAddon.5.Path))</visible>
 							<label>$INFO[Skin.String(CustomAddon.5.Label)]</label>
 							<label2>$LOCALIZE[24001]</label2>
 							<onclick>$INFO[Skin.String(CustomAddon.5.Path)]</onclick>
@@ -1434,7 +1434,7 @@
 				</control>
 			</control>
 			<control type="group" id="9420"><!-- Weather Sub menu -->
-				<visible>!IsEmpty(Weather.plugin) + [Skin.HasSetting(home-weather) | Skin.HasSetting(home-currentweather)]</visible>
+				<visible>!String.IsEmpty(Weather.plugin) + [Skin.HasSetting(home-weather) | Skin.HasSetting(home-currentweather)]</visible>
 				<width>210</width>
 				<control type="button" id="9430"><!-- Dummy button for mouse control -->
 					<left>0</left>

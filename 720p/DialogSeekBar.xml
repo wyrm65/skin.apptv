@@ -36,7 +36,7 @@
 					<width>64</width>
 					<height>64</height>
 					<texture>$VAR[PlayStateImage]</texture>
-					<animation effect="rotate" start="360" end="0" center="auto" time="5400" loop="true" condition="SubString(Control.GetLabel(750),busy.png)">conditional</animation>
+					<animation effect="rotate" start="360" end="0" center="auto" time="5400" loop="true" condition="String.IsEqual(Control.GetLabel(750),busy.png)">conditional</animation>
 				</control>
 				<control type="label"><!-- Player state text -->
 					<width min="0" max="400">auto</width>

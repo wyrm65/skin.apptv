@@ -57,10 +57,10 @@
 						<height>23</height>
 						<font>apptv23</font>
 						<label>$INFO[ListItem.Label]</label>
-						<visible>IsEmpty(ListItem.Label2)</visible>
+						<visible>String.IsEmpty(ListItem.Label2)</visible>
 					</control>
 					<control type="group">
-						<visible>!IsEmpty(ListItem.Label2)</visible>
+						<visible>!String.IsEmpty(ListItem.Label2)</visible>
 						<control type="label">
 							<left>32</left>
 							<top>8</top>
@@ -89,10 +89,10 @@
 						<height>23</height>
 						<font>apptv23</font>
 						<label>$INFO[ListItem.Label]</label>
-						<visible>IsEmpty(ListItem.AddonDescription)</visible>
+						<visible>String.IsEmpty(ListItem.AddonDescription)</visible>
 					</control>
 					<control type="group">
-						<visible>!IsEmpty(ListItem.AddonDescription)</visible>
+						<visible>!String.IsEmpty(ListItem.AddonDescription)</visible>
 						<control type="label">
 							<left>32</left>
 							<top>8</top>
@@ -121,10 +121,10 @@
 						<height>23</height>
 						<font>apptv23</font>
 						<label>$INFO[ListItem.Label]</label>
-						<visible>IsEmpty(ListItem.PlotOutline)</visible>
+						<visible>String.IsEmpty(ListItem.PlotOutline)</visible>
 					</control>
 					<control type="group">
-						<visible>!IsEmpty(ListItem.PlotOutline)</visible>
+						<visible>!String.IsEmpty(ListItem.PlotOutline)</visible>
 						<control type="label">
 							<left>32</left>
 							<top>8</top>
@@ -153,10 +153,10 @@
 						<height>23</height>
 						<font>apptv23</font>
 						<label>$INFO[ListItem.Label]</label>
-						<visible>IsEmpty(ListItem.Duration)</visible>
+						<visible>String.IsEmpty(ListItem.Duration)</visible>
 					</control>
 					<control type="group">
-						<visible>!IsEmpty(ListItem.Duration)</visible>
+						<visible>!String.IsEmpty(ListItem.Duration)</visible>
 						<control type="label">
 							<left>32</left>
 							<top>8</top>
@@ -218,10 +218,10 @@
 						<font>apptv23</font>
 						<label>$INFO[ListItem.Label]</label>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-						<visible>IsEmpty(ListItem.Label2)</visible>
+						<visible>String.IsEmpty(ListItem.Label2)</visible>
 					</control>
 					<control type="group">
-						<visible>!IsEmpty(ListItem.Label2)</visible>
+						<visible>!String.IsEmpty(ListItem.Label2)</visible>
 						<control type="label">
 							<left>32</left>
 							<top>8</top>
@@ -254,10 +254,10 @@
 						<selectedcolor>listselected-text</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-						<visible>IsEmpty(ListItem.AddonDescription)</visible>
+						<visible>String.IsEmpty(ListItem.AddonDescription)</visible>
 					</control>
 					<control type="group">
-						<visible>!IsEmpty(ListItem.AddonDescription)</visible>
+						<visible>!String.IsEmpty(ListItem.AddonDescription)</visible>
 						<control type="label">
 							<left>32</left>
 							<top>8</top>
@@ -290,10 +290,10 @@
 						<font>apptv23</font>
 						<label>$INFO[ListItem.Label]</label>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-						<visible>IsEmpty(ListItem.PlotOutline)</visible>
+						<visible>String.IsEmpty(ListItem.PlotOutline)</visible>
 					</control>
 					<control type="group">
-						<visible>!IsEmpty(ListItem.PlotOutline)</visible>
+						<visible>!String.IsEmpty(ListItem.PlotOutline)</visible>
 						<control type="label">
 							<left>32</left>
 							<top>8</top>
@@ -325,10 +325,10 @@
 						<font>apptv23</font>
 						<label>$INFO[ListItem.Label]</label>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-						<visible>IsEmpty(ListItem.Duration)</visible>
+						<visible>String.IsEmpty(ListItem.Duration)</visible>
 					</control>
 					<control type="group">
-						<visible>!IsEmpty(ListItem.Duration)</visible>
+						<visible>!String.IsEmpty(ListItem.Duration)</visible>
 						<control type="label">
 							<left>32</left>
 							<top>8</top>
@@ -425,42 +425,34 @@
 					<effect type="slide" end="15,0" time="0"/>
 					<effect type="zoom" start="100" end="114" center="auto" time="0" tween="back" easing="out"/>
 				</animation>
-				<control type="group">
+				<control type="image">
+					<left>314</left>
+					<top>116</top>
+					<width>336</width>
+					<height>336</height>
+					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+					<aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
 					<visible>!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes) + !Container.Content(musicvideos)</visible>
-					<control type="group">
-						<control type="image">
-							<left>314</left>
-							<top>116</top>
-							<width>336</width>
-							<height>336</height>
-							<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-							<aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
-						</control>
-					</control>
 				</control>
 				<control type="group">
 					<visible>Container.Content(musicvideos)</visible>
-					<control type="group">
-						<visible>!SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
-						<control type="image">
-							<left>314</left>
-							<top>116</top>
-							<width>336</width>
-							<height>336</height>
-							<texture background="true" fallback="DefaultMusicVideos.png" diffuse="mask-squ.png">$VAR[IconPoster]</texture>
-							<aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
-						</control>
+					<control type="image">
+						<left>314</left>
+						<top>116</top>
+						<width>336</width>
+						<height>336</height>
+						<texture background="true" fallback="DefaultMusicVideos.png" diffuse="mask-squ.png">$VAR[IconPoster]</texture>
+						<aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
+						<visible>!String.StartsWith(ListItem.Icon,DefaultFolder.png)</visible>
 					</control>
-					<control type="group">
-						<visible>SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
-						<control type="image">
-							<left>314</left>
-							<top>116</top>
-							<width>336</width>
-							<height>336</height>
-							<texture>DefaultMusicVideos.png</texture>
-							<aspectratio align="right" aligny="top">keep</aspectratio>
-						</control>
+					<control type="image">
+						<left>314</left>
+						<top>116</top>
+						<width>336</width>
+						<height>336</height>
+						<texture>DefaultMusicVideos.png</texture>
+						<aspectratio align="right" aligny="top">keep</aspectratio>
+						<visible>String.StartsWith(ListItem.Icon,DefaultFolder.png)</visible>
 					</control>
 				</control>
 				<control type="group">
@@ -472,7 +464,7 @@
 						<height>336</height>
 						<texture background="true" fallback="DefaultMovies.png" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 						<aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
-						<visible>!SubString(ListItem.Icon,DefaultFolder,Left)</visible>
+						<visible>!String.StartsWith(ListItem.Icon,DefaultFolder)</visible>
 					</control>
 					<control type="image">
 						<left>314</left>
@@ -481,7 +473,7 @@
 						<height>336</height>
 						<texture>DefaultMovies.png</texture>
 						<aspectratio align="right" aligny="top">keep</aspectratio>
-						<visible>SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
+						<visible>String.StartsWith(ListItem.Icon,DefaultFolder.png)</visible>
 					</control>
 					<control type="image">
 						<left>314</left>
@@ -502,7 +494,7 @@
 						<height>336</height>
 						<texture fallback="DefaultTvshows.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 						<aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
-						<visible>!SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
+						<visible>!String.StartsWith(ListItem.Icon,DefaultFolder.png)</visible>
 					</control>
 					<control type="image"><!-- Show TV icon as the Default icon -->
 						<left>314</left>
@@ -511,7 +503,7 @@
 						<height>336</height>
 						<texture>DefaultTvshows.png</texture>
 						<aspectratio align="right" aligny="top">keep</aspectratio>
-						<visible>SubString(ListItem.Icon,DefaultFolder.png,Left)</visible>
+						<visible>String.StartsWith(ListItem.Icon,DefaultFolder.png)</visible>
 					</control>
 					<include content="listitem-count">
 						<param name="left" value="592"/>
@@ -522,7 +514,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>!IsEmpty(ListItem.Title)</visible>
+				<visible>!String.IsEmpty(ListItem.Title)</visible>
 				<control type="image"><!-- Star Rating -->
 					<left>17</left>
 					<top>270</top>
@@ -532,7 +524,7 @@
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="group"><!-- Duration -->
-					<visible>!IsEmpty(listitem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
+					<visible>!String.IsEmpty(listitem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
 					<control type="label">
 						<left>17</left>
 						<top>302</top>
@@ -550,7 +542,7 @@
 					<aligny>bottom</aligny>
 					<texture>$VAR[VideoRating]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>!IsEmpty(ListItem.Mpaa)</visible>
+					<visible>!String.IsEmpty(ListItem.Mpaa)</visible>
 				</control>
 				<control type="image"><!-- Logo -->
 					<left>17</left>
@@ -570,7 +562,7 @@
 					<label>$INFO[ListItem.PlotOutline]</label>
 					<align>justify</align>
 					<aligny>top</aligny>
-					<visible>!IsEmpty(ListItem.PlotOutline)</visible>
+					<visible>!String.IsEmpty(ListItem.PlotOutline)</visible>
 				</control>
 				<control type="textbox"><!-- Plot (Show if no outline available)-->
 					<left>17</left>
@@ -581,7 +573,7 @@
 					<label>$INFO[ListItem.Plot]</label>
 					<align>justify</align>
 					<aligny>top</aligny>
-					<visible>IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Plot)</visible>
+					<visible>String.IsEmpty(ListItem.PlotOutline) + !String.IsEmpty(ListItem.Plot)</visible>
 				</control>
 			</control>
 		</control>
@@ -621,7 +613,7 @@
 						<font>apptv20</font>
 						<align>center</align>
 						<textcolor>disabled-text</textcolor>
-						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 					</control>
 					<control type="label">
 						<height>20</height>
@@ -640,7 +632,7 @@
 						<align>center</align>
 						<textcolor>button-text</textcolor>
 						<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
-						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 					</control>
 				</focusedlayout>
 				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
@@ -679,7 +671,7 @@
 					<height>180</height>
 					<aspectratio>keep</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" background="true">$VAR[IconPoster]</texture>
-					<visible>SubString(ListItem.Icon,Default,Left) | ![Container.Content(movies) | Container.Content(tvshows)]</visible>
+					<visible>$EXP[isDefaultIcon] | ![Container.Content(movies) | Container.Content(tvshows)]</visible>
 				</control>
 				<control type="image">
 					<left>86</left>
@@ -688,7 +680,7 @@
 					<height>180</height>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-					<visible>!SubString(ListItem.Icon,Default,Left) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+					<visible>$EXP[isnotDefaultIcon] + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 				</control>
 				<control type="image"><!-- Watched Overlay -->
 					<left>188</left>
@@ -714,7 +706,7 @@
 						<height>180</height>
 						<aspectratio scalediffuse="false">keep</aspectratio>
 						<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-						<visible>SubString(ListItem.Icon,Default,Left)</visible>
+						<visible>$EXP[isDefaultIcon]</visible>
 					</control>
 					<control type="image">
 						<left>60</left>
@@ -725,7 +717,7 @@
 						<bordertexture border="7">mask-hilite.png</bordertexture>
 						<bordersize>7</bordersize>
 						<aspectratio scalediffuse="false">keep</aspectratio>
-						<visible>!SubString(ListItem.Icon,Default,Left) + ![Container.Content(movies) | Container.Content(tvshows)]</visible>
+						<visible>$EXP[isnotDefaultIcon] + ![Container.Content(movies) | Container.Content(tvshows)]</visible>
 					</control>
 					<control type="image">
 						<left>86</left>
@@ -736,7 +728,7 @@
 						<bordertexture border="7">mask-hilite.png</bordertexture>
 						<bordersize>7</bordersize>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<visible>!SubString(ListItem.Icon,Default,Left) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+						<visible>$EXP[isnotDefaultIcon] + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 					</control>
 					<control type="image"><!-- Watched Overlay -->
 						<left>182</left>
@@ -766,7 +758,7 @@
 			</focusedlayout>
 		</control>
 		<control type="group">
-		<visible>Control.IsVisible(52) + Container(52).HasNext + ![Container().OnScrollNext | Container().OnScrollPrevious]</visible>
+			<visible>Control.IsVisible(52) + Container(52).HasNext + ![Container().OnScrollNext | Container().OnScrollPrevious]</visible>
 			<control type="group"><!-- Show the bottom row of icons as long as another row exists -->
 				<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
 				<left>20</left>
@@ -885,7 +877,7 @@
 						<font>apptv20</font>
 						<align>center</align>
 						<textcolor>disabled-text</textcolor>
-						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 					</control>
 					<control type="label">
 						<height>20</height>
@@ -903,7 +895,7 @@
 						<font>apptv20</font>
 						<align>center</align>
 						<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
-						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 					</control>
 				</focusedlayout>
 				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
@@ -925,7 +917,7 @@
 		<control type="group">
 			<visible>Control.IsVisible(53)</visible>
 			<control type="list" id="53">
-				<visible>container.content(tvshows) + !IsEmpty(Container.FolderPath)</visible>
+				<visible>container.content(tvshows) + !String.IsEmpty(Container.FolderPath)</visible>
 				<viewtype label="31946">banner</viewtype>
 				<left>662</left>
 				<top>143</top>
@@ -1043,7 +1035,7 @@
 					<width>600</width>
 					<height>600</height>
 					<itemgap>2</itemgap>
-					<visible>!IsEmpty(ListItem.Icon)</visible>
+					<visible>!String.IsEmpty(ListItem.Icon)</visible>
 					<control type="group">
 						<width>600</width>
 						<height>50</height>
@@ -1066,7 +1058,7 @@
 							<align>center</align>
 							<wrapmultiline>true</wrapmultiline>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-							<visible>IsEmpty(Control.GetLabel(7316))</visible>
+							<visible>String.IsEmpty(Control.GetLabel(7316))</visible>
 						</control>
 					</control>
 					<control type="label"><!-- First Aired -->
@@ -1075,7 +1067,7 @@
 						<label>[B]$LOCALIZE[20416]:[/B] $INFO[ListItem.Premiered]</label>
 						<font>apptv22</font>
 						<align>center</align>
-						<visible>!IsEmpty(ListItem.Premiered)</visible>
+						<visible>!String.IsEmpty(ListItem.Premiered)</visible>
 					</control>
 					<control type="label"><!-- Genre -->
 						<width>600</width>
@@ -1084,7 +1076,7 @@
 						<font>apptv22</font>
 						<align>center</align>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-						<visible>!IsEmpty(ListItem.Genre)</visible>
+						<visible>!String.IsEmpty(ListItem.Genre)</visible>
 					</control>
 					<control type="label"><!-- Rating -->
 						<width>600</width>
@@ -1092,7 +1084,7 @@
 						<label>[B]$LOCALIZE[563]:[/B] $INFO[ListItem.Rating]</label>
 						<font>apptv22</font>
 						<align>center</align>
-						<visible>!IsEmpty(ListItem.Rating)</visible>
+						<visible>!String.IsEmpty(ListItem.Rating)</visible>
 					</control>
 					<control type="image">
 						<width>600</width>
@@ -1106,7 +1098,7 @@
 						<label>$INFO[ListItem.PlotOutline]</label>
 						<font>apptv20</font>
 						<align>justify</align>
-						<visible>!IsEmpty(ListItem.PlotOutline)</visible>
+						<visible>!String.IsEmpty(ListItem.PlotOutline)</visible>
 					</control>
 					<control type="textbox"><!-- Plot (Show if no outline available)-->
 						<width>600</width>
@@ -1114,7 +1106,7 @@
 						<label>$INFO[ListItem.Plot]</label>
 						<font>apptv20</font>
 						<align>justify</align>
-						<visible>IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Plot)</visible>
+						<visible>String.IsEmpty(ListItem.PlotOutline) + !String.IsEmpty(ListItem.Plot)</visible>
 					</control>
 				</control>
 				<include>sortletternotification</include>
@@ -1152,7 +1144,7 @@
 								<font>apptv20</font>
 								<align>center</align>
 								<textcolor>disabled-text</textcolor>
-								<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+								<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 							</control>
 							<control type="label">
 								<height>20</height>
@@ -1171,7 +1163,7 @@
 								<align>center</align>
 								<textcolor>button-text</textcolor>
 								<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
-								<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+								<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 							</control>
 						</focusedlayout>
 						<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
@@ -1218,7 +1210,7 @@
 					<texture>case-dvd.png</texture>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 					<aspectratio>stretch</aspectratio>
-					<visible>!SubString(ListItem.Icon,Default,Left) + Skin.HasSetting(media-case)</visible>
+					<visible>$EXP[isnotDefaultIcon] + Skin.HasSetting(media-case)</visible>
 				</control>
 				<control type="image">
 					<left>-5</left>
@@ -1268,7 +1260,7 @@
 			</itemlayout>
 			<focusedlayout height="405" width="276" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">
 				<control type="group">
-					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>$EXP[isnotDefaultIcon]</visible>
 					<control type="image">
 						<left>0</left>
 						<top>130</top>
@@ -1379,7 +1371,7 @@
 				<wrapmultiline>true</wrapmultiline>
 				<textoffsetx>0</textoffsetx>
 				<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
-				<visible>!ListItem.IsParentFolder + IsEmpty(Control.GetLabel(7216))</visible>
+				<visible>!ListItem.IsParentFolder + String.IsEmpty(Control.GetLabel(7216))</visible>
 			</control>
 			<control type="label"><!-- Go Back -->
 				<left>272</left>
@@ -1393,7 +1385,7 @@
 				<visible>ListItem.IsParentFolder</visible>
 			</control>
 			<control type="group">
-				<visible>!IsEmpty(ListItem.Title)</visible>
+				<visible>!String.IsEmpty(ListItem.Title)</visible>
 				<control type="label"><!-- Duration -->
 					<left>26</left>
 					<top>245</top>
@@ -1402,7 +1394,7 @@
 					<align>center</align>
 					<font>apptv30</font>
 					<label>$VAR[VideoDuration]</label>
-					<visible>!IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
+					<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
 				</control>
 				<control type="image"><!-- Star Rating -->
 					<left>272</left>
@@ -1458,7 +1450,7 @@
 							<font>apptv20</font>
 							<textcolor>disabled-text</textcolor>
 							<align>center</align>
-							<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 						<control type="label">
 							<height>20</height>
@@ -1476,7 +1468,7 @@
 							<font>apptv20</font>
 							<align>center</align>
 							<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
-							<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 					</focusedlayout>
 					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
@@ -1871,7 +1863,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<textoffsetx>0</textoffsetx>
-				<visible>!ListItem.IsParentFolder + IsEmpty(Control.GetLabel(7018))</visible>
+				<visible>!ListItem.IsParentFolder + String.IsEmpty(Control.GetLabel(7018))</visible>
 			</control>
 			<control type="label"><!-- Go Back -->
 				<left>220</left>
@@ -1886,7 +1878,7 @@
 				<visible>ListItem.IsParentFolder</visible>
 			</control>
 			<control type="group">
-				<visible>!IsEmpty(ListItem.Title)</visible>
+				<visible>!String.IsEmpty(ListItem.Title)</visible>
 				<control type="image"><!-- MPAA Rating -->
 					<left>17</left>
 					<top>618</top>
@@ -1912,7 +1904,7 @@
 					<align>right</align>
 					<font>apptv30</font>
 					<label>$VAR[VideoDuration]</label>
-					<visible>!IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
+					<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
 				</control>
 				<control type="image">
 					<left>1230</left>
@@ -1966,7 +1958,7 @@
 							<font>apptv20</font>
 							<textcolor>disabled-text</textcolor>
 							<align>center</align>
-							<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 						<control type="label">
 							<height>20</height>
@@ -1984,7 +1976,7 @@
 							<font>apptv20</font>
 							<align>center</align>
 							<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
-							<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 					</focusedlayout>
 					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
@@ -2032,7 +2024,7 @@
 					<height>186</height>
 					<aspectratio>stretch</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" background="true">$VAR[IconPoster]</texture>
-					<visible>IsEmpty(ListItem.Art(thumb))</visible>
+					<visible>String.IsEmpty(ListItem.Art(thumb))</visible>
 				</control>
 				<control type="image">
 					<left>1</left>
@@ -2041,7 +2033,7 @@
 					<height>186</height>
 					<aspectratio>stretch</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
-					<visible>!IsEmpty(ListItem.Art(thumb))</visible>
+					<visible>!String.IsEmpty(ListItem.Art(thumb))</visible>
 				</control>
 				<control type="image"><!-- Watched Overlay -->
 					<left>104</left>
@@ -2087,7 +2079,7 @@
 						<height>186</height>
 						<aspectratio>stretch</aspectratio>
 						<texture background="true">$VAR[IconPoster]</texture>
-						<visible>IsEmpty(ListItem.Art(thumb))</visible>
+						<visible>String.IsEmpty(ListItem.Art(thumb))</visible>
 					</control>
 					<control type="image">
 						<left>1</left>
@@ -2098,7 +2090,7 @@
 						<texture fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
 						<bordertexture border="8">mask-hilite.png</bordertexture>
 						<bordersize>8</bordersize>
-						<visible>!IsEmpty(ListItem.Art(thumb))</visible>
+						<visible>!String.IsEmpty(ListItem.Art(thumb))</visible>
 					</control>
 					<control type="image"><!-- Watched Overlay -->
 						<left>98</left>
@@ -2159,7 +2151,7 @@
 				<label>$INFO[ListItem.Label]</label>
 				<wrapmultiline>true</wrapmultiline>
 				<textoffsetx>0</textoffsetx>
-				<visible>IsEmpty(Control.GetLabel(7116)) + !ListItem.IsParentFolder</visible>
+				<visible>String.IsEmpty(Control.GetLabel(7116)) + !ListItem.IsParentFolder</visible>
 			</control>
 			<control type="label"><!-- Go Back -->
 				<left>17</left>
@@ -2174,7 +2166,7 @@
 				<visible>ListItem.IsParentFolder</visible>
 			</control>
 			<control type="group">
-				<visible>!IsEmpty(ListItem.Title)</visible>
+				<visible>!String.IsEmpty(ListItem.Title)</visible>
 				<control type="label"><!-- Genre -->
 					<left>17</left>
 					<top>212</top>
@@ -2184,7 +2176,7 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Genre]</label>
 					<textoffsetx>0</textoffsetx>
-					<visible>!IsEmpty(ListItem.Genre)</visible>
+					<visible>!String.IsEmpty(ListItem.Genre)</visible>
 				</control>
 				<control type="label"><!-- Duration -->
 					<left>17</left>
@@ -2193,7 +2185,7 @@
 					<height>25</height>
 					<font>apptv22</font>
 					<label>$VAR[VideoDuration]</label>
-					<visible>!IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
+					<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
 				</control>
 				<control type="image">
 					<left>242</left>
@@ -2234,7 +2226,7 @@
 					<height>318</height>
 					<font>apptv20</font>
 					<label>$INFO[ListItem.PlotOutline]</label>
-					<visible>!IsEmpty(ListItem.PlotOutline)</visible>
+					<visible>!String.IsEmpty(ListItem.PlotOutline)</visible>
 				</control>
 				<control type="textbox"><!-- Plot (Show if no outline available)-->
 					<left>17</left>
@@ -2243,7 +2235,7 @@
 					<height>318</height>
 					<font>apptv20</font>
 					<label>$INFO[ListItem.Plot]</label>
-					<visible>IsEmpty(ListItem.PlotOutline) + !IsEmpty(ListItem.Plot)</visible>
+					<visible>String.IsEmpty(ListItem.PlotOutline) + !String.IsEmpty(ListItem.Plot)</visible>
 				</control>
 			</control>
 			<include>sortletternotification</include>
@@ -2282,7 +2274,7 @@
 							<font>apptv20</font>
 							<textcolor>disabled-text</textcolor>
 							<align>center</align>
-							<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 						<control type="label">
 							<height>20</height>
@@ -2300,7 +2292,7 @@
 							<font>apptv20</font>
 							<align>center</align>
 							<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
-							<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 					</focusedlayout>
 					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>

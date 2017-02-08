@@ -11,7 +11,7 @@
 				<aspectratio>stretch</aspectratio>
 				<texture>$INFO[Skin.String(background-custom)]</texture>
 				<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
-				<visible>!IsEmpty(Skin.String(background-custom))</visible>
+				<visible>!String.IsEmpty(Skin.String(background-custom))</visible>
 			</control>
 			<control type="group"><!-- Fanart backgrounds for focused search item -->
 				<visible>!Skin.HasSetting(background-fanarts)</visible>
@@ -20,63 +20,63 @@
 					<texture background="true">$INFO[Container(111).ListItem.Property(Fanart)]</texture>
 					<aspectratio>scale</aspectratio>
 					<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
-					<visible>Control.HasFocus(111) + IsEmpty(Control.GetLabel(190))</visible>
+					<visible>Control.HasFocus(111) + String.IsEmpty(Control.GetLabel(190))</visible>
 				</control>
 				<control type="image">
 					<include>fullscreenimage</include>
 					<texture background="true">$INFO[Container(121).ListItem.Property(Fanart)]</texture>
 					<aspectratio>scale</aspectratio>
 					<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
-					<visible>Control.HasFocus(121) + IsEmpty(Control.GetLabel(190))</visible>
+					<visible>Control.HasFocus(121) + String.IsEmpty(Control.GetLabel(190))</visible>
 				</control>
 				<control type="image">
 					<include>fullscreenimage</include>
 					<texture background="true">$INFO[Container(131).ListItem.Property(Fanart)]</texture>
 					<aspectratio>scale</aspectratio>
 					<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
-					<visible>Control.HasFocus(131) + IsEmpty(Control.GetLabel(190))</visible>
+					<visible>Control.HasFocus(131) + String.IsEmpty(Control.GetLabel(190))</visible>
 				</control>
 				<control type="image">
 					<include>fullscreenimage</include>
 					<texture background="true">$INFO[Container(141).ListItem.Property(Fanart)]</texture>
 					<aspectratio>scale</aspectratio>
 					<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
-					<visible>Control.HasFocus(141) + IsEmpty(Control.GetLabel(190))</visible>
+					<visible>Control.HasFocus(141) + String.IsEmpty(Control.GetLabel(190))</visible>
 				</control>
 				<control type="image">
 					<include>fullscreenimage</include>
 					<texture background="true">$INFO[Container(151).ListItem.Property(Fanart)]</texture>
 					<aspectratio>scale</aspectratio>
 					<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
-					<visible>Control.HasFocus(151) + IsEmpty(Control.GetLabel(190))</visible>
+					<visible>Control.HasFocus(151) + String.IsEmpty(Control.GetLabel(190))</visible>
 				</control>
 				<control type="image">
 					<include>fullscreenimage</include>
 					<texture background="true">$INFO[Container(161).ListItem.Property(Fanart)]</texture>
 					<aspectratio>scale</aspectratio>
 					<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
-					<visible>Control.HasFocus(161) + IsEmpty(Control.GetLabel(190))</visible>
+					<visible>Control.HasFocus(161) + String.IsEmpty(Control.GetLabel(190))</visible>
 				</control>
 				<control type="image">
 					<include>fullscreenimage</include>
 					<texture background="true">$INFO[Container(171).ListItem.Property(Fanart)]</texture>
 					<aspectratio>scale</aspectratio>
 					<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
-					<visible>Control.HasFocus(171) + IsEmpty(Control.GetLabel(190))</visible>
+					<visible>Control.HasFocus(171) + String.IsEmpty(Control.GetLabel(190))</visible>
 				</control>
 				<control type="image">
 					<include>fullscreenimage</include>
 					<texture background="true">$INFO[Container(181).ListItem.Property(Fanart)]</texture>
 					<aspectratio>scale</aspectratio>
 					<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
-					<visible>Control.HasFocus(181) + IsEmpty(Control.GetLabel(190))</visible>
+					<visible>Control.HasFocus(181) + String.IsEmpty(Control.GetLabel(190))</visible>
 				</control>
 				<control type="image">
 					<include>fullscreenimage</include>
 					<texture background="true">$INFO[Container(211).ListItem.Property(Fanart)]</texture>
 					<aspectratio>scale</aspectratio>
 					<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
-					<visible>Control.HasFocus(211) + IsEmpty(Control.GetLabel(190))</visible>
+					<visible>Control.HasFocus(211) + String.IsEmpty(Control.GetLabel(190))</visible>
 				</control>
 			</control>
 			<!-- Search results logo and label -->
@@ -87,7 +87,7 @@
 				<height>32</height>
 				<label>$LOCALIZE[283] [I]$INFO[Window.Property(GlobalSearch.SearchString)][/I]</label>
 				<font>apptv30</font>
-				<visible>IsEmpty(Control.GetLabel(190))</visible>
+				<visible>String.IsEmpty(Control.GetLabel(190))</visible>
 			</control>
 			<control type="label" id="199"><!-- No search results -->
 				<left>40</left>
@@ -111,7 +111,7 @@
 			</control>
 
 			<control type="grouplist" id="101"><!-- Movies results -->
-				<visible>IsEmpty(Control.GetLabel(190))</visible>
+				<visible>String.IsEmpty(Control.GetLabel(190))</visible>
 				<left>30</left>
 				<top>65</top>
 				<width>1220</width>
@@ -174,7 +174,7 @@
 								<height>25</height>
 								<label>$INFO[ListItem.Property(Year),, - ]$INFO[ListItem.Property(Duration),, $LOCALIZE[12391]]</label>
 								<font>apptv23</font>
-								<visible>!SubString(ListItem.Property(Duration),min)</visible>
+								<visible>!String.Contains(ListItem.Property(Duration),min)</visible>
 							</control>
 							<control type="label">
 								<left>110</left>
@@ -183,7 +183,7 @@
 								<height>25</height>
 								<label>$INFO[ListItem.Property(Year),, - ]$INFO[ListItem.Property(Duration)]</label>
 								<font>apptv23</font>
-								<visible>SubString(ListItem.Property(Duration),min)</visible>
+								<visible>String.Contains(ListItem.Property(Duration),min)</visible>
 							</control>
 							<control type="textbox">
 								<left>110</left>
@@ -200,7 +200,7 @@
 								<height>82</height>
 								<label>$INFO[ListItem.Property(PlotOutline)]</label>
 								<font>apptv23</font>
-								<visible>IsEmpty(ListItem.Property(TagLine))</visible>
+								<visible>String.IsEmpty(ListItem.Property(TagLine))</visible>
 							</control>
 							<control type="textbox">
 								<left>110</left>
@@ -209,7 +209,7 @@
 								<height>82</height>
 								<label>$INFO[ListItem.Property(Plot)]</label>
 								<font>apptv23</font>
-								<visible>IsEmpty(ListItem.Property(TagLine)) + IsEmpty(ListItem.Property(PlotOutline))</visible>
+								<visible>String.IsEmpty(ListItem.Property(TagLine)) + String.IsEmpty(ListItem.Property(PlotOutline))</visible>
 							</control>
 						</itemlayout>
 						<focusedlayout width="600" height="170">
@@ -245,7 +245,7 @@
 								<height>25</height>
 								<label>$INFO[ListItem.Property(Year),, - ]$INFO[ListItem.Property(Duration),, $LOCALIZE[12391]]</label>
 								<font>apptv23</font>
-								<visible>!SubString(ListItem.Property(Duration),min)</visible>
+								<visible>!String.Contains(ListItem.Property(Duration),min)</visible>
 							</control>
 							<control type="label">
 								<left>110</left>
@@ -254,7 +254,7 @@
 								<height>25</height>
 								<label>$INFO[ListItem.Property(Year),, - ]$INFO[ListItem.Property(Duration)]</label>
 								<font>apptv23</font>
-								<visible>SubString(ListItem.Property(Duration),min)</visible>
+								<visible>String.Contains(ListItem.Property(Duration),min)</visible>
 							</control>
 							<control type="textbox">
 								<left>110</left>
@@ -271,7 +271,7 @@
 								<height>82</height>
 								<label>$INFO[ListItem.Property(PlotOutline)]</label>
 								<font>apptv23</font>
-								<visible>IsEmpty(ListItem.Property(TagLine))</visible>
+								<visible>String.IsEmpty(ListItem.Property(TagLine))</visible>
 							</control>
 							<control type="textbox">
 								<left>110</left>
@@ -280,7 +280,7 @@
 								<height>82</height>
 								<label>$INFO[ListItem.Property(Plot)]</label>
 								<font>apptv23</font>
-								<visible>IsEmpty(ListItem.Property(TagLine)) + IsEmpty(ListItem.Property(PlotOutline))</visible>
+								<visible>String.IsEmpty(ListItem.Property(TagLine)) + String.IsEmpty(ListItem.Property(PlotOutline))</visible>
 							</control>
 						</focusedlayout>
 					</control>
@@ -344,7 +344,7 @@
 								<height>25</height>
 								<label>$INFO[ListItem.Property(Year),, - ]$INFO[ListItem.Property(Duration),, $LOCALIZE[12391]]</label>
 								<font>apptv23</font>
-								<visible>!SubString(ListItem.Property(Duration),min)</visible>
+								<visible>!String.Contains(ListItem.Property(Duration),min)</visible>
 							</control>
 							<control type="label">
 								<left>110</left>
@@ -353,7 +353,7 @@
 								<height>25</height>
 								<label>$INFO[ListItem.Property(Year),, - ]$INFO[ListItem.Property(Duration)]</label>
 								<font>apptv23</font>
-								<visible>SubString(ListItem.Property(Duration),min)</visible>
+								<visible>String.Contains(ListItem.Property(Duration),min)</visible>
 							</control>
 							<control type="textbox">
 								<left>110</left>
@@ -370,7 +370,7 @@
 								<height>82</height>
 								<label>$INFO[ListItem.Property(PlotOutline)]</label>
 								<font>apptv23</font>
-								<visible>IsEmpty(ListItem.Property(TagLine))</visible>
+								<visible>String.IsEmpty(ListItem.Property(TagLine))</visible>
 							</control>
 							<control type="textbox">
 								<left>110</left>
@@ -379,7 +379,7 @@
 								<height>82</height>
 								<label>$INFO[ListItem.Property(Plot)]</label>
 								<font>apptv23</font>
-								<visible>IsEmpty(ListItem.Property(TagLine)) + IsEmpty(ListItem.Property(PlotOutline))</visible>
+								<visible>String.IsEmpty(ListItem.Property(TagLine)) + String.IsEmpty(ListItem.Property(PlotOutline))</visible>
 							</control>
 						</itemlayout>
 						<focusedlayout width="600" height="170">
@@ -415,7 +415,7 @@
 								<height>25</height>
 								<label>$INFO[ListItem.Property(Year),, - ]$INFO[ListItem.Property(Duration),, $LOCALIZE[12391]]</label>
 								<font>apptv23</font>
-								<visible>!SubString(ListItem.Property(Duration),min)</visible>
+								<visible>!String.Contains(ListItem.Property(Duration),min)</visible>
 							</control>
 							<control type="label">
 								<left>110</left>
@@ -424,7 +424,7 @@
 								<height>25</height>
 								<label>$INFO[ListItem.Property(Year),, - ]$INFO[ListItem.Property(Duration)]</label>
 								<font>apptv23</font>
-								<visible>SubString(ListItem.Property(Duration),min)</visible>
+								<visible>String.Contains(ListItem.Property(Duration),min)</visible>
 							</control>
 							<control type="textbox">
 								<left>110</left>
@@ -441,7 +441,7 @@
 								<height>82</height>
 								<label>$INFO[ListItem.Property(PlotOutline)]</label>
 								<font>apptv23</font>
-								<visible>IsEmpty(ListItem.Property(TagLine))</visible>
+								<visible>String.IsEmpty(ListItem.Property(TagLine))</visible>
 							</control>
 							<control type="textbox">
 								<left>110</left>
@@ -450,7 +450,7 @@
 								<height>82</height>
 								<label>$INFO[ListItem.Property(Plot)]</label>
 								<font>apptv23</font>
-								<visible>IsEmpty(ListItem.Property(TagLine)) + IsEmpty(ListItem.Property(PlotOutline))</visible>
+								<visible>String.IsEmpty(ListItem.Property(TagLine)) + String.IsEmpty(ListItem.Property(PlotOutline))</visible>
 							</control>
 						</focusedlayout>
 					</control>
@@ -896,7 +896,7 @@
 								<height>82</height>
 								<label>$INFO[ListItem.Property(Plot)]</label>
 								<font>apptv23</font>
-								<visible>IsEmpty(ListItem.Property(TagLine)) + IsEmpty(ListItem.Property(PlotOutline))</visible>
+								<visible>String.IsEmpty(ListItem.Property(TagLine)) + String.IsEmpty(ListItem.Property(PlotOutline))</visible>
 							</control>
 						</focusedlayout>
 					</control>
@@ -1394,7 +1394,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>!IsEmpty(Control.GetLabel(190))</visible>
+				<visible>!String.IsEmpty(Control.GetLabel(190))</visible>
 				<include>fadebackground</include>
 				<control type="label" id="190"><!-- Searching label -->
 					<left>240</left>

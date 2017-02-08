@@ -78,7 +78,7 @@
 						<align>center</align>
 						<selectedcolor>listselected-text</selectedcolor>
 						<label>$INFO[ListItem.ChannelNumber]</label>
-						<visible>IsEmpty(ListItem.Icon)</visible>
+						<visible>String.IsEmpty(ListItem.Icon)</visible>
 					</control>
 					<control type="label" id="1">
 						<left>52</left>
@@ -116,7 +116,7 @@
 						<align>center</align>
 						<selectedcolor>listselected-text</selectedcolor>
 						<label>$INFO[ListItem.ChannelNumber]</label>
-						<visible>IsEmpty(ListItem.Icon)</visible>
+						<visible>String.IsEmpty(ListItem.Icon)</visible>
 					</control>
 					<control type="label" id="1">
 						<left>52</left>
@@ -212,7 +212,7 @@
 				<wrapmultiline>true</wrapmultiline>
 			</control>
 			<control type="label"><!-- Start time -->
-				<visible>!IsEmpty(ListItem.StartTime)</visible>
+				<visible>!String.IsEmpty(ListItem.StartTime)</visible>
 				<left>850</left>
 				<top>564</top>
 				<width>400</width>
@@ -222,7 +222,7 @@
 				<label>$LOCALIZE[19126] $INFO[ListItem.StartTime] • $VAR[VideoDuration]</label>
 			</control>
 			<control type="image">
-				<visible>!IsEmpty(ListItem.Title)</visible>
+				<visible>!String.IsEmpty(ListItem.Title)</visible>
 				<left>30</left>
 				<top>592</top>
 				<width>1220</width>
@@ -236,7 +236,7 @@
 				<height>78</height>
 				<font>apptv22</font>
 				<label>$INFO[ListItem.Plot]</label>
-				<visible>!IsEmpty(ListItem.Plot)</visible>
+				<visible>!String.IsEmpty(ListItem.Plot)</visible>
 			</control>
 		</control>
 	</include>
@@ -339,7 +339,7 @@
 						<width>32</width>
 						<height>32</height>
 						<texture>groupfocused.png</texture>
-						<visible>!String.IsEqual(ListItem.Comment,$LOCALIZE[305]) + !IsEmpty(ListItem.ChannelName)</visible>
+						<visible>!String.IsEqual(ListItem.Comment,$LOCALIZE[305]) + !String.IsEmpty(ListItem.ChannelName)</visible>
 					</control>
 					<control type="image">
 						<left>1170</left>
@@ -347,7 +347,7 @@
 						<width>32</width>
 						<height>32</height>
 						<texture>OverlayUnwatched.png</texture>
-						<visible>String.IsEqual(ListItem.Comment,$LOCALIZE[305]) + !IsEmpty(ListItem.ChannelName)</visible>
+						<visible>String.IsEqual(ListItem.Comment,$LOCALIZE[305]) + !String.IsEmpty(ListItem.ChannelName)</visible>
 					</control>
 				</itemlayout>
 				<focusedlayout height="50">
@@ -388,7 +388,7 @@
 						<width>32</width>
 						<height>32</height>
 						<texture>groupfocused.png</texture>
-						<visible>!String.IsEqual(ListItem.Comment,$LOCALIZE[305]) + !IsEmpty(ListItem.ChannelName)</visible>
+						<visible>!String.IsEqual(ListItem.Comment,$LOCALIZE[305]) + !String.IsEmpty(ListItem.ChannelName)</visible>
 					</control>
 					<control type="image">
 						<left>1170</left>
@@ -396,7 +396,7 @@
 						<width>32</width>
 						<height>32</height>
 						<texture>OverlayUnwatched.png</texture>
-						<visible>String.IsEqual(ListItem.Comment,$LOCALIZE[305]) + !IsEmpty(ListItem.ChannelName)</visible>
+						<visible>String.IsEqual(ListItem.Comment,$LOCALIZE[305]) + !String.IsEmpty(ListItem.ChannelName)</visible>
 					</control>
 				</focusedlayout>
 			</control>
@@ -464,7 +464,7 @@
 							<height>50</height>
 							<aspectratio>stretch</aspectratio>
 							<texture fallback="DefaultTvshows.png">$INFO[ListItem.Thumb]</texture>
-							<visible>IsEmpty(Window.Property(IsRadio)) + !ListItem.IsFolder</visible>
+							<visible>String.IsEmpty(Window.Property(IsRadio)) + !ListItem.IsFolder</visible>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -473,7 +473,7 @@
 							<height>50</height>
 							<aspectratio>stretch</aspectratio>
 							<texture fallback="icon-radio.png">$INFO[ListItem.Thumb]</texture>
-							<visible>!IsEmpty(Window.Property(IsRadio)) + !ListItem.IsFolder</visible>
+							<visible>!String.IsEmpty(Window.Property(IsRadio)) + !ListItem.IsFolder</visible>
 						</control>
 						<control type="label">
 							<left>80</left>
@@ -525,7 +525,7 @@
 							<height>50</height>
 							<texture fallback="DefaultTvshows.png">$INFO[ListItem.Thumb]</texture>
 							<aspectratio>stretch</aspectratio>
-							<visible>IsEmpty(Window.Property(IsRadio)) + !ListItem.IsFolder</visible>
+							<visible>String.IsEmpty(Window.Property(IsRadio)) + !ListItem.IsFolder</visible>
 						</control>
 						<control type="image">
 							<left>10</left>
@@ -534,7 +534,7 @@
 							<height>50</height>
 							<texture fallback="icon-radio.png">$INFO[ListItem.Thumb]</texture>
 							<aspectratio>stretch</aspectratio>
-							<visible>!IsEmpty(Window.Property(IsRadio)) + !ListItem.IsFolder</visible>
+							<visible>!String.IsEmpty(Window.Property(IsRadio)) + !ListItem.IsFolder</visible>
 						</control>
 						<control type="label">
 							<left>80</left>
@@ -605,14 +605,14 @@
 							<wrapmultiline>true</wrapmultiline>
 						</control>
 						<control type="label"><!-- Start time -->
-							<visible>!IsEmpty(ListItem.Plot) + !IsEmpty(ListItem.StartTime) + !IsEmpty(ListItem.EndTime)+ !Control.IsVisible(13)</visible>
+							<visible>!String.IsEmpty(ListItem.Plot) + !String.IsEmpty(ListItem.StartTime) + !String.IsEmpty(ListItem.EndTime)+ !Control.IsVisible(13)</visible>
 							<width>628</width>
 							<height>30</height>
 							<align>center</align>
 							<label>$LOCALIZE[31134] $INFO[ListItem.StartTime] - $LOCALIZE[31129] $INFO[ListItem.EndTime]</label>
 						</control>
 						<control type="image">
-							<visible>!IsEmpty(ListItem.Title)</visible>
+							<visible>!String.IsEmpty(ListItem.Title)</visible>
 							<width>628</width>
 							<height>4</height>
 							<texture>separator.png</texture>
@@ -623,10 +623,10 @@
 							<font>apptv23</font>
 							<align>left</align>
 							<label>$INFO[ListItem.Plot]</label>
-							<visible>!IsEmpty(ListItem.Plot)</visible>
+							<visible>!String.IsEmpty(ListItem.Plot)</visible>
 						</control>
 						<control type="image">
-							<visible>!IsEmpty(ListItem.Plot)</visible>
+							<visible>!String.IsEmpty(ListItem.Plot)</visible>
 							<width>628</width>
 							<height>4</height>
 							<texture>separator.png</texture>

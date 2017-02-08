@@ -101,7 +101,7 @@
 					<selected>Skin.HasSetting(tiltmusiclisticon)</selected>
 					<radioposx>330</radioposx>
 					<textoffsetx>10</textoffsetx>
-					<visible>SubString(Control.GetLabel(2),$LOCALIZE[31941],Right)</visible>
+					<visible>String.EndsWith(Control.GetLabel(2),$LOCALIZE[31941])</visible>
 				</control>
 				<control type="radiobutton" id="1197"><!-- Tilt icon wall view -->
 					<width>372</width>
@@ -112,7 +112,7 @@
 					<selected>Skin.HasSetting(tiltmusicwallicon)</selected>
 					<radioposx>330</radioposx>
 					<textoffsetx>10</textoffsetx>
-					<visible>SubString(Control.GetLabel(2),$LOCALIZE[31944],Right)</visible>
+					<visible>String.EndsWith(Control.GetLabel(2),$LOCALIZE[31944])</visible>
 				</control>
 				<control type="button" id="3"><!-- Sort by -->
 					<width>372</width>
@@ -137,7 +137,7 @@
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,type=resource.images.musicgenreicons&amp;property=custom-musicgenresicons)</onclick>
 					<textoffsetx>10</textoffsetx>
-					<enable>[SubString(Control.GetLabel(2),$LOCALIZE[31941]) | SubString(Control.GetLabel(2),$LOCALIZE[31945])]</enable>
+					<enable>[String.Contains(Control.GetLabel(2),$LOCALIZE[31941]) | String.Contains(Control.GetLabel(2),$LOCALIZE[31945])]</enable>
 					<visible>Container.Content(genres)</visible>
 				</control>
 				<control type="button" id="8"><!-- Search -->

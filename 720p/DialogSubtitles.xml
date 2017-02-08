@@ -2,7 +2,7 @@
 <window>
 	<onload condition="!System.HasAddon(resource.images.languageflags.colour) + !Skin.HasSetting(languageflagschecked)">InstallAddon(resource.images.languageflags.colour)</onload>
 	<onload condition="!System.HasAddon(script.image.resource.select) + !Skin.HasSetting(languageflagschecked)">Skin.ToggleSetting(languageflagschecked)</onload>
-	<!-- RunScript(script.skin.helper.service,action=dialogyesno,header[yourheadertext],message=[your message body],yesaction=[action for yes],noaction=[optional action for no]) -->
+
 	<coordinates>
 		<left>0</left>
 		<top>0</top>
@@ -27,7 +27,7 @@
 					<width>320</width>
 					<height>40</height>
 					<align>left</align>
-					<visible>IsEmpty(Control.GetLabel(110))</visible>
+					<visible>String.IsEmpty(Control.GetLabel(110))</visible>
 				</control>
 				<control type="label"><!-- Video label -->
 					<left>40</left>

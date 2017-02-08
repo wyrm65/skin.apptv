@@ -6,13 +6,13 @@
 			<control type="image"><!-- Use solid background image -->
 				<include>fullscreenimage</include>
 				<texture>background.png</texture>
-				<visible>IsEmpty(Skin.String(background-custom))</visible>
+				<visible>String.IsEmpty(Skin.String(background-custom))</visible>
 			</control>
 			<control type="image"><!-- Custom background image -->
 				<include>fullscreenimage</include>
 				<aspectratio>stretch</aspectratio>
 				<texture>$INFO[Skin.String(background-custom)]</texture>
-				<visible>!IsEmpty(Skin.String(background-custom))</visible>
+				<visible>!String.IsEmpty(Skin.String(background-custom))</visible>
 			</control>
 			<control type="label" id="1"><!-- Screen heading -->
 				<left>34</left>

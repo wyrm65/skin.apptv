@@ -32,10 +32,10 @@
 					<height>23</height>
 					<font>apptv22</font>
 					<label>$INFO[ListItem.Label]</label>
-					<visible>IsEmpty(ListItem.Label2)</visible>
+					<visible>String.IsEmpty(ListItem.Label2)</visible>
 				</control>
 				<control type="group">
-					<visible>!IsEmpty(ListItem.Label2)</visible>
+					<visible>!String.IsEmpty(ListItem.Label2)</visible>
 					<control type="label">
 						<left>38</left>
 						<top>7</top>
@@ -71,10 +71,10 @@
 					<height>23</height>
 					<font>apptv22</font>
 					<label>$INFO[ListItem.Label]</label>
-					<visible>IsEmpty(ListItem.Label2)</visible>
+					<visible>String.IsEmpty(ListItem.Label2)</visible>
 				</control>
 				<control type="group">
-					<visible>!IsEmpty(ListItem.Label2)</visible>
+					<visible>!String.IsEmpty(ListItem.Label2)</visible>
 					<control type="label">
 						<left>38</left>
 						<top>7</top>
@@ -114,7 +114,7 @@
 						<aspectratio>keep</aspectratio>
 						<bordertexture border="30,22,14,22">case-cd.png</bordertexture>
 						<bordersize>30,22,14,22</bordersize>
-						<visible>Skin.HasSetting(media-case) + !SubString(ListItem.Icon,Default,Left)</visible>
+						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon]</visible>
 					</control>
 					<control type="image">
 						<left>185</left>
@@ -123,7 +123,7 @@
 						<height>360</height>
 						<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
-						<visible>!Skin.HasSetting(media-case) | SubString(ListItem.Icon,Default,Left)</visible>
+						<visible>!Skin.HasSetting(media-case) | $EXP[isDefaultIcon]</visible>
 					</control>
 				</control>
 				<control type="image">
@@ -137,7 +137,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>[Container.Content(songs) | Container.Content(albums)] + !SubString(ListItem.Icon,Default,Left)</visible>
+				<visible>[Container.Content(songs) | Container.Content(albums)] + $EXP[isnotDefaultIcon]</visible>
 				<control type="image">
 					<left>20</left>
 					<top>512</top>
@@ -260,7 +260,7 @@
 								<font>apptv20</font>
 								<textcolor>disabled-text</textcolor>
 								<align>center</align>
-								<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+								<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 							</control>
 							<control type="label">
 								<height>20</height>
@@ -278,7 +278,7 @@
 								<font>apptv20</font>
 								<align>center</align>
 								<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
-								<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+								<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 							</control>
 						</focusedlayout>
 						<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
@@ -338,7 +338,7 @@
 					<texture fallback="DefaultAudio.png" diffuse="mask-squ.png" background="true">$VAR[IconCover]</texture>
 					<aspectratio>keep</aspectratio>
 					<animation effect="zoom" start="100" end="110" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
-					<visible>SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>$EXP[isDefaultIcon]</visible>
 				</control>
 				<control type="image">
 					<left>33</left>
@@ -350,7 +350,7 @@
 					<bordersize>7</bordersize>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 					<animation effect="zoom" start="100" end="110" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
-					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>$EXP[isnotDefaultIcon]</visible>
 				</control>
 				<control type="image">
 					<left>141</left>
@@ -459,7 +459,7 @@
 						<font>apptv20</font>
 						<textcolor>disabled-text</textcolor>
 						<align>center</align>
-						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 					</control>
 					<control type="label">
 						<height>20</height>
@@ -477,7 +477,7 @@
 						<font>apptv20</font>
 						<align>center</align>
 						<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
-						<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 					</control>
 				</focusedlayout>
 				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
@@ -524,7 +524,7 @@
 						<aspectratio>stretch</aspectratio>
 						<bordertexture border="20,18,10,18">case-cd.png</bordertexture>
 						<bordersize>20,18,10,18</bordersize>
-						<visible>Skin.HasSetting(media-case) + !SubString(ListItem.Icon,Default,Left) + !IsEmpty(ListItem.Icon)</visible>
+						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + !String.IsEmpty(ListItem.Icon)</visible>
 					</control>
 					<control type="image">
 						<left>-32</left>
@@ -534,7 +534,7 @@
 						<colordiffuse>UnFocusedCovers</colordiffuse>
 						<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
-						<visible>!Skin.HasSetting(media-case) | SubString(ListItem.Icon,Default,Left) | IsEmpty(ListItem.Icon)</visible>
+						<visible>!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | String.IsEmpty(ListItem.Icon)</visible>
 					</control>
 				</control>
 				<control type="image">
@@ -560,7 +560,7 @@
 						<aspectratio>stretch</aspectratio>
 						<bordertexture border="28,22,14,22">case-cd.png</bordertexture>
 						<bordersize>28,22,14,22</bordersize>
-						<visible>Skin.HasSetting(media-case) + !SubString(ListItem.Icon,Default,Left) + !IsEmpty(ListItem.Icon) + Control.HasFocus(54)</visible>
+						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + !String.IsEmpty(ListItem.Icon) + Control.HasFocus(54)</visible>
 					</control>
 					<control type="image">
 						<left>14</left>
@@ -569,7 +569,7 @@
 						<width>288</width>
 						<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
-						<visible>[!Skin.HasSetting(media-case) | SubString(ListItem.Icon,Default,Left) | IsEmpty(ListItem.Icon)] + Control.HasFocus(54)</visible>
+						<visible>[!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | String.IsEmpty(ListItem.Icon)] + Control.HasFocus(54)</visible>
 					</control>
 					<control type="image">
 						<left>6</left>
@@ -581,7 +581,7 @@
 						<aspectratio>stretch</aspectratio>
 						<bordertexture border="28,22,14,22">case-cd.png</bordertexture>
 						<bordersize>28,22,14,22</bordersize>
-						<visible>Skin.HasSetting(media-case) + !SubString(ListItem.Icon,Default,Left) + !IsEmpty(ListItem.Icon) + !Control.HasFocus(54)</visible>
+						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + !String.IsEmpty(ListItem.Icon) + !Control.HasFocus(54)</visible>
 					</control>
 					<control type="image">
 						<left>14</left>
@@ -591,7 +591,7 @@
 						<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 						<colordiffuse>UnFocusedCovers</colordiffuse>
 						<aspectratio>stretch</aspectratio>
-						<visible>[!Skin.HasSetting(media-case) | SubString(ListItem.Icon,Default,Left) | IsEmpty(ListItem.Icon)] + !Control.HasFocus(54)</visible>
+						<visible>[!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | String.IsEmpty(ListItem.Icon)] + !Control.HasFocus(54)</visible>
 					</control>
 				</control>
 				<control type="image">
@@ -641,7 +641,7 @@
 							<font>apptv20</font>
 							<textcolor>disabled-text</textcolor>
 							<align>center</align>
-							<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 						<control type="label">
 							<height>20</height>
@@ -659,7 +659,7 @@
 							<font>apptv20</font>
 							<align>center</align>
 							<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
-							<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 					</focusedlayout>
 					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
@@ -1072,7 +1072,7 @@
 							<font>apptv20</font>
 							<textcolor>disabled-text</textcolor>
 							<align>center</align>
-							<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 						<control type="label">
 							<height>20</height>
@@ -1090,7 +1090,7 @@
 							<font>apptv20</font>
 							<align>center</align>
 							<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
-							<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 					</focusedlayout>
 					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
@@ -1151,7 +1151,7 @@
 						<align>center</align>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[ListItem.Label]</label>
-						<visible>IsEmpty(Window(home).Property(SkinHelper.Music.ClearLogo))</visible>
+						<visible>String.IsEmpty(Window(home).Property(SkinHelper.Music.ClearLogo))</visible>
 					</control>
 				</control>
 				<control type="label"><!-- Track name-->
@@ -1247,10 +1247,10 @@
 					<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 					<aspectratio>stretch</aspectratio>
 					<animation effect="zoom" start="100" end="112" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
-					<visible>SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>$EXP[isDefaultIcon]</visible>
 				</control>
 				<control type="group">
-					<visible>!SubString(ListItem.Icon,Default,Left)</visible>
+					<visible>$EXP[isnotDefaultIcon]</visible>
 					<control type="image">
 						<left>1</left>
 						<top>1</top>
@@ -1324,7 +1324,7 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Artist]</label>
 					<wrapmultiline>true</wrapmultiline>
-					<visible>!IsEmpty(ListItem.Artist)</visible>
+					<visible>!String.IsEmpty(ListItem.Artist)</visible>
 				</control>
 				<control type="label"><!-- Track name/Listitem label-->
 					<width>470</width>
@@ -1408,7 +1408,7 @@
 							<font>apptv20</font>
 							<textcolor>disabled-text</textcolor>
 							<align>center</align>
-							<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 						<control type="label">
 							<height>20</height>
@@ -1426,7 +1426,7 @@
 							<font>apptv20</font>
 							<align>center</align>
 							<animation effect="zoom" start="100" end="130" center="auto" time="0">focus</animation>
-							<animation effect="fade" start="100" end="20" time="0" condition="!IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="20" time="0" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 					</focusedlayout>
 					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>

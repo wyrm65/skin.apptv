@@ -35,7 +35,7 @@
 		</control>
 
 		<control type="group"><!-- Various Views of Video library node -->
-			<visible>![IsEmpty(ListItem.Label) + IsEmpty(Container().ListItem(1).Label)]</visible>
+			<visible>![String.IsEmpty(ListItem.Label) + String.IsEmpty(Container().ListItem(1).Label)]</visible>
 			<include file="View-Video.xml">VideoListView</include>
 			<include file="View-Video.xml">VideoIconView</include>
 			<include file="View-Video.xml">BannerView</include>
@@ -45,7 +45,7 @@
 		</control>
 
 		<control type="group"><!-- No Label tag means video addon is busy pulling in content, so show a busy animation -->
-			<visible>IsEmpty(ListItem.Label) + IsEmpty(Container().ListItem(1).Label) + System.IdleTime(1) + !Window.IsVisible(busydialog)</visible>
+			<visible>String.IsEmpty(ListItem.Label) + String.IsEmpty(Container().ListItem(1).Label) + System.IdleTime(1) + !Window.IsVisible(busydialog)</visible>
 			<include>fadebackground</include>
 			<control type="image"><!-- Busy animation -->
 				<left>576</left>
@@ -118,7 +118,7 @@
 					<label2>$VAR[DelayListAnimation]</label2>
 					<font>apptv22</font>
 					<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=listview-idleanim-val,header=$LOCALIZE[31885])</onclick>
-					<visible>SubString(Control.GetLabel(2),$LOCALIZE[31941],Right)</visible>
+					<visible>String.EndsWith(Control.GetLabel(2),$LOCALIZE[31941])</visible>
 				</control>
 				<control type="radiobutton" id="1196"><!-- Use animated Artwork  -->
 					<width>426</width>
@@ -138,7 +138,7 @@
 					<onclick>Skin.ToggleSetting(tiltvideolisticon)</onclick>
 					<selected>Skin.HasSetting(tiltvideolisticon)</selected>
 					<radioposx>330</radioposx>
-					<visible>SubString(Control.GetLabel(2),$LOCALIZE[31941],Right)</visible>
+					<visible>String.EndsWith(Control.GetLabel(2),$LOCALIZE[31941])</visible>
 				</control>
 				<control type="radiobutton" id="1198"><!-- Tilt wall view icons button -->
 					<width>426</width>
@@ -148,7 +148,7 @@
 					<onclick>Skin.ToggleSetting(tiltvideowallicon)</onclick>
 					<selected>Skin.HasSetting(tiltvideowallicon)</selected>
 					<radioposx>330</radioposx>
-					<visible>SubString(Control.GetLabel(2),$LOCALIZE[31944],Right)</visible>
+					<visible>String.EndsWith(Control.GetLabel(2),$LOCALIZE[31944])</visible>
 				</control>
 				<control type="button" id="3"><!-- Sort by button -->
 					<width>426</width>
@@ -183,7 +183,7 @@
 					<font>apptv22</font>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,type=resource.images.studios&amp;property=custom-moviestudioicons)</onclick>
-					<enable>SubString(Control.GetLabel(2),$LOCALIZE[31941]) | SubString(Control.GetLabel(2),$LOCALIZE[31945])</enable>
+					<enable>String.Contains(Control.GetLabel(2),$LOCALIZE[31941]) | String.Contains(Control.GetLabel(2),$LOCALIZE[31945])</enable>
 					<visible>Container.Content(studios)</visible>
 				</control>
 				<control type="button" id="211"><!-- Custom Genre Icons Button -->
@@ -193,7 +193,7 @@
 					<font>apptv22</font>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,type=resource.images.moviegenreicons&amp;property=custom-moviegenresicons)</onclick>
-					<enable>[SubString(Control.GetLabel(2),$LOCALIZE[31941]) | SubString(Control.GetLabel(2),$LOCALIZE[31945])]</enable>
+					<enable>[String.Contains(Control.GetLabel(2),$LOCALIZE[31941]) | String.Contains(Control.GetLabel(2),$LOCALIZE[31945])]</enable>
 					<visible>Container.Content(genres)</visible>
 				</control>
 				<control type="button" id="8"><!-- Search button -->

@@ -36,7 +36,7 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Label]</label>
 					<textoffsetx>0</textoffsetx>
-					<visible>IsEmpty(Control.GetLabel(7018))</visible>
+					<visible>String.IsEmpty(Control.GetLabel(7018))</visible>
 				</control>
 			</control>
 			<control type="label"><!-- Title (Artist - Title for music videos) -->
@@ -104,7 +104,7 @@
 				<font>apptv20</font>
 				<align>justify</align>
 				<pagecontrol>1123</pagecontrol>
-				<visible>!IsEmpty(ListItem.Plot)</visible>
+				<visible>!String.IsEmpty(ListItem.Plot)</visible>
 			</control>
 			<control type="textbox"><!-- Plot outline (Show if no plot available)-->
 				<left>340</left>
@@ -115,7 +115,7 @@
 				<font>apptv20</font>
 				<align>justify</align>
 				<pagecontrol>1123</pagecontrol>
-				<visible>IsEmpty(ListItem.Plot)</visible>
+				<visible>String.IsEmpty(ListItem.Plot)</visible>
 			</control>
 			<control type="scrollbar" id="1123"><!-- Plot Scrollbar -->
 				<left>1246</left>
@@ -126,8 +126,7 @@
 				<onright>1123</onright>
 				<onleft>999</onleft>
 				<ondown>999</ondown>
-				<!--<animation condition="!Control.HasFocus(1123) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>-->
-				<!--<visible>true | !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>-->
+				<animation condition="!Control.HasFocus(1123) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>-->
 			</control>
 			<control type="image">
 				<left>340</left>
@@ -210,7 +209,7 @@
 				<height>20</height>
 				<font>apptv20</font>
 				<label>$LOCALIZE[31133] $VAR[VideoDuration]</label>
-				<visible>!IsEmpty(Listitem.Duration)</visible>
+				<visible>!String.IsEmpty(Listitem.Duration)</visible>
 			</control>
 			<control type="label"><!-- Premiered -->
 				<left>340</left>
@@ -270,25 +269,25 @@
 					<width>40</width>
 					<height>30</height>
 					<texture background="true">$INFO[Listitem.AudioCodec,special://skin/extras/images/audio/,.png]</texture>
-					<visible>!IsEmpty(ListItem.AudioCodec) + !String.IsEqual(Control.GetLabel(161),blank.png)</visible>
+					<visible>!String.IsEmpty(ListItem.AudioCodec) + !String.IsEqual(Control.GetLabel(161),blank.png)</visible>
 				</control>
 				<control type="image" id="172"><!-- Video codec -->
 					<width>40</width>
 					<height>30</height>
 					<texture background="true">$INFO[Listitem.VideoCodec,special://skin/extras/images/video/,.png]</texture>
-					<visible>!IsEmpty(ListItem.VideoCodec) + !String.IsEqual(Control.GetLabel(162),blank.png)</visible>
+					<visible>!String.IsEmpty(ListItem.VideoCodec) + !String.IsEqual(Control.GetLabel(162),blank.png)</visible>
 				</control>
 				<control type="image" id="173"><!-- Video aspect ratio -->
 					<width>40</width>
 					<height>30</height>
 					<texture background="true">$INFO[ListItem.VideoAspect,special://skin/extras/images/aspectratio/,.png]</texture>
-					<visible>!IsEmpty(ListItem.VideoAspect) + !String.IsEqual(Control.GetLabel(163),blank.png)</visible>
+					<visible>!String.IsEmpty(ListItem.VideoAspect) + !String.IsEqual(Control.GetLabel(163),blank.png)</visible>
 				</control>
 				<control type="image" id="174"><!-- Video resolution -->
 					<width>40</width>
 					<height>30</height>
 					<texture background="true">$INFO[Listitem.VideoResolution,special://skin/extras/images/resolution/,.png]</texture>
-					<visible>!IsEmpty(ListItem.VideoResolution) + !String.IsEqual(Control.GetLabel(164),blank.png)</visible>
+					<visible>!String.IsEmpty(ListItem.VideoResolution) + !String.IsEqual(Control.GetLabel(164),blank.png)</visible>
 				</control>
 				<!-- Hack to check if media flag image is available -->
 				<control type="image" id="161">
@@ -296,28 +295,28 @@
 					<height>30</height>
 					<colordiffuse>HideControl</colordiffuse>
 					<texture background="true" fallback="blank.png">$INFO[Listitem.AudioCodec,special://skin/extras/images/audio/,.png]</texture>
-					<visible>!IsEmpty(ListItem.AudioCodec)</visible>
+					<visible>!String.IsEmpty(ListItem.AudioCodec)</visible>
 				</control>
 				<control type="image" id="162">
 					<width>1</width>
 					<height>30</height>
 					<colordiffuse>HideControl</colordiffuse>
 					<texture background="true" fallback="blank.png">$INFO[Listitem.VideoCodec,special://skin/extras/images/video/,.png]</texture>
-					<visible>!IsEmpty(ListItem.VideoCodec)</visible>
+					<visible>!String.IsEmpty(ListItem.VideoCodec)</visible>
 				</control>
 				<control type="image" id="163">
 					<width>1</width>
 					<height>30</height>
 					<texture background="true" fallback="blank.png">$INFO[ListItem.VideoAspect,special://skin/extras/images/aspectratio/,.png]</texture>
 					<colordiffuse>HideControl</colordiffuse>
-					<visible>!IsEmpty(ListItem.VideoAspect)</visible>
+					<visible>!String.IsEmpty(ListItem.VideoAspect)</visible>
 				</control>
 				<control type="image" id="164">
 					<width>1</width>
 					<height>30</height>
 					<colordiffuse>HideControl</colordiffuse>
 					<texture background="true" fallback="blank.png">$INFO[Listitem.VideoResolution,special://skin/extras/images/resolution/,.png]</texture>
-					<visible>!IsEmpty(ListItem.VideoResolution)</visible>
+					<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
 				</control>
 			</control>
 			<control type="image"><!-- Star Rating Dropshadow-->
@@ -478,7 +477,7 @@
 				<label>$LOCALIZE[20410]</label>
 				<texturefocus>button-info-trailer-focus.png</texturefocus>
 				<texturenofocus>button-info-trailer.png</texturenofocus>
-				<enable>!IsEmpty(ListItem.Trailer)</enable>
+				<enable>!String.IsEmpty(ListItem.Trailer)</enable>
 				<visible>String.IsEqual(ListItem.DBTYPE,movie)</visible>
 			</control>
 			<control type="group" id="905">
@@ -597,7 +596,7 @@
 			<label>$LOCALIZE[206]</label>
 			<font>apptv22</font>
 			<align>right</align>
-			<visible>SubString(Control.GetLabel(5),$LOCALIZE[207])</visible>
+			<visible>String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
 		</control>
 		<control type="label">
 			<left>20</left>
@@ -607,7 +606,7 @@
 			<label>$LOCALIZE[31691]</label>
 			<font>apptv20</font>
 			<align>right</align>
-			<visible>!SubString(Control.GetLabel(5),$LOCALIZE[207]) + ![IsEmpty(Container(950).ListItem.Label)]</visible><!-- Not showing Cast and recommended video list has something to show -->
+			<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + ![String.IsEmpty(Container(950).ListItem.Label)]</visible><!-- Not showing Cast and recommended video list has something to show -->
 		</control>
 		<control type="image">
 			<left>340</left>
@@ -692,7 +691,7 @@
 			</control>
 		</control>
 		<control type="list" id="950">
-			<visible>!SubString(Control.GetLabel(5),$LOCALIZE[207])</visible>
+			<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
 			<left>10</left>
 			<top>518</top>
 			<width>1260</width>

@@ -74,7 +74,7 @@
 				<label>$INFO[VideoPlayer.Plot]</label>
 				<align>justify</align>
 				<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
-				<visible>!IsEmpty(VideoPlayer.Plot)</visible>
+				<visible>!String.IsEmpty(VideoPlayer.Plot)</visible>
 			</control>
 			<control type="textbox" id="1"><!-- Plot Outline (Show if plot not found)-->
 				<left>290</left>
@@ -84,7 +84,7 @@
 				<font>apptv20</font>
 				<label>$INFO[VideoPlayer.PlotOutline]</label>
 				<align>justify</align>
-				<visible>!IsEmpty(VideoPlayer.PlotOutline) + IsEmpty(VideoPlayer.Plot)</visible>
+				<visible>!String.IsEmpty(VideoPlayer.PlotOutline) + String.IsEmpty(VideoPlayer.Plot)</visible>
 			</control>
 
 			<control type="grouplist" id="1"><!-- Media flags -->
