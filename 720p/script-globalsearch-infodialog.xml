@@ -196,7 +196,7 @@
 						<left>340</left>
 						<top>112</top>
 						<width>900</width>
-						<height>118</height>
+						<height>116</height>
 						<label fallback="161">$INFO[Container(100).ListItem.Property(Plot)]</label>
 						<font>apptv20</font>
 						<align>justify</align>
@@ -404,7 +404,7 @@
 						<left>340</left>
 						<top>112</top>
 						<width>900</width>
-						<height>118</height>
+						<height>116</height>
 						<label fallback="161">$INFO[Container(100).ListItem.Property(Plot)]</label>
 						<font>apptv20</font>
 						<align>justify</align>
@@ -591,7 +591,7 @@
 						<left>340</left>
 						<top>112</top>
 						<width>900</width>
-						<height>118</height>
+						<height>116</height>
 						<label fallback="161">$INFO[Container(100).ListItem.Property(Plot)]</label>
 						<font>apptv20</font>
 						<align>justify</align>
@@ -799,7 +799,7 @@
 						<left>340</left>
 						<top>112</top>
 						<width>900</width>
-						<height>118</height>
+						<height>116</height>
 						<label fallback="161">$INFO[Container(100).ListItem.Property(Plot)]</label>
 						<font>apptv20</font>
 						<align>justify</align>
@@ -954,7 +954,7 @@
 						<left>340</left>
 						<top>112</top>
 						<width>900</width>
-						<height>118</height>
+						<height>116</height>
 						<label fallback="161">$INFO[Container(100).ListItem.Property(Plot)]</label>
 						<font>apptv20</font>
 						<align>justify</align>
@@ -1157,7 +1157,7 @@
 						<left>340</left>
 						<top>112</top>
 						<width>900</width>
-						<height>118</height>
+						<height>116</height>
 						<label fallback="161">$INFO[Container(100).ListItem.Property(Artist_Description)]</label>
 						<font>apptv20</font>
 						<align>justify</align>
@@ -1282,7 +1282,7 @@
 						<left>340</left>
 						<top>112</top>
 						<width>900</width>
-						<height>118</height>
+						<height>116</height>
 						<label fallback="161">$INFO[Container(100).ListItem.Property(Album_Description)]</label>
 						<font>apptv20</font>
 						<align>justify</align>
@@ -1424,7 +1424,7 @@
 						<left>340</left>
 						<top>112</top>
 						<width>900</width>
-						<height>118</height>
+						<height>116</height>
 						<label fallback="161">$INFO[Container(100).ListItem.Property(Comment)]</label>
 						<font>apptv20</font>
 						<align>justify</align>
@@ -1594,7 +1594,7 @@
 						<left>340</left>
 						<top>112</top>
 						<width>900</width>
-						<height>118</height>
+						<height>116</height>
 						<label fallback="161">$INFO[Container(100).ListItem.Property(Plot)]</label>
 						<font>apptv20</font>
 						<align>justify</align>
@@ -1706,12 +1706,14 @@
 					<top>-150</top>
 					<width>250</width>
 					<height>45</height>
+					<onfocus>SetFocus(190)</onfocus>
 				</control>
 				<control type="button" id="193"><!-- Hidden Trailer button -->
 					<left>-200</left>
 					<top>-100</top>
 					<width>250</width>
 					<height>45</height>
+					<onfocus>SetFocus(190)</onfocus>
 				</control>
 			</control>
 
@@ -1776,11 +1778,10 @@
 				<width>900</width>
 				<height>4</height>
 				<texture>separator.png</texture>
-				<visible>![String.IsEmpty(Container(950).ListItem.Label)]</visible>
 			</control>
 			<control type="list" id="950">
 				<left>10</left>
-				<top>508</top>
+				<top>518</top>
 				<width>1260</width>
 				<height>208</height>
 				<onleft>noop</onleft>
@@ -1791,37 +1792,37 @@
 				<itemlayout height="208" width="210">
 					<control type="image">
 						<left>48</left>
-						<top>8</top>
+						<top>0</top>
 						<width>114</width>
-						<height>150</height>
+						<height>148</height>
 						<aspectratio scalediffuse="true">keep</aspectratio>
 						<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Thumb]</texture>
 						<visible>Control.IsVisible(110) | Control.IsVisible(150)</visible>
 					</control>
 					<control type="image">
 						<left>48</left>
-						<top>8</top>
+						<top>0</top>
 						<width>114</width>
-						<height>150</height>
+						<height>148</height>
 						<aspectratio scalediffuse="true">keep</aspectratio>
 						<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Thumb]</texture>
 						<visible>Control.IsVisible(120) | Control.IsVisible(130) | Control.IsVisible(140)</visible>
 					</control>
 					<control type="image">
 						<left>30</left>
-						<top>8</top>
-						<width>150</width>
-						<height>150</height>
-						<aspectratio scalediffuse="true">keep</aspectratio>
+						<top>0</top>
+						<width>148</width>
+						<height>148</height>
+						<aspectratio scalediffuse="true">stretch</aspectratio>
 						<texture diffuse="mask-rect.png" fallback="DefaultAudio.png" background="true">$INFO[ListItem.Thumb]</texture>
 						<visible>Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180)</visible>
 					</control>
 					<control type="image">
 						<left>30</left>
-						<top>8</top>
-						<width>150</width>
-						<height>150</height>
-						<aspectratio scalediffuse="true">keep</aspectratio>
+						<top>0</top>
+						<width>148</width>
+						<height>148</height>
+						<aspectratio scalediffuse="true">stretch</aspectratio>
 						<texture diffuse="mask-rect.png" fallback="icon-livetv.png" background="true">$INFO[ListItem.Thumb]</texture>
 						<visible>Control.IsVisible(200)</visible>
 					</control>
@@ -1831,115 +1832,115 @@
 						<visible>!Control.HasFocus(950)</visible>
 						<control type="image">
 							<left>48</left>
-							<top>8</top>
+							<top>0</top>
 							<width>114</width>
-							<height>150</height>
+							<height>148</height>
 							<aspectratio scalediffuse="true">keep</aspectratio>
 							<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Thumb]</texture>
 							<visible>Control.IsVisible(110) | Control.IsVisible(150)</visible>
 						</control>
 						<control type="image">
 							<left>48</left>
-							<top>8</top>
+							<top>0</top>
 							<width>114</width>
-							<height>150</height>
+							<height>148</height>
 							<aspectratio scalediffuse="true">keep</aspectratio>
 							<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Thumb]</texture>
 							<visible>Control.IsVisible(120) | Control.IsVisible(130) | Control.IsVisible(140)</visible>
 						</control>
 						<control type="image">
 							<left>30</left>
-							<top>8</top>
-							<width>150</width>
-							<height>150</height>
-							<aspectratio scalediffuse="true">keep</aspectratio>
+							<top>0</top>
+							<width>148</width>
+							<height>148</height>
+							<aspectratio scalediffuse="true">stretch</aspectratio>
 							<texture diffuse="mask-rect.png" fallback="DefaultAudio.png" background="true">$INFO[ListItem.Thumb]</texture>
 							<visible>Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180)</visible>
 						</control>
 						<control type="image">
 							<left>30</left>
-							<top>8</top>
-							<width>150</width>
-							<height>150</height>
-							<aspectratio scalediffuse="true">keep</aspectratio>
+							<top>0</top>
+							<width>148</width>
+							<height>148</height>
+							<aspectratio scalediffuse="true">stretch</aspectratio>
 							<texture diffuse="mask-rect.png" fallback="icon-livetv.png" background="true">$INFO[ListItem.Thumb]</texture>
 							<visible>Control.IsVisible(200)</visible>
 						</control>
 					</control>
 					<control type="group">
 						<visible>Control.HasFocus(950)</visible>
-						<control type="image">
-							<left>40</left>
+							<control type="image">
+							<left>48</left>
 							<top>0</top>
-							<width>130</width>
-							<height>166</height>
+							<width>114</width>
+							<height>148</height>
 							<aspectratio scalediffuse="true">keep</aspectratio>
 							<texture diffuse="mask-rect.png" background="true">$INFO[ListItem.Thumb]</texture>
-							<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+							<animation effect="zoom" start="100" end="108" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 							<visible>[Control.IsVisible(110) | Control.IsVisible(150)] + !String.IsEmpty(ListItem.Thumb) + !String.StartsWith(ListItem.Thumb,Default)</visible>
 						</control>
 						<control type="image">
-							<left>22</left>
+							<left>30</left>
 							<top>0</top>
-							<width>166</width>
-							<height>166</height>
+							<width>148</width>
+							<height>148</height>
 							<aspectratio>keep</aspectratio>
 							<texture>DefaultVideo.png</texture>
 							<visible>[Control.IsVisible(110) | Control.IsVisible(150)] + [String.IsEmpty(ListItem.Thumb) | String.StartsWith(ListItem.Thumb,Default)]</visible>
 						</control>
 						<control type="image">
-							<left>40</left>
+							<left>48</left>
 							<top>0</top>
-							<width>130</width>
-							<height>166</height>
+							<width>114</width>
+							<height>148</height>
 							<aspectratio scalediffuse="true">keep</aspectratio>
 							<texture diffuse="mask-rect.png" background="true">$INFO[ListItem.Thumb]</texture>
-							<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+							<animation effect="zoom" start="100" end="108" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 							<visible>[Control.IsVisible(120) | Control.IsVisible(130) | Control.IsVisible(140)] + !String.IsEmpty(ListItem.Thumb) + !String.StartsWith(ListItem.Thumb,Default)</visible>
 						</control>
 						<control type="image">
-							<left>22</left>
+							<left>30</left>
 							<top>0</top>
-							<width>166</width>
-							<height>166</height>
+							<width>148</width>
+							<height>148</height>
 							<aspectratio>keep</aspectratio>
 							<texture>DefaultTVShows.png</texture>
 							<visible>[Control.IsVisible(120) | Control.IsVisible(130) | Control.IsVisible(140)] + [String.IsEmpty(ListItem.Thumb) | String.StartsWith(ListItem.Thumb,Default)]</visible>
 						</control>
 						<control type="image">
-							<left>22</left>
+							<left>30</left>
 							<top>0</top>
-							<width>166</width>
-							<height>166</height>
+							<width>148</width>
+							<height>148</height>
 							<aspectratio scalediffuse="true">keep</aspectratio>
 							<texture diffuse="mask-rect.png" background="true">$INFO[ListItem.Thumb]</texture>
-							<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+							<animation effect="zoom" start="100" end="108" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 							<visible>[Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180)] + !String.IsEmpty(ListItem.Thumb) + !String.StartsWith(ListItem.Thumb,Default)</visible>
 						</control>
 						<control type="image">
-							<left>22</left>
+							<left>30</left>
 							<top>0</top>
-							<width>166</width>
-							<height>166</height>
+							<width>148</width>
+							<height>148</height>
 							<aspectratio>keep</aspectratio>
 							<texture>DefaultAudio.png</texture>
 							<visible>[Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180)] + [String.IsEmpty(ListItem.Thumb) | String.StartsWith(ListItem.Thumb,Default)]</visible>
 						</control>
 						<control type="image">
-							<left>22</left>
+							<left>30</left>
 							<top>0</top>
-							<width>166</width>
-							<height>166</height>
+							<width>148</width>
+							<height>148</height>
 							<aspectratio scalediffuse="true">keep</aspectratio>
 							<texture diffuse="mask-rect.png" background="true">$INFO[ListItem.Thumb]</texture>
-							<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+							<animation effect="zoom" start="100" end="108" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 							<visible>Control.IsVisible(200) + !String.IsEmpty(ListItem.Thumb) + !String.StartsWith(ListItem.Thumb,Default)</visible>
 						</control>
 						<control type="image">
-							<left>22</left>
+							<left>30</left>
 							<top>0</top>
-							<width>166</width>
-							<height>166</height>
+							<width>148</width>
+							<height>148</height>
 							<aspectratio>keep</aspectratio>
 							<texture>icon-livetv.png</texture>
 							<visible>Control.IsVisible(200) + [String.IsEmpty(ListItem.Thumb) | String.StartsWith(ListItem.Thumb,Default)]</visible>
@@ -1947,7 +1948,7 @@
 					</control>
 					<control type="textbox">
 						<left>0</left>
-						<top>160</top>
+						<top>152</top>
 						<width>210</width>
 						<height>48</height>
 						<label>$INFO[ListItem.Label]</label>

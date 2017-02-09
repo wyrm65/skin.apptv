@@ -37,6 +37,7 @@
 	</include>
 
 	<include name="AddonFavourites">
+	<content>
 		<item>
 			<label>$INFO[Skin.String(CustomAddon.1.Label)]</label>
 			<onclick>$INFO[Skin.String(CustomAddon.1.Path)]</onclick>
@@ -72,6 +73,7 @@
 			<property name="ItemType">$LOCALIZE[31652]</property>
 			<visible>!String.IsEmpty(Skin.String(CustomAddon.5.Path))</visible>
 		</item>
+	</content>
 	</include>
 
 	<include name="movie-shelficons">
@@ -571,9 +573,7 @@
 						<visible>Control.HasFocus(9360)</visible>
 					</control>
 				</focusedlayout>
-				<content>
-					<include condition="String.IsEqual(Skin.String(shelf-addonimages),$LOCALIZE[31652])">AddonFavourites</include>
-				</content>
+				<include condition="String.IsEqual(Skin.String(shelf-addonimages),$LOCALIZE[31652])">AddonFavourites</include>
 			</control>
 		</control>
 	</include>

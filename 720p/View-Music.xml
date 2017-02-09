@@ -524,7 +524,7 @@
 						<aspectratio>stretch</aspectratio>
 						<bordertexture border="20,18,10,18">case-cd.png</bordertexture>
 						<bordersize>20,18,10,18</bordersize>
-						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + !String.IsEmpty(ListItem.Icon)</visible>
+						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + $EXP[isnotEmptyIcon]</visible>
 					</control>
 					<control type="image">
 						<left>-32</left>
@@ -534,7 +534,7 @@
 						<colordiffuse>UnFocusedCovers</colordiffuse>
 						<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
-						<visible>!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | String.IsEmpty(ListItem.Icon)</visible>
+						<visible>!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | $EXP[isEmptyIcon]</visible>
 					</control>
 				</control>
 				<control type="image">
@@ -560,7 +560,7 @@
 						<aspectratio>stretch</aspectratio>
 						<bordertexture border="28,22,14,22">case-cd.png</bordertexture>
 						<bordersize>28,22,14,22</bordersize>
-						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + !String.IsEmpty(ListItem.Icon) + Control.HasFocus(54)</visible>
+						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + $EXP[isnotEmptyIcon] + Control.HasFocus(54)</visible>
 					</control>
 					<control type="image">
 						<left>14</left>
@@ -569,7 +569,7 @@
 						<width>288</width>
 						<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
-						<visible>[!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | String.IsEmpty(ListItem.Icon)] + Control.HasFocus(54)</visible>
+						<visible>[!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | $EXP[isEmptyIcon]] + Control.HasFocus(54)</visible>
 					</control>
 					<control type="image">
 						<left>6</left>
@@ -581,7 +581,7 @@
 						<aspectratio>stretch</aspectratio>
 						<bordertexture border="28,22,14,22">case-cd.png</bordertexture>
 						<bordersize>28,22,14,22</bordersize>
-						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + !String.IsEmpty(ListItem.Icon) + !Control.HasFocus(54)</visible>
+						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + $EXP[isnotEmptyIcon] + !Control.HasFocus(54)</visible>
 					</control>
 					<control type="image">
 						<left>14</left>
@@ -591,7 +591,7 @@
 						<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 						<colordiffuse>UnFocusedCovers</colordiffuse>
 						<aspectratio>stretch</aspectratio>
-						<visible>[!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | String.IsEmpty(ListItem.Icon)] + !Control.HasFocus(54)</visible>
+						<visible>[!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | $EXP[isEmptyIcon]] + !Control.HasFocus(54)</visible>
 					</control>
 				</control>
 				<control type="image">
