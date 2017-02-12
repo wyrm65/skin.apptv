@@ -165,7 +165,7 @@
 	</variable>
 	<variable name="Overlay">
 		<value condition="ListItem.IsResumable">OverlayPartialyWatched.png</value>
-		<value condition="String.Contains(ListItem.Overlay,OverlayWatched,Left)">OverlayWatched.png</value>
+		<value condition="String.StartsWith(ListItem.Overlay,OverlayWatched)">OverlayWatched.png</value>
 		<value condition="[Container.Content(tvshows) | Container.Content(seasons)] + !ListItem.IsParentFolder + !Integer.IsGreater(ListItem.Property(WatchedEpisodes),0)">OverlayUnwatched.png</value>
 		<value condition="[Container.Content(tvshows) | Container.Content(seasons)] + Integer.IsGreater(ListItem.Property(UnWatchedEpisodes),0)">OverlayPartialyWatched.png</value>
 		<value condition="!ListItem.IsFolder + !Container.Content(Addons)">OverlayUnwatched.png</value>
@@ -2126,7 +2126,7 @@
 		</control>
 	</include>
 
-	<include name="group-focusvert">
+	<include name="element-focusvert">
 		<control type="grouplist">
 			<left>576</left>
 			<top>0</top>
@@ -2136,7 +2136,7 @@
 			<itemgap>0</itemgap>
 			<aligny>center</aligny>
 			<align>center</align>
-			<visible>[[Window.IsVisible(MyPVRChannels.xml) + [Control.IsVisible(11) | Control.IsVisible(12) | Control.IsVisible(12)]] | Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | String.Contains(Control.GetLabel(2),$LOCALIZE[31941],Right) | String.Contains(Control.GetLabel(2),$LOCALIZE[31943],Right) | String.Contains(Control.GetLabel(2),$LOCALIZE[31944],Right) | String.Contains(Control.GetLabel(2),$LOCALIZE[31946],Right)] + [!Skin.HasSetting(lock-screensettings) | [!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Integer.IsGreater(Container().NumPages,1)]]</visible>
+			<visible>[Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | String.EndsWith(Control.GetLabel(2),$LOCALIZE[31941]) | String.EndsWith(Control.GetLabel(2),$LOCALIZE[31943]) | String.EndsWith(Control.GetLabel(2),$LOCALIZE[31944]) | String.EndsWith(Control.GetLabel(2),$LOCALIZE[31946])] + [!Skin.HasSetting(lock-screensettings) | [!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Integer.IsGreater(Container().NumPages,1)]]</visible>
 			<control type="image">
 				<width>32</width>
 				<height>32</height>
@@ -2187,8 +2187,8 @@
 			</control>
 		</control>
 	</include>
-	
-	<include name="group-focushorz">
+
+	<include name="element-focushorz">
 		<control type="grouplist">
 			<left>0</left>
 			<top>150</top>
@@ -2197,7 +2197,7 @@
 			<itemgap>0</itemgap>
 			<aligny>center</aligny>
 			<align>center</align>
-			<visible>[String.Contains(Control.GetLabel(2),$LOCALIZE[31942],Right) | String.Contains(Control.GetLabel(2),$LOCALIZE[31945],Right)] + [!Skin.HasSetting(lock-screensettings) | [!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Integer.IsGreater(Container().NumPages,1)]]</visible>
+			<visible>[String.EndsWith(Control.GetLabel(2),$LOCALIZE[31942]) | String.EndsWith(Control.GetLabel(2),$LOCALIZE[31945])] + [!Skin.HasSetting(lock-screensettings) | [!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Integer.IsGreater(Container().NumPages,1)]]</visible>
 			<control type="image">
 				<width>32</width>
 				<height>32</height>
