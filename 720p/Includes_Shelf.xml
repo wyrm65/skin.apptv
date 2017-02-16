@@ -97,7 +97,7 @@
 					<height>178</height>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[MovieShelfIcon0]</texture>
-					<camera x="65" y="159" />
+					<camera x="65" y="159"/>
 					<animation effect="rotatey" center="0" end="-60" time="600" condition="true">Conditional</animation>
 					<visible>Container(9160).HasPrevious</visible>
 				</control>
@@ -108,7 +108,7 @@
 					<height>178</height>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[MovieShelfIcon7]</texture>
-					<camera x="1215" y="159" />
+					<camera x="1215" y="159"/>
 					<animation effect="rotatey" center="1280" end="60" time="600" condition="true">Conditional</animation>
 					<visible>Container(9160).HasNext</visible>
 				</control>
@@ -246,7 +246,7 @@
 			<control type="group">
 				<visible>String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31949])</visible><!-- Banners -->
 				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
-				<camera x="640" y="180" />
+				<camera x="640" y="180"/>
 				<control type="image">
 					<left>0</left>
 					<top>72</top>
@@ -291,7 +291,7 @@
 			<control type="group">
 				<visible>[String.IsEmpty(Skin.String(shelf-tvshowimgtyp)) | String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31950])]</visible><!-- Posters -->
 				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
-				<camera x="640" y="159" />
+				<camera x="640" y="159"/>
 				<control type="image">
 					<left>-30</left>
 					<top>54</top>
@@ -408,7 +408,7 @@
 					<height>164</height>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" fallback="DefaultAudio.png" diffuse="mask-squ.png" background="true">$VAR[MusicShelfIcon0]</texture>
-					<camera x="65" y="159" />
+					<camera x="65" y="159"/>
 					<animation effect="rotatey" center="0" end="-60" time="300" condition="true">Conditional</animation>
 					<visible>Container(9260).HasPrevious</visible>
 				</control>
@@ -419,7 +419,7 @@
 					<height>164</height>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" fallback="DefaultAudio.png" diffuse="mask-squ.png" background="true">$VAR[MusicShelfIcon6]</texture>
-					<camera x="1212" y="159" />
+					<camera x="1212" y="159"/>
 					<animation effect="rotatey" center="1276" end="60" time="300" condition="true">Conditional</animation>
 					<visible>Container(9260).HasNext</visible>
 				</control>
@@ -591,7 +591,7 @@
 				<visible>Integer.IsGreater(Container(9510).NumItems,0)</visible>
 			</control>
 			<control type="group">
-				<camera x="640" y="159" />
+				<camera x="640" y="159"/>
 				<control type="image">
 					<left>-30</left>
 					<top>54</top>

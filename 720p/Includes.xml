@@ -2314,4 +2314,15 @@
 		<animation effect="fade" time="100">WindowClose</animation>
 	</include>
 
+	<include name="zoom-openclose">
+		<animation type="WindowOpen" reversible="false">
+			<effect type="fade" time="100"/>
+			<effect type="zoom" start="140" end="100" time="100" center="auto"/>
+		</animation>
+		<animation type="WindowClose" reversible="false">
+			<effect type="fade" time="100" delay="100"/>
+			<effect type="zoom" end="140" time="100" delay="100" center="auto"/>
+		</animation>
+	</include>
+
 </includes>
