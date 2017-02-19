@@ -179,7 +179,7 @@
 					<height>460</height>
 					<onright>120</onright>
 					<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-					<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+					<visible>$EXP[isEnabledScrollbar]</visible>
 				</control>
 				<control type="group" id="130">
 					<control type="grouplist">

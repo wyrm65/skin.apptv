@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">655</defaultcontrol>
-	<visible>[System.HasMediaDVD | Player.HasMedia] + Window.IsActive(playercontrols) + !Window.IsActive(fullscreenvideo) + !Window.IsActive(visualisation)</visible>
+	<visible>[System.HasMediaDVD | Player.HasMedia] + Window.IsActive(playercontrols) + $EXP[isnotFullscreenVideo] + !Window.IsActive(visualisation)</visible>
 	<coordinates>
 		<left>0</left>
 		<top>0</top>
@@ -23,7 +23,7 @@
 			<texturefocus>touch-close.png</texturefocus>
 			<texturenofocus>touch-close.png</texturenofocus>
 			<onclick>Dialog.Close(playercontrols)</onclick>
-			<visible>Skin.HasSetting(touch-controls)</visible>
+			<visible>$EXP[isEnabledTouch]</visible>
 		</control>
 
 		<!-- Media Info -->
@@ -56,7 +56,7 @@
 				<texturefocus>blank.png</texturefocus>
 				<onclick>Dialog.Close(playercontrols)</onclick>
 				<onclick>Fullscreen</onclick>
-				<visible>Skin.HasSetting(touch-controls)</visible>
+				<visible>$EXP[isEnabledTouch]</visible>
 			</control>
 			<control type="label"><!-- Now playing -->
 				<left>354</left>
@@ -153,7 +153,7 @@
 				<texturenofocus>blank.png</texturenofocus>
 				<onclick>Dialog.Close(playercontrols)</onclick>
 				<onclick>Fullscreen</onclick>
-				<visible>Skin.HasSetting(touch-controls)</visible>
+				<visible>$EXP[isEnabledTouch]</visible>
 			</control>
 			<control type="label">
 				<left>354</left>

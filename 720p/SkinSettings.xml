@@ -112,7 +112,7 @@
 			<height>542</height>
 			<onright>998</onright>
 			<animation condition="!Control.HasFocus(1223) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-			<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + !Skin.String(skinsettingmenu,custom)</visible>
+			<visible>$EXP[isEnabledScrollbar] + !Skin.String(skinsettingmenu,custom)</visible>
 		</control>
 		<control type="group" id="998">
 			<control type="group" id="100"><!-- Startup Settings -->
@@ -290,7 +290,7 @@
 						<label>$LOCALIZE[31890]</label>
 						<textwidth>750</textwidth>
 						<onclick>Skin.ToggleSetting(touch-controls)</onclick>
-						<selected>Skin.HasSetting(touch-controls)</selected>
+						<selected>$EXP[isEnabledTouch]</selected>
 						<radioposx>844</radioposx>
 						<enable>System.GetBool(input.enablemouse)</enable>
 					</control>

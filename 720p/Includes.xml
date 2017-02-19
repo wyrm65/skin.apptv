@@ -11,6 +11,32 @@
 		_DummyDialog 1157
 	-->
 
+	<!-- Expressions section -->
+	<expression name="isFullscreenVideo">Window.IsActive(fullscreenvideo)</expression>
+	<expression name="isnotFullscreenVideo">!Window.IsActive(fullscreenvideo)</expression>
+	<expression name="isVideoAddon">String.Contains(Container.FolderPath,plugin://plugin.video)</expression>
+	<expression name="isMovie">String.IsEqual(ListItem.DBTYPE,movie)</expression>
+	<expression name="isVideo">String.IsEqual(ListItem.DBTYPE,video)</expression>
+	<expression name="isTvshow">String.IsEqual(ListItem.DBTYPE,tvshow)</expression>
+	<expression name="isSeason">String.IsEqual(ListItem.DBTYPE,season)</expression>
+	<expression name="isSet">String.IsEqual(ListItem.DBTYPE,set)</expression>
+	<expression name="isEpisode">String.IsEqual(ListItem.DBTYPE,episode)</expression>
+	<expression name="isMusicvideo">String.IsEqual(ListItem.DBTYPE,musicvideo)</expression>
+	<expression name="isArtist">String.IsEqual(ListItem.DBTYPE,artist)</expression>
+	<expression name="isAlbum">String.IsEqual(ListItem.DBTYPE,album)</expression>
+	<expression name="isSong">String.IsEqual(ListItem.DBTYPE,song)</expression>
+	<expression name="isEmptyIcon">String.IsEmpty(ListItem.Icon)</expression>
+	<expression name="isnotEmptyIcon">!String.IsEmpty(ListItem.Icon)</expression>
+	<expression name="isEmptyDBID">String.IsEmpty(ListItem.DBID)</expression>
+	<expression name="isnotEmptyDBID">!String.IsEmpty(ListItem.DBID)</expression>
+	<expression name="isDefaultIcon">String.StartsWith(ListItem.Icon,Default)</expression>
+	<expression name="isnotDefaultIcon">!String.StartsWith(ListItem.Icon,Default)</expression>
+	<expression name="isInfoDialog">[Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]</expression>
+	<expression name="isEnabledTouch">Skin.HasSetting(touch-controls)</expression>
+	<expression name="isEnabledParentDirectory">System.GetBool(filelists.showparentdiritems)</expression>
+	<expression name="isnotEnabledParentDirectory">!System.GetBool(filelists.showparentdiritems)</expression>
+	<expression name="isEnabledScrollbar">!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</expression>
+
 	<!-- Skin Variable section -->
 	<variable name="BackgndImage">
 		<value condition="Window.IsActive(weather) + Skin.HasSetting(background-customweather.multi) + !String.IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(weather).Property(Current.FanartCode)]</value>
@@ -741,14 +767,12 @@
 	<variable name="VideoLogo">
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo)) + [Container.Content(tvshows) | Container.Content(movies)]">$INFO[ListItem.Art(clearlogo)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + Container.Content(tvshows)">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
-		<value condition="String.IsEmpty(ListItem.Art(clearlogo)) + [Container.Content(tvshows) | Container.Content(movies)]">$INFO[ListItem.path,,logo.png]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.Clearlogo))">$INFO[Window(home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
 	</variable>
 	<variable name="ListViewVideoLogo">
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo)) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies)]">$INFO[ListItem.Art(clearlogo)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
-		<value condition="String.IsEmpty(ListItem.Art(clearlogo)) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(movies)]">$INFO[ListItem.path,,logo.png]</value>
-		<value condition="String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + [Container.Content(tvshows) | Container.Content(seasons)]">$INFO[ListItem.path,,logo.png]</value>
-		<value condition="String.IsEmpty(ListItem.Art(clearlogo)) + Container.Content(episodes)">$INFO[ListItem.Path,,../logo.png]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.Clearlogo))">$INFO[Window(home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
 	</variable>
 	<variable name="PlayerVideoArt">
 		<value condition="[VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)] + !String.IsEmpty(Player.Art(clearart))">$INFO[Player.Art(clearart)]</value>
@@ -1598,26 +1622,6 @@
 
 	<include file="Defaults.xml"/>
 
-	<!-- Expressions section -->
-	<expression name="isVideoAddon">String.Contains(Container.FolderPath,plugin://plugin.video)</expression>
-	<expression name="isMovie">String.IsEqual(ListItem.DBTYPE,movie)</expression>
-	<expression name="isVideo">String.IsEqual(ListItem.DBTYPE,video)</expression>
-	<expression name="isTvshow">String.IsEqual(ListItem.DBTYPE,tvshow)</expression>
-	<expression name="isSeason">String.IsEqual(ListItem.DBTYPE,season)</expression>
-	<expression name="isSet">String.IsEqual(ListItem.DBTYPE,set)</expression>
-	<expression name="isEpisode">String.IsEqual(ListItem.DBTYPE,episode)</expression>
-	<expression name="isMusicvideo">String.IsEqual(ListItem.DBTYPE,musicvideo)</expression>
-	<expression name="isArtist">String.IsEqual(ListItem.DBTYPE,artist)</expression>
-	<expression name="isAlbum">String.IsEqual(ListItem.DBTYPE,album)</expression>
-	<expression name="isSong">String.IsEqual(ListItem.DBTYPE,song)</expression>
-	<expression name="isEmptyIcon">String.IsEmpty(ListItem.Icon)</expression>
-	<expression name="isnotEmptyIcon">!String.IsEmpty(ListItem.Icon)</expression>
-	<expression name="isEmptyDBID">String.IsEmpty(ListItem.DBID)</expression>
-	<expression name="isnotEmptyDBID">!String.IsEmpty(ListItem.DBID)</expression>
-	<expression name="isDefaultIcon">String.StartsWith(ListItem.Icon,Default)</expression>
-	<expression name="isnotDefaultIcon">!String.StartsWith(ListItem.Icon,Default)</expression>
-	<expression name="isInfoDialog">[Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]</expression>
-
 	<include name="defaultskinsettings"><!-- various default settings  -->
 		<onload>Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
 		<onload>Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
@@ -1677,7 +1681,7 @@
 
 	<include name="player-mediaicon">
 		<control type="group" id="1"><!-- Player Media Icon -->
-			<visible>[Window.IsActive(fullscreenvideo)] + ![Window.IsActive(musicosd)]</visible>
+			<visible>[$EXP[isFullscreenVideo]] + ![Window.IsActive(musicosd)]</visible>
 			<control type="group" id="1">
 				<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible><!-- Movies or Tv Episodes -->
 				<animation effect="fade" time="200">VisibleChange</animation>
@@ -1699,7 +1703,7 @@
 					<texturenofocus>blank.png</texturenofocus>
 					<onclick>Close</onclick>
 					<onclick>FullScreen</onclick>
-					<visible>Skin.HasSetting(touch-controls)</visible>
+					<visible>$EXP[isEnabledTouch]</visible>
 				</control>
 			</control>
 			<control type="group" id="1"><!-- Any video other than Movies and TV Episodes -->
@@ -1723,7 +1727,7 @@
 					<texturenofocus>blank.png</texturenofocus>
 					<onclick>Close</onclick>
 					<onclick>PreviousMenu</onclick>
-					<visible>Skin.HasSetting(touch-controls)</visible>
+					<visible>$EXP[isEnabledTouch]</visible>
 				</control>
 			</control>
 		</control>
@@ -2054,7 +2058,7 @@
 
 	<include name="touch-controls">
 		<control type="grouplist" id="8000">
-			<visible>Skin.HasSetting(touch-controls)</visible>
+			<visible>$EXP[isEnabledTouch]</visible>
 			<left>20</left>
 			<top>684</top>
 			<width>376</width>

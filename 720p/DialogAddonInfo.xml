@@ -61,7 +61,7 @@
 				<onleft>9000</onleft>
 				<ondown>9000</ondown>
 				<animation condition="!Control.HasFocus(1223) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+				<visible>$EXP[isEnabledScrollbar]</visible>
 			</control>
 			<control type="image">
 				<left>380</left>

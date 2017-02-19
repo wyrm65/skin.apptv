@@ -68,7 +68,7 @@
 				<texturenofocus>touch-close.png</texturenofocus>
 				<onclick condition="!String.IsEqual(Window(home).Property(ShowScreenSettings),show)">SetProperty(ShowScreenSettings,show,home)</onclick>
 				<onclick condition="String.IsEqual(Window(home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,home)</onclick>
-				<visible>Skin.HasSetting(touch-controls)</visible>
+				<visible>$EXP[isEnabledTouch]</visible>
 			</control>
 			<control type="image">
 				<left>472</left>

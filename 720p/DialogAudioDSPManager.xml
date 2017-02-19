@@ -174,7 +174,7 @@
 					<ondown>60</ondown>
 					<onup>60</onup>
 					<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-					<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+					<visible>$EXP[isEnabledScrollbar]</visible>
 					<orientation>vertical</orientation>
 				</control>
 				<control type="label">
@@ -280,7 +280,7 @@
 					<ondown>61</ondown>
 					<onup>61</onup>
 					<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-					<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+					<visible>$EXP[isEnabledScrollbar]</visible>
 					<orientation>vertical</orientation>
 				</control>
 			</control>

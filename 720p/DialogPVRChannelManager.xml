@@ -36,7 +36,7 @@
 				<height>532</height>
 				<onright>20</onright>
 				<animation condition="!Control.HasFocus(60) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+				<visible>$EXP[isEnabledScrollbar]</visible>
 			</control>
 			<control type="list" id="20">
 				<left>36</left>

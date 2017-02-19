@@ -31,7 +31,7 @@
 				<texturefocus>touch-close.png</texturefocus>
 				<texturenofocus>touch-close.png</texturenofocus>
 				<onclick>Dialog.Close(sliderdialog)</onclick>
-				<visible>Skin.HasSetting(touch-controls)</visible>
+				<visible>$EXP[isEnabledTouch]</visible>
 			</control>
 			<control type="label" id="12"><!-- Slider value -->
 				<left>370</left>

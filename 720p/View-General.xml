@@ -151,7 +151,7 @@
 					<height>555</height>
 					<onleft>50</onleft>
 					<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-					<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+					<visible>$EXP[isEnabledScrollbar]</visible>
 				</control>
 			</control>
 		</control>
@@ -280,7 +280,7 @@
 			<height>527</height>
 			<onleft>52</onleft>
 			<animation condition="!Control.HasFocus(1252) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-			<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Control.IsVisible(52)</visible>
+			<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(52)</visible>
 		</control>
 	</include>
 	<include name="WrapView">
@@ -334,7 +334,7 @@
 				<onup>54</onup>
 				<orientation>horizontal</orientation>
 				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+				<visible>$EXP[isEnabledScrollbar]</visible>
 			</control>
 			<control type="label"><!-- Go Back -->
 				<left>17</left>
@@ -440,7 +440,7 @@
 				<onup>54</onup>
 				<orientation>horizontal</orientation>
 				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + String.StartsWith(Container.Viewmode,Wrap)</visible>
+				<visible>$EXP[isEnabledScrollbar] + String.StartsWith(Container.Viewmode,Wrap)</visible>
 			</control>
 			<control type="label"><!-- Go Back -->
 				<left>17</left>
@@ -512,7 +512,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(-5).Icon</info>
 				<animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,10) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,9) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,10) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,9) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>88</left>
@@ -522,7 +522,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(-4).Icon</info>
 				<animation effect="rotatey" center="10" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,8) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,7) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,8) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,7) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>177</left>
@@ -532,7 +532,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(-3).Icon</info>
 				<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,6) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,5) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,6) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,5) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>265</left>
@@ -542,7 +542,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(-2).Icon</info>
 				<animation effect="rotatey" center="110" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,4) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,3) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,4) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,3) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>1008</left>
@@ -552,7 +552,7 @@
 				<texture background="true" diffuse="mask-rect.png">DefaultScript.png</texture>
 				<info>Container.ListItem(4).Icon</info>
 				<animation effect="rotatey" center="1434" start="60" end="60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,7) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,6) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,7) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,6) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>920</left>
@@ -562,7 +562,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(3).Icon</info>
 				<animation effect="rotatey" center="1345" start="60" end="60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,5) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,4) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,5) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,4) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>831</left>
@@ -572,7 +572,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(2).Icon</info>
 				<animation effect="rotatey" center="1257" start="60" end="60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,3) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,2) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,3) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,2) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>743</left>
@@ -582,7 +582,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(1).Icon</info>
 				<animation effect="rotatey" center="1168" start="60" end="60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,1) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,0) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,1) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,0) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="group">
 				<visible>Control.IsVisible(57) + Container.OnNext</visible>
@@ -596,7 +596,7 @@
 					<info>Container.ListItem(-1).Icon</info>
 					<visible>Container.OnNext</visible>
 					<animation effect="rotatey" center="220" start="0" end="-60" time="200" reversible="false">Hidden</animation>
-					<visible>[Integer.IsGreater(Container(57).NumItems,2) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,1) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,2) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,1) + $EXP[isEnabledParentDirectory]]</visible>
 				</control>
 				<control type="image">
 					<left>654</left>
@@ -625,7 +625,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(-4).Icon</info>
 				<animation effect="rotatey" center="-90" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,8) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,7) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,8) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,7) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>0</left>
@@ -635,7 +635,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(-3).Icon</info>
 				<animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,6) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,5) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,6) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,5) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>88</left>
@@ -645,7 +645,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(-2).Icon</info>
 				<animation effect="rotatey" center="10" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,4) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,3) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,4) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,3) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>177</left>
@@ -655,7 +655,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(-1).Icon</info>
 				<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,2) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,1) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,2) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,1) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>920</left>
@@ -665,7 +665,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(5).Icon</info>
 				<animation effect="rotatey" center="1345" start="60" end="60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,9) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,8) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,9) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,8) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>831</left>
@@ -675,7 +675,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(4).Icon</info>
 				<animation effect="rotatey" center="1257" start="60" end="60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,7) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,6) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,7) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,6) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>743</left>
@@ -685,7 +685,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(3).Icon</info>
 				<animation effect="rotatey" center="1168" start="60" end="60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,5) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,4) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,5) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,4) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>654</left>
@@ -695,7 +695,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(2).Icon</info>
 				<animation effect="rotatey" center="1080" start="60" end="60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,3) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,2) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,3) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,2) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="group">
 				<visible>Control.IsVisible(57) + Container.OnPrevious</visible>
@@ -709,7 +709,7 @@
 					<info>Container.ListItem(1).Icon</info>
 					<visible>Container.OnPrevious</visible>
 					<animation effect="rotatey" center="500" start="0" end="60" time="200" reversible="false">Hidden</animation>
-					<visible>[Integer.IsGreater(Container(57).NumItems,1) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,0) + System.GetBool(filelists.showparentdiritems)]</visible>
+					<visible>[Integer.IsGreater(Container(57).NumItems,1) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,0) + $EXP[isEnabledParentDirectory]]</visible>
 				</control>
 				<control type="image">
 					<left>265</left>
@@ -737,7 +737,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(-4).Icon</info>
 				<animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,8) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,7) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,8) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,7) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>88</left>
@@ -747,7 +747,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(-3).Icon</info>
 				<animation effect="rotatey" center="10" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,6) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,5) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,6) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,5) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>177</left>
@@ -757,7 +757,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(-2).Icon</info>
 				<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,4) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,3) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,4) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,3) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>265</left>
@@ -767,7 +767,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(-1).Icon</info>
 				<animation effect="rotatey" center="110" start="-60" end="-60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,2) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,1) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,2) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,1) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>920</left>
@@ -777,7 +777,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(4).Icon</info>
 				<animation effect="rotatey" center="1345" start="60" end="60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,7) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,6) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,7) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,6) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>831</left>
@@ -787,7 +787,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(3).Icon</info>
 				<animation effect="rotatey" center="1257" start="60" end="60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,5) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,4) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,5) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,4) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>743</left>
@@ -797,7 +797,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(2).Icon</info>
 				<animation effect="rotatey" center="1168" start="60" end="60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,3) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,2) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,3) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,2) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>654</left>
@@ -807,7 +807,7 @@
 				<texture background="true" diffuse="mask-squ.png">DefaultScript.png</texture>
 				<info>Container.ListItem(1).Icon</info>
 				<animation effect="rotatey" center="1080" start="60" end="60" time="0" condition="true">Conditional</animation>
-				<visible>[Integer.IsGreater(Container(57).NumItems,1) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,0) + System.GetBool(filelists.showparentdiritems)]</visible>
+				<visible>[Integer.IsGreater(Container(57).NumItems,1) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,0) + $EXP[isEnabledParentDirectory]]</visible>
 			</control>
 			<control type="image">
 				<left>484</left>
@@ -831,7 +831,7 @@
 				<onup>57</onup>
 				<orientation>horizontal</orientation>
 				<animation condition="!Control.HasFocus(1257) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + [[Integer.IsGreater(Container(57).NumItems,10) + !System.GetBool(filelists.showparentdiritems)] | [Integer.IsGreater(Container(57).NumItems,9) + System.GetBool(filelists.showparentdiritems)]]</visible>
+				<visible>$EXP[isEnabledScrollbar] + [[Integer.IsGreater(Container(57).NumItems,10) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,9) + $EXP[isEnabledParentDirectory]]]</visible>
 			</control>
 			<control type="label">
 				<left>194</left>
@@ -936,7 +936,7 @@
 				<height>490</height>
 				<onleft>58</onleft>
 				<animation condition="!Control.HasFocus(1258) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+				<visible>$EXP[isEnabledScrollbar]</visible>
 			</control>
 		</control>
 	</include>
@@ -1049,7 +1049,7 @@
 				<height>527</height>
 				<onleft>58</onleft>
 				<animation condition="!Control.HasFocus(1258) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+				<visible>$EXP[isEnabledScrollbar]</visible>
 			</control>
 		</control>
 	</include>

@@ -13,7 +13,7 @@
 			<width>396</width>
 			<height>226</height>
 			<texture border="9">button-menu-background.png</texture>
-			<visible>!Window.IsActive(fullscreenvideo)</visible>
+			<visible>$EXP[isnotFullscreenVideo]</visible>
 		</control>
 		<control type="image"><!-- Dialog background Fullscreen video screen-->
 			<left>720</left>
@@ -21,7 +21,7 @@
 			<width>396</width>
 			<height>226</height>
 			<texture colordiffuse="UnFocusedPosters" border="9">button-menu-background.png</texture>
-			<visible>Window.IsActive(fullscreenvideo)</visible>
+			<visible>$EXP[isFullscreenVideo]</visible>
 		</control>
 		<control type="label"><!-- Header -->
 			<left>730</left>
@@ -39,7 +39,7 @@
 			<texturefocus>touch-close.png</texturefocus>
 			<texturenofocus>touch-close.png</texturenofocus>
 			<onclick>Dialog.Close(1151)</onclick>
-			<visible>Skin.HasSetting(touch-controls)</visible>
+			<visible>$EXP[isEnabledTouch]</visible>
 		</control>
 		<control type="image">
 			<left>730</left>

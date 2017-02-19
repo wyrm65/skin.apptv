@@ -52,7 +52,7 @@
 				<texturefocus>touch-close.png</texturefocus>
 				<texturenofocus>touch-close.png</texturenofocus>
 				<onclick>Dialog.Close(pvrosdchannels)</onclick>
-				<visible>Skin.HasSetting(touch-controls)</visible>
+				<visible>$EXP[isEnabledTouch]</visible>
 			</control>
 			<control type="image">
 				<left>412</left>
@@ -254,7 +254,7 @@
 				<height>510</height>
 				<onleft>11</onleft>
 				<animation condition="!Control.HasFocus(60) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+				<visible>$EXP[isEnabledScrollbar]</visible>
 			</control>
 			<control type="label"><!-- Number of files text label -->
 				<left>412</left>
