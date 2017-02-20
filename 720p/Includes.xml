@@ -245,24 +245,23 @@
 		<value>osd-btn-repeat.png</value>
 	</variable>
 	<variable name="PlayStateImage">
-		<value condition="Player.Paused + Player.Caching + !Player.Seeking + !Player.DisplayAfterSeek">busy.png</value>
-		<value condition="Player.Paused + !Player.Seeking + !Player.DisplayAfterSeek">osd-btn-pause.png</value>
-		<value condition="Player.Forwarding">osd-btn-fastfwd.png</value>
-		<value condition="Player.Rewinding">osd-btn-rewind.png</value>
-		<value condition="!Player.Seeking + [Player.Rewinding2x | Player.Rewinding4x | Player.Rewinding8x | Player.Rewinding16x | Player.Rewinding32x]">osd-btn-rewind.png</value>
-		<value condition="!Player.Seeking + [Player.Forwarding2x | Player.Forwarding4x | Player.Forwarding8x | Player.Forwarding16x | Player.Forwarding32x]">osd-btn-fastfwd.png</value>
+		<value condition="Player.Caching">busy.png</value>
+		<value condition="Player.Paused">osd-btn-pause-focus.png</value>
+		<value condition="Player.Forwarding">osd-btn-fastfwd-focus.png</value>
+		<value condition="Player.Rewinding">osd-btn-rewind-focus.png</value>
+		<value condition="[Player.Rewinding2x | Player.Rewinding4x | Player.Rewinding8x | Player.Rewinding16x | Player.Rewinding32x]">osd-btn-rewind-focus.png</value>
+		<value condition="[Player.Forwarding2x | Player.Forwarding4x | Player.Forwarding8x | Player.Forwarding16x | Player.Forwarding32x]">osd-btn-fastfwd-focus.png</value>
 	</variable>
 	<variable name="PlayStateTxt">
-		<value condition="Player.Paused + Player.Caching + !Player.Seeking + !Player.DisplayAfterSeek"> $LOCALIZE[15107] $INFO[Player.CacheLevel]%</value>
-		<value condition="Player.Paused + !Player.Seeking + !Player.DisplayAfterSeek">$LOCALIZE[112]</value>
-		<value condition="Player.Seeking">$INFO[Player.SeekStepSize]</value>
+		<value condition="Player.Caching"> $LOCALIZE[15107] $INFO[Player.CacheLevel]%</value>
+		<value condition="Player.Paused">$LOCALIZE[112]</value>
+		<value condition="!String.IsEmpty(Player.SeekStepSize)">$INFO[Player.SeekStepSize]</value>
+		<value condition="[Player.Rewinding2x | Player.Forwarding2x]">x2</value>
+		<value condition="[Player.Rewinding4x | Player.Forwarding4x]">x4</value>
+		<value condition="[Player.Rewinding8x | Player.Forwarding8x]">x8</value>
+		<value condition="[Player.Rewinding16x | Player.Forwarding16x]">x16</value>
+		<value condition="[Player.Rewinding32x | Player.Forwarding32x]">x32</value>
 		<value condition="Player.IsTempo">$INFO[Player.Playspeed,$LOCALIZE[31703] x ,]</value>
-		<value condition="!String.IsEmpty(Player.SeekStepSize) + ![Player.Forwarding | Player.Rewinding]">$LOCALIZE[31038] $INFO[Player.SeekOffset]</value>
-		<value condition="!Player.Seeking + [Player.Rewinding2x | Player.Forwarding2x]">x2</value>
-		<value condition="!Player.Seeking + [Player.Rewinding4x | Player.Forwarding4x]">x4</value>
-		<value condition="!Player.Seeking + [Player.Rewinding8x | Player.Forwarding8x]">x8</value>
-		<value condition="!Player.Seeking + [Player.Rewinding16x | Player.Forwarding16x]">x16</value>
-		<value condition="!Player.Seeking + [Player.Rewinding32x | Player.Forwarding32x]">x32</value>
 	</variable>
 	<variable name="VideoDuration">
 		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItemDuration)) + !String.IsEqual(Window(home).Property(SkinHelper.ListItemDuration.Hours),0)">$INFO[Window(home).Property(SkinHelper.ListItemDuration.Hours),,h]$INFO[Window(home).Property(SkinHelper.ListItemDuration.Minutes),,m]</value>
@@ -2320,12 +2319,12 @@
 
 	<include name="zoom-openclose">
 		<animation type="WindowOpen" reversible="false">
-			<effect type="fade" time="100"/>
-			<effect type="zoom" start="140" end="100" time="100" center="auto"/>
+			<effect type="fade" time="200"/>
+			<effect type="zoom" start="110" end="100" time="200" center="auto"/>
 		</animation>
 		<animation type="WindowClose" reversible="false">
-			<effect type="fade" time="100" delay="100"/>
-			<effect type="zoom" end="140" time="100" delay="100" center="auto"/>
+			<effect type="fade" time="200" delay="100"/>
+			<effect type="zoom" end="110" time="200" delay="100" center="auto"/>
 		</animation>
 	</include>
 

@@ -16,17 +16,17 @@
 		<control type="group">
 			<visible>[Window.IsVisible(fullscreenvideo) | Window.IsVisible(visualisation)] + ![Window.IsVisible(sliderdialog) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(osdaudiodspsettings) | Window.IsVisible(subtitlesearch) | Window.IsVisible(videobookmarks)]</visible>
 			<control type="image"><!-- Seekbar Dialog background image -->
-				<left>376</left>
-				<top>296</top>
-				<height>128</height>
-				<width>528</width>
+				<left>426</left>
+				<top>116</top>
+				<height>88</height>
+				<width>428</width>
 				<texture border="12">backgroundmsg.png</texture>
 				<colordiffuse>mask-background</colordiffuse>
-				<visible>Player.Seeking | Player.Paused | Player.Forwarding | Player.Rewinding </visible>
+				<visible>Player.Caching | Player.Seeking | Player.Paused | Player.Forwarding | Player.Rewinding | !String.IsEmpty(Player.SeekStepSize)</visible>
 			</control>
 			<control type="grouplist">
 				<left>408</left>
-				<top>328</top>
+				<top>128</top>
 				<width>464</width>
 				<height>64</height>
 				<align>center</align>
@@ -39,8 +39,8 @@
 					<animation effect="rotate" start="360" end="0" center="auto" time="5400" loop="true" condition="String.IsEqual(Control.GetLabel(750),busy.png)">conditional</animation>
 				</control>
 				<control type="label"><!-- Player state text -->
-					<width min="0" max="400">auto</width>
-					<height>64</height>
+					<width min="0" max="380">auto</width>
+					<height>60</height>
 					<label>$VAR[PlayStateTxt]</label>
 					<font>apptv38</font>
 				</control>
