@@ -301,6 +301,10 @@
 	<setting id="libraryentry-tv-val" value="6" label="$LOCALIZE[137]" condition="" icon="" description=""><!-- TV Search -->
 		<onselect condition="True">Skin.SetString(libraryentry-tv,$LOCALIZE[137])</onselect>
 	</setting>
+	<setting id="libraryentry-tv-val" value="7" label="$LOCALIZE[31652]" condition="System.HasAddon(script.favourites)" icon="" description=""><!-- Custom Favourite -->
+		<onselect condition="True">Skin.SetString(libraryentry-tv,$LOCALIZE[31652])</onselect>
+		<onselect condition="True">RunScript(script.favourites,changetitle=false&amp;property=CustomTVEntry)</onselect>
+	</setting>
 
 	<!-- Radio entry point -->
 	<setting id="libraryentry-radio-val" value="1" label="$LOCALIZE[31703]" condition="" icon="" description="" default="true"><!-- Play Radio -->
@@ -320,6 +324,10 @@
 	</setting>
 	<setting id="libraryentry-radio-val" value="6" label="$LOCALIZE[137]" condition="" icon="" description=""><!-- Radio Search -->
 		<onselect condition="True">Skin.SetString(libraryentry-radio,$LOCALIZE[137])</onselect>
+	</setting>
+	<setting id="libraryentry-radio-val" value="7" label="$LOCALIZE[31652]" condition="System.HasAddon(script.favourites)" icon="" description=""><!-- Custom Favourite -->
+		<onselect condition="True">Skin.SetString(libraryentry-radio,$LOCALIZE[31652])</onselect>
+		<onselect condition="True">RunScript(script.favourites,changetitle=false&amp;property=CustomRadioEntry)</onselect>
 	</setting>
 
 	<!-- Display List View idle animation -->
