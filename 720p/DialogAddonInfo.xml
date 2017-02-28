@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">9000</defaultcontrol>
+	<onunload>ClearProperty(showinfo,addoninformation)</onunload>
 	<controls>
 		<include>background</include>
 		<control type="group">
@@ -125,11 +126,11 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="group">
-					<visible>!String.IsEmpty(ListItem.AddonDisclaimer)</visible>
+					<visible>IsEmpty(Window.Property(showinfo)) + !String.IsEmpty(ListItem.AddonDisclaimer)</visible>
 					<control type="label"><!-- Disclaimer heading -->
 						<left>0</left>
 						<top>52</top>
-						<width>860</width>
+						<width>160</width>
 						<height>22</height>
 						<label>$LOCALIZE[24052]</label>
 						<font>apptv22</font>
@@ -137,10 +138,30 @@
 					<control type="textbox">
 						<left>168</left>
 						<top>54</top>
-						<width>850</width>
+						<width>750</width>
 						<height>100</height>
 						<font>apptv20</font>
 						<label>$INFO[ListItem.AddonDisclaimer]</label>
+						<autoscroll time="2000" delay="3000" repeat="5000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
+					</control>
+				</control>
+				<control type="group">
+					<visible>String.Contains(Window.Property(showinfo),news)</visible>
+					<control type="label"><!-- Addon news heading -->
+						<left>0</left>
+						<top>52</top>
+						<width>160</width>
+						<height>22</height>
+						<label>$LOCALIZE[29916]</label>
+						<font>apptv22</font>
+					</control>
+					<control type="textbox">
+						<left>168</left>
+						<top>54</top>
+						<width>750</width>
+						<height>100</height>
+						<font>apptv20</font>
+						<label>$INFO[ListItem.AddonNews]</label>
 						<autoscroll time="2000" delay="3000" repeat="5000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
 					</control>
 				</control>
@@ -179,6 +200,19 @@
 					<texturefocus>button-info-switch-focus.png</texturefocus>
 					<texturenofocus>button-info-switch.png</texturenofocus>
 					<visible>Control.IsEnabled(7)</visible>
+				</control>
+				<control type="togglebutton" id="800"><!-- news/info toggle -->
+					<include>videoinfo-options-common</include>
+					<label>$LOCALIZE[29916]</label>
+					<altlabel>$LOCALIZE[29915]</altlabel>
+					<texturefocus>button-info-plot-focus.png</texturefocus>
+					<texturenofocus>button-info-plot.png</texturenofocus>
+					<alttexturefocus>button-info-plot-focus.png</alttexturefocus>
+					<alttexturenofocus>button-info-plot.png</alttexturenofocus>
+					<usealttexture>StringCompare(Window.Property(showinfo),news)</usealttexture>
+					<onclick condition="!StringCompare(Window.Property(showinfo),news)">SetProperty(showinfo,news)</onclick>
+					<onclick condition="StringCompare(Window.Property(showinfo),news)">ClearProperty(showinfo)</onclick>
+					<visible>!String.IsEmpty(ListItem.AddonNews)</visible>
 				</control>
 				<control type="button" id="8"><!-- Update addon button -->
 					<include>videoinfo-options-common</include>
