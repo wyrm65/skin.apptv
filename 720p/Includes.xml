@@ -764,8 +764,8 @@
 		<value condition="Container.Position(9)">$INFO[Container.ListItemNoWrap(5).Icon]</value>
 	</variable>
 	<variable name="VideoLogo">
-		<value condition="!String.IsEmpty(ListItem.Art(clearlogo)) + [Container.Content(tvshows) | Container.Content(movies)]">$INFO[ListItem.Art(clearlogo)]</value>
-		<value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + Container.Content(tvshows)">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(clearlogo)) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,movie)]">$INFO[ListItem.Art(clearlogo)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + String.IsEqual(ListItem.DBTYPE,tvshow)">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
 		<value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.Clearlogo))">$INFO[Window(home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
 	</variable>
 	<variable name="ListViewVideoLogo">

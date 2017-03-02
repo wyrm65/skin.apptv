@@ -13,7 +13,7 @@
 		</control>
 		<control type="group">
 			<control type="group">
-				<visible>String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
+				<visible>![$EXP[isMusicvideo]]</visible>
 				<control type="image" id="7018"><!-- Show logo -->
 					<left>340</left>
 					<top>12</top>
@@ -36,7 +36,20 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Label]</label>
 					<textoffsetx>0</textoffsetx>
-					<visible>String.IsEmpty(Control.GetLabel(7018))</visible>
+					<visible>String.IsEmpty(Control.GetLabel(7018)) + String.IsEmpty(ListItem.TVShowTitle)</visible>
+				</control>
+				<control type="label"><!-- Title -->
+					<left>340</left>
+					<top>12</top>
+					<width>760</width>
+					<height>72</height>
+					<font>apptv30</font>
+					<wrapmultiline>true</wrapmultiline>
+					<aligny>center</aligny>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					<label>$INFO[ListItem.TVShowTitle]</label>
+					<textoffsetx>0</textoffsetx>
+					<visible>String.IsEmpty(Control.GetLabel(7018)) + !String.IsEmpty(ListItem.TVShowTitle)</visible>
 				</control>
 			</control>
 			<control type="label"><!-- Title (Artist - Title for music videos) -->
@@ -50,10 +63,9 @@
 				<label>$INFO[ListItem.Label]</label>
 				<textoffsetx>0</textoffsetx>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				<visible>!String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEqual(ListItem.DBTYPE,movie)</visible>
+				<visible>$EXP[isMusicvideo]</visible>
 			</control>
 			<control type="group">
-				<visible>!String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
 				<control type="image"><!-- MPAA Rating Dropshadow-->
 					<left>1121</left>
 					<top>40</top>
@@ -143,7 +155,7 @@
 					<height>356</height>
 					<aspectratio scalediffuse="true">keep</aspectratio>
 					<texture background="true" fallback="DefaultMovies.png" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-					<visible>String.IsEqual(ListItem.DBTYPE,movie)</visible>
+					<visible>$EXP[isMovie]</visible>
 				</control>
 				<control type="image"><!-- Video cover-->
 					<left>55</left>
@@ -152,7 +164,7 @@
 					<height>356</height>
 					<aspectratio scalediffuse="true">keep</aspectratio>
 					<texture background="true" fallback="DefaultTvshows.png" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-					<visible>String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
+					<visible>$EXP[isTvshow] | $EXP[isSeason]</visible>
 				</control>
 				<control type="image">
 					<left>55</left>
@@ -161,7 +173,7 @@
 					<height>230</height>
 					<aspectratio scalediffuse="true">keep</aspectratio>
 					<texture background="true" fallback="DefaultTvshows.png" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-					<visible>String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)</visible>
+					<visible>$EXP[isEpisode]</visible>
 				</control>
 				<control type="image">
 					<left>55</left>
@@ -170,7 +182,7 @@
 					<height>230</height>
 					<aspectratio scalediffuse="true">keep</aspectratio>
 					<texture background="true" fallback="DefaultMusicVideos.png" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-					<visible>String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
+					<visible>$EXP[isMusicvideo]</visible>
 				</control>
 			</control>
 			<control type="label"><!-- Details heading -->
@@ -200,16 +212,7 @@
 				<height>20</height>
 				<font>apptv20</font>
 				<label>$LOCALIZE[172] $INFO[ListItem.Year]</label>
-				<visible>String.IsEqual(ListItem.DBTYPE,movie)</visible>
-			</control>
-			<control type="label"><!-- Duration -->
-				<left>340</left>
-				<top>314</top>
-				<width>320</width>
-				<height>20</height>
-				<font>apptv20</font>
-				<label>$LOCALIZE[31133] $VAR[VideoDuration]</label>
-				<visible>!String.IsEmpty(Listitem.Duration)</visible>
+				<visible>$EXP[isMovie]</visible>
 			</control>
 			<control type="label"><!-- Premiered -->
 				<left>340</left>
@@ -219,32 +222,37 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[20416] $INFO[ListItem.Premiered]</label>
 				<font>apptv20</font>
-				<visible>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,episode)| String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
+				<visible>$EXP[isTvshow] | $EXP[isEpisode] | $EXP[isMusicvideo]</visible>
+			</control>
+			<control type="label"><!-- Duration -->
+				<left>340</left>
+				<top>314</top>
+				<width>320</width>
+				<height>20</height>
+				<font>apptv20</font>
+				<label>$LOCALIZE[31133] $VAR[VideoDuration]</label>
+				<visible>[$EXP[isMovie] | $EXP[isEpisode] | $EXP[isMusicvideo]] + !String.IsEmpty(Listitem.Duration)</visible>
 			</control>
 			<control type="group">
-				<visible>String.IsEqual(ListItem.DBTYPE,tvshow)</visible>
-				<control type="group">
-					<visible>String.IsEqual(ListItem.FolderPath,videodb://tvshows/titles/)</visible>
-					<control type="label"><!-- Seasons -->
-						<left>340</left>
-						<top>315</top>
-						<width>320</width>
-						<height>20</height>
-						<label>$LOCALIZE[33054] $INFO[ListItem.Property(TotalSeasons)]</label>
-						<font>apptv20</font>
-					</control>
+				<visible>$EXP[isTvshow] | $EXP[isSeason]</visible>
+				<control type="label"><!-- Total Seasons -->
+					<left>340</left>
+					<top>315</top>
+					<width>320</width>
+					<height>20</height>
+					<label>$LOCALIZE[33054] $INFO[ListItem.Property(TotalSeasons)]</label>
+					<font>apptv20</font>
+					<visible>!String.IsEmpty(ListItem.Property(TotalSeasons))</visible>
 				</control>
-				<control type="group">
-					<visible>!String.IsEqual(ListItem.FolderPath,videodb://tvshows/titles/)</visible>
-					<control type="label"><!-- Current TVShow Season -->
-						<left>340</left>
-						<top>315</top>
-						<width>320</width>
-						<height>20</height>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-						<label>$INFO[ListItem.Label]</label>
-						<font>apptv20</font>
-					</control>
+				<control type="label"><!-- Current TVShow Name -->
+					<left>340</left>
+					<top>315</top>
+					<width>320</width>
+					<height>20</height>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					<label>$INFO[ListItem.Label]</label>
+					<font>apptv20</font>
+					<visible>String.IsEmpty(ListItem.Property(TotalSeasons))</visible>
 				</control>
 				<control type="label">
 					<left>340</left>
@@ -337,7 +345,7 @@
 				<aspectratio>keep</aspectratio>
 			</control>
 			<control type="group">
-				<visible>String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
+				<visible>$EXP[isMovie] | $EXP[isEpisode] | $EXP[isMusicvideo]</visible>
 				<control type="label">
 					<left>675</left>
 					<top>240</top>
@@ -347,7 +355,7 @@
 					<font>apptv22</font>
 					<textcolor>disabled-text</textcolor>
 					<shadowcolor>shadow-text</shadowcolor>
-					<visible>String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,episode)</visible>
+					<visible>$EXP[isMovie] | $EXP[isEpisode]</visible>
 				</control>
 				<control type="label">
 					<left>675</left>
@@ -358,7 +366,7 @@
 					<font>apptv22</font>
 					<textcolor>disabled-text</textcolor>
 					<shadowcolor>shadow-text</shadowcolor>
-					<visible>String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
+					<visible>$EXP[isMusicvideo]</visible>
 				</control>
 				<control type="label"><!-- Actor 1 -->
 					<left>675</left>
@@ -396,7 +404,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
+				<visible>$EXP[isMovie] | $EXP[isEpisode] | $EXP[isMusicvideo]</visible>
 				<control type="label"><!-- Director heading-->
 					<left>970</left>
 					<top>240</top>
@@ -406,6 +414,7 @@
 					<font>apptv22</font>
 					<textcolor>disabled-text</textcolor>
 					<shadowcolor>shadow-text</shadowcolor>
+					<visible>!String.IsEmpty(ListItem.Director)</visible>
 				</control>
 				<control type="label">
 					<left>970</left>
@@ -426,6 +435,7 @@
 					<font>apptv22</font>
 					<textcolor>disabled-text</textcolor>
 					<shadowcolor>shadow-text</shadowcolor>
+					<visible>!String.IsEmpty(ListItem.Writer)</visible>
 				</control>
 				<control type="label">
 					<left>970</left>
@@ -460,8 +470,8 @@
 				<texturenofocus>button-info-play.png</texturenofocus>
 				<alttexturefocus>button-info-browse-focus.png</alttexturefocus>
 				<alttexturenofocus>button-info-browse.png</alttexturenofocus>
-				<usealttexture>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season)</usealttexture>
-				<visible>!System.HasAddon(script.cinema.experience) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,musicvideo)]</visible>
+				<usealttexture>$EXP[isTvshow] | $EXP[isSeason]</usealttexture>
+				<visible>!System.HasAddon(script.cinema.experience) + [$EXP[isMovie] | $EXP[isEpisode] | $EXP[isTvshow] | $EXP[isMusicvideo]]</visible>
 			</control>
 			<control type="button" id="18"><!-- Home cinema button -->
 				<include>videoinfo-options-common</include>
@@ -470,7 +480,7 @@
 				<texturenofocus>button-info-play.png</texturenofocus>
 				<onclick>Dialog.Close(movieinformation)</onclick>
 				<onclick>RunScript(script.cinemavision,experience)</onclick>
-				<visible>System.HasAddon(script.cinemavision) + [String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,episode) | String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,musicvideo)]</visible>
+				<visible>System.HasAddon(script.cinemavision) + [$EXP[isMovie] | $EXP[isEpisode] | $EXP[isTvshow] | $EXP[isMusicvideo]]</visible>
 			</control>
 			<control type="button" id="11"><!-- Trailer button -->
 				<include>videoinfo-options-common</include>
@@ -478,10 +488,10 @@
 				<texturefocus>button-info-trailer-focus.png</texturefocus>
 				<texturenofocus>button-info-trailer.png</texturenofocus>
 				<enable>!String.IsEmpty(ListItem.Trailer)</enable>
-				<visible>String.IsEqual(ListItem.DBTYPE,movie)</visible>
+				<visible>$EXP[isMovie]</visible>
 			</control>
 			<control type="group" id="905">
-				<visible>!String.IsEqual(ListItem.DBTYPE,musicvideo)</visible>
+				<visible>![$EXP[isMusicvideo]]</visible>
 				<width>96</width>
 				<height>96</height>
 				<control type="button" id="5"><!-- Cast/Plot button -->
@@ -709,7 +719,7 @@
 					<height>148</height>
 					<aspectratio scalediffuse="true">keep</aspectratio>
 					<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Art(poster)]</texture>
-					<visible>![String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)]</visible>
+					<visible>![$EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
 				</control>
 				<control type="image">
 					<left>48</left>
@@ -718,7 +728,7 @@
 					<height>148</height>
 					<aspectratio scalediffuse="true">keep</aspectratio>
 					<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Art(poster)]</texture>
-					<visible>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)</visible>
+					<visible>$EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
 				</control>
 			</itemlayout>
 			<focusedlayout height="208" width="210">
@@ -731,7 +741,7 @@
 						<height>148</height>
 						<aspectratio scalediffuse="true">keep</aspectratio>
 						<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Art(poster)]</texture>
-						<visible>![String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)]</visible>
+						<visible>![$EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
 					</control>
 					<control type="image">
 						<left>48</left>
@@ -740,7 +750,7 @@
 						<height>148</height>
 						<aspectratio scalediffuse="true">keep</aspectratio>
 						<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Art(poster)]</texture>
-						<visible>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)</visible>
+						<visible>$EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
 					</control>
 				</control>
 				<control type="group">
@@ -753,7 +763,7 @@
 						<aspectratio scalediffuse="true">keep</aspectratio>
 						<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Art(poster)]</texture>
 						<animation effect="zoom" start="100" end="108" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
-						<visible>![String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)]</visible>
+						<visible>![$EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
 					</control>
 					<control type="image">
 						<left>48</left>
@@ -763,7 +773,7 @@
 						<aspectratio scalediffuse="true">keep</aspectratio>
 						<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Art(poster)]</texture>
 						<animation effect="zoom" start="100" end="108" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
-						<visible>String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)</visible>
+						<visible>$EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
 					</control>
 				</control>
 				<control type="textbox">
