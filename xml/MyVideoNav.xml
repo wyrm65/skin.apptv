@@ -162,6 +162,16 @@
 					<radioposx>495</radioposx>
 					<visible>String.EndsWith(Control.GetLabel(2),$LOCALIZE[31944])</visible>
 				</control>
+				<control type="radiobutton" id="208">
+					<!-- Use Media case Toggle -->
+					<width>639</width>
+					<height>69</height>
+					<label>$LOCALIZE[31869]</label>
+					<font>apptv22</font>
+					<onclick>Skin.ToggleSetting(dvd-case)</onclick>
+					<selected>Skin.HasSetting(dvd-case)</selected>
+					<radioposx>495</radioposx>
+				</control>
 				<control type="button" id="3">
 					<!-- Sort by button -->
 					<width>639</width>
@@ -178,19 +188,10 @@
 					<font>apptv22</font>
 				</control>
 				<control type="button" id="10">
-					<!-- Show button -->
+					<!-- Watched toggle button -->
 					<width>639</width>
 					<height>69</height>
 					<font>apptv22</font>
-					<visible>!Skin.HasSetting(watched_filtering_toggle)</visible>
-				</control>
-				<control type="button" id="14">
-					<!-- Watched video toggle button -->
-					<width>639</width>
-					<height>69</height>
-					<label>$LOCALIZE[20367]</label>
-					<font>apptv22</font>
-					<visible>Skin.HasSetting(watched_filtering_toggle)</visible>
 				</control>
 				<control type="button" id="210">
 					<!-- Custom Studio Icons Button -->
