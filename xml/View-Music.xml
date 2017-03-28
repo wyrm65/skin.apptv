@@ -498,7 +498,7 @@
 	<include name="AlbumWrapView">
 		<control type="wraplist" id="54">
 			<viewtype label="31942">wrap</viewtype>
-			<left>21</left>
+			<left>6</left>
 			<top>444</top>
 			<width>1860</width>
 			<height>549</height>
@@ -516,10 +516,10 @@
 				<control type="group">
 					<visible>Container.Content(albums) | Container.Content(songs)</visible>
 					<control type="image">
-						<left>-75</left>
-						<top>225</top>
-						<height>233</height>
-						<width>233</width>
+						<left>-80</left>
+						<top>240</top>
+						<height>216</height>
+						<width>228</width>
 						<colordiffuse>UnFocusedCovers</colordiffuse>
 						<texture background="true" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
@@ -529,7 +529,7 @@
 					</control>
 					<control type="image">
 						<left>-48</left>
-						<top>240</top>
+						<top>245</top>
 						<height>192</height>
 						<width>192</width>
 						<colordiffuse>UnFocusedCovers</colordiffuse>
@@ -540,7 +540,7 @@
 				</control>
 				<control type="image">
 					<left>-48</left>
-					<top>240</top>
+					<top>245</top>
 					<height>192</height>
 					<width>192</width>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
@@ -553,10 +553,10 @@
 				<control type="group">
 					<visible>Container.Content(albums) | Container.Content(songs)</visible>
 					<control type="image">
-						<left>9</left>
-						<top>0</top>
-						<height>458</height>
-						<width>458</width>
+						<left>48</left>
+						<top>68</top>
+						<height>388</height>
+						<width>408</width>
 						<texture background="true" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 						<aspectratio scalediffuse="true">stretch</aspectratio>
 						<bordertexture border="25,18,4,19">case-cd.png</bordertexture>
@@ -564,19 +564,19 @@
 						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + $EXP[isnotEmptyIcon] + Control.HasFocus(54)</visible>
 					</control>
 					<control type="image">
-						<left>21</left>
-						<top>3</top>
-						<height>432</height>
-						<width>432</width>
+						<left>51</left>
+						<top>35</top>
+						<height>402</height>
+						<width>402</width>
 						<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
 						<visible>[!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | $EXP[isEmptyIcon]] + Control.HasFocus(54)</visible>
 					</control>
 					<control type="image">
-						<left>9</left>
-						<top>0</top>
-						<height>458</height>
-						<width>458</width>
+						<left>48</left>
+						<top>68</top>
+						<height>388</height>
+						<width>408</width>
 						<texture background="true" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 						<colordiffuse>UnFocusedCovers</colordiffuse>
 						<aspectratio scalediffuse="true">stretch</aspectratio>
@@ -585,10 +585,10 @@
 						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + $EXP[isnotEmptyIcon] + !Control.HasFocus(54)</visible>
 					</control>
 					<control type="image">
-						<left>21</left>
-						<top>3</top>
-						<height>432</height>
-						<width>432</width>
+						<left>51</left>
+						<top>35</top>
+						<height>402</height>
+						<width>402</width>
 						<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 						<colordiffuse>UnFocusedCovers</colordiffuse>
 						<aspectratio>stretch</aspectratio>
