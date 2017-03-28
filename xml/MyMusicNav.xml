@@ -64,8 +64,8 @@
 			</control>
 			<control type="button">
 				<!-- Touch Close button -->
-				<left>1250</left>
-				<top>48</top>
+				<left>1252</left>
+				<top>42</top>
 				<width>48</width>
 				<height>48</height>
 				<texturefocus>touch-close.png</texturefocus>
@@ -120,6 +120,17 @@
 					<radioposx>495</radioposx>
 					<textoffsetx>15</textoffsetx>
 					<visible>String.EndsWith(Control.GetLabel(2),$LOCALIZE[31944])</visible>
+				</control>
+				<control type="radiobutton" id="208">
+					<!-- Use Media case Toggle -->
+					<width>558</width>
+					<height>72</height>
+					<label>$LOCALIZE[31869]</label>
+					<font>apptv22</font>
+					<onclick>Skin.ToggleSetting(media-case)</onclick>
+					<selected>Skin.HasSetting(media-case)</selected>
+					<radioposx>495</radioposx>
+					<textoffsetx>15</textoffsetx>
 				</control>
 				<control type="button" id="3">
 					<!-- Sort by -->
