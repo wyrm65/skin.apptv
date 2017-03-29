@@ -27,6 +27,12 @@
 	<include name="LatestRecordings">
 		<content target="pvr" limit="12">plugin://script.skin.helper.widgets/?action=recordings&amp;mediatype=pvr&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</content>
 	</include>
+	<include name="AddonRecent">
+		<content target="programs" limit="12">addons://recently_updated/</content>
+	</include>
+	<include name="AddonUpdated">
+		<content target="programs" limit="24">addons://outdated/</content>
+	</include>
 	<include name="AddonFavourites">
 		<content>
 			<item>
@@ -494,12 +500,38 @@
 		<control type="group">
 			<control type="label">
 				<!-- Addon shelf icon label-->
-				<left>82</left>
+				<left>45</left>
 				<top>15</top>
 				<height>30</height>
 				<width>600</width>
-				<label>$INFO[Container(9360).ListItem.Property(ItemType)]</label>
+				<label>$VAR[ShelfType]</label>
 				<font>apptv22</font>
+				<visible>Integer.IsGreater(Container(9360).NumItems,0)</visible>
+			</control>
+			<control type="group">
+				<visible>![[Skin.HasSetting(media-overlay) + [Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
+				<control type="image">
+					<left>0</left>
+					<top>98</top>
+					<width>246</width>
+					<height>246</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<texture colordiffuse="UnFocusedPosters" fallback="DefaultAddon.png" diffuse="mask-squ.png" background="true">$VAR[AddonShelfIcon]</texture>
+					<camera x="98" y="238" />
+					<animation effect="rotatey" center="0" end="-60" time="300" condition="true">Conditional</animation>
+					<visible>Container(9360).HasPrevious</visible>
+				</control>
+				<control type="image">
+					<left>1704</left>
+					<top>98</top>
+					<width>246</width>
+					<height>246</height>
+					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<texture colordiffuse="UnFocusedPosters" fallback="DefaultAddon.png" diffuse="mask-squ.png" background="true">$VAR[AddonShelfIcon6]</texture>
+					<camera x="1818" y="238" />
+					<animation effect="rotatey" center="1914" end="60" time="300" condition="true">Conditional</animation>
+					<visible>Container(9360).HasNext</visible>
+				</control>
 			</control>
 			<control type="list" id="9360">
 				<left>15</left>
@@ -520,7 +552,7 @@
 						<height>315</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<aligny>top</aligny>
-						<texture diffuse="mask-squ.png" fallback="DefaultAddon.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<texture diffuse="mask-squ.png" fallback="DefaultAddon.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 					</control>
 					<control type="image">
 						<left>32</left>
@@ -529,7 +561,7 @@
 						<height>315</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<aligny>top</aligny>
-						<texture fallback="DefaultAddon.png" flipy="true" diffuse="mask-fade.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<texture fallback="DefaultAddon.png" flipy="true" diffuse="mask-fadesqu.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 					</control>
 				</itemlayout>
 				<focusedlayout height="405" width="378">
@@ -540,7 +572,7 @@
 						<height>315</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<aligny>top</aligny>
-						<texture diffuse="mask-squ.png" fallback="DefaultAddon.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<texture diffuse="mask-squ.png" fallback="DefaultAddon.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					</control>
 					<control type="image">
@@ -550,7 +582,7 @@
 						<height>315</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<aligny>top</aligny>
-						<texture fallback="DefaultAddon.png" flipy="true" diffuse="mask-fade.png" background="true">$INFO[ListItem.Thumb]</texture>
+						<texture fallback="DefaultAddon.png" flipy="true" diffuse="mask-fadesqu.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 						<animation effect="zoom" start="100" end="104" center="188,156" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					</control>
 					<control type="textbox">
@@ -568,6 +600,8 @@
 					</control>
 				</focusedlayout>
 				<include condition="String.IsEqual(Skin.String(shelf-addonimages),$LOCALIZE[31652])">AddonFavourites</include>
+				<include condition="String.IsEqual(Skin.String(shelf-addonimages),$LOCALIZE[31954])">AddonRecent</include>
+				<include condition="String.IsEqual(Skin.String(shelf-addonimages),$LOCALIZE[31959])">AddonUpdated</include>
 			</control>
 		</control>
 	</include>
@@ -763,37 +797,16 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="multiimage">
-					<!-- Todays animated weather condition icon -->
+					<!-- Todays weather condition icon -->
 					<left>108</left>
 					<top>180</top>
 					<width>144</width>
 					<height>144</height>
-					<imagepath>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Current.FanartCode)]</imagepath>
+					<imagepath>$VAR[WeatherIconCurrent]</imagepath>
 					<aspectratio>keep</aspectratio>
 					<timeperimage>100</timeperimage>
 					<randomize>false</randomize>
 					<fadetime>1</fadetime>
-					<visible>!String.IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)</visible>
-				</control>
-				<control type="image">
-					<!-- Todays custom weather condition icon -->
-					<left>108</left>
-					<top>180</top>
-					<width>144</width>
-					<height>144</height>
-					<texture>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Current.FanartCode),,.png]</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>!String.IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)</visible>
-				</control>
-				<control type="image">
-					<!-- Todays default weather condition icon -->
-					<left>108</left>
-					<top>180</top>
-					<width>144</width>
-					<height>144</height>
-					<texture>$INFO[Window(weather).Property(Current.ConditionIcon)]</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>String.IsEmpty(Skin.String(custom-weathericons.path))</visible>
 				</control>
 				<control type="label">
 					<!-- Todays temperature range -->
@@ -831,37 +844,16 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="multiimage">
-					<!-- Day 1 animated custom weather condition icon -->
-					<left>120</left>
-					<top>102</top>
-					<width>120</width>
-					<height>120</height>
-					<imagepath>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Day1.FanartCode)]</imagepath>
-					<aspectratio>keep</aspectratio>
-					<timeperimage>100</timeperimage>
-					<randomize>false</randomize>
-					<fadetime>1</fadetime>
-					<visible>!String.IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)</visible>
-				</control>
-				<control type="image">
-					<!-- Day 1 custom weather condition icon -->
-					<left>120</left>
-					<top>102</top>
-					<width>120</width>
-					<height>120</height>
-					<texture>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day1.FanartCode),,.png]</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>!String.IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)</visible>
-				</control>
-				<control type="image">
 					<!-- Day 1 weather condition icon -->
 					<left>120</left>
 					<top>102</top>
 					<width>120</width>
 					<height>120</height>
-					<texture>$INFO[Window(weather).Property(Day1.OutlookIcon)]</texture>
+					<imagepath>$VAR[WeatherIconDay1]</imagepath>
 					<aspectratio>keep</aspectratio>
-					<visible>String.IsEmpty(Skin.String(custom-weathericons.path))</visible>
+					<timeperimage>100</timeperimage>
+					<randomize>false</randomize>
+					<fadetime>1</fadetime>
 				</control>
 				<control type="label">
 					<!-- Day 1 temperature range -->
@@ -899,37 +891,16 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="multiimage">
-					<!-- Day 2 animated custom weather condition icon -->
-					<left>120</left>
-					<top>102</top>
-					<width>120</width>
-					<height>120</height>
-					<imagepath>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Day2.FanartCode)]</imagepath>
-					<aspectratio>keep</aspectratio>
-					<timeperimage>100</timeperimage>
-					<randomize>false</randomize>
-					<fadetime>1</fadetime>
-					<visible>!String.IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)</visible>
-				</control>
-				<control type="image">
-					<!-- Day 2 custom weather condition icon -->
-					<left>120</left>
-					<top>102</top>
-					<width>120</width>
-					<height>120</height>
-					<texture>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Day2.FanartCode),,.png]</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>!String.IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)</visible>
-				</control>
-				<control type="image">
 					<!-- Day 2 weather condition icon -->
 					<left>120</left>
 					<top>102</top>
 					<width>120</width>
 					<height>120</height>
-					<texture>$INFO[Window(weather).Property(Day2.OutlookIcon)]</texture>
+					<imagepath>$VAR[WeatherIconDay2]</imagepath>
 					<aspectratio>keep</aspectratio>
-					<visible>String.IsEmpty(Skin.String(custom-weathericons.path))</visible>
+					<timeperimage>100</timeperimage>
+					<randomize>false</randomize>
+					<fadetime>1</fadetime>
 				</control>
 				<control type="label">
 					<!-- Day 2 temperature range -->
@@ -967,37 +938,16 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="multiimage">
-					<!-- Day 3 animated custom weather condition icon -->
-					<left>120</left>
-					<top>102</top>
-					<width>120</width>
-					<height>120</height>
-					<imagepath>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Day3.FanartCode)]</imagepath>
-					<aspectratio>keep</aspectratio>
-					<timeperimage>100</timeperimage>
-					<randomize>false</randomize>
-					<fadetime>1</fadetime>
-					<visible>!String.IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)</visible>
-				</control>
-				<control type="image">
-					<!-- Day 3 custom weather condition icon -->
-					<left>120</left>
-					<top>102</top>
-					<width>120</width>
-					<height>120</height>
-					<texture>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Day3.FanartCode),,.png]</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>!String.IsEmpty(Skin.String(custom-weathericons.path)) + !Skin.HasSetting(custom-weathericons.multi)</visible>
-				</control>
-				<control type="image">
 					<!-- Day 3 weather condition icon -->
 					<left>120</left>
 					<top>102</top>
 					<width>120</width>
 					<height>120</height>
-					<texture>$INFO[Window(weather).Property(Day3.OutlookIcon)]</texture>
+					<imagepath>$VAR[WeatherIconDay3]</imagepath>
 					<aspectratio>keep</aspectratio>
-					<visible>String.IsEmpty(Skin.String(custom-weathericons.path))</visible>
+					<timeperimage>100</timeperimage>
+					<randomize>false</randomize>
+					<fadetime>1</fadetime>
 				</control>
 				<control type="label">
 					<!-- Day3 temperature range -->
@@ -1036,37 +986,16 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="multiimage">
-					<!-- Day 4 animated custom weather condition icon -->
-					<left>120</left>
-					<top>102</top>
-					<width>120</width>
-					<height>120</height>
-					<imagepath>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day4.FanartCode)]</imagepath>
-					<aspectratio>keep</aspectratio>
-					<timeperimage>100</timeperimage>
-					<randomize>false</randomize>
-					<fadetime>1</fadetime>
-					<visible>[!String.IsEmpty(Skin.String(custom-weathericons.path))] + Skin.HasSetting(custom-weathericons.multi)</visible>
-				</control>
-				<control type="image">
-					<!-- Day 4 custom weather condition icon -->
-					<left>120</left>
-					<top>102</top>
-					<width>120</width>
-					<height>120</height>
-					<texture>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day4.FanartCode),,.png]</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>[!String.IsEmpty(Skin.String(custom-weathericons.path))] + [!Skin.HasSetting(custom-weathericons.multi)]</visible>
-				</control>
-				<control type="image">
 					<!-- Day 4 weather condition icon -->
 					<left>120</left>
 					<top>102</top>
 					<width>120</width>
 					<height>120</height>
-					<texture>$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(Weather).Property(Day4.OutlookIcon)]</texture>
+					<imagepath>$VAR[WeatherIconDay4]</imagepath>
 					<aspectratio>keep</aspectratio>
-					<visible>String.IsEmpty(Skin.String(custom-weathericons.path))</visible>
+					<timeperimage>100</timeperimage>
+					<randomize>false</randomize>
+					<fadetime>1</fadetime>
 				</control>
 				<control type="label">
 					<!-- Day 4 temp range -->

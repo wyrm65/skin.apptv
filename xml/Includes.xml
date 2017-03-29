@@ -921,6 +921,21 @@
 		<value condition="Container(9260).Position(3)">$INFO[Container(9260).ListItemNoWrap(2).Thumb]</value>
 		<value condition="Container(9260).Position(4)">$INFO[Container(9260).ListItemNoWrap(1).Thumb]</value>
 	</variable>
+	<variable name="AddonShelfIcon0">
+		<value condition="Container(9360).Position(0)">$INFO[Container(9360).ListItemNoWrap(-1).Thumb]</value>
+		<value condition="Container(9360).Position(1)">$INFO[Container(9360).ListItemNoWrap(-2).Thumb]</value>
+		<value condition="Container(9360).Position(2)">$INFO[Container(9360).ListItemNoWrap(-3).Thumb]</value>
+		<value condition="Container(9360).Position(3)">$INFO[Container(9360).ListItemNoWrap(-4).Thumb]</value>
+		<value condition="Container(9360).Position(4)">$INFO[Container(9360).ListItemNoWrap(-5).Thumb]</value>
+		<value condition="Container(9360).Position(5)">$INFO[Container(9360).ListItemNoWrap(-6).Thumb]</value>
+	</variable>
+	<variable name="AddonShelfIcon6">
+		<value condition="Container(9360).Position(0)">$INFO[Container(9360).ListItemNoWrap(5).Thumb]</value>
+		<value condition="Container(9360).Position(1)">$INFO[Container(9360).ListItemNoWrap(4).Thumb]</value>
+		<value condition="Container(9360).Position(2)">$INFO[Container(9360).ListItemNoWrap(3).Thumb]</value>
+		<value condition="Container(9360).Position(3)">$INFO[Container(9360).ListItemNoWrap(2).Thumb]</value>
+		<value condition="Container(9360).Position(4)">$INFO[Container(9360).ListItemNoWrap(1).Thumb]</value>
+	</variable>
 	<variable name="WeatherView">
 		<value condition="!String.Contains(Weather.plugin,weather.openweathermap.extended) + !String.Contains(Weather.plugin,weather.ozweather)">Skin.SetString(weather-view,$LOCALIZE[10508])</value>
 		<!-- Standard Forecast if not using extended forecast plugins -->
@@ -1068,7 +1083,10 @@
 		<value condition="[Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9530) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31031])] + String.IsEqual(Skin.String(shelf-broadcastimages),$LOCALIZE[31956])">$LOCALIZE[31961]</value>
 		<value condition="[Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9530) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31031])] + String.IsEqual(Skin.String(shelf-broadcastimages),$LOCALIZE[31957])">$LOCALIZE[31967]</value>
 		<value condition="[Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9530) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31031])] + String.IsEqual(Skin.String(shelf-broadcastimages),$LOCALIZE[31958])">$LOCALIZE[31968]</value>
-	</variable>
+		<value condition="[Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9380) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(shelf-addonimages),$LOCALIZE[31652])">$LOCALIZE[31652]</value>
+		<value condition="[Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9380) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(shelf-addonimages),$LOCALIZE[31954])">$LOCALIZE[31969]</value>
+		<value condition="[Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9380) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(shelf-addonimages),$LOCALIZE[31959])">$LOCALIZE[31970]</value>
+		</variable>
 	<variable name="MenuType">
 		<value condition="Skin.HasSetting(homemenu-vertical)">$LOCALIZE[31951]</value>
 		<value condition="Skin.HasSetting(homemenu-horizontal)">$LOCALIZE[31952]</value>
@@ -1626,7 +1644,7 @@
 		<value condition="ControlGroup(309).HasFocus()">$LOCALIZE[31317]</value>
 		<value condition="Control.HasFocus(312)">$LOCALIZE[31318]</value>
 		<value condition="Control.HasFocus(313)">$LOCALIZE[31320]</value>
-		<value condition="ControlGroup(314).HasFocus()">$LOCALIZE[31319]</value>
+		<value condition="Control.HasFocus(314)">$LOCALIZE[31319]</value>
 		<value condition="Control.HasFocus(402)">$LOCALIZE[31321]</value>
 		<value condition="Control.HasFocus(502) | Control.HasFocus(503)">$LOCALIZE[31340]</value>
 		<value condition="Control.HasFocus(504)">$LOCALIZE[31341]</value>
