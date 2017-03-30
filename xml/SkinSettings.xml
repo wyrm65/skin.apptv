@@ -485,7 +485,15 @@
 						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=shelf-addonimages-val,header=$LOCALIZE[31939] - $LOCALIZE[24001])</onclick>
 						<visible>Skin.HasSetting(homemenu-horizontal)</visible>
 					</control>
-
+					<control type="button" id="315">
+						<!-- Favourites Shelf icon type -->
+						<include>settings-submenu-common</include>
+						<textwidth>1178</textwidth>
+						<label>$LOCALIZE[1036]</label>
+						<label2>$INFO[Skin.String(shelf-customimages)]</label2>
+						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=shelf-customimages-val,header=$LOCALIZE[31939] - $LOCALIZE[1036])</onclick>
+						<visible>Skin.HasSetting(homemenu-horizontal)</visible>
+					</control>
 					<control type="button" id="317">
 						<!-- Reset Above Settings button -->
 						<include>settings-submenu-common</include>
@@ -501,6 +509,7 @@
 						<onclick>Skin.Reset(shelf-addonimages)</onclick>
 						<onclick>Skin.Reset(shelf-broadcastimages)</onclick>
 						<onclick>Skin.Reset(shelf-addonimages)</onclick>
+						<onclick>Skin.Reset(shelf-customimages)</onclick>
 					</control>
 				</control>
 			</control>

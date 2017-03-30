@@ -335,6 +335,16 @@
 					<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label])</onclick>
 					<visible>!String.IsEmpty(Window(settings).Property(ListCustomBase))</visible>
 				</control>
+				<control type="button" id="5019">
+					<!-- Change Heading Label of select default menu items -->
+					<width>1431</width>
+					<height>72</height>
+					<label>- [I]$LOCALIZE[31850][/I]</label>
+					<label2>$VAR[CustomFavHeading]</label2>
+					<font>apptv22</font>
+					<onclick>Skin.SetString(CustomFav.Heading)</onclick>
+					<visible>Skin.HasSetting(homemenu-horizontal) + !String.IsEmpty(Window(settings).Property(ListToggle)) + String.IsEqual(Window(settings).Property(ListToggle),home-favorites)</visible>
+				</control>
 			</control>
 		</control>
 		<control type="group" id="999">

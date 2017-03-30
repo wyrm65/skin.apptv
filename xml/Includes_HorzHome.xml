@@ -180,9 +180,34 @@
 					<include file="Includes_Shelf.xml">broadcast-shelficons</include>
 				</control>
 			</control>
+			<control type="group" id="9555">
+				<!-- Favourites icons -->
+				<visible>Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9580)</visible>
+				<control type="group">
+					<visible>String.IsEqual(Skin.String(shelf-customimages),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9560).NumItems,0)</visible>
+					<control type="image">
+						<left>828</left>
+						<top>57</top>
+						<width>264</width>
+						<height>264</height>
+						<texture>icon-fav.png</texture>
+					</control>
+					<control type="image">
+						<left>828</left>
+						<top>321</top>
+						<width>264</width>
+						<height>264</height>
+						<texture flipy="true" diffuse="mask-fadesqu.png">icon-fav.png</texture>
+					</control>
+				</control>
+				<control type="group">
+					<visible>!String.IsEqual(Skin.String(shelf-customimages),$LOCALIZE[31953])</visible>
+					<include file="Includes_Shelf.xml">custom-shelficons</include>
+				</control>
+			</control>
 			<control type="group">
 				<!-- Default Shelf icons -->
-				<visible>![Control.IsVisible(9155) | Control.IsVisible(9205) | Control.IsVisible(9255) | Control.IsVisible(9355) | Control.IsVisible(9405) | Control.IsVisible(9505)] | Control.HasFocus(9810)</visible>
+				<visible>![Control.IsVisible(9155) | Control.IsVisible(9205) | Control.IsVisible(9255) | Control.IsVisible(9355) | Control.IsVisible(9405) | Control.IsVisible(9505) | Control.IsVisible(9555)] | Control.HasFocus(9810)</visible>
 				<control type="image">
 					<left>828</left>
 					<top>57</top>
@@ -295,6 +320,15 @@
 			<width>1</width>
 			<height>1</height>
 			<onfocus>SetFocus(9510)</onfocus>
+			<onfocus>ActivateWindow(1157)</onfocus>
+		</control>
+		<control type="button" id="9060">
+			<!-- Play bump sound if user tries to leave Custom shelf by undefined direction -->
+			<left>-135</left>
+			<top>-135</top>
+			<width>1</width>
+			<height>1</height>
+			<onfocus>SetFocus(9560)</onfocus>
 			<onfocus>ActivateWindow(1157)</onfocus>
 		</control>
 		<control type="group">
@@ -978,13 +1012,13 @@
 					<height>518</height>
 					<texturefocus>blank.png</texturefocus>
 					<texturenofocus>blank.png</texturenofocus>
-					<onup>9005</onup>
+					<onup>9555</onup>
 					<ondown>9550</ondown>
 					<onleft>9500</onleft>
 					<onright>9250</onright>
 				</control>
 				<control type="group">
-					<visible>Control.HasFocus(9550) | Control.HasFocus(9580)</visible>
+					<visible>Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9580)</visible>
 					<control type="image">
 						<!-- Menu Heading Hilite-->
 						<left>0</left>
@@ -1030,7 +1064,7 @@
 					<top>126</top>
 					<width>315</width>
 					<height>378</height>
-					<onup>9005</onup>
+					<onup>9555</onup>
 					<ondown>9005</ondown>
 					<onleft>9500</onleft>
 					<onright>9250</onright>

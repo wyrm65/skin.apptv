@@ -33,45 +33,13 @@
 	<include name="AddonUpdated">
 		<content target="programs" limit="24">addons://outdated/</content>
 	</include>
-	<include name="AddonFavourites">
-		<content>
-			<item>
-				<label>$INFO[Skin.String(CustomAddon.1.Label)]</label>
-				<onclick>$INFO[Skin.String(CustomAddon.1.Path)]</onclick>
-				<thumb>$INFO[Skin.String(CustomAddon.1.Icon)]</thumb>
-				<property name="ItemType">$LOCALIZE[31652]</property>
-				<visible>!String.IsEmpty(Skin.String(CustomAddon.1.Path))</visible>
-			</item>
-			<item>
-				<label>$INFO[Skin.String(CustomAddon.2.Label)]</label>
-				<onclick>$INFO[Skin.String(CustomAddon.2.Path)]</onclick>
-				<thumb>$INFO[Skin.String(CustomAddon.2.Icon)]</thumb>
-				<property name="ItemType">$LOCALIZE[31652]</property>
-				<visible>!String.IsEmpty(Skin.String(CustomAddon.2.Path))</visible>
-			</item>
-			<item>
-				<label>$INFO[Skin.String(CustomAddon.3.Label)]</label>
-				<onclick>$INFO[Skin.String(CustomAddon.3.Path)]</onclick>
-				<thumb>$INFO[Skin.String(CustomAddon.3.Icon)]</thumb>
-				<property name="ItemType">$LOCALIZE[31652]</property>
-				<visible>!String.IsEmpty(Skin.String(CustomAddon.3.Path))</visible>
-			</item>
-			<item>
-				<label>$INFO[Skin.String(CustomAddon.4.Label)]</label>
-				<onclick>$INFO[Skin.String(CustomAddon.4.Path)]</onclick>
-				<thumb>$INFO[Skin.String(CustomAddon.4.Icon)]</thumb>
-				<property name="ItemType">$LOCALIZE[31652]</property>
-				<visible>!String.IsEmpty(Skin.String(CustomAddon.4.Path))</visible>
-			</item>
-			<item>
-				<label>$INFO[Skin.String(CustomAddon.5.Label)]</label>
-				<onclick>$INFO[Skin.String(CustomAddon.5.Path)]</onclick>
-				<thumb>$INFO[Skin.String(CustomAddon.5.Icon)]</thumb>
-				<property name="ItemType">$LOCALIZE[31652]</property>
-				<visible>!String.IsEmpty(Skin.String(CustomAddon.5.Path))</visible>
-			</item>
-		</content>
+	<include name="AllFavourites">
+		<content target="programs" limit="12">favourites://</content>
 	</include>
+	<include name="MediaFavourites">
+		<content target="programs" limit="12">plugin://script.skin.helper.widgets/?action=favourite&amp;mediatype=media&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</content>
+	</include>
+
 	<include name="movie-shelficons">
 		<animation effect="slide" end="315,0" condition="![Control.HasFocus(9160) + Container(9160).Position(5)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
@@ -386,6 +354,115 @@
 			</control>
 		</control>
 	</include>
+	<include name="custom-shelficons">
+		<animation effect="slide" end="366,0" condition="![Control.HasFocus(9560) + Container(9560).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
+		<control type="group">
+			<control type="label">
+				<!-- Addon shelf icon label-->
+				<left>45</left>
+				<top>15</top>
+				<height>30</height>
+				<width>600</width>
+				<label>$VAR[ShelfType]</label>
+				<font>apptv22</font>
+				<visible>Integer.IsGreater(Container(9560).NumItems,0)</visible>
+			</control>
+			<control type="group">
+				<visible>![[Skin.HasSetting(media-overlay) + [Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
+				<control type="image">
+					<left>0</left>
+					<top>98</top>
+					<width>246</width>
+					<height>246</height>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<texture colordiffuse="UnFocusedPosters" fallback="icon-fav.png" diffuse="mask-squ.png" background="true">$VAR[CustomShelfIcon0]</texture>
+					<camera x="98" y="238" />
+					<animation effect="rotatey" center="0" end="-60" time="300" condition="true">Conditional</animation>
+					<visible>Container(9560).HasPrevious</visible>
+				</control>
+				<control type="image">
+					<left>1704</left>
+					<top>98</top>
+					<width>246</width>
+					<height>246</height>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<texture colordiffuse="UnFocusedPosters" fallback="icon-fav.png" diffuse="mask-squ.png" background="true">$VAR[CustomShelfIcon6]</texture>
+					<camera x="1818" y="238" />
+					<animation effect="rotatey" center="1914" end="60" time="300" condition="true">Conditional</animation>
+					<visible>Container(9560).HasNext</visible>
+				</control>
+			</control>
+			<control type="list" id="9560">
+				<left>15</left>
+				<top>60</top>
+				<width>1890</width>
+				<height>405</height>
+				<onleft>9060</onleft>
+				<onright>9060</onright>
+				<onup>9060</onup>
+				<ondown>9000</ondown>
+				<viewtype label="31028">list</viewtype>
+				<orientation>horizontal</orientation>
+				<itemlayout height="405" width="378">
+					<control type="image">
+						<left>32</left>
+						<top>8</top>
+						<width>315</width>
+						<height>315</height>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+						<aligny>top</aligny>
+						<texture diffuse="mask-squ.png" fallback="icon-fav.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+					</control>
+					<control type="image">
+						<left>32</left>
+						<top>324</top>
+						<width>315</width>
+						<height>315</height>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+						<aligny>top</aligny>
+						<texture fallback="icon-fav.png" flipy="true" diffuse="mask-fadesqu.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+					</control>
+				</itemlayout>
+				<focusedlayout height="405" width="378">
+					<control type="image">
+						<left>32</left>
+						<top>8</top>
+						<width>315</width>
+						<height>315</height>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+						<aligny>top</aligny>
+						<texture diffuse="mask-squ.png" fallback="icon-fav.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+					</control>
+					<control type="image">
+						<left>32</left>
+						<top>324</top>
+						<width>315</width>
+						<height>315</height>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+						<aligny>top</aligny>
+						<texture fallback="icon-fav.png" flipy="true" diffuse="mask-fadesqu.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+						<animation effect="zoom" start="100" end="104" center="188,156" time="200" tween="back" easing="out" reversible="false">focus</animation>
+					</control>
+					<control type="textbox">
+						<left>0</left>
+						<top>327</top>
+						<height>72</height>
+						<width>378</width>
+						<font>apptv20</font>
+						<align>center</align>
+						<aligny>top</aligny>
+						<label>$INFO[ListItem.Label]</label>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<animation effect="fade" time="100" delay="100">Focus</animation>
+						<visible>Control.HasFocus(9560)</visible>
+					</control>
+				</focusedlayout>
+				<include condition="String.IsEqual(Skin.String(shelf-customimages),$LOCALIZE[593]$LOCALIZE[1036])">AllFavourites</include>
+				<include condition="String.IsEqual(Skin.String(shelf-customimages),$LOCALIZE[14211]$LOCALIZE[1036])">MediaFavourites</include>
+			</control>
+		</control>
+	</include>
 	<include name="music-shelficons">
 		<animation effect="slide" end="366,0" condition="![Control.HasFocus(9260) + Container(9260).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
@@ -515,8 +592,8 @@
 					<top>98</top>
 					<width>246</width>
 					<height>246</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" fallback="DefaultAddon.png" diffuse="mask-squ.png" background="true">$VAR[AddonShelfIcon]</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
+					<texture colordiffuse="UnFocusedPosters" fallback="DefaultAddon.png" diffuse="mask-squ.png" background="true">$VAR[AddonShelfIcon0]</texture>
 					<camera x="98" y="238" />
 					<animation effect="rotatey" center="0" end="-60" time="300" condition="true">Conditional</animation>
 					<visible>Container(9360).HasPrevious</visible>
@@ -526,7 +603,7 @@
 					<top>98</top>
 					<width>246</width>
 					<height>246</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
+					<aspectratio scalediffuse="false">keep</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" fallback="DefaultAddon.png" diffuse="mask-squ.png" background="true">$VAR[AddonShelfIcon6]</texture>
 					<camera x="1818" y="238" />
 					<animation effect="rotatey" center="1914" end="60" time="300" condition="true">Conditional</animation>
@@ -550,7 +627,7 @@
 						<top>8</top>
 						<width>315</width>
 						<height>315</height>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<aspectratio scalediffuse="false">keep</aspectratio>
 						<aligny>top</aligny>
 						<texture diffuse="mask-squ.png" fallback="DefaultAddon.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 					</control>
@@ -559,7 +636,7 @@
 						<top>324</top>
 						<width>315</width>
 						<height>315</height>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<aspectratio scalediffuse="false">keep</aspectratio>
 						<aligny>top</aligny>
 						<texture fallback="DefaultAddon.png" flipy="true" diffuse="mask-fadesqu.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 					</control>
@@ -570,7 +647,7 @@
 						<top>8</top>
 						<width>315</width>
 						<height>315</height>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<aspectratio scalediffuse="false">keep</aspectratio>
 						<aligny>top</aligny>
 						<texture diffuse="mask-squ.png" fallback="DefaultAddon.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
@@ -580,7 +657,7 @@
 						<top>324</top>
 						<width>315</width>
 						<height>315</height>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<aspectratio scalediffuse="false">keep</aspectratio>
 						<aligny>top</aligny>
 						<texture fallback="DefaultAddon.png" flipy="true" diffuse="mask-fadesqu.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 						<animation effect="zoom" start="100" end="104" center="188,156" time="200" tween="back" easing="out" reversible="false">focus</animation>
@@ -599,7 +676,6 @@
 						<visible>Control.HasFocus(9360)</visible>
 					</control>
 				</focusedlayout>
-				<include condition="String.IsEqual(Skin.String(shelf-addonimages),$LOCALIZE[31652])">AddonFavourites</include>
 				<include condition="String.IsEqual(Skin.String(shelf-addonimages),$LOCALIZE[31954])">AddonRecent</include>
 				<include condition="String.IsEqual(Skin.String(shelf-addonimages),$LOCALIZE[31959])">AddonUpdated</include>
 			</control>

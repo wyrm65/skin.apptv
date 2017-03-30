@@ -936,6 +936,20 @@
 		<value condition="Container(9360).Position(3)">$INFO[Container(9360).ListItemNoWrap(2).Thumb]</value>
 		<value condition="Container(9360).Position(4)">$INFO[Container(9360).ListItemNoWrap(1).Thumb]</value>
 	</variable>
+	<variable name="CustomShelfIcon0">
+		<value condition="Container(9510).Position(0)">$INFO[Container(9510).ListItemNoWrap(-1).Icon]</value>
+		<value condition="Container(9510).Position(1)">$INFO[Container(9510).ListItemNoWrap(-2).Icon]</value>
+		<value condition="Container(9510).Position(2)">$INFO[Container(9510).ListItemNoWrap(-3).Icon]</value>
+		<value condition="Container(9510).Position(3)">$INFO[Container(9510).ListItemNoWrap(-4).Icon]</value>
+		<value condition="Container(9510).Position(4)">$INFO[Container(9510).ListItemNoWrap(-5).Icon]</value>
+	</variable>
+	<variable name="CustomShelfIcon6">
+		<value condition="Container(9560).Position(0)">$INFO[Container(9560).ListItemNoWrap(5).Icon]</value>
+		<value condition="Container(9560).Position(1)">$INFO[Container(9560).ListItemNoWrap(4).Icon]</value>
+		<value condition="Container(9560).Position(2)">$INFO[Container(9560).ListItemNoWrap(3).Icon]</value>
+		<value condition="Container(9560).Position(3)">$INFO[Container(9560).ListItemNoWrap(2).Icon]</value>
+		<value condition="Container(9560).Position(4)">$INFO[Container(9560).ListItemNoWrap(1).Icon]</value>
+	</variable>
 	<variable name="WeatherView">
 		<value condition="!String.Contains(Weather.plugin,weather.openweathermap.extended) + !String.Contains(Weather.plugin,weather.ozweather)">Skin.SetString(weather-view,$LOCALIZE[10508])</value>
 		<!-- Standard Forecast if not using extended forecast plugins -->
@@ -1086,6 +1100,9 @@
 		<value condition="[Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9380) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(shelf-addonimages),$LOCALIZE[31652])">$LOCALIZE[31652]</value>
 		<value condition="[Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9380) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(shelf-addonimages),$LOCALIZE[31954])">$LOCALIZE[31969]</value>
 		<value condition="[Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9380) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(shelf-addonimages),$LOCALIZE[31959])">$LOCALIZE[31970]</value>
+		<value condition="[Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9580) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(shelf-customimages),$LOCALIZE[31652])">$LOCALIZE[31652]</value>
+		<value condition="[Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9580) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(shelf-customimages),$LOCALIZE[593]$LOCALIZE[1036])">$LOCALIZE[593] $LOCALIZE[1036]</value>
+		<value condition="[Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9580) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(shelf-customimages),$LOCALIZE[14211]$LOCALIZE[1036])">$LOCALIZE[14211] $LOCALIZE[1036]</value>
 		</variable>
 	<variable name="MenuType">
 		<value condition="Skin.HasSetting(homemenu-vertical)">$LOCALIZE[31951]</value>
@@ -1645,6 +1662,7 @@
 		<value condition="Control.HasFocus(312)">$LOCALIZE[31318]</value>
 		<value condition="Control.HasFocus(313)">$LOCALIZE[31320]</value>
 		<value condition="Control.HasFocus(314)">$LOCALIZE[31319]</value>
+		<value condition="Control.HasFocus(315)">$LOCALIZE[31322]</value>
 		<value condition="Control.HasFocus(402)">$LOCALIZE[31321]</value>
 		<value condition="Control.HasFocus(502) | Control.HasFocus(503)">$LOCALIZE[31340]</value>
 		<value condition="Control.HasFocus(504)">$LOCALIZE[31341]</value>
@@ -2092,9 +2110,9 @@
 				<visible>$PARAM[itemcondition]</visible>
 			</item>
 			<item>
-				<property name="isActive"></property>
 				<thumb>$PARAM[itemthumb]</thumb>
 				<label>$PARAM[itemlabel]</label>
+				<property name="isActive"></property>
 				<property name="visibleToggle">$PARAM[itemtoggle]</property>
 				<property name="customBase">$PARAM[itemcustombase]</property>
 				<property name="menuHeading">$PARAM[itemmenuheading]</property>
@@ -2373,8 +2391,8 @@
 			<effect type="zoom" start="110" end="100" time="200" center="auto" />
 		</animation>
 		<animation type="WindowClose" reversible="false">
-			<effect type="fade" time="200" delay="100" />
-			<effect type="zoom" end="110" time="200" delay="100" center="auto" />
+			<effect type="fade" time="200" />
+			<effect type="zoom" end="110" time="200" center="auto" />
 		</animation>
 	</include>
 </includes>
