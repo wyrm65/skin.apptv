@@ -64,7 +64,7 @@
 				<onright>1123</onright>
 				<onleft>9000</onleft>
 				<ondown>9000</ondown>
-				<animation condition="!Control.HasFocus(1223) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(1123) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar]</visible>
 			</control>
 			<control type="image">
@@ -174,15 +174,6 @@
 					</control>
 				</control>
 			</control>
-			<control type="button" id="8995">
-				<!-- Play bump sound if user tries to leave menu by undefined direction -->
-				<left>-45</left>
-				<top>-45</top>
-				<width>1</width>
-				<height>1</height>
-				<onfocus>SetFocus(9000)</onfocus>
-				<onfocus>ActivateWindow(1157)</onfocus>
-			</control>
 			<control type="grouplist" id="9000">
 				<!-- Option buttons -->
 				<left>540</left>
@@ -231,8 +222,8 @@
 					<!-- Update addon button -->
 					<include>videoinfo-options-common</include>
 					<label>$LOCALIZE[24069]</label>
-					<texturefocus>button-info-install-focus.png</texturefocus>
-					<texturenofocus>button-info-install.png</texturenofocus>
+					<texturefocus>button-info-update-focus.png</texturefocus>
+					<texturenofocus>button-info-update.png</texturenofocus>
 					<visible>Control.IsEnabled(8)</visible>
 				</control>
 				<control type="button" id="9">
@@ -247,8 +238,8 @@
 					<!-- Enable/disable auto updates -->
 					<include>videoinfo-options-common</include>
 					<label>$LOCALIZE[21340]</label>
-					<texturefocus>button-info-install-focus.png</texturefocus>
-					<texturenofocus>button-info-install.png</texturenofocus>
+					<texturefocus>button-info-update-focus.png</texturefocus>
+					<texturenofocus>button-info-update.png</texturenofocus>
 					<visible>Control.IsEnabled(13)</visible>
 				</control>
 				<control type="button" id="12">
