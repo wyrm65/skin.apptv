@@ -26,7 +26,8 @@
 			<left>1410</left>
 			<top>159</top>
 			<width>480</width>
-			<height>702</height>
+			<height>675</height>
+			<itemgap>0</itemgap>
 			<onleft>5</onleft>
 			<onup>noop</onup>
 			<ondown>20</ondown>
@@ -34,9 +35,9 @@
 		<control type="button" id="20">
 			<!-- Setting level button -->
 			<left>1410</left>
-			<top>867</top>
+			<top>834</top>
 			<width>480</width>
-			<height>81</height>
+			<height>75</height>
 			<font>apptv22</font>
 			<textcolor>listselected-text</textcolor>
 			<label>$LOCALIZE[10037]</label>
@@ -49,9 +50,9 @@
 		<control type="label">
 			<!-- Settings level heading -->
 			<left>1437</left>
-			<top>867</top>
+			<top>834</top>
 			<width>480</width>
-			<height>81</height>
+			<height>75</height>
 			<label>$LOCALIZE[10004]:</label>
 			<font>apptv22</font>
 		</control>
@@ -67,7 +68,7 @@
 			</control>
 			<control type="image">
 				<left>726</left>
-				<top>945</top>
+				<top>914</top>
 				<height>24</height>
 				<width>24</width>
 				<texture>scroll-down.png</texture>
@@ -79,7 +80,8 @@
 			<left>80</left>
 			<top>159</top>
 			<width>1328</width>
-			<height>789</height>
+			<height>750</height>
+			<itemgap>0</itemgap>
 			<onleft condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>
 			<onleft condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">23</onleft>
 			<onright>3</onright>
@@ -89,7 +91,7 @@
 			<left>20</left>
 			<top>159</top>
 			<width>18</width>
-			<height>789</height>
+			<height>750</height>
 			<onleft>9000</onleft>
 			<onright>5</onright>
 			<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
@@ -98,7 +100,7 @@
 		<control type="textbox" id="6">
 			<!-- Settings description area -->
 			<left>15</left>
-			<top>969</top>
+			<top>936</top>
 			<width>1890</width>
 			<height>105</height>
 			<font>apptv20</font>
@@ -106,36 +108,36 @@
 		</control>
 		<control type="button" id="7">
 			<!-- Default button -->
-			<height>81</height>
+			<height>75</height>
 			<font>apptv22</font>
 			<invalidcolor>invalid-text</invalidcolor>
 		</control>
 		<control type="radiobutton" id="8">
 			<!-- Default radiobutton -->
-			<height>81</height>
+			<height>75</height>
 			<font>apptv22</font>
 			<radioposx>1266</radioposx>
 		</control>
 		<control type="spincontrolex" id="9">
 			<!-- Default spincontrolex -->
-			<height>81</height>
+			<height>75</height>
 			<font>apptv22</font>
 			<reverse>yes</reverse>
 		</control>
 		<control type="button" id="10">
 			<!-- Default category button -->
 			<width>480</width>
-			<height>81</height>
+			<height>75</height>
 			<font>apptv22</font>
 		</control>
 		<control type="sliderex" id="13">
 			<!-- Default slider button -->
-			<height>81</height>
+			<height>75</height>
 			<font>apptv22</font>
 		</control>
 		<control type="label" id="14">
 			<!-- Default label -->
-			<height>81</height>
+			<height>75</height>
 			<font>apptv22</font>
 		</control>
 	</controls>
