@@ -101,15 +101,28 @@
 				<onleft>600</onleft>
 			</control>
 			<control type="button" id="987">
-				<!-- Support Settings Menu -->
+				<!-- Supported Addons Menu -->
 				<left>1410</left>
 				<top>654</top>
 				<width>480</width>
 				<height>84</height>
 				<font>apptv23</font>
+				<label>$LOCALIZE[31556] $LOCALIZE[24001]</label>
+				<onfocus>Skin.SetString(skinsettingmenu,addons)</onfocus>
+				<onup>986</onup>
+				<ondown>988</ondown>
+				<onleft>700</onleft>
+			</control>
+			<control type="button" id="988">
+				<!-- Support Settings Menu -->
+				<left>1410</left>
+				<top>735</top>
+				<width>480</width>
+				<height>84</height>
+				<font>apptv23</font>
 				<label>$LOCALIZE[31807]</label>
 				<onfocus>Skin.SetString(skinsettingmenu,support)</onfocus>
-				<onup>986</onup>
+				<onup>987</onup>
 				<onleft>800</onleft>
 			</control>
 		</control>
@@ -749,13 +762,261 @@
 					</control>
 				</control>
 			</control>
+			<control type="group" id="700">
+				<!-- Supported Addons Settings -->
+				<visible>Skin.String(skinsettingmenu,addons)</visible>
+				<control type="image">
+					<!-- Media Entry Points Settings Button Image -->
+					<left>1410</left>
+					<top>654</top>
+					<width>480</width>
+					<height>84</height>
+					<texture border="9">button-default-focus.png</texture>
+					<include>settingbutton-fade</include>
+					<visible>!ControlGroup(999).HasFocus()</visible>
+				</control>
+				<control type="group">
+					<!-- Markers for control area items -->
+					<control type="image">
+						<left>726</left>
+						<top>144</top>
+						<height>24</height>
+						<width>24</width>
+						<texture>scroll-up.png</texture>
+						<visible>Container(701).HasPrevious</visible>
+					</control>
+					<control type="image">
+						<left>726</left>
+						<top>978</top>
+						<height>24</height>
+						<width>24</width>
+						<texture>scroll-down.png</texture>
+						<visible>Container(701).HasNext</visible>
+					</control>
+				</control>
+				<control type="grouplist" id="701">
+					<left>80</left>
+					<top>168</top>
+					<width>1328</width>
+					<height>813</height>
+					<itemgap>-3</itemgap>
+					<onleft>1223</onleft>
+					<onright>999</onright>
+					<pagecontrol>1223</pagecontrol>
+					<control type="group" id="702">
+						<height>84</height>
+						<width>1328</width>
+						<control type="togglebutton" id="703">
+							<!-- Artist slideshow script install/config -->
+							<ondown>705</ondown>
+							<onright>999</onright>
+							<include>settings-submenu-common</include>
+							<textwidth>1178</textwidth>
+							<label>$LOCALIZE[24020]</label>
+							<altlabel>$LOCALIZE[24038]</altlabel>
+							<align>right</align>
+							<onclick>Addon.OpenSettings(script.artistslideshow)</onclick>
+							<altclick>InstallAddon(script.artistslideshow)</altclick>
+							<usealttexture>!System.HasAddon(script.artistslideshow)</usealttexture>
+						</control>
+						<control type="label">
+							<include>settings-submenu-common</include>
+							<label>$LOCALIZE[31590]</label>
+							<textoffsetx>27</textoffsetx>
+						</control>
+					</control>
+					<control type="group" id="704">
+						<height>84</height>
+						<width>1328</width>
+						<control type="togglebutton" id="705">
+							<!-- Artwork downloader script install/config -->
+							<onup>703</onup>-->
+							<ondown>707</ondown>
+							<onright>999</onright>
+							<include>settings-submenu-common</include>
+							<textwidth>1178</textwidth>
+							<label>$LOCALIZE[24020]</label>
+							<altlabel>$LOCALIZE[24038]</altlabel>
+							<align>right</align>
+							<onclick>Addon.OpenSettings(script.artwork.downloader)</onclick>
+							<altclick>InstallAddon(script.artwork.downloader)</altclick>
+							<usealttexture>!System.HasAddon(script.artwork.downloader)</usealttexture>
+						</control>
+						<control type="label">
+							<include>settings-submenu-common</include>
+							<label>$LOCALIZE[31591]</label>
+							<textoffsetx>27</textoffsetx>
+						</control>
+					</control>
+					<control type="group" id="706">
+						<height>84</height>
+						<width>1328</width>
+						<control type="togglebutton" id="707">
+							<!-- Autocompletion text script install/config -->
+							<onup>705</onup>-->
+							<ondown>709</ondown>
+							<onright>999</onright>
+							<include>settings-submenu-common</include>
+							<textwidth>1178</textwidth>
+							<label>$LOCALIZE[24020]</label>
+							<altlabel>$LOCALIZE[24038]</altlabel>
+							<align>right</align>
+							<onclick>Addon.OpenSettings(plugin.program.autocompletion)</onclick>
+							<altclick>InstallAddon(plugin.program.autocompletion)</altclick>
+							<usealttexture>!System.HasAddon(plugin.program.autocompletion)</usealttexture>
+						</control>
+						<control type="label">
+							<include>settings-submenu-common</include>
+							<label>$LOCALIZE[31592]</label>
+							<textoffsetx>27</textoffsetx>
+						</control>
+					</control>
+					<control type="group" id="708">
+						<height>84</height>
+						<width>1328</width>
+						<control type="togglebutton" id="709">
+							<!-- CU lrclyrics script install/config -->
+							<onup>707</onup>-->
+							<ondown>711</ondown>
+							<onright>999</onright>
+							<include>settings-submenu-common</include>
+							<textwidth>1178</textwidth>
+							<label>$LOCALIZE[24020]</label>
+							<altlabel>$LOCALIZE[24038]</altlabel>
+							<align>right</align>
+							<onclick>Addon.OpenSettings(script.cu.lrclyrics)</onclick>
+							<altclick>InstallAddon(script.cu.lrclyrics)</altclick>
+							<usealttexture>!System.HasAddon(script.cu.lrclyrics)</usealttexture>
+						</control>
+						<control type="label">
+							<include>settings-submenu-common</include>
+							<label>$LOCALIZE[31593]</label>
+							<textoffsetx>27</textoffsetx>
+						</control>
+					</control>
+					<control type="group" id="710">
+						<height>84</height>
+						<width>1328</width>
+						<control type="togglebutton" id="711">
+							<!-- Global search script install/config -->
+							<onup>709</onup>
+							<ondown>713</ondown>
+							<onright>999</onright>
+							<include>settings-submenu-common</include>
+							<textwidth>1178</textwidth>
+							<label>$LOCALIZE[24020]</label>
+							<altlabel>$LOCALIZE[24038]</altlabel>
+							<align>right</align>
+							<onclick>Addon.OpenSettings(script.globalsearch)</onclick>
+							<altclick>InstallAddon(script.globalsearch)</altclick>
+							<usealttexture>!System.HasAddon(script.globalsearch)</usealttexture>
+						</control>
+						<control type="label">
+							<include>settings-submenu-common</include>
+							<label>$LOCALIZE[31594]</label>
+							<textoffsetx>27</textoffsetx>
+						</control>
+					</control>
+					<control type="group" id="712">
+						<height>84</height>
+						<width>1328</width>
+						<control type="togglebutton" id="713">
+							<!-- Resource downloader script install/config -->
+							<onup>711</onup>
+							<ondown>715</ondown>
+							<onright>999</onright>
+							<include>settings-submenu-common</include>
+							<textwidth>1178</textwidth>
+							<label>$LOCALIZE[24020]</label>
+							<altlabel>$LOCALIZE[24038]</altlabel>
+							<align>right</align>
+							<onclick>Addon.OpenSettings(script.image.resource.select)</onclick>
+							<altclick>InstallAddon(script.image.resource.select)</altclick>
+							<usealttexture>!System.HasAddon(script.image.resource.select)</usealttexture>
+						</control>
+						<control type="label">
+							<include>settings-submenu-common</include>
+							<label>$LOCALIZE[31595]</label>
+							<textoffsetx>27</textoffsetx>
+						</control>
+					</control>
+					<control type="group" id="714">
+						<height>84</height>
+						<width>1328</width>
+						<control type="togglebutton" id="715">
+							<!-- Nextup notification script install/config -->
+							<onup>713</onup>
+							<ondown>717</ondown>
+							<onright>999</onright>
+							<include>settings-submenu-common</include>
+							<textwidth>1178</textwidth>
+							<label>$LOCALIZE[24020]</label>
+							<altlabel>$LOCALIZE[24038]</altlabel>
+							<align>right</align>
+							<onclick>Addon.OpenSettings(service.nextup.notification)</onclick>
+							<altclick>InstallAddon(service.nextup.notification)</altclick>
+							<usealttexture>!System.HasAddon(service.nextup.notification)</usealttexture>
+						</control>
+						<control type="label">
+							<include>settings-submenu-common</include>
+							<label>$LOCALIZE[31596]</label>
+							<textoffsetx>27</textoffsetx>
+						</control>
+					</control>
+					<control type="group" id="716">
+						<height>84</height>
+						<width>1328</width>
+						<control type="togglebutton" id="717">
+							<!-- Next aired TVShows script install/config -->
+							<onup>715</onup>
+							<ondown>719</ondown>
+							<onright>999</onright>
+							<include>settings-submenu-common</include>
+							<textwidth>1178</textwidth>
+							<label>$LOCALIZE[24020]</label>
+							<altlabel>$LOCALIZE[24038]</altlabel>
+							<align>right</align>
+							<onclick>Addon.OpenSettings(script.tv.show.next.aired)</onclick>
+							<altclick>InstallAddon(script.tv.show.next.aired)</altclick>
+							<usealttexture>!System.HasAddon(script.tv.show.next.aired)</usealttexture>
+						</control>
+						<control type="label">
+							<include>settings-submenu-common</include>
+							<label>$LOCALIZE[31597]</label>
+							<textoffsetx>27</textoffsetx>
+						</control>
+					</control>
+					<control type="group" id="718">
+						<height>84</height>
+						<width>1328</width>
+						<control type="togglebutton" id="719">
+							<!-- Play album script install/config -->
+							<onup>717</onup>
+							<onright>999</onright>
+							<include>settings-submenu-common</include>
+							<textwidth>1178</textwidth>
+							<label>$LOCALIZE[24020]</label>
+							<altlabel>$LOCALIZE[24038]</altlabel>
+							<align>right</align>
+							<onclick>Addon.OpenSettings(script.playalbum)</onclick>
+							<altclick>InstallAddon(script.playalbum)</altclick>
+							<usealttexture>!System.HasAddon(script.playalbum)</usealttexture>
+						</control>
+						<control type="label">
+							<include>settings-submenu-common</include>
+							<label>$LOCALIZE[31598]</label>
+							<textoffsetx>27</textoffsetx>
+						</control>
+					</control>
+				</control>
+			</control>
 			<control type="group" id="800">
 				<!-- Support Settings -->
 				<visible>Skin.String(skinsettingmenu,support)</visible>
 				<control type="image">
 					<!-- Support Settings Button Image -->
 					<left>1410</left>
-					<top>654</top>
+					<top>735</top>
 					<width>480</width>
 					<height>84</height>
 					<texture border="9">button-default-focus.png</texture>
@@ -804,9 +1065,9 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31930]</label>
 						<textwidth>1125</textwidth>
-						<onclick condition="!System.HasAddon(script.xbmc.debug.log)">InstallAddon(script.kodi.loguploader)</onclick>
-						<onclick condition="System.HasAddon(script.xbmc.debug.log)">RunScript(script.kodi.loguploader)</onclick>
-						<enable>System.GetBool(debug.extralogging)</enable>
+						<onclick condition="!System.HasAddon(script.kodi.loguploader)">InstallAddon(script.kodi.loguploader)</onclick>
+						<onclick condition="System.HasAddon(script.kodi.loguploader)">RunScript(script.kodi.loguploader)</onclick>
+						<enable>System.GetBool(debug.showloginfo)</enable>
 					</control>
 					<control type="radiobutton" id="805">
 						<!-- Show skin debug grid toggle -->
