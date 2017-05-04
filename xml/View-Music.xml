@@ -106,7 +106,7 @@
 				<control type="group">
 					<visible>Container.Content(albums) | Container.Content(songs)</visible>
 					<control type="image">
-						<left>240</left>
+						<left>388</left>
 						<top>225</top>
 						<width>512</width>
 						<height>512</height>
@@ -117,7 +117,7 @@
 						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon]</visible>
 					</control>
 					<control type="image">
-						<left>278</left>
+						<left>388</left>
 						<top>195</top>
 						<width>540</width>
 						<height>540</height>
@@ -127,7 +127,7 @@
 					</control>
 				</control>
 				<control type="image">
-					<left>278</left>
+					<left>388</left>
 					<top>195</top>
 					<width>540</width>
 					<height>540</height>
@@ -138,6 +138,16 @@
 			</control>
 			<control type="group">
 				<visible>[Container.Content(songs) | Container.Content(albums)] + $EXP[isnotDefaultIcon]</visible>
+				<control type="image" id="992">
+					<!-- Music logo if available -->
+					<left>44</left>
+					<top>225</top>
+					<width>300</width>
+					<height>116</height>
+					<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</texture>
+					<aspectratio align="left" aligny="bottom">keep</aspectratio>
+					<colordiffuse>mask-background</colordiffuse>
+				</control>
 				<control type="image">
 					<left>30</left>
 					<top>768</top>
@@ -295,6 +305,245 @@
 					<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]" effect="slide" end="24,0" reversible="true">Conditional</animation>
 					<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(50)</visible>
 				</control>
+			</control>
+		</control>
+	</include>
+	<include name="CategoryView">
+		<control type="group" id="9000">
+			<visible allowhiddenfocus="true">ControlGroup(9000).HasFocus()</visible>
+			<animation effect="slide" time ="300" start="0,-140" end="0,0">VisibleChange</animation>
+			<!-- Main Horizontal menu bar -->
+			<control type="image">
+				<!-- Background image for menu area -->
+				<left>0</left>
+				<top>0</top>
+				<width>1920</width>
+				<height>105</height>
+				<texture>background-horzhome.png</texture>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>1920</width>
+				<height>6</height>
+				<texture>separator.png</texture>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>108</top>
+				<width>1920</width>
+				<height>6</height>
+				<texture>separator.png</texture>
+			</control>
+			<control type="grouplist" id="666"><!-- Needs to change to a list with id 51 -->
+				<top>25</top>
+				<align>center</align>
+				<width>1920</width>
+				<height>60</height>
+				<itemgap>0</itemgap>
+				<orientation>horizontal</orientation>
+				<ondown>777</ondown>
+				<onright>noop</onright>
+				<control type="button" id="600" description="library">
+					<height>60</height>
+					<width>auto</width>
+					<include>musictopbutton</include>
+					<onclick condition="!Window.IsActive(Music)">ReplaceWindow(Music,return)</onclick>
+					<label>$LOCALIZE[14202]</label>
+				</control>
+				<control type="button" id="601" description="newmusic">
+					<height>60</height>
+					<include>musictopbutton</include>
+					<onclick>ReplaceWindow(1123)</onclick>
+					<label>New Music</label>
+				</control>
+				<control type="button" id="603">
+					<height>60</height>
+					<include>musictopbutton</include>
+					<onclick>SendClick(16)</onclick>
+					<label>Party Mode</label>
+				</control>
+			</control>
+		</control>
+		<control type="group">
+			<animation effect="slide" end="0,-300" time="300" condition="Control.HasFocus(667)">Conditional</animation>
+			<control type="group" description="NEWMUSIC" id="777">
+				<control type="panel" id="500">
+					<top>150</top>
+					<width>1920</width>
+					<height>700</height>
+					<onup>666</onup>
+					<onleft>noop</onleft>
+					<onright>noop</onright>
+					<ondown>667</ondown>
+					<orientation>horizontal</orientation>
+					<scrolltime>400</scrolltime>
+					<itemlayout height="700" width="894">
+						<control type="image" description="shadow">
+							<animation effect="fade" start="0" end="100" time="150">Focus</animation>
+							<animation effect="fade" start="100" end="0" time="150">unFocus</animation>
+							<left>80</left>
+							<top>65</top>
+							<width>864</width>
+							<height>610</height>
+							<texture>shadow.png</texture>
+						</control>
+						<control type="image">
+							<left>90</left>
+							<top>205</top>
+							<width>844</width>
+							<height>430</height>
+							<texture fallback="colours/black.png">$INFO[ListItem.Art(fanart)]</texture>
+						</control>
+						<control type="label">
+							<top>55</top>
+							<left>125</left>
+							<width>804</width>
+							<height>40</height>
+							<font>size27B</font>
+							<label>NEW ALBUM</label>
+						</control>
+						<control type="label">
+							<top>95</top>
+							<left>125</left>
+							<width>804</width>
+							<height>40</height>
+							<font>size39B</font>
+							<label>$INFO[ListItem.Title]</label>
+						</control>
+						<control type="label">
+							<top>140</top>
+							<left>125</left>
+							<width>804</width>
+							<height>40</height>
+							<font>size39B</font>
+							<label>$INFO[ListItem.Artist]</label>
+						</control>
+					</itemlayout>
+					<focusedlayout height="700" width="894">
+						<control type="group">
+							<animation effect="zoom" start="100" end="110" time="120" center="auto" tween="Back" easing="Out">Focus</animation>
+							<animation effect="zoom" start="110" end="100" time="120" center="auto">unFocus</animation>
+							<control type="image" description="shadow">
+								<animation effect="fade" start="0" end="100" time="150">Focus</animation>
+								<animation effect="fade" start="100" end="0" time="150">unFocus</animation>
+								<left>80</left>
+								<top>65</top>
+								<width>864</width>
+								<height>610</height>
+								<texture>shadow.png</texture>
+							</control>
+							<control type="image">
+								<left>90</left>
+								<top>205</top>
+								<width>844</width>
+								<height>430</height>
+								<texture fallback="colours/black.png">$INFO[ListItem.Art(fanart)]</texture>
+							</control>
+							<control type="label">
+								<top>55</top>
+								<left>125</left>
+								<width>804</width>
+								<height>40</height>
+								<font>size27B</font>
+								<label>NEW ALBUM</label>
+							</control>
+							<control type="label">
+								<top>95</top>
+								<left>125</left>
+								<width>804</width>
+								<height>40</height>
+								<font>size39B</font>
+								<label>$INFO[ListItem.Title]</label>
+							</control>
+							<control type="label">
+								<top>140</top>
+								<left>125</left>
+								<width>804</width>
+								<height>40</height>
+								<font>size39B</font>
+								<label>$INFO[ListItem.Artist]</label>
+							</control>
+						</control>
+					</focusedlayout>
+					<content>musicdb://recentlyaddedalbums/</content>
+				</control>
+				<control type="label">
+					<left>90</left>
+					<bottom>210</bottom>
+					<height>30</height>
+					<font>size42B</font>
+					<label>Hot Tracks</label>
+				</control>
+			</control>
+			<control type="panel" id="667">
+				<top>890</top>
+				<width>1920</width>
+				<height>500</height>
+				<onup>777</onup>
+				<ondown>noop</ondown>
+				<onleft>noop</onleft>
+				<onright>noop</onright>
+				<orientation>horizontal</orientation>
+				<scrolltime>400</scrolltime>
+				<itemlayout height="150" width="600">
+					<control type="image">
+						<left>90</left>
+						<width>550</width>
+						<height>130</height>
+						<texture border="8">colours/white.png</texture>
+					</control>
+					<control type="image">
+						<left>90</left>
+						<width>130</width>
+						<height>130</height>
+						<texture>$INFO[ListItem.Icon]</texture>
+					</control>
+					<control type="textbox">
+						<left>230</left>
+						<width>410</width>
+						<height>130</height>
+						<font>size33B</font>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.label][CR]$INFO[ListItem.Artist]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout height="150" width="600">
+					<control type="group">
+						<animation effect="zoom" start="100" end="110" time="120" center="auto" tween="Back" easing="Out">Focus</animation>
+						<animation effect="zoom" start="110" end="100" time="120" center="auto">unFocus</animation>
+						<control type="image" description="shadow">
+							<animation effect="fade" start="0" end="100" time="150">Focus</animation>
+							<animation effect="fade" start="100" end="0" time="150">unFocus</animation>
+							<left>80</left>
+							<top>15</top>
+							<width>570</width>
+							<height>150</height>
+							<texture>shadow.png</texture>
+						</control>
+						<control type="image">
+							<left>90</left>
+							<width>550</width>
+							<height>130</height>
+							<texture border="8">colours/white.png</texture>
+						</control>
+						<control type="image">
+							<left>90</left>
+							<width>130</width>
+							<height>130</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="textbox">
+							<left>230</left>
+							<width>410</width>
+							<height>130</height>
+							<font>size33B</font>
+							<aligny>center</aligny>
+							<label>$INFO[ListItem.label][CR]$INFO[ListItem.Artist]</label>
+						</control>
+					</control>
+				</focusedlayout>
+				<content>musicdb://top100/songs/</content>
 			</control>
 		</control>
 	</include>
@@ -606,6 +855,7 @@
 				</control>
 			</focusedlayout>
 		</control>
+
 		<control type="group">
 			<visible>Control.IsVisible(54)</visible>
 			<control type="group" id="1234">
@@ -677,6 +927,16 @@
 				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]" effect="slide" end="0,15" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(54)</visible>
+			</control>
+			<control type="image">
+				<!-- Music logo if available -->
+				<left>108</left>
+				<top>225</top>
+				<width>300</width>
+				<height>116</height>
+				<texture>$INFO[Window(Home).Property(SkinHelper.ListItem.Art.ClearLogo)]</texture>
+				<aspectratio align="left" aligny="bottom">keep</aspectratio>
+				<colordiffuse>mask-background</colordiffuse>
 			</control>
 			<control type="label"><!-- Go Back -->
 				<left>39</left>
@@ -1140,7 +1400,7 @@
 						<top>915</top>
 						<width>288</width>
 						<height>113</height>
-						<texture>$INFO[Window(home).Property(SkinHelper.Music.ClearLogo)]</texture>
+						<texture>$INFO[Window(home).Property(SkinHelper.ListItem.Art.ClearLogo)]</texture>
 						<aspectratio align="left" aligny="bottom">keep</aspectratio>
 					</control>
 					<control type="label"><!-- Artist name-->
@@ -1152,7 +1412,7 @@
 						<align>center</align>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[ListItem.Label]</label>
-						<visible>String.IsEmpty(Window(home).Property(SkinHelper.Music.ClearLogo))</visible>
+						<visible>String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
 					</control>
 				</control>
 				<control type="label"><!-- Track name-->
@@ -1307,17 +1567,8 @@
 				<left>30</left>
 				<top>165</top>
 				<width>735</width>
-				<height>864</height>
+				<height>872</height>
 				<visible>!ListItem.IsParentFolder</visible>
-				<control type="label"><!-- Album name-->
-					<width>705</width>
-					<height>69</height>
-					<font>apptv23</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<label>$INFO[ListItem.Album]</label>
-					<wrapmultiline>true</wrapmultiline>
-					<visible>Container.Content(albums)</visible>
-				</control>
 				<control type="label"><!-- Artist name-->
 					<width>705</width>
 					<height>66</height>
@@ -1326,6 +1577,15 @@
 					<label>$INFO[ListItem.Artist]</label>
 					<wrapmultiline>true</wrapmultiline>
 					<visible>!String.IsEmpty(ListItem.Artist)</visible>
+				</control>
+				<control type="label"><!-- Album name-->
+					<width>705</width>
+					<height>66</height>
+					<font>apptv22</font>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					<label>$INFO[ListItem.Album]</label>
+					<wrapmultiline>true</wrapmultiline>
+					<visible>Container.Content(albums)</visible>
 				</control>
 				<control type="label"><!-- Track name/Listitem label-->
 					<width>705</width>
@@ -1342,24 +1602,25 @@
 					<font>apptv20</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Genre]</label>
-					<visible>!Container.Content(genres)</visible>
+					<visible>!Container.Content(genres) + !String.IsEmpty(ListItem.Genre)</visible>
 				</control>
 				<control type="group">
 					<width>266</width>
-					<height>66</height>
-					<control type="image"><!-- Star Rating -->
+					<height>62</height>
+					<control type="image" id="581"><!-- Star Rating -->
 						<left>0</left>
-						<top>16</top>
+						<top>14</top>
 						<width>165</width>
 						<height>33</height>
 						<texture>$VAR[MediaRating]</texture>
 						<aspectratio>keep</aspectratio>
+						<visible>!String.IsEqual(Control.GetLabel(581),blank.png)</visible>
 					</control>
 				</control>
 				<control type="textbox"><!-- Album description -->
 					<width>705</width>
-					<height>532</height>
-					<font>apptv22</font>
+					<height>546</height>
+					<font>apptv20</font>
 					<label>$INFO[ListItem.Property(Album_Description)]</label>
 					<align>justify</align>
 					<autoscroll time="2000" delay="3000" repeat="6000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
@@ -1367,8 +1628,8 @@
 				</control>
 				<control type="textbox"><!-- Artist description -->
 					<width>705</width>
-					<height>532</height>
-					<font>apptv22</font>
+					<height>546</height>
+					<font>apptv20</font>
 					<label>$INFO[ListItem.Property(Artist_Description)]</label>
 					<align>justify</align>
 					<autoscroll time="2000" delay="3000" repeat="6000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
