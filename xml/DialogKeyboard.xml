@@ -28,28 +28,26 @@
 				<width>15</width>
 				<height>15</height>
 			</control>
-			<control type="group">
+			<control type="edit" id="312">
+				<!-- Entered text -->
+				<left>336</left>
+				<top>23</top>
+				<width>1248</width>
+				<height>60</height>
+				<texturenofocus border="9">background-keyboard-text.png</texturenofocus>
+				<texturefocus border="9">background-keyboard-text.png</texturefocus>
+				<hinttext>$INFO[Control.GetLabel(311)]</hinttext>
+				<font>apptv30</font>
+				<aligny>top</aligny>
+				<textcolor>keyboard-focus-text</textcolor>
+				<shadowcolor>keyboard-shadow-text</shadowcolor>
 				<visible>!Control.IsVisible(313)</visible>
-				<control type="edit" id="312">
-					<!-- Entered text -->
-					<left>336</left>
-					<top>84</top>
-					<width>1248</width>
-					<height>60</height>
-					<texturenofocus border="9">background-keyboard-text.png</texturenofocus>
-					<texturefocus border="9">background-keyboard-text.png</texturefocus>
-					<hinttext>$INFO[Control.GetLabel(311)]</hinttext>
-					<font>apptv30</font>
-					<aligny>top</aligny>
-					<textcolor>keyboard-focus-text</textcolor>
-					<shadowcolor>keyboard-shadow-text</shadowcolor>
-				</control>
 			</control>
 			<control type="group">
 				<visible>Control.IsVisible(313)</visible>
 				<control type="image">
 					<left>336</left>
-					<top>87</top>
+					<top>26</top>
 					<width>1248</width>
 					<height>60</height>
 					<texture border="9">background-keyboard-text.png</texture>
@@ -57,7 +55,7 @@
 				<control type="label" id="313">
 					<!-- coding text input -->
 					<left>210</left>
-					<top>27</top>
+					<top>28</top>
 					<width>1500</width>
 					<height>45</height>
 					<font>apptv30</font>
@@ -67,7 +65,7 @@
 				<control type="label" id="314">
 					<!-- Coding text choices -->
 					<left>336</left>
-					<top>81</top>
+					<top>20</top>
 					<width>1248</width>
 					<height>60</height>
 					<font>apptv23</font>
@@ -75,6 +73,115 @@
 					<aligny>center</aligny>
 					<textcolor>keyboard-focus-text</textcolor>
 					<shadowcolor>keyboard-shadow-text</shadowcolor>
+				</control>
+			</control>
+			<control type="group"><!-- Show Auto complete buttons or a prompt to install addon is not installed -->
+				<left>240</left>
+				<top>88</top>
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>360</width>
+					<height>60</height>
+					<texture border="9">key-special-nofocus.png</texture>
+				</control>
+				<control type="image">
+					<left>360</left>
+					<top>0</top>
+					<width>360</width>
+					<height>60</height>
+					<texture border="9">key-special-nofocus.png</texture>
+				</control>
+				<control type="image">
+					<left>720</left>
+					<top>0</top>
+					<width>360</width>
+					<height>60</height>
+					<texture border="9">key-special-nofocus.png</texture>
+				</control>
+				<control type="image">
+					<left>1080</left>
+					<top>0</top>
+					<width>360</width>
+					<height>60</height>
+					<texture border="9">key-special-nofocus.png</texture>
+				</control>
+				<control type="button" id="4995"><!-- Install Autocomplete addon if required -->
+					<left>0</left>
+					<top>0</top>
+					<width>1440</width>
+					<height>60</height>
+					<ondown>105</ondown>
+					<align>center</align>
+					<aligny>center</aligny>
+					<texturenofocus border="9">blank.png</texturenofocus>
+					<texturefocus border="9">key-special-focus.png</texturefocus>
+					<label>Install Auto complete addon</label>
+					<focusedcolor>keyboard-special-focus-text</focusedcolor>
+					<textcolor></textcolor>
+					<shadowcolor></shadowcolor>
+					<font>apptv22</font>
+					<onclick condition="![System.HasAddon(plugin.program.autocompletion)]">InstallAddon(plugin.program.autocompletion)</onclick>
+					<onclick>Dialog.Close(virtualkeyboard,force)</onclick>
+					<onclick>ActivateWindow(virtualkeyboard)</onclick>
+					<visible>![System.HasAddon(plugin.program.autocompletion)]</visible>
+				</control>
+			</control>
+			<control type="group">
+				<visible>!String.IsEmpty(Control.GetLabel(312).index(1)) + !Window.IsVisible(numericinput) + !System.HasHiddenInput</visible>
+				<animation effect="fade" start="0" end="100" time="200">Visible</animation>
+				<animation effect="fade" start="100" end="0" time="150">Hidden</animation>
+				<left>240</left>
+				<top>88</top>
+				<control type="panel" id="5501">
+					<width>1440</width>
+					<height>60</height>
+					<ondown>105</ondown>
+					<onback>noop</onback>
+					<orientation>horizontal</orientation>
+					<itemlayout width="360" height="60">
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<width>360</width>
+							<height>60</height>
+							<texture border="9">key-special-nofocus.png</texture>
+						</control>
+						<control type="label">
+							<top>0</top>
+							<left>20</left>
+							<width>320</width>
+							<height>60</height>
+							<align>center</align>
+							<aligny>center</aligny>
+							<font>apptv22</font>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>keyboard-special-unfocus-text</textcolor>
+							<shadowcolor></shadowcolor>
+						</control>
+					</itemlayout>
+					<focusedlayout width="360" height="60">
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<width>360</width>
+							<height>60</height>
+							<texture border="9">key-special-focus.png</texture>
+						</control>
+						<control type="label">
+							<top>0</top>
+							<left>20</left>
+							<width>320</width>
+							<height>60</height>
+							<align>center</align>
+							<aligny>center</aligny>
+							<font>apptv22</font>
+							<label>$INFO[ListItem.Label]</label>
+							<textcolor>keyboard-special-focus-text</textcolor>
+							<shadowcolor></shadowcolor>
+						</control>
+					</focusedlayout>
+					<include condition="System.HasAddon(plugin.program.autocompletion)">keyboard-auto-complete</include>
 				</control>
 			</control>
 			<!-- First Row -->
@@ -88,67 +195,89 @@
 				<align>center</align>
 				<control type="button" id="100">
 					<!--(0,0) key button -->
+					<onup condition="![System.HasAddon(plugin.program.autocompletion)]">4995</onup>
+					<onup condition="System.HasAddon(plugin.program.autocompletion)">5501</onup>
 					<ondown>120</ondown>
 					<include>keyboard-key-common</include>
 				</control>
 				<control type="button" id="101">
 					<!--(0,1) key button -->
-					<onup>32</onup>
+					<onup condition="![System.HasAddon(plugin.program.autocompletion)]">4995</onup>
+					<onup condition="System.HasAddon(plugin.program.autocompletion)">5501</onup>
 					<ondown>121</ondown>
 					<include>keyboard-key-common</include>
 				</control>
 				<control type="button" id="102">
 					<!--(0,2) key button -->
+					<onup condition="![System.HasAddon(plugin.program.autocompletion)]">4995</onup>
+					<onup condition="System.HasAddon(plugin.program.autocompletion)">5501</onup>
 					<ondown>122</ondown>
 					<include>keyboard-key-common</include>
 				</control>
 				<control type="button" id="103">
 					<!--(0,3) key button -->
+					<onup condition="![System.HasAddon(plugin.program.autocompletion)]">4995</onup>
+					<onup condition="System.HasAddon(plugin.program.autocompletion)">5501</onup>
 					<ondown>123</ondown>
 					<include>keyboard-key-common</include>
 				</control>
 				<control type="button" id="104">
 					<!--(0,4) key button -->
+					<onup condition="![System.HasAddon(plugin.program.autocompletion)]">4995</onup>
+					<onup condition="System.HasAddon(plugin.program.autocompletion)">5501</onup>
 					<ondown>124</ondown>
 					<include>keyboard-key-common</include>
 				</control>
 				<control type="button" id="105">
 					<!--(0,5) key button -->
+					<onup condition="![System.HasAddon(plugin.program.autocompletion)]">4995</onup>
+					<onup condition="System.HasAddon(plugin.program.autocompletion)">5501</onup>
 					<ondown>125</ondown>
 					<include>keyboard-key-common</include>
 				</control>
 				<control type="button" id="106">
 					<!--(0,6) key button -->
+					<onup condition="![System.HasAddon(plugin.program.autocompletion)]">4995</onup>
+					<onup condition="System.HasAddon(plugin.program.autocompletion)">5501</onup>
 					<ondown>126</ondown>
 					<include>keyboard-key-common</include>
 				</control>
 				<control type="button" id="107">
 					<!--(0,7) key button -->
+					<onup condition="![System.HasAddon(plugin.program.autocompletion)]">4995</onup>
+					<onup condition="System.HasAddon(plugin.program.autocompletion)">5501</onup>
 					<ondown>127</ondown>
 					<include>keyboard-key-common</include>
 				</control>
 				<control type="button" id="108">
 					<!--(0,8) key button -->
+					<onup condition="![System.HasAddon(plugin.program.autocompletion)]">4995</onup>
+					<onup condition="System.HasAddon(plugin.program.autocompletion)">5501</onup>
 					<ondown>128</ondown>
 					<include>keyboard-key-common</include>
 				</control>
 				<control type="button" id="109">
 					<!--(0,9) key button -->
+					<onup condition="![System.HasAddon(plugin.program.autocompletion)]">4995</onup>
+					<onup condition="System.HasAddon(plugin.program.autocompletion)">5501</onup>
 					<ondown>129</ondown>
 					<include>keyboard-key-common</include>
 				</control>
 				<control type="button" id="110">
 					<!--(0,10) key button -->
+					<onup condition="![System.HasAddon(plugin.program.autocompletion)]">4995</onup>
+					<onup condition="System.HasAddon(plugin.program.autocompletion)">5501</onup>
 					<ondown>130</ondown>
 					<include>keyboard-key-common</include>
 				</control>
 				<control type="button" id="111">
 					<!--(0,11) key button -->
+					<onup condition="![System.HasAddon(plugin.program.autocompletion)]">4995</onup>
+					<onup condition="System.HasAddon(plugin.program.autocompletion)">5501</onup>
 					<ondown>131</ondown>
 					<include>keyboard-key-common</include>
 				</control>
 				<control type="button" id="300">
-					<shadowcolor></shadowcolor>
 					<!-- DONE -->
 					<width>192</width>
 					<height>96</height>
@@ -157,9 +286,12 @@
 					<label>$LOCALIZE[20177]</label>
 					<font>apptv25</font>
 					<textcolor>keyboard-special-unfocus-text</textcolor>
+					<shadowcolor></shadowcolor>
 					<focusedcolor>keyboard-special-focus-text</focusedcolor>
 					<align>center</align>
 					<aligny>center</aligny>
+					<onup condition="![System.HasAddon(plugin.program.autocompletion)]">4995</onup>
+					<onup condition="System.HasAddon(plugin.program.autocompletion)">5501</onup>
 					<ondown>8</ondown>
 				</control>
 			</control>
@@ -481,7 +613,7 @@
 					<font>apptv25</font>
 					<align>center</align>
 					<aligny>center</aligny>
-					<label>@#$%</label>
+					<label>.?/;</label>
 					<altlabel>ABC</altlabel>
 					<onup>302</onup>
 				</control>
