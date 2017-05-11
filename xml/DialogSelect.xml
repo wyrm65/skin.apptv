@@ -149,14 +149,14 @@
 			</control>
 			<control type="list" id="6">
 				<!-- Type 6 Select -->
-				<left>218</left>
+				<left>240</left>
 				<top>186</top>
 				<width>1050</width>
 				<height>672</height>
-				<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
-				<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">26</onright>
-				<onup>6</onup>
-				<ondown>6</ondown>
+				<onleft condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>
+				<onleft condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">26</onleft>
+				<onright condition="!Control.IsVisible(5)">7</onright>
+				<onright condition="Control.IsVisible(5)">5</onright>
 				<pagecontrol>26</pagecontrol>
 				<itemlayout width="1050" height="96">
 					<control type="image">
@@ -218,7 +218,7 @@
 		<control type="scrollbar" id="23">
 			<left>208</left>
 			<top>186</top>
-			<width>20</width>
+			<width>16</width>
 			<height>672</height>
 			<onright>3</onright>
 			<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
@@ -227,12 +227,11 @@
 		<control type="group">
 			<visible>Control.IsVisible(6)</visible>
 			<control type="scrollbar" id="26">
-				<left>1288</left>
+				<left>208</left>
 				<top>186</top>
-				<width>20</width>
+				<width>16</width>
 				<height>672</height>
-				<onleft>6</onleft>
-				<onright>7</onright>
+				<onright>6</onright>
 				<animation condition="!Control.HasFocus(26) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar]</visible>
 			</control>
