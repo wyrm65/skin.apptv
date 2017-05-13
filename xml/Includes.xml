@@ -772,12 +772,12 @@
 	<variable name="VideoLogo">
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo)) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,movie)]">$INFO[ListItem.Art(clearlogo)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + String.IsEqual(ListItem.DBTYPE,tvshow)">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
-		<value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.Clearlogo))">$INFO[Window(home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.Clearlogo)) + !ListItem.IsParentFolder">$INFO[Window(home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
 	</variable>
 	<variable name="ListViewVideoLogo">
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo)) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies)]">$INFO[ListItem.Art(clearlogo)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
-		<value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.Clearlogo))">$INFO[Window(home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.Clearlogo)) + !ListItem.IsParentFolder">$INFO[Window(home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
 	</variable>
 	<variable name="PlayerVideoArt">
 		<value condition="[VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)] + !String.IsEmpty(Player.Art(clearart))">$INFO[Player.Art(clearart)]</value>
