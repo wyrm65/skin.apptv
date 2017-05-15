@@ -151,6 +151,7 @@
 			<animation condition="!Control.HasFocus(1270) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			<visible>$EXP[isEnabledScrollbar]</visible>
 		</control>
+		<include>touch-controls</include>
 		<control type="group">
 			<!-- Screen-settings Menu -->
 			<left>0</left>
@@ -238,6 +239,5 @@
 			</control>
 		</control>
 		<include>element-focusvert</include>
-		<include>touch-controls</include>
 	</controls>
 </window>
