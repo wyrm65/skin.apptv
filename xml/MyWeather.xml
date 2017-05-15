@@ -164,9 +164,12 @@
 					<width>714</width>
 					<height>75</height>
 					<label>$LOCALIZE[31873]</label>
-					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
-					<onclick condition="System.HasAddon(script.image.resource.select)">SetFocus(6000)</onclick>
-					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,type=resource.images.weathericons&amp;property=custom-weathericons)</onclick>
+					<!--<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>-->
+					<!--<onclick condition="System.HasAddon(script.image.resource.select)">SetFocus(6000)</onclick>-->
+					<onclick>SetFocus(6000)</onclick>
+					<!--<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,type=resource.images.weathericons&amp;property=custom-weathericons)</onclick>-->
+					<onclick>RunScript(script.skin.helper.service,action=setresourceaddon,skinstring=custom-weathericons,addontype=resource.images.weathericons)</onclick>
+					
 				</control>
 				<control type="radiobutton" id="210">
 					<!-- Alerts  -->
