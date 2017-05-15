@@ -3527,6 +3527,7 @@
 			<top>1026</top>
 			<width>564</width>
 			<height>48</height>
+			<itemgap>18</itemgap>
 			<orientation>horizontal</orientation>
 			<control type="button">
 				<!-- Back -->
@@ -3535,11 +3536,6 @@
 				<texturefocus>touch-back.png</texturefocus>
 				<texturenofocus>touch-back.png</texturenofocus>
 				<onclick>Back</onclick>
-			</control>
-			<control type="image">
-				<width>24</width>
-				<height>48</height>
-				<texture>blank.png</texture>
 			</control>
 			<control type="togglebutton">
 				<!-- OSD Play/Pause -->
@@ -3553,12 +3549,6 @@
 				<onclick>ActivateWindow(playercontrols)</onclick>
 				<visible>Player.HasAudio | Player.HasVideo</visible>
 			</control>
-			<control type="image">
-				<width>24</width>
-				<height>48</height>
-				<texture>blank.png</texture>
-				<visible>Player.HasAudio | Player.HasVideo</visible>
-			</control>
 			<control type="button">
 				<!-- Search -->
 				<width>48</width>
@@ -3568,11 +3558,6 @@
 				<onclick condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
 				<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
 			</control>
-			<control type="image">
-				<width>24</width>
-				<height>48</height>
-				<texture>blank.png</texture>
-			</control>
 			<control type="button">
 				<!-- Favourite -->
 				<width>48</width>
@@ -3580,11 +3565,6 @@
 				<texturefocus>touch-fav.png</texturefocus>
 				<texturenofocus>touch-fav.png</texturenofocus>
 				<onclick>ActivateWindow(favourites)</onclick>
-			</control>
-			<control type="image">
-				<width>24</width>
-				<height>48</height>
-				<texture>blank.png</texture>
 			</control>
 			<control type="button">
 				<!-- Screen Settings -->
