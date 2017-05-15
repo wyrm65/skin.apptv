@@ -689,7 +689,7 @@
 				<texturenofocus>touch-search.png</texturenofocus>
 				<onclick>RunScript(script.skin.helper.service,action=musicsearch)</onclick>
 				<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-				<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1240)">Conditional</animation>
+				<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1242)">Conditional</animation>
 			</control>
 			<control type="panel" id="1262">
 				<left>1830</left>
@@ -872,7 +872,7 @@
 					<texturenofocus>touch-search.png</texturenofocus>
 					<onclick>RunScript(script.skin.helper.service,action=musicsearch)</onclick>
 					<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-					<animation effect="fade" end="50" condition="!Control.HasFocus(1244)">Conditional</animation>
+					<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1244)">Conditional</animation>
 				</control>
 				<control type="panel" id="1264">
 					<left>102</left>
@@ -910,7 +910,7 @@
 							<font>apptv20</font>
 							<align>center</align>
 							<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-							<animation effect="fade" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 					</focusedlayout>
 					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
@@ -1619,7 +1619,7 @@
 				</control>
 				<control type="textbox"><!-- Album description -->
 					<width>705</width>
-					<height>546</height>
+					<height>564</height>
 					<font>apptv20</font>
 					<label>$INFO[ListItem.Property(Album_Description)]</label>
 					<align>justify</align>
@@ -1628,7 +1628,7 @@
 				</control>
 				<control type="textbox"><!-- Artist description -->
 					<width>705</width>
-					<height>546</height>
+					<height>564</height>
 					<font>apptv20</font>
 					<label>$INFO[ListItem.Property(Artist_Description)]</label>
 					<align>justify</align>

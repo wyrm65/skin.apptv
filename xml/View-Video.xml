@@ -566,7 +566,7 @@
 					<left>26</left>
 					<top>700</top>
 					<width>954</width>
-					<height>309</height>
+					<height>318</height>
 					<font>apptv20</font>
 					<label>$INFO[ListItem.PlotOutline]</label>
 					<align>justify</align>
@@ -578,7 +578,7 @@
 					<left>26</left>
 					<top>700</top>
 					<width>954</width>
-					<height>309</height>
+					<height>318</height>
 					<font>apptv20</font>
 					<label>$INFO[ListItem.Plot]</label>
 					<align>justify</align>
@@ -603,7 +603,7 @@
 				<texturenofocus>touch-search.png</texturenofocus>
 				<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
 				<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-				<animation effect="fade" end="50" condition="!Control.HasFocus(1240)">Conditional</animation>
+				<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1240)">Conditional</animation>
 			</control>
 			<control type="panel" id="1260">
 				<left>1850</left>
@@ -623,7 +623,7 @@
 						<font>apptv20</font>
 						<align>center</align>
 						<textcolor>disabled-text</textcolor>
-						<animation effect="fade" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 					</control>
 					<control type="label">
 						<height>30</height>
@@ -642,7 +642,7 @@
 						<align>center</align>
 						<textcolor>button-text</textcolor>
 						<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-						<animation effect="fade" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 					</control>
 				</focusedlayout>
 				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
@@ -874,7 +874,7 @@
 				<texturenofocus>touch-search.png</texturenofocus>
 				<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
 				<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-				<animation effect="fade" end="50" condition="!Control.HasFocus(1242)">Conditional</animation>
+				<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1242)">Conditional</animation>
 			</control>
 			<control type="panel" id="1262">
 				<left>1852</left>
@@ -893,7 +893,7 @@
 						<font>apptv20</font>
 						<align>center</align>
 						<textcolor>disabled-text</textcolor>
-						<animation effect="fade" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 					</control>
 					<control type="label">
 						<height>30</height>
@@ -911,7 +911,7 @@
 						<font>apptv20</font>
 						<align>center</align>
 						<animation effect="zoom" end="130" center="auto">focus</animation>
-						<animation effect="fade" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 					</control>
 				</focusedlayout>
 				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
@@ -985,7 +985,7 @@
 				<focusedlayout width="813" height="150">
 					<control type="group">
 						<animation condition="true" effect="zoom" start="100" end="119" center="auto">Conditional</animation>
-						<animation effect="fade" end="50" condition="!Control.HasFocus(53)">Conditional</animation>
+						<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(53)">Conditional</animation>
 						<control type="image">
 							<!-- Go Back image -->
 							<left>0</left>
@@ -1123,7 +1123,7 @@
 					<control type="textbox">
 						<!-- Plot Outline -->
 						<width>900</width>
-						<height>243</height>
+						<height>248</height>
 						<label>$INFO[ListItem.PlotOutline]</label>
 						<font>apptv20</font>
 						<align>justify</align>
@@ -1132,7 +1132,7 @@
 					<control type="textbox">
 						<!-- Plot (Show if no outline available)-->
 						<width>900</width>
-						<height>243</height>
+						<height>248</height>
 						<label>$INFO[ListItem.Plot]</label>
 						<font>apptv20</font>
 						<align>justify</align>
@@ -1155,7 +1155,7 @@
 						<texturenofocus>touch-search.png</texturenofocus>
 						<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
 						<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-						<animation effect="fade" end="50" condition="!Control.HasFocus(1243)">Conditional</animation>
+						<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1243)">Conditional</animation>
 					</control>
 					<control type="panel" id="1263">
 						<left>1836</left>
@@ -1174,7 +1174,7 @@
 								<font>apptv20</font>
 								<align>center</align>
 								<textcolor>disabled-text</textcolor>
-								<animation effect="fade" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+								<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 							</control>
 							<control type="label">
 								<height>30</height>
@@ -1193,7 +1193,7 @@
 								<align>center</align>
 								<textcolor>button-text</textcolor>
 								<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-								<animation effect="fade" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+								<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 							</control>
 						</focusedlayout>
 						<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
@@ -1466,7 +1466,7 @@
 					<texturenofocus>touch-search.png</texturenofocus>
 					<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
 					<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-					<animation effect="fade" end="50" condition="!Control.HasFocus(1244)">Conditional</animation>
+					<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1244)">Conditional</animation>
 				</control>
 				<control type="panel" id="1264">
 					<left>102</left>
@@ -1486,7 +1486,7 @@
 							<font>apptv20</font>
 							<textcolor>disabled-text</textcolor>
 							<align>center</align>
-							<animation effect="fade" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 						<control type="label">
 							<height>30</height>
@@ -1504,7 +1504,7 @@
 							<font>apptv20</font>
 							<align>center</align>
 							<animation effect="zoom" end="130" center="auto">focus</animation>
-							<animation effect="fade" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 					</focusedlayout>
 					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
@@ -1974,7 +1974,7 @@
 					<texturenofocus>touch-search.png</texturenofocus>
 					<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
 					<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-					<animation effect="fade" end="50" condition="!Control.HasFocus(1247)">Conditional</animation>
+					<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1247)">Conditional</animation>
 				</control>
 				<control type="panel" id="1267">
 					<left>102</left>
@@ -1994,7 +1994,7 @@
 							<font>apptv20</font>
 							<textcolor>disabled-text</textcolor>
 							<align>center</align>
-							<animation effect="fade" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 						<control type="label">
 							<height>30</height>
@@ -2012,7 +2012,7 @@
 							<font>apptv20</font>
 							<align>center</align>
 							<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-							<animation effect="fade" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 					</focusedlayout>
 					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
@@ -2267,9 +2267,9 @@
 				<control type="textbox">
 					<!-- Plot Outline -->
 					<left>26</left>
-					<top>500</top>
+					<top>494</top>
 					<width>750</width>
-					<height>512</height>
+					<height>528</height>
 					<font>apptv20</font>
 					<label>$INFO[ListItem.PlotOutline]</label>
 					<visible>!String.IsEmpty(ListItem.PlotOutline)</visible>
@@ -2277,9 +2277,9 @@
 				<control type="textbox">
 					<!-- Plot (Show if no outline available)-->
 					<left>26</left>
-					<top>500</top>
+					<top>494</top>
 					<width>750</width>
-					<height>512</height>
+					<height>528</height>
 					<font>apptv20</font>
 					<label>$INFO[ListItem.Plot]</label>
 					<visible>String.IsEmpty(ListItem.PlotOutline) + !String.IsEmpty(ListItem.Plot)</visible>
@@ -2301,7 +2301,7 @@
 					<texturenofocus>touch-search.png</texturenofocus>
 					<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
 					<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-					<animation effect="fade" end="50" condition="!Control.HasFocus(1248)">Conditional</animation>
+					<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1248)">Conditional</animation>
 				</control>
 				<control type="panel" id="1268">
 					<left>1838</left>
@@ -2321,7 +2321,7 @@
 							<font>apptv20</font>
 							<textcolor>disabled-text</textcolor>
 							<align>center</align>
-							<animation effect="fade" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 						<control type="label">
 							<height>30</height>
@@ -2339,7 +2339,7 @@
 							<font>apptv20</font>
 							<align>center</align>
 							<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-							<animation effect="fade" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 					</focusedlayout>
 					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
