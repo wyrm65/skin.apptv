@@ -25,6 +25,7 @@
 					<height>96</height>
 					<texture border="9">button-default.png</texture>
 					<aspectratio>stretch</aspectratio>
+					<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 				<control type="image">
 					<left>3</left>
@@ -186,6 +187,7 @@
 					<height>96</height>
 					<texture border="9">button-default-focus.png</texture>
 					<aspectratio>stretch</aspectratio>
+					<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 				<control type="image">
 					<left>3</left>
@@ -588,7 +590,7 @@
 			</control>
 		</control>
 		<include>sortletternotification</include>
-		<control type="group" id="1230">
+		<control type="group">
 			<visible>Control.IsVisible(50) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 			<control type="button" id="1240">
 				<!-- Search -->
