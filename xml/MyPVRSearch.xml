@@ -145,6 +145,23 @@
 				</control>
 			</control>
 		</control>
-		<include>element-focusvert</include>
+		<!-- Show a iOS style page indicator to show which focus group has the current focus -->
+		<!-- Focus group can be hidden or shown but is potentially focusable, that is it has not be disabled -->
+		<control type="group">
+			<visible>Integer.IsGreater(Container(3500).NumItems,1) + Control.IsVisible(17)</visible>
+			<include content="page-indicator">
+				<param name="indicatorleft" value="864" />
+				<param name="indicatortop" value="0" />
+				<param name="indicatorwidth" value="192" />
+				<param name="indicatorheight" value="48" />
+				<param name="indicatororientation" value="horizontal" />
+				<param name="grp1indicate" value="[ControlGroup(9000).HasFocus()|String.IsEqual(Window(home).Property(ShowScreenSettings),show)]" />
+				<param name="grp1visible" value="[!Skin.HasSetting(lock-screensettings)]" />
+				<param name="grp2indicate" value="[Control.HasFocus(17)|Control.HasFocus(52)|Control.HasFocus(58)]" />
+				<param name="grp2visible" value="[Control.IsVisible(17)|Control.IsVisible(52)|Control.IsVisible(58)]" />
+				<param name="grp3indicate" value="[Control.HasFocus(27)]" />
+				<param name="grp3visible" value="[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
+			</include>
+		</control>
 	</controls>
 </window>

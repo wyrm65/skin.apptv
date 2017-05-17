@@ -3520,6 +3520,77 @@
 			</item>
 		</definition>
 	</include>
+	<include name="page-indicator">
+		<param name="indicatorleft" default="0" />
+		<param name="indicatortop" default="0" />
+		<param name="indicatorwidth" default="0" />
+		<param name="indicatorheight" default="0" />
+		<param name="indicatororientation" default="horizontal" />
+		<param name="grp1indicate" />
+		<param name="grp1visible" default="false" />
+		<param name="grp2indicate" />
+		<param name="grp2visible" default="false" />
+		<param name="grp3indicate" />
+		<param name="grp3visible" default="false" />
+		<param name="grp4indicate" />
+		<param name="grp4visible" default="false" />
+		<definition>
+			<control type="grouplist" id="3500">
+				<left>$PARAM[indicatorleft]</left>
+				<top>$PARAM[indicatortop]</top>
+				<width>$PARAM[indicatorwidth]</width>
+				<height>$PARAM[indicatorheight]</height>
+				<orientation>$PARAM[indicatororientation]</orientation>
+				<itemgap>0</itemgap>
+				<aligny>center</aligny>
+				<align>center</align>
+				<control type="togglebutton">
+					<width>48</width>
+					<height>48</height>
+					<texturefocus>groupunfocused.png</texturefocus>
+					<texturenofocus>groupunfocused.png</texturenofocus>
+					<alttexturefocus>groupfocused.png</alttexturefocus>
+					<alttexturenofocus>groupfocused.png</alttexturenofocus>
+					<usealttexture>$PARAM[grp1indicate]</usealttexture>
+					<onclick></onclick>
+					<visible>$PARAM[grp1visible]</visible>
+				</control>
+				<control type="togglebutton">
+					<width>48</width>
+					<height>48</height>
+					<texturefocus>groupunfocused.png</texturefocus>
+					<texturenofocus>groupunfocused.png</texturenofocus>
+					<alttexturefocus>groupfocused.png</alttexturefocus>
+					<alttexturenofocus>groupfocused.png</alttexturenofocus>
+					<usealttexture>$PARAM[grp2indicate]</usealttexture>
+					<onclick></onclick>
+					<visible>$PARAM[grp2visible]</visible>
+				</control>
+				<control type="togglebutton">
+					<width>48</width>
+					<height>48</height>
+					<texturefocus>groupunfocused.png</texturefocus>
+					<texturenofocus>groupunfocused.png</texturenofocus>
+					<alttexturefocus>groupfocused.png</alttexturefocus>
+					<alttexturenofocus>groupfocused.png</alttexturenofocus>
+					<usealttexture>$PARAM[grp3indicate]</usealttexture>
+					<onclick></onclick>
+					<visible>$PARAM[grp3visible]</visible>
+				</control>
+				<control type="togglebutton">
+					<width>48</width>
+					<height>48</height>
+					<texturefocus>groupunfocused.png</texturefocus>
+					<texturenofocus>groupunfocused.png</texturenofocus>
+					<alttexturefocus>groupfocused.png</alttexturefocus>
+					<alttexturenofocus>groupfocused.png</alttexturenofocus>
+					<usealttexture>$PARAM[grp4indicate]</usealttexture>
+					<onclick></onclick>
+					<visible>$PARAM[grp4visible]</visible>
+				</control>
+			</control>
+		</definition>
+	</include>
 	<include name="touch-controls">
 		<control type="grouplist" id="8000">
 			<visible>$EXP[isEnabledTouch]</visible>
@@ -3536,6 +3607,7 @@
 				<texturefocus>touch-back.png</texturefocus>
 				<texturenofocus>touch-back.png</texturenofocus>
 				<onclick>Back</onclick>
+				<include>focus-zoom</include>
 			</control>
 			<control type="togglebutton">
 				<!-- OSD Play/Pause -->
@@ -3547,6 +3619,7 @@
 				<alttexturenofocus>touch-pause.png</alttexturenofocus>
 				<usealttexture>Player.Paused</usealttexture>
 				<onclick>ActivateWindow(playercontrols)</onclick>
+				<include>focus-zoom</include>
 				<visible>Player.HasAudio | Player.HasVideo</visible>
 			</control>
 			<control type="button">
@@ -3557,6 +3630,7 @@
 				<texturenofocus>touch-search.png</texturenofocus>
 				<onclick condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
 				<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
+				<include>focus-zoom</include>
 			</control>
 			<control type="button">
 				<!-- Favourite -->
@@ -3565,6 +3639,7 @@
 				<texturefocus>touch-fav.png</texturefocus>
 				<texturenofocus>touch-fav.png</texturenofocus>
 				<onclick>ActivateWindow(favourites)</onclick>
+				<include>focus-zoom</include>
 			</control>
 			<control type="button">
 				<!-- Screen Settings -->
@@ -3574,128 +3649,8 @@
 				<texturenofocus>touch-settings.png</texturenofocus>
 				<onclick condition="!String.IsEqual(Window(home).Property(ShowScreenSettings),show)">SetProperty(ShowScreenSettings,show,home)</onclick>
 				<onclick condition="String.IsEqual(Window(home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,home)</onclick>
+				<include>focus-zoom</include>
 				<visible>!Skin.HasSetting(lock-screensettings)</visible>
-			</control>
-		</control>
-	</include>
-	<include name="element-focusvert">
-		<control type="grouplist">
-			<left>864</left>
-			<top>0</top>
-			<width>192</width>
-			<height>48</height>
-			<orientation>horizontal</orientation>
-			<itemgap>0</itemgap>
-			<aligny>center</aligny>
-			<align>center</align>
-			<visible>[Window.IsVisible(MyPVRChannels.xml) | Window.IsVisible(MyPVRTimers.xml) | Window.IsVisible(MyPVRSearch.xml) | String.EndsWith(Control.GetLabel(2),$LOCALIZE[31941]) | String.EndsWith(Control.GetLabel(2),$LOCALIZE[31943]) | String.EndsWith(Control.GetLabel(2),$LOCALIZE[31944]) | String.EndsWith(Control.GetLabel(2),$LOCALIZE[31946])] + [!Skin.HasSetting(lock-screensettings) | [!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Integer.IsGreater(Container().NumPages,1)]]</visible>
-			<control type="image">
-				<width>48</width>
-				<height>48</height>
-				<texture>groupfocused.png</texture>
-				<visible>[ControlGroup(9000).HasFocus() | String.IsEqual(Window(home).Property(ShowScreenSettings),show)] + !Skin.HasSetting(lock-screensettings)</visible>
-			</control>
-			<control type="image">
-				<width>48</width>
-				<height>48</height>
-				<texture>groupunfocused.png</texture>
-				<visible>![ControlGroup(9000).HasFocus() | String.IsEqual(Window(home).Property(ShowScreenSettings),show)] + !Skin.HasSetting(lock-screensettings)</visible>
-			</control>
-			<control type="image">
-				<width>48</width>
-				<height>48</height>
-				<texture>groupfocused.png</texture>
-				<visible>![ControlGroup(9000).HasFocus() | String.IsEqual(Window(home).Property(ShowScreenSettings),show) | Control.HasFocus(1240) | Control.HasFocus(1242) | Control.HasFocus(1243) | Control.HasFocus(1248) | Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258) | Control.HasFocus(1260) | Control.HasFocus(1262) | Control.HasFocus(1263) | Control.HasFocus(1268) | Control.HasFocus(1270) | Control.HasFocus(23) | Control.HasFocus(27)]</visible>
-			</control>
-			<control type="image">
-				<width>48</width>
-				<height>48</height>
-				<texture>groupunfocused.png</texture>
-				<visible>[ControlGroup(9000).HasFocus() | String.IsEqual(Window(home).Property(ShowScreenSettings),show) | Control.HasFocus(1240) | Control.HasFocus(1242) | Control.HasFocus(1243) | Control.HasFocus(1248) | Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258) | Control.HasFocus(1260) | Control.HasFocus(1262) | Control.HasFocus(1263) | Control.HasFocus(1268) | Control.HasFocus(1270) | Control.HasFocus(23) | Control.HasFocus(27)]</visible>
-			</control>
-			<control type="image">
-				<width>48</width>
-				<height>48</height>
-				<texture>groupfocused.png</texture>
-				<visible>Skin.HasSetting(show-letterbar) + [Control.HasFocus(1240) | Control.HasFocus(1242) | Control.HasFocus(1243) | Control.HasFocus(1248) | Control.HasFocus(1260) | Control.HasFocus(1262) | Control.HasFocus(1263) | Control.HasFocus(1268)]</visible>
-			</control>
-			<control type="image">
-				<width>48</width>
-				<height>48</height>
-				<texture>groupunfocused.png</texture>
-				<visible>Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(artists) | Container.Content(albums)] + ![Control.HasFocus(1240) | Control.HasFocus(1242) | Control.HasFocus(1243) | Control.HasFocus(1248) | Control.HasFocus(1260) | Control.HasFocus(1262) | Control.HasFocus(1263) | Control.HasFocus(1268)]</visible>
-			</control>
-			<control type="image">
-				<width>48</width>
-				<height>48</height>
-				<texture>groupfocused.png</texture>
-				<visible>[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Integer.IsGreater(Container().NumPages,1)] + [Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258) | Control.HasFocus(1270) | Control.HasFocus(23) | Control.HasFocus(27)]</visible>
-			</control>
-			<control type="image">
-				<width>48</width>
-				<height>48</height>
-				<texture>groupunfocused.png</texture>
-				<visible>[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Integer.IsGreater(Container().NumPages,1)] + ![Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258) | Control.HasFocus(1270) | Control.HasFocus(23) | Control.HasFocus(27)]</visible>
-			</control>
-		</control>
-	</include>
-	<include name="element-focushorz">
-		<control type="grouplist">
-			<left>0</left>
-			<top>225</top>
-			<width>48</width>
-			<height>192</height>
-			<itemgap>0</itemgap>
-			<aligny>center</aligny>
-			<align>center</align>
-			<visible>[String.EndsWith(Control.GetLabel(2),$LOCALIZE[31942]) | String.EndsWith(Control.GetLabel(2),$LOCALIZE[31945])] + [!Skin.HasSetting(lock-screensettings) | [!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Integer.IsGreater(Container().NumPages,1)]]</visible>
-			<control type="image">
-				<width>48</width>
-				<height>48</height>
-				<texture>groupfocused.png</texture>
-				<visible>[ControlGroup(9000).HasFocus() | String.IsEqual(Window(home).Property(ShowScreenSettings),show)] + !Skin.HasSetting(lock-screensettings)</visible>
-			</control>
-			<control type="image">
-				<width>48</width>
-				<height>48</height>
-				<texture>groupunfocused.png</texture>
-				<visible>![ControlGroup(9000).HasFocus() | String.IsEqual(Window(home).Property(ShowScreenSettings),show)] + !Skin.HasSetting(lock-screensettings)</visible>
-			</control>
-			<control type="image">
-				<width>48</width>
-				<height>48</height>
-				<texture>groupfocused.png</texture>
-				<visible>![ControlGroup(9000).HasFocus() | String.IsEqual(Window(home).Property(ShowScreenSettings),show) | Control.HasFocus(1244) | Control.HasFocus(1247) | Control.HasFocus(1254) | Control.HasFocus(1257) | Control.HasFocus(1264) | Control.HasFocus(1267)]</visible>
-			</control>
-			<control type="image">
-				<width>48</width>
-				<height>48</height>
-				<texture>groupunfocused.png</texture>
-				<visible>[ControlGroup(9000).HasFocus() | String.IsEqual(Window(home).Property(ShowScreenSettings),show) | Control.HasFocus(1244) | Control.HasFocus(1247) | Control.HasFocus(1254) | Control.HasFocus(1257) | Control.HasFocus(1264) | Control.HasFocus(1267)]</visible>
-			</control>
-			<control type="image">
-				<width>48</width>
-				<height>48</height>
-				<texture>groupfocused.png</texture>
-				<visible>Skin.HasSetting(show-letterbar) + [Control.HasFocus(1244) | Control.HasFocus(1247) | Control.HasFocus(1264) | Control.HasFocus(1267)]</visible>
-			</control>
-			<control type="image">
-				<width>48</width>
-				<height>48</height>
-				<texture>groupunfocused.png</texture>
-				<visible>Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(artists) | Container.Content(albums)] + ![Control.HasFocus(1244) | Control.HasFocus(1247) | Control.HasFocus(1264) | Control.HasFocus(1267)]</visible>
-			</control>
-			<control type="image">
-				<width>48</width>
-				<height>48</height>
-				<texture>groupfocused.png</texture>
-				<visible>[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Integer.IsGreater(Container().NumPages,1)] + [Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1254) | Control.HasFocus(1257) | Control.HasFocus(1258) | Control.HasFocus(1270) | Control.HasFocus(23) | Control.HasFocus(27)]</visible>
-			</control>
-			<control type="image">
-				<width>48</width>
-				<height>48</height>
-				<texture>groupunfocused.png</texture>
-				<visible>[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877]) + Integer.IsGreater(Container().NumPages,1)] + ![Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1254) | Control.HasFocus(1257) | Control.HasFocus(1258) | Control.HasFocus(1270) | Control.HasFocus(23) | Control.HasFocus(27)]</visible>
 			</control>
 		</control>
 	</include>
