@@ -10,16 +10,16 @@
 		<include>fake-overlay</include>
 		<control type="grouplist">
 			<left>1170</left>
-			<top>30</top>
+			<top>20</top>
 			<width>705</width>
-			<height>45</height>
+			<height>48</height>
 			<align>right</align>
 			<aligny>center</aligny>
 			<orientation>horizontal</orientation>
 			<control type="label">
 				<!-- Video screen heading -->
 				<width max="585">auto</width>
-				<height>45</height>
+				<height>48</height>
 				<label>$VAR[PVRHeading]</label>
 				<font>apptv30</font>
 				<aligny>top</aligny>
@@ -27,7 +27,7 @@
 			<control type="label">
 				<!-- Number of files -->
 				<width max="120">auto</width>
-				<height>45</height>
+				<height>48</height>
 				<label>$INFO[Container.NumItems,(,)]</label>
 				<aligny>top</aligny>
 			</control>
@@ -158,6 +158,8 @@
 				<param name="grp1visible" value="[!Skin.HasSetting(lock-screensettings)]" />
 				<param name="grp2indicate" value="[Control.HasFocus(10]" />
 				<param name="grp2visible" value="[Control.IsVisible(10)]" />
+				<param name="grp3indicate" value="[Control.HasFocus(60]" />
+				<param name="grp3visible" value="[Control.IsVisible(60)]" />
 			</include>
 		</control>
 	</controls>
