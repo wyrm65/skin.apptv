@@ -686,6 +686,16 @@
 						<onclick>SetFocus(5000)</onclick>
 					</item>
 					<item>
+						<!-- Custom command - Next aired TV show listing -->
+						<label>$LOCALIZE[31597]</label>
+						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],RunScript(script.tv.show.next.aired))</onclick>
+						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[31597])</onclick>
+						<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
+						<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/livetv.png)</onclick>
+						<onclick>ClearProperty(ShowCommands,settings)</onclick>
+						<onclick>SetFocus(5000)</onclick>
+					</item>
+					<item>
 						<!-- Custom command - Play Disc -->
 						<label>$LOCALIZE[341]</label>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],PlayDVD)</onclick>
