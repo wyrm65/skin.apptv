@@ -413,9 +413,25 @@
 					<width>315</width>
 					<height>48</height>
 					<font>apptv30</font>
+					<textcolor>tab-text</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
 					<align>center</align>
 					<label>$INFO[Container(9100).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
+					<visible>!Control.HasFocus(9100)</visible>
+				</control>
+				<control type="label">
+					<!-- Menu Heading -->
+					<left>0</left>
+					<top>26</top>
+					<width>315</width>
+					<height>48</height>
+					<font>apptv30</font>
+					<textcolor>tab-hilite</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
+					<align>center</align>
+					<label>$INFO[Container(9100).ListItem.Label2]</label>
+					<animation condition="!Control.HasFocus(9100) + !Control.HasFocus(9130)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
 				<control type="list" id="9100">
 					<animation condition="!Control.HasFocus(9100) + !Control.HasFocus(9130)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
@@ -557,9 +573,25 @@
 					<width>315</width>
 					<height>48</height>
 					<font>apptv30</font>
+					<textcolor>tab-text</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
 					<align>center</align>
 					<label>$INFO[Container(9150).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
+					<visible>!Control.HasFocus(9150)</visible>
+				</control>
+				<control type="label">
+					<!-- Menu Heading -->
+					<left>0</left>
+					<top>26</top>
+					<width>315</width>
+					<height>48</height>
+					<font>apptv30</font>
+					<textcolor>tab-hilite</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
+					<align>center</align>
+					<label>$INFO[Container(9150).ListItem.Label2]</label>
+					<animation condition="!Control.HasFocus(9150) + !Control.HasFocus(9160) + !Control.HasFocus(9180)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
 				<control type="list" id="9150">
 					<animation condition="!Control.HasFocus(9150) + !Control.HasFocus(9160) + !Control.HasFocus(9180)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
@@ -609,48 +641,48 @@
 							<!-- Movies -->
 							<visible>!Skin.HasSetting(home-movie)</visible>
 							<label>$LOCALIZE[31026]</label>
-							<label2>$LOCALIZE[20338]</label2>
+							<label2>$LOCALIZE[31026]</label2>
 							<onclick>$VAR[MovieLibEntry]</onclick>
 						</item>
 						<item>
 							<!-- Custom Movie 1 -->
 							<visible>!String.IsEmpty(Skin.String(CustomMovies.1.Path))</visible>
 							<label>$INFO[Skin.String(CustomMovies.1.Label)]</label>
-							<label2>$LOCALIZE[20338]</label2>
+							<label2>$LOCALIZE[31026]</label2>
 							<onclick>$INFO[Skin.String(CustomMovies.1.Path)]</onclick>
 						</item>
 						<item>
 							<!-- Custom Movie 2 -->
 							<visible>!String.IsEmpty(Skin.String(CustomMovies.2.Path))</visible>
 							<label>$INFO[Skin.String(CustomMovies.2.Label)]</label>
-							<label2>$LOCALIZE[20338]</label2>
+							<label2>$LOCALIZE[31026]</label2>
 							<onclick>$INFO[Skin.String(CustomMovies.2.Path)]</onclick>
 						</item>
 						<item>
 							<!-- Custom Movie 3 -->
 							<visible>!String.IsEmpty(Skin.String(CustomMovies.3.Path))</visible>
 							<label>$INFO[Skin.String(CustomMovies.3.Label)]</label>
-							<label2>$LOCALIZE[20338]</label2>
+							<label2>$LOCALIZE[31026]</label2>
 							<onclick>$INFO[Skin.String(CustomMovies.3.Path)]</onclick>
 						</item>
 						<item>
 							<!-- Custom Movie 4 -->
 							<visible>!String.IsEmpty(Skin.String(CustomMovies.4.Path))</visible>
 							<label>$INFO[Skin.String(CustomMovies.4.Label)]</label>
-							<label2>$LOCALIZE[20338]</label2>
+							<label2>$LOCALIZE[31026]</label2>
 							<onclick>$INFO[Skin.String(CustomMovies.4.Path)]</onclick>
 						</item>
 						<item>
 							<!-- Custom Movie 5 -->
 							<visible>!String.IsEmpty(Skin.String(CustomMovies.5.Path))</visible>
 							<label>$INFO[Skin.String(CustomMovies.5.Label)]</label>
-							<label2>$LOCALIZE[20338]</label2>
+							<label2>$LOCALIZE[31026]</label2>
 							<onclick>$INFO[Skin.String(CustomMovies.5.Path)]</onclick>
 						</item>
 						<item>
 							<!-- Video addons -->
 							<label>$LOCALIZE[24001]</label>
-							<label2>$LOCALIZE[20338]</label2>
+							<label2>$LOCALIZE[31026]</label2>
 							<onclick>ActivateWindow(Videos,Addons,return)</onclick>
 						</item>
 					</content>
@@ -711,9 +743,25 @@
 					<width>315</width>
 					<height>48</height>
 					<font>apptv30</font>
+					<textcolor>tab-text</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
 					<align>center</align>
 					<label>$INFO[Container(9200).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
+					<visible>!Control.HasFocus(9200)</visible>
+				</control>
+				<control type="label">
+					<!-- Menu Heading -->
+					<left>0</left>
+					<top>26</top>
+					<width>315</width>
+					<height>48</height>
+					<font>apptv30</font>
+					<textcolor>tab-hilite</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
+					<align>center</align>
+					<label>$INFO[Container(9200).ListItem.Label2]</label>
+					<animation condition="!Control.HasFocus(9200) + !Control.HasFocus(9210) + !Control.HasFocus(9230)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
 				<control type="list" id="9200">
 					<animation condition="!Control.HasFocus(9200) + !Control.HasFocus(9210) + !Control.HasFocus(9230)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
@@ -865,9 +913,25 @@
 					<width>315</width>
 					<height>48</height>
 					<font>apptv30</font>
+					<textcolor>tab-text</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
 					<align>center</align>
 					<label>$INFO[Container(9500).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
+					<visible>!Control.HasFocus(9500)</visible>
+				</control>
+				<control type="label">
+					<!-- Menu Heading -->
+					<left>0</left>
+					<top>26</top>
+					<width>315</width>
+					<height>48</height>
+					<font>apptv30</font>
+					<textcolor>tab-hilite</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
+					<align>center</align>
+					<label>$INFO[Container(9500).ListItem.Label2]</label>
+					<animation condition="!Control.HasFocus(9500) + !Control.HasFocus(9510) + !Control.HasFocus(9530)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
 				<control type="list" id="9500">
 					<animation condition="!Control.HasFocus(9500) + !Control.HasFocus(9510) + !Control.HasFocus(9530)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
@@ -1054,9 +1118,25 @@
 					<width>315</width>
 					<height>48</height>
 					<font>apptv30</font>
+					<textcolor>tab-text</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
 					<align>center</align>
 					<label>$VAR[CustomFavHeading]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
+					<visible>!Control.HasFocus(9550)</visible>
+				</control>
+				<control type="label">
+					<!-- Menu Heading -->
+					<left>0</left>
+					<top>26</top>
+					<width>315</width>
+					<height>48</height>
+					<font>apptv30</font>
+					<textcolor>tab-hilite</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
+					<align>center</align>
+					<label>$VAR[CustomFavHeading]</label>
+					<animation condition="!Control.HasFocus(9550) + !Control.HasFocus(9580)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
 				<control type="list" id="9550">
 					<animation condition="!Control.HasFocus(9550) + !Control.HasFocus(9580)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
@@ -1201,9 +1281,25 @@
 					<width>315</width>
 					<height>48</height>
 					<font>apptv30</font>
+					<textcolor>tab-text</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
 					<align>center</align>
 					<label>$INFO[Container(9250).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
+					<visible>!Control.HasFocus(9250)</visible>
+				</control>
+				<control type="label">
+					<!-- Menu Heading -->
+					<left>0</left>
+					<top>26</top>
+					<width>315</width>
+					<height>48</height>
+					<font>apptv30</font>
+					<textcolor>tab-hilite</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
+					<align>center</align>
+					<label>$INFO[Container(9250).ListItem.Label2]</label>
+					<animation condition="!Control.HasFocus(9250) + !Control.HasFocus(9260) + !Control.HasFocus(9280)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
 				<control type="list" id="9250">
 					<animation condition="!Control.HasFocus(9250) + !Control.HasFocus(9260) + !Control.HasFocus(9280)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
@@ -1340,9 +1436,25 @@
 					<width>315</width>
 					<height>48</height>
 					<font>apptv30</font>
+					<textcolor>tab-text</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
 					<align>center</align>
 					<label>$INFO[Container(9300).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
+					<visible>!Control.HasFocus(9300)</visible>
+				</control>
+				<control type="label">
+					<!-- Menu Heading -->
+					<left>0</left>
+					<top>26</top>
+					<width>315</width>
+					<height>48</height>
+					<font>apptv30</font>
+					<textcolor>tab-hilite</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
+					<align>center</align>
+					<label>$INFO[Container(9300).ListItem.Label2]</label>
+					<animation condition="!Control.HasFocus(9300) + !Control.HasFocus(9330)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
 				<control type="list" id="9300">
 					<animation condition="!Control.HasFocus(9300) + !Control.HasFocus(9330)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
@@ -1457,9 +1569,25 @@
 					<width>315</width>
 					<height>48</height>
 					<font>apptv30</font>
+					<textcolor>tab-text</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
 					<align>center</align>
 					<label>$INFO[Container(9350).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260)" effect="fade" start="100" end="65">Conditional</animation>
+					<visible>!Control.HasFocus(9350)</visible>
+				</control>
+				<control type="label">
+					<!-- Menu Heading -->
+					<left>0</left>
+					<top>26</top>
+					<width>315</width>
+					<height>48</height>
+					<font>apptv30</font>
+					<textcolor>tab-hilite</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
+					<align>center</align>
+					<label>$INFO[Container(9350).ListItem.Label2]</label>
+					<animation condition="!Control.HasFocus(9350) + !Control.HasFocus(9360) + !Control.HasFocus(9380)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
 				<control type="list" id="9350">
 					<animation condition="!Control.HasFocus(9350) + !Control.HasFocus(9360) + !Control.HasFocus(9380)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
@@ -1606,9 +1734,25 @@
 					<width>315</width>
 					<height>48</height>
 					<font>apptv30</font>
+					<textcolor>tab-text</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
 					<align>center</align>
 					<label>$INFO[Container(9400).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
+					<visible>!Control.HasFocus(9400)</visible>
+				</control>
+				<control type="label">
+					<!-- Menu Heading -->
+					<left>0</left>
+					<top>26</top>
+					<width>315</width>
+					<height>48</height>
+					<font>apptv30</font>
+					<textcolor>tab-hilite</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
+					<align>center</align>
+					<label>$INFO[Container(9400).ListItem.Label2]</label>
+					<animation condition="!Control.HasFocus(9400) + !Control.HasFocus(9430)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
 				<control type="list" id="9400">
 					<animation condition="!Control.HasFocus(9400) + !Control.HasFocus(9430)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
@@ -1715,9 +1859,25 @@
 					<width>315</width>
 					<height>48</height>
 					<font>apptv30</font>
+					<textcolor>tab-text</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
 					<align>center</align>
 					<label>$INFO[Container(9450).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
+					<visible>!Control.HasFocus(9450)</visible>
+				</control>
+				<control type="label">
+					<!-- Menu Heading -->
+					<left>0</left>
+					<top>26</top>
+					<width>315</width>
+					<height>48</height>
+					<font>apptv30</font>
+					<textcolor>tab-hilite</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
+					<align>center</align>
+					<label>$INFO[Container(9450).ListItem.Label2]</label>
+					<animation condition="!Control.HasFocus(9450) + !Control.HasFocus(9480)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
 				<control type="list" id="9450">
 					<animation condition="!Control.HasFocus(9450) + !Control.HasFocus(9480)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
