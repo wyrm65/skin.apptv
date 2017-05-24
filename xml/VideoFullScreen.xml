@@ -47,9 +47,9 @@
 				</control>
 				<control type="label" id="1">
 					<!-- Title of Live TV Program -->
-					<left>435</left>
+					<left>420</left>
 					<top>693</top>
-					<width>712</width>
+					<width>726</width>
 					<height>38</height>
 					<label>$INFO[VideoPlayer.Title,$LOCALIZE[19030]: ,]</label>
 				</control>
@@ -65,39 +65,39 @@
 				</control>
 			</control>
 			<control type="image" id="1">
-				<left>435</left>
-				<top>735</top>
-				<width>1440</width>
+				<left>420</left>
+				<top>736</top>
+				<width>1455</width>
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
 			<control type="textbox" id="1">
-				<!-- Plot (Show if available)-->
-				<left>435</left>
-				<top>741</top>
-				<width>1440</width>
-				<height>174</height>
+				<!-- Plot Outline (Show if available) -->
+				<left>420</left>
+				<top>742</top>
+				<width>1455</width>
+				<height>148</height>
+				<font>apptv20</font>
+				<label>$INFO[VideoPlayer.PlotOutline]</label>
+				<align>justify</align>
+				<visible>!String.IsEmpty(VideoPlayer.PlotOutline)</visible>
+			</control>
+			<control type="textbox" id="1">
+				<!-- Plot (Show if plotoutline not found) -->
+				<left>420</left>
+				<top>742</top>
+				<width>1455</width>
+				<height>148</height>
 				<font>apptv20</font>
 				<label>$INFO[VideoPlayer.Plot]</label>
 				<align>justify</align>
 				<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
-				<visible>!String.IsEmpty(VideoPlayer.Plot)</visible>
-			</control>
-			<control type="textbox" id="1">
-				<!-- Plot Outline (Show if plot not found)-->
-				<left>435</left>
-				<top>741</top>
-				<width>1440</width>
-				<height>174</height>
-				<font>apptv20</font>
-				<label>$INFO[VideoPlayer.PlotOutline]</label>
-				<align>justify</align>
-				<visible>!String.IsEmpty(VideoPlayer.PlotOutline) + String.IsEmpty(VideoPlayer.Plot)</visible>
+				<visible>!String.IsEmpty(VideoPlayer.Plot) + String.IsEmpty(VideoPlayer.Outline)</visible>
 			</control>
 			<control type="grouplist" id="1">
 				<!-- Media flags -->
 				<left>1611</left>
-				<top>918</top>
+				<top>906</top>
 				<width>270</width>
 				<height>57</height>
 				<align>center</align>
@@ -154,7 +154,7 @@
 				</control>
 				<control type="progress" id="1">
 					<left>717</left>
-					<top>1045</top>
+					<top>1040</top>
 					<width>870</width>
 					<height>18</height>
 					<info>Player.ProgressCache</info>
@@ -162,14 +162,14 @@
 				</control>
 				<control type="progress" id="1">
 					<left>717</left>
-					<top>1045</top>
+					<top>1040</top>
 					<width>870</width>
 					<height>18</height>
 					<info>Player.Progress</info>
 				</control>
 				<control type="slider" id="1">
 					<left>717</left>
-					<top>1045</top>
+					<top>1040</top>
 					<width>870</width>
 					<height>18</height>
 					<info>Player.Progress</info>

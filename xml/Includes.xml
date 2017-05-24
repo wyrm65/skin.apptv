@@ -3154,20 +3154,21 @@
 				<!-- Movies or Tv Episodes -->
 				<animation effect="fade" time="200">VisibleChange</animation>
 				<control type="image" id="1">
-					<left>15</left>
-					<top>702</top>
-					<width>360</width>
-					<height>360</height>
+					<left>12</left>
+					<top>746</top>
+					<width>320</width>
+					<height>320</height>
 					<texture>$VAR[PlayerVideoArt]</texture>
+					<align>center</align>
 					<aligny>bottom</aligny>
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="button" id="1">
 					<!-- Touch button to get out of Fullscreen -->
-					<left>15</left>
-					<top>702</top>
-					<width>360</width>
-					<height>360</height>
+					<left>12</left>
+					<top>746</top>
+					<width>320</width>
+					<height>320</height>
 					<texturefocus>blank.png</texturefocus>
 					<texturenofocus>blank.png</texturenofocus>
 					<onclick>Close</onclick>
@@ -3181,20 +3182,21 @@
 				<animation effect="fade" time="200">VisibleChange</animation>
 				<control type="image" id="1">
 					<!-- Fallback to Thumb image if not TV Episode or Movie playing -->
-					<left>84</left>
-					<top>702</top>
-					<width>270</width>
-					<height>270</height>
+					<left>12</left>
+					<top>746</top>
+					<width>320</width>
+					<height>320</height>
+					<align>center</align>
 					<aligny>bottom</aligny>
 					<texture diffuse="mask-rect.png">$INFO[Player.Art(thumb)]</texture>
 					<aspectratio scalediffuse="false">keep</aspectratio>
 				</control>
 				<control type="button" id="1">
 					<!-- Touch button to get out of Fullscreen -->
-					<left>84</left>
-					<top>702</top>
-					<width>270</width>
-					<height>270</height>
+					<left>12</left>
+					<top>746</top>
+					<width>320</width>
+					<height>320</height>
 					<texturefocus>blank.png</texturefocus>
 					<texturenofocus>blank.png</texturenofocus>
 					<onclick>Close</onclick>

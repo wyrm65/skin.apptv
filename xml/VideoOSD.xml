@@ -28,7 +28,7 @@
 				<!-- Progress bar -->
 				<control type="progress">
 					<left>717</left>
-					<top>1045</top>
+					<top>1040</top>
 					<width>870</width>
 					<height>18</height>
 					<info>Player.ProgressCache</info>
@@ -36,7 +36,7 @@
 				</control>
 				<control type="progress">
 					<left>717</left>
-					<top>1045</top>
+					<top>1040</top>
 					<width>870</width>
 					<height>18</height>
 					<info>Player.Progress</info>
@@ -44,7 +44,7 @@
 				<control type="slider" id="690">
 					<!-- Seek Slider -->
 					<left>717</left>
-					<top>1045</top>
+					<top>1040</top>
 					<width>870</width>
 					<height>18</height>
 					<action>seek</action>
@@ -53,19 +53,19 @@
 			</control>
 			<control type="grouplist" id="630">
 				<!-- Settings group OSD Buttons -->
-				<left>864</left>
-				<top>921</top>
-				<width>288</width>
-				<height>48</height>
-				<itemgap>3</itemgap>
+				<left>774</left>
+				<top>902</top>
+				<width>384</width>
+				<height>64</height>
+				<itemgap>6</itemgap>
 				<orientation>horizontal</orientation>
 				<align>center</align>
 				<ondown>650</ondown>
 				<visible>Control.HasFocus(652) | ControlGroup(630).HasFocus()</visible>
 				<control type="button" id="631">
 					<!-- Subtitles Menu -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturenofocus>osd-btn-subtitle.png</texturenofocus>
 					<texturefocus>osd-btn-subtitle-focus.png</texturefocus>
 					<onclick>ActivateWindow(subtitlesearch)</onclick>
@@ -74,8 +74,8 @@
 				</control>
 				<control type="button" id="632">
 					<!-- 3D Menu -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-3D-focus.png</texturefocus>
 					<texturenofocus>osd-btn-3D.png</texturenofocus>
 					<onclick>ActivateWindow(1151)</onclick>
@@ -85,8 +85,8 @@
 				</control>
 				<control type="button" id="633">
 					<!-- Colour management Menu -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-cms-focus.png</texturefocus>
 					<texturenofocus>osd-btn-cms.png</texturenofocus>
 					<onclick>ActivateWindow(osdcmssettings)</onclick>
@@ -95,8 +95,8 @@
 				</control>
 				<control type="button" id="635">
 					<!-- Audio Menu -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-audio-focus.png</texturefocus>
 					<texturenofocus>osd-btn-audio.png</texturenofocus>
 					<onclick>ActivateWindow(osdaudiosettings)</onclick>
@@ -104,8 +104,8 @@
 				</control>
 				<control type="button" id="636">
 					<!-- Video Menu -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-video-focus.png</texturefocus>
 					<texturenofocus>osd-btn-video.png</texturenofocus>
 					<onclick>ActivateWindow(osdvideosettings)</onclick>
@@ -115,19 +115,19 @@
 			</control>
 			<control type="grouplist" id="640">
 				<!-- Back group OSD buttons -->
-				<left>1041</left>
-				<top>921</top>
-				<width>102</width>
-				<height>48</height>
-				<itemgap>3</itemgap>
+				<left>1012</left>
+				<top>902</top>
+				<width>138</width>
+				<height>64</height>
+				<itemgap>6</itemgap>
 				<orientation>horizontal</orientation>
 				<align>center</align>
 				<ondown>650</ondown>
 				<visible>Control.HasFocus(654) | ControlGroup(640).HasFocus()</visible>
 				<control type="button" id="641">
 					<!-- Tempo down -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-tempodown-focus.png</texturefocus>
 					<texturenofocus>osd-btn-tempodown.png</texturenofocus>
 					<onclick>PlayerControl(tempodown)</onclick>
@@ -136,8 +136,8 @@
 				</control>
 				<control type="button" id="642">
 					<!-- Skip Bwd -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-skipback-focus.png</texturefocus>
 					<texturenofocus>osd-btn-skipback.png</texturenofocus>
 					<onclick>PlayerControl(Previous)</onclick>
@@ -146,18 +146,18 @@
 			</control>
 			<control type="grouplist" id="650">
 				<!-- Default group OSD buttons -->
-				<left>930</left>
-				<top>970</top>
-				<width>432</width>
-				<height>48</height>
+				<left>858</left>
+				<top>968</top>
+				<width>576</width>
+				<height>64</height>
 				<itemgap>6</itemgap>
 				<orientation>horizontal</orientation>
 				<align>center</align>
 				<ondown>690</ondown>
 				<control type="button" id="651">
 					<!-- Fullscreen -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-zoom-focus.png</texturefocus>
 					<texturenofocus>osd-btn-zoom.png</texturenofocus>
 					<onclick>Close</onclick>
@@ -166,8 +166,8 @@
 				</control>
 				<control type="button" id="652">
 					<!-- Settings -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-setting-focus.png</texturefocus>
 					<texturenofocus>osd-btn-setting.png</texturenofocus>
 					<onclick>SetFocus(630)</onclick>
@@ -176,14 +176,14 @@
 				</control>
 				<control type="image" id="653">
 					<!-- Dummy -->
-					<width>24</width>
-					<height>48</height>
+					<width>32</width>
+					<height>64</height>
 					<texture>blank.png</texture>
 				</control>
 				<control type="button" id="654">
 					<!-- Rewind -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-rewind-focus.png</texturefocus>
 					<texturenofocus>osd-btn-rewind.png</texturenofocus>
 					<onclick>PlayerControl(Rewind)</onclick>
@@ -192,8 +192,8 @@
 				</control>
 				<control type="togglebutton" id="655">
 					<!-- Play -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-pause-focus.png</texturefocus>
 					<texturenofocus>osd-btn-pause.png</texturenofocus>
 					<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
@@ -204,8 +204,8 @@
 				</control>
 				<control type="button" id="656">
 					<!-- Stop -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-stop-focus.png</texturefocus>
 					<texturenofocus>osd-btn-stop.png</texturenofocus>
 					<onclick>PlayerControl(Stop)</onclick>
@@ -213,8 +213,8 @@
 				</control>
 				<control type="button" id="657">
 					<!-- Fast Forward -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-fastfwd-focus.png</texturefocus>
 					<texturenofocus>osd-btn-fastfwd.png</texturenofocus>
 					<onclick>PlayerControl(Forward)</onclick>
@@ -223,14 +223,14 @@
 				</control>
 				<control type="image" id="658">
 					<!-- Dummy -->
-					<width>24</width>
-					<height>48</height>
+					<width>32</width>
+					<height>64</height>
 					<texture>blank.png</texture>
 				</control>
 				<control type="button" id="659">
 					<!-- More options -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-more-focus.png</texturefocus>
 					<texturenofocus>osd-btn-more.png</texturenofocus>
 					<onclick>SetFocus(670)</onclick>
@@ -240,19 +240,19 @@
 			</control>
 			<control type="grouplist" id="660">
 				<!-- Forward group OSD Button -->
-				<left>1206</left>
-				<top>921</top>
-				<width>102</width>
-				<height>48</height>
-				<itemgap>3</itemgap>
+				<left>1214</left>
+				<top>902</top>
+				<width>138</width>
+				<height>64</height>
+				<itemgap>6</itemgap>
 				<orientation>horizontal</orientation>
 				<align>center</align>
 				<ondown>650</ondown>
 				<visible>Control.HasFocus(657) | ControlGroup(660).HasFocus()</visible>
 				<control type="button" id="661">
 					<!-- Tempo up -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-tempoup-focus.png</texturefocus>
 					<texturenofocus>osd-btn-tempoup.png</texturenofocus>
 					<onclick>PlayerControl(tempoup)</onclick>
@@ -261,8 +261,8 @@
 				</control>
 				<control type="button" id="662">
 					<!-- Skip Fwd -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-skipfwd-focus.png</texturefocus>
 					<texturenofocus>osd-btn-skipfwd.png</texturenofocus>
 					<onclick>PlayerControl(Next)</onclick>
@@ -271,19 +271,19 @@
 			</control>
 			<control type="grouplist" id="670">
 				<!-- More group OSD Buttons -->
-				<left>1059</left>
-				<top>921</top>
-				<width>561</width>
-				<height>48</height>
-				<itemgap>3</itemgap>
+				<left>1012</left>
+				<top>902</top>
+				<width>768</width>
+				<height>64</height>
+				<itemgap>6</itemgap>
 				<orientation>horizontal</orientation>
 				<align>center</align>
 				<ondown>650</ondown>
 				<visible>Control.HasFocus(659) | ControlGroup(670).HasFocus()</visible>
 				<control type="button" id="671">
 					<!-- DVD Menu -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-dvdmenu-focus.png</texturefocus>
 					<texturenofocus>osd-btn-dvdmenu.png</texturenofocus>
 					<onclick>PlayerControl(ShowVideoMenu)</onclick>
@@ -292,8 +292,8 @@
 				</control>
 				<control type="button" id="672">
 					<!-- Bookmarks menu -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-bookmark-focus.png</texturefocus>
 					<texturenofocus>osd-btn-bookmark.png</texturenofocus>
 					<onclick>ActivateWindow(videobookmarks)</onclick>
@@ -301,8 +301,8 @@
 				</control>
 				<control type="button" id="673">
 					<!-- Playlist -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-playlist-focus.png</texturefocus>
 					<texturenofocus>osd-btn-playlist.png</texturenofocus>
 					<onclick>ActivateWindow(videoplaylist)</onclick>
@@ -310,8 +310,8 @@
 				</control>
 				<control type="button" id="675">
 					<!-- Channel Up -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-channelup-focus.png</texturefocus>
 					<texturenofocus>osd-btn-channelup.png</texturenofocus>
 					<onclick>ChannelUp</onclick>
@@ -320,8 +320,8 @@
 				</control>
 				<control type="button" id="676">
 					<!-- Channel Down -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-channeldown-focus.png</texturefocus>
 					<texturenofocus>osd-btn-channeldown.png</texturenofocus>
 					<onclick>ChannelDown</onclick>
@@ -330,8 +330,8 @@
 				</control>
 				<control type="button" id="677">
 					<!-- Volume Up -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-volumeup-focus.png</texturefocus>
 					<texturenofocus>osd-btn-volumeup.png</texturenofocus>
 					<include>focus-zoom</include>
@@ -339,8 +339,8 @@
 				</control>
 				<control type="button" id="678">
 					<!-- Volume Down -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-volumedown-focus.png</texturefocus>
 					<texturenofocus>osd-btn-volumedown.png</texturenofocus>
 					<include>focus-zoom</include>
@@ -348,8 +348,8 @@
 				</control>
 				<control type="button" id="679">
 					<!-- Eject Disk -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-eject-focus.png</texturefocus>
 					<texturenofocus>osd-btn-eject.png</texturenofocus>
 					<onclick>EjectTray()</onclick>
@@ -359,8 +359,8 @@
 				</control>
 				<control type="togglebutton" id="680">
 					<!-- Record -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-rec-focus.png</texturefocus>
 					<texturenofocus>osd-btn-rec.png</texturenofocus>
 					<usealttexture>Player.CanRecord + Player.Recording</usealttexture>
@@ -372,8 +372,8 @@
 				</control>
 				<control type="button" id="982">
 					<!-- EPG Menu -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-guide-focus.png</texturefocus>
 					<texturenofocus>osd-btn-guide.png</texturenofocus>
 					<onclick>ActivateWindow(tvguide)</onclick>
@@ -382,8 +382,8 @@
 				</control>
 				<control type="button" id="983">
 					<!-- RDS Info -->
-					<width>48</width>
-					<height>48</height>
+					<width>64</width>
+					<height>64</height>
 					<texturefocus>osd-btn-guide-focus.png</texturefocus>
 					<texturenofocus>osd-btn-guide.png</texturenofocus>
 					<onclick>ActivateWindow(pvrradiordsinfo)</onclick>
