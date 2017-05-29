@@ -20,14 +20,20 @@
 			<control type="image">
 				<!-- media info background image -->
 				<left>0</left>
-				<top>772</top>
+				<top>700</top>
 				<width>1920</width>
-				<height>308</height>
+				<height>380</height>
 				<texture>background.png</texture>
 				<colordiffuse>mask-background</colordiffuse>
 			</control>
 			<control type="image">
-				<!-- Cd overlay -->
+				<!-- Cd disk image -->
+				<left>208</left>
+				<top>735</top>
+				<width>322</width>
+				<height>322</height>
+				<texture fallback="DefaultDVDRom.png">$INFO[Window(Home).Property(SkinHelper.Player.Art.DiscArt)]</texture>
+				<aspectratio aligny="bottom">keep</aspectratio>
 				<animation effect="slide" start="-153" end="0" time="900" tween="cubic" easing="out" delay="1000">WindowOpen</animation>
 				<animation type="WindowClose">
 					<effect type="slide" start="0" end="-147" time="100" tween="cubic" easing="in" delay="0" />
@@ -35,47 +41,30 @@
 					<condition type="!Player.Playing" />
 				</animation>
 				<animation effect="rotate" end="-360" center="auto" time="3000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
-				<width>322</width>
-				<height>322</height>
-				<left>198</left>
-				<top>735</top>
-				<texture fallback="DefaultDVDRom.png">$INFO[Window(Home).Property(SkinHelper.Player.Art.DiscArt)]</texture>
-				<aspectratio aligny="bottom">keep</aspectratio>
 				<visible>!String.EndsWith(Control.GetLabel(994),DefaultAudio.png) + !String.EndsWith(Control.GetLabel(994),icon-radio.png)</visible>
 			</control>
 			<control type="image">
-				<left>15</left>
-				<top>698</top>
-				<height>398</height>
-				<width>398</width>
+				<left>22</left>
+				<top>700</top>
+				<height>396</height>
+				<width>388</width>
 				<texture>case-cd.png</texture>
 				<aspectratio>stretch</aspectratio>
 				<visible>Skin.HasSetting(media-case) + !String.EndsWith(Control.GetLabel(994),DefaultAudio.png) + !String.EndsWith(Control.GetLabel(994),icon-radio.png)</visible>
 			</control>
 			<control type="image" id="994">
 				<!-- Cover image -->
-				<left>54</left>
+				<left>64</left>
 				<top>728</top>
 				<width>338</width>
 				<height>338</height>
 				<texture fallback="DefaultAudio.png">$VAR[PlayerMusicCover]</texture>
 				<aspectratio aligny="bottom">stretch</aspectratio>
 			</control>
-			<control type="button">
-				<!-- Touch button to get out of Fullscreen -->
-				<left>54</left>
-				<top>728</top>
-				<width>338</width>
-				<height>338</height>
-				<texturefocus>blank.png</texturefocus>
-				<texturenofocus>blank.png</texturenofocus>
-				<onclick>Back</onclick>
-				<visible>$EXP[isEnabledTouch]</visible>
-			</control>
 			<control type="label">
 				<!-- Now playing -->
 				<left>555</left>
-				<top>777</top>
+				<top>743</top>
 				<width>1023</width>
 				<height>38</height>
 				<label>$LOCALIZE[31037]</label>
@@ -85,29 +74,29 @@
 			<control type="label">
 				<!-- Partymode enabled -->
 				<left>1485</left>
-				<top>780</top>
+				<top>746</top>
 				<width>399</width>
-				<height>34</height>
+				<height>33</height>
 				<label>$LOCALIZE[589]</label>
 				<align>right</align>
-				<font>apptv23</font>
+				<font>apptv22</font>
 				<visible>MusicPartyMode.Enabled</visible>
 			</control>
 			<control type="label">
 				<!-- Playlist label -->
 				<left>1461</left>
-				<top>780</top>
+				<top>746</top>
 				<width>399</width>
-				<height>34</height>
+				<height>33</height>
 				<align>right</align>
 				<label>$INFO[Playlist.Position(music),$LOCALIZE[554]: ]$INFO[Playlist.Length(music), / ]</label>
-				<font>apptv23</font>
+				<font>apptv22</font>
 				<visible>!MusicPartyMode.Enabled + Integer.IsGreater(Playlist.Length(music),1)</visible>
 			</control>
 			<control type="label">
 				<!-- Title label -->
 				<left>555</left>
-				<top>820</top>
+				<top>786</top>
 				<width>1320</width>
 				<height>38</height>
 				<font>apptv25</font>
@@ -118,7 +107,7 @@
 			<control type="label">
 				<!-- Title label -->
 				<left>555</left>
-				<top>820</top>
+				<top>786</top>
 				<width>1320</width>
 				<height>38</height>
 				<font>apptv25</font>
@@ -129,7 +118,7 @@
 			<control type="label">
 				<!-- Artist label -->
 				<left>555</left>
-				<top>864</top>
+				<top>830</top>
 				<width>1320</width>
 				<height>33</height>
 				<font>apptv22</font>
@@ -139,7 +128,7 @@
 			<control type="label">
 				<!-- Album label -->
 				<left>555</left>
-				<top>906</top>
+				<top>872</top>
 				<width>1320</width>
 				<height>33</height>
 				<font>apptv22</font>
@@ -157,7 +146,7 @@
 				<visible>!Pvr.IsPlayingRadio</visible>
 			</control>
 			<control type="group">
-				<visible>!Window.IsVisible(musicosd) | !Pvr.IsPlayingRadio</visible>
+				<visible>!Window.IsVisible(musicosd) + !Pvr.IsPlayingRadio</visible>
 				<control type="progress" id="1">
 					<left>862</left>
 					<top>1042</top>
