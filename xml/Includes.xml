@@ -3146,63 +3146,31 @@
 		</control>
 	</include>
 	<include name="player-mediaicon">
-		<control type="group" id="1">
-			<!-- Player Media Icon -->
+		<control type="group" id="1"><!-- Player Media Icon -->
 			<visible>[$EXP[isFullscreenVideo]] + ![Window.IsActive(musicosd)]</visible>
-			<control type="group" id="1">
+			<animation effect="fade" time="200">VisibleChange</animation>
+			<control type="image" id="1"><!-- Movies or Tv Episodes -->
+				<left>12</left>
+				<top>746</top>
+				<width>320</width>
+				<height>320</height>
+				<texture>$VAR[PlayerVideoArt]</texture>
+				<align>center</align>
+				<aligny>bottom</aligny>
+				<aspectratio>keep</aspectratio>
 				<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
-				<!-- Movies or Tv Episodes -->
-				<animation effect="fade" time="200">VisibleChange</animation>
-				<control type="image" id="1">
-					<left>12</left>
-					<top>746</top>
-					<width>320</width>
-					<height>320</height>
-					<texture>$VAR[PlayerVideoArt]</texture>
-					<align>center</align>
-					<aligny>bottom</aligny>
-					<aspectratio>keep</aspectratio>
-				</control>
-				<control type="button" id="1">
-					<!-- Touch button to get out of Fullscreen -->
-					<left>12</left>
-					<top>746</top>
-					<width>320</width>
-					<height>320</height>
-					<texturefocus>blank.png</texturefocus>
-					<texturenofocus>blank.png</texturenofocus>
-					<onclick>Close</onclick>
-					<onclick>FullScreen</onclick>
-					<visible>$EXP[isEnabledTouch]</visible>
-				</control>
 			</control>
-			<control type="group" id="1">
-				<!-- Any video other than Movies and TV Episodes -->
+			<control type="image" id="1"><!-- Any video other than Movies and TV Episodes -->
+				<!-- Fallback to Thumb image if not TV Episode or Movie playing -->
+				<left>12</left>
+				<top>746</top>
+				<width>320</width>
+				<height>320</height>
+				<align>center</align>
+				<aligny>bottom</aligny>
+				<texture diffuse="mask-rect.png">$INFO[Player.Art(thumb)]</texture>
+				<aspectratio scalediffuse="false">keep</aspectratio>
 				<visible>![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)]</visible>
-				<animation effect="fade" time="200">VisibleChange</animation>
-				<control type="image" id="1">
-					<!-- Fallback to Thumb image if not TV Episode or Movie playing -->
-					<left>12</left>
-					<top>746</top>
-					<width>320</width>
-					<height>320</height>
-					<align>center</align>
-					<aligny>bottom</aligny>
-					<texture diffuse="mask-rect.png">$INFO[Player.Art(thumb)]</texture>
-					<aspectratio scalediffuse="false">keep</aspectratio>
-				</control>
-				<control type="button" id="1">
-					<!-- Touch button to get out of Fullscreen -->
-					<left>12</left>
-					<top>746</top>
-					<width>320</width>
-					<height>320</height>
-					<texturefocus>blank.png</texturefocus>
-					<texturenofocus>blank.png</texturenofocus>
-					<onclick>Close</onclick>
-					<onclick>PreviousMenu</onclick>
-					<visible>$EXP[isEnabledTouch]</visible>
-				</control>
 			</control>
 		</control>
 	</include>
