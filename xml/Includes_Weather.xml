@@ -81,7 +81,7 @@
 					</control>
 					<control type="label">
 						<!-- Current temp heading -->
-						<left>1338</left>
+						<left>1343</left>
 						<top>135</top>
 						<width>225</width>
 						<height>105</height>
@@ -93,7 +93,7 @@
 					</control>
 					<control type="label">
 						<!-- Current temperature range -->
-						<left>1338</left>
+						<left>1343</left>
 						<top>255</top>
 						<width>225</width>
 						<height>57</height>
@@ -105,91 +105,119 @@
 						<visible>!String.IsEmpty(Window.Property(Day0.HighTemp))</visible>
 					</control>
 					<control type="label">
-						<!-- Current feels like heading -->
+						<!-- Current dew heading -->
 						<left>1035</left>
 						<top>333</top>
 						<width>420</width>
 						<height>45</height>
 						<align>right</align>
-						<label>$LOCALIZE[402] :</label>
+						<label>$LOCALIZE[405] :</label>
+						<font>apptv22</font>
 					</control>
 					<control type="label">
-						<!-- Current dew heading -->
+						<!-- Current humidity heading -->
 						<left>1035</left>
 						<top>378</top>
 						<width>420</width>
 						<height>45</height>
 						<align>right</align>
-						<label>$LOCALIZE[405] :</label>
+						<label>$LOCALIZE[406] :</label>
+						<font>apptv22</font>
 					</control>
 					<control type="label">
-						<!-- Current humidity heading -->
+						<!-- Current UV index heading -->
 						<left>1035</left>
 						<top>423</top>
 						<width>420</width>
 						<height>45</height>
 						<align>right</align>
-						<label>$LOCALIZE[406] :</label>
+						<label>$LOCALIZE[403] :</label>
+						<font>apptv22</font>
 					</control>
 					<control type="label">
-						<!-- Current UV index heading -->
+						<!-- Current Wind heading -->
 						<left>1035</left>
 						<top>468</top>
 						<width>420</width>
 						<height>45</height>
 						<align>right</align>
-						<label>$LOCALIZE[403] :</label>
+						<label>$LOCALIZE[404] :</label>
+						<font>apptv22</font>
 					</control>
 					<control type="label">
-						<!-- Current Wind heading -->
+						<!-- Sunrise heading -->
 						<left>1035</left>
 						<top>513</top>
 						<width>420</width>
 						<height>45</height>
 						<align>right</align>
-						<label>$LOCALIZE[404] :</label>
+						<label>$LOCALIZE[33027] :</label>
+						<font>apptv22</font>
 					</control>
 					<control type="label">
-						<!-- Current feels like value -->
-						<left>1470</left>
-						<top>333</top>
-						<width>549</width>
+						<!-- Sunset heading -->
+						<left>1035</left>
+						<top>558</top>
+						<width>420</width>
 						<height>45</height>
-						<label>$INFO[Window.Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
-						<visible>!String.IsEmpty(Window.Property(Current.FeelsLike))</visible>
+						<align>right</align>
+						<label>$LOCALIZE[33028] :</label>
+						<font>apptv22</font>
 					</control>
 					<control type="label">
 						<!-- Current dew value -->
 						<left>1470</left>
-						<top>378</top>
+						<top>333</top>
 						<width>549</width>
 						<height>45</height>
 						<label>$INFO[Window.Property(Current.DewPoint)]$INFO[System.TemperatureUnits]</label>
+						<font>apptv22</font>
 						<visible>!String.IsEmpty(Window.Property(Current.DewPoint))</visible>
 					</control>
 					<control type="label">
 						<!-- Current humidity value -->
 						<left>1470</left>
-						<top>423</top>
+						<top>378</top>
 						<width>549</width>
 						<height>45</height>
 						<label>$INFO[Window.Property(Current.Humidity)]</label>
+						<font>apptv22</font>
 					</control>
 					<control type="label">
 						<!-- Current UV index value -->
 						<left>1470</left>
-						<top>468</top>
+						<top>423</top>
 						<width>549</width>
 						<height>45</height>
 						<label>$INFO[Window.Property(Current.UVIndex)]</label>
+						<font>apptv22</font>
 					</control>
 					<control type="label">
 						<!-- Current wind value -->
 						<left>1470</left>
-						<top>513</top>
+						<top>468</top>
 						<width>549</width>
 						<height>45</height>
 						<label>$INFO[Window.Property(Current.Wind)]</label>
+						<font>apptv22</font>
+					</control>
+					<control type="label">
+						<!-- Sunrise value -->
+						<left>1470</left>
+						<top>513</top>
+						<width>420</width>
+						<height>45</height>
+						<label>$VAR[WeatherSunrise]</label>
+						<font>apptv22</font>
+					</control>
+					<control type="label">
+						<!-- Sunset value -->
+						<left>1470</left>
+						<top>558</top>
+						<width>420</width>
+						<height>45</height>
+						<label>$VAR[WeatherSunset]</label>
+						<font>apptv22</font>
 					</control>
 					<control type="image">
 						<left>0</left>
@@ -529,98 +557,126 @@
 					<visible>!String.IsEmpty(Window(weather).Property(Day0.HighTemp))</visible>
 				</control>
 				<control type="label">
-					<!-- Current feels like heading -->
-					<left>1035</left>
-					<top>333</top>
-					<width>420</width>
-					<height>45</height>
-					<align>right</align>
-					<label>$LOCALIZE[402] :</label>
-				</control>
-				<control type="label">
 					<!-- Current dew heading -->
 					<left>1035</left>
-					<top>378</top>
+					<top>333</top>
 					<width>420</width>
 					<height>45</height>
 					<align>right</align>
 					<label>$LOCALIZE[405] :</label>
+					<font>apptv22</font>
 				</control>
 				<control type="label">
 					<!-- Current humidity heading -->
 					<left>1035</left>
-					<top>423</top>
+					<top>378</top>
 					<width>420</width>
 					<height>45</height>
 					<align>right</align>
 					<label>$LOCALIZE[406] :</label>
+					<font>apptv22</font>
 				</control>
 				<control type="label">
 					<!-- Current UV index heading -->
 					<left>1035</left>
-					<top>468</top>
+					<top>423</top>
 					<width>420</width>
 					<height>45</height>
 					<align>right</align>
 					<label>$LOCALIZE[403] :</label>
+					<font>apptv22</font>
 				</control>
 				<control type="label">
 					<!-- Current Wind heading -->
+					<left>1035</left>
+					<top>468</top>
+					<width>420</width>
+					<height>45</height>
+					<align>right</align>
+					<label>$LOCALIZE[404] :</label>
+					<font>apptv22</font>
+				</control>
+				<control type="label">
+					<!-- Sunrise heading -->
 					<left>1035</left>
 					<top>513</top>
 					<width>420</width>
 					<height>45</height>
 					<align>right</align>
-					<label>$LOCALIZE[404] :</label>
+					<label>$LOCALIZE[33027] :</label>
+					<font>apptv22</font>
 				</control>
 				<control type="label">
-					<!-- Current feels like value -->
-					<left>1470</left>
-					<top>333</top>
-					<width>549</width>
+					<!-- Sunset heading -->
+					<left>1035</left>
+					<top>558</top>
+					<width>420</width>
 					<height>45</height>
-					<label>$INFO[Window(weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
-					<visible>!String.IsEmpty(Window(weather).Property(Current.FeelsLike))</visible>
+					<align>right</align>
+					<label>$LOCALIZE[33028] :</label>
+					<font>apptv22</font>
 				</control>
 				<control type="label">
 					<!-- Current dew value -->
 					<left>1470</left>
-					<top>378</top>
+					<top>333</top>
 					<width>549</width>
 					<height>45</height>
-					<label>$INFO[Window(weather).Property(Current.DewPoint)]$INFO[System.TemperatureUnits]</label>
-					<visible>!String.IsEmpty(Window(weather).Property(Current.DewPoint))</visible>
+					<label>$INFO[Window.Property(Current.DewPoint)]$INFO[System.TemperatureUnits]</label>
+					<font>apptv22</font>
+					<visible>!String.IsEmpty(Window.Property(Current.DewPoint))</visible>
 				</control>
 				<control type="label">
 					<!-- Current humidity value -->
 					<left>1470</left>
-					<top>423</top>
+					<top>378</top>
 					<width>549</width>
 					<height>45</height>
-					<label>$INFO[Window(weather).Property(Current.Humidity)]</label>
+					<label>$INFO[Window.Property(Current.Humidity)]</label>
+					<font>apptv22</font>
 				</control>
 				<control type="label">
 					<!-- Current UV index value -->
 					<left>1470</left>
-					<top>468</top>
+					<top>423</top>
 					<width>549</width>
 					<height>45</height>
-					<label>$INFO[Window(weather).Property(Current.UVIndex)]</label>
+					<label>$INFO[Window.Property(Current.UVIndex)]</label>
+					<font>apptv22</font>
 				</control>
 				<control type="label">
 					<!-- Current wind value -->
 					<left>1470</left>
-					<top>513</top>
+					<top>468</top>
 					<width>549</width>
 					<height>45</height>
-					<label>$INFO[Window(weather).Property(Current.Wind)]</label>
+					<label>$INFO[Window.Property(Current.Wind)]</label>
+					<font>apptv22</font>
+				</control>
+				<control type="label">
+					<!-- Sunrise value -->
+					<left>1470</left>
+					<top>513</top>
+					<width>420</width>
+					<height>45</height>
+					<label>$VAR[WeatherSunrise]</label>
+					<font>apptv22</font>
+				</control>
+				<control type="label">
+					<!-- Sunset value -->
+					<left>1470</left>
+					<top>558</top>
+					<width>420</width>
+					<height>45</height>
+					<label>$VAR[WeatherSunset]</label>
+					<font>apptv22</font>
 				</control>
 				<control type="label">
 					<!-- Current long condition -->
 					<left>1020</left>
-					<top>588</top>
+					<top>578</top>
 					<width>870</width>
-					<height>390</height>
+					<height>426</height>
 					<label>$INFO[Window(weather).Property(Current.ConditionLong)]</label>
 					<wrapmultiline>true</wrapmultiline>
 					<font>apptv22</font>
@@ -630,51 +686,51 @@
 			</control>
 			<!-- RADAR BACKGROUND IMAGES -->
 			<control type="image">
-				<left>150</left>
-				<top>150</top>
+				<left>126</left>
+				<top>180</top>
 				<width>768</width>
 				<height>819</height>
 				<texture>special://profile/addon_data/weather.ozweather/radarbackgrounds/$INFO[Window(weather).Property(Radar)]/legend.png</texture>
 			</control>
 			<control type="image">
-				<left>150</left>
-				<top>150</top>
+				<left>126</left>
+				<top>180</top>
 				<width>768</width>
 				<height>768</height>
 				<texture>special://profile/addon_data/weather.ozweather/radarbackgrounds/$INFO[Window(weather).Property(Radar)]/background.png</texture>
 			</control>
 			<control type="image">
-				<left>150</left>
-				<top>150</top>
+				<left>126</left>
+				<top>180</top>
 				<width>768</width>
 				<height>768</height>
 				<texture>special://profile/addon_data/weather.ozweather/radarbackgrounds/$INFO[Window(weather).Property(Radar)]/topography.png</texture>
 			</control>
 			<control type="image">
-				<left>150</left>
-				<top>150</top>
+				<left>126</left>
+				<top>180</top>
 				<width>768</width>
 				<height>768</height>
 				<texture>special://profile/addon_data/weather.ozweather/radarbackgrounds/$INFO[Window(weather).Property(Radar)]/catchments.png</texture>
 			</control>
 			<control type="image">
-				<left>150</left>
-				<top>150</top>
+				<left>126</left>
+				<top>180</top>
 				<width>768</width>
 				<height>768</height>
 				<texture>special://profile/addon_data/weather.ozweather/radarbackgrounds/$INFO[Window(weather).Property(Radar)]/range.png</texture>
 			</control>
 			<control type="image">
-				<left>150</left>
-				<top>150</top>
+				<left>126</left>
+				<top>180</top>
 				<width>768</width>
 				<height>768</height>
 				<texture>special://profile/addon_data/weather.ozweather/radarbackgrounds/$INFO[Window(weather).Property(Radar)]/locations.png</texture>
 			</control>
 			<control type="multiimage">
 				<!-- Radar Overlay Images -->
-				<left>150</left>
-				<top>140</top>
+				<left>126</left>
+				<top>170</top>
 				<width>768</width>
 				<height>768</height>
 				<imagepath>special://profile/addon_data/weather.ozweather/currentloop/$INFO[Window(weather).Property(Radar)]/</imagepath>
@@ -2130,301 +2186,6 @@
 					<font>apptv20</font>
 					<label>$INFO[Window(weather).Property(Hourly.12.Windspeed),$LOCALIZE[404]: ] $INFO[Window(weather).Property(Hourly.12.WindDirection)]</label>
 				</control>
-			</control>
-		</control>
-		<control type="group">
-			<visible>String.IsEqual(Skin.String(weather-view),$LOCALIZE[33035]) + !String.IsEmpty(Window(weather).Property(Current.Temperature))</visible>
-			<!-- Maps -->
-			<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
-			<!-- Current forecast -->
-			<control type="group">
-				<control type="label">
-					<!-- Current temp heading -->
-					<left>1338</left>
-					<top>135</top>
-					<width>225</width>
-					<height>105</height>
-					<font>Clock</font>
-					<align>center</align>
-					<aligny>bottom</aligny>
-					<label>$INFO[Window(weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
-					<visible>!String.IsEmpty(Window(weather).Property(Current.Temperature))</visible>
-				</control>
-				<control type="label">
-					<!-- Current temperature range -->
-					<left>1338</left>
-					<top>255</top>
-					<width>225</width>
-					<height>57</height>
-					<shadowcolor>shadow-text</shadowcolor>
-					<label>[COLOR red]$INFO[Window(weather).Property(Day0.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(weather).Property(Day0.LowTemp)][/COLOR]</label>
-					<font>apptv38</font>
-					<align>center</align>
-					<aligny>bottom</aligny>
-					<visible>!String.IsEmpty(Window(weather).Property(Day0.HighTemp))</visible>
-				</control>
-				<control type="label">
-					<!-- Current feels like heading -->
-					<left>1035</left>
-					<top>333</top>
-					<width>420</width>
-					<height>45</height>
-					<align>right</align>
-					<label>$LOCALIZE[402] :</label>
-				</control>
-				<control type="label">
-					<!-- Current dew heading -->
-					<left>1035</left>
-					<top>378</top>
-					<width>420</width>
-					<height>45</height>
-					<align>right</align>
-					<label>$LOCALIZE[405] :</label>
-				</control>
-				<control type="label">
-					<!-- Current humidity heading -->
-					<left>1035</left>
-					<top>423</top>
-					<width>420</width>
-					<height>45</height>
-					<align>right</align>
-					<label>$LOCALIZE[406] :</label>
-				</control>
-				<control type="label">
-					<!-- Current UV index heading -->
-					<left>1035</left>
-					<top>468</top>
-					<width>420</width>
-					<height>45</height>
-					<align>right</align>
-					<label>$LOCALIZE[403] :</label>
-				</control>
-				<control type="label">
-					<!-- Current Wind heading -->
-					<left>1035</left>
-					<top>513</top>
-					<width>420</width>
-					<height>45</height>
-					<align>right</align>
-					<label>$LOCALIZE[404] :</label>
-				</control>
-				<control type="label">
-					<!-- Current feels like value -->
-					<left>1470</left>
-					<top>333</top>
-					<width>549</width>
-					<height>45</height>
-					<label>$INFO[Window(weather).Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
-					<visible>!String.IsEmpty(Window(weather).Property(Current.FeelsLike))</visible>
-				</control>
-				<control type="label">
-					<!-- Current dew value -->
-					<left>1470</left>
-					<top>378</top>
-					<width>549</width>
-					<height>45</height>
-					<label>$INFO[Window(weather).Property(Current.DewPoint)]$INFO[System.TemperatureUnits]</label>
-					<visible>!String.IsEmpty(Window(weather).Property(Current.DewPoint))</visible>
-				</control>
-				<control type="label">
-					<!-- Current humidity value -->
-					<left>1470</left>
-					<top>423</top>
-					<width>549</width>
-					<height>45</height>
-					<label>$INFO[Window(weather).Property(Current.Humidity)]</label>
-				</control>
-				<control type="label">
-					<!-- Current UV index value -->
-					<left>1470</left>
-					<top>468</top>
-					<width>549</width>
-					<height>45</height>
-					<label>$INFO[Window(weather).Property(Current.UVIndex)]</label>
-				</control>
-				<control type="label">
-					<!-- Current wind value -->
-					<left>1470</left>
-					<top>513</top>
-					<width>549</width>
-					<height>45</height>
-					<label>$INFO[Window(weather).Property(Current.Wind)]</label>
-				</control>
-				<control type="label">
-					<!-- Current condition -->
-					<left>1140</left>
-					<top>588</top>
-					<width>624</width>
-					<height>108</height>
-					<label>$INFO[Window(weather).Property(Current.Condition)]</label>
-					<wrapmultiline>true</wrapmultiline>
-					<font>apptv38</font>
-					<align>center</align>
-					<aligny>bottom</aligny>
-				</control>
-			</control>
-			<control type="image">
-				<left>87</left>
-				<top>804</top>
-				<width>900</width>
-				<height>84</height>
-				<texture border="9">button-default-focus.png</texture>
-			</control>
-			<control type="button" id="6000">
-				<left>861</left>
-				<top>819</top>
-				<width>48</width>
-				<height>48</height>
-				<onleft>9000</onleft>
-				<onright>5999</onright>
-				<texturefocus>scroll-down-focus.png</texturefocus>
-				<texturenofocus>scroll-down.png</texturenofocus>
-				<onclick>Control.Move(5998,-1)</onclick>
-			</control>
-			<control type="button" id="5999">
-				<left>912</left>
-				<top>819</top>
-				<width>48</width>
-				<height>48</height>
-				<onleft>6000</onleft>
-				<onright>5999</onright>
-				<texturefocus>scroll-up-focus.png</texturefocus>
-				<texturenofocus>scroll-up.png</texturenofocus>
-				<onclick>Control.Move(5998,1)</onclick>
-			</control>
-			<control type="label">
-				<left>120</left>
-				<top>819</top>
-				<width>819</width>
-				<height>45</height>
-				<font>apptv25</font>
-				<label>$INFO[Container(5998).ListItem.Label]</label>
-			</control>
-			<control type="list" id="5998">
-				<left>87</left>
-				<top>270</top>
-				<width>900</width>
-				<height>525</height>
-				<onleft>6000</onleft>
-				<onright>6000</onright>
-				<onup>6000</onup>
-				<ondown>6000</ondown>
-				<viewtype label="535">list</viewtype>
-				<scrolltime>0</scrolltime>
-				<orientation>vertical</orientation>
-				<visible>!String.IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
-				<itemlayout height="525" width="900">
-					<control type="image">
-						<!-- Layer Image -->
-						<left>0</left>
-						<top>0</top>
-						<width>900</width>
-						<height>525</height>
-						<texture>$INFO[ListItem.Icon]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="image">
-						<!-- Area Image -->
-						<left>0</left>
-						<top>0</top>
-						<width>900</width>
-						<height>525</height>
-						<texture>$INFO[ListItem.Property(Layer)]</texture>
-						<aspectratio>scale</aspectratio>
-						<colordiffuse>70FFFFFF</colordiffuse>
-					</control>
-					<control type="image">
-						<!-- Legend image -->
-						<left>555</left>
-						<top>465</top>
-						<width>336</width>
-						<height>52</height>
-						<texture>$INFO[ListItem.Label2]</texture>
-					</control>
-				</itemlayout>
-				<focusedlayout height="525" width="900">
-					<control type="image">
-						<!-- Layer Image -->
-						<left>0</left>
-						<top>0</top>
-						<width>900</width>
-						<height>525</height>
-						<texture>$INFO[ListItem.Icon]</texture>
-						<aspectratio>scale</aspectratio>
-					</control>
-					<control type="image">
-						<!-- Area Image -->
-						<left>0</left>
-						<top>0</top>
-						<width>900</width>
-						<height>525</height>
-						<texture>$INFO[ListItem.Property(Layer)]</texture>
-						<aspectratio>scale</aspectratio>
-						<colordiffuse>70FFFFFF</colordiffuse>
-					</control>
-					<control type="image">
-						<!-- Legend image -->
-						<left>555</left>
-						<top>465</top>
-						<width>336</width>
-						<height>52</height>
-						<texture>$INFO[ListItem.Label2]</texture>
-					</control>
-				</focusedlayout>
-				<content>
-					<item>
-						<label>$INFO[Window(weather).Property(Map.1.Heading)]</label>
-						<label2>$INFO[Window(weather).Property(Map.1.Legend)]</label2>
-						<icon>$INFO[Window(weather).Property(Map.1.Area)]</icon>
-						<property name="Layer">$INFO[Window(weather).Property(Map.1.Layer)]</property>
-						<onclick>noop</onclick>
-						<visible>Weather.IsFetched + !String.IsEmpty(Window(weather).Property(Map.1.Area)) + !String.IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
-					</item>
-					<item>
-						<label>$INFO[Window(weather).Property(Map.2.Heading)]</label>
-						<label2>$INFO[Window(weather).Property(Map.2.Legend)]</label2>
-						<icon>$INFO[Window(weather).Property(Map.2.Area)]</icon>
-						<property name="Layer">$INFO[Window(weather).Property(Map.2.Layer)]</property>
-						<onclick>noop</onclick>
-						<visible>Weather.IsFetched + !String.IsEmpty(Window.Property(Map.2.Area)) + !String.IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
-					</item>
-					<item>
-						<label>$INFO[Window(weather).Property(Map.3.Heading)]</label>
-						<label2>$INFO[Window(weather).Property(Map.3.Legend)]</label2>
-						<icon>$INFO[Window(weather).Property(Map.3.Area)]</icon>
-						<property name="Layer">$INFO[Window(weather).Property(Map.3.Layer)]</property>
-						<onclick>noop</onclick>
-						<visible>Weather.IsFetched + !String.IsEmpty(Window(weather).Property(Map.3.Area)) + !String.IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
-					</item>
-					<item>
-						<label>$INFO[Window(weather).Property(Map.4.Heading)]</label>
-						<label2>$INFO[Window(weather).Property(Map.4.Legend)]</label2>
-						<icon>$INFO[Window(weather).Property(Map.4.Area)]</icon>
-						<property name="Layer">$INFO[Window(weather).Property(Map.4.Layer)]</property>
-						<onclick>noop</onclick>
-						<visible>Weather.IsFetched + !String.IsEmpty(Window(weather).Property(Map.4.Area)) + !String.IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
-					</item>
-					<item>
-						<label>$INFO[Window(weather).Property(Map.5.Heading)]</label>
-						<label2>$INFO[Window(weather).Property(Map.5.Legend)]</label2>
-						<icon>$INFO[Window(weather).Property(Map.5.Area)]</icon>
-						<property name="Layer">$INFO[Window(weather).Property(Map.5.Layer)]</property>
-						<onclick>noop</onclick>
-						<visible>Weather.IsFetched + !String.IsEmpty(Window(weather).Property(Map.5.Area)) + !String.IsEmpty(Window(weather).Property(Map.IsFetched))</visible>
-					</item>
-				</content>
-			</control>
-			<control type="image">
-				<!-- Busy animation (Show if no map has been displayed yet) -->
-				<left>489</left>
-				<top>483</top>
-				<width>96</width>
-				<height>96</height>
-				<texture>busy.png</texture>
-				<aspectratio>keep</aspectratio>
-				<animation effect="fade" start="0" end="100" time="100" delay="10000">Visible</animation>
-				<animation effect="rotate" start="360" end="0" center="auto" time="5400" loop="true" condition="true">conditional</animation>
-				<visible>String.IsEmpty(Container(5998).ListItem.Label)</visible>
 			</control>
 		</control>
 		<control type="group">

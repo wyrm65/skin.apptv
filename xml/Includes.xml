@@ -961,9 +961,9 @@
 		<!-- Weekend forecast -->
 		<value condition="String.IsEqual(Skin.String(weather-view),$LOCALIZE[33037]) + String.Contains(Weather.plugin,weather.openweathermap.extended)">Skin.SetString(weather-view,$LOCALIZE[33036])</value>
 		<!-- Hourly -->
-		<value condition="String.IsEqual(Skin.String(weather-view),$LOCALIZE[33036]) + String.Contains(Weather.plugin,weather.openweathermap.extended)">Skin.SetString(weather-view,$LOCALIZE[33035])</value>
+		<value condition="String.IsEqual(Skin.String(weather-view),$LOCALIZE[33036]) + String.Contains(Weather.plugin,weather.openweathermap.extended)">Skin.SetString(weather-view,$LOCALIZE[10508])</value>
 		<!-- Maps -->
-		<value condition="String.IsEqual(Skin.String(weather-view),$LOCALIZE[33035]) + [String.Contains(Weather.plugin,weather.openweathermap.extended) | String.Contains(Weather.plugin,weather.ozweather)]">Skin.SetString(weather-view,$LOCALIZE[10508])</value>
+		<value condition="String.IsEqual(Skin.String(weather-view),$LOCALIZE[33035]) + String.Contains(Weather.plugin,weather.ozweather)">Skin.SetString(weather-view,$LOCALIZE[10508])</value>
 		<!-- Standard Forecast -->
 		<value>Skin.SetString(weather-view,$LOCALIZE[10508])</value>
 		<!-- Fall thru default (Standard forecast) -->
@@ -1120,6 +1120,14 @@
 		<value condition="!Skin.HasSetting(background-visibiltymed) + !Skin.HasSetting(background-visibiltyhigh)">$LOCALIZE[391]</value>
 		<value condition="Skin.HasSetting(background-visibiltymed)">$LOCALIZE[392]</value>
 		<value condition="Skin.HasSetting(background-visibiltyhigh)">$LOCALIZE[393]</value>
+	</variable>
+	<variable name="WeatherSunrise">
+		<value condition="!String.IsEmpty(Window(weather).Property(Today.Sunrise))">$INFO[Window(weather).Property(Today.Sunrise)]</value>
+		<value condition="!String.IsEmpty(Window(weather).Property(Current.Sunrise))">$INFO[Window(weather).Property(Current.Sunrise)]</value>
+	</variable>
+	<variable name="WeatherSunset">
+		<value condition="!String.IsEmpty(Window(weather).Property(Today.Sunset))">$INFO[Window(weather).Property(Today.Sunset)]</value>
+		<value condition="!String.IsEmpty(Window(weather).Property(Current.Sunset))">$INFO[Window(weather).Property(Current.Sunset)]</value>
 	</variable>
 	<variable name="WeatherIconCurrent">
 		<value condition="!String.IsEmpty(Skin.String(custom-weathericons.path)) + Skin.HasSetting(custom-weathericons.multi)">$INFO[Skin.String(custom-weathericons.path)]$INFO[Window(weather).Property(Day0.FanartCode)]</value>
