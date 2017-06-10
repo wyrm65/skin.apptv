@@ -81,6 +81,7 @@
 			<label>$LOCALIZE[31531] $INFO[Window(weather).Property(Updated)]</label>
 			<visible>!String.IsEmpty(Window(weather).Property(Updated))</visible>
 		</control>
+		<include>touch-controls</include>
 		<control type="group">
 			<!-- Screen-settings Menu -->
 			<left>0</left>
@@ -164,11 +165,9 @@
 					<width>714</width>
 					<height>75</height>
 					<label>$LOCALIZE[31873]</label>
-					<!--<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>-->
-					<!--<onclick condition="System.HasAddon(script.image.resource.select)">SetFocus(6000)</onclick>-->
-					<onclick>SetFocus(6000)</onclick>
-					<!--<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,type=resource.images.weathericons&amp;property=custom-weathericons)</onclick>-->
-					<onclick>RunScript(script.skin.helper.service,action=setresourceaddon,skinstring=custom-weathericons,addontype=resource.images.weathericons)</onclick>
+					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
+					<onclick condition="System.HasAddon(script.image.resource.select)">SetFocus(6000)</onclick>
+					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,type=resource.images.weathericons&amp;property=custom-weathericons)</onclick>
 					
 				</control>
 				<control type="radiobutton" id="210">
@@ -227,6 +226,5 @@
 				<visible>[ControlGroup(9000).HasFocus() | String.IsEqual(Window(home).Property(ShowScreenSettings),show) | Control.HasFocus(1250) | Control.HasFocus(1252) | Control.HasFocus(1253) | Control.HasFocus(1258)]</visible>
 			</control>
 		</control>
-		<include>touch-controls</include>
 	</controls>
 </window>
