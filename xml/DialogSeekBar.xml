@@ -68,7 +68,6 @@
 				<label>-$INFO[VideoPlayer.TimeRemaining] [COLOR=disabled-text]($INFO[Player.FinishTime])[/COLOR]</label>
 			</control>
 			<control type="group">
-				<visible>!Window.IsVisible(fullscreeninfo)</visible>
 				<!-- Progress bar -->
 				<control type="progress">
 					<left>717</left>
@@ -91,7 +90,10 @@
 					<top>1040</top>
 					<width>870</width>
 					<height>18</height>
+					<textureslidernib>progress-marker-focus.png</textureslidernib>
+					<textureslidernibfocus>progress-marker-focus.png</textureslidernibfocus>
 					<action>seek</action>
+					<animation effect="fade" start="100" end="60" condition="!Control.HasFocus(401) + !Player.DisplayAfterSeek">Conditional</animation>
 				</control>
 			</control>
 		</control>

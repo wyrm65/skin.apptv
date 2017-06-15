@@ -25,30 +25,33 @@
 					<font>apptv20</font>
 					<label>-$INFO[VideoPlayer.TimeRemaining] [COLOR=disabled-text]($INFO[Player.FinishTime])[/COLOR]</label>
 				</control>
-				<!-- Progress bar -->
-				<control type="progress">
-					<left>717</left>
-					<top>1040</top>
-					<width>870</width>
-					<height>18</height>
-					<info>Player.ProgressCache</info>
-					<colordiffuse>CacheBarColor</colordiffuse>
-				</control>
-				<control type="progress">
-					<left>717</left>
-					<top>1040</top>
-					<width>870</width>
-					<height>18</height>
-					<info>Player.Progress</info>
-				</control>
-				<control type="slider" id="690">
-					<!-- Seek Slider -->
-					<left>717</left>
-					<top>1040</top>
-					<width>870</width>
-					<height>18</height>
-					<action>seek</action>
-					<onup>650</onup>
+				<control type="group">
+					<visible>![Window.IsVisible(seekbar)]</visible>
+					<!-- Progress bar -->
+					<control type="progress">
+						<left>717</left>
+						<top>1040</top>
+						<width>870</width>
+						<height>18</height>
+						<info>Player.ProgressCache</info>
+						<colordiffuse>CacheBarColor</colordiffuse>
+					</control>
+					<control type="progress">
+						<left>717</left>
+						<top>1040</top>
+						<width>870</width>
+						<height>18</height>
+						<info>Player.Progress</info>
+					</control>
+					<control type="slider" id="690">
+						<!-- Seek Slider -->
+						<left>717</left>
+						<top>1040</top>
+						<width>870</width>
+						<height>18</height>
+						<action>seek</action>
+						<onup>650</onup>
+					</control>
 				</control>
 			</control>
 			<control type="grouplist" id="630">
