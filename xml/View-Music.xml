@@ -56,7 +56,8 @@
 				</control>
 			</itemlayout>
 			<focusedlayout width="840" height="96">
-				<control type="image"><!-- Button focus -->
+				<control type="image">
+					<!-- Button focus -->
 					<left>0</left>
 					<top>0</top>
 					<width>831</width>
@@ -155,7 +156,8 @@
 					<height>6</height>
 					<texture>separator.png</texture>
 				</control>
-				<control type="label"><!-- Artist heading -->
+				<control type="label">
+					<!-- Artist heading -->
 					<left>30</left>
 					<top>788</top>
 					<width>195</width>
@@ -164,7 +166,8 @@
 					<font>apptv22</font>
 					<align>right</align>
 				</control>
-				<control type="label"><!-- Artist -->
+				<control type="label">
+					<!-- Artist -->
 					<left>240</left>
 					<top>788</top>
 					<width>726</width>
@@ -173,7 +176,8 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<font>apptv20</font>
 				</control>
-				<control type="label"><!-- Genre heading -->
+				<control type="label">
+					<!-- Genre heading -->
 					<left>30</left>
 					<top>825</top>
 					<width>195</width>
@@ -182,7 +186,8 @@
 					<font>apptv22</font>
 					<align>right</align>
 				</control>
-				<control type="label"><!-- Genre -->
+				<control type="label">
+					<!-- Genre -->
 					<left>240</left>
 					<top>825</top>
 					<width>726</width>
@@ -191,7 +196,8 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<font>apptv20</font>
 				</control>
-				<control type="label"><!-- Year heading -->
+				<control type="label">
+					<!-- Year heading -->
 					<left>30</left>
 					<top>863</top>
 					<width>195</width>
@@ -200,7 +206,8 @@
 					<font>apptv22</font>
 					<align>right</align>
 				</control>
-				<control type="label"><!-- Year -->
+				<control type="label">
+					<!-- Year -->
 					<left>240</left>
 					<top>863</top>
 					<width>726</width>
@@ -208,7 +215,8 @@
 					<label>$INFO[ListItem.Year]</label>
 					<font>apptv20</font>
 				</control>
-				<control type="label"><!-- Rating heading -->
+				<control type="label">
+					<!-- Rating heading -->
 					<left>30</left>
 					<top>900</top>
 					<width>195</width>
@@ -217,7 +225,8 @@
 					<font>apptv22</font>
 					<align>right</align>
 				</control>
-				<control type="image"><!-- Rating -->
+				<control type="image">
+					<!-- Rating -->
 					<left>240</left>
 					<top>905</top>
 					<width>165</width>
@@ -237,7 +246,8 @@
 				<include>sortletternotification</include>
 				<control type="group" id="1230">
 					<visible>Control.IsVisible(50) + Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]</visible>
-					<control type="button" id="1240"><!-- Search -->
+					<control type="button" id="1240">
+						<!-- Search -->
 						<left>1846</left>
 						<top>132</top>
 						<width>30</width>
@@ -334,7 +344,8 @@
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
-			<control type="grouplist" id="666"><!-- Needs to change to a list with id 51 -->
+			<control type="grouplist" id="666">
+				<!-- Needs to change to a list with id 51 -->
 				<top>25</top>
 				<align>center</align>
 				<width>1920</width>
@@ -620,7 +631,8 @@
 				</control>
 			</focusedlayout>
 		</control>
-		<control type="group"><!-- Show the bottom row of icons as long as another row exists -->
+		<control type="group">
+			<!-- Show the bottom row of icons as long as another row exists -->
 			<visible>Control.IsVisible(52) + Container(52).HasNext + ![Container().OnScrollNext | Container().OnScrollPrevious]</visible>
 			<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
 			<control type="image">
@@ -664,7 +676,8 @@
 				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(14)Thumb]</texture>
 			</control>
 		</control>
-		<control type="button"><!-- Onfocus, move to next row of icon panel -->
+		<control type="button">
+			<!-- Onfocus, move to next row of icon panel -->
 			<left>0</left>
 			<top>861</top>
 			<width>1830</width>
@@ -676,7 +689,8 @@
 		<include>sortletternotification</include>
 		<control type="group" id="1232">
 			<visible>Control.IsVisible(52) + Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]</visible>
-			<control type="button" id="1242"><!-- Search -->
+			<control type="button" id="1242">
+				<!-- Search -->
 				<left>1830</left>
 				<top>132</top>
 				<width>30</width>
@@ -859,7 +873,8 @@
 			<visible>Control.IsVisible(54)</visible>
 			<control type="group" id="1234">
 				<visible>Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]</visible>
-				<control type="button" id="1244"><!-- Search -->
+				<control type="button" id="1244">
+					<!-- Search -->
 					<left>54</left>
 					<top>894</top>
 					<width>30</width>
@@ -937,7 +952,8 @@
 				<aspectratio align="left" aligny="bottom">keep</aspectratio>
 				<colordiffuse>mask-background</colordiffuse>
 			</control>
-			<control type="label"><!-- Go Back -->
+			<control type="label">
+				<!-- Go Back -->
 				<left>39</left>
 				<top>956</top>
 				<width>1832</width>
@@ -959,7 +975,8 @@
 				<label>$INFO[ListItem.Label]</label>
 				<visible>!ListItem.IsParentFolder</visible>
 			</control>
-			<control type="image"><!-- Star Rating -->
+			<control type="image">
+				<!-- Star Rating -->
 				<left>39</left>
 				<top>975</top>
 				<width>165</width>
@@ -967,7 +984,8 @@
 				<texture>$VAR[MediaRating]</texture>
 				<aspectratio>keep</aspectratio>
 			</control>
-			<control type="label"><!-- Genre -->
+			<control type="label">
+				<!-- Genre -->
 				<left>318</left>
 				<top>1022</top>
 				<width>1274</width>
@@ -996,8 +1014,8 @@
 			<orientation>horizontal</orientation>
 			<preloaditems>4</preloaditems>
 			<pagecontrol>1257</pagecontrol>
-			<itemlayout height="432" width="156"></itemlayout>
-			<focusedlayout height="432" width="552"></focusedlayout>
+			<itemlayout height="432" width="156"/>
+			<focusedlayout height="432" width="552"/>
 		</control>
 		<control type="group" id="3011">
 			<left>45</left>
@@ -1300,7 +1318,8 @@
 			<visible>Control.IsVisible(57)</visible>
 			<control type="group" id="1237">
 				<visible>Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]</visible>
-				<control type="button" id="1247"><!-- Search -->
+				<control type="button" id="1247">
+					<!-- Search -->
 					<left>54</left>
 					<top>864</top>
 					<width>30</width>
@@ -1368,7 +1387,8 @@
 				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]" effect="slide" end="0,18" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(57)</visible>
 			</control>
-			<control type="label"><!-- Go Back -->
+			<control type="label">
+				<!-- Go Back -->
 				<left>39</left>
 				<top>927</top>
 				<width>1832</width>
@@ -1381,7 +1401,8 @@
 			</control>
 			<control type="group">
 				<visible>!ListItem.IsParentFolder</visible>
-				<control type="label"><!-- Artist & Album name-->
+				<control type="label">
+					<!-- Artist & Album name-->
 					<left>39</left>
 					<top>927</top>
 					<width>1832</width>
@@ -1394,7 +1415,8 @@
 				</control>
 				<control type="group">
 					<visible>ListItem.IsFolder + Container.Content(artists)</visible>
-					<control type="image"><!-- Music logo if available -->
+					<control type="image">
+						<!-- Music logo if available -->
 						<left>816</left>
 						<top>915</top>
 						<width>288</width>
@@ -1402,7 +1424,8 @@
 						<texture>$INFO[Window(home).Property(SkinHelper.ListItem.Art.ClearLogo)]</texture>
 						<aspectratio align="left" aligny="bottom">keep</aspectratio>
 					</control>
-					<control type="label"><!-- Artist name-->
+					<control type="label">
+						<!-- Artist name-->
 						<left>39</left>
 						<top>927</top>
 						<width>1832</width>
@@ -1414,7 +1437,8 @@
 						<visible>String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.ClearLogo))</visible>
 					</control>
 				</control>
-				<control type="label"><!-- Track name-->
+				<control type="label">
+					<!-- Track name-->
 					<left>39</left>
 					<top>927</top>
 					<width>1832</width>
@@ -1425,7 +1449,8 @@
 					<label>$INFO[ListItem.Label]</label>
 					<visible>!ListItem.IsFolder + !Container.Content(artists)</visible>
 				</control>
-				<control type="label"><!-- Genre -->
+				<control type="label">
+					<!-- Genre -->
 					<left>291</left>
 					<top>1028</top>
 					<width>1328</width>
@@ -1436,7 +1461,8 @@
 					<label>$INFO[ListItem.Genre]</label>
 					<visible>!Container.Content(genres)</visible>
 				</control>
-				<control type="image"><!-- Star Rating -->
+				<control type="image">
+					<!-- Star Rating -->
 					<left>27</left>
 					<top>945</top>
 					<width>165</width>
@@ -1467,36 +1493,36 @@
 				<effect type="zoom" start="100" end="115" center="auto" tween="back" easing="out" />
 			</animation>
 			<itemlayout height="266" width="266">
-					<control type="image">
-						<left>1</left>
-						<top>1</top>
-						<width>264</width>
-						<height>264</height>
-						<aspectratio>stretch</aspectratio>
-						<colordiffuse>UnFocusedCovers</colordiffuse>
-						<texture diffuse="mask-squ.png" fallback="DefaultAudio.png" background="true">$VAR[IconCover]</texture>
-						<visible>!Container.Content(addons) + !Container.Content(musicvideos)</visible>
-					</control>
-					<control type="image">
-						<left>1</left>
-						<top>1</top>
-						<width>264</width>
-						<height>264</height>
-						<aspectratio>stretch</aspectratio>
-						<colordiffuse>UnFocusedCovers</colordiffuse>
-						<texture diffuse="mask-squ.png" fallback="DefaultAddonMusic.png" background="true">$VAR[IconCover]</texture>
-						<visible>Container.Content(addons)</visible>
-					</control>
-					<control type="image">
-						<left>1</left>
-						<top>1</top>
-						<width>264</width>
-						<height>264</height>
-						<aspectratio>stretch</aspectratio>
-						<colordiffuse>UnFocusedCovers</colordiffuse>
-						<texture diffuse="mask-squ.png" fallback="DefaultMusicVideos.png" background="true">$VAR[IconCover]</texture>
-						<visible>Container.Content(musicvideos)</visible>
-					</control>
+				<control type="image">
+					<left>1</left>
+					<top>1</top>
+					<width>264</width>
+					<height>264</height>
+					<aspectratio>stretch</aspectratio>
+					<colordiffuse>UnFocusedCovers</colordiffuse>
+					<texture diffuse="mask-squ.png" fallback="DefaultAudio.png" background="true">$VAR[IconCover]</texture>
+					<visible>!Container.Content(addons) + !Container.Content(musicvideos)</visible>
+				</control>
+				<control type="image">
+					<left>1</left>
+					<top>1</top>
+					<width>264</width>
+					<height>264</height>
+					<aspectratio>stretch</aspectratio>
+					<colordiffuse>UnFocusedCovers</colordiffuse>
+					<texture diffuse="mask-squ.png" fallback="DefaultAddonMusic.png" background="true">$VAR[IconCover]</texture>
+					<visible>Container.Content(addons)</visible>
+				</control>
+				<control type="image">
+					<left>1</left>
+					<top>1</top>
+					<width>264</width>
+					<height>264</height>
+					<aspectratio>stretch</aspectratio>
+					<colordiffuse>UnFocusedCovers</colordiffuse>
+					<texture diffuse="mask-squ.png" fallback="DefaultMusicVideos.png" background="true">$VAR[IconCover]</texture>
+					<visible>Container.Content(musicvideos)</visible>
+				</control>
 			</itemlayout>
 			<focusedlayout height="266" width="266">
 				<control type="image">
@@ -1552,7 +1578,8 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(58)</visible>
-			<control type="label"><!-- Go Back -->
+			<control type="label">
+				<!-- Go Back -->
 				<left>30</left>
 				<top>165</top>
 				<width>735</width>
@@ -1568,7 +1595,8 @@
 				<width>735</width>
 				<height>872</height>
 				<visible>!ListItem.IsParentFolder</visible>
-				<control type="label"><!-- Artist name-->
+				<control type="label">
+					<!-- Artist name-->
 					<width>705</width>
 					<height>66</height>
 					<font>apptv22</font>
@@ -1577,7 +1605,8 @@
 					<wrapmultiline>true</wrapmultiline>
 					<visible>!String.IsEmpty(ListItem.Artist)</visible>
 				</control>
-				<control type="label"><!-- Album name-->
+				<control type="label">
+					<!-- Album name-->
 					<width>705</width>
 					<height>66</height>
 					<font>apptv22</font>
@@ -1586,7 +1615,8 @@
 					<wrapmultiline>true</wrapmultiline>
 					<visible>Container.Content(albums)</visible>
 				</control>
-				<control type="label"><!-- Track name/Listitem label-->
+				<control type="label">
+					<!-- Track name/Listitem label-->
 					<width>705</width>
 					<height>66</height>
 					<font>apptv22</font>
@@ -1595,7 +1625,8 @@
 					<wrapmultiline>true</wrapmultiline>
 					<visible>!Container.Content(albums) + !Container.Content(artists)</visible>
 				</control>
-				<control type="label"><!-- Genre -->
+				<control type="label">
+					<!-- Genre -->
 					<width>705</width>
 					<height>66</height>
 					<font>apptv20</font>
@@ -1606,7 +1637,8 @@
 				<control type="group">
 					<width>266</width>
 					<height>62</height>
-					<control type="image" id="581"><!-- Star Rating -->
+					<control type="image" id="581">
+						<!-- Star Rating -->
 						<left>0</left>
 						<top>14</top>
 						<width>165</width>
@@ -1616,7 +1648,8 @@
 						<visible>!String.IsEqual(Control.GetLabel(581),blank.png)</visible>
 					</control>
 				</control>
-				<control type="textbox"><!-- Album description -->
+				<control type="textbox">
+					<!-- Album description -->
 					<width>705</width>
 					<height>564</height>
 					<font>apptv20</font>
@@ -1625,7 +1658,8 @@
 					<autoscroll time="2000" delay="3000" repeat="6000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
 					<visible>Container.Content(albums)</visible>
 				</control>
-				<control type="textbox"><!-- Artist description -->
+				<control type="textbox">
+					<!-- Artist description -->
 					<width>705</width>
 					<height>564</height>
 					<font>apptv20</font>
@@ -1637,7 +1671,8 @@
 			</control>
 			<control type="group" id="1238">
 				<visible>Control.IsVisible(58) + Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]</visible>
-				<control type="button" id="1248"><!-- Search -->
+				<control type="button" id="1248">
+					<!-- Search -->
 					<left>1845</left>
 					<top>132</top>
 					<width>30</width>

@@ -1084,7 +1084,8 @@
 		<value condition="System.Platform.Android">$LOCALIZE[31566] $LOCALIZE[31572]</value>
 		<value condition="System.Platform.Linux.RaspberryPi">$LOCALIZE[31566] $LOCALIZE[31571]</value>
 		<value condition="System.Platform.Linux">$LOCALIZE[31566] $LOCALIZE[31567]</value>
-		<value>$LOCALIZE[13205]</value><!-- Unknown platform type -->
+		<value>$LOCALIZE[13205]</value>
+		<!-- Unknown platform type -->
 	</variable>
 	<variable name="ShelfType">
 		<value condition="[Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31026])] + String.IsEqual(Skin.String(shelf-movieimages),$LOCALIZE[31954])">$LOCALIZE[31964]</value>
@@ -1102,7 +1103,7 @@
 		<value condition="[Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9580) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(shelf-customimages),$LOCALIZE[31652])">$LOCALIZE[31652]</value>
 		<value condition="[Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9580) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(shelf-customimages),$LOCALIZE[593]$LOCALIZE[1036])">$LOCALIZE[593] $LOCALIZE[1036]</value>
 		<value condition="[Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9580) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(shelf-customimages),$LOCALIZE[14211]$LOCALIZE[1036])">$LOCALIZE[14211] $LOCALIZE[1036]</value>
-		</variable>
+	</variable>
 	<variable name="MenuType">
 		<value condition="Skin.HasSetting(homemenu-vertical)">$LOCALIZE[31951]</value>
 		<value condition="Skin.HasSetting(homemenu-horizontal)">$LOCALIZE[31952]</value>
@@ -1702,11 +1703,11 @@
 		<value condition="Control.HasFocus(987)">$LOCALIZE[31359]</value>
 		<value condition="Window.IsVisible(Custom_HomeCustomise.xml) + !Control.HasFocus(402)">$LOCALIZE[31374]</value>
 	</variable>
-	<include file="Defaults.xml" />
-	
+	<include file="Defaults.xml"/>
+
 	<!-- Video Lyrics includes, "borrowed" from skin.aeon.nox.5 -->
 	<!-- Thanks to BigNoid -->
-		<include name="Lyrics1">
+	<include name="Lyrics1">
 		<param name="col11" default="black"/>
 		<param name="col12" default="black"/>
 		<param name="col13" default="black"/>
@@ -2128,8 +2129,8 @@
 			<control type="label">
 				<visible>String.IsEqual(Container(110).Currentitem,6) | String.EndsWith(Container(110).Currentitem,21) | String.EndsWith(Container(110).Currentitem,36) | String.EndsWith(Container(110).Currentitem,51) | String.EndsWith(Container(110).Currentitem,66) | String.EndsWith(Container(110).Currentitem,81) | String.EndsWith(Container(110).Currentitem,96)</visible>
 				<animation type="Visible" reversible="false">
-					<effect type="slide" end="0,400" time="1000" tween="bounce" easing="out" />
-					<effect type="rotate" start="440" center="auto" end="360" time="1000" tween="cubic" easing="out" />
+					<effect type="slide" end="0,400" time="1000" tween="bounce" easing="out"/>
+					<effect type="rotate" start="440" center="auto" end="360" time="1000" tween="cubic" easing="out"/>
 				</animation>
 				<width>auto</width>
 				<height>100</height>
@@ -2142,8 +2143,8 @@
 			</control>
 			<control type="label">
 				<animation type="Visible" reversible="false">
-					<effect type="slide" delay="150" end="0,400" time="1000" tween="bounce" easing="out" />
-					<effect type="rotate" delay="150" start="440" center="auto" end="360" time="1000" tween="cubic" easing="out" />
+					<effect type="slide" delay="150" end="0,400" time="1000" tween="bounce" easing="out"/>
+					<effect type="rotate" delay="150" start="440" center="auto" end="360" time="1000" tween="cubic" easing="out"/>
 				</animation>
 				<visible>String.IsEqual(Container(110).Currentitem,6) | String.EndsWith(Container(110).Currentitem,21) | String.EndsWith(Container(110).Currentitem,36) | String.EndsWith(Container(110).Currentitem,51) | String.EndsWith(Container(110).Currentitem,66) | String.EndsWith(Container(110).Currentitem,81) | String.EndsWith(Container(110).Currentitem,96)</visible>
 				<width>auto</width>
@@ -2158,8 +2159,8 @@
 			<control type="label">
 				<visible>String.IsEqual(Container(110).Currentitem,6) | String.EndsWith(Container(110).Currentitem,21) | String.EndsWith(Container(110).Currentitem,36) | String.EndsWith(Container(110).Currentitem,51) | String.EndsWith(Container(110).Currentitem,66) | String.EndsWith(Container(110).Currentitem,81) | String.EndsWith(Container(110).Currentitem,96)</visible>
 				<animation type="Visible" reversible="false">
-					<effect type="slide" delay="300" end="0,400" time="1000" tween="bounce" easing="out" />
-					<effect type="rotate" delay="300" start="440" center="auto" end="360" time="1000" tween="cubic" easing="out" />
+					<effect type="slide" delay="300" end="0,400" time="1000" tween="bounce" easing="out"/>
+					<effect type="rotate" delay="300" start="440" center="auto" end="360" time="1000" tween="cubic" easing="out"/>
 				</animation>
 				<width>auto</width>
 				<height>100</height>
@@ -2708,7 +2709,7 @@
 					<shadowcolor>black</shadowcolor>
 					<scroll>true</scroll>
 					<scrollspeed>100</scrollspeed>
-					<scrollsuffix></scrollsuffix>
+					<scrollsuffix/>
 					<align>center</align>
 					<aligny>top</aligny>
 					<textcolor>$PARAM[col121]</textcolor>
@@ -3050,7 +3051,7 @@
 					<height>600</height>
 					<visible>String.EndsWith(Container(110).Currentitem,15) | String.EndsWith(Container(110).Currentitem,30) | String.EndsWith(Container(110).Currentitem,45) | String.EndsWith(Container(110).Currentitem,60) | String.EndsWith(Container(110).Currentitem,75) | String.EndsWith(Container(110).Currentitem,90) | String.EndsWith(Container(110).Currentitem,05)</visible>
 					<animation type="Visible" reversible="false">
-						<effect type="slide" delay="650" start="0,-400" end="0,0" time="1200" tween="bounce" easing="out" />
+						<effect type="slide" delay="650" start="0,-400" end="0,0" time="1200" tween="bounce" easing="out"/>
 					</animation>
 					<label>$INFO[Container(110).ListItem.Property(part4)]</label>
 					<font>lyr15b</font>
@@ -3091,7 +3092,7 @@
 		<aligny>center</aligny>
 	</include>
 	<!-- End of Video Lyrics includes -->
-	
+
 	<include name="defaultskinsettings">
 		<!-- various default settings  -->
 		<onload>Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
@@ -3154,10 +3155,12 @@
 		</control>
 	</include>
 	<include name="player-mediaicon">
-		<control type="group" id="1"><!-- Player Media Icon -->
+		<control type="group" id="1">
+			<!-- Player Media Icon -->
 			<visible>[$EXP[isFullscreenVideo]] + ![Window.IsActive(musicosd)]</visible>
 			<animation effect="fade" time="200">VisibleChange</animation>
-			<control type="image" id="1"><!-- Movies or Tv Episodes -->
+			<control type="image" id="1">
+				<!-- Movies or Tv Episodes -->
 				<left>12</left>
 				<top>746</top>
 				<width>320</width>
@@ -3168,7 +3171,8 @@
 				<aspectratio>keep</aspectratio>
 				<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
 			</control>
-			<control type="image" id="1"><!-- Any video other than Movies and TV Episodes -->
+			<control type="image" id="1">
+				<!-- Any video other than Movies and TV Episodes -->
 				<!-- Fallback to Thumb image if not TV Episode or Movie playing -->
 				<left>12</left>
 				<top>746</top>
@@ -3399,16 +3403,16 @@
 		</control>
 	</include>
 	<include name="use-alttexture">
-		<param name="visiblecondition" />
+		<param name="visiblecondition"/>
 		<definition>
 			<usealttexture>$PARAM[visiblecondition]</usealttexture>
 		</definition>
 	</include>
 	<include name="listitem-count">
-		<param name="left" default="0" />
-		<param name="top" default="0" />
-		<param name="count" />
-		<param name="size" default="100" />
+		<param name="left" default="0"/>
+		<param name="top" default="0"/>
+		<param name="count"/>
+		<param name="size" default="100"/>
 		<definition>
 			<control type="group">
 				<visible>Integer.IsGreater($PARAM[count],0)</visible>
@@ -3443,7 +3447,7 @@
 					<visible>Integer.IsGreater($PARAM[count],99) + !Integer.IsGreater($PARAM[count],999)</visible>
 				</control>
 				<control type="label">
-					<shadowcolor></shadowcolor>
+					<shadowcolor/>
 					<left>14</left>
 					<top>4</top>
 					<width>54</width>
@@ -3457,13 +3461,13 @@
 		</definition>
 	</include>
 	<include name="listpanelitems">
-		<param name="itemcustombase" />
-		<param name="itemthumb" />
-		<param name="itemlabel" />
-		<param name="itemmenuheading" />
-		<param name="itemmenuid" />
-		<param name="itemcondition" />
-		<param name="itemtoggle" />
+		<param name="itemcustombase"/>
+		<param name="itemthumb"/>
+		<param name="itemlabel"/>
+		<param name="itemmenuheading"/>
+		<param name="itemmenuid"/>
+		<param name="itemcondition"/>
+		<param name="itemtoggle"/>
 		<definition>
 			<item>
 				<thumb>$PARAM[itemthumb]</thumb>
@@ -3488,7 +3492,7 @@
 			<item>
 				<thumb>$PARAM[itemthumb]</thumb>
 				<label>$PARAM[itemlabel]</label>
-				<property name="isActive"></property>
+				<property name="isActive"/>
 				<property name="visibleToggle">$PARAM[itemtoggle]</property>
 				<property name="customBase">$PARAM[itemcustombase]</property>
 				<property name="menuHeading">$PARAM[itemmenuheading]</property>
@@ -3508,19 +3512,19 @@
 		</definition>
 	</include>
 	<include name="page-indicator">
-		<param name="indicatorleft" default="0" />
-		<param name="indicatortop" default="0" />
-		<param name="indicatorwidth" default="0" />
-		<param name="indicatorheight" default="0" />
-		<param name="indicatororientation" default="horizontal" />
-		<param name="grp1indicate" />
-		<param name="grp1visible" default="false" />
-		<param name="grp2indicate" />
-		<param name="grp2visible" default="false" />
-		<param name="grp3indicate" />
-		<param name="grp3visible" default="false" />
-		<param name="grp4indicate" />
-		<param name="grp4visible" default="false" />
+		<param name="indicatorleft" default="0"/>
+		<param name="indicatortop" default="0"/>
+		<param name="indicatorwidth" default="0"/>
+		<param name="indicatorheight" default="0"/>
+		<param name="indicatororientation" default="horizontal"/>
+		<param name="grp1indicate"/>
+		<param name="grp1visible" default="false"/>
+		<param name="grp2indicate"/>
+		<param name="grp2visible" default="false"/>
+		<param name="grp3indicate"/>
+		<param name="grp3visible" default="false"/>
+		<param name="grp4indicate"/>
+		<param name="grp4visible" default="false"/>
 		<definition>
 			<control type="grouplist" id="3500">
 				<left>$PARAM[indicatorleft]</left>
@@ -3539,7 +3543,7 @@
 					<alttexturefocus>groupfocused.png</alttexturefocus>
 					<alttexturenofocus>groupfocused.png</alttexturenofocus>
 					<usealttexture>$PARAM[grp1indicate]</usealttexture>
-					<onclick></onclick>
+					<onclick/>
 					<visible>$PARAM[grp1visible]</visible>
 				</control>
 				<control type="togglebutton">
@@ -3550,7 +3554,7 @@
 					<alttexturefocus>groupfocused.png</alttexturefocus>
 					<alttexturenofocus>groupfocused.png</alttexturenofocus>
 					<usealttexture>$PARAM[grp2indicate]</usealttexture>
-					<onclick></onclick>
+					<onclick/>
 					<visible>$PARAM[grp2visible]</visible>
 				</control>
 				<control type="togglebutton">
@@ -3561,7 +3565,7 @@
 					<alttexturefocus>groupfocused.png</alttexturefocus>
 					<alttexturenofocus>groupfocused.png</alttexturenofocus>
 					<usealttexture>$PARAM[grp3indicate]</usealttexture>
-					<onclick></onclick>
+					<onclick/>
 					<visible>$PARAM[grp3visible]</visible>
 				</control>
 				<control type="togglebutton">
@@ -3572,7 +3576,7 @@
 					<alttexturefocus>groupfocused.png</alttexturefocus>
 					<alttexturenofocus>groupfocused.png</alttexturenofocus>
 					<usealttexture>$PARAM[grp4indicate]</usealttexture>
-					<onclick></onclick>
+					<onclick/>
 					<visible>$PARAM[grp4visible]</visible>
 				</control>
 			</control>
@@ -3669,7 +3673,7 @@
 		<textoffsety>84</textoffsety>
 	</include>
 	<include name="keyboard-key-common">
-		<shadowcolor></shadowcolor>
+		<shadowcolor/>
 		<width>96</width>
 		<height>96</height>
 		<texturenofocus border="9">key-standard-nofocus.png</texturenofocus>
@@ -3711,12 +3715,12 @@
 	</include>
 	<include name="zoom-openclose">
 		<animation type="WindowOpen" reversible="false">
-			<effect type="fade" time="200" />
-			<effect type="zoom" start="110" end="100" time="200" center="auto" />
+			<effect type="fade" time="200"/>
+			<effect type="zoom" start="110" end="100" time="200" center="auto"/>
 		</animation>
 		<animation type="WindowClose" reversible="false">
-			<effect type="fade" time="200" />
-			<effect type="zoom" end="110" time="200" center="auto" />
+			<effect type="fade" time="200"/>
+			<effect type="zoom" end="110" time="200" center="auto"/>
 		</animation>
 	</include>
 </includes>
