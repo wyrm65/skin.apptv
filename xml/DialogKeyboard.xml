@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <window>
 	<defaultcontrol always="true">300</defaultcontrol>
 	<coordinates>
@@ -12,7 +12,7 @@
 			<top>420</top>
 			<visible>!Window.IsVisible(numericinput)</visible>
 			<control type="button" id="309">
-				<label></label>
+				<label/>
 				<!-- Layout button (hidden)-->
 				<left>-450</left>
 				<top>0</top>
@@ -75,7 +75,8 @@
 					<shadowcolor>keyboard-shadow-text</shadowcolor>
 				</control>
 			</control>
-			<control type="group"><!-- Show Auto complete buttons or a prompt to install addon is not installed -->
+			<control type="group">
+				<!-- Show Auto complete buttons or a prompt to install addon is not installed -->
 				<left>240</left>
 				<top>88</top>
 				<control type="image">
@@ -106,7 +107,8 @@
 					<height>60</height>
 					<texture border="9">key-special-nofocus.png</texture>
 				</control>
-				<control type="button" id="4995"><!-- Install Autocomplete addon if required -->
+				<control type="button" id="4995">
+					<!-- Install Autocomplete addon if required -->
 					<left>0</left>
 					<top>0</top>
 					<width>1440</width>
@@ -118,8 +120,8 @@
 					<texturefocus border="9">key-special-focus.png</texturefocus>
 					<label>$LOCALIZE[31589]</label>
 					<focusedcolor>keyboard-special-focus-text</focusedcolor>
-					<textcolor></textcolor>
-					<shadowcolor></shadowcolor>
+					<textcolor/>
+					<shadowcolor/>
 					<font>apptv22</font>
 					<onclick condition="![System.HasAddon(plugin.program.autocompletion)]">InstallAddon(plugin.program.autocompletion)</onclick>
 					<onclick>Dialog.Close(virtualkeyboard,force)</onclick>
@@ -157,7 +159,7 @@
 							<font>apptv22</font>
 							<label>$INFO[ListItem.Label]</label>
 							<textcolor>keyboard-special-unfocus-text</textcolor>
-							<shadowcolor></shadowcolor>
+							<shadowcolor/>
 						</control>
 					</itemlayout>
 					<focusedlayout width="360" height="60">
@@ -178,7 +180,7 @@
 							<font>apptv22</font>
 							<label>$INFO[ListItem.Label]</label>
 							<textcolor>keyboard-special-focus-text</textcolor>
-							<shadowcolor></shadowcolor>
+							<shadowcolor/>
 						</control>
 					</focusedlayout>
 					<include condition="System.HasAddon(plugin.program.autocompletion)">keyboard-auto-complete</include>
@@ -286,7 +288,7 @@
 					<label>$LOCALIZE[20177]</label>
 					<font>apptv25</font>
 					<textcolor>keyboard-special-unfocus-text</textcolor>
-					<shadowcolor></shadowcolor>
+					<shadowcolor/>
 					<focusedcolor>keyboard-special-focus-text</focusedcolor>
 					<align>center</align>
 					<aligny>center</aligny>
@@ -600,7 +602,7 @@
 				<itemgap>0</itemgap>
 				<align>center</align>
 				<control type="togglebutton" id="304">
-					<shadowcolor></shadowcolor>
+					<shadowcolor/>
 					<!-- Symbols button -->
 					<width>192</width>
 					<height>96</height>
@@ -618,7 +620,7 @@
 					<onup>302</onup>
 				</control>
 				<control type="button" id="32">
-					<shadowcolor></shadowcolor>
+					<shadowcolor/>
 					<!-- SPACE button -->
 					<width>576</width>
 					<height>96</height>

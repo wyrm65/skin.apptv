@@ -1,12 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <window>
 	<defaultcontrol always="true">999</defaultcontrol>
 	<controls>
 		<include>background</include>
 		<control type="group">
 			<visible>$EXP[isSong]</visible>
-			<control type="group"><!-- Song info -->
-				<control type="label"><!-- Track number and name -->
+			<control type="group">
+				<!-- Song info -->
+				<control type="label">
+					<!-- Track number and name -->
 					<left>510</left>
 					<top>18</top>
 					<width>1380</width>
@@ -18,7 +20,8 @@
 					<label>$INFO[ListItem.TrackNumber,, - ]$INFO[ListItem.Title]</label>
 					<textoffsetx>0</textoffsetx>
 				</control>
-				<control type="label"><!-- Artist -->
+				<control type="label">
+					<!-- Artist -->
 					<left>510</left>
 					<top>123</top>
 					<width>1380</width>
@@ -55,7 +58,8 @@
 					<height>6</height>
 					<texture>separator.png</texture>
 				</control>
-				<control type="image"><!-- Album cover -->
+				<control type="image">
+					<!-- Album cover -->
 					<left>63</left>
 					<top>120</top>
 					<width>384</width>
@@ -76,7 +80,8 @@
 					<bordersize>30,22,14,22</bordersize>
 					<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon]</visible>
 				</control>
-				<control type="label"><!-- Details heading -->
+				<control type="label">
+					<!-- Details heading -->
 					<left>510</left>
 					<top>360</top>
 					<width>480</width>
@@ -86,7 +91,8 @@
 					<textcolor>disabled-text</textcolor>
 					<shadowcolor>shadow-text</shadowcolor>
 				</control>
-				<control type="label"><!-- Genres -->
+				<control type="label">
+					<!-- Genres -->
 					<left>510</left>
 					<top>399</top>
 					<width>900</width>
@@ -97,7 +103,8 @@
 					<textoffsetx>0</textoffsetx>
 					<visible>!String.IsEmpty(ListItem.Genre)</visible>
 				</control>
-				<control type="label"><!-- Playcount heading-->
+				<control type="label">
+					<!-- Playcount heading-->
 					<left>1455</left>
 					<top>360</top>
 					<width>435</width>
@@ -118,7 +125,8 @@
 					<font>apptv20</font>
 					<visible>!String.IsEmpty(ListItem.PlayCount)</visible>
 				</control>
-				<control type="label"><!-- Duration -->
+				<control type="label">
+					<!-- Duration -->
 					<left>510</left>
 					<top>477</top>
 					<width>480</width>
@@ -127,7 +135,8 @@
 					<label>$LOCALIZE[31133] $INFO[ListItem.Duration]</label>
 					<visible>!String.IsEmpty(ListItem.Duration)</visible>
 				</control>
-				<control type="label"><!-- Release date -->
+				<control type="label">
+					<!-- Release date -->
 					<left>510</left>
 					<top>516</top>
 					<width>900</width>
@@ -138,7 +147,8 @@
 					<textoffsetx>0</textoffsetx>
 					<visible>!String.IsEmpty(ListItem.Year)</visible>
 				</control>
-				<control type="image"><!-- Star Rating Dropshadow-->
+				<control type="image">
+					<!-- Star Rating Dropshadow-->
 					<left>512</left>
 					<top>556</top>
 					<width>135</width>
@@ -147,7 +157,8 @@
 					<colordiffuse>DropShadow</colordiffuse>
 					<aspectratio>keep</aspectratio>
 				</control>
-				<control type="image"><!-- Star Rating -->
+				<control type="image">
+					<!-- Star Rating -->
 					<left>510</left>
 					<top>555</top>
 					<width>135</width>
@@ -157,7 +168,8 @@
 				</control>
 			</control>
 		</control>
-		<control type="label"><!-- Artist Name -->
+		<control type="label">
+			<!-- Artist Name -->
 			<left>510</left>
 			<top>18</top>
 			<width>1380</width>
@@ -170,7 +182,8 @@
 			<textoffsetx>0</textoffsetx>
 			<visible>$EXP[isArtist]</visible>
 		</control>
-		<control type="image"><!-- Artist Image -->
+		<control type="image">
+			<!-- Artist Image -->
 			<left>63</left>
 			<top>120</top>
 			<width>384</width>
@@ -180,9 +193,11 @@
 			<align>center</align>
 			<visible>$EXP[isArtist]</visible>
 		</control>
-		<control type="group"><!-- Artist info -->
+		<control type="group">
+			<!-- Artist info -->
 			<visible>$EXP[isArtist]</visible>
-			<control type="label"><!-- Artist born/died -->
+			<control type="label">
+				<!-- Artist born/died -->
 				<left>510</left>
 				<top>123</top>
 				<width>1380</width>
@@ -195,7 +210,8 @@
 				<textoffsetx>0</textoffsetx>
 				<visible>!String.IsEmpty(ListItem.Property(Artist_Born))</visible>
 			</control>
-			<control type="label"><!-- Artist formed/disbanded -->
+			<control type="label">
+				<!-- Artist formed/disbanded -->
 				<left>510</left>
 				<top>123</top>
 				<width>1380</width>
@@ -215,7 +231,8 @@
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
-			<control type="textbox"><!-- Artist description -->>
+			<control type="textbox">
+				<!-- Artist description -->>
 				<left>510</left>
 				<top>168</top>
 				<width>1350</width>
@@ -232,7 +249,8 @@
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
-			<control type="label"><!-- Details heading -->
+			<control type="label">
+				<!-- Details heading -->
 				<left>510</left>
 				<top>240</top>
 				<width>360</width>
@@ -242,7 +260,8 @@
 				<textcolor>disabled-text</textcolor>
 				<shadowcolor>shadow-text</shadowcolor>
 			</control>
-			<control type="label"><!-- Genres -->
+			<control type="label">
+				<!-- Genres -->
 				<left>510</left>
 				<top>399</top>
 				<width>900</width>
@@ -253,7 +272,8 @@
 				<textoffsetx>0</textoffsetx>
 				<visible>!String.IsEmpty(ListItem.Genre)</visible>
 			</control>
-			<control type="label"><!-- Moods -->
+			<control type="label">
+				<!-- Moods -->
 				<left>510</left>
 				<top>438</top>
 				<width>900</width>
@@ -264,7 +284,8 @@
 				<textoffsetx>0</textoffsetx>
 				<visible>!String.IsEmpty(ListItem.Property(Album_Mood))</visible>
 			</control>
-			<control type="label"><!-- Styles -->
+			<control type="label">
+				<!-- Styles -->
 				<left>510</left>
 				<top>477</top>
 				<width>900</width>
@@ -275,7 +296,8 @@
 				<textoffsetx>0</textoffsetx>
 				<visible>!String.IsEmpty(ListItem.Property(Album_Style))</visible>
 			</control>
-			<control type="label"><!-- Active -->
+			<control type="label">
+				<!-- Active -->
 				<left>510</left>
 				<top>516</top>
 				<width>900</width>
@@ -288,7 +310,8 @@
 			</control>
 		</control>
 
-		<control type="label"><!-- Album Name -->
+		<control type="label">
+			<!-- Album Name -->
 			<left>510</left>
 			<top>18</top>
 			<width>1380</width>
@@ -298,7 +321,8 @@
 			<label>$INFO[ListItem.Album][COLOR=disabled-text]$INFO[ListItem.Artist, - ,][/COLOR]</label>
 			<visible>$EXP[isAlbum]</visible>
 		</control>
-		<control type="image"><!-- Album cover -->
+		<control type="image">
+			<!-- Album cover -->
 			<left>63</left>
 			<top>120</top>
 			<width>384</width>
@@ -319,9 +343,11 @@
 			<bordersize>28,18,5,18</bordersize>
 			<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + $EXP[isAlbum]</visible>
 		</control>
-		<control type="group"><!-- Album info -->
+		<control type="group">
+			<!-- Album info -->
 			<visible>$EXP[isAlbum]</visible>
-			<control type="label"><!-- Record Label value -->
+			<control type="label">
+				<!-- Record Label value -->
 				<left>510</left>
 				<top>123</top>
 				<width>1380</width>
@@ -341,7 +367,8 @@
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
-			<control type="textbox"><!-- Album description -->
+			<control type="textbox">
+				<!-- Album description -->
 				<left>510</left>
 				<top>168</top>
 				<width>1350</width>
@@ -358,7 +385,8 @@
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
-			<control type="label"><!-- Details heading -->
+			<control type="label">
+				<!-- Details heading -->
 				<left>510</left>
 				<top>360</top>
 				<width>480</width>
@@ -368,7 +396,8 @@
 				<textcolor>disabled-text</textcolor>
 				<shadowcolor>shadow-text</shadowcolor>
 			</control>
-			<control type="label"><!-- Genres -->
+			<control type="label">
+				<!-- Genres -->
 				<left>510</left>
 				<top>399</top>
 				<width>900</width>
@@ -379,7 +408,8 @@
 				<textoffsetx>0</textoffsetx>
 				<visible>!String.IsEmpty(ListItem.Genre)</visible>
 			</control>
-			<control type="label"><!-- Moods -->
+			<control type="label">
+				<!-- Moods -->
 				<left>510</left>
 				<top>438</top>
 				<width>900</width>
@@ -390,7 +420,8 @@
 				<textoffsetx>0</textoffsetx>
 				<visible>!String.IsEmpty(ListItem.Property(Album_Mood))</visible>
 			</control>
-			<control type="label"><!-- Style -->
+			<control type="label">
+				<!-- Style -->
 				<left>510</left>
 				<top>477</top>
 				<width>900</width>
@@ -401,7 +432,8 @@
 				<textoffsetx>0</textoffsetx>
 				<visible>!String.IsEmpty(ListItem.Property(Album_Style))</visible>
 			</control>
-			<control type="label"><!-- Release date -->
+			<control type="label">
+				<!-- Release date -->
 				<left>510</left>
 				<top>516</top>
 				<width>900</width>
@@ -412,7 +444,8 @@
 				<textoffsetx>0</textoffsetx>
 				<visible>!String.IsEmpty(ListItem.Year)</visible>
 			</control>
-			<control type="image"><!-- Star Rating Dropshadow-->
+			<control type="image">
+				<!-- Star Rating Dropshadow-->
 				<left>512</left>
 				<top>556</top>
 				<width>135</width>
@@ -421,7 +454,8 @@
 				<colordiffuse>DropShadow</colordiffuse>
 				<aspectratio>keep</aspectratio>
 			</control>
-			<control type="image"><!-- Star Rating -->
+			<control type="image">
+				<!-- Star Rating -->
 				<left>510</left>
 				<top>555</top>
 				<width>135</width>
@@ -430,7 +464,8 @@
 				<aspectratio>keep</aspectratio>
 			</control>
 		</control>
-		<control type="grouplist" id="999"><!-- Option buttons -->
+		<control type="grouplist" id="999">
+			<!-- Option buttons -->
 			<left>540</left>
 			<top>600</top>
 			<width>1320</width>
@@ -445,34 +480,39 @@
 			<onup condition="$EXP[isAlbum]">1523</onup>
 			<ondown condition="$EXP[isAlbum] | $EXP[isArtist]">50</ondown>
 			<ondown condition="$EXP[isSong]">950</ondown>
-			<control type="button" id="1114"><!-- Play button -->
+			<control type="button" id="1114">
+				<!-- Play button -->
 				<include>videoinfo-options-common</include>
 				<label>$LOCALIZE[208]</label>
 				<texturefocus>button-info-play-focus.png</texturefocus>
 				<texturenofocus>button-info-play.png</texturenofocus>
 				<onclick>PlayMedia($ESCINFO[ListItem.FileNameAndPath])</onclick>
 			</control>
-			<control type="button" id="12"><!-- Album info button -->
+			<control type="button" id="12">
+				<!-- Album info button -->
 				<include>videoinfo-options-common</include>
 				<label>$LOCALIZE[558]</label>
 				<texturefocus>button-info-disc-focus.png</texturefocus>
 				<texturenofocus>button-info-disc.png</texturenofocus>
 				<visible>$EXP[isSong]</visible>
 			</control>
-			<control type="button" id="6"><!-- Refresh button -->
+			<control type="button" id="6">
+				<!-- Refresh button -->
 				<include>videoinfo-options-common</include>
 				<label>$LOCALIZE[184]</label>
 				<texturefocus>button-info-refresh-focus.png</texturefocus>
 				<texturenofocus>button-info-refresh.png</texturenofocus>
 			</control>
-			<control type="button" id="1117"><!-- Set Ratings button -->
+			<control type="button" id="1117">
+				<!-- Set Ratings button -->
 				<include>videoinfo-options-common</include>
 				<label>$LOCALIZE[563]</label>
 				<texturefocus>button-info-plot-focus.png</texturefocus>
 				<texturenofocus>button-info-plot.png</texturenofocus>
 				<onclick>SendClick(musicinformation,7)</onclick>
 			</control>
-			<control type="button" id="1115"><!-- More options button -->
+			<control type="button" id="1115">
+				<!-- More options button -->
 				<include>videoinfo-options-common</include>
 				<label>$LOCALIZE[31693]</label>
 				<texturefocus>button-info-more-focus.png</texturefocus>
@@ -482,7 +522,8 @@
 			</control>
 		</control>
 
-		<control type="group"><!-- Discography / Track list -->
+		<control type="group">
+			<!-- Discography / Track list -->
 			<visible>$EXP[isAlbum] | $EXP[isArtist]</visible>
 			<control type="label">
 				<left>30</left>
@@ -511,7 +552,8 @@
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
-			<control type="list" id="50"><!-- Discography -->
+			<control type="list" id="50">
+				<!-- Discography -->
 				<visible>$EXP[isArtist]</visible>
 				<left>15</left>
 				<top>762</top>
@@ -558,7 +600,8 @@
 					</control>
 				</focusedlayout>
 			</control>
-			<control type="group"><!-- Markers for control area items -->
+			<control type="group">
+				<!-- Markers for control area items -->
 				<visible>Control.HasFocus(50)</visible>
 				<control type="image">
 					<left>30</left>
@@ -577,7 +620,8 @@
 					<visible>$EXP[isArtist] + Container(50).HasNext</visible>
 				</control>
 			</control>
-			<control type="panel" id="50"><!-- Track listing -->
+			<control type="panel" id="50">
+				<!-- Track listing -->
 				<visible>$EXP[isAlbum]</visible>
 				<left>30</left>
 				<top>780</top>
@@ -672,7 +716,8 @@
 					</control>
 				</focusedlayout>
 			</control>
-			<control type="group"><!-- Markers for control area items -->
+			<control type="group">
+				<!-- Markers for control area items -->
 				<visible>$EXP[isAlbum]</visible>
 				<control type="image">
 					<left>948</left>
@@ -693,7 +738,8 @@
 			</control>
 		</control>
 
-		<control type="group"><!-- Recommended songs list -->
+		<control type="group">
+			<!-- Recommended songs list -->
 			<visible>$EXP[isSong]</visible>
 			<control type="label">
 				<left>30</left>
@@ -711,7 +757,8 @@
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
-			<control type="list" id="950"><!-- User might enjoy -->
+			<control type="list" id="950">
+				<!-- User might enjoy -->
 				<left>15</left>
 				<top>762</top>
 				<width>1890</width>
@@ -755,7 +802,8 @@
 				</focusedlayout>
 				<content limit="12">plugin://script.skin.helper.widgets/?action=recommended&amp;mediatype=albums&amp;browse=true&amp;reload=$INFO[Window(Home).Property(widgetreload-music)]</content>
 			</control>
-			<control type="group"><!-- Markers for control area items -->
+			<control type="group">
+				<!-- Markers for control area items -->
 				<visible>Control.HasFocus(950)</visible>
 				<control type="image">
 					<left>30</left>
