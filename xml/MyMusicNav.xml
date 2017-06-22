@@ -33,13 +33,31 @@
 				<label>$INFO[Container.NumItems,(,)]</label>
 			</control>
 		</control>
-		<include file="View-Music.xml">AlbumListView</include>
-		<!-- <include file="View-Music.xml">CategoryView</include> -->
-		<include file="View-Music.xml">AlbumIconView</include>
-		<include file="View-Music.xml">AlbumWrapView</include>
-		<include file="View-Music.xml">AudioWallView</include>
-		<include file="View-Music.xml">AlbumCoverflow</include>
-
+		<control type="group">
+			<!-- Various Views of Music library node -->
+			<visible>![String.IsEmpty(ListItem.Label) + String.IsEmpty(Container().ListItem(1).Label)]</visible>
+			<include file="View-Music.xml">AlbumListView</include>
+			<!-- <include file="View-Music.xml">CategoryView</include> -->
+			<include file="View-Music.xml">AlbumIconView</include>
+			<include file="View-Music.xml">AlbumWrapView</include>
+			<include file="View-Music.xml">AudioWallView</include>
+			<include file="View-Music.xml">AlbumCoverflow</include>
+		</control>
+		<control type="group">
+			<!-- No Label tag means music addon is busy pulling in content, so show a busy animation -->
+			<visible>String.IsEmpty(ListItem.Label) + String.IsEmpty(Container().ListItem(1).Label) + System.IdleTime(1) + !Window.IsVisible(busydialog)</visible>
+			<include>fadebackground</include>
+			<control type="image">
+				<!-- Busy animation -->
+				<left>864</left>
+				<top>435</top>
+				<width>192</width>
+				<height>192</height>
+				<texture>busy.png</texture>
+				<aspectratio>keep</aspectratio>
+				<include>busy-spin</include>
+			</control>
+		</control>
 		<include>touch-controls</include>
 		<control type="group">
 			<!-- Screen-settings Menu -->
@@ -248,40 +266,44 @@
 		<!-- Show a iOS style page indicator to show which focus group has the current focus -->
 		<!-- Focus group can be hidden or shown but is potentially focusable, that is it has not be disabled -->
 		<control type="group">
-			<visible>Integer.IsGreater(Container(3500).NumItems,1) + [Control.IsVisible(50) | Control.IsVisible(52) | Control.IsVisible(58)]</visible>
-			<include content="page-indicator">
-				<param name="indicatorleft" value="864" />
-				<param name="indicatortop" value="0" />
-				<param name="indicatorwidth" value="192" />
-				<param name="indicatorheight" value="48" />
-				<param name="indicatororientation" value="horizontal" />
-				<param name="grp1indicate" value="[ControlGroup(9000).HasFocus()|String.IsEqual(Window(home).Property(ShowScreenSettings),show)]" />
-				<param name="grp1visible" value="[!Skin.HasSetting(lock-screensettings)]" />
-				<param name="grp2indicate" value="[Control.HasFocus(50)|Control.HasFocus(52)|Control.HasFocus(58)]" />
-				<param name="grp2visible" value="[Control.IsVisible(50)|Control.IsVisible(52)|Control.IsVisible(58)]" />
-				<param name="grp3indicate" value="[Control.HasFocus(1240)|Control.HasFocus(1242)|Control.HasFocus(1248)|Control.HasFocus(1260)|Control.HasFocus(1262)|Control.HasFocus(1268)]" />
-				<param name="grp3visible" value="[Skin.HasSetting(show-letterbar)+[Container.Content(artists)|Container.Content(albums)]]" />
-				<param name="grp4indicate" value="[Control.HasFocus(1250)|Control.HasFocus(1252)|Control.HasFocus(1253)|Control.HasFocus(1258)]" />
-				<param name="grp4visible" value="[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
-			</include>
-		</control>
-		<control type="group">
-			<visible>Integer.IsGreater(Container(3500).NumItems,1) + [Control.IsVisible(54) | Control.IsVisible(57)]</visible>
-			<include content="page-indicator">
-				<param name="indicatorleft" value="0" />
-				<param name="indicatortop" value="225" />
-				<param name="indicatorwidth" value="48" />
-				<param name="indicatorheight" value="192" />
-				<param name="indicatororientation" value="vertical" />
-				<param name="grp1indicate" value="[ControlGroup(9000).HasFocus()|String.IsEqual(Window(home).Property(ShowScreenSettings),show)]" />
-				<param name="grp1visible" value="[!Skin.HasSetting(lock-screensettings)]" />
-				<param name="grp2indicate" value="[Control.HasFocus(54)|Control.HasFocus(57)]" />
-				<param name="grp2visible" value="[Control.IsVisible(54)|Control.IsVisible(57)]" />
-				<param name="grp3indicate" value="[Control.HasFocus(1244)|Control.HasFocus(1247)|Control.HasFocus(1264)|Control.HasFocus(1267)]" />
-				<param name="grp3visible" value="[Skin.HasSetting(show-letterbar)+[Container.Content(artists)|Container.Content(albums)]]" />
-				<param name="grp4indicate" value="[Control.HasFocus(1254)|Control.HasFocus(1257)]" />
-				<param name="grp4visible" value="[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
-			</include>
+			<visible>![String.IsEmpty(Container().ListItem.Label) + String.IsEmpty(Container().ListItem(1).Label)]</visible>
+			<!-- Don't show markers until we have some content to show -->
+			<control type="group">
+				<visible>Integer.IsGreater(Container(3500).NumItems,1) + [Control.IsVisible(50) | Control.IsVisible(52) | Control.IsVisible(58)]</visible>
+				<include content="page-indicator">
+					<param name="indicatorleft" value="864" />
+					<param name="indicatortop" value="0" />
+					<param name="indicatorwidth" value="192" />
+					<param name="indicatorheight" value="48" />
+					<param name="indicatororientation" value="horizontal" />
+					<param name="grp1indicate" value="[ControlGroup(9000).HasFocus()|String.IsEqual(Window(home).Property(ShowScreenSettings),show)]" />
+					<param name="grp1visible" value="[!Skin.HasSetting(lock-screensettings)]" />
+					<param name="grp2indicate" value="[Control.HasFocus(50)|Control.HasFocus(52)|Control.HasFocus(58)]" />
+					<param name="grp2visible" value="[Control.IsVisible(50)|Control.IsVisible(52)|Control.IsVisible(58)]" />
+					<param name="grp3indicate" value="[Control.HasFocus(1240)|Control.HasFocus(1242)|Control.HasFocus(1248)|Control.HasFocus(1260)|Control.HasFocus(1262)|Control.HasFocus(1268)]" />
+					<param name="grp3visible" value="[Skin.HasSetting(show-letterbar)+[Container.Content(artists)|Container.Content(albums)]]" />
+					<param name="grp4indicate" value="[Control.HasFocus(1250)|Control.HasFocus(1252)|Control.HasFocus(1253)|Control.HasFocus(1258)]" />
+					<param name="grp4visible" value="[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
+				</include>
+			</control>
+			<control type="group">
+				<visible>Integer.IsGreater(Container(3500).NumItems,1) + [Control.IsVisible(54) | Control.IsVisible(57)]</visible>
+				<include content="page-indicator">
+					<param name="indicatorleft" value="0" />
+					<param name="indicatortop" value="225" />
+					<param name="indicatorwidth" value="48" />
+					<param name="indicatorheight" value="192" />
+					<param name="indicatororientation" value="vertical" />
+					<param name="grp1indicate" value="[ControlGroup(9000).HasFocus()|String.IsEqual(Window(home).Property(ShowScreenSettings),show)]" />
+					<param name="grp1visible" value="[!Skin.HasSetting(lock-screensettings)]" />
+					<param name="grp2indicate" value="[Control.HasFocus(54)|Control.HasFocus(57)]" />
+					<param name="grp2visible" value="[Control.IsVisible(54)|Control.IsVisible(57)]" />
+					<param name="grp3indicate" value="[Control.HasFocus(1244)|Control.HasFocus(1247)|Control.HasFocus(1264)|Control.HasFocus(1267)]" />
+					<param name="grp3visible" value="[Skin.HasSetting(show-letterbar)+[Container.Content(artists)|Container.Content(albums)]]" />
+					<param name="grp4indicate" value="[Control.HasFocus(1254)|Control.HasFocus(1257)]" />
+					<param name="grp4visible" value="[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
+				</include>
+			</control>
 		</control>
 	</controls>
 </window>
