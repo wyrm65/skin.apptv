@@ -35,7 +35,7 @@
 		</control>
 		<control type="group">
 			<!-- Various Views of Music library node -->
-			<visible>![String.IsEmpty(ListItem.Label) + String.IsEmpty(Container().ListItem(1).Label)]</visible>
+			<visible>![String.IsEmpty(ListItem.Label) + String.IsEmpty(ListItem(1).Label)]</visible>
 			<include file="View-Music.xml">AlbumListView</include>
 			<!-- <include file="View-Music.xml">CategoryView</include> -->
 			<include file="View-Music.xml">AlbumIconView</include>
@@ -45,7 +45,7 @@
 		</control>
 		<control type="group">
 			<!-- No Label tag means music addon is busy pulling in content, so show a busy animation -->
-			<visible>String.IsEmpty(ListItem.Label) + String.IsEmpty(Container().ListItem(1).Label) + System.IdleTime(1) + !Window.IsVisible(busydialog)</visible>
+			<visible>String.IsEmpty(ListItem.Label) + String.IsEmpty(ListItem(1).Label) + System.IdleTime(1) + !Window.IsVisible(busydialog)</visible>
 			<include>fadebackground</include>
 			<control type="image">
 				<!-- Busy animation -->

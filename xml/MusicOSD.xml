@@ -22,12 +22,11 @@
 				<texturefocus>osd-btn-lyric-focus.png</texturefocus>
 				<alttexturenofocus>osd-btn-lyric.png</alttexturenofocus>
 				<alttexturefocus>osd-btn-lyric-focus.png</alttexturefocus>
-				<onclick>Skin.SetAddon(osd-lyricpath,xbmc.python.lyrics)</onclick>
+				<onclick>StopScript(script.cu.lrclyrics)</onclick>
+				<onclick>Skin.Reset(osd-lyricpath)</onclick>
 				<onclick>Dialog.Close(musicosd)</onclick>
-				<onclick condition="!String.IsEmpty(Skin.String(osd-lyricpath))">RunScript($INFO[Skin.String(osd-lyricpath)])</onclick>
 				<altclick>Skin.SetAddon(osd-lyricpath,xbmc.python.lyrics)</altclick>
 				<altclick>Dialog.Close(musicosd)</altclick>
-				<altclick>RunScript($INFO[Skin.String(osd-lyricpath)])</altclick>
 				<usealttexture>String.IsEmpty(Skin.String(osd-lyricpath))</usealttexture>
 			</control>
 			<control type="button" id="633">
@@ -322,23 +321,25 @@
 				<visible>MusicPlayer.Content(LiveTV) + RDS.HasRadiotextPlus</visible>
 			</control>
 		</control>
-		<control type="progress">
-			<left>862</left>
-			<top>1042</top>
-			<width>1012</width>
-			<height>18</height>
-			<info>Player.Progress</info>
-			<visible>!Pvr.IsPlayingRadio</visible>
-		</control>
-		<control type="slider" id="690">
-			<!-- Seek slider -->
-			<left>862</left>
-			<top>1042</top>
-			<width>1012</width>
-			<height>18</height>
-			<action>seek</action>
-			<onup>650</onup>
-			<visible>!Pvr.IsPlayingRadio</visible>
+		<control type="group">
+			<!-- Don't display if a stream or radio is playing, no point -->
+			<visible>!String.IsEmpty(MusicPlayer.TimeRemaining) + !Pvr.IsPlayingRadio</visible>
+			<control type="progress">
+				<left>862</left>
+				<top>1042</top>
+				<width>1012</width>
+				<height>18</height>
+				<info>Player.Progress</info>
+			</control>
+			<control type="slider" id="690">
+				<!-- Seek slider -->
+				<left>862</left>
+				<top>1042</top>
+				<width>1012</width>
+				<height>18</height>
+				<action>seek</action>
+				<onup>650</onup>
+			</control>
 		</control>
 	</controls>
 </window>

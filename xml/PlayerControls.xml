@@ -213,40 +213,44 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<visible>Pvr.IsPlayingRadio</visible>
 			</control>
-			<control type="label">
-				<left>465</left>
-				<top>402</top>
-				<width>300</width>
-				<height>30</height>
-				<label>$INFO[MusicPlayer.Time]</label>
-				<font>apptv20</font>
-				<align>right</align>
-				<visible>!Pvr.IsPlayingRadio</visible>
-			</control>
-			<control type="progress">
-				<left>780</left>
-				<top>410</top>
-				<width>660</width>
-				<height>18</height>
-				<info>Player.Progress</info>
-				<visible>!Pvr.IsPlayingRadio</visible>
-			</control>
-			<control type="slider" id="691">
-				<left>780</left>
-				<top>410</top>
-				<width>660</width>
-				<height>18</height>
-				<action>seek</action>
-				<onup>650</onup>
-				<visible>!Pvr.IsPlayingRadio</visible>
-			</control>
-			<control type="label">
-				<left>1455</left>
-				<top>402</top>
-				<width>330</width>
-				<height>30</height>
-				<label>$INFO[MusicPlayer.TimeRemaining,- ]</label>
-				<font>apptv20</font>
+			<control type="group">
+				<!-- Hide if playing a stream, makes no sense to show -->
+				<animation effect="fade" start="100" end="0" condition="String.IsEmpty(MusicPlayer.TimeRemaining)">Conditional</animation>
+				<control type="label">
+					<left>465</left>
+					<top>402</top>
+					<width>300</width>
+					<height>30</height>
+					<label>$INFO[MusicPlayer.Time]</label>
+					<font>apptv20</font>
+					<align>right</align>
+					<visible>!Pvr.IsPlayingRadio</visible>
+				</control>
+				<control type="progress">
+					<left>780</left>
+					<top>410</top>
+					<width>660</width>
+					<height>18</height>
+					<info>Player.Progress</info>
+					<visible>!Pvr.IsPlayingRadio</visible>
+				</control>
+				<control type="slider" id="691">
+					<left>780</left>
+					<top>410</top>
+					<width>660</width>
+					<height>18</height>
+					<action>seek</action>
+					<onup>650</onup>
+					<visible>!Pvr.IsPlayingRadio</visible>
+				</control>
+				<control type="label">
+					<left>1455</left>
+					<top>402</top>
+					<width>330</width>
+					<height>30</height>
+					<label>$INFO[MusicPlayer.TimeRemaining,- ]</label>
+					<font>apptv20</font>
+				</control>
 			</control>
 		</control>
 		<!-- End of Media Info-->

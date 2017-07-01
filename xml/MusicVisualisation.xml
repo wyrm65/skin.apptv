@@ -4,6 +4,15 @@
 	<visible>!Window.IsVisible(fullscreenvideo) + !Window.IsActive(script-cu-lrclyrics-main.xml)</visible>
 	<controls>
 		<include>background</include>
+		<control type="label">
+			<!-- Debug -->
+			<left>10</left>
+			<top>10</top>
+			<width>1023</width>
+			<height>33</height>
+			<label>$INFO[system.getbool(Player.HasMedia)]</label>
+			<font>apptv22</font>
+		</control>
 		<control type="group">
 			<!-- infos -->
 			<visible>Player.ShowInfo</visible>
@@ -41,7 +50,7 @@
 					<condition type="!Player.Playing" />
 				</animation>
 				<animation effect="rotate" end="-360" center="auto" time="3000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
-				<visible>!String.EndsWith(Control.GetLabel(994),DefaultAudio.png) + !String.EndsWith(Control.GetLabel(994),icon-radio.png)</visible>
+				<visible>!String.EndsWith(Control.GetLabel(994),DefaultAudio.png) + !String.EndsWith(Control.GetLabel(994),icon-radio.png) + !String.IsEmpty(MusicPlayer.TimeRemaining)</visible>
 			</control>
 			<control type="image">
 				<left>22</left>
@@ -50,7 +59,7 @@
 				<width>388</width>
 				<texture>case-cd.png</texture>
 				<aspectratio>stretch</aspectratio>
-				<visible>Skin.HasSetting(media-case) + !String.EndsWith(Control.GetLabel(994),DefaultAudio.png) + !String.EndsWith(Control.GetLabel(994),icon-radio.png)</visible>
+				<visible>Skin.HasSetting(media-case) + !String.EndsWith(Control.GetLabel(994),DefaultAudio.png) + !String.EndsWith(Control.GetLabel(994),icon-radio.png) + !String.IsEmpty(MusicPlayer.TimeRemaining)</visible>
 			</control>
 			<control type="image" id="994">
 				<!-- Cover image -->
@@ -91,7 +100,7 @@
 				<align>right</align>
 				<label>$INFO[Playlist.Position(music),$LOCALIZE[554]: ]$INFO[Playlist.Length(music), / ]</label>
 				<font>apptv22</font>
-				<visible>!MusicPartyMode.Enabled + Integer.IsGreater(Playlist.Length(music),1)</visible>
+				<visible>!MusicPartyMode.Enabled + Integer.IsGreater(Playlist.Length(music),1) + !String.IsEmpty(MusicPlayer.TimeRemaining)</visible>
 			</control>
 			<control type="label">
 				<!-- Title label -->
@@ -115,25 +124,55 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<visible>!Pvr.IsPlayingRadio</visible>
 			</control>
-			<control type="label">
-				<!-- Artist label -->
-				<left>555</left>
-				<top>830</top>
-				<width>1320</width>
-				<height>33</height>
-				<font>apptv22</font>
-				<label>$INFO[MusicPlayer.Artist]</label>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+			<control type="group">
+				<!-- Local music files -->
+				<visible>!String.IsEmpty(MusicPlayer.TimeRemaining)</visible>
+				<control type="label">
+					<!-- Artist label -->
+					<left>555</left>
+					<top>830</top>
+					<width>1320</width>
+					<height>33</height>
+					<font>apptv22</font>
+					<label>$INFO[MusicPlayer.Artist]</label>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
+				<control type="label">
+					<!-- Album label -->
+					<left>555</left>
+					<top>872</top>
+					<width>1320</width>
+					<height>33</height>
+					<font>apptv22</font>
+					<label>$INFO[MusicPlayer.Album]</label>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
 			</control>
-			<control type="label">
-				<!-- Album label -->
-				<left>555</left>
-				<top>872</top>
-				<width>1320</width>
-				<height>33</height>
-				<font>apptv22</font>
-				<label>$INFO[MusicPlayer.Album]</label>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+			<control type="group">
+				<!-- Probably a stream -->
+				<visible>String.IsEmpty(MusicPlayer.TimeRemaining)</visible>
+				<control type="label">
+					<!-- Artist label -->
+					<left>555</left>
+					<top>830</top>
+					<width>1320</width>
+					<height>33</height>
+					<font>apptv22</font>
+					<label>$INFO[Window(10000).Property(plugin.audio.streaming-radio.Artist)]</label>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					<visible>!String.IsEmpty(Window(10000).Property(plugin.audio.streaming-radio.Artist))</visible>
+				</control>
+				<control type="label">
+					<!-- Track title -->
+					<left>555</left>
+					<top>872</top>
+					<width>1320</width>
+					<height>33</height>
+					<font>apptv22</font>
+					<label>$INFO[Window(10000).Property(plugin.audio.streaming-radio.Title)]</label>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					<visible>!String.IsEmpty(Window(10000).Property(plugin.audio.streaming-radio.Title))</visible>
+				</control>
 			</control>
 			<control type="label">
 				<!-- Time label -->
@@ -143,10 +182,10 @@
 				<height>33</height>
 				<label>$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ]</label>
 				<font>apptv22</font>
-				<visible>!Pvr.IsPlayingRadio</visible>
+				<visible>!Pvr.IsPlayingRadio + !String.IsEmpty(MusicPlayer.TimeRemaining)</visible>
 			</control>
 			<control type="group">
-				<visible>!Window.IsVisible(musicosd) + !Pvr.IsPlayingRadio</visible>
+				<animation effect="fade" start="100" end="0" condition="String.IsEmpty(MusicPlayer.TimeRemaining)">Conditional</animation>
 				<control type="progress" id="1">
 					<left>862</left>
 					<top>1042</top>

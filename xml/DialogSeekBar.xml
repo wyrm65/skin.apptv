@@ -68,6 +68,7 @@
 				<label>-$INFO[VideoPlayer.TimeRemaining] [COLOR=disabled-text]($INFO[Player.FinishTime])[/COLOR]</label>
 			</control>
 			<control type="group">
+				<animation effect="fade" start="100" end="0" condition="String.IsEmpty(MusicPlayer.TimeRemaining)">Conditional</animation>
 				<!-- Progress bar -->
 				<control type="progress">
 					<left>717</left>

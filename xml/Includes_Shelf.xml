@@ -128,8 +128,8 @@
 					</control>
 					<control type="textbox">
 						<left>0</left>
-						<top>327</top>
-						<height>72</height>
+						<top>325</top>
+						<height>74</height>
 						<width>315</width>
 						<font>apptv20</font>
 						<align>center</align>
@@ -302,7 +302,7 @@
 						<visible>Control.HasFocus(9210)</visible>
 						<control type="label">
 							<left>0</left>
-							<top>327</top>
+							<top>325</top>
 							<height>33</height>
 							<width>378</width>
 							<label>$INFO[ListItem.Title]</label>
@@ -313,7 +313,7 @@
 						</control>
 						<control type="label">
 							<left>0</left>
-							<top>363</top>
+							<top>361</top>
 							<height>33</height>
 							<width>378</width>
 							<label>$LOCALIZE[20373] $INFO[ListItem.Season] $LOCALIZE[20359] $INFO[ListItem.Episode]</label>
@@ -325,7 +325,7 @@
 						</control>
 						<control type="label">
 							<left>0</left>
-							<top>363</top>
+							<top>361</top>
 							<height>33</height>
 							<width>378</width>
 							<label>$LOCALIZE[20381] $LOCALIZE[20359] $INFO[ListItem.Episode]</label>
@@ -337,7 +337,7 @@
 						</control>
 						<control type="label">
 							<left>0</left>
-							<top>363</top>
+							<top>361</top>
 							<height>33</height>
 							<width>378</width>
 							<label>$LOCALIZE[20381] $INFO[ListItem.Episode]</label>
@@ -446,8 +446,8 @@
 					</control>
 					<control type="textbox">
 						<left>0</left>
-						<top>327</top>
-						<height>72</height>
+						<top>325</top>
+						<height>74</height>
 						<width>378</width>
 						<font>apptv20</font>
 						<align>center</align>
@@ -555,8 +555,8 @@
 					</control>
 					<control type="textbox">
 						<left>0</left>
-						<top>327</top>
-						<height>72</height>
+						<top>325</top>
+						<height>74</height>
 						<width>378</width>
 						<font>apptv20</font>
 						<align>center</align>
@@ -664,8 +664,8 @@
 					</control>
 					<control type="textbox">
 						<left>0</left>
-						<top>327</top>
-						<height>72</height>
+						<top>325</top>
+						<height>74</height>
 						<width>378</width>
 						<font>apptv20</font>
 						<align>center</align>
@@ -772,7 +772,7 @@
 						<visible>Control.HasFocus(9510)</visible>
 						<control type="label">
 							<left>0</left>
-							<top>327</top>
+							<top>325</top>
 							<height>33</height>
 							<width>378</width>
 							<label>$INFO[ListItem.Title]</label>
@@ -783,7 +783,7 @@
 						</control>
 						<control type="label">
 							<left>0</left>
-							<top>363</top>
+							<top>361</top>
 							<height>33</height>
 							<width>378</width>
 							<label>$LOCALIZE[20373] $INFO[ListItem.Season] $LOCALIZE[20359] $INFO[ListItem.Episode]</label>
@@ -795,7 +795,7 @@
 						</control>
 						<control type="label">
 							<left>0</left>
-							<top>363</top>
+							<top>361</top>
 							<height>33</height>
 							<width>378</width>
 							<label>$LOCALIZE[20381] $INFO[ListItem.Episode]</label>
@@ -1217,7 +1217,7 @@
 					<visible>!Pvr.IsPlayingRadio</visible>
 					<control type="image">
 						<left>15</left>
-						<top>69</top>
+						<top>74</top>
 						<width>315</width>
 						<height>315</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
@@ -1226,23 +1226,34 @@
 					</control>
 					<control type="image">
 						<left>15</left>
-						<top>384</top>
+						<top>389</top>
 						<width>315</width>
 						<height>315</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<aligny>top</aligny>
 						<texture diffuse="mask-fade.png" background="true" flipy="true" fallback="DefaultAudio.png">$VAR[PlayerMusicCover]</texture>
 					</control>
-					<control type="textbox">
+					<control type="label">
 						<left>15</left>
-						<top>387</top>
-						<height>72</height>
+						<top>392</top>
+						<height>33</height>
 						<width>315</width>
-						<font>apptv20</font>
+						<label>$VAR[PlayerMusicTitle]</label>
 						<align>center</align>
-						<aligny>top</aligny>
-						<label>$INFO[MusicPlayer.Title]</label>
+						<selectedcolor>button-text</selectedcolor>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<font>apptv18</font>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<top>426</top>
+						<height>33</height>
+						<width>315</width>
+						<label>$VAR[PlayerMusicSubTitle]</label>
+						<align>center</align>
+						<selectedcolor>button-text</selectedcolor>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<font>apptv18</font>
 					</control>
 				</control>
 				<control type="group">

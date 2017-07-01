@@ -107,31 +107,29 @@
 				<control type="group">
 					<visible>Container.Content(albums) | Container.Content(songs)</visible>
 					<control type="image">
-						<left>388</left>
-						<top>225</top>
-						<width>512</width>
-						<height>512</height>
-						<texture background="true" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
+						<left>495</left>
+						<top>312</top>
+						<height>442</height>
+						<width>442</width>
+						<texture>case-cd.png</texture>
 						<aspectratio>keep</aspectratio>
-						<bordertexture border="28,18,5,20">case-cd.png</bordertexture>
-						<bordersize>28,18,5,20</bordersize>
 						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon]</visible>
 					</control>
 					<control type="image">
-						<left>388</left>
-						<top>195</top>
-						<width>540</width>
-						<height>540</height>
-						<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
+						<!-- Cover image -->
+						<left>544</left>
+						<top>340</top>
+						<width>384</width>
+						<height>384</height>
+						<texture fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
-						<visible>!Skin.HasSetting(media-case) | $EXP[isDefaultIcon]</visible>
 					</control>
 				</control>
 				<control type="image">
-					<left>388</left>
-					<top>195</top>
-					<width>540</width>
-					<height>540</height>
+					<left>402</left>
+					<top>208</top>
+					<width>512</width>
+					<height>512</height>
 					<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 					<aspectratio>stretch</aspectratio>
 					<visible>!Container.Content(albums) + !Container.Content(songs)</visible>
@@ -785,8 +783,6 @@
 						<colordiffuse>UnFocusedCovers</colordiffuse>
 						<texture background="true" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
-						<bordertexture border="25,18,4,19">case-cd.png</bordertexture>
-						<bordersize>25,18,4,19</bordersize>
 						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + $EXP[isnotEmptyIcon]</visible>
 					</control>
 					<control type="image">
@@ -815,14 +811,14 @@
 				<control type="group">
 					<visible>Container.Content(albums) | Container.Content(songs)</visible>
 					<control type="image">
-						<left>48</left>
-						<top>68</top>
-						<height>388</height>
-						<width>408</width>
+						<left>30</left>
+						<top>54</top>
+						<height>402</height>
+						<width>412</width>
 						<texture background="true" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 						<aspectratio scalediffuse="true">stretch</aspectratio>
-						<bordertexture border="25,18,4,19">case-cd.png</bordertexture>
-						<bordersize>25,18,4,19</bordersize>
+						<bordertexture border="28,18,4,19">case-cd.png</bordertexture>
+						<bordersize>28,18,4,19</bordersize>
 						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + $EXP[isnotEmptyIcon] + Control.HasFocus(54)</visible>
 					</control>
 					<control type="image">
@@ -1402,7 +1398,7 @@
 			<control type="group">
 				<visible>!ListItem.IsParentFolder</visible>
 				<control type="label">
-					<!-- Artist & Album name-->
+					<!-- Artist & Album name -->
 					<left>39</left>
 					<top>927</top>
 					<width>1832</width>
@@ -1425,7 +1421,7 @@
 						<aspectratio align="left" aligny="bottom">keep</aspectratio>
 					</control>
 					<control type="label">
-						<!-- Artist name-->
+						<!-- Artist name -->
 						<left>39</left>
 						<top>927</top>
 						<width>1832</width>
@@ -1438,7 +1434,7 @@
 					</control>
 				</control>
 				<control type="label">
-					<!-- Track name-->
+					<!-- Track name -->
 					<left>39</left>
 					<top>927</top>
 					<width>1832</width>
@@ -1596,7 +1592,7 @@
 				<height>872</height>
 				<visible>!ListItem.IsParentFolder</visible>
 				<control type="label">
-					<!-- Artist name-->
+					<!-- Artist name -->
 					<width>705</width>
 					<height>66</height>
 					<font>apptv22</font>
@@ -1606,7 +1602,7 @@
 					<visible>!String.IsEmpty(ListItem.Artist)</visible>
 				</control>
 				<control type="label">
-					<!-- Album name-->
+					<!-- Album name -->
 					<width>705</width>
 					<height>66</height>
 					<font>apptv22</font>
@@ -1616,7 +1612,7 @@
 					<visible>Container.Content(albums)</visible>
 				</control>
 				<control type="label">
-					<!-- Track name/Listitem label-->
+					<!-- Track name/Listitem label -->
 					<width>705</width>
 					<height>66</height>
 					<font>apptv22</font>

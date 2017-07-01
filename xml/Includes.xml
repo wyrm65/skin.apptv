@@ -801,11 +801,23 @@
 		<value condition="!String.IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
 	</variable>
 	<variable name="PlayerMusicCover">
+		<value condition="!IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Thumb))">$INFO[Window(home).Property(plugin.audio.streaming-radio.Thumb)]</value>
 		<value condition="Pvr.IsPlayingRadio + !String.IsEmpty(Window(home).Property(SkinHelper.PVR.ChannelLogo))">Window(home).Property(SkinHelper.PVR.ChannelLogo)</value>
 		<value condition="!String.IsEmpty(MusicPlayer.Cover)">$INFO[MusicPlayer.Cover]</value>
 		<value condition="!String.IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
 		<value condition="Pvr.IsPlayingRadio">icon-radio.png</value>
 		<value>DefaultAudio.png</value>
+	</variable>
+	<variable name="PlayerMusicTitle">
+		<value condition="!IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Title))">$INFO[Window(home).Property(plugin.audio.streaming-radio.Title)]</value>
+		<value condition="Player.HasAudio + !Pvr.IsPlayingRadio">$INFO[VideoPlayer.Title]</value>
+		<value condition="Player.HasAudio + Pvr.IsPlayingRadio">$LOCALIZE[19021] - $INFO[MusicPlayer.ChannelName][CR]$INFO[MusicPlayer.Title]</value>
+		<value>$INFO[MusicPlayer.Title]</value>
+	</variable>
+	<variable name="PlayerMusicSubTitle">
+		<value condition="!IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Artist))">$INFO[Window(home).Property(plugin.audio.streaming-radio.Artist)]</value>
+		<value condition="Player.HasAudio + !Pvr.IsPlayingRadio">$INFO[MusicPlayer.Artist]</value>
+		<value condition="Player.HasAudio + Pvr.IsPlayingRadio">$INFO[MusicPlayer.ChannelName]</value>
 	</variable>
 	<variable name="PVRIcon">
 		<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
@@ -3309,8 +3321,8 @@
 				<!-- Audio Stuff -->
 				<visible>Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
 				<control type="group">
-					<!-- Non Radio Audio -->
-					<visible>!Pvr.IsPlayingRadio</visible>
+					<!-- Local Audio -->
+					<visible>!Pvr.IsPlayingRadio + !String.IsEmpty(MusicPlayer.TimeRemaining)</visible>
 					<control type="image">
 						<left>36</left>
 						<top>3</top>
@@ -3384,6 +3396,49 @@
 						<label>$INFO[MusicPlayer.Title]</label>
 						<font>apptv22</font>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					</control>
+				</control>
+				<control type="group">
+					<!-- Probably a stream -->
+					<visible>!Pvr.IsPlayingRadio + String.IsEmpty(MusicPlayer.TimeRemaining)</visible>
+					<control type="image">
+						<left>36</left>
+						<top>3</top>
+						<width>150</width>
+						<height>150</height>
+						<texture background="true" fallback="icon-radio.png">$VAR[PlayerMusicCover]</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="label">
+						<left>218</left>
+						<top>3</top>
+						<width>712</width>
+						<height>38</height>
+						<label>$INFO[MusicPlayer.Title]</label>
+						<font>apptv22</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					</control>
+					<control type="label">
+						<!-- Artist label -->
+						<left>218</left>
+						<top>40</top>
+						<width>712</width>
+						<height>33</height>
+						<font>apptv22</font>
+						<label>$INFO[Window(10000).Property(plugin.audio.streaming-radio.Artist)]</label>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<visible>!String.IsEmpty(Window(10000).Property(plugin.audio.streaming-radio.Artist))</visible>
+					</control>
+					<control type="label">
+						<!-- Track title -->
+						<left>218</left>
+						<top>78</top>
+						<width>712</width>
+						<height>33</height>
+						<font>apptv22</font>
+						<label>$INFO[Window(10000).Property(plugin.audio.streaming-radio.Title)]</label>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<visible>!String.IsEmpty(Window(10000).Property(plugin.audio.streaming-radio.Title))</visible>
 					</control>
 				</control>
 			</control>
