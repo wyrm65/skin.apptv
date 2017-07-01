@@ -107,21 +107,21 @@
 				<control type="group">
 					<visible>Container.Content(albums) | Container.Content(songs)</visible>
 					<control type="image">
-						<left>495</left>
-						<top>312</top>
-						<height>442</height>
-						<width>442</width>
+						<left>494</left>
+						<top>311</top>
+						<height>444</height>
+						<width>444</width>
 						<texture>case-cd.png</texture>
 						<aspectratio>keep</aspectratio>
 						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon]</visible>
 					</control>
 					<control type="image">
 						<!-- Cover image -->
-						<left>544</left>
+						<left>540</left>
 						<top>340</top>
-						<width>384</width>
+						<width>392</width>
 						<height>384</height>
-						<texture fallback="DefaultAudio.png">$VAR[IconCover]</texture>
+						<texture fallback="DefaultAudio.png" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
 					</control>
 				</control>
@@ -813,55 +813,36 @@
 				<control type="group">
 					<visible>Container.Content(albums) | Container.Content(songs)</visible>
 					<control type="image">
-						<left>30</left>
-						<top>54</top>
-						<height>402</height>
-						<width>412</width>
+						<left>130</left>
+						<top>160</top>
+						<height>216</height>
+						<width>228</width>
 						<texture background="true" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
-						<aspectratio scalediffuse="true">stretch</aspectratio>
+						<aspectratio>stretch</aspectratio>
 						<bordertexture border="28,18,4,19">case-cd.png</bordertexture>
 						<bordersize>28,18,4,19</bordersize>
-						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + $EXP[isnotEmptyIcon] + Control.HasFocus(54)</visible>
+						<animation effect="zoom" start="100" end="185" center="auto" condition="true">Conditional</animation>
+						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + $EXP[isnotEmptyIcon]</visible>
 					</control>
 					<control type="image">
-						<left>51</left>
-						<top>35</top>
-						<height>402</height>
-						<width>402</width>
+						<left>156</left>
+						<top>162</top>
+						<height>192</height>
+						<width>192</width>
 						<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
-						<visible>[!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | $EXP[isEmptyIcon]] + Control.HasFocus(54)</visible>
-					</control>
-					<control type="image">
-						<left>48</left>
-						<top>68</top>
-						<height>388</height>
-						<width>408</width>
-						<texture background="true" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
-						<colordiffuse>UnFocusedCovers</colordiffuse>
-						<aspectratio scalediffuse="true">stretch</aspectratio>
-						<bordertexture border="25,18,4,19">case-cd.png</bordertexture>
-						<bordersize>25,18,4,19</bordersize>
-						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + $EXP[isnotEmptyIcon] + !Control.HasFocus(54)</visible>
-					</control>
-					<control type="image">
-						<left>51</left>
-						<top>35</top>
-						<height>402</height>
-						<width>402</width>
-						<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
-						<colordiffuse>UnFocusedCovers</colordiffuse>
-						<aspectratio>stretch</aspectratio>
-						<visible>[!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | $EXP[isEmptyIcon]] + !Control.HasFocus(54)</visible>
+						<animation effect="zoom" start="100" end="185" center="auto" condition="true">Conditional</animation>
+						<visible>!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | $EXP[isEmptyIcon]</visible>
 					</control>
 				</control>
 				<control type="image">
-					<left>31</left>
-					<top>3</top>
-					<height>432</height>
-					<width>432</width>
+					<left>156</left>
+					<top>162</top>
+					<height>192</height>
+					<width>192</width>
 					<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
 					<aspectratio>stretch</aspectratio>
+					<animation effect="zoom" start="100" end="185" center="auto" condition="true">Conditional</animation>
 					<visible>!Container.Content(albums) + !Container.Content(songs)</visible>
 				</control>
 			</focusedlayout>
