@@ -1415,31 +1415,66 @@
 							<height>180</height>
 							<aspectratio>keep</aspectratio>
 							<texture diffuse="homeiconmask.png" fallback="special://skin/extras/homeicons/fallback.png">$INFO[ListItem.Thumb]</texture>
+							<visible>ListItem.Property(isActive) + !Control.HasFocus(402)</visible>
+						</control>
+						<control type="image">
+							<!-- Icon image -->
+							<left>39</left>
+							<top>15</top>
+							<width>300</width>
+							<height>180</height>
+							<aspectratio>keep</aspectratio>
+							<texture diffuse="homeiconmask.png" fallback="special://skin/extras/homeicons/fallback.png">$INFO[ListItem.Thumb]</texture>
 							<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
+							<visible>!ListItem.Property(isActive) | Control.HasFocus(402)</visible>
 						</control>
 					</itemlayout>
 					<focusedlayout height="240" width="378">
-						<control type="image">
-							<!-- Focused non settings icon image -->
-							<left>10</left>
-							<top>0</top>
-							<width>357</width>
-							<height>213</height>
-							<aspectratio>keep</aspectratio>
-							<texture diffuse="homeiconmask.png" fallback="special://skin/extras/homeicons/fallback.png">$INFO[ListItem.Thumb]</texture>
-							<bordertexture border="15">homeiconhilite.png</bordertexture>
-							<bordersize>15</bordersize>
-							<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
+						<control type="group">
+							<visible>ListItem.Property(isActive) + !Control.HasFocus(402)</visible>
+							<control type="image">
+								<!-- Focused non settings icon image -->
+								<left>10</left>
+								<top>0</top>
+								<width>357</width>
+								<height>213</height>
+								<aspectratio>keep</aspectratio>
+								<texture diffuse="homeiconmask.png" fallback="special://skin/extras/homeicons/fallback.png">$INFO[ListItem.Thumb]</texture>
+								<bordertexture border="6">homeiconhilite.png</bordertexture>
+								<bordersize>6</bordersize>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<top>206</top>
+								<width>375</width>
+								<height>33</height>
+								<align>center</align>
+								<label fallback="20333">$INFO[ListItem.Label]</label>
+								<font>apptv22</font>
+							</control>
 						</control>
-						<control type="label">
-							<left>0</left>
-							<top>206</top>
-							<width>375</width>
-							<height>33</height>
-							<align>center</align>
-							<label fallback="20333">$INFO[ListItem.Label]</label>
-							<font>apptv22</font>
-							<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
+						<control type="group">
+							<visible>!ListItem.Property(isActive) | Control.HasFocus(402)</visible>
+							<control type="image">
+								<!-- Focused non settings icon image -->
+								<left>10</left>
+								<top>0</top>
+								<width>357</width>
+								<height>213</height>
+								<aspectratio>keep</aspectratio>
+								<texture diffuse="homeiconmask.png" fallback="special://skin/extras/homeicons/fallback.png">$INFO[ListItem.Thumb]</texture>
+								<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<top>206</top>
+								<width>375</width>
+								<height>33</height>
+								<align>center</align>
+								<label fallback="20333">$INFO[ListItem.Label]</label>
+								<font>apptv22</font>
+								<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
+							</control>
 						</control>
 					</focusedlayout>
 					<content>
