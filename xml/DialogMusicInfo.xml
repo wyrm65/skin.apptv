@@ -3,6 +3,38 @@
 	<defaultcontrol always="true">999</defaultcontrol>
 	<controls>
 		<include>background</include>
+		<control type="image">
+			<!-- Artist Image -->
+			<left>63</left>
+			<top>120</top>
+			<width>384</width>
+			<height>384</height>
+			<texture diffuse="mask-squ.png" fallback="DefaultUser.png" background="true">$INFO[ListItem.Icon]</texture>
+			<aspectratio>stretch</aspectratio>
+			<align>center</align>
+			<visible>$EXP[isArtist]</visible>
+		</control>
+		<control type="group">
+			<visible>$EXP[isnotArtist]</visible>
+			<control type="image">
+				<left>28</left>
+				<top>92</top>
+				<height>444</height>
+				<width>444</width>
+				<texture>case-cd.png</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon]</visible>
+			</control>
+			<control type="image">
+				<!-- Cover image -->
+				<left>73</left>
+				<top>120</top>
+				<width>392</width>
+				<height>384</height>
+				<texture fallback="DefaultAudio.png" diffuse="mask-squ.png">$VAR[IconCover]</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+		</control>
 		<control type="group">
 			<visible>$EXP[isSong]</visible>
 			<control type="group">
@@ -43,9 +75,9 @@
 				</control>
 				<control type="textbox">
 					<left>510</left>
-					<top>168</top>
+					<top>165</top>
 					<width>1350</width>
-					<height>177</height>
+					<height>180</height>
 					<label fallback="161">$INFO[ListItem.Comment]</label>
 					<font>apptv20</font>
 					<align>justify</align>
@@ -57,28 +89,6 @@
 					<width>1350</width>
 					<height>6</height>
 					<texture>separator.png</texture>
-				</control>
-				<control type="image">
-					<!-- Album cover -->
-					<left>63</left>
-					<top>120</top>
-					<width>384</width>
-					<height>384</height>
-					<texture diffuse="mask-squ.png" fallback="DefaultAudio.png" background="true">$INFO[ListItem.Icon]</texture>
-					<aspectratio>stretch</aspectratio>
-					<align>center</align>
-					<visible>!Skin.HasSetting(media-case) | $EXP[isDefaultIcon]</visible>
-				</control>
-				<control type="image">
-					<left>30</left>
-					<top>57</top>
-					<width>428</width>
-					<height>428</height>
-					<texture diffuse="mask-squ.png" background="true">$INFO[ListItem.Icon]</texture>
-					<aspectratio>keep</aspectratio>
-					<bordertexture border="30,22,14,22">case-cd.png</bordertexture>
-					<bordersize>30,22,14,22</bordersize>
-					<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon]</visible>
 				</control>
 				<control type="label">
 					<!-- Details heading -->
@@ -168,34 +178,22 @@
 				</control>
 			</control>
 		</control>
-		<control type="label">
-			<!-- Artist Name -->
-			<left>510</left>
-			<top>18</top>
-			<width>1380</width>
-			<height>93</height>
-			<font>apptv30</font>
-			<wrapmultiline>true</wrapmultiline>
-			<aligny>center</aligny>
-			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-			<label>$INFO[ListItem.Artist]</label>
-			<textoffsetx>0</textoffsetx>
-			<visible>$EXP[isArtist]</visible>
-		</control>
-		<control type="image">
-			<!-- Artist Image -->
-			<left>63</left>
-			<top>120</top>
-			<width>384</width>
-			<height>384</height>
-			<texture diffuse="mask-squ.png" fallback="DefaultUser.png" background="true">$INFO[ListItem.Icon]</texture>
-			<aspectratio>stretch</aspectratio>
-			<align>center</align>
-			<visible>$EXP[isArtist]</visible>
-		</control>
 		<control type="group">
 			<!-- Artist info -->
 			<visible>$EXP[isArtist]</visible>
+			<control type="label">
+				<!-- Artist Name -->
+				<left>510</left>
+				<top>18</top>
+				<width>1380</width>
+				<height>93</height>
+				<font>apptv30</font>
+				<wrapmultiline>true</wrapmultiline>
+				<aligny>center</aligny>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				<label>$INFO[ListItem.Artist]</label>
+				<textoffsetx>0</textoffsetx>
+			</control>
 			<control type="label">
 				<!-- Artist born/died -->
 				<left>510</left>
@@ -234,9 +232,9 @@
 			<control type="textbox">
 				<!-- Artist description -->>
 				<left>510</left>
-				<top>168</top>
+				<top>165</top>
 				<width>1350</width>
-				<height>174</height>
+				<height>180</height>
 				<label fallback="161">$INFO[ListItem.Property(Artist_Description)]</label>
 				<font>apptv20</font>
 				<align>justify</align>
@@ -252,8 +250,8 @@
 			<control type="label">
 				<!-- Details heading -->
 				<left>510</left>
-				<top>240</top>
-				<width>360</width>
+				<top>360</top>
+				<width>480</width>
 				<height>33</height>
 				<label>$LOCALIZE[31135]</label>
 				<font>apptv22</font>
@@ -309,43 +307,19 @@
 				<visible>!String.IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
 			</control>
 		</control>
-
-		<control type="label">
-			<!-- Album Name -->
-			<left>510</left>
-			<top>18</top>
-			<width>1380</width>
-			<height>93</height>
-			<font>apptv30</font>
-			<wrapmultiline>true</wrapmultiline>
-			<label>$INFO[ListItem.Album][COLOR=disabled-text]$INFO[ListItem.Artist, - ,][/COLOR]</label>
-			<visible>$EXP[isAlbum]</visible>
-		</control>
-		<control type="image">
-			<!-- Album cover -->
-			<left>63</left>
-			<top>120</top>
-			<width>384</width>
-			<height>384</height>
-			<texture diffuse="mask-squ.png" fallback="DefaultAudio.png" background="true">$INFO[ListItem.Icon]</texture>
-			<aspectratio>stretch</aspectratio>
-			<align>center</align>
-			<visible>[!Skin.HasSetting(media-case) | $EXP[isDefaultIcon]] + $EXP[isAlbum]</visible>
-		</control>
-		<control type="image">
-			<left>30</left>
-			<top>57</top>
-			<width>428</width>
-			<height>428</height>
-			<texture diffuse="mask-squ.png" background="true">$INFO[ListItem.Icon]</texture>
-			<aspectratio>keep</aspectratio>
-			<bordertexture border="28,18,5,18">case-cd.png</bordertexture>
-			<bordersize>28,18,5,18</bordersize>
-			<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + $EXP[isAlbum]</visible>
-		</control>
 		<control type="group">
 			<!-- Album info -->
 			<visible>$EXP[isAlbum]</visible>
+			<control type="label">
+				<!-- Album Name -->
+				<left>510</left>
+				<top>18</top>
+				<width>1380</width>
+				<height>93</height>
+				<font>apptv30</font>
+				<wrapmultiline>true</wrapmultiline>
+				<label>$INFO[ListItem.Album][COLOR=disabled-text]$INFO[ListItem.Artist, - ,][/COLOR]</label>
+			</control>
 			<control type="label">
 				<!-- Record Label value -->
 				<left>510</left>
@@ -370,9 +344,9 @@
 			<control type="textbox">
 				<!-- Album description -->
 				<left>510</left>
-				<top>168</top>
+				<top>165</top>
 				<width>1350</width>
-				<height>174</height>
+				<height>180</height>
 				<label fallback="161">$INFO[ListItem.Property(Album_Description)]</label>
 				<font>apptv20</font>
 				<align>justify</align>
@@ -521,10 +495,9 @@
 				<onclick>ActivateWindow(1154)</onclick>
 			</control>
 		</control>
-
 		<control type="group">
 			<!-- Discography / Track list -->
-			<visible>$EXP[isAlbum] | $EXP[isArtist]</visible>
+			<visible>$EXP[isAlbum] | $EXP[isArtist] + Integer.IsGreater(Container(50).NumItems,0)</visible>
 			<control type="label">
 				<left>30</left>
 				<top>732</top>
@@ -737,7 +710,6 @@
 				</control>
 			</control>
 		</control>
-
 		<control type="group">
 			<!-- Recommended songs list -->
 			<visible>$EXP[isSong]</visible>
@@ -758,6 +730,7 @@
 				<texture>separator.png</texture>
 			</control>
 			<control type="list" id="950">
+				<visible>Integer.IsGreater(Container(950).NumItems,0)</visible>
 				<!-- User might enjoy -->
 				<left>15</left>
 				<top>762</top>
