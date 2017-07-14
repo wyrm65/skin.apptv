@@ -202,12 +202,12 @@
 								<font>apptv22</font>
 							</control>
 							<control type="label">
-								<align>right</align>
-								<aligny>center</aligny>
-								<textoffsetx>40</textoffsetx>
 								<width>1328</width>
 								<height>75</height>
 								<info>ListItem.Property(value)</info>
+								<align>right</align>
+								<aligny>center</aligny>
+								<textoffsetx>40</textoffsetx>
 								<font>apptv22</font>
 								<visible>!String.IsEqual(ListItem.Property(Typ), bool) + !String.IsEqual(ListItem.Property(Typ), button)</visible>
 							</control>
@@ -648,11 +648,10 @@
 				</control>
 				<!-- Bluetooth Menu Content -->
 				<control type="label" id="1301">
-					<align>center</align>
-					<aligny>center</aligny>
 					<width>1328</width>
 					<height>628</height>
 					<align>center</align>
+					<aligny>center</aligny>
 					<visible>String.IsEqual(Container(1000).ListItem.Property(listTyp), 1300) + String.IsEqual(Container(1300).NumItems, 0)</visible>
 				</control>
 				<control type="list" id="1300">

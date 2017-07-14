@@ -1705,7 +1705,6 @@
 		<value condition="Control.HasFocus(713)">$LOCALIZE[31366]</value>
 		<value condition="Control.HasFocus(715)">$LOCALIZE[31367]</value>
 		<value condition="Control.HasFocus(717)">$LOCALIZE[31368]</value>
-		<value condition="Control.HasFocus(719)">$LOCALIZE[31369]</value>
 		<value condition="Control.HasFocus(802)">$LOCALIZE[31371]</value>
 		<value condition="Control.HasFocus(803)">$LOCALIZE[31370]</value>
 		<value condition="Control.HasFocus(805)">$LOCALIZE[31372]</value>
@@ -3426,9 +3425,9 @@
 						<width>712</width>
 						<height>33</height>
 						<font>apptv22</font>
-						<label>$INFO[Window(10000).Property(plugin.audio.streaming-radio.Artist)]</label>
+						<label>$INFO[Window(home).Property(plugin.audio.streaming-radio.Artist)]</label>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-						<visible>!String.IsEmpty(Window(10000).Property(plugin.audio.streaming-radio.Artist))</visible>
+						<visible>!String.IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Artist))</visible>
 					</control>
 					<control type="label">
 						<!-- Track title -->
@@ -3437,9 +3436,9 @@
 						<width>712</width>
 						<height>33</height>
 						<font>apptv22</font>
-						<label>$INFO[Window(10000).Property(plugin.audio.streaming-radio.Title)]</label>
+						<label>$INFO[Window(home).Property(plugin.audio.streaming-radio.Title)]</label>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-						<visible>!String.IsEmpty(Window(10000).Property(plugin.audio.streaming-radio.Title))</visible>
+						<visible>!String.IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Title))</visible>
 					</control>
 				</control>
 			</control>
