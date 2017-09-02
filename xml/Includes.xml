@@ -408,6 +408,10 @@
 		<value condition="String.IsEmpty(Window.Property(IsRadio))">$LOCALIZE[19023]</value>
 		<value condition="!String.IsEmpty(Window.Property(IsRadio))">$LOCALIZE[19024]</value>
 	</variable>
+	<variable name="PVRChannelOSDHeading">
+		<value condition="pvr.IsPlayingRadio">$LOCALIZE[19024] - $INFO[MusicPlayer.ChannelGroup]</value>
+		<value condition="!pvr.IsPlayingRadio">$LOCALIZE[19023] - $INFO[VideoPlayer.ChannelGroup]</value>
+	</variable>
 	<variable name="CustomDialogSelectHeading">
 		<value condition="String.IsEqual(Window(home).Property(SelectDialogType),videoinfomore)">$LOCALIZE[31693]</value>
 		<value condition="String.IsEqual(Window(home).Property(SelectDialogType),musicinfomore)">$LOCALIZE[31693]</value>
