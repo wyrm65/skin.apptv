@@ -464,7 +464,7 @@
 							<width>75</width>
 							<height>75</height>
 							<texture>DefaultFolder.png</texture>
-							<aspectratio>stretch</aspectratio>
+							<aspectratio>keep</aspectratio>
 							<visible>ListItem.IsFolder + !ListItem.IsParentFolder</visible>
 						</control>
 						<control type="image">
@@ -472,18 +472,9 @@
 							<top>15</top>
 							<width>75</width>
 							<height>75</height>
-							<aspectratio>stretch</aspectratio>
-							<texture fallback="DefaultTvshows.png">$INFO[ListItem.Thumb]</texture>
-							<visible>String.IsEmpty(Window.Property(IsRadio)) + !ListItem.IsFolder</visible>
-						</control>
-						<control type="image">
-							<left>15</left>
-							<top>15</top>
-							<width>75</width>
-							<height>75</height>
-							<aspectratio>stretch</aspectratio>
-							<texture fallback="icon-radio.png">$INFO[ListItem.Thumb]</texture>
-							<visible>!String.IsEmpty(Window.Property(IsRadio)) + !ListItem.IsFolder</visible>
+							<aspectratio>keep</aspectratio>
+							<texture>$VAR[PVRIcon]</texture>
+							<visible>!ListItem.IsFolder</visible>
 						</control>
 						<control type="label">
 							<left>120</left>
@@ -526,7 +517,7 @@
 							<width>75</width>
 							<height>75</height>
 							<texture>DefaultFolder.png</texture>
-							<aspectratio>stretch</aspectratio>
+							<aspectratio>keep</aspectratio>
 							<visible>ListItem.IsFolder + !ListItem.IsParentFolder</visible>
 						</control>
 						<control type="image">
@@ -534,18 +525,9 @@
 							<top>15</top>
 							<width>75</width>
 							<height>75</height>
-							<texture fallback="DefaultTvshows.png">$INFO[ListItem.Thumb]</texture>
-							<aspectratio>stretch</aspectratio>
-							<visible>String.IsEmpty(Window.Property(IsRadio)) + !ListItem.IsFolder</visible>
-						</control>
-						<control type="image">
-							<left>15</left>
-							<top>15</top>
-							<width>75</width>
-							<height>75</height>
-							<texture fallback="icon-radio.png">$INFO[ListItem.Thumb]</texture>
-							<aspectratio>stretch</aspectratio>
-							<visible>!String.IsEmpty(Window.Property(IsRadio)) + !ListItem.IsFolder</visible>
+							<texture>$VAR[PVRIcon]</texture>
+							<aspectratio>keep</aspectratio>
+							<visible>!ListItem.IsFolder</visible>
 						</control>
 						<control type="label">
 							<left>120</left>
