@@ -27,6 +27,8 @@
 	<expression name="isSong">String.IsEqual(ListItem.DBTYPE,song)</expression>
 	<expression name="isEmptyIcon">String.IsEmpty(ListItem.Icon)</expression>
 	<expression name="isnotEmptyIcon">!String.IsEmpty(ListItem.Icon)</expression>
+	<expression name="isEmptyPVRIcon">String.IsEmpty(ListItem.Icon) + IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))</expression>
+	<expression name="isnotEmptyPVRIcon">!String.IsEmpty(ListItem.Icon) | !IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))</expression>
 	<expression name="isEmptyDBID">String.IsEmpty(ListItem.DBID)</expression>
 	<expression name="isnotEmptyDBID">!String.IsEmpty(ListItem.DBID)</expression>
 	<expression name="isDefaultIcon">String.StartsWith(ListItem.Icon,Default)</expression>
@@ -824,10 +826,15 @@
 		<value condition="Player.HasAudio + !Pvr.IsPlayingRadio">$INFO[MusicPlayer.Artist]</value>
 		<value condition="Player.HasAudio + Pvr.IsPlayingRadio">$INFO[MusicPlayer.ChannelName]</value>
 	</variable>
-	<variable name="PVRIcon">
+	<variable name="PVRThumb">
 		<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
 		<value condition="String.IsEmpty(Window.Property(IsRadio))">icon-livetv.png</value>
-		<value condition="!String.IsEmpty(Window.Property(IsRadio))">icon-radio.png</value>
+		<value>icon-radio.png</value>
+	</variable>
+	<variable name="PVRIcon">
+		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
 	</variable>
 	<variable name="HorzHomeShelfIcon">
 		<value condition="Control.HasFocus(9100) | Control.HasFocus(9130)">DefaultVideo.png</value>

@@ -473,7 +473,7 @@
 							<width>75</width>
 							<height>75</height>
 							<aspectratio>keep</aspectratio>
-							<texture>$VAR[PVRIcon]</texture>
+							<texture>$VAR[PVRThumb]</texture>
 							<visible>!ListItem.IsFolder</visible>
 						</control>
 						<control type="label">
@@ -525,7 +525,7 @@
 							<top>15</top>
 							<width>75</width>
 							<height>75</height>
-							<texture>$VAR[PVRIcon]</texture>
+							<texture>$VAR[PVRThumb]</texture>
 							<aspectratio>keep</aspectratio>
 							<visible>!ListItem.IsFolder</visible>
 						</control>
@@ -558,7 +558,7 @@
 				<control type="group">
 					<!-- Current Icon/Channel playing -->
 					<control type="grouplist">
-						<visible>Control.IsVisible(13) | Control.IsVisible(50)</visible>
+						<visible>Control.IsVisible(50)</visible>
 						<animation effect="fade" start="0" end="100" time="200" delay="100">Visible</animation>
 						<left>30</left>
 						<top>174</top>
@@ -566,7 +566,7 @@
 						<height>867</height>
 						<itemgap>3</itemgap>
 						<control type="group">
-							<visible>!Player.HasVideo | [Player.HasVideo + Skin.HasSetting(background-playingmedia)]</visible>
+							<visible>!Player.HasVideo | [Player.HasVideo + [Skin.HasSetting(background-playingmedia) | Skin.HasSetting(media-overlay)]]</visible>
 							<left>0</left>
 							<width>384</width>
 							<height>384</height>
@@ -574,7 +574,7 @@
 								<left>279</left>
 								<width>384</width>
 								<height>384</height>
-								<texture background="true">$VAR[PVRIcon]</texture>
+								<texture background="true">$VAR[PVRThumb]</texture>
 								<aspectratio>keep</aspectratio>
 								<aligny>top</aligny>
 							</control>
@@ -583,7 +583,7 @@
 							<left>0</left>
 							<width>768</width>
 							<height>384</height>
-							<visible>Player.HasVideo + !Skin.HasSetting(background-playingmedia)</visible>
+							<visible>Player.HasVideo + !Skin.HasSetting(background-playingmedia) + !Skin.HasSetting(media-overlay)</visible>
 							<control type="videowindow">
 								<left>87</left>
 								<width>768</width>
@@ -600,7 +600,7 @@
 						</control>
 						<control type="label">
 							<!-- Start time -->
-							<visible>!String.IsEmpty(ListItem.Plot) + !String.IsEmpty(ListItem.StartTime) + !String.IsEmpty(ListItem.EndTime)+ !Control.IsVisible(13)</visible>
+							<visible>!String.IsEmpty(ListItem.Plot) + !String.IsEmpty(ListItem.StartTime) + !String.IsEmpty(ListItem.EndTime)</visible>
 							<width>942</width>
 							<height>45</height>
 							<align>center</align>
