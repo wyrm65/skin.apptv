@@ -1151,7 +1151,7 @@
 					<top>84</top>
 					<width>270</width>
 					<height>270</height>
-					<texture diffuse="mask-rect.png" background="true" fallback="icon-broadcast.png">$INFO[Player.Art(thumb)]</texture>
+					<texture diffuse="mask-rect.png" background="true" fallback="icon-livetv.png">$VAR[PVRIcon]</texture>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<aligny>top</aligny>
 					<visible>Pvr.IsPlayingTv</visible>
@@ -1163,7 +1163,7 @@
 					<height>270</height>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<aligny>top</aligny>
-					<texture diffuse="mask-fade.png" background="true" flipy="true" fallback="icon-broadcast.png">$INFO[Player.Art(thumb)]</texture>
+					<texture diffuse="mask-fade.png" background="true" flipy="true" fallback="icon-livetv.png">$VAR[PVRIcon]</texture>
 					<visible>Pvr.IsPlayingTv</visible>
 				</control>
 				<control type="button">
@@ -1196,7 +1196,7 @@
 					<font>apptv20</font>
 					<align>center</align>
 					<aligny>top</aligny>
-					<label>$INFO[VideoPlayer.ChannelName][CR]$INFO[VideoPlayer.ChannelNumberLabel]</label>
+					<label>$INFO[VideoPlayer.ChannelName][CR]$INFO[VideoPlayer.Title]</label>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>Pvr.IsPlayingTv</visible>
 				</control>
@@ -1266,7 +1266,7 @@
 						<height>270</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<aligny>top</aligny>
-						<texture diffuse="mask-squ.png" background="true" fallback="icon-radio.png">$VAR[PlayerMusicCover]</texture>
+						<texture diffuse="mask-squ.png" background="true" fallback="icon-radio.png">$VAR[PVRIcon]</texture>
 					</control>
 					<control type="image">
 						<left>38</left>
@@ -1275,7 +1275,7 @@
 						<height>270</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<aligny>top</aligny>
-						<texture diffuse="mask-fade.png" background="true" flipy="true" fallback="icon-radio.png">$VAR[PlayerMusicCover]</texture>
+						<texture diffuse="mask-fade.png" background="true" flipy="true" fallback="icon-radio.png">$VAR[PVRIcon]</texture>
 					</control>
 					<control type="textbox">
 						<left>15</left>

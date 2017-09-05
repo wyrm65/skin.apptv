@@ -7,7 +7,7 @@
 			<control type="label">
 				<!-- Current time -->
 				<left>1170</left>
-				<top>81</top>
+				<top>82</top>
 				<width>705</width>
 				<height>38</height>
 				<align>right</align>
@@ -22,10 +22,10 @@
 				<width>1830</width>
 				<height>676</height>
 				<pagecontrol>60</pagecontrol>
-				<scrolltime>350</scrolltime>
+				<scrolltime>300</scrolltime>
 				<timeblocks>40</timeblocks>
-				<progresstexture border="0,32,4,0">progress-timeline.png</progresstexture>
-				<rulerunit>6</rulerunit>
+				<progresstexture border="0,13.5,4,0">progress-timeline.png</progresstexture>
+				<rulerunit>12</rulerunit>
 				<onleft>9000</onleft>
 				<onright>60</onright>
 				<onup>10</onup>
@@ -50,7 +50,7 @@
 					<control type="image">
 						<left>0</left>
 						<top>42</top>
-						<width>1680</width>
+						<width>1830</width>
 						<height>6</height>
 						<texture>separator.png</texture>
 					</control>
@@ -78,6 +78,7 @@
 						<top>6</top>
 						<width>66</width>
 						<height>66</height>
+						<font>apptv23</font>
 						<align>center</align>
 						<selectedcolor>listselected-text</selectedcolor>
 						<label>$INFO[ListItem.ChannelNumber]</label>
@@ -116,6 +117,7 @@
 						<top>6</top>
 						<width>66</width>
 						<height>66</height>
+						<font>apptv23</font>
 						<align>center</align>
 						<selectedcolor>listselected-text</selectedcolor>
 						<label>$INFO[ListItem.ChannelNumber]</label>
@@ -145,7 +147,7 @@
 						<top>0</top>
 						<width>15</width>
 						<height>72</height>
-						<font>apptv22</font>
+						<font>apptv18</font>
 						<selectedcolor>listselected-text</selectedcolor>
 						<wrapmultiline>true</wrapmultiline>
 						<label>$INFO[ListItem.Label]</label>
@@ -181,7 +183,7 @@
 						<top>0</top>
 						<width>15</width>
 						<height>72</height>
-						<font>apptv22</font>
+						<font>apptv18</font>
 						<selectedcolor>listselected-text</selectedcolor>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<wrapmultiline>true</wrapmultiline>
@@ -620,12 +622,6 @@
 							<align>left</align>
 							<label>$INFO[ListItem.Plot]</label>
 							<visible>!String.IsEmpty(ListItem.Plot)</visible>
-						</control>
-						<control type="image">
-							<visible>!String.IsEmpty(ListItem.Plot)</visible>
-							<width>942</width>
-							<height>6</height>
-							<texture>separator.png</texture>
 						</control>
 					</control>
 				</control>
