@@ -833,6 +833,13 @@
 		<value condition="String.IsEmpty(Window.Property(IsRadio))">icon-livetv.png</value>
 		<value>icon-radio.png</value>
 	</variable>
+	<variable name="PVRPgmThumb">
+		<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
+		<value condition="!IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
+		<value condition="String.IsEmpty(Window.Property(IsRadio))">http://localhost:52307/getpvrthumb/?title=$ESCINFO[Listitem.Title]&amp;channel=$ESCINFO[ListItem.ChannelName]&amp;fallback=icon-livetv.png&amp;type=poster</value>
+		<value>http://localhost:52307/getpvrthumb/?title=$ESCINFO[Listitem.Title]&amp;channel=$ESCINFO[ListItem.ChannelName]&amp;fallback=icon-radio.png&amp;type=poster</value>
+	</variable>
 	<variable name="PVRIcon">
 		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
 		<value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
@@ -3203,12 +3210,12 @@
 				<height>320</height>
 				<align>center</align>
 				<aligny>bottom</aligny>
-				<texture>$VAR[PVRThumb]</texture>
+				<texture>$VAR[PVRPgmThumb]</texture>
 				<aspectratio>keep</aspectratio>
 				<visible>Pvr.IsPlayingTv</visible>
 			</control>
 			<control type="image" id="1">
-				<!-- Any video other than Movies and TV Episodes or LiveTV -->
+				<!-- Any video other than Movies and TV Episodes and LiveTV -->
 				<left>12</left>
 				<top>746</top>
 				<width>320</width>
@@ -3217,7 +3224,7 @@
 				<aligny>bottom</aligny>
 				<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" >$INFO[Player.Art(thumb)]</texture>
 				<aspectratio scalediffuse="false">keep</aspectratio>
-				<visible>![VideoPlayer.Content(movies) | VideoPlayer.Content(episodes) | Pvr.IsPlayingTv]</visible>
+				<visible>![VideoPlayer.Content(movies) + VideoPlayer.Content(episodes) + Pvr.IsPlayingTv]</visible>
 			</control>
 		</control>
 	</include>

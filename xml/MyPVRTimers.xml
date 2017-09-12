@@ -112,6 +112,8 @@
 					<height>72</height>
 					<label>$LOCALIZE[19019]</label>
 					<font>apptv22</font>
+					<onclick>SetFocus(14)</onclick>
+					<onclick condition="String.IsEqual(Window(home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,home)</onclick>
 					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(tvchannels)</onclick>
 					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(radiochannels)</onclick>
 				</control>
@@ -121,6 +123,8 @@
 					<height>72</height>
 					<label>$LOCALIZE[22020]</label>
 					<font>apptv22</font>
+					<onclick>SetFocus(14)</onclick>
+					<onclick condition="String.IsEqual(Window(home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,home)</onclick>
 					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(tvguide)</onclick>
 					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(radioguide)</onclick>
 				</control>
@@ -130,6 +134,8 @@
 					<height>72</height>
 					<label>$LOCALIZE[19163]</label>
 					<font>apptv22</font>
+					<onclick>SetFocus(14)</onclick>
+					<onclick condition="String.IsEqual(Window(home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,home)</onclick>
 					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(tvrecordings)</onclick>
 					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(radiorecordings)</onclick>
 				</control>
@@ -139,6 +145,8 @@
 					<height>72</height>
 					<label>$LOCALIZE[137]</label>
 					<font>apptv22</font>
+					<onclick>SetFocus(14)</onclick>
+					<onclick condition="String.IsEqual(Window(home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,home)</onclick>
 					<onclick condition="String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(tvsearch)</onclick>
 					<onclick condition="!String.IsEmpty(Window.Property(IsRadio))">ActivateWindow(radiosearch)</onclick>
 				</control>

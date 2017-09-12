@@ -9,8 +9,8 @@
 				<top>158</top>
 				<width>384</width>
 				<height>384</height>
+				<texture>$VAR[PVRPgmThumb]</texture>
 				<aspectratio>keep</aspectratio>
-				<texture fallback="DefaultAddonPVRClient.png">$INFO[ListItem.Icon]</texture>
 			</control>
 			<control type="label">
 				<!-- PVR Program name -->
@@ -165,11 +165,6 @@
 							<label2>$INFO[ListItem.Genre]</label2>
 							<onclick>noop</onclick>
 						</item>
-						<item>
-							<label>$LOCALIZE[203]:</label>
-							<label2>$INFO[ListItem.PlotOutline]</label2>
-							<onclick>noop</onclick>
-						</item>
 					</content>
 				</control>
 			</control>
@@ -231,7 +226,7 @@
 					<label>$LOCALIZE[19687]</label>
 					<texturefocus>button-info-play-focus.png</texturefocus>
 					<texturenofocus>button-info-play.png</texturenofocus>
-					<visible>Window.IsActive(PVRGuideInfo)</visible>
+					<visible>Window.IsActive(PVRRecordingInfo)</visible>
 				</control>
 			</control>
 			<control type="label">
@@ -268,7 +263,7 @@
 						<width>210</width>
 						<height>210</height>
 						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="UnFocusedPosters" background="true">$INFO[ListItem.Icon]</texture>
+						<texture colordiffuse="UnFocusedPosters" background="true">$VAR[PVRIcon]</texture>
 					</control>
 				</itemlayout>
 				<focusedlayout height="312" width="315">
@@ -278,7 +273,7 @@
 						<width>210</width>
 						<height>210</height>
 						<aspectratio>keep</aspectratio>
-						<texture background="true">$INFO[ListItem.Icon]</texture>
+						<texture background="true">$VAR[PVRIcon]</texture>
 						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					</control>
 					<control type="textbox">
