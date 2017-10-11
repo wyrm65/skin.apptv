@@ -715,6 +715,27 @@
 						<onclick>ClearProperty(ShowCommands,settings)</onclick>
 						<onclick>SetFocus(5000)</onclick>
 					</item>
+					<item>
+						<!-- Custom command - Show TV EPG -->
+						<label>$LOCALIZE[19273]</label>
+						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],ActivateWindow(tvguide))</onclick>
+						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[19273])</onclick>
+						<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
+						<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/EPG.png)</onclick>
+						<onclick>ClearProperty(ShowCommands,settings)</onclick>
+						<onclick>SetFocus(5000)</onclick>
+					</item>
+					<item>
+						<!-- Custom command - Show Radio EPG -->
+						<label>$LOCALIZE[19274]</label>
+						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],ActivateWindow(radioguide))</onclick>
+						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[19274
+						])</onclick>
+						<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
+						<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/EPG.png)</onclick>
+						<onclick>ClearProperty(ShowCommands,settings)</onclick>
+						<onclick>SetFocus(5000)</onclick>
+					</item>
 				</content>
 			</control>
 		</control>
