@@ -1299,6 +1299,7 @@
 		<value>special://skin/extras/homeicons/music.png</value>
 	</variable>
 	<variable name="HomeWeatherIcon">
+		<value condition="String.IsEmpty(Skin.String(home-weather-icon))">special://skin/extras/homeicons/weather.png</value>
 		<value condition="!String.IsEmpty(Skin.String(home-weather-icon))">$INFO[Skin.String(home-weather-icon)]</value>
 		<value condition="!String.IsEmpty(Window(weather).Property(Today.Sunrise)) + System.Time(Window(weather).Property(Today.Sunrise),Window(weather).Property(Today.Sunset))">special://skin/extras/homeicons/dayweather.png</value>
 		<value condition="!String.IsEmpty(Window(weather).Property(Today.Sunrise)) + !System.Time(Window(weather).Property(Today.Sunrise),Window(weather).Property(Today.Sunset))">special://skin/extras/homeicons/nightweather.png</value>
