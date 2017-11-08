@@ -277,7 +277,6 @@
 				<align>left</align>
 				<orientation>horizontal</orientation>
 				<itemgap>-6</itemgap>
-				<!--<animation effect="fade" start="0" end="100" time="200">WindowOpen</animation>-->
 				<control type="image" id="171">
 					<!-- Audio codec -->
 					<width>60</width>
@@ -475,8 +474,8 @@
 			<orientation>horizontal</orientation>
 			<itemgap>22</itemgap>
 			<align>center</align>
-			<onleft>noop</onleft>
-			<onright>noop</onright>
+			<onleft>1005</onleft>
+			<onright>1005</onright>
 			<ondown condition="Control.IsVisible(50)">50</ondown>
 			<ondown condition="Control.IsVisible(950)">950</ondown>
 			<onup>1123</onup>
@@ -543,13 +542,13 @@
 				<control type="image">
 					<width>144</width>
 					<height>144</height>
-					<texture>button-info-plot.png</texture>
+					<texture>button-info-video.png</texture>
 					<visible>!Control.HasFocus(5) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
 				</control>
 				<control type="image">
 					<width>144</width>
 					<height>144</height>
-					<texture>button-info-plot-focus.png</texture>
+					<texture>button-info-video-focus.png</texture>
 					<visible>Control.HasFocus(5) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
 				</control>
 				<control type="label">
@@ -582,7 +581,7 @@
 					<width>144</width>
 					<height>144</height>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<label>$LOCALIZE[207]</label>
+					<label>$LOCALIZE[31668]</label>
 					<font>apptv16</font>
 					<textcolor>button-text</textcolor>
 					<align>center</align>
@@ -595,7 +594,7 @@
 					<width>144</width>
 					<height>144</height>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<label>$LOCALIZE[207]</label>
+					<label>$LOCALIZE[31668]</label>
 					<font>apptv16</font>
 					<textcolor>disabled-text</textcolor>
 					<align>center</align>
@@ -656,8 +655,9 @@
 			<top>771</top>
 			<width>1890</width>
 			<height>300</height>
-			<onleft>noop</onleft>
-			<onright>noop</onright>
+			<onleft>1010</onleft>
+			<onright>1010</onright>
+			<ondown>1010</ondown>
 			<onup>999</onup>
 			<viewtype label="31028">list</viewtype>
 			<orientation>horizontal</orientation>
@@ -733,8 +733,9 @@
 			<top>777</top>
 			<width>1890</width>
 			<height>312</height>
-			<onleft>noop</onleft>
-			<onright>noop</onright>
+			<onleft>1015</onleft>
+			<onright>1015</onright>
+			<ondown>1015</ondown>
 			<onup>999</onup>
 			<viewtype label="31028">list</viewtype>
 			<orientation>horizontal</orientation>
@@ -837,5 +838,23 @@
 				<visible>Container(950).HasNext</visible>
 			</control>
 		</control>
+
+		<!-- Play bump sound if user tries to leave button bar by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="1005" />
+			<param name="returnid" value="999" />
+		</include>
+
+		<!-- Play bump sound if user tries to leave cast widget by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="1010" />
+			<param name="returnid" value="50" />
+		</include>
+
+		<!-- Play bump sound if user tries to leave videos widget by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="1015" />
+			<param name="returnid" value="950" />
+		</include>
 	</controls>
 </window>

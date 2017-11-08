@@ -9,8 +9,18 @@
 				<top>158</top>
 				<width>384</width>
 				<height>384</height>
-				<texture>$VAR[PVRPgmThumb]</texture>
+				<texture fallback="icon-radio.png">$VAR[PVRIcon]</texture>
 				<aspectratio>keep</aspectratio>
+				<visible>!String.IsEmpty(Window.Property(IsRadio))</visible>
+			</control>
+			<control type="image">
+				<left>90</left>
+				<top>158</top>
+				<width>384</width>
+				<height>384</height>
+				<texture fallback="icon-livetv.png">$VAR[PVRIcon]</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>String.IsEmpty(Window.Property(IsRadio))</visible>
 			</control>
 			<control type="label">
 				<!-- PVR Program name -->
@@ -235,7 +245,7 @@
 				<top>732</top>
 				<height>30</height>
 				<width>450</width>
-				<label>$LOCALIZE[19019]</label>
+				<label>$LOCALIZE[19163]</label>
 				<font>apptv22</font>
 				<align>right</align>
 			</control>
@@ -263,7 +273,7 @@
 						<width>210</width>
 						<height>210</height>
 						<aspectratio>keep</aspectratio>
-						<texture colordiffuse="UnFocusedPosters" background="true">$VAR[PVRIcon]</texture>
+						<texture colordiffuse="UnFocusedPosters" background="true">$INFO[ListItem.Icon]</texture>
 					</control>
 				</itemlayout>
 				<focusedlayout height="312" width="315">
@@ -273,7 +283,7 @@
 						<width>210</width>
 						<height>210</height>
 						<aspectratio>keep</aspectratio>
-						<texture background="true">$VAR[PVRIcon]</texture>
+						<texture background="true">$INFO[ListItem.Icon]</texture>
 						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					</control>
 					<control type="textbox">
@@ -288,7 +298,7 @@
 						<visible>Control.HasFocus(950)</visible>
 					</control>
 				</focusedlayout>
-				<content>plugin://script.skin.helper.widgets/?action=channels&amp;mediatype=pvr&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</content>
+				<content target="pvr" limit="25">plugin://script.skin.helper.widgets/?action=recordings&amp;mediatype=pvr&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</content>
 			</control>
 			<control type="group">
 				<!-- Markers for control area items -->

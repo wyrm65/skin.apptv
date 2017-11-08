@@ -798,9 +798,6 @@
 		<value condition="!String.IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
 	</variable>
 	<variable name="PlayerVideoCover">
-		<value condition="Pvr.IsPlayingTv + !IsEmpty(Window(home).Property(SkinHelper.PVR.Poster))">$INFO[Window(home).Property(SkinHelper.PVR.Poster)]</value>
-		<value condition="Pvr.IsPlayingTv + !IsEmpty(Window(home).Property(SkinHelper.PVR.Thumb))">$INFO[Window(home).Property(SkinHelper.PVR.Thumb)]</value>
-		<value condition="Pvr.IsPlayingTv + !IsEmpty(Window(home).Property(SkinHelper.PVR.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.PVR.ChannelLogo)]</value>
 		<value condition="!String.IsEmpty(Player.Art(poster)) + VideoPlayer.Content(movies)">$INFO[Player.Art(poster)]</value>
 		<value condition="!String.IsEmpty(VideoPlayer.cover) + VideoPlayer.Content(movies)">$INFO[VideoPlayer.Cover]</value>
 		<value condition="!String.IsEmpty(Player.Art(tvshow.poster)) + VideoPlayer.Content(episodes)">$INFO[Player.Art(tvshow.poster)]</value>
@@ -833,12 +830,15 @@
 		<value condition="String.IsEmpty(Window.Property(IsRadio))">icon-livetv.png</value>
 		<value>icon-radio.png</value>
 	</variable>
-	<variable name="PVRPgmThumb">
-		<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+	<variable name="PVRPgmIcon">
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.PVR.Poster))">$INFO[Window(home).Property(SkinHelper.PVR.Poster)]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItem.Poster))">$INFO[Window(home).Property(SkinHelper.ListItem.Poster)]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.PVR.Thumb))">$INFO[Window(home).Property(SkinHelper.PVR.Thumb)]</value>
+		<value condition="!IsEmpty(Window(home).Property(SkinHelper.PVR.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.PVR.ChannelLogo)]</value>
 		<value condition="!IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
 		<value condition="!IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
-		<value condition="String.IsEmpty(Window.Property(IsRadio))">http://localhost:52307/getpvrthumb/?title=$ESCINFO[Listitem.Title]&amp;channel=$ESCINFO[ListItem.ChannelName]&amp;fallback=icon-livetv.png&amp;type=poster</value>
-		<value>http://localhost:52307/getpvrthumb/?title=$ESCINFO[Listitem.Title]&amp;channel=$ESCINFO[ListItem.ChannelName]&amp;fallback=icon-radio.png&amp;type=poster</value>
+		<value condition="String.IsEmpty(Window.Property(IsRadio))">icon-livetv.png</value>
+		<value>icon-radio.png</value>
 	</variable>
 	<variable name="PVRIcon">
 		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
@@ -1300,7 +1300,12 @@
 	</variable>
 	<variable name="HomeWeatherIcon">
 		<value condition="!String.IsEmpty(Skin.String(home-weather-icon))">$INFO[Skin.String(home-weather-icon)]</value>
-		<value>special://skin/extras/homeicons/weather.png</value>
+		<value condition="!String.IsEmpty(Window(weather).Property(Today.Sunrise)) + System.Time(Window(weather).Property(Today.Sunrise),Window(weather).Property(Today.Sunset))">special://skin/extras/homeicons/dayweather.png</value>
+		<value condition="!String.IsEmpty(Window(weather).Property(Today.Sunrise)) + !System.Time(Window(weather).Property(Today.Sunrise),Window(weather).Property(Today.Sunset))">special://skin/extras/homeicons/nightweather.png</value>
+		<value condition="!String.IsEmpty(Window(weather).Property(Current.Sunrise)) + System.Time(Window(weather).Property(Current.Sunrise),Window(weather).Property(Current.Sunset))">special://skin/extras/homeicons/dayweather.png</value>
+		<value condition="!String.IsEmpty(Window(weather).Property(Current.Sunrise)) + !System.Time(Window(weather).Property(Current.Sunrise),Window(weather).Property(Current.Sunset))">special://skin/extras/homeicons/nightweather.png</value>
+		<value condition="System.Time(06:00,18:00)">special://skin/extras/homeicons/dayweather.png</value>
+		<value condition="!System.Time(06:00,18:00)">special://skin/extras/homeicons/nightweather.png</value>
 	</variable>
 	<variable name="HomeMusicVideoIcon">
 		<value condition="!String.IsEmpty(Skin.String(home-musicvideo-icon))">$INFO[Skin.String(home-musicvideo-icon)]</value>
@@ -3190,7 +3195,7 @@
 			<!-- Player Media Icon -->
 			<visible>[$EXP[isFullscreenVideo]] + ![Window.IsActive(musicosd)]</visible>
 			<animation effect="fade" time="200">VisibleChange</animation>
-			<control type="image" id="1">
+			<control type="image">
 				<!-- Movies or Tv Episodes -->
 				<left>12</left>
 				<top>746</top>
@@ -3200,9 +3205,9 @@
 				<align>center</align>
 				<aligny>bottom</aligny>
 				<aspectratio>keep</aspectratio>
-				<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
+				<visible>[VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)] + ![String.Contains(Player.FolderPath,pvr://) | String.StartsWith(Player.FileNameAndPath,http) | String.StartsWith(Player.FileNameAndPath,htsp) | String.StartsWith(Player.FileNameAndPath,mms) | String.StartsWith(Player.FileNameAndPath,rtmp)]</visible>
 			</control>
-			<control type="image" id="1">
+			<control type="image">
 				<!-- LiveTV playing -->
 				<left>12</left>
 				<top>746</top>
@@ -3210,11 +3215,11 @@
 				<height>320</height>
 				<align>center</align>
 				<aligny>bottom</aligny>
-				<texture>$VAR[PVRPgmThumb]</texture>
+				<texture fallback="icon-livetv.png">$VAR[PVRPgmIcon]</texture>
 				<aspectratio>keep</aspectratio>
-				<visible>Pvr.IsPlayingTv</visible>
+				<visible>String.Contains(Player.FolderPath,pvr://) + ![String.StartsWith(Player.FileNameAndPath,http) | String.StartsWith(Player.FileNameAndPath,htsp) | String.StartsWith(Player.FileNameAndPath,mms) | String.StartsWith(Player.FileNameAndPath,rtmp)]</visible>
 			</control>
-			<control type="image" id="1">
+			<control type="image">
 				<!-- Any video other than Movies and TV Episodes and LiveTV -->
 				<left>12</left>
 				<top>746</top>
@@ -3224,7 +3229,7 @@
 				<aligny>bottom</aligny>
 				<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" >$INFO[Player.Art(thumb)]</texture>
 				<aspectratio scalediffuse="false">keep</aspectratio>
-				<visible>![VideoPlayer.Content(movies) + VideoPlayer.Content(episodes) + Pvr.IsPlayingTv]</visible>
+				<visible>[!VideoPlayer.Content(movies) + !VideoPlayer.Content(episodes) + !String.Contains(Player.FolderPath,pvr://)] | [String.StartsWith(Player.FileNameAndPath,http) | String.StartsWith(Player.FileNameAndPath,htsp) | String.StartsWith(Player.FileNameAndPath,mms) | String.StartsWith(Player.FileNameAndPath,rtmp)] </visible>
 			</control>
 		</control>
 	</include>
@@ -3487,6 +3492,20 @@
 			<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
 		</control>
 	</include>
+	<include name="illegal-action">
+		<param name="controlid"/>
+		<param name="returnid"/>
+		<definition>
+			<control type="button" id="$PARAM[controlid]">
+				<left>-10</left>
+				<top>-10</top>
+				<width>1</width>
+				<height>1</height>
+				<onfocus>SetFocus($PARAM[returnid])</onfocus>
+				<onfocus>ActivateWindow(1157)</onfocus>
+			</control>
+		</definition>
+	</include>
 	<include name="use-alttexture">
 		<param name="visiblecondition"/>
 		<definition>
@@ -3540,6 +3559,39 @@
 					<font>apptv20</font>
 					<label>$INFO[$PARAM[count]]</label>
 					<textcolor>white</textcolor>
+					<align>center</align>
+				</control>
+			</control>
+		</definition>
+	</include>
+	<include name="listitem-weather">
+		<param name="left" default="0"/>
+		<param name="top" default="0"/>
+		<param name="size" default="100"/>
+		<param name="currently"/>
+		<param name="visible"/>
+		<definition>
+			<control type="group">
+				<visible>$PARAM[visible]</visible>
+				<animation condition="true" effect="zoom" start="100" end="$PARAM[size]" center="auto">Conditional</animation>
+				<left>$PARAM[left]</left>
+				<top>$PARAM[top]</top>
+				<control type="image">
+					<left>60</left>
+					<top>30</top>
+					<width>140</width>
+					<height>140</height>
+					<aspectratio>keep</aspectratio>
+					<texture background="true">http://localhost:52307/getvarimage&amp;title=$INFO{Window(weather).Property(Day0.OutlookIcon)}</texture>
+				</control>
+				<control type="label">
+					<left>200</left>
+					<top>70</top>
+					<width>130</width>
+					<height>57</height>
+					<font>apptv38</font>
+					<textcolor>white</textcolor>
+					<label>$INFO[$PARAM[currently]]</label>
 					<align>center</align>
 				</control>
 			</control>

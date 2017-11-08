@@ -269,69 +269,48 @@
 			<texture colordiffuse="UnFocusedPosters" background="true">$INFO[Skin.String(custom-watermark)]</texture>
 			<visible>!String.IsEmpty(Skin.String(custom-watermark))</visible>
 		</control>
-		<control type="button" id="9005">
-			<!-- Play bump sound if user tries to leave menu by undefined direction -->
-			<left>-45</left>
-			<top>-45</top>
-			<width>1</width>
-			<height>1</height>
-			<onfocus>SetFocus(9000)</onfocus>
-			<onfocus>ActivateWindow(1157)</onfocus>
-		</control>
-		<control type="button" id="9050">
-			<!-- Play bump sound if user tries to leave Movie shelf by undefined direction -->
-			<left>-60</left>
-			<top>-60</top>
-			<width>1</width>
-			<height>1</height>
-			<onfocus>SetFocus(9160)</onfocus>
-			<onfocus>ActivateWindow(1157)</onfocus>
-		</control>
-		<control type="button" id="9052">
-			<!-- Play bump sound if user tries to leave TV shelf by undefined direction -->
-			<left>-75</left>
-			<top>-75</top>
-			<width>1</width>
-			<height>1</height>
-			<onfocus>SetFocus(9210)</onfocus>
-			<onfocus>ActivateWindow(1157)</onfocus>
-		</control>
-		<control type="button" id="9054">
-			<!-- Play bump sound if user tries to leave Music shelf by undefined direction -->
-			<left>-90</left>
-			<top>-90</top>
-			<width>1</width>
-			<height>1</height>
-			<onfocus>SetFocus(9260)</onfocus>
-			<onfocus>ActivateWindow(1157)</onfocus>
-		</control>
-		<control type="button" id="9056">
-			<!-- Play bump sound if user tries to leave Addons shelf by undefined direction -->
-			<left>-105</left>
-			<top>-105</top>
-			<width>1</width>
-			<height>1</height>
-			<onfocus>SetFocus(9360)</onfocus>
-			<onfocus>ActivateWindow(1157)</onfocus>
-		</control>
-		<control type="button" id="9058">
-			<!-- Play bump sound if user tries to leave Broadcast shelf by undefined direction -->
-			<left>-120</left>
-			<top>-120</top>
-			<width>1</width>
-			<height>1</height>
-			<onfocus>SetFocus(9510)</onfocus>
-			<onfocus>ActivateWindow(1157)</onfocus>
-		</control>
-		<control type="button" id="9060">
-			<!-- Play bump sound if user tries to leave Custom shelf by undefined direction -->
-			<left>-135</left>
-			<top>-135</top>
-			<width>1</width>
-			<height>1</height>
-			<onfocus>SetFocus(9560)</onfocus>
-			<onfocus>ActivateWindow(1157)</onfocus>
-		</control>
+
+		<!-- Play bump sound if user tries to leave menu by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9005" />
+			<param name="returnid" value="9000" />
+		</include>
+		<!-- Play bump sound if user tries to leave Movie shelf by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9050" />
+			<param name="returnid" value="9160" />
+		</include>
+		<!-- Play bump sound if user tries to leave TV shelf by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9052" />
+			<param name="returnid" value="9210" />
+		</include>
+		<!-- Play bump sound if user tries to leave Music shelf by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9054" />
+			<param name="returnid" value="9260" />
+		</include>
+		<!-- Play bump sound if user tries to leave Addons shelf by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9056" />
+			<param name="returnid" value="9360" />
+		</include>
+		<!-- Play bump sound if user tries to leave Addons shelf by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9056" />
+			<param name="returnid" value="9360" />
+		</include>
+		<!-- Play bump sound if user tries to leave Broadcast shelf by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9058" />
+			<param name="returnid" value="9510" />
+		</include>
+		<!-- Play bump sound if user tries to leave Custom shelf by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9060" />
+			<param name="returnid" value="9560" />
+		</include>
+
 		<control type="group">
 			<!-- Markers for off screen menu bar items -->
 			<control type="image">
