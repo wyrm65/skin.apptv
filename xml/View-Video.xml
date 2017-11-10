@@ -542,6 +542,16 @@
 						<label>$VAR[VideoDuration]</label>
 					</control>
 				</control>
+				<control type="label">
+					<!-- Number of movies in the set -->
+					<left>26</left>
+					<top>353</top>
+					<width>398</width>
+					<height>46</height>
+					<font>apptv23</font>
+					<label>$INFO[Container(5000).NumItems,, $LOCALIZE[342]]</label>
+					<visible>ListItem.IsCollection</visible>
+				</control>
 				<control type="image">
 					<!-- MPAA Rating -->
 					<left>26</left>
@@ -576,7 +586,7 @@
 					<visible>!String.IsEmpty(ListItem.PlotOutline)</visible>
 				</control>
 				<control type="textbox">
-					<!-- Plot (Show if no outline available)-->
+					<!-- Plot (Show if no outline available) -->
 					<left>26</left>
 					<top>700</top>
 					<width>954</width>
@@ -586,6 +596,36 @@
 					<align>justify</align>
 					<aligny>top</aligny>
 					<visible>String.IsEmpty(ListItem.PlotOutline) + !String.IsEmpty(ListItem.Plot)</visible>
+				</control>
+				<control type="group">
+					<visible>ListItem.IsCollection</visible>
+					<!-- Show list of movies in Set if in Set node of library -->
+					<control type="panel" id="5000">
+						<left>26</left>
+						<top>700</top>
+						<width>954</width>
+						<height>320</height>
+						<orientation>vertical</orientation>
+						<itemlayout height="32" width="954">
+							<control type="label">
+								<height>32</height>
+								<width>954</width>
+								<aligny>center</aligny>
+								<label>$INFO[ListItem.Year,[COLOR disabled-text],[/COLOR]  -  ]$INFO[ListItem.Label]</label>
+								<font>apptv20</font>
+							</control>
+						</itemlayout>
+						<focusedlayout height="32" width="954">
+							<control type="label">
+								<height>32</height>
+								<width>954</width>
+								<aligny>center</aligny>
+								<label>$INFO[ListItem.Year,[COLOR listselected-text],[/COLOR]  -  ]$INFO[ListItem.Label]</label>
+								<font>apptv20</font>
+							</control>
+						</focusedlayout>
+						<content sortby="year" sortorder="descending">$INFO[ListItem.FolderPath]</content>
+					</control>
 				</control>
 			</control>
 		</control>
