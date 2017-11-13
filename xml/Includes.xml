@@ -218,24 +218,46 @@
 		<value condition="Container.Content(movies)">videodb://recentlyaddedmovies/</value>
 		<value condition="Container.Content(tvshows)">videodb://recentlyaddedepisodes/</value>
 	</variable>
-	<variable name="ListScrollNav">
-		<value condition="Control.IsVisible(50) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">SetFocus(1260)</value>
-		<value condition="Control.IsVisible(50) + Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]">SetFocus(1260)</value>
+	<variable name="ListScrollNavVideo">
+		<value condition="Control.IsVisible(50) + Skin.HasSetting(show-letterbar) + [Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows)]">SetFocus(1260)</value>
 		<value condition="Control.IsVisible(50) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1250)</value>
-		<value condition="Control.IsVisible(52) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">SetFocus(1262)</value>
 		<value condition="Control.IsVisible(52) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1252)</value>
 		<value condition="Control.IsVisible(53) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">SetFocus(1263)</value>
 		<value condition="Control.IsVisible(53) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1253)</value>
 		<value condition="Control.IsVisible(54) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">SetFocus(1264)</value>
-		<value condition="Control.IsVisible(54) + Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]">SetFocus(1264)</value>
 		<value condition="Control.IsVisible(54) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1254)</value>
 		<value condition="Control.IsVisible(57) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">SetFocus(1267)</value>
+		<value condition="Control.IsVisible(57) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1257)</value>
+		<value condition="Control.IsVisible(58) + Skin.HasSetting(show-letterbar) + [Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows)]">SetFocus(1268)</value>
+		<value condition="Control.IsVisible(58) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1258)</value>
+		<value>noop</value>
+	</variable>
+	<variable name="ListScrollNavMusic">
+		<value condition="Control.IsVisible(50) + Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]">SetFocus(1260)</value>
+		<value condition="Control.IsVisible(50) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1250)</value>
+		<value condition="Control.IsVisible(52) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1252)</value>
+		<value condition="Control.IsVisible(53) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1253)</value>
+		<value condition="Control.IsVisible(54) + Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]">SetFocus(1264)</value>
+		<value condition="Control.IsVisible(54) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1254)</value>
 		<value condition="Control.IsVisible(57) + Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]">SetFocus(1267)</value>
 		<value condition="Control.IsVisible(57) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1257)</value>
-		<value condition="Control.IsVisible(58) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">SetFocus(1268)</value>
 		<value condition="Control.IsVisible(58) + Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]">SetFocus(1268)</value>
 		<value condition="Control.IsVisible(58) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1258)</value>
 		<value>noop</value>
+	</variable>
+	<variable name="ListScrollNavSets">
+		<value condition="Control.IsVisible(50) + Container(50).Content(sets) + !Skin.HasSetting(lock-screensettings) + !ListItem.IsParentFolder">SetFocus(5050)</value>
+		<value condition="Control.IsVisible(50) + !Skin.HasSetting(lock-screensettings)">SetFocus(9000)</value>
+		<value condition="Control.IsVisible(58) + Container(50).Content(sets) + !Skin.HasSetting(lock-screensettings) + !ListItem.IsParentFolder">SetFocus(5058)</value>
+		<value condition="Control.IsVisible(58) + !Skin.HasSetting(lock-screensettings)">SetFocus(9000)</value>
+		<value condition="[Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(54) | Control.IsVisible(57)] + !Skin.HasSetting(lock-screensettings)">SetFocus(9000)</value>
+		<value>noop</value>
+	</variable>
+	<variable name="ListSecondLine">
+		<value condition="Container.Content(movies) | Container.Content(musicvideos) | Container.Content(episodes)">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>
+		<value condition="Container.Content(tvshows) | Container.Content(seasons)">$INFO[ListItem.PlotOutline]</value>
+		<value condition="Container.Content(addons)">$INFO[ListItem.AddonDescription]</value>
+		<value>$INFO[ListItem.Label2]</value>
 	</variable>
 	<variable name="PlayerControlRepeatImage">
 		<value condition="Playlist.IsRepeatOne + Control.HasFocus(674)">osd-btn-repeatone-focus.png</value>
@@ -3663,6 +3685,8 @@
 		<param name="grp3visible" default="false"/>
 		<param name="grp4indicate"/>
 		<param name="grp4visible" default="false"/>
+		<param name="grp5indicate"/>
+		<param name="grp5visible" default="false"/>
 		<definition>
 			<control type="grouplist" id="3500">
 				<left>$PARAM[indicatorleft]</left>
@@ -3716,6 +3740,17 @@
 					<usealttexture>$PARAM[grp4indicate]</usealttexture>
 					<onclick/>
 					<visible>$PARAM[grp4visible]</visible>
+				</control>
+				<control type="togglebutton">
+					<width>48</width>
+					<height>48</height>
+					<texturefocus>groupunfocused.png</texturefocus>
+					<texturenofocus>groupunfocused.png</texturenofocus>
+					<alttexturefocus>groupfocused.png</alttexturefocus>
+					<alttexturenofocus>groupfocused.png</alttexturenofocus>
+					<usealttexture>$PARAM[grp5indicate]</usealttexture>
+					<onclick/>
+					<visible>$PARAM[grp5visible]</visible>
 				</control>
 			</control>
 		</definition>
