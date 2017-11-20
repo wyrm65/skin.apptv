@@ -102,9 +102,9 @@
 			</control>
 			<control type="textbox">
 				<left>510</left>
-				<top>168</top>
+				<top>165</top>
 				<width>1350</width>
-				<height>174</height>
+				<height>180</height>
 				<label>$INFO[ListItem.Plot]</label>
 				<font>apptv20</font>
 				<align>justify</align>
@@ -114,9 +114,9 @@
 			<control type="textbox">
 				<!-- Plot outline (Show if no plot available)-->
 				<left>510</left>
-				<top>168</top>
+				<top>165</top>
 				<width>1350</width>
-				<height>174</height>
+				<height>180</height>
 				<label fallback="161">$INFO[ListItem.PlotOutline]</label>
 				<font>apptv20</font>
 				<align>justify</align>
@@ -707,26 +707,17 @@
 				</control>
 			</focusedlayout>
 		</control>
-		<control type="group">
-			<!-- Markers for control area items -->
-			<visible>Control.HasFocus(50)</visible>
-			<control type="image">
-				<left>30</left>
-				<top>876</top>
-				<height>24</height>
-				<width>24</width>
-				<texture>scroll-left.png</texture>
-				<visible>Container(50).HasPrevious</visible>
-			</control>
-			<control type="image">
-				<left>1866</left>
-				<top>876</top>
-				<height>24</height>
-				<width>24</width>
-				<texture>scroll-right.png</texture>
-				<visible>Container(50).HasNext</visible>
-			</control>
-		</control>
+
+		<!-- Markers for control area items -->
+		<include content="page-offscreen-horizontal">
+			<param name="indicator1left" value="30"/>
+			<param name="indicator1top" value="876"/>
+			<param name="indicator2left" value="1866"/>
+			<param name="indicator2top" value="876"/>
+			<param name="indicatorsize" value="24"/>
+			<param name="indicatorcontainer" value="50"/>
+		</include>
+
 		<control type="list" id="950">
 			<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
 			<left>15</left>
@@ -818,26 +809,16 @@
 			</focusedlayout>
 			<content target="video" limit="12">$VAR[VideoInfoIcons]</content>
 		</control>
-		<control type="group">
-			<!-- Markers for control area items -->
-			<visible>Control.HasFocus(950)</visible>
-			<control type="image">
-				<left>30</left>
-				<top>873</top>
-				<height>24</height>
-				<width>24</width>
-				<texture>scroll-left.png</texture>
-				<visible>Container(950).HasPrevious</visible>
-			</control>
-			<control type="image">
-				<left>1866</left>
-				<top>873</top>
-				<height>24</height>
-				<width>24</width>
-				<texture>scroll-right.png</texture>
-				<visible>Container(950).HasNext</visible>
-			</control>
-		</control>
+
+		<!-- Markers for control area items -->
+		<include content="page-offscreen-horizontal">
+			<param name="indicator1left" value="30"/>
+			<param name="indicator1top" value="873"/>
+			<param name="indicator2left" value="1866"/>
+			<param name="indicator2top" value="873"/>
+			<param name="indicatorsize" value="24"/>
+			<param name="indicatorcontainer" value="950"/>
+		</include>
 
 		<!-- Play bump sound if user tries to leave button bar by undefined direction -->
 		<include content="illegal-action">

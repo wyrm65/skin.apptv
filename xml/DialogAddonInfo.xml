@@ -33,9 +33,9 @@
 			<control type="textbox">
 				<!-- Addon description -->
 				<left>570</left>
-				<top>168</top>
+				<top>165</top>
 				<width>1290</width>
-				<height>174</height>
+				<height>180</height>
 				<label>$INFO[ListItem.AddonDescription]</label>
 				<font>apptv20</font>
 				<align>justify</align>
@@ -45,9 +45,9 @@
 			<control type="textbox">
 				<!-- Addon summary (Show if no description available)-->
 				<left>570</left>
-				<top>168</top>
+				<top>165</top>
 				<width>1290</width>
-				<height>174</height>
+				<height>180</height>
 				<label fallback="161">$INFO[ListItem.AddonSummary]</label>
 				<font>apptv20</font>
 				<align>justify</align>
@@ -316,22 +316,14 @@
 			<control type="group">
 				<!-- Markers for control area items -->
 				<visible>Control.IsVisible(50)</visible>
-				<control type="image">
-					<left>30</left>
-					<top>921</top>
-					<height>24</height>
-					<width>24</width>
-					<texture>scroll-left.png</texture>
-					<visible>Container(50).HasPrevious</visible>
-				</control>
-				<control type="image">
-					<left>1866</left>
-					<top>921</top>
-					<height>24</height>
-					<width>24</width>
-					<texture>scroll-right.png</texture>
-					<visible>Container(50).HasNext</visible>
-				</control>
+				<include content="page-offscreen-horizontal">
+					<param name="indicator1left" value="30"/>
+					<param name="indicator1top" value="924"/>
+					<param name="indicator2left" value="1866"/>
+					<param name="indicator2top" value="921"/>
+					<param name="indicatorsize" value="24"/>
+					<param name="indicatorcontainer" value="50"/>
+				</include>
 			</control>
 			<control type="list" id="950">
 				<!-- Recently Updated Addons -->
@@ -382,22 +374,14 @@
 			<control type="group">
 				<!-- Markers for control area items -->
 				<visible>Control.IsVisible(950)</visible>
-				<control type="image">
-					<left>30</left>
-					<top>870</top>
-					<height>24</height>
-					<width>24</width>
-					<texture>scroll-left.png</texture>
-					<visible>Container(950).HasPrevious</visible>
-				</control>
-				<control type="image">
-					<left>1866</left>
-					<top>870</top>
-					<height>24</height>
-					<width>24</width>
-					<texture>scroll-right.png</texture>
-					<visible>Container(950).HasNext</visible>
-				</control>
+				<include content="page-offscreen-horizontal">
+					<param name="indicator1left" value="30"/>
+					<param name="indicator1top" value="870"/>
+					<param name="indicator2left" value="1866"/>
+					<param name="indicator2top" value="870"/>
+					<param name="indicatorsize" value="24"/>
+					<param name="indicatorcontainer" value="950"/>
+				</include>
 			</control>
 		</control>
 	</controls>

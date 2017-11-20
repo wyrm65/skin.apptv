@@ -2048,22 +2048,14 @@
 			<control type="group">
 				<!-- Markers for control area items -->
 				<visible>Control.HasFocus(950)</visible>
-				<control type="image">
-					<left>30</left>
-					<top>873</top>
-					<height>24</height>
-					<width>24</width>
-					<texture>scroll-left.png</texture>
-					<visible>Container(950).HasPrevious</visible>
-				</control>
-				<control type="image">
-					<left>1866</left>
-					<top>873</top>
-					<height>24</height>
-					<width>24</width>
-					<texture>scroll-right.png</texture>
-					<visible>Container(950).HasNext</visible>
-				</control>
+				<include content="page-offscreen-horizontal">
+					<param name="indicator1left" value="30"/>
+					<param name="indicator1top" value="873"/>
+					<param name="indicator2left" value="1866"/>
+					<param name="indicator2top" value="873"/>
+					<param name="indicatorsize" value="24"/>
+					<param name="indicatorcontainer" value="950"/>
+				</include>
 			</control>
 		</control>
 	</controls>

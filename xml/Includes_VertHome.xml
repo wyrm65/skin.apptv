@@ -96,23 +96,15 @@
 				</control>
 			</control>
 		</control>
-		<control type="image">
-			<!-- Markers for excess menu items -->
-			<left>1434</left>
-			<top>138</top>
-			<height>48</height>
-			<width>48</width>
-			<texture>scroll-up.png</texture>
-			<visible>Container(9000).HasPrevious</visible>
-		</control>
-		<control type="image">
-			<left>1434</left>
-			<top>924</top>
-			<height>48</height>
-			<width>48</width>
-			<texture>scroll-down.png</texture>
-			<visible>Container(9000).HasNext</visible>
-		</control>
+		<!-- Markers for excess menu items -->
+		<include content="page-offscreen-vertical">
+			<param name="indicator1left" value="1434"/>
+			<param name="indicator1top" value="138"/>
+			<param name="indicator2left" value="1434"/>
+			<param name="indicator2top" value="924"/>
+			<param name="indicatorsize" value="48"/>
+			<param name="indicatorcontainer" value="9000"/>
+		</include>
 		<control type="list" id="9000">
 			<!-- Home menu list -->
 			<left>1074</left>

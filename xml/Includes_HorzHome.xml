@@ -311,25 +311,16 @@
 			<param name="returnid" value="9560" />
 		</include>
 
-		<control type="group">
-			<!-- Markers for off screen menu bar items -->
-			<control type="image">
-				<left>0</left>
-				<top>513</top>
-				<height>24</height>
-				<width>24</width>
-				<texture>scroll-left.png</texture>
-				<visible>Container(9000).HasPrevious</visible>
-			</control>
-			<control type="image">
-				<left>1896</left>
-				<top>513</top>
-				<height>24</height>
-				<width>24</width>
-				<texture>scroll-right.png</texture>
-				<visible>Container(9000).HasNext</visible>
-			</control>
-		</control>
+		<!-- Markers for control area items -->
+		<include content="page-offscreen-horizontal">
+			<param name="indicator1left" value="0"/>
+			<param name="indicator1top" value="513"/>
+			<param name="indicator2left" value="1896"/>
+			<param name="indicator2top" value="513"/>
+			<param name="indicatorsize" value="24"/>
+			<param name="indicatorcontainer" value="9000"/>
+		</include>
+
 		<control type="grouplist" id="9000">
 			<!-- Home Sub menus -->
 			<left>15</left>
@@ -366,25 +357,15 @@
 						<height>102</height>
 						<texture>menu-focus.png</texture>
 					</control>
-					<control type="group">
-						<!-- Markers for control area items -->
-						<control type="image">
-							<left>144</left>
-							<top>102</top>
-							<height>24</height>
-							<width>24</width>
-							<texture>scroll-up.png</texture>
-							<visible>Container(9100).HasPrevious</visible>
-						</control>
-						<control type="image">
-							<left>144</left>
-							<top>504</top>
-							<height>24</height>
-							<width>24</width>
-							<texture>scroll-down.png</texture>
-							<visible>Container(9100).HasNext</visible>
-						</control>
-					</control>
+					<!-- Markers for off screen menu items -->
+					<include content="page-offscreen-vertical">
+						<param name="indicator1left" value="144"/>
+						<param name="indicator1top" value="102"/>
+						<param name="indicator2left" value="144"/>
+						<param name="indicator2top" value="504"/>
+						<param name="indicatorsize" value="24"/>
+						<param name="indicatorcontainer" value="9100"/>
+					</include>
 				</control>
 				<control type="label">
 					<!-- Menu Heading -->
@@ -1812,25 +1793,15 @@
 						<height>102</height>
 						<texture>menu-focus.png</texture>
 					</control>
-					<control type="group">
-						<!-- Markers for control area items -->
-						<control type="image">
-							<left>144</left>
-							<top>102</top>
-							<height>24</height>
-							<width>24</width>
-							<texture>scroll-up.png</texture>
-							<visible>Container(9450).HasPrevious</visible>
-						</control>
-						<control type="image">
-							<left>144</left>
-							<top>504</top>
-							<height>24</height>
-							<width>24</width>
-							<texture>scroll-down.png</texture>
-							<visible>Container(9450).HasNext</visible>
-						</control>
-					</control>
+					<!-- Markers for control area items -->
+					<include content="page-offscreen-vertical">
+						<param name="indicator1left" value="144"/>
+						<param name="indicator1top" value="102"/>
+						<param name="indicator2left" value="144"/>
+						<param name="indicator2top" value="504"/>
+						<param name="indicatorsize" value="24"/>
+						<param name="indicatorcontainer" value="9450"/>
+					</include>
 				</control>
 				<control type="label">
 					<!-- Menu Heading -->

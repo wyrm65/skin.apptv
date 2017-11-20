@@ -3755,6 +3755,62 @@
 			</control>
 		</definition>
 	</include>
+	<include name="page-offscreen-vertical">
+		<param name="indicator1left" default="0"/>
+		<param name="indicator1top" default="0"/>
+		<param name="indicator2left" default="0"/>
+		<param name="indicator2top" default="0"/>
+		<param name="indicatorsize" default="0"/>
+		<param name="indicatorcontainer"/>
+		<definition>
+			<control type="group">
+				<control type="image">
+					<left>$PARAM[indicator1left]</left>
+					<top>$PARAM[indicator1top]</top>
+					<height>$PARAM[indicatorsize]</height>
+					<width>$PARAM[indicatorsize]</width>
+					<texture>scroll-up.png</texture>
+					<visible>Container($PARAM[indicatorcontainer]).HasPrevious</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[indicator2left]</left>
+					<top>$PARAM[indicator2top]</top>
+					<height>$PARAM[indicatorsize]</height>
+					<width>$PARAM[indicatorsize]</width>
+					<texture>scroll-down.png</texture>
+					<visible>Container($PARAM[indicatorcontainer]).HasNext</visible>
+				</control>
+			</control>
+		</definition>
+	</include>
+	<include name="page-offscreen-horizontal">
+		<param name="indicator1left" default="0"/>
+		<param name="indicator1top" default="0"/>
+		<param name="indicator2left" default="0"/>
+		<param name="indicator2top" default="0"/>
+		<param name="indicatorsize" default="0"/>
+		<param name="indicatorcontainer"/>
+		<definition>
+			<control type="group">
+				<control type="image">
+					<left>$PARAM[indicator1left]</left>
+					<top>$PARAM[indicator1top]</top>
+					<height>$PARAM[indicatorsize]</height>
+					<width>$PARAM[indicatorsize]</width>
+					<texture>scroll-left.png</texture>
+					<visible>Container($PARAM[indicatorcontainer]).HasPrevious</visible>
+				</control>
+				<control type="image">
+					<left>$PARAM[indicator2left]</left>
+					<top>$PARAM[indicator2top]</top>
+					<height>$PARAM[indicatorsize]</height>
+					<width>$PARAM[indicatorsize]</width>
+					<texture>scroll-right.png</texture>
+					<visible>Container($PARAM[indicatorcontainer]).HasNext</visible>
+				</control>
+			</control>
+		</definition>
+	</include>
 	<include name="touch-controls">
 		<control type="grouplist" id="8000">
 			<visible>$EXP[isEnabledTouch]</visible>

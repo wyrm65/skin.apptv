@@ -692,23 +692,16 @@
 			<control type="group">
 				<!-- Markers for control area items -->
 				<visible>$EXP[isAlbum]</visible>
-				<control type="image">
-					<left>948</left>
-					<top>759</top>
-					<height>24</height>
-					<width>24</width>
-					<texture>scroll-up.png</texture>
-					<visible>Container(50).HasPrevious</visible>
-				</control>
-				<control type="image">
-					<left>948</left>
-					<top>1050</top>
-					<height>24</height>
-					<width>24</width>
-					<texture>scroll-down.png</texture>
-					<visible>Container(50).HasNext</visible>
-				</control>
+				<include content="page-offscreen-vertical">
+					<param name="indicator1left" value="948"/>
+					<param name="indicator1top" value="759"/>
+					<param name="indicator2left" value="948"/>
+					<param name="indicator2top" value="1050"/>
+					<param name="indicatorsize" value="24"/>
+					<param name="indicatorcontainer" value="50"/>
+				</include>
 			</control>
+
 		</control>
 		<control type="group">
 			<!-- Recommended songs list -->
@@ -775,26 +768,15 @@
 				</focusedlayout>
 				<content limit="12">plugin://script.skin.helper.widgets/?action=recommended&amp;mediatype=albums&amp;browse=true&amp;reload=$INFO[Window(Home).Property(widgetreload-music)]</content>
 			</control>
-			<control type="group">
-				<!-- Markers for control area items -->
-				<visible>Control.HasFocus(950)</visible>
-				<control type="image">
-					<left>30</left>
-					<top>873</top>
-					<height>24</height>
-					<width>24</width>
-					<texture>scroll-left.png</texture>
-					<visible>Container(950).HasPrevious</visible>
-				</control>
-				<control type="image">
-					<left>1866</left>
-					<top>873</top>
-					<height>24</height>
-					<width>24</width>
-					<texture>scroll-right.png</texture>
-					<visible>Container(950).HasNext</visible>
-				</control>
-			</control>
+			<!-- Markers for control area items -->
+			<include content="page-offscreen-horizontal">
+				<param name="indicator1left" value="30"/>
+				<param name="indicator1top" value="873"/>
+				<param name="indicator2left" value="1866"/>
+				<param name="indicator2top" value="873"/>
+				<param name="indicatorsize" value="24"/>
+				<param name="indicatorcontainer" value="950"/>
+			</include>
 		</control>
 		<control type="scrollbar" id="1323">
 			<left>1875</left>

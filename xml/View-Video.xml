@@ -612,25 +612,15 @@
 				</control>
 				<control type="group">
 					<visible>ListItem.IsCollection</visible>
-					<control type="group">
-						<!-- Markers for off screen menu items -->
-						<control type="image">
-							<left>491</left>
-							<top>700</top>
-							<height>24</height>
-							<width>24</width>
-							<texture>scroll-up.png</texture>
-							<visible>Container(5050).HasPrevious</visible>
-						</control>
-						<control type="image">
-							<left>491</left>
-							<top>998</top>
-							<height>24</height>
-							<width>24</width>
-							<texture>scroll-down.png</texture>
-							<visible>Container(5050).HasNext</visible>
-						</control>
-					</control>
+					<!-- Markers for off screen menu items -->
+					<include content="page-offscreen-vertical">
+						<param name="indicator1left" value="491"/>
+						<param name="indicator1top" value="700"/>
+						<param name="indicator2left" value="491"/>
+						<param name="indicator2top" value="998"/>
+						<param name="indicatorsize" value="24"/>
+						<param name="indicatorcontainer" value="5050"/>
+					</include>
 					<!-- Show list of movies in Set if in Set node of library -->
 					<control type="panel" id="5050">
 						<left>26</left>
@@ -2386,25 +2376,15 @@
 				</control>
 				<control type="group">
 					<visible>ListItem.IsCollection</visible>
-					<control type="group">
-						<!-- Markers for off screen menu items -->
-						<control type="image">
-							<left>389</left>
-							<top>494</top>
-							<height>24</height>
-							<width>24</width>
-							<texture>scroll-up.png</texture>
-							<visible>Container(5058).HasPrevious</visible>
-						</control>
-						<control type="image">
-							<left>389</left>
-							<top>979</top>
-							<height>24</height>
-							<width>24</width>
-							<texture>scroll-down.png</texture>
-							<visible>Container(5058).HasNext</visible>
-						</control>
-					</control>
+					<!-- Markers for off screen menu items -->
+					<include content="page-offscreen-vertical">
+						<param name="indicator1left" value="389"/>
+						<param name="indicator1top" value="494"/>
+						<param name="indicator2left" value="389"/>
+						<param name="indicator2top" value="979"/>
+						<param name="indicatorsize" value="24"/>
+						<param name="indicatorcontainer" value="5058"/>
+					</include>
 					<!-- Show list of movies in Set if in Set node of library -->
 					<control type="panel" id="5058">
 						<left>26</left>

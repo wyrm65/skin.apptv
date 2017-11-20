@@ -4,19 +4,10 @@
 	<visible>!Window.IsVisible(fullscreenvideo) + !Window.IsActive(script-cu-lrclyrics-main.xml)</visible>
 	<controls>
 		<include>background</include>
-		<control type="label">
-			<!-- Debug -->
-			<left>10</left>
-			<top>10</top>
-			<width>1023</width>
-			<height>33</height>
-			<label>$INFO[system.getbool(Player.HasMedia)]</label>
-			<font>apptv22</font>
-		</control>
 		<control type="group">
 			<!-- infos -->
 			<visible>Player.ShowInfo</visible>
-			<control type="image" id="992">
+			<control type="image">
 				<!-- Music logo if available -->
 				<left>30</left>
 				<top>30</top>
@@ -35,31 +26,33 @@
 				<texture>background.png</texture>
 				<colordiffuse>mask-background</colordiffuse>
 			</control>
-			<control type="image">
-				<!-- Cd disk image -->
-				<left>208</left>
-				<top>735</top>
-				<width>322</width>
-				<height>322</height>
-				<texture fallback="DefaultDVDRom.png">$INFO[Window(Home).Property(SkinHelper.Player.Art.DiscArt)]</texture>
-				<aspectratio aligny="bottom">keep</aspectratio>
-				<animation effect="slide" start="-153" end="0" time="900" tween="cubic" easing="out" delay="1000">WindowOpen</animation>
-				<animation type="WindowClose">
-					<effect type="slide" start="0" end="-147" time="100" tween="cubic" easing="in" delay="0" />
-					<effect type="fade" start="100" end="0" time="200" />
-					<condition type="!Player.Playing" />
-				</animation>
-				<animation effect="rotate" end="-360" center="auto" time="3000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+			<control type="group">
 				<visible>!String.EndsWith(Control.GetLabel(994),DefaultAudio.png) + !String.EndsWith(Control.GetLabel(994),icon-radio.png) + !String.IsEmpty(MusicPlayer.TimeRemaining)</visible>
-			</control>
-			<control type="image">
-				<left>22</left>
-				<top>700</top>
-				<height>396</height>
-				<width>388</width>
-				<texture>case-cd.png</texture>
-				<aspectratio>stretch</aspectratio>
-				<visible>Skin.HasSetting(media-case) + !String.EndsWith(Control.GetLabel(994),DefaultAudio.png) + !String.EndsWith(Control.GetLabel(994),icon-radio.png) + !String.IsEmpty(MusicPlayer.TimeRemaining)</visible>
+				<control type="image">
+					<!-- Cd disk image -->
+					<left>208</left>
+					<top>735</top>
+					<width>322</width>
+					<height>322</height>
+					<texture fallback="DefaultDVDRom.png">$INFO[Window(Home).Property(SkinHelper.Player.Art.DiscArt)]</texture>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<animation effect="slide" start="-153" end="0" time="900" tween="cubic" easing="out" delay="1000">WindowOpen</animation>
+					<animation type="WindowClose">
+						<effect type="slide" start="0" end="-147" time="100" tween="cubic" easing="in" delay="0" />
+						<effect type="fade" start="100" end="0" time="200" />
+						<condition type="!Player.Playing" />
+					</animation>
+					<animation effect="rotate" end="-360" center="auto" time="3000" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
+				</control>
+				<control type="image">
+					<left>22</left>
+					<top>700</top>
+					<height>396</height>
+					<width>388</width>
+					<texture>case-cd.png</texture>
+					<aspectratio>stretch</aspectratio>
+					<visible>Skin.HasSetting(media-case)</visible>
+				</control>
 			</control>
 			<control type="image" id="994">
 				<!-- Cover image -->
