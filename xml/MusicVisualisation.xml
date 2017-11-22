@@ -96,76 +96,34 @@
 				<visible>!MusicPartyMode.Enabled + Integer.IsGreater(Playlist.Length(music),1) + !String.IsEmpty(MusicPlayer.TimeRemaining)</visible>
 			</control>
 			<control type="label">
-				<!-- Title label -->
+				<!-- Track label -->
 				<left>555</left>
 				<top>786</top>
 				<width>1320</width>
 				<height>38</height>
 				<font>apptv25</font>
-				<label>$LOCALIZE[19021] - $INFO[MusicPlayer.ChannelName]</label>
+				<label>$VAR[PlayerMusicTrack]</label>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				<visible>Pvr.IsPlayingRadio</visible>
 			</control>
 			<control type="label">
-				<!-- Title label -->
+				<!-- Artist label -->
 				<left>555</left>
-				<top>786</top>
+				<top>830</top>
 				<width>1320</width>
-				<height>38</height>
-				<font>apptv25</font>
-				<label>$INFO[MusicPlayer.Title]</label>
+				<height>33</height>
+				<font>apptv22</font>
+				<label>$VAR[PlayerMusicArtist]</label>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				<visible>!Pvr.IsPlayingRadio</visible>
 			</control>
-			<control type="group">
-				<!-- Local music files -->
-				<visible>!String.IsEmpty(MusicPlayer.TimeRemaining)</visible>
-				<control type="label">
-					<!-- Artist label -->
-					<left>555</left>
-					<top>830</top>
-					<width>1320</width>
-					<height>33</height>
-					<font>apptv22</font>
-					<label>$INFO[MusicPlayer.Artist]</label>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				</control>
-				<control type="label">
-					<!-- Album label -->
-					<left>555</left>
-					<top>872</top>
-					<width>1320</width>
-					<height>33</height>
-					<font>apptv22</font>
-					<label>$INFO[MusicPlayer.Album]</label>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				</control>
-			</control>
-			<control type="group">
-				<!-- Probably a stream -->
-				<visible>String.IsEmpty(MusicPlayer.TimeRemaining)</visible>
-				<control type="label">
-					<!-- Artist label -->
-					<left>555</left>
-					<top>830</top>
-					<width>1320</width>
-					<height>33</height>
-					<font>apptv22</font>
-					<label>$INFO[Window(home).Property(plugin.audio.streaming-radio.Artist)]</label>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<visible>!String.IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Artist))</visible>
-				</control>
-				<control type="label">
-					<!-- Track title -->
-					<left>555</left>
-					<top>872</top>
-					<width>1320</width>
-					<height>33</height>
-					<font>apptv22</font>
-					<label>$INFO[Window(home).Property(plugin.audio.streaming-radio.Title)]</label>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<visible>!String.IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Title))</visible>
-				</control>
+			<control type="label">
+				<!-- Album label -->
+				<left>555</left>
+				<top>872</top>
+				<width>1320</width>
+				<height>33</height>
+				<font>apptv22</font>
+				<label>$VAR[PlayerMusicAlbum]</label>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="label">
 				<!-- Time label -->

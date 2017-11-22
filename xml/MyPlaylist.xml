@@ -110,7 +110,7 @@
 					<top>878</top>
 					<width>720</width>
 					<height>38</height>
-					<label>$INFO[MusicPlayer.Artist]</label>
+					<label>$VAR[PlayerMusicArtist]</label>
 					<font>apptv23</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
@@ -120,7 +120,16 @@
 					<width>990</width>
 					<height>38</height>
 					<font>apptv23</font>
-					<label>$INFO[MusicPlayer.Title]</label>
+					<label>$VAR[PlayerMusicTrack]</label>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
+				<control type="label">
+					<left>52</left>
+					<top>966</top>
+					<width>990</width>
+					<height>38</height>
+					<font>apptv23</font>
+					<label>$VAR[PlayerMusicAlbum]</label>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 			</control>
