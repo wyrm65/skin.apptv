@@ -842,24 +842,28 @@
 		<value condition="Pvr.IsPlayingRadio">icon-radio.png</value>
 		<value>DefaultAudio.png</value>
 	</variable>
-	<variable name="PlayerMusicAlbum">
+	<variable name="PlayerMusicInfo1">
+		<value condition="String.IsEmpty(MusicPlayer.TimeRemaining) + !IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Title))">$INFO[Window(home).Property(plugin.audio.streaming-radio.Title)]</value>
+		<value condition="!Pvr.IsPlayingRadio + String.Contains(MusicPlayer.Genre,Classical)">$INFO[MusicPlayer.Property(Role.Composer)]</value>
+		<value condition="Pvr.IsPlayingRadio">$INFO[MusicPlayer.ChannelName] - $INFO[MusicPlayer.Title]</value>
+		<value>$INFO[MusicPlayer.Title]</value>
+	</variable>
+	<variable name="PlayerMusicInfo2">
+		<value condition="String.IsEmpty(MusicPlayer.TimeRemaining) + !IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Artist))">$INFO[Window(home).Property(plugin.audio.streaming-radio.Artist)]</value>
+		<value condition="!Pvr.IsPlayingRadio + String.Contains(MusicPlayer.Genre,Classical)">$INFO[MusicPlayer.Title]</value>
+		<value>$INFO[MusicPlayer.Artist]</value>
+	</variable>
+	<variable name="PlayerMusicInfo3">
 		<value condition="!IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Album))">$INFO[Window(home).Property(plugin.audio.streaming-radio.Album)]</value>
+		<value condition="!Pvr.IsPlayingRadio + String.Contains(MusicPlayer.Genre,Classical)">$INFO[MusicPlayer.Artist] $INFO[MusicPlayer.Property(Role.Conductor), • ,] $INFO[MusicPlayer.Property(Role.Orchestra), • ,]</value>
 		<value>$INFO[MusicPlayer.Album]</value>
 	</variable>
-	<variable name="PlayerMusicArtist">
-		<value condition="String.IsEmpty(MusicPlayer.TimeRemaining) + !IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Artist))">$INFO[Window(home).Property(plugin.audio.streaming-radio.Artist)]</value>
-		<value condition="!Pvr.IsPlayingRadio + String.Contains(MusicPlayer.Genre,Classical)">$INFO[MusicPlayer.Artist] - $INFO[MusicPlayer.Property(Role.Composer)]</value>
-		<value>$INFO[MusicPlayer.Artist]</value>
+	<variable name="PlayerMusicInfo4">
+		<value condition="!Pvr.IsPlayingRadio + String.Contains(MusicPlayer.Genre,Classical)">$INFO[MusicPlayer.Album]</value>
 	</variable>
 	<variable name="PlayerMusicTitle">
 		<value condition="!IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Title))">$INFO[Window(home).Property(plugin.audio.streaming-radio.Title)]</value>
 		<value condition="Player.HasAudio + Pvr.IsPlayingRadio">$LOCALIZE[19021] - $INFO[MusicPlayer.ChannelName][CR]$INFO[MusicPlayer.Title]</value>
-		<value>$INFO[MusicPlayer.Title]</value>
-	</variable>
-	<variable name="PlayerMusicTrack">
-		<value condition="String.IsEmpty(MusicPlayer.TimeRemaining) + !IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Title))">$INFO[Window(home).Property(plugin.audio.streaming-radio.Title)]</value>
-		<value condition="!Pvr.IsPlayingRadio + String.Contains(MusicPlayer.Genre,Classical)">$INFO[MusicPlayer.TrackNumber] - $INFO[MusicPlayer.Title]</value>
-		<value condition="Pvr.IsPlayingRadio">$INFO[MusicPlayer.ChannelName] - $INFO[MusicPlayer.Title]</value>
 		<value>$INFO[MusicPlayer.Title]</value>
 	</variable>
 	<variable name="PlayerMusicSubTitle">

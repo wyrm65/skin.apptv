@@ -66,7 +66,7 @@
 			<control type="label">
 				<!-- Now playing -->
 				<left>555</left>
-				<top>743</top>
+				<top>726</top>
 				<width>1023</width>
 				<height>38</height>
 				<label>$LOCALIZE[31037]</label>
@@ -76,7 +76,7 @@
 			<control type="label">
 				<!-- Partymode enabled -->
 				<left>1485</left>
-				<top>746</top>
+				<top>732</top>
 				<width>399</width>
 				<height>33</height>
 				<label>$LOCALIZE[589]</label>
@@ -87,7 +87,7 @@
 			<control type="label">
 				<!-- Playlist label -->
 				<left>1461</left>
-				<top>746</top>
+				<top>732</top>
 				<width>399</width>
 				<height>33</height>
 				<align>right</align>
@@ -96,33 +96,43 @@
 				<visible>!MusicPartyMode.Enabled + Integer.IsGreater(Playlist.Length(music),1) + !String.IsEmpty(MusicPlayer.TimeRemaining)</visible>
 			</control>
 			<control type="label">
-				<!-- Track label -->
+				<!-- Info line 1 label -->
 				<left>555</left>
-				<top>786</top>
+				<top>768</top>
 				<width>1320</width>
-				<height>38</height>
-				<font>apptv25</font>
-				<label>$VAR[PlayerMusicTrack]</label>
+				<height>35</height>
+				<font>apptv23</font>
+				<label>$VAR[PlayerMusicInfo1]</label>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="label">
-				<!-- Artist label -->
+				<!-- Info line 2 label -->
 				<left>555</left>
-				<top>830</top>
+				<top>804</top>
 				<width>1320</width>
-				<height>33</height>
-				<font>apptv22</font>
-				<label>$VAR[PlayerMusicArtist]</label>
+				<height>32</height>
+				<font>apptv20</font>
+				<label>$VAR[PlayerMusicInfo2]</label>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="label">
-				<!-- Album label -->
+				<!-- Info line 3 label -->
+				<left>555</left>
+				<top>838</top>
+				<width>1320</width>
+				<height>32</height>
+				<font>apptv20</font>
+				<label>$VAR[PlayerMusicInfo3]</label>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+			</control>
+			<control type="label">
+				<!-- Info line 4 label -->
 				<left>555</left>
 				<top>872</top>
 				<width>1320</width>
-				<height>33</height>
-				<font>apptv22</font>
-				<label>$VAR[PlayerMusicAlbum]</label>
+				<height>32</height>
+				<font>apptv20</font>
+				<label>$VAR[PlayerMusicInfo4]</label>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="label">
