@@ -1376,24 +1376,39 @@
 					<label>$INFO[ListItem.Genre]</label>
 					<visible>!Container.Content(genres) + !String.IsEmpty(ListItem.Genre)</visible>
 				</control>
+				<control type="image">
+					<!-- Rating -->
+					<width>165</width>
+					<height>33</height>
+					<texture>$VAR[MediaRating]</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>!String.IsEmpty(ListItem.UserRating) | !String.IsEmpty(ListItem.Rating)</visible>
+				</control>
 				<control type="group">
-					<width>266</width>
-					<height>62</height>
-					<control type="image" id="581">
-						<!-- Star Rating -->
+					<visible>[!String.IsEmpty(ListItem.Property(Album_Description)) + Container.Content(albums)] | [!String.IsEmpty(ListItem.Property(Artist_Description)) + Container.Content(artists)]</visible>
+					<width>705</width>
+					<height>22</height>
+					<control type="image">
+						<!-- blank line -->
 						<left>0</left>
-						<top>14</top>
-						<width>165</width>
-						<height>33</height>
-						<texture>$VAR[MediaRating]</texture>
-						<aspectratio>keep</aspectratio>
-						<visible>!String.IsEqual(Control.GetLabel(581),blank.png)</visible>
+						<top>0</top>
+						<width>16</width>
+						<height>16</height>
+						<texture>blank.png</texture>
+					</control>
+					<control type="image">
+						<!-- Seperator -->
+						<left>0</left>
+						<top>17</top>
+						<width>705</width>
+						<height>6</height>
+						<texture>separator.png</texture>
 					</control>
 				</control>
 				<control type="textbox">
 					<!-- Album description -->
 					<width>705</width>
-					<height>562</height>
+					<height>564</height>
 					<font>apptv20</font>
 					<label>$INFO[ListItem.Property(Album_Description)]</label>
 					<align>justify</align>
@@ -1403,7 +1418,7 @@
 				<control type="textbox">
 					<!-- Artist description -->
 					<width>705</width>
-					<height>562</height>
+					<height>564</height>
 					<font>apptv20</font>
 					<label>$INFO[ListItem.Property(Artist_Description)]</label>
 					<align>justify</align>

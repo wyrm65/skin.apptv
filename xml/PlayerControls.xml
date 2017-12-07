@@ -161,61 +161,63 @@
 				<onclick>Fullscreen</onclick>
 				<visible>$EXP[isEnabledTouch]</visible>
 			</control>
-			<control type="label">
-				<left>531</left>
-				<top>206</top>
-				<width>1167</width>
-				<height>33</height>
-				<label>$INFO[MusicPlayer.Artist]</label>
-				<font>apptv22</font>
-				<align>center</align>
-			</control>
-			<control type="label">
-				<left>531</left>
-				<top>243</top>
-				<width>1167</width>
-				<height>30</height>
-				<label>$INFO[MusicPlayer.Album]</label>
-				<font>apptv20</font>
-				<align>center</align>
-			</control>
-			<control type="label">
-				<left>531</left>
-				<top>278</top>
-				<width>1167</width>
-				<height>30</height>
-				<label>$INFO[MusicPlayer.Title]</label>
-				<font>apptv20</font>
-				<align>center</align>
-				<visible>!Pvr.IsPlayingRadio</visible>
-			</control>
-			<control type="label">
-				<!-- Now playing -->
-				<left>531</left>
-				<top>206</top>
-				<width>1167</width>
-				<height>33</height>
-				<label>$LOCALIZE[31037]</label>
-				<align>center</align>
-				<font>apptv22</font>
-				<textcolor>listselected-text</textcolor>
-				<visible>Pvr.IsPlayingRadio</visible>
-			</control>
-			<control type="textbox">
-				<left>531</left>
-				<top>243</top>
-				<height>78</height>
-				<width>1167</width>
-				<font>apptv20</font>
-				<align>center</align>
-				<aligny>top</aligny>
-				<label>$INFO[MusicPlayer.ChannelName][CR]$INFO[MusicPlayer.Title]</label>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				<visible>Pvr.IsPlayingRadio</visible>
+			<control type="group">
+				<visible>!Pvr.IsPlayingRadio + !Player.IsInternetStream</visible>
+				<control type="label">
+					<left>530</left>
+					<top>204</top>
+					<width>1168</width>
+					<height>33</height>
+					<label>$VAR[PlayerMusicInfo1]</label>
+					<font>apptv22</font>
+					<align>center</align>
+				</control>
+				<control type="label">
+					<left>530</left>
+					<top>243</top>
+					<width>1168</width>
+					<height>30</height>
+					<label>$VAR[PlayerMusicInfo2]</label>
+					<font>apptv20</font>
+					<align>center</align>
+				</control>
+				<control type="label">
+					<left>530</left>
+					<top>278</top>
+					<width>1168</width>
+					<height>30</height>
+					<label>$VAR[PlayerMusicInfo3]</label>
+					<font>apptv20</font>
+					<align>center</align>
+				</control>
 			</control>
 			<control type="group">
-				<!-- Hide if playing a stream, makes no sense to show -->
-				<animation effect="fade" start="100" end="0" condition="String.IsEmpty(MusicPlayer.TimeRemaining)">Conditional</animation>
+				<visible>Pvr.IsPlayingRadio | Player.IsInternetStream</visible>
+				<control type="label">
+					<!-- Now playing -->
+					<left>530</left>
+					<top>204</top>
+					<width>1168</width>
+					<height>33</height>
+					<label>$LOCALIZE[31037]</label>
+					<align>center</align>
+					<font>apptv22</font>
+					<textcolor>listselected-text</textcolor>
+				</control>
+				<control type="textbox">
+					<left>530</left>
+					<top>243</top>
+					<height>78</height>
+					<width>1168</width>
+					<font>apptv20</font>
+					<align>center</align>
+					<aligny>top</aligny>
+					<label>$INFO[MusicPlayer.ChannelName][CR]$INFO[MusicPlayer.Title]</label>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
+			</control>
+			<control type="group">
+				<visible>!Pvr.IsPlayingRadio + !Player.IsInternetStream</visible>
 				<control type="label">
 					<left>465</left>
 					<top>402</top>
@@ -224,7 +226,6 @@
 					<label>$INFO[MusicPlayer.Time]</label>
 					<font>apptv20</font>
 					<align>right</align>
-					<visible>!Pvr.IsPlayingRadio</visible>
 				</control>
 				<control type="progress">
 					<left>780</left>
@@ -232,7 +233,6 @@
 					<width>660</width>
 					<height>18</height>
 					<info>Player.Progress</info>
-					<visible>!Pvr.IsPlayingRadio</visible>
 				</control>
 				<control type="slider" id="691">
 					<left>780</left>
@@ -241,7 +241,6 @@
 					<height>18</height>
 					<action>seek</action>
 					<onup>650</onup>
-					<visible>!Pvr.IsPlayingRadio</visible>
 				</control>
 				<control type="label">
 					<left>1455</left>

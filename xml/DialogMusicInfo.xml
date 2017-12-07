@@ -642,13 +642,6 @@
 				<orientation>vertical</orientation>
 				<itemlayout width="930" height="68">
 					<control type="image">
-						<left>0</left>
-						<top>0</top>
-						<width>930</width>
-						<height>68</height>
-						<texture border="6">button-default.png</texture>
-					</control>
-					<control type="image">
 						<left>12</left>
 						<top>10</top>
 						<width>48</width>
@@ -681,15 +674,7 @@
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
-						<width>825</width>
-						<height>68</height>
-						<visible>!Control.HasFocus(50)</visible>
-						<texture border="9">button-default.png</texture>
-					</control>
-					<control type="image">
-						<left>0</left>
-						<top>0</top>
-						<width>825</width>
+						<width>930</width>
 						<height>68</height>
 						<visible>Control.HasFocus(50)</visible>
 						<texture border="9">button-default-focus.png</texture>
@@ -720,6 +705,16 @@
 						<align>right</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Duration]</label>
+					</control>
+					<control type="label">
+						<left>300</left>
+						<top>10</top>
+						<width>500</width>
+						<height>68</height>
+						<font>apptv20</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Path]</label>
 					</control>
 				</focusedlayout>
 			</control>

@@ -843,18 +843,19 @@
 		<value>DefaultAudio.png</value>
 	</variable>
 	<variable name="PlayerMusicInfo1">
-		<value condition="String.IsEmpty(MusicPlayer.TimeRemaining) + !IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Title))">$INFO[Window(home).Property(plugin.audio.streaming-radio.Title)]</value>
+		<value condition="Player.IsInternetStream + !IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Title))">$INFO[Window(home).Property(plugin.audio.streaming-radio.Title)]</value>
 		<value condition="!Pvr.IsPlayingRadio + String.Contains(MusicPlayer.Genre,Classical)">$INFO[MusicPlayer.Property(Role.Composer)]</value>
 		<value condition="Pvr.IsPlayingRadio">$INFO[MusicPlayer.ChannelName] - $INFO[MusicPlayer.Title]</value>
-		<value>$INFO[MusicPlayer.Title]</value>
+		<value condition="!String.IsEmpty(MusicPlayer.Title)">$INFO[MusicPlayer.Title]</value>
+		<value>$INFO[Player.Title]</value>
 	</variable>
 	<variable name="PlayerMusicInfo2">
-		<value condition="String.IsEmpty(MusicPlayer.TimeRemaining) + !IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Artist))">$INFO[Window(home).Property(plugin.audio.streaming-radio.Artist)]</value>
+		<value condition="Player.IsInternetStream + !IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Artist))">$INFO[Window(home).Property(plugin.audio.streaming-radio.Artist)]</value>
 		<value condition="!Pvr.IsPlayingRadio + String.Contains(MusicPlayer.Genre,Classical)">$INFO[MusicPlayer.Title]</value>
 		<value>$INFO[MusicPlayer.Artist]</value>
 	</variable>
 	<variable name="PlayerMusicInfo3">
-		<value condition="!IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Album))">$INFO[Window(home).Property(plugin.audio.streaming-radio.Album)]</value>
+		<value condition="Player.IsInternetStream + !IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Album))">$INFO[Window(home).Property(plugin.audio.streaming-radio.Album)]</value>
 		<value condition="!Pvr.IsPlayingRadio + String.Contains(MusicPlayer.Genre,Classical)">$INFO[MusicPlayer.Artist] $INFO[MusicPlayer.Property(Role.Conductor), • ,] $INFO[MusicPlayer.Property(Role.Orchestra), • ,]</value>
 		<value>$INFO[MusicPlayer.Album]</value>
 	</variable>
@@ -3405,8 +3406,8 @@
 				<!-- Audio Stuff -->
 				<visible>Player.HasAudio</visible>
 				<control type="group">
-					<!-- Local Audio -->
-					<visible>!Pvr.IsPlayingRadio + !String.IsEmpty(MusicPlayer.TimeRemaining)</visible>
+					<!-- Local Audio or a stream -->
+					<visible>!Pvr.IsPlayingRadio</visible>
 					<control type="image">
 						<left>36</left>
 						<top>3</top>
@@ -3420,7 +3421,7 @@
 						<top>3</top>
 						<width>712</width>
 						<height>38</height>
-						<label>$INFO[MusicPlayer.Artist]</label>
+						<label>$VAR[PlayerMusicInfo1]</label>
 						<font>apptv22</font>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
@@ -3428,27 +3429,28 @@
 						<left>218</left>
 						<top>40</top>
 						<width>712</width>
-						<height>38</height>
-						<label>$INFO[MusicPlayer.Title]</label>
-						<font>apptv22</font>
+						<height>30</height>
+						<label>$VAR[PlayerMusicInfo2]</label>
+						<font>apptv20</font>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="label">
 						<left>218</left>
-						<top>78</top>
+						<top>72</top>
 						<width>712</width>
 						<height>38</height>
-						<label>$INFO[MusicPlayer.Album]</label>
-						<font>apptv22</font>
+						<label>$VAR[PlayerMusicInfo3]</label>
+						<font>apptv20</font>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="label">
 						<left>218</left>
-						<top>116</top>
+						<top>114</top>
 						<width>712</width>
 						<height>38</height>
 						<label>$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ]</label>
 						<font>apptv23</font>
+						<visible>!Player.IsInternetStream</visible>
 					</control>
 				</control>
 				<control type="group">
@@ -3480,49 +3482,6 @@
 						<label>$INFO[MusicPlayer.Title]</label>
 						<font>apptv22</font>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					</control>
-				</control>
-				<control type="group">
-					<!-- Probably a stream -->
-					<visible>!Pvr.IsPlayingRadio + String.IsEmpty(MusicPlayer.TimeRemaining)</visible>
-					<control type="image">
-						<left>36</left>
-						<top>3</top>
-						<width>150</width>
-						<height>150</height>
-						<texture background="true" fallback="icon-radio.png">$VAR[PlayerMusicCover]</texture>
-						<aspectratio>keep</aspectratio>
-					</control>
-					<control type="label">
-						<left>218</left>
-						<top>3</top>
-						<width>712</width>
-						<height>38</height>
-						<label>$INFO[MusicPlayer.Title]</label>
-						<font>apptv22</font>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					</control>
-					<control type="label">
-						<!-- Artist label -->
-						<left>218</left>
-						<top>40</top>
-						<width>712</width>
-						<height>33</height>
-						<font>apptv22</font>
-						<label>$INFO[Window(home).Property(plugin.audio.streaming-radio.Artist)]</label>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-						<visible>!String.IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Artist))</visible>
-					</control>
-					<control type="label">
-						<!-- Track title -->
-						<left>218</left>
-						<top>78</top>
-						<width>712</width>
-						<height>33</height>
-						<font>apptv22</font>
-						<label>$INFO[Window(home).Property(plugin.audio.streaming-radio.Title)]</label>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-						<visible>!String.IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Title))</visible>
 					</control>
 				</control>
 			</control>
