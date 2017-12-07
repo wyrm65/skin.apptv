@@ -28,7 +28,7 @@
 			<left>336</left>
 			<top>150</top>
 			<width>1242</width>
-			<height>6</height>
+			<height>4</height>
 			<texture>separator.png</texture>
 		</control>
 		<control type="grouplist" id="5">
@@ -37,6 +37,7 @@
 			<top>189</top>
 			<width>1182</width>
 			<height>675</height>
+			<itemgap>0</itemgap>
 			<pagecontrol>60</pagecontrol>
 			<onleft>noop</onleft>
 			<onright>60</onright>
@@ -60,7 +61,7 @@
 		</control>
 		<control type="image" id="11">
 			<!-- Default Seperator -->
-			<height>6</height>
+			<height>2</height>
 			<texture>separator.png</texture>
 		</control>
 		<control type="edit" id="12">
@@ -89,7 +90,7 @@
 			<visible>$EXP[isEnabledScrollbar]</visible>
 		</control>
 		<!-- Markers for control area items -->
-		<include content="page-offscreen-horizontal">
+		<include content="page-offscreen-vertical">
 			<param name="indicator1left" value="945"/>
 			<param name="indicator1top" value="159"/>
 			<param name="indicator2left" value="945"/>
@@ -106,7 +107,7 @@
 			<orientation>horizontal</orientation>
 			<itemgap>0</itemgap>
 			<onup>5</onup>
-			<ondown>5</ondown>
+			<ondown>9000</ondown>
 			<control type="button" id="28">
 				<!-- OK -->
 				<width>390</width>
@@ -115,7 +116,6 @@
 				<font>apptv23</font>
 				<onleft>noop</onleft>
 				<onright>29</onright>
-				<onup>5</onup>
 			</control>
 			<control type="button" id="29">
 				<!-- Cancel -->
@@ -125,7 +125,6 @@
 				<font>apptv23</font>
 				<onleft>28</onleft>
 				<onright>30</onright>
-				<onup>5</onup>
 			</control>
 			<control type="button" id="30">
 				<!-- Clear/Settings -->
@@ -135,7 +134,6 @@
 				<font>apptv23</font>
 				<onleft>29</onleft>
 				<onright>noop</onright>
-				<onup>5</onup>
 			</control>
 		</control>
 	</controls>
