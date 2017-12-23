@@ -17,9 +17,10 @@
 			<control type="label" id="1">
 				<!-- Title of currently playing video -->
 				<left>435</left>
-				<top>693</top>
+				<top>692</top>
 				<width>1440</width>
 				<height>38</height>
+				<font>apptv23</font>
 				<label>$INFO[VideoPlayer.Title]</label>
 				<align>center</align>
 				<visible>!VideoPlayer.Content(LiveTV)</visible>
@@ -30,27 +31,29 @@
 				<control type="label" id="1">
 					<!-- TV Channel Name -->
 					<left>12</left>
-					<top>690</top>
+					<top>692</top>
 					<width>320</width>
 					<height>38</height>
+					<font>apptv23</font>
 					<label>$INFO[VideoPlayer.ChannelName]</label>
-					<font>apptv22</font>
 					<align>center</align>
 				</control>
 				<control type="label" id="1">
 					<!-- Title of Live TV Program -->
 					<left>420</left>
-					<top>693</top>
+					<top>692</top>
 					<width>726</width>
 					<height>38</height>
+					<font>apptv23</font>
 					<label>$INFO[VideoPlayer.Title,$LOCALIZE[19030]: ,]</label>
 				</control>
 				<control type="label" id="1">
 					<!-- Tv Show title up next -->
 					<left>1162</left>
-					<top>690</top>
+					<top>692</top>
 					<width>712</width>
 					<height>38</height>
+					<font>apptv23</font>
 					<label>$INFO[VideoPlayer.NextTitle,$LOCALIZE[19031]: ,]</label>
 					<align>right</align>
 					<textcolor>disabled-text</textcolor>
@@ -63,29 +66,45 @@
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
-			<control type="textbox" id="1">
-				<!-- Plot Outline (Show if available) -->
-				<left>420</left>
-				<top>742</top>
-				<width>1455</width>
-				<height>148</height>
-				<font>apptv20</font>
-				<label>$INFO[VideoPlayer.PlotOutline]</label>
-				<align>justify</align>
-				<visible>!String.IsEmpty(VideoPlayer.PlotOutline)</visible>
+			<control type="group" id="1">
+				<!-- Plot of non Live TV Program -->
+				<visible>!VideoPlayer.Content(LiveTV)</visible>
+				<control type="textbox" id="1">
+					<!-- Plot Outline (Show if available) -->
+					<left>420</left>
+					<top>742</top>
+					<width>1455</width>
+					<height>148</height>
+					<font>apptv18</font>
+					<label>$INFO[VideoPlayer.PlotOutline]</label>
+					<align>justify</align>
+					<visible>!String.IsEmpty(VideoPlayer.PlotOutline)</visible>
+				</control>
+				<control type="textbox" id="1">
+					<!-- Plot (Show if plotoutline not found) -->
+					<left>420</left>
+					<top>742</top>
+					<width>1455</width>
+					<height>148</height>
+					<font>apptv18</font>
+					<label>$INFO[VideoPlayer.Plot]</label>
+					<align>justify</align>
+					<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
+					<visible>!String.IsEmpty(VideoPlayer.Plot) + String.IsEmpty(VideoPlayer.PlotOutline)</visible>
+				</control>
 			</control>
-			<control type="textbox" id="1">
-				<!-- Plot (Show if plotoutline not found) -->
-				<left>420</left>
-				<top>742</top>
-				<width>1455</width>
-				<height>148</height>
-				<font>apptv20</font>
-				<label>$INFO[VideoPlayer.Plot]</label>
-				<align>justify</align>
-				<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
-				<visible>!String.IsEmpty(VideoPlayer.Plot) + String.IsEmpty(VideoPlayer.Outline)</visible>
-			</control>
+				<control type="textbox" id="1">
+					<!-- LiveTV Plot -->
+					<left>420</left>
+					<top>742</top>
+					<width>1455</width>
+					<height>148</height>
+					<font>apptv18</font>
+					<label>$INFO[VideoPlayer.Plot]</label>
+					<align>justify</align>
+					<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
+					<visible>VideoPlayer.Content(LiveTV) + !String.IsEmpty(VideoPlayer.Plot)</visible>
+				</control>
 			<control type="grouplist" id="1">
 				<!-- Media flags -->
 				<left>1642</left>
