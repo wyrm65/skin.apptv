@@ -38,6 +38,9 @@
 	<expression name="isEnabledParentDirectory">System.GetBool(filelists.showparentdiritems)</expression>
 	<expression name="isnotEnabledParentDirectory">!System.GetBool(filelists.showparentdiritems)</expression>
 	<expression name="isEnabledScrollbar">!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</expression>
+	<expression name="isParentFolder">ListItem.IsParentFolder</expression>
+	<expression name="isnotParentFolder">!ListItem.IsParentFolder</expression>
+
 	<!-- Skin Variable section -->
 	<variable name="BackgndImage">
 		<value condition="Window.IsActive(weather) + Skin.HasSetting(background-customweather.multi) + !String.IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(weather).Property(Day0.FanartCode)]</value>
@@ -1958,7 +1961,6 @@
 						<label>$INFO[Container(110).ListItem.Property(part4)]</label>
 						<font>lyr2b</font>
 						<shadowcolor>black</shadowcolor>
-						<align>left</align>
 						<aligny>top</aligny>
 						<textcolor>$PARAM[col24]</textcolor>
 					</control>
@@ -2113,7 +2115,6 @@
 					<label>$INFO[Container(110).ListItem.Property(part3)]</label>
 					<font>lyr4</font>
 					<shadowcolor>black</shadowcolor>
-					<align>left</align>
 					<aligny>center</aligny>
 					<textcolor>$PARAM[col43]</textcolor>
 				</control>
@@ -2201,7 +2202,6 @@
 				<label>$INFO[Container(110).ListItem.Property(part4)]</label>
 				<font>lyr5b</font>
 				<shadowcolor>black</shadowcolor>
-				<align>left</align>
 				<aligny>top</aligny>
 				<textcolor>$PARAM[col54]</textcolor>
 			</control>
@@ -2729,7 +2729,6 @@
 						<wrapmultiline>true</wrapmultiline>
 						<label>$INFO[Container(110).ListItem.Property(part4)]</label>
 						<font>lyr11b</font>
-						<align>left</align>
 						<aligny>top</aligny>
 						<textcolor>00ffffff</textcolor>
 					</control>
@@ -2765,7 +2764,6 @@
 						<label>$INFO[Container(110).ListItem.Property(part4)]</label>
 						<font>lyr11b</font>
 						<shadowcolor>black</shadowcolor>
-						<align>left</align>
 						<aligny>top</aligny>
 						<textcolor>$PARAM[col114]</textcolor>
 					</control>
@@ -3498,6 +3496,18 @@
 			<label fallback="20333">$INFO[ListItem.Label]</label>
 			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
+		</control>
+	</include>
+	<!-- Dummy button for mouse control -->
+	<include name="fullscreendummy">
+		<control type="button" id="3550">
+			<left>0</left>
+			<top>0</top>
+			<width>1920</width>
+			<height>1080</height>
+			<texturefocus>blank.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<visible>$EXP[isEnabledTouch]</visible>
 		</control>
 	</include>
 	<include name="illegal-action">

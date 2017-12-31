@@ -499,7 +499,7 @@
 						<height>504</height>
 						<texture background="true">$INFO[ListItem.Icon]</texture>
 						<aspectratio align="right" aligny="top">keep</aspectratio>
-						<visible>ListItem.IsParentFolder</visible>
+						<visible>$EXP[isParentFolder]</visible>
 					</control>
 				</control>
 				<control type="group">
@@ -846,7 +846,6 @@
 					<align>center</align>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Label]</label>
-					<textoffsetx>0</textoffsetx>
 					<visible>!Container().Scrolling</visible>
 				</control>
 			</focusedlayout>
@@ -1044,7 +1043,7 @@
 						<height>150</height>
 						<texture colordiffuse="UnFocusedPosters" background="true">$VAR[IconBanner]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>!ListItem.IsParentFolder</visible>
+						<visible>$EXP[isnotParentFolder]</visible>
 					</control>
 					<control type="image">
 						<!-- Go Back image -->
@@ -1054,7 +1053,7 @@
 						<height>150</height>
 						<texture colordiffuse="UnFocusedPosters" background="true">$INFO[ListItem.Icon]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>ListItem.IsParentFolder</visible>
+						<visible>$EXP[isParentFolder]</visible>
 					</control>
 					<include content="listitem-count">
 						<param name="left" value="730" />
@@ -1075,7 +1074,7 @@
 							<height>150</height>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
 							<aspectratio>keep</aspectratio>
-							<visible>ListItem.IsParentFolder</visible>
+							<visible>$EXP[isParentFolder]</visible>
 						</control>
 						<control type="image">
 							<!-- Banner image -->
@@ -1087,7 +1086,7 @@
 							<bordertexture border="12">mask-hilite.png</bordertexture>
 							<bordersize>12</bordersize>
 							<aspectratio>keep</aspectratio>
-							<visible>!ListItem.IsParentFolder</visible>
+							<visible>$EXP[isnotParentFolder]</visible>
 						</control>
 					</control>
 					<include content="listitem-count">
@@ -1109,11 +1108,11 @@
 					<font>apptv38</font>
 					<align>center</align>
 					<label>$LOCALIZE[31688]</label>
-					<visible>ListItem.IsParentFolder</visible>
+					<visible>$EXP[isParentFolder]</visible>
 				</control>
 				<control type="group">
 					<!-- Mini Fanart -->
-					<visible>!ListItem.IsParentFolder</visible>
+					<visible>$EXP[isnotParentFolder]</visible>
 					<control type="image">
 						<left>201</left>
 						<top>171</top>
@@ -1143,7 +1142,7 @@
 					<control type="group">
 						<width>900</width>
 						<height>75</height>
-						<visible>!ListItem.IsParentFolder</visible>
+						<visible>$EXP[isnotParentFolder]</visible>
 						<control type="image" id="7316">
 							<!-- Show logo -->
 							<left>352</left>
@@ -1199,7 +1198,7 @@
 						<width>900</width>
 						<height>6</height>
 						<texture>separator.png</texture>
-						<visible>!ListItem.IsParentFolder</visible>
+						<visible>$EXP[isnotParentFolder]</visible>
 					</control>
 					<control type="textbox">
 						<!-- Plot Outline -->
@@ -1482,9 +1481,8 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<wrapmultiline>true</wrapmultiline>
-				<textoffsetx>0</textoffsetx>
 				<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
-				<visible>!ListItem.IsParentFolder + String.IsEmpty(Control.GetLabel(7216))</visible>
+				<visible>$EXP[isnotParentFolder] + String.IsEmpty(Control.GetLabel(7216))</visible>
 			</control>
 			<control type="label">
 				<!-- Go Back -->
@@ -1495,8 +1493,7 @@
 				<font>apptv38</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
-				<textoffsetx>0</textoffsetx>
-				<visible>ListItem.IsParentFolder</visible>
+				<visible>$EXP[isParentFolder]</visible>
 			</control>
 			<control type="group">
 				<visible>!String.IsEmpty(ListItem.Title)</visible>
@@ -1975,8 +1972,7 @@
 				<align>center</align>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
-				<textoffsetx>0</textoffsetx>
-				<visible>!ListItem.IsParentFolder + String.IsEmpty(Control.GetLabel(7018))</visible>
+				<visible>$EXP[isnotParentFolder] + String.IsEmpty(Control.GetLabel(7018))</visible>
 			</control>
 			<control type="label">
 				<!-- Go Back -->
@@ -1988,8 +1984,7 @@
 				<align>center</align>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
-				<textoffsetx>0</textoffsetx>
-				<visible>ListItem.IsParentFolder</visible>
+				<visible>$EXP[isParentFolder]</visible>
 			</control>
 			<control type="group">
 				<visible>!String.IsEmpty(ListItem.Title)</visible>
@@ -2270,8 +2265,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<wrapmultiline>true</wrapmultiline>
-				<textoffsetx>0</textoffsetx>
-				<visible>String.IsEmpty(Control.GetLabel(7116)) + !ListItem.IsParentFolder</visible>
+				<visible>String.IsEmpty(Control.GetLabel(7116)) + $EXP[isnotParentFolder]</visible>
 			</control>
 			<control type="label">
 				<!-- Go Back -->
@@ -2283,8 +2277,7 @@
 				<align>center</align>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
-				<textoffsetx>0</textoffsetx>
-				<visible>ListItem.IsParentFolder</visible>
+				<visible>$EXP[isParentFolder]</visible>
 			</control>
 			<control type="group">
 				<visible>!String.IsEmpty(ListItem.Title)</visible>
@@ -2297,7 +2290,6 @@
 					<font>apptv20</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Genre]</label>
-					<textoffsetx>0</textoffsetx>
 					<visible>!String.IsEmpty(ListItem.Genre)</visible>
 				</control>
 				<control type="label">

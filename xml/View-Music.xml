@@ -704,7 +704,7 @@
 				<align>center</align>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
-				<visible>ListItem.IsParentFolder</visible>
+				<visible>$EXP[isParentFolder]</visible>
 			</control>
 			<control type="label">
 				<left>39</left>
@@ -715,7 +715,7 @@
 				<align>center</align>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
-				<visible>!ListItem.IsParentFolder</visible>
+				<visible>$EXP[isnotParentFolder]</visible>
 			</control>
 			<control type="image">
 				<!-- Star Rating -->
@@ -1139,10 +1139,10 @@
 				<align>center</align>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
-				<visible>ListItem.IsParentFolder</visible>
+				<visible>$EXP[isParentFolder]</visible>
 			</control>
 			<control type="group">
-				<visible>!ListItem.IsParentFolder</visible>
+				<visible>$EXP[isnotParentFolder]</visible>
 				<control type="label">
 					<!-- Artist & Album name -->
 					<left>39</left>
@@ -1329,14 +1329,14 @@
 				<font>apptv30</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
-				<visible>ListItem.IsParentFolder</visible>
+				<visible>$EXP[isParentFolder]</visible>
 			</control>
 			<control type="grouplist">
 				<left>30</left>
 				<top>165</top>
 				<width>735</width>
 				<height>872</height>
-				<visible>!ListItem.IsParentFolder</visible>
+				<visible>$EXP[isnotParentFolder]</visible>
 				<control type="label">
 					<!-- Artist name -->
 					<width>705</width>

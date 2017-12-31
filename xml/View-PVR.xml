@@ -258,7 +258,6 @@
 					<top>30</top>
 					<width>420</width>
 					<height>38</height>
-					<align>left</align>
 					<label>$LOCALIZE[19029]</label>
 				</control>
 				<control type="label">
@@ -267,7 +266,6 @@
 					<top>30</top>
 					<width>458</width>
 					<height>38</height>
-					<align>left</align>
 					<label>$LOCALIZE[369]</label>
 				</control>
 				<control type="label">
@@ -276,7 +274,6 @@
 					<top>30</top>
 					<width>450</width>
 					<height>38</height>
-					<align>left</align>
 					<label>$LOCALIZE[19225]</label>
 				</control>
 				<control type="label">
@@ -465,7 +462,7 @@
 							<height>75</height>
 							<texture>DefaultFolder.png</texture>
 							<aspectratio>keep</aspectratio>
-							<visible>ListItem.IsFolder + !ListItem.IsParentFolder</visible>
+							<visible>ListItem.IsFolder + $EXP[isnotParentFolder]</visible>
 						</control>
 						<control type="image">
 							<left>15</left>
@@ -518,7 +515,7 @@
 							<height>75</height>
 							<texture>DefaultFolder.png</texture>
 							<aspectratio>keep</aspectratio>
-							<visible>ListItem.IsFolder + !ListItem.IsParentFolder</visible>
+							<visible>ListItem.IsFolder + $EXP[isnotParentFolder]</visible>
 						</control>
 						<control type="image">
 							<left>15</left>
