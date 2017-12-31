@@ -24,16 +24,25 @@
 				<height>468</height>
 				<texture>menu-mask.png</texture>
 			</control>
+			<control type="button" id="9810">
+				<!-- Dummy button for mouse control -->
+				<left>0</left>
+				<top>0</top>
+				<width>1920</width>
+				<height>1080</height>
+				<texturefocus>blank.png</texturefocus>
+				<texturenofocus>blank.png</texturenofocus>
+			</control>
 		</control>
-		<include condition="!Skin.HasSetting(home-time)" file="Includes_Shelf.xml">homeshelf-time</include>
 		<!-- Show time on home screen -->
-		<include condition="Skin.HasSetting(media-overlay)" file="Includes_Shelf.xml">shelf-nowplaying</include>
+		<include condition="!Skin.HasSetting(home-time)" file="Includes_Shelf.xml">homeshelf-time</include>
 		<!-- Now Playing -->
+		<include condition="Skin.HasSetting(media-overlay)" file="Includes_Shelf.xml">shelf-nowplaying</include>
+		<!-- Shelf icons-->
 		<control type="group" id="9800">
-			<!-- Shelf icons-->
 			<control type="group" id="9155">
 				<!-- Movie icons -->
-				<visible>Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180)</visible>
+				<visible>Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9165) | Control.HasFocus(9180)</visible>
 				<control type="group">
 					<visible>String.IsEqual(Skin.String(shelf-movieimages),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9160).NumItems,0)</visible>
 					<control type="image">
@@ -58,7 +67,7 @@
 			</control>
 			<control type="group" id="9205">
 				<!-- TV Shows icons -->
-				<visible>Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230)</visible>
+				<visible>Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9215) | Control.HasFocus(9230)</visible>
 				<control type="group">
 					<visible>String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31953]) | [![Integer.IsGreater(Container(9210).NumItems,0)] + ![String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31953])]]</visible>
 					<control type="image">
@@ -83,7 +92,7 @@
 			</control>
 			<control type="group" id="9255">
 				<!-- Music icons -->
-				<visible>Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280)</visible>
+				<visible>Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9265) | Control.HasFocus(9280)</visible>
 				<control type="group">
 					<visible>String.IsEqual(Skin.String(shelf-musicimages),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9260).NumItems,0)</visible>
 					<control type="image">
@@ -108,7 +117,7 @@
 			</control>
 			<control type="group" id="9355">
 				<!-- Addon icons -->
-				<visible>Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9380)</visible>
+				<visible>Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9365) | Control.HasFocus(9380)</visible>
 				<control type="group">
 					<visible>String.IsEqual(Skin.String(shelf-addonimages),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9360).NumItems,0)</visible>
 					<control type="image">
@@ -158,7 +167,7 @@
 			</control>
 			<control type="group" id="9505">
 				<!-- Broadcast icons -->
-				<visible>Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9530)</visible>
+				<visible>Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9515) | Control.HasFocus(9530)</visible>
 				<control type="group">
 					<visible>String.IsEqual(Skin.String(shelf-broadcastimages),$LOCALIZE[31953]) | [![Integer.IsGreater(Container(9510).NumItems,0)] + ![String.IsEqual(Skin.String(shelf-broadcastimages),$LOCALIZE[31953])]]</visible>
 					<control type="image">
@@ -183,7 +192,7 @@
 			</control>
 			<control type="group" id="9555">
 				<!-- Favourites icons -->
-				<visible>Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9580)</visible>
+				<visible>Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9565) | Control.HasFocus(9580)</visible>
 				<control type="group">
 					<visible>String.IsEqual(Skin.String(shelf-customimages),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9560).NumItems,0)</visible>
 					<control type="image">
@@ -249,15 +258,6 @@
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
-		</control>
-		<control type="button" id="9810">
-			<!-- Dummy button for mouse control -->
-			<left>0</left>
-			<top>0</top>
-			<width>1920</width>
-			<height>1080</height>
-			<texturefocus>blank.png</texturefocus>
-			<texturenofocus>blank.png</texturenofocus>
 		</control>
 		<control type="image">
 			<!-- Home menu watermark -->
@@ -342,10 +342,7 @@
 					<height>528</height>
 					<texturefocus>blank.png</texturefocus>
 					<texturenofocus>blank.png</texturenofocus>
-					<onup>9005</onup>
-					<ondown>9100</ondown>
-					<onleft>9005</onleft>
-					<onright>9150</onright>
+					<onfocus>SetFocus(9100)</onfocus>
 				</control>
 				<control type="group">
 					<visible>Control.HasFocus(9100) | Control.HasFocus(9130)</visible>
@@ -378,7 +375,7 @@
 					<shadowcolor>tab-shadow</shadowcolor>
 					<align>center</align>
 					<label>$INFO[Container(9100).ListItem.Label2]</label>
-					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
+					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9100)</visible>
 				</control>
 				<control type="label">
@@ -491,10 +488,7 @@
 					<height>518</height>
 					<texturefocus>blank.png</texturefocus>
 					<texturenofocus>blank.png</texturenofocus>
-					<onup>9155</onup>
-					<ondown>9150</ondown>
-					<onleft>9100</onleft>
-					<onright>9200</onright>
+					<onfocus>SetFocus(9150)</onfocus>
 				</control>
 				<control type="group">
 					<visible>Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180)</visible>
@@ -538,7 +532,7 @@
 					<shadowcolor>tab-shadow</shadowcolor>
 					<align>center</align>
 					<label>$INFO[Container(9150).ListItem.Label2]</label>
-					<animation condition="Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
+					<animation condition="Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9150)</visible>
 				</control>
 				<control type="label">
@@ -561,6 +555,8 @@
 					<top>126</top>
 					<width>315</width>
 					<height>378</height>
+					<onup condition="Integer.IsGreater(Container(9160).NumItems,0)">9155</onup>
+					<onup condition="Integer.IsLessOrEqual(Container(9160).NumItems,0)">9005</onup>
 					<onup>9155</onup>
 					<ondown>9005</ondown>
 					<onleft>9100</onleft>
@@ -661,10 +657,7 @@
 					<height>518</height>
 					<texturefocus>blank.png</texturefocus>
 					<texturenofocus>blank.png</texturenofocus>
-					<onup>9205</onup>
-					<ondown>9200</ondown>
-					<onleft>9150</onleft>
-					<onright>9500</onright>
+					<onfocus>SetFocus(9200)</onfocus>
 				</control>
 				<control type="group">
 					<visible>Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230)</visible>
@@ -708,7 +701,7 @@
 					<shadowcolor>tab-shadow</shadowcolor>
 					<align>center</align>
 					<label>$INFO[Container(9200).ListItem.Label2]</label>
-					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
+					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9200)</visible>
 				</control>
 				<control type="label">
@@ -731,7 +724,8 @@
 					<top>126</top>
 					<width>315</width>
 					<height>378</height>
-					<onup>9205</onup>
+					<onup condition="Integer.IsGreater(Container(9210).NumItems,0)">9205</onup>
+					<onup condition="Integer.IsLessOrEqual(Container(9210).NumItems,0)">9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9150</onleft>
 					<onright>9500</onright>
@@ -831,13 +825,10 @@
 					<height>518</height>
 					<texturefocus>blank.png</texturefocus>
 					<texturenofocus>blank.png</texturenofocus>
-					<onup>9505</onup>
-					<ondown>9500</ondown>
-					<onleft>9200</onleft>
-					<onright>9250</onright>
+					<onfocus>SetFocus(9500)</onfocus>
 				</control>
 				<control type="group">
-					<visible>Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9530)</visible>
+					<visible>Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9515) | Control.HasFocus(9530)</visible>
 					<control type="image">
 						<!-- Menu Heading Hilite-->
 						<left>0</left>
@@ -878,7 +869,7 @@
 					<shadowcolor>tab-shadow</shadowcolor>
 					<align>center</align>
 					<label>$INFO[Container(9500).ListItem.Label2]</label>
-					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
+					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9500)</visible>
 				</control>
 				<control type="label">
@@ -901,7 +892,8 @@
 					<top>126</top>
 					<width>315</width>
 					<height>378</height>
-					<onup>9505</onup>
+					<onup condition="Integer.IsGreater(Container(9510).NumItems,0)">9505</onup>
+					<onup condition="Integer.IsLessOrEqual(Container(9510).NumItems,0)">9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9200</onleft>
 					<onright>9550</onright>
@@ -1037,13 +1029,10 @@
 					<height>518</height>
 					<texturefocus>blank.png</texturefocus>
 					<texturenofocus>blank.png</texturenofocus>
-					<onup>9555</onup>
-					<ondown>9550</ondown>
-					<onleft>9500</onleft>
-					<onright>9250</onright>
+					<onfocus>SetFocus(9550)</onfocus>
 				</control>
 				<control type="group">
-					<visible>Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9580)</visible>
+					<visible>Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9565) | Control.HasFocus(9580)</visible>
 					<control type="image">
 						<!-- Menu Heading Hilite-->
 						<left>0</left>
@@ -1083,7 +1072,7 @@
 					<shadowcolor>tab-shadow</shadowcolor>
 					<align>center</align>
 					<label>$VAR[CustomFavHeading]</label>
-					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
+					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9550)</visible>
 				</control>
 				<control type="label">
@@ -1100,12 +1089,14 @@
 					<animation condition="!Control.HasFocus(9550) + !Control.HasFocus(9580)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
 				<control type="list" id="9550">
-					<animation condition="!Control.HasFocus(9550) + !Control.HasFocus(9580)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(9550) + !Control.HasFocus(9560) + !Control.HasFocus(9580)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<animation condition="Control.HasFocus(9560)" effect="fade" start="100" end="65" reversible="true">Conditional</animation>
 					<left>0</left>
 					<top>126</top>
 					<width>315</width>
 					<height>378</height>
-					<onup>9555</onup>
+					<onup condition="Integer.IsGreater(Container(9560).NumItems,0)">9555</onup>
+					<onup condition="Integer.IsLessOrEqual(Container(9560).NumItems,0)">9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9500</onleft>
 					<onright>9250</onright>
@@ -1199,10 +1190,7 @@
 					<height>518</height>
 					<texturefocus>blank.png</texturefocus>
 					<texturenofocus>blank.png</texturenofocus>
-					<onup>9255</onup>
-					<ondown>9250</ondown>
-					<onleft>9550</onleft>
-					<onright>9300</onright>
+					<onfocus>SetFocus(9250)</onfocus>
 				</control>
 				<control type="group">
 					<visible>Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280)</visible>
@@ -1246,7 +1234,7 @@
 					<shadowcolor>tab-shadow</shadowcolor>
 					<align>center</align>
 					<label>$INFO[Container(9250).ListItem.Label2]</label>
-					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
+					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9250)</visible>
 				</control>
 				<control type="label">
@@ -1269,7 +1257,8 @@
 					<top>126</top>
 					<width>315</width>
 					<height>378</height>
-					<onup>9255</onup>
+					<onup condition="Integer.IsGreater(Container(9260).NumItems,0)">9255</onup>
+					<onup condition="Integer.IsLessOrEqual(Container(9260).NumItems,0)">9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9550</onleft>
 					<onright>9300</onright>
@@ -1376,10 +1365,7 @@
 					<height>518</height>
 					<texturefocus>blank.png</texturefocus>
 					<texturenofocus>blank.png</texturenofocus>
-					<onup>9005</onup>
-					<ondown>9300</ondown>
-					<onleft>9250</onleft>
-					<onright>9350</onright>
+					<onfocus>SetFocus(9300)</onfocus>
 				</control>
 				<control type="image">
 					<!-- Menu Heading Hilite-->
@@ -1401,7 +1387,7 @@
 					<shadowcolor>tab-shadow</shadowcolor>
 					<align>center</align>
 					<label>$INFO[Container(9300).ListItem.Label2]</label>
-					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
+					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9300)</visible>
 				</control>
 				<control type="label">
@@ -1487,10 +1473,7 @@
 					<height>518</height>
 					<texturefocus>blank.png</texturefocus>
 					<texturenofocus>blank.png</texturenofocus>
-					<onup>9355</onup>
-					<ondown>9350</ondown>
-					<onleft>9300</onleft>
-					<onright>9400</onright>
+					<onfocus>SetFocus(9350)</onfocus>
 				</control>
 				<control type="group">
 					<visible>Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9380)</visible>
@@ -1534,7 +1517,7 @@
 					<shadowcolor>tab-shadow</shadowcolor>
 					<align>center</align>
 					<label>$INFO[Container(9350).ListItem.Label2]</label>
-					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260)" effect="fade" start="100" end="65">Conditional</animation>
+					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9350)</visible>
 				</control>
 				<control type="label">
@@ -1557,7 +1540,8 @@
 					<top>126</top>
 					<width>315</width>
 					<height>378</height>
-					<onup>9355</onup>
+					<onup condition="Integer.IsGreater(Container(9360).NumItems,0)">9355</onup>
+					<onup condition="Integer.IsLessOrEqual(Container(9360).NumItems,0)">9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9300</onleft>
 					<onright>9400</onright>
@@ -1674,10 +1658,7 @@
 					<height>518</height>
 					<texturefocus>blank.png</texturefocus>
 					<texturenofocus>blank.png</texturenofocus>
-					<onup>9005</onup>
-					<ondown>9400</ondown>
-					<onleft>9350</onleft>
-					<onright>9450</onright>
+					<onfocus>SetFocus(9400)</onfocus>
 				</control>
 				<control type="image">
 					<!-- Menu Heading Hilite-->
@@ -1699,7 +1680,7 @@
 					<shadowcolor>tab-shadow</shadowcolor>
 					<align>center</align>
 					<label>$INFO[Container(9400).ListItem.Label2]</label>
-					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
+					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9400)</visible>
 				</control>
 				<control type="label">
@@ -1814,7 +1795,7 @@
 					<shadowcolor>tab-shadow</shadowcolor>
 					<align>center</align>
 					<label>$INFO[Container(9450).ListItem.Label2]</label>
-					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
+					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9450)</visible>
 				</control>
 				<control type="label">
