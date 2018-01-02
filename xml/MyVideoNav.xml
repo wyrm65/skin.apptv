@@ -317,7 +317,7 @@
 					<param name="grp1indicate" value="[ControlGroup(9000).HasFocus()|String.IsEqual(Window(home).Property(ShowScreenSettings),show)]" />
 					<param name="grp1visible" value="[!Skin.HasSetting(lock-screensettings)]" />
 					<param name="grp2indicate" value="[Control.HasFocus(5050)|Control.HasFocus(5058)]" />
-					<param name="grp2visible" value="[[Control.IsVisible(50)|Control.IsVisible(58)]+Container.Content(sets)]" />
+					<param name="grp2visible" value="[[Control.IsVisible(50)|Control.IsVisible(58)]+Container.Content(sets)+!ListItem.IsParentFolder]" />
 					<param name="grp3indicate" value="[Control.HasFocus(50)|Control.HasFocus(52)|Control.HasFocus(53)|Control.HasFocus(58)]" />
 					<param name="grp3visible" value="[Control.IsVisible(50)|Control.IsVisible(52)|Control.IsVisible(53)|Control.IsVisible(58)]" />
 					<param name="grp4indicate" value="[Control.HasFocus(1240)|Control.HasFocus(1242)|Control.HasFocus(1243)|Control.HasFocus(1248)|Control.HasFocus(1260)|Control.HasFocus(1262)|Control.HasFocus(1263)|Control.HasFocus(1268)]" />
