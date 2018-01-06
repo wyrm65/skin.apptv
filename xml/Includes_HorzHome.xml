@@ -69,7 +69,7 @@
 				<!-- TV Shows icons -->
 				<visible>Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9215) | Control.HasFocus(9230)</visible>
 				<control type="group">
-					<visible>String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31953]) | [![Integer.IsGreater(Container(9210).NumItems,0)] + ![String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31953])]]</visible>
+					<visible>String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31953]) | [!Integer.IsGreater(Container(9210).NumItems,0) + !String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31953])]</visible>
 					<control type="image">
 						<left>828</left>
 						<top>57</top>
@@ -169,7 +169,7 @@
 				<!-- Broadcast icons -->
 				<visible>Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9515) | Control.HasFocus(9530)</visible>
 				<control type="group">
-					<visible>String.IsEqual(Skin.String(shelf-broadcastimages),$LOCALIZE[31953]) | [![Integer.IsGreater(Container(9510).NumItems,0)] + ![String.IsEqual(Skin.String(shelf-broadcastimages),$LOCALIZE[31953])]]</visible>
+					<visible>String.IsEqual(Skin.String(shelf-broadcastimages),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9510).NumItems,0)</visible>
 					<control type="image">
 						<left>828</left>
 						<top>57</top>
@@ -935,6 +935,7 @@
 							<visible>Pvr.HasTVChannels</visible>
 							<label>$LOCALIZE[19020]</label>
 							<label2>$LOCALIZE[31031]</label2>
+							<onclick>SetProperty(PVRType,tv,home)</onclick>
 							<onclick>$VAR[TVEntry]</onclick>
 						</item>
 						<item>
@@ -977,6 +978,7 @@
 							<visible>Pvr.HasRadioChannels</visible>
 							<label>$LOCALIZE[19021]</label>
 							<label2>$LOCALIZE[31031]</label2>
+							<onclick>SetProperty(PVRType,radio,home)</onclick>
 							<onclick>$VAR[RadioEntry]</onclick>
 						</item>
 						<item>

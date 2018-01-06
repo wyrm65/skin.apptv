@@ -8,6 +8,7 @@
 		_HomeMenuItems 1153
 		_DialogSelect 1154
 		_AddonsList 1155
+		_PVRRootList 1156
 		_DummyDialog 1157
 	-->
 	<!-- Expressions section -->
@@ -333,6 +334,7 @@
 		<value>ActivateWindow(videos,TvShowTitles,return)</value>
 	</variable>
 	<variable name="TVEntry">
+		<value condition="String.IsEqual(Skin.String(libraryentry-tv),$LOCALIZE[20108])">ActivateWindow(1156)</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-tv),$LOCALIZE[31703])">PlayPvrTV</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-tv),$LOCALIZE[19023])">ActivateWindow(tvchannels,return)</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-tv),$LOCALIZE[19069])">ActivateWindow(tvguide,return)</value>
@@ -342,7 +344,8 @@
 		<value>ActivateWindow(tvguide,return)</value>
 	</variable>
 	<variable name="RadioEntry">
-		<value condition="String.IsEqual(Skin.String(libraryentry-tv),$LOCALIZE[31703])">PlayPvrRadio</value>
+		<value condition="String.IsEqual(Skin.String(libraryentry-radio),$LOCALIZE[20108])">ActivateWindow(1156)</value>
+		<value condition="String.IsEqual(Skin.String(libraryentry-radio),$LOCALIZE[31703])">PlayPvrRadio</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-radio),$LOCALIZE[19024])">ActivateWindow(radiochannels,return)</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-radio),$LOCALIZE[19069])">ActivateWindow(radioguide,return)</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-radio),$LOCALIZE[19163])">ActivateWindow(radiorecordings,return)</value>

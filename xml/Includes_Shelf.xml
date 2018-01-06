@@ -22,10 +22,10 @@
 		<content target="music" limit="12">plugin://script.skin.helper.widgets/?action=recommended&amp;mediatype=albums&amp;reload=$INFO[Window(Home).Property(widgetreload-music)]</content>
 	</include>
 	<include name="PVRChannels">
-		<content target="pvr" limit="12">plugin://script.skin.helper.widgets/?action=channels&amp;mediatype=pvr&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</content>
+		<content target="pvr" limit="24">pvr://channels/tv/*</content>
 	</include>
 	<include name="LatestRecordings">
-		<content target="pvr" limit="12">plugin://script.skin.helper.widgets/?action=recordings&amp;mediatype=pvr&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</content>
+		<content target="pvr" limit="12">plugin://script.skin.helper.widgets/?action=recordings&amp;mediatype=pvr&amp;reload=$INFO[Window(home).Property(widgetreload2)]</content>
 	</include>
 	<include name="AddonRecent">
 		<content target="programs" limit="12">addons://recently_updated/</content>
@@ -755,6 +755,7 @@
 				<onfocus>SetFocus(9510)</onfocus>
 			</control>
 			<control type="group">
+				<visible>![[Skin.HasSetting(media-overlay) + [Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
 				<camera x="960" y="238" />
 				<control type="image">
 					<left>-45</left>
@@ -764,6 +765,7 @@
 					<aspectratio scalediffuse="false">keep</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[BroadcastShelfIcon0]</texture>
 					<animation effect="rotatey" center="0" end="-60" time="300" condition="true">Conditional</animation>
+					<visible>Container(950).HasPrevious</visible>
 				</control>
 				<control type="image">
 					<left>1701</left>
@@ -773,6 +775,7 @@
 					<aspectratio scalediffuse="false">keep</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[BroadcastShelfIcon6]</texture>
 					<animation effect="rotatey" center="1920" end="60" time="300" condition="true">Conditional</animation>
+					<visible>Container(9510).HasPrevious</visible>
 				</control>
 			</control>
 			<control type="list" id="9510">
