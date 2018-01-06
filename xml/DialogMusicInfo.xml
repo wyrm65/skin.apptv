@@ -3,6 +3,7 @@
 	<defaultcontrol always="true">999</defaultcontrol>
 	<controls>
 		<include>background</include>
+		<include>fullscreendummy</include>
 		<control type="image">
 			<!-- Artist Image -->
 			<left>63</left>
@@ -50,7 +51,6 @@
 					<aligny>center</aligny>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.TrackNumber,, - ]$INFO[ListItem.Title]</label>
-					<textoffsetx>0</textoffsetx>
 				</control>
 				<control type="label">
 					<!-- Artist -->
@@ -63,7 +63,6 @@
 					<shadowcolor>shadow-text</shadowcolor>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Artist]$INFO[ListItem.Album, : ,]</label>
-					<textoffsetx>0</textoffsetx>
 					<visible>!String.IsEmpty(ListItem.Artist)</visible>
 				</control>
 				<control type="image">
@@ -122,7 +121,6 @@
 					<font>apptv20</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$LOCALIZE[135] : $INFO[ListItem.Genre]</label>
-					<textoffsetx>0</textoffsetx>
 					<visible>!String.IsEmpty(ListItem.Genre)</visible>
 				</control>
 				<control type="label">
@@ -166,7 +164,6 @@
 					<font>apptv20</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$LOCALIZE[172] : $INFO[ListItem.Year]</label>
-					<textoffsetx>0</textoffsetx>
 					<visible>!String.IsEmpty(ListItem.Year)</visible>
 				</control>
 				<control type="image">
@@ -204,7 +201,6 @@
 				<aligny>center</aligny>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Artist]</label>
-				<textoffsetx>0</textoffsetx>
 			</control>
 			<control type="label">
 				<!-- Artist born/died -->
@@ -217,7 +213,6 @@
 				<shadowcolor>shadow-text</shadowcolor>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Property(Artist_Born)]$INFO[ListItem.Property(Artist_Died), - ,]</label>
-				<textoffsetx>0</textoffsetx>
 				<visible>!String.IsEmpty(ListItem.Property(Artist_Born))</visible>
 			</control>
 			<control type="label">
@@ -231,7 +226,6 @@
 				<shadowcolor>shadow-text</shadowcolor>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Property(Artist_Formed)]$INFO[ListItem.Property(Artist_Disbanded), - ,]</label>
-				<textoffsetx>0</textoffsetx>
 				<visible>!String.IsEmpty(ListItem.Property(Artist_Formed))</visible>
 			</control>
 			<control type="image">
@@ -242,7 +236,7 @@
 				<texture>separator.png</texture>
 			</control>
 			<control type="textbox" id="1422">
-				<!-- Artist description -->>
+				<!-- Artist description -->
 				<left>510</left>
 				<top>165</top>
 				<width>1350</width>
@@ -291,7 +285,6 @@
 				<font>apptv20</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[135] : $INFO[ListItem.Genre]</label>
-				<textoffsetx>0</textoffsetx>
 				<visible>!String.IsEmpty(ListItem.Genre)</visible>
 			</control>
 			<control type="label">
@@ -303,7 +296,6 @@
 				<font>apptv20</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[175] : $INFO[ListItem.Property(Album_Mood)]</label>
-				<textoffsetx>0</textoffsetx>
 				<visible>!String.IsEmpty(ListItem.Property(Album_Mood))</visible>
 			</control>
 			<control type="label">
@@ -315,7 +307,6 @@
 				<font>apptv20</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[176] : $INFO[ListItem.Property(Album_Style)]</label>
-				<textoffsetx>0</textoffsetx>
 				<visible>!String.IsEmpty(ListItem.Property(Album_Style))</visible>
 			</control>
 			<control type="label">
@@ -327,7 +318,6 @@
 				<font>apptv20</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[21898] : $INFO[ListItem.Property(Artist_YearsActive)]</label>
-				<textoffsetx>0</textoffsetx>
 				<visible>!String.IsEmpty(ListItem.Property(Artist_YearsActive))</visible>
 			</control>
 		</control>
@@ -355,7 +345,6 @@
 				<shadowcolor>shadow-text</shadowcolor>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Property(Album_Label)]</label>
-				<textoffsetx>0</textoffsetx>
 				<visible>!String.IsEmpty(ListItem.Property(Album_Label))</visible>
 			</control>
 			<control type="image">
@@ -415,7 +404,6 @@
 				<font>apptv20</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[135] : $INFO[ListItem.Genre]</label>
-				<textoffsetx>0</textoffsetx>
 				<visible>!String.IsEmpty(ListItem.Genre)</visible>
 			</control>
 			<control type="label">
@@ -427,7 +415,6 @@
 				<font>apptv20</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[175] : $INFO[ListItem.Property(Album_Mood)]</label>
-				<textoffsetx>0</textoffsetx>
 				<visible>!String.IsEmpty(ListItem.Property(Album_Mood))</visible>
 			</control>
 			<control type="label">
@@ -439,7 +426,6 @@
 				<font>apptv20</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[176] : $INFO[ListItem.Property(Album_Style)]</label>
-				<textoffsetx>0</textoffsetx>
 				<visible>!String.IsEmpty(ListItem.Property(Album_Style))</visible>
 			</control>
 			<control type="label">
@@ -451,7 +437,6 @@
 				<font>apptv20</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[172] : $INFO[ListItem.Year]</label>
-				<textoffsetx>0</textoffsetx>
 				<visible>!String.IsEmpty(ListItem.Year)</visible>
 			</control>
 			<control type="image">
@@ -654,7 +639,6 @@
 						<width>825</width>
 						<height>68</height>
 						<font>apptv20</font>
-						<align>left</align>
 						<aligny>center</aligny>
 						<selectedcolor>white</selectedcolor>
 						<label>$INFO[ListItem.TrackNumber]. $INFO[ListItem.Label]</label>
@@ -692,7 +676,6 @@
 						<width>825</width>
 						<height>68</height>
 						<font>apptv20</font>
-						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.TrackNumber]. $INFO[ListItem.Label]</label>
 					</control>
@@ -712,7 +695,6 @@
 						<width>500</width>
 						<height>68</height>
 						<font>apptv20</font>
-						<align>left</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Path]</label>
 					</control>
@@ -847,5 +829,55 @@
 			<param name="controlid" value="1030" />
 			<param name="returnid" value="1523" />
 		</include>
+		<!-- Show a iOS style page indicator to show which focus group has the current focus -->
+		<!-- Focus group can be hidden or shown but is potentially focusable, that is it has not be disabled -->
+		<control type="group">
+			<visible>$EXP[isSong] + [Integer.IsGreater(Container(3500).NumItems,1)]</visible>
+			<include content="page-indicator">
+				<param name="indicatorleft" value="0" />
+				<param name="indicatortop" value="500" />
+				<param name="indicatorwidth" value="48" />
+				<param name="indicatorheight" value="192" />
+				<param name="indicatororientation" value="vertical" />
+				<param name="grp1indicate" value="Control.HasFocus(1323)" />
+				<param name="grp1visible" value="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])+Integer.IsGreater(Container(1322).NumPages,1)" />
+				<param name="grp2indicate" value="[ControlGroup(999).HasFocus()|Control.HasFocus(3550)]" />
+				<param name="grp2visible" value="true" />
+				<param name="grp3indicate" value="Control.HasFocus(950)" />
+				<param name="grp3visible" value="[!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])+![String.IsEmpty(Container(950).ListItem.Label)]]|String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])" />
+			</include>
+		</control>
+		<control type="group">
+			<visible>$EXP[isArtist] + [Integer.IsGreater(Container(3500).NumItems,1)]</visible>
+			<include content="page-indicator">
+				<param name="indicatorleft" value="0" />
+				<param name="indicatortop" value="500" />
+				<param name="indicatorwidth" value="48" />
+				<param name="indicatorheight" value="192" />
+				<param name="indicatororientation" value="vertical" />
+				<param name="grp1indicate" value="Control.HasFocus(1423)" />
+				<param name="grp1visible" value="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])+Integer.IsGreater(Container(1422).NumPages,1)" />
+				<param name="grp2indicate" value="ControlGroup(999).HasFocus()|Control.HasFocus(3550)" />
+				<param name="grp2visible" value="true" />
+				<param name="grp3indicate" value="Control.HasFocus(50)" />
+				<param name="grp3visible" value="[!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])+!String.IsEmpty(Container(50).ListItem.Label)]|String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])" />
+			</include>
+		</control>
+		<control type="group">
+			<visible>$EXP[isAlbum] + [Integer.IsGreater(Container(3500).NumItems,1)]</visible>
+			<include content="page-indicator">
+				<param name="indicatorleft" value="0" />
+				<param name="indicatortop" value="500" />
+				<param name="indicatorwidth" value="48" />
+				<param name="indicatorheight" value="192" />
+				<param name="indicatororientation" value="vertical" />
+				<param name="grp1indicate" value="Control.HasFocus(1523)" />
+				<param name="grp1visible" value="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])+Integer.IsGreater(Container(1522).NumPages,1)" />
+				<param name="grp2indicate" value="ControlGroup(999).HasFocus()|Control.HasFocus(3550)" />
+				<param name="grp2visible" value="true" />
+				<param name="grp3indicate" value="Control.HasFocus(950)" />
+				<param name="grp3visible" value="[[String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])+![String.IsEmpty(Container(950).ListItem.Label)]]|String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])]" />
+			</include>
+		</control>
 	</controls>
 </window>

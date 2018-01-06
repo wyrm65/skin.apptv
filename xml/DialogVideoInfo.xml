@@ -3,6 +3,7 @@
 	<defaultcontrol always="true">999</defaultcontrol>
 	<controls>
 		<include>background</include>
+		<include>fullscreendummy</include>
 		<control type="label">
 			<left>15</left>
 			<top>52</top>
@@ -37,7 +38,6 @@
 					<aligny>center</aligny>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Label]</label>
-					<textoffsetx>0</textoffsetx>
 					<visible>String.IsEmpty(Control.GetLabel(7018)) + String.IsEmpty(ListItem.TVShowTitle)</visible>
 				</control>
 				<control type="label">
@@ -51,7 +51,6 @@
 					<aligny>center</aligny>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.TVShowTitle]</label>
-					<textoffsetx>0</textoffsetx>
 					<visible>String.IsEmpty(Control.GetLabel(7018)) + !String.IsEmpty(ListItem.TVShowTitle)</visible>
 				</control>
 			</control>
@@ -65,7 +64,6 @@
 				<wrapmultiline>true</wrapmultiline>
 				<aligny>center</aligny>
 				<label>$INFO[ListItem.Label]</label>
-				<textoffsetx>0</textoffsetx>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<visible>$EXP[isMusicvideo]</visible>
 			</control>
@@ -91,7 +89,6 @@
 				<shadowcolor>shadow-text</shadowcolor>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Studio]</label>
-				<textoffsetx>0</textoffsetx>
 			</control>
 			<control type="image">
 				<left>510</left>
@@ -191,7 +188,6 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Genre]</label>
 				<font>apptv20</font>
-				<textoffsetx>0</textoffsetx>
 			</control>
 			<control type="label">
 				<!-- Year released -->
@@ -547,7 +543,6 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$LOCALIZE[206]</label>
 					<font>apptv16</font>
-					<textcolor>button-text</textcolor>
 					<align>center</align>
 					<aligny>top</aligny>
 					<textoffsetx>15</textoffsetx>
@@ -834,5 +829,24 @@
 			<param name="controlid" value="1015" />
 			<param name="returnid" value="950" />
 		</include>
+
+		<!-- Show a iOS style page indicator to show which focus group has the current focus -->
+		<!-- Focus group can be hidden or shown but is potentially focusable, that is it has not be disabled -->
+		<control type="group">
+			<visible>Integer.IsGreater(Container(3500).NumItems,1)</visible>
+			<include content="page-indicator">
+				<param name="indicatorleft" value="0" />
+				<param name="indicatortop" value="444" />
+				<param name="indicatorwidth" value="48" />
+				<param name="indicatorheight" value="192" />
+				<param name="indicatororientation" value="vertical" />
+				<param name="grp1indicate" value="Control.HasFocus(1123)" />
+				<param name="grp1visible" value="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])+Integer.IsGreater(Container(1122).NumPages,1)" />
+				<param name="grp2indicate" value="ControlGroup(999).HasFocus()|Control.HasFocus(3550)" />
+				<param name="grp2visible" value="true" />
+				<param name="grp3indicate" value="Control.HasFocus(50)|Control.HasFocus(950)" />
+				<param name="grp3visible" value="[!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])+!String.IsEmpty(Container(950).ListItem.Label)]|String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])" />
+			</include>
+		</control>
 	</controls>
 </window>
