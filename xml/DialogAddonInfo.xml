@@ -132,7 +132,7 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="group">
-					<visible>IsEmpty(Window.Property(showinfo)) + !String.IsEmpty(ListItem.AddonDisclaimer)</visible>
+					<visible>String.IsEmpty(Window.Property(showinfo)) + !String.IsEmpty(ListItem.AddonDisclaimer)</visible>
 					<control type="label">
 						<!-- Disclaimer heading -->
 						<left>0</left>

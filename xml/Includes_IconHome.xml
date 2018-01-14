@@ -140,7 +140,7 @@
 					</control>
 					<control type="group">
 						<visible>Weather.IsFetched</visible>
-						<include condition="!IsEmpty(Weather.plugin) + [Skin.HasSetting(home-weather) | Skin.HasSetting(home-currentweather)]" file="Includes_Shelf.xml">ShelfWeather</include>
+						<include condition="!String.IsEmpty(Weather.plugin) + [Skin.HasSetting(home-weather) | Skin.HasSetting(home-currentweather)]" file="Includes_Shelf.xml">ShelfWeather</include>
 					</control>
 				</control>
 				<control type="group" id="9803">
@@ -328,7 +328,7 @@
 				</item>
 				<item>
 					<!-- Weather -->
-					<visible>!IsEmpty(Weather.plugin) + [Skin.HasSetting(home-weather) | Skin.HasSetting(home-currentweather)]</visible>
+					<visible>!String.IsEmpty(Weather.plugin) + [Skin.HasSetting(home-weather) | Skin.HasSetting(home-currentweather)]</visible>
 					<thumb>$VAR[HomeWeatherIcon]</thumb>
 					<label>$LOCALIZE[8]</label>
 					<label2>$LOCALIZE[8]</label2>
@@ -398,70 +398,70 @@
 					<label>$INFO[Skin.String(CustomMovies.1.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomMovies.1.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomMovies.1.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomMovies.1.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomMovies.2.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomMovies.2.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomMovies.2.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomMovies.2.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomMovies.2.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomMovies.3.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomMovies.3.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomMovies.3.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomMovies.3.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomMovies.3.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomMovies.4.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomMovies.4.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomMovies.4.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomMovies.4.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomMovies.4.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomMovies.5.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomMovies.5.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomMovies.5.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomMovies.5.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomMovies.5.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomTVShow.1.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomTVShow.1.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomTVShow.1.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomTVShow.1.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomTVShow.1.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomTVShow.2.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomTVShow.2.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomTVShow.2.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomTVShow.2.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomTVShow.2.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomTVShow.3.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomTVShow.3.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomTVShow.3.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomTVShow.3.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomTVShow.3.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomTVShow.4.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomTVShow.4.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomTVShow.4.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomTVShow.4.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomTVShow.4.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomTVShow.5.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomTVShow.5.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomTVShow.5.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
 				</item>
 				<item>
 					<!-- Custom TV 1 -->
@@ -469,7 +469,7 @@
 					<label>$INFO[Skin.String(CustomTV.1.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomTV.1.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomTV.1.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomTV.1.Path))</visible>
 				</item>
 				<item>
 					<!-- Custom TV 2 -->
@@ -477,7 +477,7 @@
 					<label>$INFO[Skin.String(CustomTV.2.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomTV.2.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomTV.2.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomTV.2.Path))</visible>
 				</item>
 				<item>
 					<!-- Custom TV 3 -->
@@ -485,7 +485,7 @@
 					<label>$INFO[Skin.String(CustomTV.3.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomTV.3.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomTV.3.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomTV.3.Path))</visible>
 				</item>
 				<item>
 					<!-- Custom TV 4 -->
@@ -493,7 +493,7 @@
 					<label>$INFO[Skin.String(CustomTV.4.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomTV.4.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomTV.4.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomTV.4.Path))</visible>
 				</item>
 				<item>
 					<!-- Custom TV 5 -->
@@ -501,7 +501,7 @@
 					<label>$INFO[Skin.String(CustomTV.5.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomTV.5.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomTV.5.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomTV.5.Path))</visible>
 				</item>
 				<item>
 					<!-- Custom Radio 1 -->
@@ -509,7 +509,7 @@
 					<label>$INFO[Skin.String(CustomRadio.1.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomRadio.1.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomRadio.1.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomRadio.1.Path))</visible>
 				</item>
 				<item>
 					<!-- Custom Radio 2 -->
@@ -517,7 +517,7 @@
 					<label>$INFO[Skin.String(CustomRadio.2.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomRadio.2.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomRadio.2.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomRadio.2.Path))</visible>
 				</item>
 				<item>
 					<!-- Custom Radio 3 -->
@@ -525,7 +525,7 @@
 					<label>$INFO[Skin.String(CustomRadio.3.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomRadio.3.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomRadio.3.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomRadio.3.Path))</visible>
 				</item>
 				<item>
 					<!-- Custom Radio 4 -->
@@ -533,7 +533,7 @@
 					<label>$INFO[Skin.String(CustomRadio.4.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomRadio.4.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomRadio.4.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomRadio.4.Path))</visible>
 				</item>
 				<item>
 					<!-- Custom Radio 5 -->
@@ -541,112 +541,112 @@
 					<label>$INFO[Skin.String(CustomRadio.5.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomRadio.5.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomRadio.5.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomRadio.5.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomFav.1.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomFav.1.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomFav.1.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomFav.1.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomFav.1.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomFav.2.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomFav.2.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomFav.2.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomFav.2.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomFav.2.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomFav.3.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomFav.3.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomFav.3.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomFav.3.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomFav.3.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomFav.4.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomFav.4.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomFav.4.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomFav.4.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomFav.4.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomFav.5.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomFav.5.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomFav.5.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomFav.5.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomFav.5.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomMusic.1.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomMusic.1.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomMusic.1.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomMusic.1.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomMusic.1.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomMusic.2.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomMusic.2.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomMusic.2.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomMusic.2.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomMusic.2.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomMusic.3.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomMusic.3.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomMusic.3.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomMusic.3.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomMusic.3.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomMusic.4.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomMusic.4.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomMusic.4.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomMusic.4.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomMusic.4.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomMusic.5.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomMusic.5.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomMusic.5.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomMusic.5.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomMusic.5.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomAddon.1.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomAddon.1.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomAddon.1.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomAddon.1.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomAddon.1.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomAddon.2.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomAddon.2.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomAddon.2.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomAddon.2.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomAddon.2.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomAddon.3.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomAddon.3.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomAddon.3.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomAddon.3.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomAddon.3.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomAddon.4.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomAddon.4.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomAddon.4.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomAddon.4.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomAddon.4.Path))</visible>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomAddon.5.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomAddon.5.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>$INFO[Skin.String(CustomAddon.5.Path)]</onclick>
-					<visible>!IsEmpty(Skin.String(CustomAddon.5.Path))</visible>
+					<visible>!String.IsEmpty(Skin.String(CustomAddon.5.Path))</visible>
 				</item>
 				<item>
 					<!-- Search -->
