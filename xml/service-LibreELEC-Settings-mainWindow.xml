@@ -21,10 +21,10 @@
 				<width>480</width>
 				<height>750</height>
 				<ondown>1500</ondown>
-				<onleft condition="StringCompare(Container(1000).ListItem.Property(listTyp), 1100)">1100</onleft>
-				<onleft condition="StringCompare(Container(1000).ListItem.Property(listTyp), 1900)">1900</onleft>
-				<onleft condition="StringCompare(Container(1000).ListItem.Property(listTyp), 1200)">1200</onleft>
-				<onleft condition="StringCompare(Container(1000).ListItem.Property(listTyp), 1300)">1300</onleft>
+				<onleft condition="String.Contains(Container(1000).ListItem.Property(listTyp), 1100)">1100</onleft>
+				<onleft condition="String.Contains(Container(1000).ListItem.Property(listTyp), 1900)">1900</onleft>
+				<onleft condition="String.Contains(Container(1000).ListItem.Property(listTyp), 1200)">1200</onleft>
+				<onleft condition="String.Contains(Container(1000).ListItem.Property(listTyp), 1300)">1300</onleft>
 				<onright>1000</onright>
 				<scrolltime>200</scrolltime>
 				<itemlayout height="75" width="480">
@@ -831,7 +831,7 @@
 							<width>20</width>
 							<height>20</height>
 							<aspectratio>keep</aspectratio>
-							<visible>IntegerGreaterThan(ListItem.Property(Trusted), 0)</visible>
+							<visible>Integer.IsGreater(ListItem.Property(Trusted), 0)</visible>
 							<texture>libre-elec/Key.png</texture>
 						</control>
 					</itemlayout>
@@ -1010,7 +1010,7 @@
 							<width>20</width>
 							<height>20</height>
 							<aspectratio>keep</aspectratio>
-							<visible>IntegerGreaterThan(ListItem.Property(Trusted), 0)</visible>
+							<visible>Integer.IsGreater(ListItem.Property(Trusted), 0)</visible>
 							<texture>libre-elec/Key.png</texture>
 						</control>
 					</focusedlayout>

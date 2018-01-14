@@ -214,9 +214,9 @@
 					<texturenofocus>button-info-plot.png</texturenofocus>
 					<alttexturefocus>button-info-plot-focus.png</alttexturefocus>
 					<alttexturenofocus>button-info-plot.png</alttexturenofocus>
-					<usealttexture>StringCompare(Window.Property(showinfo),news)</usealttexture>
-					<onclick condition="!StringCompare(Window.Property(showinfo),news)">SetProperty(showinfo,news)</onclick>
-					<onclick condition="StringCompare(Window.Property(showinfo),news)">ClearProperty(showinfo)</onclick>
+					<usealttexture>String.Contains(Window.Property(showinfo),news)</usealttexture>
+					<onclick condition="!String.Contains(Window.Property(showinfo),news)">SetProperty(showinfo,news)</onclick>
+					<onclick condition="String.Contains(Window.Property(showinfo),news)">ClearProperty(showinfo)</onclick>
 					<visible>!String.IsEmpty(ListItem.AddonNews)</visible>
 				</control>
 				<control type="button" id="8">
