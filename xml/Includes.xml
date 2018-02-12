@@ -183,6 +183,12 @@
 		<value condition="String.IsEqual(Skin.String(listview-idleanim),120)">120$LOCALIZE[31810]</value>
 		<value>$LOCALIZE[31815]</value>
 	</variable>
+	<variable name="CastInfoIcons">
+		<value condition="String.IsEqual(ListItem.DBTYPE,movie)">plugin://script.skin.helper.service/?action=getcast&amp;movie=$INFO[ListItem.DBID]&amp;downloadthumbs=true&amp;castaction=extendedinfo</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow)">plugin://script.skin.helper.service/?action=getcast&amp;tvshow=$INFO[ListItem.DBID]&amp;downloadthumbs=true&amp;castaction=extendedinfo</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,movieset)">plugin://script.skin.helper.service/?action=getcast&amp;movieset=$INFO[ListItem.DBID]&amp;downloadthumbs=true&amp;castaction=extendedinfo</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,episode)">plugin://script.skin.helper.service/?action=getcast&amp;episode=$INFO[ListItem.DBID]&amp;downloadthumbs=true&amp;castaction=extendedinfo</value>
+	</variable>
 	<variable name="VideoInfoIcons">
 		<value condition="String.IsEqual(ListItem.DBTYPE,movie)">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=movies&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)">plugin://script.skin.helper.widgets/?action=similarshows&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
@@ -286,7 +292,8 @@
 		<value condition="Player.Rewinding">osd-btn-rewind-focus.png</value>
 		<value condition="[Player.Rewinding2x | Player.Rewinding4x | Player.Rewinding8x | Player.Rewinding16x | Player.Rewinding32x]">osd-btn-rewind-focus.png</value>
 		<value condition="[Player.Forwarding2x | Player.Forwarding4x | Player.Forwarding8x | Player.Forwarding16x | Player.Forwarding32x]">osd-btn-fastfwd-focus.png</value>
-	</variable>
+		<value condition="Player.IsTempo">osd-btn-play-focus.png</value>
+		</variable>
 	<variable name="PlayStateTxt">
 		<value condition="Player.Caching"> $LOCALIZE[15107] $INFO[Player.CacheLevel]%</value>
 		<value condition="Player.Paused">$LOCALIZE[112]</value>
@@ -296,7 +303,7 @@
 		<value condition="[Player.Rewinding8x | Player.Forwarding8x]">x8</value>
 		<value condition="[Player.Rewinding16x | Player.Forwarding16x]">x16</value>
 		<value condition="[Player.Rewinding32x | Player.Forwarding32x]">x32</value>
-		<value condition="Player.IsTempo">$INFO[Player.Playspeed,$LOCALIZE[31703] x ,]</value>
+		<value condition="Player.IsTempo">$INFO[Player.Playspeed,x,]</value>
 	</variable>
 	<variable name="VideoDuration">
 		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItemDuration)) + !String.IsEqual(Window(home).Property(SkinHelper.ListItemDuration.Hours),0)">$INFO[Window(home).Property(SkinHelper.ListItemDuration.Hours),,h]$INFO[Window(home).Property(SkinHelper.ListItemDuration.Minutes),,m]</value>
@@ -1051,8 +1058,6 @@
 		<!-- Hourly -->
 		<value condition="String.IsEqual(Skin.String(weather-view),$LOCALIZE[33036]) + String.Contains(Weather.plugin,weather.openweathermap.extended)">Skin.SetString(weather-view,$LOCALIZE[10508])</value>
 		<!-- Maps -->
-		<value condition="String.IsEqual(Skin.String(weather-view),$LOCALIZE[33035]) + String.Contains(Weather.plugin,weather.ozweather)">Skin.SetString(weather-view,$LOCALIZE[10508])</value>
-		<!-- Standard Forecast -->
 		<value>Skin.SetString(weather-view,$LOCALIZE[10508])</value>
 		<!-- Fall thru default (Standard forecast) -->
 	</variable>
@@ -1786,6 +1791,7 @@
 		<value condition="Control.HasFocus(713)">$LOCALIZE[31366]</value>
 		<value condition="Control.HasFocus(715)">$LOCALIZE[31367]</value>
 		<value condition="Control.HasFocus(717)">$LOCALIZE[31368]</value>
+		<value condition="Control.HasFocus(719)">$LOCALIZE[31369]</value>
 		<value condition="Control.HasFocus(802)">$LOCALIZE[31371]</value>
 		<value condition="Control.HasFocus(803)">$LOCALIZE[31370]</value>
 		<value condition="Control.HasFocus(805)">$LOCALIZE[31372]</value>
