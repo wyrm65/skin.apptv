@@ -300,14 +300,6 @@
 						<visible>String.IsEqual(Window(home).Property(SelectDialogType),videoinfomore)</visible>
 					</item>
 					<item>
-						<label>$LOCALIZE[31681]</label>
-						<onclick>Dialog.Close(1154)</onclick>
-						<onclick condition="String.IsEqual(ListItem.DBTYPE,tvshow)">RunScript(script.artwork.downloader,mode=gui,mediatype=tvshow,dbid=$INFO[ListItem.DBID])</onclick>
-						<onclick condition="String.IsEqual(ListItem.DBTYPE,movie)">RunScript(script.artwork.downloader,mode=gui,mediatype=movie,dbid=$INFO[ListItem.DBID])</onclick>
-						<onclick condition="String.IsEqual(ListItem.DBTYPE,musicvideo)">RunScript(script.artwork.downloader,mode=gui,mediatype=musicvideo,dbid=$INFO[ListItem.DBID])</onclick>
-						<visible>String.IsEqual(Window(home).Property(SelectDialogType),videoinfomore) + System.HasAddon(script.artwork.downloader) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,movie) | String.IsEqual(ListItem.DBTYPE,musicvideo)] + $EXP[isnotEmptyDBID]</visible>
-					</item>
-					<item>
 						<label>$LOCALIZE[38023]</label>
 						<onclick>Dialog.Close(1154)</onclick>
 						<onclick>SendClick(movieinformation,7)</onclick>
