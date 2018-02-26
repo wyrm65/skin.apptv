@@ -907,6 +907,12 @@
 		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
 		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
 	</variable>
+	<variable name="PVRPlayingIcon">
+		<value condition="!IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>
+		<value condition="!IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
+		<value condition="!IsEmpty(VideoPlayer.Cover)">$INFO[VideoPlayer.Cover]</value>
+		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.Player.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.Player.ChannelLogo)]</value>
+	</variable>
 	<variable name="HorzHomeShelfIcon">
 		<value condition="Control.HasFocus(9100) | Control.HasFocus(9130)">DefaultVideo.png</value>
 		<!--Video shelf Icon -->
