@@ -16,18 +16,36 @@
 		</control>
 		<control type="group">
 			<!-- Actor info -->
-			<control type="label">
-				<!-- Actor Name -->
+			<control type="grouplist">
 				<left>510</left>
 				<top>18</top>
-				<width>1380</width>
+				<width>auto</width>
 				<height>50</height>
-				<font>apptv30</font>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				<label>$INFO[Window.Property(Label)]</label>
+				<align>left</align>
+				<aligny>top</aligny>
+				<orientation>horizontal</orientation>
+				<control type="label">
+					<!-- Actor Name -->
+					<width max="1200">auto</width>
+					<height>50</height>
+					<label>$INFO[Window.Property(Label)]</label>
+					<font>apptv30</font>
+					<wrapmultiline>true</wrapmultiline>
+					<aligny>top</aligny>
+				</control>
+				<control type="label">
+					<!-- Actor Age -->
+					<top>21</top>
+					<width max="180">auto</width>
+					<height>57</height>
+					<label>$INFO[Window.Property(Age),($ADDON[script.extendedinfo 32020]: ,)]</label>
+					<font>apptv23</font>
+					<textcolor>disabled-text</textcolor>
+					<shadowcolor>shadow-text</shadowcolor>
+				</control>
 			</control>
 			<control type="label">
-				<!-- Actor also known as -->
+				<!-- Actor born -->
 				<left>510</left>
 				<top>77</top>
 				<width>1380</width>
@@ -36,25 +54,13 @@
 				<textcolor>disabled-text</textcolor>
 				<shadowcolor>shadow-text</shadowcolor>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				<label>$INFO[Window.Property(AlsoKnownAs),(,)]</label>
-			</control>
-			<control type="label">
-				<!-- Actor born/age -->
-				<left>510</left>
-				<top>123</top>
-				<width>1380</width>
-				<height>33</height>
-				<font>apptv22</font>
-				<textcolor>disabled-text</textcolor>
-				<shadowcolor>shadow-text</shadowcolor>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				<label>$INFO[Window.Property(Birthday)] $INFO[Window.Property(Age),($ADDON[script.extendedinfo 32020]: ,)]</label>
+				<label>$INFO[Window.Property(PlaceOfBirth),$ADDON[script.extendedinfo 32014] ] $INFO[Window.Property(Birthday),(,)]</label>
 				<visible>String.IsEmpty(Window.Property(Deathday))</visible>
 			</control>
 			<control type="label">
 				<!-- Actor born/death -->
 				<left>510</left>
-				<top>123</top>
+				<top>77</top>
 				<width>1380</width>
 				<height>33</height>
 				<font>apptv22</font>
@@ -66,7 +72,7 @@
 			</control>
 			<control type="image">
 				<left>510</left>
-				<top>162</top>
+				<top>116</top>
 				<width>1350</width>
 				<height>6</height>
 				<texture>separator.png</texture>
@@ -74,9 +80,9 @@
 			<control type="textbox" id="1622">
 				<!-- Actor biography -->
 				<left>510</left>
-				<top>165</top>
+				<top>119</top>
 				<width>1350</width>
-				<height>250</height>
+				<height>284</height>
 				<label fallback="19055">$INFO[Window.Property(Biography)]</label>
 				<font>apptv20</font>
 				<align>justify</align>
@@ -84,9 +90,9 @@
 			</control>
 			<control type="scrollbar" id="1623">
 				<left>1875</left>
-				<top>172</top>
+				<top>126</top>
 				<width>18</width>
-				<height>247</height>
+				<height>280</height>
 				<onleft>9000</onleft>
 				<onright>1005</onright>
 				<onup>1005</onup>
@@ -196,43 +202,44 @@
 					<height>6</height>
 					<texture>separator.png</texture>
 				</control>
-
 				<control type="list" id="140">
 					<left>15</left>
-					<top>766</top>
+					<top>777</top>
 					<width>1890</width>
-					<height>312</height>
+					<height>300</height>
 					<onleft>1015</onleft>
 					<onright>1015</onright>
 					<onup>9000</onup>
 					<ondown>1015</ondown>
+					<onclick>PlayMedia($INFO[ListItem.FileNameAndPath])</onclick>
+					<onclick>Dialog.Close(all,true)</onclick>
 					<onback>ClearProperty(AdditionalInfo)</onback>
 					<viewtype label="31028">list</viewtype>
 					<visible>String.Contains(Window.Property(AdditionalInfo),localmedia) | String.IsEmpty(Window.Property(AdditionalInfo))</visible>
 					<orientation>horizontal</orientation>
-					<itemlayout height="312" width="315">
+					<itemlayout height="300" width="315">
 						<control type="image">
 							<left>72</left>
-							<top>10</top>
+							<top>0</top>
 							<width>171</width>
 							<height>222</height>
 							<aspectratio scalediffuse="true">keep</aspectratio>
 							<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Icon]</texture>
 						</control>
 					</itemlayout>
-					<focusedlayout height="312" width="315">
+					<focusedlayout height="300" width="315">
 						<control type="image">
 							<left>72</left>
-							<top>10</top>
+							<top>0</top>
 							<width>171</width>
 							<height>222</height>
 							<aspectratio scalediffuse="true">keep</aspectratio>
 							<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Icon]</texture>
-							<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+							<animation effect="zoom" start="100" end="105" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 						</control>
 						<control type="textbox">
 							<left>0</left>
-							<top>236</top>
+							<top>222</top>
 							<width>315</width>
 							<height>74</height>
 							<label>$INFO[ListItem.Label] [COLOR=disabled-text]$INFO[ListItem.Label2,(,)][/COLOR]</label>
@@ -277,9 +284,9 @@
 				</control>
 				<control type="list" id="150">
 					<left>15</left>
-					<top>766</top>
+					<top>777</top>
 					<width>1890</width>
-					<height>312</height>
+					<height>300</height>
 					<onleft>1020</onleft>
 					<onright>1020</onright>
 					<onup>9000</onup>
@@ -288,7 +295,7 @@
 					<viewtype label="31028">list</viewtype>
 					<visible allowhiddenfocus="true">String.Contains(Window.Property(AdditionalInfo),actormovies)</visible>
 					<orientation>horizontal</orientation>
-					<itemlayout height="312" width="315">
+					<itemlayout height="300" width="315">
 						<control type="image">
 							<left>72</left>
 							<top>10</top>
@@ -299,7 +306,7 @@
 							<animation condition="$EXP[isEmptyDBID]" effect="fade" start="100" end="60">Conditional</animation>
 						</control>
 					</itemlayout>
-					<focusedlayout height="312" width="315">
+					<focusedlayout height="300" width="315">
 						<control type="image">
 							<left>72</left>
 							<top>10</top>
@@ -308,11 +315,11 @@
 							<aspectratio scalediffuse="true">keep</aspectratio>
 							<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Icon]</texture>
 							<animation condition="$EXP[isEmptyDBID]" effect="fade" start="100" end="60">Conditional</animation>
-							<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+							<animation effect="zoom" start="100" end="105" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 						</control>
 						<control type="textbox">
 							<left>0</left>
-							<top>236</top>
+							<top>222</top>
 							<width>315</width>
 							<height>74</height>
 							<label>$INFO[ListItem.Label]</label>
@@ -357,9 +364,9 @@
 				</control> 
 				<control type="list" id="250">
 					<left>15</left>
-					<top>766</top>
+					<top>777</top>
 					<width>1890</width>
-					<height>312</height>
+					<height>300</height>
 					<onleft>1025</onleft>
 					<onright>1025</onright>
 					<onup>9000</onup>
@@ -368,7 +375,7 @@
 					<viewtype label="31028">list</viewtype>
 					<visible allowhiddenfocus="true">String.Contains(Window.Property(AdditionalInfo),actorshows)</visible>
 					<orientation>horizontal</orientation>
-					<itemlayout height="312" width="315">
+					<itemlayout height="300" width="315">
 						<control type="image">
 							<left>72</left>
 							<top>10</top>
@@ -392,7 +399,7 @@
 						</control>
 						<control type="textbox">
 							<left>0</left>
-							<top>236</top>
+							<top>222</top>
 							<width>315</width>
 							<height>74</height>
 							<label>$INFO[ListItem.Label] [COLOR=disabled-text]$INFO[ListItem.Label2,(,)][/COLOR]</label>
@@ -437,9 +444,9 @@
 				</control>
 				<control type="list" id="350">
 					<left>15</left>
-					<top>766</top>
+					<top>777</top>
 					<width>1890</width>
-					<height>312</height>
+					<height>300</height>
 					<onleft>1030</onleft>
 					<onright>1030</onright>
 					<onup>9000</onup>
@@ -448,29 +455,29 @@
 					<viewtype label="31028">list</viewtype>
 					<visible allowhiddenfocus="true">String.Contains(Window.Property(AdditionalInfo),youtube)</visible>
 					<orientation>horizontal</orientation>
-					<itemlayout height="312" width="315">
+					<itemlayout height="300" width="315">
 						<control type="image">
-							<left>45</left>
-							<top>11</top>
-							<width>225</width>
-							<height>225</height>
+							<left>52</left>
+							<top>10</top>
+							<width>210</width>
+							<height>210</height>
 							<aspectratio scalediffuse="true">stretch</aspectratio>
 							<texture diffuse="mask-squ.png" background="true">$INFO[ListItem.Icon]</texture>
 						</control>
 					</itemlayout>
-					<focusedlayout height="312" width="315">
+					<focusedlayout height="300" width="315">
 						<control type="image">
-							<left>45</left>
-							<top>11</top>
-							<width>225</width>
-							<height>225</height>
+							<left>52</left>
+							<top>10</top>
+							<width>210</width>
+							<height>210</height>
 							<texture diffuse="mask-squ.png" background="true">$INFO[ListItem.Icon]</texture>
 							<aspectratio scalediffuse="true">stretch</aspectratio>
 							<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 						</control>
 						<control type="textbox">
 							<left>0</left>
-							<top>236</top>
+							<top>224</top>
 							<width>315</width>
 							<height>74</height>
 							<label>$INFO[ListItem.Label] [COLOR=disabled-text]$INFO[ListItem.Label2,(,)][/COLOR]</label>

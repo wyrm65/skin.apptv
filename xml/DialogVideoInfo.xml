@@ -2,6 +2,7 @@
 <window>
 	<defaultcontrol always="true">999</defaultcontrol>
 	<controls>
+		<visible>!Window.IsVisible(script-script.extendedinfo.DialogInfo.xml)</visible>
 		<include>background</include>
 		<include>fullscreendummy</include>
 		<control type="label">
@@ -461,7 +462,7 @@
 			<align>center</align>
 			<onleft>1005</onleft>
 			<onright>1005</onright>
-			<ondown condition="Control.IsVisible(50)">50</ondown>
+			<ondown condition="Control.IsVisible(952)">952</ondown>
 			<ondown condition="Control.IsVisible(950)">950</ondown>
 			<onup condition="Integer.IsGreater(Container(1122).NumPages,1)">1123</onup>
 			<onup condition="Integer.IsLessOrEqual(Container(1122).NumPages,1)">1005</onup>
@@ -506,7 +507,7 @@
 					<width>144</width>
 					<onleft>11</onleft>
 					<onright>6</onright>
-					<ondown condition="Control.IsVisible(50)">50</ondown>
+					<ondown condition="Control.IsVisible(952)">952</ondown>
 					<ondown condition="Control.IsVisible(950)">950</ondown>
 					<onup>1023</onup>
 					<textcolor>HideControl</textcolor>
@@ -635,7 +636,7 @@
 			<texture>separator.png</texture>
 		</control>
 		<control type="list" id="50">
-			<visible>String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
+			<visible>String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + !System.HasAddon(script.extendedinfo)</visible>
 			<!-- Cast -->
 			<left>15</left>
 			<top>771</top>
@@ -649,22 +650,22 @@
 			<orientation>horizontal</orientation>
 			<itemlayout height="300" width="315">
 				<control type="image">
-					<left>48</left>
+					<left>72</left>
 					<top>0</top>
-					<width>219</width>
-					<height>219</height>
+					<width>171</width>
+					<height>222</height>
 					<aspectratio scalediffuse="true">keep</aspectratio>
-					<texture diffuse="mask-round.png" fallback="DefaultUser.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<texture diffuse="mask-rect.png" fallback="DefaultUser.png" background="true">$INFO[ListItem.Thumb]</texture>
 				</control>
 			</itemlayout>
 			<focusedlayout height="300" width="315">
 				<control type="image">
-					<left>48</left>
+					<left>72</left>
 					<top>0</top>
-					<width>219</width>
-					<height>219</height>
+					<width>171</width>
+					<height>222</height>
 					<aspectratio scalediffuse="true">keep</aspectratio>
-					<texture fallback="DefaultUser.png" diffuse="mask-round.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<texture fallback="DefaultUser.png" diffuse="mask-rect.png" background="true">$INFO[ListItem.Thumb]</texture>
 					<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 				</control>
 				<control type="label">
@@ -695,13 +696,13 @@
 		</control>
 
 		<control type="group">
-			<visible>String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
+			<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
 			<!-- Markers for control area items -->
 			<include content="page-offscreen-horizontal">
 				<param name="indicator1left" value="30"/>
-				<param name="indicator1top" value="876"/>
+				<param name="indicator1top" value="873"/>
 				<param name="indicator2left" value="1866"/>
-				<param name="indicator2top" value="876"/>
+				<param name="indicator2top" value="873"/>
 				<param name="indicatorsize" value="24"/>
 				<param name="indicatorcontainer" value="50"/>
 			</include>
@@ -812,6 +813,80 @@
 			</include>
 		</control>
 
+		<control type="list" id="952">
+			<visible>String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + System.HasAddon(script.extendedinfo)</visible>
+			<!-- Cast -->
+			<left>15</left>
+			<top>771</top>
+			<width>1890</width>
+			<height>300</height>
+			<onleft>1020</onleft>
+			<onright>1020</onright>
+			<ondown>1020</ondown>
+			<onup>999</onup>
+			<oninfo>SendClick(952)</oninfo>
+			<viewtype label="31028">list</viewtype>
+			<orientation>horizontal</orientation>
+			<itemlayout height="300" width="315">
+				<control type="image">
+					<left>48</left>
+					<top>0</top>
+					<width>219</width>
+					<height>219</height>
+					<aspectratio scalediffuse="true">keep</aspectratio>
+					<texture diffuse="mask-rect.png" fallback="DefaultUser.png" background="true">$INFO[ListItem.Thumb]</texture>
+				</control>
+			</itemlayout>
+			<focusedlayout height="300" width="315">
+				<control type="image">
+					<left>48</left>
+					<top>0</top>
+					<width>219</width>
+					<height>219</height>
+					<aspectratio scalediffuse="true">keep</aspectratio>
+					<texture fallback="DefaultUser.png" diffuse="mask-rect.png" background="true">$INFO[ListItem.Thumb]</texture>
+					<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+				</control>
+				<control type="label">
+					<left>0</left>
+					<top>231</top>
+					<height>30</height>
+					<width>315</width>
+					<label>$INFO[ListItem.Label]</label>
+					<font>apptv20</font>
+					<align>center</align>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					<animation effect="fade" time="100" delay="300">Focus</animation>
+					<visible>Control.HasFocus(952)</visible>
+				</control>
+				<control type="label">
+					<left>0</left>
+					<top>267</top>
+					<height>30</height>
+					<width>315</width>
+					<label>$INFO[ListItem.Label2]</label>
+					<font>apptv20</font>
+					<align>center</align>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					<animation effect="fade" time="100" delay="300">Focus</animation>
+					<visible>Control.HasFocus(952)</visible>
+				</control>
+			</focusedlayout>
+			<content>$VAR[CastInfoIcons]</content>
+		</control>
+
+		<control type="group">
+			<visible>String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
+			<!-- Markers for control area items -->
+			<include content="page-offscreen-horizontal">
+				<param name="indicator1left" value="30"/>
+				<param name="indicator1top" value="876"/>
+				<param name="indicator2left" value="1866"/>
+				<param name="indicator2top" value="876"/>
+				<param name="indicatorsize" value="24"/>
+				<param name="indicatorcontainer" value="952"/>
+			</include>
+		</control>
 		<!-- Play bump sound if user tries to leave button bar by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="1005" />
@@ -830,6 +905,12 @@
 			<param name="returnid" value="950" />
 		</include>
 
+		<!-- Play bump sound if user tries to leave cast widget by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="1020" />
+			<param name="returnid" value="952" />
+		</include>
+
 		<!-- Show a iOS style page indicator to show which focus group has the current focus -->
 		<!-- Focus group can be hidden or shown but is potentially focusable, that is it has not be disabled -->
 		<control type="group">
@@ -844,7 +925,7 @@
 				<param name="grp1visible" value="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])+Integer.IsGreater(Container(1122).NumPages,1)" />
 				<param name="grp2indicate" value="ControlGroup(999).HasFocus()|Control.HasFocus(3550)" />
 				<param name="grp2visible" value="true" />
-				<param name="grp3indicate" value="Control.HasFocus(50)|Control.HasFocus(950)" />
+				<param name="grp3indicate" value="Control.HasFocus(952)|Control.HasFocus(950)" />
 				<param name="grp3visible" value="[!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])+!String.IsEmpty(Container(950).ListItem.Label)]|String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])" />
 			</include>
 		</control>
