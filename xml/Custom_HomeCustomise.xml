@@ -1397,7 +1397,7 @@
 							<width>300</width>
 							<height>180</height>
 							<aspectratio>keep</aspectratio>
-							<texture diffuse="homeiconmask.png" fallback="special://skin/extras/homeicons/fallback.png">$INFO[ListItem.Thumb]</texture>
+							<texture diffuse="homeiconmask.png" fallback="special://skin/extras/homeicons/fallback.png">$INFO[ListItem.Art(thumb)]</texture>
 							<visible>ListItem.Property(isActive) + !Control.HasFocus(402)</visible>
 						</control>
 						<control type="image">
@@ -1407,7 +1407,7 @@
 							<width>300</width>
 							<height>180</height>
 							<aspectratio>keep</aspectratio>
-							<texture diffuse="homeiconmask.png" fallback="special://skin/extras/homeicons/fallback.png">$INFO[ListItem.Thumb]</texture>
+							<texture diffuse="homeiconmask.png" fallback="special://skin/extras/homeicons/fallback.png">$INFO[ListItem.Art(thumb)]</texture>
 							<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
 							<visible>!ListItem.Property(isActive) | Control.HasFocus(402)</visible>
 						</control>
@@ -1422,7 +1422,7 @@
 								<width>357</width>
 								<height>213</height>
 								<aspectratio>keep</aspectratio>
-								<texture diffuse="homeiconmask.png" fallback="special://skin/extras/homeicons/fallback.png">$INFO[ListItem.Thumb]</texture>
+								<texture diffuse="homeiconmask.png" fallback="special://skin/extras/homeicons/fallback.png">$INFO[ListItem.Art(thumb)]</texture>
 								<bordertexture border="6">homeiconhilite.png</bordertexture>
 								<bordersize>6</bordersize>
 							</control>
@@ -1445,7 +1445,7 @@
 								<width>357</width>
 								<height>213</height>
 								<aspectratio>keep</aspectratio>
-								<texture diffuse="homeiconmask.png" fallback="special://skin/extras/homeicons/fallback.png">$INFO[ListItem.Thumb]</texture>
+								<texture diffuse="homeiconmask.png" fallback="special://skin/extras/homeicons/fallback.png">$INFO[ListItem.Art(thumb)]</texture>
 								<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
 							</control>
 							<control type="label">
@@ -2253,7 +2253,7 @@
 						<top>0</top>
 						<width>610</width>
 						<height>430</height>
-						<texture background="true" diffuse="mask-squ.png" fallback="icon-fav.png">$INFO[Container(9031).Listitem(0).thumb]</texture>
+						<texture background="true" diffuse="mask-squ.png" fallback="icon-fav.png">$INFO[Container(9031).Listitem(0).Art(thumb)]</texture>
 						<aspectratio aligny="bottom">keep</aspectratio>
 						<animation effect="fade" start="100" end="35" condition="!Container(9031).ListItem.Property(isActive)">Conditional</animation>
 					</control>
@@ -2262,7 +2262,7 @@
 						<top>430</top>
 						<width>610</width>
 						<height>430</height>
-						<texture background="true" flipy="true" diffuse="mask-fade.png" fallback="icon-fav.png">$INFO[Container(9031).Listitem(0).thumb]</texture>
+						<texture background="true" flipy="true" diffuse="mask-fade.png" fallback="icon-fav.png">$INFO[Container(9031).Listitem(0).Art(thumb)]</texture>
 						<aspectratio aligny="top">keep</aspectratio>
 						<animation effect="fade" start="100" end="35" condition="!Container(9031).ListItem.Property(isActive)">Conditional</animation>
 					</control>
