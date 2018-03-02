@@ -23,17 +23,17 @@
 	<expression name="isEpisode">String.IsEqual(ListItem.DBTYPE,episode)</expression>
 	<expression name="isMusicvideo">String.IsEqual(ListItem.DBTYPE,musicvideo)</expression>
 	<expression name="isArtist">String.IsEqual(ListItem.DBTYPE,artist)</expression>
-	<expression name="isnotArtist">!String.IsEqual(ListItem.DBTYPE,artist)</expression>
+	<expression name="isnotArtist">![String.IsEqual(ListItem.DBTYPE,artist)]</expression>
 	<expression name="isAlbum">String.IsEqual(ListItem.DBTYPE,album)</expression>
 	<expression name="isSong">String.IsEqual(ListItem.DBTYPE,song)</expression>
 	<expression name="isEmptyIcon">String.IsEmpty(ListItem.Icon)</expression>
-	<expression name="isnotEmptyIcon">!String.IsEmpty(ListItem.Icon)</expression>
+	<expression name="isnotEmptyIcon">![String.IsEmpty(ListItem.Icon)]</expression>
 	<expression name="isEmptyPVRIcon">String.IsEmpty(ListItem.Icon) + IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))</expression>
 	<expression name="isnotEmptyPVRIcon">!String.IsEmpty(ListItem.Icon) | !IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))</expression>
 	<expression name="isEmptyDBID">String.IsEmpty(ListItem.DBID)</expression>
-	<expression name="isnotEmptyDBID">!String.IsEmpty(ListItem.DBID)</expression>
+	<expression name="isnotEmptyDBID">![String.IsEmpty(ListItem.DBID)]</expression>
 	<expression name="isDefaultIcon">String.StartsWith(ListItem.Icon,Default)</expression>
-	<expression name="isnotDefaultIcon">!String.StartsWith(ListItem.Icon,Default)</expression>
+	<expression name="isnotDefaultIcon">![String.StartsWith(ListItem.Icon,Default)]</expression>
 	<expression name="isInfoDialog">[Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]</expression>
 	<expression name="isEnabledTouch">Skin.HasSetting(touch-controls)</expression>
 	<expression name="isEnabledParentDirectory">System.GetBool(filelists.showparentdiritems)</expression>
@@ -3536,6 +3536,7 @@
 				<width>1</width>
 				<height>1</height>
 				<onfocus>SetFocus($PARAM[returnid])</onfocus>
+				<onfocus>SetFocus($PARAM[returnid])</onfocus>
 				<onfocus>ActivateWindow(1157)</onfocus>
 			</control>
 		</definition>
@@ -3699,7 +3700,7 @@
 		<param name="grp5indicate"/>
 		<param name="grp5visible" default="false"/>
 		<definition>
-			<control type="grouplist" id="3500">
+			<control type="grouplist">
 				<left>$PARAM[indicatorleft]</left>
 				<top>$PARAM[indicatortop]</top>
 				<width>$PARAM[indicatorwidth]</width>
@@ -3775,6 +3776,7 @@
 		<param name="indicatorcontainer"/>
 		<definition>
 			<control type="group">
+				<visible>Integer.IsGreater(Container($PARAM[indicatorcontainer]).NumItems,0) + Control.IsVisible($PARAM[indicatorcontainer])</visible>
 				<control type="image">
 					<left>$PARAM[indicator1left]</left>
 					<top>$PARAM[indicator1top]</top>
@@ -3803,6 +3805,7 @@
 		<param name="indicatorcontainer"/>
 		<definition>
 			<control type="group">
+				<visible>Integer.IsGreater(Container($PARAM[indicatorcontainer]).NumItems,0) + Control.IsVisible($PARAM[indicatorcontainer])</visible>
 				<control type="image">
 					<left>$PARAM[indicator1left]</left>
 					<top>$PARAM[indicator1top]</top>

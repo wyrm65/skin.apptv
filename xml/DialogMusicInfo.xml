@@ -4,6 +4,7 @@
 	<controls>
 		<include>background</include>
 		<include>fullscreendummy</include>
+
 		<control type="image">
 			<!-- Artist Image -->
 			<left>63</left>
@@ -24,7 +25,7 @@
 				<width>444</width>
 				<texture>case-cd.png</texture>
 				<aspectratio>keep</aspectratio>
-				<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon]</visible>
+				<visible>$EXP[isnotDefaultIcon] + Skin.HasSetting(media-case)</visible>
 			</control>
 			<control type="image">
 				<!-- Cover image -->
@@ -473,8 +474,8 @@
 			<onup condition="$EXP[isSong] + Integer.IsGreater(Container(1322).NumPages,1)">1323</onup>
 			<onup condition="$EXP[isArtist] + Integer.IsGreater(Container(1422).NumPages,1)">1423</onup>
 			<onup condition="$EXP[isAlbum] + Integer.IsGreater(Container(1522).NumPages,1)">1523</onup>
-			<onup condition="[$EXP[isSong]+Integer.IsLessOrEqual(Container(1322).NumPages,1)] | [$EXP[isArtist]+Integer.IsLessOrEqual(Container(1422).NumPages,1)] | [$EXP[isAlbum]+Integer.IsLessOrEqual(Container(1522).NumPages,1)]">1005</onup>
-			<ondown condition="$EXP[isAlbum] | $EXP[isArtist]">50</ondown>
+			<onup condition="[$EXP[isSong] + [Integer.IsLessOrEqual(Container(1322).NumPages,1)] | [$EXP[isArtist]+Integer.IsLessOrEqual(Container(1422).NumPages,1)] | [$EXP[isAlbum]+Integer.IsLessOrEqual(Container(1522).NumPages,1)]]">1005</onup>
+			<ondown condition="[$EXP[isAlbum] | $EXP[isArtist]] + Integer.IsGreater(Container(50).NumItems,0)">50</ondown>
 			<ondown condition="[$EXP[isAlbum] | $EXP[isArtist]] + Integer.IsLess(Container(50).NumItems,1)">1005</ondown>
 			<ondown condition="$EXP[isSong] + Integer.IsGreaterOrEqual(Container(950).NumItems,1)">950</ondown>
 			<ondown condition="$EXP[isSong] + Integer.IsLess(Container(950).NumItems,1)">1005</ondown>
@@ -530,7 +531,7 @@
 				<label>$LOCALIZE[21888]</label>
 				<font>apptv20</font>
 				<align>right</align>
-				<visible>$EXP[isArtist]</visible>
+				<visible>$EXP[isArtist] + Integer.IsGreater(Container(50).NumItems,0)</visible>
 			</control>
 			<control type="label">
 				<left>30</left>
@@ -540,7 +541,7 @@
 				<label>$LOCALIZE[182]</label>
 				<font>apptv20</font>
 				<align>right</align>
-				<visible>$EXP[isAlbum]</visible>
+				<visible>$EXP[isAlbum] + Integer.IsGreater(Container(50).NumItems,0)</visible>
 			</control>
 			<control type="image">
 				<left>510</left>
@@ -725,6 +726,7 @@
 				<label>$LOCALIZE[31691]</label>
 				<font>apptv20</font>
 				<align>right</align>
+				<visible>Integer.IsGreater(Container(950).NumItems,0)</visible>
 			</control>
 			<control type="image">
 				<left>510</left>
@@ -832,7 +834,7 @@
 		<!-- Show a iOS style page indicator to show which focus group has the current focus -->
 		<!-- Focus group can be hidden or shown but is potentially focusable, that is it has not be disabled -->
 		<control type="group">
-			<visible>$EXP[isSong] + [Integer.IsGreater(Container(3500).NumItems,1)]</visible>
+			<visible>$EXP[isSong]</visible>
 			<include content="page-indicator">
 				<param name="indicatorleft" value="0" />
 				<param name="indicatortop" value="500" />
@@ -842,13 +844,13 @@
 				<param name="grp1indicate" value="Control.HasFocus(1323)" />
 				<param name="grp1visible" value="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])+Integer.IsGreater(Container(1322).NumPages,1)" />
 				<param name="grp2indicate" value="[ControlGroup(999).HasFocus()|Control.HasFocus(3550)]" />
-				<param name="grp2visible" value="true" />
+				<param name="grp2visible" value="Integer.IsGreater(Container(950).NumItems,0)|[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])+Integer.IsGreater(Container(1322).NumPages,1)]" />
 				<param name="grp3indicate" value="Control.HasFocus(950)" />
-				<param name="grp3visible" value="[!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])+![String.IsEmpty(Container(950).ListItem.Label)]]|String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])" />
+				<param name="grp3visible" value="Integer.IsGreater(Container(950).NumItems,0)" />
 			</include>
 		</control>
 		<control type="group">
-			<visible>$EXP[isArtist] + [Integer.IsGreater(Container(3500).NumItems,1)]</visible>
+			<visible>$EXP[isArtist]</visible>
 			<include content="page-indicator">
 				<param name="indicatorleft" value="0" />
 				<param name="indicatortop" value="500" />
@@ -858,13 +860,13 @@
 				<param name="grp1indicate" value="Control.HasFocus(1423)" />
 				<param name="grp1visible" value="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])+Integer.IsGreater(Container(1422).NumPages,1)" />
 				<param name="grp2indicate" value="ControlGroup(999).HasFocus()|Control.HasFocus(3550)" />
-				<param name="grp2visible" value="true" />
+				<param name="grp2visible" value="Integer.IsGreater(Container(50).NumItems,0)|[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])+Integer.IsGreater(Container(1422).NumPages,1)]" />
 				<param name="grp3indicate" value="Control.HasFocus(50)" />
-				<param name="grp3visible" value="[!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])+!String.IsEmpty(Container(50).ListItem.Label)]|String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])" />
+				<param name="grp3visible" value="Integer.IsGreater(Container(50).NumItems,0)" />
 			</include>
 		</control>
 		<control type="group">
-			<visible>$EXP[isAlbum] + [Integer.IsGreater(Container(3500).NumItems,1)]</visible>
+			<visible>$EXP[isAlbum]</visible>
 			<include content="page-indicator">
 				<param name="indicatorleft" value="0" />
 				<param name="indicatortop" value="500" />
@@ -874,9 +876,9 @@
 				<param name="grp1indicate" value="Control.HasFocus(1523)" />
 				<param name="grp1visible" value="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])+Integer.IsGreater(Container(1522).NumPages,1)" />
 				<param name="grp2indicate" value="ControlGroup(999).HasFocus()|Control.HasFocus(3550)" />
-				<param name="grp2visible" value="true" />
-				<param name="grp3indicate" value="Control.HasFocus(950)" />
-				<param name="grp3visible" value="[[String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])+![String.IsEmpty(Container(950).ListItem.Label)]]|String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])]" />
+				<param name="grp2visible" value="Integer.IsGreater(Container(50).NumItems,0)|[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])+Integer.IsGreater(Container(1522).NumPages,1)]" />
+				<param name="grp3indicate" value="Control.HasFocus(50)" />
+				<param name="grp3visible" value="Integer.IsGreater(Container(50).NumItems,0)" />
 			</include>
 		</control>
 	</controls>

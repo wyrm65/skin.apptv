@@ -113,7 +113,7 @@
 						<width>444</width>
 						<texture>case-cd.png</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon]</visible>
+						<visible>$EXP[isnotDefaultIcon] + $EXP[isnotEmptyIcon] + Skin.HasSetting(media-case)</visible>
 					</control>
 					<control type="image">
 						<!-- Cover image -->
@@ -548,7 +548,7 @@
 						<aspectratio>stretch</aspectratio>
 						<bordertexture border="28,18,4,19">case-cd.png</bordertexture>
 						<bordersize>28,18,4,19</bordersize>
-						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + $EXP[isnotEmptyIcon]</visible>
+						<visible>$EXP[isnotDefaultIcon] + Skin.HasSetting(media-case)</visible>
 					</control>
 					<control type="image">
 						<left>-48</left>

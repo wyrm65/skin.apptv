@@ -181,7 +181,6 @@
 		<!-- Show a iOS style page indicator to show which focus group has the current focus -->
 		<!-- Focus group can be hidden or shown but is potentially focusable, that is it has not be disabled -->
 		<control type="group">
-			<visible>Integer.IsGreater(Container(3500).NumItems,1)</visible>
 			<include content="page-indicator">
 				<param name="indicatorleft" value="864" />
 				<param name="indicatortop" value="0" />
@@ -191,7 +190,7 @@
 				<param name="grp1indicate" value="[ControlGroup(9000).HasFocus()|String.IsEqual(Window(home).Property(ShowScreenSettings),show)]" />
 				<param name="grp1visible" value="[!Skin.HasSetting(lock-screensettings)]" />
 				<param name="grp2indicate" value="[Control.HasFocus(2)]" />
-				<param name="grp2visible" value="[Control.IsVisible(2)]" />
+				<param name="grp2visible" value="[Control.IsVisible(2)]+[!Skin.HasSetting(lock-screensettings)|!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
 				<param name="grp3indicate" value="[Control.HasFocus(23)]" />
 				<param name="grp3visible" value="[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
 			</include>
