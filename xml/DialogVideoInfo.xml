@@ -641,7 +641,7 @@
 			<visible>String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + !System.HasAddon(script.extendedinfo)</visible>
 			<!-- Cast -->
 			<left>15</left>
-			<top>771</top>
+			<top>772</top>
 			<width>1890</width>
 			<height>300</height>
 			<onleft>1010</onleft>
@@ -713,7 +713,7 @@
 			<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
 			<!-- Interesting media -->
 			<left>15</left>
-			<top>777</top>
+			<top>776</top>
 			<width>1890</width>
 			<height>312</height>
 			<onleft>1015</onleft>
@@ -773,7 +773,7 @@
 						<height>222</height>
 						<aspectratio scalediffuse="true">keep</aspectratio>
 						<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Art(poster)]</texture>
-						<animation effect="zoom" start="100" end="108" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 						<visible>![$EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode]]</visible>
 					</control>
 					<control type="image">
@@ -783,7 +783,7 @@
 						<height>222</height>
 						<aspectratio scalediffuse="true">keep</aspectratio>
 						<texture diffuse="mask-rect.png" fallback="DefaultTVShows.png" background="true">$INFO[ListItem.Art(poster)]</texture>
-						<animation effect="zoom" start="100" end="108" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 						<visible>$EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode]</visible>
 					</control>
 				</control>
@@ -818,7 +818,7 @@
 			<visible>String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + System.HasAddon(script.extendedinfo)</visible>
 			<!-- Cast -->
 			<left>15</left>
-			<top>771</top>
+			<top>772</top>
 			<width>1890</width>
 			<height>300</height>
 			<onleft>1020</onleft>
@@ -832,8 +832,8 @@
 				<control type="image">
 					<left>48</left>
 					<top>0</top>
-					<width>219</width>
-					<height>219</height>
+					<width>218</width>
+					<height>218</height>
 					<aspectratio scalediffuse="true">keep</aspectratio>
 					<texture diffuse="mask-rect.png" fallback="DefaultUser.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 				</control>
@@ -842,8 +842,8 @@
 				<control type="image">
 					<left>48</left>
 					<top>0</top>
-					<width>219</width>
-					<height>219</height>
+					<width>218</width>
+					<height>218</height>
 					<aspectratio scalediffuse="true">keep</aspectratio>
 					<texture fallback="DefaultUser.png" diffuse="mask-rect.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 					<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>

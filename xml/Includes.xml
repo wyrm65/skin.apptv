@@ -58,6 +58,7 @@
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(Fanart.Image)">$INFO[Fanart.Image]</value>
+		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(Window.Property(Fanart))">$INFO[Window.Property(Fanart)]</value>
 		<value condition="!String.IsEmpty(Skin.String(background-custom))">$INFO[Skin.String(background-custom)]</value>
 		<value>background.png</value>
 	</variable>
@@ -107,6 +108,48 @@
 		<value condition="String.Contains(ListItem.Mpaa,TV-PG)">special://skin/extras/images/rating/TV-PG.png</value>
 		<value condition="String.Contains(ListItem.Mpaa,TV-14)">special://skin/extras/images/rating/TV-14.png</value>
 		<value condition="String.Contains(ListItem.Mpaa,TV-MA)">special://skin/extras/images/rating/TV-MA.png</value>
+	</variable>
+	<variable name="VideoInfoRating">
+		<value condition="String.Contains(Window.Property(mpaa),Rated G) | String.Contains(Window.Property(mpaa),Rated: G)">special://skin/extras/images/rating/mpaa_general.png</value>
+		<value condition="[String.Contains(Window.Property(mpaa),Rated PG) | String.Contains(Window.Property(mpaa),Rated: PG)] + !String.Contains(Window.Property(mpaa),Rated PG-13) + !String.Contains(Window.Property(mpaa),Rated: PG-13)">special://skin/extras/images/rating/mpaa_pg.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),Rated PG-13) | String.Contains(Window.Property(mpaa),Rated: PG-13)">special://skin/extras/images/rating/mpaa_pg13.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),Rated R) | String.Contains(Window.Property(mpaa),Rated: R)">special://skin/extras/images/rating/mpaa_restricted.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),Rated NC-17) | String.Contains(Window.Property(mpaa),Rated: NC-17)">special://skin/extras/images/rating/mpaa_nc17.png</value>
+		<value condition="String.IsEqual(Window.Property(mpaa),UK:U)">special://skin/extras/images/rating/bbfc_u.png</value>
+		<value condition="String.IsEqual(Window.Property(mpaa),UK:UC)">special://skin/extras/images/rating/bbfc_uc.png</value>
+		<value condition="String.IsEqual(Window.Property(mpaa),UK:PG)">special://skin/extras/images/rating/bbfc_pg.png</value>
+		<value condition="String.IsEqual(Window.Property(mpaa),UK:12)">special://skin/extras/images/rating/bbfc_12.png</value>
+		<value condition="String.IsEqual(Window.Property(mpaa),UK:12A)">special://skin/extras/images/rating/bbfc_12A.png</value>
+		<value condition="String.IsEqual(Window.Property(mpaa),UK:15)">special://skin/extras/images/rating/bbfc_15.png</value>
+		<value condition="String.IsEqual(Window.Property(mpaa),UK:18)">special://skin/extras/images/rating/bbfc_18.png</value>
+		<value condition="String.IsEqual(Window.Property(mpaa),UK:R18)">special://skin/extras/images/rating/bbfc_R18.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),FSK0) | String.Contains(Window.Property(mpaa),FSK 0) | String.Contains(Window.Property(mpaa),FSK o.A.)">special://skin/extras/images/rating/FSK-0.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),FSK6) | String.Contains(Window.Property(mpaa),FSK 6)">special://skin/extras/images/rating/FSK-6.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),FSK12) | String.Contains(Window.Property(mpaa),FSK 12)">special://skin/extras/images/rating/FSK-12.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),FSK16) | String.Contains(Window.Property(mpaa),FSK 16)">special://skin/extras/images/rating/FSK-16.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),FSK18) | String.Contains(Window.Property(mpaa),FSK 18)">special://skin/extras/images/rating/FSK-18.png</value>
+		<value condition="String.IsEqual(Window.Property(mpaa),Australia:G) | String.IsEqual(Window.Property(mpaa),Australia:TV-G) | String.IsEqual(Window.Property(mpaa),Australia:TV-C) | String.IsEqual(Listitem.Mpaa,Australia:TV-P)">special://skin/extras/images/rating/australia_g.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),Australia:MA) | String.Contains(Window.Property(mpaa),Australia:TV-MA) | String.Contains(Window.Property(mpaa),Australia:TV-MAV) | String.Contains(Window.Property(mpaa),Australia:TV-AV)">special://skin/extras/images/rating/australia_ma.png</value>
+		<value condition="String.IsEqual(Window.Property(mpaa),Australia:M) | String.IsEqual(Window.Property(mpaa),Australia:TV-M)">special://skin/extras/images/rating/australia_m.png</value>
+		<value condition="String.IsEqual(Window.Property(mpaa),Australia:PG) | String.IsEqual(Window.Property(mpaa),Australia:TV-PG)">special://skin/extras/images/rating/australia_pg.png</value>
+		<value condition="String.IsEqual(Window.Property(mpaa),Australia:R) | String.IsEqual(Window.Property(mpaa),Australia:TV-R)">special://skin/extras/images/rating/australia_r.png</value>
+		<value condition="String.IsEqual(Window.Property(mpaa),Australia:X)">special://skin/extras/images/rating/australia_x.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),Brazil:Livre) | String.Contains(Window.Property(mpaa),Livre)">special://skin/extras/images/Brazil_Livre.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),Brazil:10) | String.Contains(Window.Property(mpaa),10 anos)">special://skin/extras/images/Brazil_10.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),Brazil:12) | String.Contains(Window.Property(mpaa),12 anos)">special://skin/extras/images/Brazil_12.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),Brazil:14) | String.Contains(Window.Property(mpaa),14 anos)">special://skin/extras/images/Brazil_14.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),Brazil:16) | String.Contains(Window.Property(mpaa),16 anos)">special://skin/extras/images/Brazil_16.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),Brazil:18) | String.Contains(Window.Property(mpaa),18 anos)">special://skin/extras/images/Brazil_18.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),HU-KN)">special://skin/extras/images/rating/HU_KN.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),HU-12)">special://skin/extras/images/rating/HU_12.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),HU-16)">special://skin/extras/images/rating/HU_16.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),HU-18)">special://skin/extras/images/rating/HU_18.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),TV-Y) + ![String.Contains(Window.Property(mpaa),TV-Y7) | String.Contains(Window.Property(mpaa),TV-Y7-FV)]">special://skin/extras/images/rating/TV-Y.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),TV-Y7) | String.Contains(Window.Property(mpaa),TV-Y7-FV)">special://skin/extras/images/rating/TV-Y7.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),TV-G)">special://skin/extras/images/rating/TV-G.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),TV-PG)">special://skin/extras/images/rating/TV-PG.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),TV-14)">special://skin/extras/images/rating/TV-14.png</value>
+		<value condition="String.Contains(Window.Property(mpaa),TV-MA)">special://skin/extras/images/rating/TV-MA.png</value>
 	</variable>
 	<variable name="GlobalSearchRating">
 		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),Rated G) | String.Contains(Container(100).ListItem.Property(Mpaa),Rated: G)">special://skin/extras/images/rating/mpaa_general.png</value>
@@ -3825,6 +3868,22 @@
 			</control>
 		</definition>
 	</include>
+	<include name="unsupported-widget">
+		<param name="controlid"/>
+		<definition>
+			<control type="list" id="$PARAM[controlid]">
+				<visible>false</visible>
+				<left>-10</left>
+				<top>-10</top>
+				<width>0</width>
+				<height>0</height>
+				<viewtype label="31028">list</viewtype>
+				<itemlayout/>
+				<focusedlayout/>
+			</control>
+		</definition>
+	</include>
+
 	<include name="touch-controls">
 		<control type="grouplist" id="8000">
 			<visible>$EXP[isEnabledTouch]</visible>

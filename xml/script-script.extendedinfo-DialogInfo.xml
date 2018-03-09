@@ -152,6 +152,7 @@
 				<texturefocus>button-info-plot-focus.png</texturefocus>
 				<texturenofocus>button-info-plot.png</texturenofocus>
 				<onclick>SetProperty(AdditionalInfo,localmedia)</onclick>
+				<onclick>ClearProperty(ExtendedInfoTVShow,home)</onclick>
 			</control>
 			<control type="button" id="997">
 				<!-- Movies button -->
@@ -160,6 +161,7 @@
 				<texturefocus>button-info-video-focus.png</texturefocus>
 				<texturenofocus>button-info-video.png</texturenofocus>
 				<onclick>SetProperty(AdditionalInfo,actormovies)</onclick>
+				<onclick>ClearProperty(ExtendedInfoTVShow,home)</onclick>
 				<visible>Integer.IsGreater(Container(150).NumItems,0)</visible>
 			</control>
 			<control type="button" id="996">
@@ -169,6 +171,7 @@
 				<texturefocus>button-info-tv-focus.png</texturefocus>
 				<texturenofocus>button-info-tv.png</texturenofocus>
 				<onclick>SetProperty(AdditionalInfo,actorshows)</onclick>
+				<onclick>SetProperty(ExtendedInfoTVShow,true,home)</onclick>
 				<visible>Integer.IsGreater(Container(250).NumItems,0)</visible>
 			</control>
 			<control type="button" id="995">
@@ -178,6 +181,7 @@
 				<texturefocus>button-info-trailer-focus.png</texturefocus>
 				<texturenofocus>button-info-trailer.png</texturenofocus>
 				<onclick>SetProperty(AdditionalInfo,youtube)</onclick>
+				<onclick>ClearProperty(ExtendedInfoTVShow,home)</onclick>
 				<visible>Integer.IsGreater(Container(350).NumItems,0)</visible>
 			</control>
 		</control>
@@ -204,7 +208,7 @@
 				</control>
 				<control type="list" id="140">
 					<left>15</left>
-					<top>777</top>
+					<top>774</top>
 					<width>1890</width>
 					<height>300</height>
 					<onleft>1015</onleft>
@@ -235,11 +239,11 @@
 							<height>222</height>
 							<aspectratio scalediffuse="true">keep</aspectratio>
 							<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Icon]</texture>
-							<animation effect="zoom" start="100" end="105" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+							<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 						</control>
 						<control type="textbox">
 							<left>0</left>
-							<top>222</top>
+							<top>226</top>
 							<width>315</width>
 							<height>74</height>
 							<label>$INFO[ListItem.Label] [COLOR=disabled-text]$INFO[ListItem.Label2,(,)][/COLOR]</label>
@@ -284,7 +288,7 @@
 				</control>
 				<control type="list" id="150">
 					<left>15</left>
-					<top>777</top>
+					<top>774</top>
 					<width>1890</width>
 					<height>300</height>
 					<onleft>1020</onleft>
@@ -298,7 +302,7 @@
 					<itemlayout height="300" width="315">
 						<control type="image">
 							<left>72</left>
-							<top>10</top>
+							<top>0</top>
 							<width>171</width>
 							<height>222</height>
 							<aspectratio scalediffuse="true">keep</aspectratio>
@@ -309,17 +313,17 @@
 					<focusedlayout height="300" width="315">
 						<control type="image">
 							<left>72</left>
-							<top>10</top>
+							<top>0</top>
 							<width>171</width>
 							<height>222</height>
 							<aspectratio scalediffuse="true">keep</aspectratio>
 							<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$INFO[ListItem.Icon]</texture>
 							<animation condition="$EXP[isEmptyDBID]" effect="fade" start="100" end="60">Conditional</animation>
-							<animation effect="zoom" start="100" end="105" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+							<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 						</control>
 						<control type="textbox">
 							<left>0</left>
-							<top>222</top>
+							<top>226</top>
 							<width>315</width>
 							<height>74</height>
 							<label>$INFO[ListItem.Label]</label>
@@ -364,7 +368,7 @@
 				</control> 
 				<control type="list" id="250">
 					<left>15</left>
-					<top>777</top>
+					<top>774</top>
 					<width>1890</width>
 					<height>300</height>
 					<onleft>1025</onleft>
@@ -378,7 +382,7 @@
 					<itemlayout height="300" width="315">
 						<control type="image">
 							<left>72</left>
-							<top>10</top>
+							<top>0</top>
 							<width>171</width>
 							<height>222</height>
 							<aspectratio scalediffuse="true">keep</aspectratio>
@@ -389,7 +393,7 @@
 					<focusedlayout height="312" width="315">
 						<control type="image">
 							<left>72</left>
-							<top>10</top>
+							<top>0</top>
 							<width>171</width>
 							<height>222</height>
 							<aspectratio scalediffuse="true">keep</aspectratio>
@@ -399,7 +403,7 @@
 						</control>
 						<control type="textbox">
 							<left>0</left>
-							<top>222</top>
+							<top>226</top>
 							<width>315</width>
 							<height>74</height>
 							<label>$INFO[ListItem.Label] [COLOR=disabled-text]$INFO[ListItem.Label2,(,)][/COLOR]</label>
@@ -444,7 +448,7 @@
 				</control>
 				<control type="list" id="350">
 					<left>15</left>
-					<top>777</top>
+					<top>774</top>
 					<width>1890</width>
 					<height>300</height>
 					<onleft>1030</onleft>
@@ -477,7 +481,7 @@
 						</control>
 						<control type="textbox">
 							<left>0</left>
-							<top>224</top>
+							<top>226</top>
 							<width>315</width>
 							<height>74</height>
 							<label>$INFO[ListItem.Label] [COLOR=disabled-text]$INFO[ListItem.Label2,(,)][/COLOR]</label>
@@ -502,46 +506,18 @@
 			</control>
 
 			<!-- Unsupported widget lists -->
-			<control type="list" id="450">
-				<visible>false</visible>
-				<left>-10</left>
-				<top>-10</top>
-				<width>0</width>
-				<height>0</height>
-				<viewtype label="31028">list</viewtype>
-				<itemlayout/>
-				<focusedlayout/>
-			</control>
-			<control type="list" id="550">
-				<visible>false</visible>
-				<left>-10</left>
-				<top>-10</top>
-				<width>0</width>
-				<height>0</height>
-				<viewtype label="31028">list</viewtype>
-				<itemlayout/>
-				<focusedlayout/>
-			</control>
-			<control type="list" id="650">
-				<visible>false</visible>
-				<left>-10</left>
-				<top>-10</top>
-				<width>0</width>
-				<height>0</height>
-				<viewtype label="31028">list</viewtype>
-				<itemlayout/>
-				<focusedlayout/>
-			</control>
-			<control type="list" id="750">
-				<visible>false</visible>
-				<left>-10</left>
-				<top>-10</top>
-				<width>0</width>
-				<height>0</height>
-				<viewtype label="31028">list</viewtype>
-				<itemlayout/>
-				<focusedlayout/>
-			</control>
+			<include content="unsupported-widget">
+				<param name="controlid" value="450" />
+			</include>
+			<include content="unsupported-widget">
+				<param name="controlid" value="550" />
+			</include>
+			<include content="unsupported-widget">
+				<param name="controlid" value="650" />
+			</include>
+			<include content="unsupported-widget">
+				<param name="controlid" value="750" />
+			</include>
 		</control>
 
 		<!-- Play bump sound if user tries to leave artist description scrollbar by undefined direction -->
