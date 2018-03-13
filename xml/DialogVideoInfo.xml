@@ -499,6 +499,16 @@
 				<enable>!String.IsEmpty(ListItem.Trailer)</enable>
 				<visible>$EXP[isMovie]</visible>
 			</control>
+			<control type="button" id="1227">
+				<!-- Special Features button -->
+				<include>info-options-common</include>
+				<label>$LOCALIZE[31891]</label>
+				<texturefocus>button-info-extras-focus.png</texturefocus>
+				<texturenofocus>button-info-extras.png</texturenofocus>
+				<onclick>Dialog.Close(movieinformation)</onclick>
+				<onclick>RunScript(plugin.video.specialfeatures,listitem)</onclick>
+				<visible>String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)</visible>
+			</control>
 			<control type="group" id="905">
 				<visible>![$EXP[isMusicvideo]]</visible>
 				<width>144</width>
