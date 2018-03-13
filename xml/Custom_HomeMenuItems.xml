@@ -231,13 +231,13 @@
 					</control>
 				</control>
 				<control type="button" id="5011">
-					<!-- Assign Kodi playlist action to custom menu item -->
+					<!-- Assign User playlist action to custom menu item -->
 					<width>1431</width>
 					<height>72</height>
 					<label>- [I]$LOCALIZE[559][/I]</label>
 					<label2>$VAR[CustomSkinPlaylist]</label2>
 					<font>apptv22</font>
-					<onclick>SetProperty(SelectDialogType,selectkodiplaylist,home)</onclick>
+					<onclick>SetProperty(SelectDialogType,selectuserplaylist,home)</onclick>
 					<onclick>ActivateWindow(1154)</onclick>
 					<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[31660])</onclick>
 					<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],DefaultPlaylist.png)</onclick>
