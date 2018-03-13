@@ -468,6 +468,10 @@
 			<ondown condition="[!Control.IsVisible(50) + !Control.IsVisible(950) + !Control.IsVisible(952)]">1005</ondown>
 			<onup condition="Integer.IsGreater(Container(1122).NumPages,1)">1123</onup>
 			<onup condition="Integer.IsLessOrEqual(Container(1122).NumPages,1)">1005</onup>
+			<control type="button" id="5">
+				<!-- Kodi Cast/Plot button replaced with id 905 -->
+				<visible>false</visible>
+			</control>
 			<control type="togglebutton" id="8">
 				<!-- Play/Browse button -->
 				<include>info-options-common</include>
@@ -509,98 +513,18 @@
 				<onclick>RunScript(plugin.video.specialfeatures,listitem)</onclick>
 				<visible>String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)</visible>
 			</control>
-			<control type="group" id="905">
-				<visible>![$EXP[isMusicvideo]]</visible>
-				<width>144</width>
-				<height>144</height>
-				<control type="button" id="5">
-					<!-- Cast/Media button -->
-					<height>144</height>
-					<width>144</width>
-					<onleft>11</onleft>
-					<onright>6</onright>
-					<ondown condition="Control.IsVisible(952)">952</ondown>
-					<ondown condition="Control.IsVisible(950)">950</ondown>
-					<onup>1023</onup>
-					<textcolor>HideControl</textcolor>
-					<focusedcolor>HideControl</focusedcolor>
-					<colordiffuse>HideControl</colordiffuse>
-				</control>
-				<control type="image">
-					<width>144</width>
-					<height>144</height>
-					<texture>button-info-cast.png</texture>
-					<visible>!Control.HasFocus(5) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[206])</visible>
-				</control>
-				<control type="image">
-					<width>144</width>
-					<height>144</height>
-					<texture>button-info-cast-focus.png</texture>
-					<visible>Control.HasFocus(5) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[206])</visible>
-				</control>
-				<control type="image">
-					<width>144</width>
-					<height>144</height>
-					<texture>button-info-video.png</texture>
-					<visible>!Control.HasFocus(5) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
-				</control>
-				<control type="image">
-					<width>144</width>
-					<height>144</height>
-					<texture>button-info-video-focus.png</texture>
-					<visible>Control.HasFocus(5) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
-				</control>
-				<control type="label">
-					<width>144</width>
-					<height>144</height>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<label>$LOCALIZE[206]</label>
-					<font>apptv16</font>
-					<align>center</align>
-					<aligny>top</aligny>
-					<textoffsetx>15</textoffsetx>
-					<textoffsety>84</textoffsety>
-					<visible>Control.HasFocus(5) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[206])</visible>
-				</control>
-				<control type="label">
-					<width>144</width>
-					<height>144</height>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<label>$LOCALIZE[206]</label>
-					<font>apptv16</font>
-					<textcolor>disabled-text</textcolor>
-					<align>center</align>
-					<aligny>top</aligny>
-					<textoffsetx>15</textoffsetx>
-					<textoffsety>84</textoffsety>
-					<visible>!Control.HasFocus(5) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[206])</visible>
-				</control>
-				<control type="label">
-					<width>144</width>
-					<height>144</height>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<label>$LOCALIZE[31668]</label>
-					<font>apptv16</font>
-					<textcolor>button-text</textcolor>
-					<align>center</align>
-					<aligny>top</aligny>
-					<textoffsetx>15</textoffsetx>
-					<textoffsety>84</textoffsety>
-					<visible>Control.HasFocus(5) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
-				</control>
-				<control type="label">
-					<width>144</width>
-					<height>144</height>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<label>$LOCALIZE[31668]</label>
-					<font>apptv16</font>
-					<textcolor>disabled-text</textcolor>
-					<align>center</align>
-					<aligny>top</aligny>
-					<textoffsetx>15</textoffsetx>
-					<textoffsety>84</textoffsety>
-					<visible>!Control.HasFocus(5) + String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
-				</control>
+			<control type="togglebutton" id="905">
+				<!-- Cast/suggest media button -->
+				<include>info-options-common</include>
+				<label>$LOCALIZE[31668]</label>
+				<altlabel>$LOCALIZE[206]</altlabel>
+				<texturefocus>button-info-video-focus.png</texturefocus>
+				<texturenofocus>button-info-video.png</texturenofocus>
+				<alttexturefocus>button-info-cast-focus.png</alttexturefocus>
+				<alttexturenofocus>button-info-cast.png</alttexturenofocus>
+				<usealttexture>String.IsEqual(Control.GetLabel(5),$LOCALIZE[206])</usealttexture>
+				<onclick>SendClick(5)</onclick>
+				<altclick>SendClick(5)</altclick>
 			</control>
 			<control type="button" id="6">
 				<!-- Refresh button -->
