@@ -25,6 +25,13 @@
 					<texture border="9">button-default.png</texture>
 					<aspectratio>stretch</aspectratio>
 				</control>
+				<control type="image">
+					<left>4</left>
+					<top>24</top>
+					<width>48</width>
+					<height>48</height>
+					<texture>$INFO[ListItem.Overlay]</texture>
+				</control>
 				<control type="label">
 					<left>57</left>
 					<top>30</top>
@@ -64,6 +71,13 @@
 					<height>96</height>
 					<texture border="9">button-default-focus.png</texture>
 					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="image">
+					<left>4</left>
+					<top>24</top>
+					<width>48</width>
+					<height>48</height>
+					<texture>$INFO[ListItem.Overlay]</texture>
 				</control>
 				<control type="label">
 					<left>57</left>
@@ -339,13 +353,13 @@
 					<width>240</width>
 					<height>240</height>
 					<texture colordiffuse="UnFocusedPosters" fallback="DefaultAudio.png" diffuse="mask-squ.png" background="true">$VAR[IconCover]</texture>
-					<aspectratio>keep</aspectratio>
+					<aspectratio aligny="bottom">keep</aspectratio>
 				</control>
 				<control type="image">
-					<left>198</left>
-					<top>135</top>
-					<width>74</width>
-					<height>53</height>
+					<left>8</left>
+					<top>8</top>
+					<width>48</width>
+					<height>48</height>
 					<texture>$INFO[ListItem.Overlay]</texture>
 				</control>
 			</itemlayout>
@@ -356,7 +370,7 @@
 					<width>240</width>
 					<height>240</height>
 					<texture fallback="DefaultAudio.png" diffuse="mask-squ.png" background="true">$VAR[IconCover]</texture>
-					<aspectratio>keep</aspectratio>
+					<aspectratio aligny="bottom">keep</aspectratio>
 					<animation effect="zoom" start="100" end="110" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
 					<visible>$EXP[isDefaultIcon]</visible>
 				</control>
@@ -368,15 +382,15 @@
 					<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 					<bordertexture border="10">mask-hilitesqu.png</bordertexture>
 					<bordersize>10</bordersize>
-					<aspectratio scalediffuse="false">keep</aspectratio>
+					<aspectratio aligny="bottom" scalediffuse="false">keep</aspectratio>
 					<animation effect="zoom" start="100" end="110" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
 					<visible>$EXP[isnotDefaultIcon]</visible>
 				</control>
 				<control type="image">
-					<left>318</left>
-					<top>210</top>
-					<width>111</width>
-					<height>80</height>
+					<left>0</left>
+					<top>0</top>
+					<width>64</width>
+					<height>64</height>
 					<texture>$INFO[ListItem.Overlay]</texture>
 				</control>
 				<control type="textbox">
@@ -401,7 +415,7 @@
 				<top>861</top>
 				<width>240</width>
 				<height>240</height>
-				<aspectratio>keep</aspectratio>
+				<aspectratio aligny="bottom">keep</aspectratio>
 				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(10)Thumb]</texture>
 			</control>
 			<control type="image">
@@ -409,7 +423,7 @@
 				<top>861</top>
 				<width>240</width>
 				<height>240</height>
-				<aspectratio>keep</aspectratio>
+				<aspectratio aligny="bottom">keep</aspectratio>
 				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(11)Thumb]</texture>
 			</control>
 			<control type="image">
@@ -417,7 +431,7 @@
 				<top>861</top>
 				<width>240</width>
 				<height>240</height>
-				<aspectratio>keep</aspectratio>
+				<aspectratio aligny="bottom">keep</aspectratio>
 				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(12)Thumb]</texture>
 			</control>
 			<control type="image">
@@ -425,7 +439,7 @@
 				<top>861</top>
 				<width>240</width>
 				<height>240</height>
-				<aspectratio>keep</aspectratio>
+				<aspectratio aligny="bottom">keep</aspectratio>
 				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(13)Thumb]</texture>
 			</control>
 			<control type="image">
@@ -433,7 +447,7 @@
 				<top>861</top>
 				<width>240</width>
 				<height>240</height>
-				<aspectratio>keep</aspectratio>
+				<aspectratio aligny="bottom">keep</aspectratio>
 				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(14)Thumb]</texture>
 			</control>
 		</control>
@@ -561,15 +575,25 @@
 						<visible>!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | $EXP[isEmptyIcon]</visible>
 					</control>
 				</control>
-				<control type="image">
-					<left>-48</left>
-					<top>245</top>
-					<height>192</height>
-					<width>192</width>
-					<colordiffuse>UnFocusedCovers</colordiffuse>
-					<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
-					<aspectratio>stretch</aspectratio>
+				<control type="group">
 					<visible>!Container.Content(albums) + !Container.Content(songs)</visible>
+					<control type="image">
+						<left>-48</left>
+						<top>245</top>
+						<height>192</height>
+						<width>192</width>
+						<colordiffuse>UnFocusedCovers</colordiffuse>
+						<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>
+					</control>
+					<control type="image">
+						<left>-50</left>
+						<top>200</top>
+						<height>48</height>
+						<width>48</width>
+						<texture>$INFO[ListItem.Overlay]</texture>
+						<colordiffuse>UnFocusedCovers</colordiffuse>
+					</control>
 				</control>
 			</itemlayout>
 			<focusedlayout height="549" width="549">
@@ -598,15 +622,35 @@
 						<visible>!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | $EXP[isEmptyIcon]</visible>
 					</control>
 				</control>
-				<control type="image">
-					<left>156</left>
-					<top>162</top>
-					<height>192</height>
-					<width>192</width>
-					<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
-					<aspectratio>stretch</aspectratio>
-					<animation effect="zoom" start="100" end="185" center="auto" condition="true">Conditional</animation>
+				<control type="group">
 					<visible>!Container.Content(albums) + !Container.Content(songs)</visible>
+					<control type="image">
+						<left>156</left>
+						<top>162</top>
+						<height>192</height>
+						<width>192</width>
+						<texture background="true" diffuse="mask-squ.png" fallback="DefaultAudio.png">$VAR[IconCover]</texture>
+						<aspectratio aligny="bottom">keep</aspectratio>
+						<animation effect="zoom" start="100" end="185" center="auto" condition="true">Conditional</animation>
+					</control>
+					<control type="image">
+						<left>70</left>
+						<top>30</top>
+						<height>60</height>
+						<width>60</width>
+						<texture>$INFO[ListItem.Overlay]</texture>
+					</control>
+					<control type="label">
+						<!-- Duration -->
+						<left>130</left>
+						<top>44</top>
+						<width>350</width>
+						<height>30</height>
+						<align>left</align>
+						<font>apptv20</font>
+						<label>$VAR[VideoDuration]</label>
+						 <visible>!String.IsEmpty(ListItem.Duration)</visible>
+					</control>
 				</control>
 			</focusedlayout>
 		</control>
@@ -736,7 +780,6 @@
 				<align>center</align>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Genre]</label>
-				<visible>!Container.Content(genres)</visible>
 			</control>
 		</control>
 	</include>
@@ -1201,7 +1244,6 @@
 					<align>center</align>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Genre]</label>
-					<visible>!Container.Content(genres)</visible>
 				</control>
 				<control type="image">
 					<!-- Star Rating -->
@@ -1255,15 +1297,24 @@
 					<texture diffuse="mask-squ.png" fallback="DefaultAddonMusic.png" background="true">$VAR[IconCover]</texture>
 					<visible>Container.Content(addons)</visible>
 				</control>
-				<control type="image">
-					<left>1</left>
-					<top>1</top>
-					<width>264</width>
-					<height>264</height>
-					<aspectratio>stretch</aspectratio>
-					<colordiffuse>UnFocusedCovers</colordiffuse>
-					<texture diffuse="mask-squ.png" fallback="DefaultMusicVideos.png" background="true">$VAR[IconCover]</texture>
+				<control type="group">
 					<visible>Container.Content(musicvideos)</visible>
+					<control type="image">
+						<left>1</left>
+						<top>1</top>
+						<width>264</width>
+						<height>264</height>
+						<aspectratio>stretch</aspectratio>
+						<colordiffuse>UnFocusedCovers</colordiffuse>
+						<texture diffuse="mask-squ.png" fallback="DefaultMusicVideos.png" background="true">$VAR[IconCover]</texture>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<height>48</height>
+						<width>48</width>
+						<texture>$INFO[ListItem.Overlay]</texture>
+					</control>
 				</control>
 			</itemlayout>
 			<focusedlayout height="266" width="266">
@@ -1303,17 +1354,26 @@
 						<animation effect="zoom" start="100" end="112" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
 						<visible>Container.Content(addons)</visible>
 					</control>
-					<control type="image">
-						<left>1</left>
-						<top>1</top>
-						<width>264</width>
-						<height>264</height>
-						<texture fallback="DefaultMusicVideos.png" background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
-						<aspectratio>stretch</aspectratio>
-						<bordertexture border="10">mask-hilite.png</bordertexture>
-						<bordersize>10</bordersize>
-						<animation effect="zoom" start="100" end="112" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
+					<control type="group">
 						<visible>Container.Content(musicvideos)</visible>
+						<animation effect="zoom" start="100" end="112" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
+						<control type="image">
+							<left>1</left>
+							<top>1</top>
+							<width>264</width>
+							<height>264</height>
+							<texture fallback="DefaultMusicVideos.png" background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
+							<aspectratio>stretch</aspectratio>
+							<bordertexture border="10">mask-hilite.png</bordertexture>
+							<bordersize>10</bordersize>
+						</control>
+						<control type="image">
+							<left>10</left>
+							<top>10</top>
+							<height>48</height>
+							<width>48</width>
+							<texture>$INFO[ListItem.Overlay]</texture>
+						</control>
 					</control>
 				</control>
 			</focusedlayout>
@@ -1345,7 +1405,6 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Artist]</label>
 					<wrapmultiline>true</wrapmultiline>
-					<visible>!String.IsEmpty(ListItem.Artist)</visible>
 				</control>
 				<control type="label">
 					<!-- Album name -->
@@ -1374,7 +1433,7 @@
 					<font>apptv20</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Genre]</label>
-					<visible>!Container.Content(genres) + !String.IsEmpty(ListItem.Genre)</visible>
+					<visible>!Container.Content(genres)</visible>
 				</control>
 				<control type="image">
 					<!-- Rating -->
@@ -1383,6 +1442,17 @@
 					<texture>$VAR[MediaRating]</texture>
 					<aspectratio>keep</aspectratio>
 					<visible>!String.IsEmpty(ListItem.UserRating) | !String.IsEmpty(ListItem.Rating)</visible>
+				</control>
+				<control type="label">
+					<!-- Duration -->
+					<left>130</left>
+					<top>44</top>
+					<width>350</width>
+					<height>30</height>
+					<align>left</align>
+					<font>apptv20</font>
+					<label>$VAR[VideoDuration]</label>
+					<visible>Container.Content(musicvideos)</visible>
 				</control>
 				<control type="group">
 					<visible>[!String.IsEmpty(ListItem.Property(Album_Description)) + Container.Content(albums)] | [!String.IsEmpty(ListItem.Property(Artist_Description)) + Container.Content(artists)]</visible>
