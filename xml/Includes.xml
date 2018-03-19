@@ -350,7 +350,9 @@
 	</variable>
 	<variable name="VideoDuration">
 		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItemDuration)) + !String.IsEqual(Window(home).Property(SkinHelper.ListItemDuration.Hours),0)">$INFO[Window(home).Property(SkinHelper.ListItemDuration.Hours),,h]$INFO[Window(home).Property(SkinHelper.ListItemDuration.Minutes),,m]</value>
-		<value condition="!Window.IsVisible(tvguide) + !Window.IsVisible(radioguide)">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>
+		<value condition="!Window.IsVisible(tvguide) + !Window.IsVisible(radioguide) + Integer.IsGreater(ListItem.Duration,1)">$INFO[ListItem.Duration,, $LOCALIZE[31814]]</value>
+		<value condition="!Window.IsVisible(tvguide) + !Window.IsVisible(radioguide) + Integer.IsGreater(ListItem.Duration,0)">$INFO[ListItem.Duration,, $LOCALIZE[31813]]</value>
+		<value condition="!Window.IsVisible(tvguide) + !Window.IsVisible(radioguide) + Integer.IsLess(ListItem.Duration,1)">( $LOCALIZE[19695] )</value>
 		<value>$INFO[ListItem.Duration]</value>
 	</variable>
 	<variable name="MovieLibEntry">
