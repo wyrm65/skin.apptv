@@ -521,47 +521,168 @@
 	</variable>
 	<variable name="Icon(-5)Poster">
 		<value condition="!String.IsEmpty(ListItem(-5).Art(poster))">$INFO[ListItem(-5).Art(poster)]</value>
-		<value>$INFO[ListItem(-5).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(-5).Icon) + !String.Contains(ListItem(-5).Icon,Default)">$INFO[ListItem(-5).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(-5).Art(thumb))">$INFO[ListItem(-5).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(ListItem(-5).Icon) + String.Contains(ListItem(-5).Icon,DefaultFolderBack)">$INFO[ListItem(-5).Icon]</value>
+		<value condition="Container.Content(actors) | Container.Content(directors)">DefaultUser.png</value>
+		<value condition="Container.Content(years)">DefaultYear.png</value>
+		<value condition="Container.Content(playlists)">DefaultPlaylist.png</value>
+		<value condition="Container.Content(movies)">DefaultMovies.png</value>
+		<value condition="Container.Content(musicvideos)">DefaultMusicVideos.png</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">DefaultTvshows.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(countries)">DefaultCountries.png</value>
+		<value>DefaultVideo.png</value>
 	</variable>
 	<variable name="Icon(-4)Poster">
 		<value condition="!String.IsEmpty(ListItem(-4).Art(poster))">$INFO[ListItem(-4).Art(poster)]</value>
-		<value>$INFO[ListItem(-4).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(-4).Icon) + !String.Contains(ListItem(-4).Icon,Default)">$INFO[ListItem(-4).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(-4).Art(thumb))">$INFO[ListItem(-4).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(ListItem(-4).Icon) + String.Contains(ListItem(-4).Icon,DefaultFolderBack)">$INFO[ListItem(-4).Icon]</value>
+		<value condition="Container.Content(actors) | Container.Content(directors)">DefaultUser.png</value>
+		<value condition="Container.Content(years)">DefaultYear.png</value>
+		<value condition="Container.Content(playlists)">DefaultPlaylist.png</value>
+		<value condition="Container.Content(movies)">DefaultMovies.png</value>
+		<value condition="Container.Content(musicvideos)">DefaultMusicVideos.png</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">DefaultTvshows.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(countries)">DefaultCountries.png</value>
+		<value>DefaultVideo.png</value>
 	</variable>
 	<variable name="Icon(-3)Poster">
 		<value condition="!String.IsEmpty(ListItem(-3).Art(poster))">$INFO[ListItem(-3).Art(poster)]</value>
-		<value>$INFO[ListItem(-3).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(-3).Icon) + !String.Contains(ListItem(-3).Icon,Default)">$INFO[ListItem(-3).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(-3).Art(thumb))">$INFO[ListItem(-3).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(ListItem(-3).Icon) + String.Contains(ListItem(-3).Icon,DefaultFolderBack)">$INFO[ListItem(-3).Icon]</value>
+		<value condition="Container.Content(actors) | Container.Content(directors)">DefaultUser.png</value>
+		<value condition="Container.Content(years)">DefaultYear.png</value>
+		<value condition="Container.Content(playlists)">DefaultPlaylist.png</value>
+		<value condition="Container.Content(movies)">DefaultMovies.png</value>
+		<value condition="Container.Content(musicvideos)">DefaultMusicVideos.png</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">DefaultTvshows.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(countries)">DefaultCountries.png</value>
+		<value>DefaultVideo.png</value>
 	</variable>
 	<variable name="Icon(-2)Poster">
 		<value condition="!String.IsEmpty(ListItem(-2).Art(poster))">$INFO[ListItem(-2).Art(poster)]</value>
-		<value>$INFO[ListItem(-2).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(-2).Icon) + !String.Contains(ListItem(-2).Icon,Default)">$INFO[ListItem(-2).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(-2).Art(thumb))">$INFO[ListItem(-2).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(ListItem(-2).Icon) + String.Contains(ListItem(-2).Icon,DefaultFolderBack)">$INFO[ListItem(-2).Icon]</value>
+		<value condition="Container.Content(actors) | Container.Content(directors)">DefaultUser.png</value>
+		<value condition="Container.Content(years)">DefaultYear.png</value>
+		<value condition="Container.Content(playlists)">DefaultPlaylist.png</value>
+		<value condition="Container.Content(movies)">DefaultMovies.png</value>
+		<value condition="Container.Content(musicvideos)">DefaultMusicVideos.png</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">DefaultTvshows.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(countries)">DefaultCountries.png</value>
+		<value>DefaultVideo.png</value>
 	</variable>
 	<variable name="Icon(-1)Poster">
 		<value condition="!String.IsEmpty(ListItem(-1).Art(poster))">$INFO[ListItem(-1).Art(poster)]</value>
-		<value>$INFO[ListItem(-1).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(-1).Icon) + !String.Contains(ListItem(-1).Icon,Default)">$INFO[ListItem(-1).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(-1).Art(thumb))">$INFO[ListItem(-1).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(ListItem(-1).Icon) + String.Contains(ListItem(-1).Icon,DefaultFolderBack)">$INFO[ListItem(-1).Icon]</value>
+		<value condition="Container.Content(actors) | Container.Content(directors)">DefaultUser.png</value>
+		<value condition="Container.Content(years)">DefaultYear.png</value>
+		<value condition="Container.Content(playlists)">DefaultPlaylist.png</value>
+		<value condition="Container.Content(movies)">DefaultMovies.png</value>
+		<value condition="Container.Content(musicvideos)">DefaultMusicVideos.png</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">DefaultTvshows.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(countries)">DefaultCountries.png</value>
+		<value>DefaultVideo.png</value>
 	</variable>
 	<variable name="Icon(0)Poster">
 		<value condition="!String.IsEmpty(ListItem(0).Art(poster))">$INFO[ListItem(0).Art(poster)]</value>
-		<value>$INFO[ListItem(0).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(0).Icon) + !String.Contains(ListItem(0).Icon,Default)">$INFO[ListItem(0).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(0).Art(thumb))">$INFO[ListItem(0).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(ListItem(0).Icon) + String.Contains(ListItem(0).Icon,DefaultFolderBack)">$INFO[ListItem(0).Icon]</value>
+		<value condition="Container.Content(actors) | Container.Content(directors)">DefaultUser.png</value>
+		<value condition="Container.Content(years)">DefaultYear.png</value>
+		<value condition="Container.Content(playlists)">DefaultPlaylist.png</value>
+		<value condition="Container.Content(movies)">DefaultMovies.png</value>
+		<value condition="Container.Content(musicvideos)">DefaultMusicVideos.png</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">DefaultTvshows.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(countries)">DefaultCountries.png</value>
+		<value>DefaultVideo.png</value>
 	</variable>
 	<variable name="Icon(1)Poster">
 		<value condition="!String.IsEmpty(ListItem(1).Art(poster))">$INFO[ListItem(1).Art(poster)]</value>
-		<value>$INFO[ListItem(1).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(1).Icon) + !String.Contains(ListItem(1).Icon,Default)">$INFO[ListItem(1).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(1).Art(thumb))">$INFO[ListItem(1).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(ListItem(1).Icon) + String.Contains(ListItem(1).Icon,DefaultFolderBack)">$INFO[ListItem(1).Icon]</value>
+		<value condition="Container.Content(actors) | Container.Content(directors)">DefaultUser.png</value>
+		<value condition="Container.Content(years)">DefaultYear.png</value>
+		<value condition="Container.Content(playlists)">DefaultPlaylist.png</value>
+		<value condition="Container.Content(movies)">DefaultMovies.png</value>
+		<value condition="Container.Content(musicvideos)">DefaultMusicVideos.png</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">DefaultTvshows.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(countries)">DefaultCountries.png</value>
+		<value>DefaultVideo.png</value>
 	</variable>
 	<variable name="Icon(2)Poster">
 		<value condition="!String.IsEmpty(ListItem(2).Art(poster))">$INFO[ListItem(2).Art(poster)]</value>
-		<value>$INFO[ListItem(2).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(2).Icon) + !String.Contains(ListItem(2).Icon,Default)">$INFO[ListItem(2).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(2).Art(thumb))">$INFO[ListItem(2).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(ListItem(2).Icon) + String.Contains(ListItem(2).Icon,DefaultFolderBack)">$INFO[ListItem(2).Icon]</value>
+		<value condition="Container.Content(actors) | Container.Content(directors)">DefaultUser.png</value>
+		<value condition="Container.Content(years)">DefaultYear.png</value>
+		<value condition="Container.Content(playlists)">DefaultPlaylist.png</value>
+		<value condition="Container.Content(movies)">DefaultMovies.png</value>
+		<value condition="Container.Content(musicvideos)">DefaultMusicVideos.png</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">DefaultTvshows.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(countries)">DefaultCountries.png</value>
+		<value>DefaultVideo.png</value>
 	</variable>
 	<variable name="Icon(3)Poster">
 		<value condition="!String.IsEmpty(ListItem(3).Art(poster))">$INFO[ListItem(3).Art(poster)]</value>
-		<value>$INFO[ListItem(3).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(3).Icon) + !String.Contains(ListItem(3).Icon,Default)">$INFO[ListItem(3).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(3).Art(thumb))">$INFO[ListItem(3).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(ListItem(3).Icon) + String.Contains(ListItem(3).Icon,DefaultFolderBack)">$INFO[ListItem(3).Icon]</value>
+		<value condition="Container.Content(actors) | Container.Content(directors)">DefaultUser.png</value>
+		<value condition="Container.Content(years)">DefaultYear.png</value>
+		<value condition="Container.Content(playlists)">DefaultPlaylist.png</value>
+		<value condition="Container.Content(movies)">DefaultMovies.png</value>
+		<value condition="Container.Content(musicvideos)">DefaultMusicVideos.png</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">DefaultTvshows.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(countries)">DefaultCountries.png</value>
+		<value>DefaultVideo.png</value>
 	</variable>
 	<variable name="Icon(4)Poster">
 		<value condition="!String.IsEmpty(ListItem(4).Art(poster))">$INFO[ListItem(4).Art(poster)]</value>
-		<value>$INFO[ListItem(4).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(4).Icon) + !String.Contains(ListItem(4).Icon,Default)">$INFO[ListItem(4).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(4).Art(thumb))">$INFO[ListItem(4).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(ListItem(4).Icon) + String.Contains(ListItem(4).Icon,DefaultFolderBack)">$INFO[ListItem(4).Icon]</value>
+		<value condition="Container.Content(actors) | Container.Content(directors)">DefaultUser.png</value>
+		<value condition="Container.Content(years)">DefaultYear.png</value>
+		<value condition="Container.Content(playlists)">DefaultPlaylist.png</value>
+		<value condition="Container.Content(movies)">DefaultMovies.png</value>
+		<value condition="Container.Content(musicvideos)">DefaultMusicVideos.png</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">DefaultTvshows.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(countries)">DefaultCountries.png</value>
+		<value>DefaultVideo.png</value>
 	</variable>
 	<variable name="Icon(5)Poster">
 		<value condition="!String.IsEmpty(ListItem(5).Art(poster))">$INFO[ListItem(5).Art(poster)]</value>
-		<value>$INFO[ListItem(5).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(5).Icon) + !String.Contains(ListItem(5).Icon,Default)">$INFO[ListItem(5).Icon]</value>
+		<value condition="!String.IsEmpty(ListItem(5).Art(thumb))">$INFO[ListItem(5).Art(thumb)]</value>
+		<value condition="!String.IsEmpty(ListItem(5).Icon) + String.Contains(ListItem(-5).Icon,DefaultFolderBack)">$INFO[ListItem(5).Icon]</value>
+		<value condition="Container.Content(actors) | Container.Content(directors)">DefaultUser.png</value>
+		<value condition="Container.Content(years)">DefaultYear.png</value>
+		<value condition="Container.Content(playlists)">DefaultPlaylist.png</value>
+		<value condition="Container.Content(movies)">DefaultMovies.png</value>
+		<value condition="Container.Content(musicvideos)">DefaultMusicVideos.png</value>
+		<value condition="[Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">DefaultTvshows.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(countries)">DefaultCountries.png</value>
+		<value>DefaultVideo.png</value>
 	</variable>
 	<variable name="IconCover">
 		<value condition="!String.IsEmpty(ListItem.Icon) + !String.Contains(ListItem.Icon,Default)">$INFO[ListItem.Icon]</value>

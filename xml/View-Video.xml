@@ -1454,7 +1454,6 @@
 	</include>
 	<include name="VideoCoverflow">
 		<control type="wraplist" id="57">
-			<visible>Container.Content(Sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
 			<viewtype label="31945">wrap</viewtype>
 			<left>-195</left>
 			<top>225</top>
@@ -1485,7 +1484,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-5)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-5)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="-60" end="-60" condition="true">Conditional</animation>
@@ -1496,7 +1495,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-4)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-4)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="15" end="-60" condition="true">Conditional</animation>
@@ -1507,7 +1506,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-3)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-3)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="90" end="-60" condition="true">Conditional</animation>
@@ -1518,7 +1517,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-2)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-2)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="165" end="-60" condition="true">Conditional</animation>
@@ -1529,7 +1528,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(3)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(3)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1980" end="60" condition="true">Conditional</animation>
@@ -1540,7 +1539,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(2)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(2)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1905" end="60" condition="true">Conditional</animation>
@@ -1551,7 +1550,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(1)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(1)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1830" end="60" condition="true">Conditional</animation>
@@ -1565,7 +1564,7 @@
 						<top>150</top>
 						<width>321</width>
 						<height>450</height>
-						<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-1)Poster]</texture>
+						<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-1)Poster]</texture>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<visible>[Integer.IsGreater(Container(57).NumItems,2) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,1) + $EXP[isEnabledParentDirectory]]</visible>
 						<animation condition="!Control.HasFocus(57)" effect="fade" start="100" end="60" reversible="true">Conditional</animation>
@@ -1576,7 +1575,7 @@
 						<top>189</top>
 						<width>321</width>
 						<height>450</height>
-						<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(0)Poster]</texture>
+						<texture background="true" diffuse="mask-rect.png">$VAR[Icon(0)Poster]</texture>
 						<colordiffuse>SecondaryCovers</colordiffuse>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<animation effect="rotatey" center="1755" start="0" end="-60" time="200" reversible="false">Hidden</animation>
@@ -1595,7 +1594,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-3)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-3)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="-60" end="-60" condition="true">Conditional</animation>
@@ -1606,7 +1605,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-2)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-2)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="15" end="-60" condition="true">Conditional</animation>
@@ -1617,7 +1616,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-1)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-1)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="90" end="-60" condition="true">Conditional</animation>
@@ -1628,7 +1627,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(5)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(5)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1980" end="60" condition="true">Conditional</animation>
@@ -1639,7 +1638,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(4)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(4)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1905" end="60" condition="true">Conditional</animation>
@@ -1650,7 +1649,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(3)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(3)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1830" end="60" condition="true">Conditional</animation>
@@ -1662,7 +1661,7 @@
 					<width>321</width>
 					<height>450</height>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(2)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(2)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<animation effect="rotatey" center="1755" end="60" condition="true">Conditional</animation>
 					<visible>[Integer.IsGreater(Container(57).NumItems,3) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,2) + $EXP[isEnabledParentDirectory]]</visible>
@@ -1675,7 +1674,7 @@
 						<top>150</top>
 						<width>321</width>
 						<height>450</height>
-						<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(1)Poster]</texture>
+						<texture background="true" diffuse="mask-rect.png">$VAR[Icon(1)Poster]</texture>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<animation condition="!Control.HasFocus(57)" effect="fade" start="100" end="60" reversible="true">Conditional</animation>
 						<animation effect="rotatey" center="750" start="0" end="60" time="200" reversible="false">Hidden</animation>
@@ -1686,7 +1685,7 @@
 						<top>189</top>
 						<width>321</width>
 						<height>450</height>
-						<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(0)Poster]</texture>
+						<texture background="true" diffuse="mask-rect.png">$VAR[Icon(0)Poster]</texture>
 						<colordiffuse>SecondaryCovers</colordiffuse>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<animation effect="rotatey" center="165" start="0" end="60" time="200" reversible="false">Hidden</animation>
@@ -1704,7 +1703,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-4)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-4)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="-60" end="-60" condition="true">Conditional</animation>
@@ -1715,7 +1714,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-3)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-3)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="15" end="-60" condition="true">Conditional</animation>
@@ -1726,7 +1725,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-2)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-2)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="90" end="-60" condition="true">Conditional</animation>
@@ -1737,7 +1736,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(-1)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-1)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="165" end="-60" condition="true">Conditional</animation>
@@ -1748,7 +1747,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(4)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(4)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1980" end="60" condition="true">Conditional</animation>
@@ -1759,7 +1758,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(3)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(3)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1905" end="60" condition="true">Conditional</animation>
@@ -1770,7 +1769,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(2)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(2)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1830" end="60" condition="true">Conditional</animation>
@@ -1781,7 +1780,7 @@
 					<top>189</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(1)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(1)Poster]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<animation effect="rotatey" center="1755" end="60" condition="true">Conditional</animation>
@@ -1792,7 +1791,7 @@
 					<top>150</top>
 					<width>321</width>
 					<height>450</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[Icon(0)Poster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(0)Poster]</texture>
 					<animation condition="!Control.HasFocus(57)" effect="fade" start="100" end="60" reversible="true">Conditional</animation>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 				</control>
