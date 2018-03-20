@@ -441,6 +441,7 @@
 	<variable name="VideoHeadings">
 		<value condition="Container.Content(movies)">$LOCALIZE[20342]</value>
 		<value condition="Container.Content(tvshows)">$LOCALIZE[31027]</value>
+		<value condition="Container.Content(episodes) + !String.IsEmpty(ListItem.TVShowTitle) + !String.IsEmpty(Container.FolderName)">$INFO[ListItem.TVShowTitle][CR]$INFO[Container.FolderName]</value>
 		<value condition="Container.Content(actors)">$LOCALIZE[344]</value>
 		<value condition="Container.Content(genres)">$LOCALIZE[135]</value>
 		<value condition="Container.Content(years)">$LOCALIZE[652]</value>
