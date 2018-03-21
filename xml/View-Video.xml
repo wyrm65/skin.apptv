@@ -34,14 +34,6 @@
 					<texture>$VAR[Overlay]</texture>
 				</control>
 				<control type="image">
-					<left>772</left>
-					<top>46</top>
-					<width>48</width>
-					<height>48</height>
-					<colordiffuse>DropShadow</colordiffuse>
-					<texture>$VAR[ListItemFlags]</texture>
-				</control>
-				<control type="image">
 					<left>771</left>
 					<top>45</top>
 					<width>48</width>
@@ -159,14 +151,6 @@
 					<width>48</width>
 					<height>48</height>
 					<texture>$VAR[Overlay]</texture>
-				</control>
-				<control type="image">
-					<left>772</left>
-					<top>46</top>
-					<width>48</width>
-					<height>48</height>
-					<colordiffuse>DropShadow</colordiffuse>
-					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 				<control type="image">
 					<left>771</left>
@@ -380,7 +364,7 @@
 				</control>
 				<control type="group">
 					<!-- Duration -->
-					<visible>!String.IsEmpty(listitem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
+					<visible>!String.IsEmpty(listitem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(musicvideos)</visible>
 					<control type="label">
 						<left>26</left>
 						<top>353</top>
@@ -618,7 +602,7 @@
 				</control>
 				<control type="image">
 					<!-- Watched Overlay -->
-					<left>282</left>
+					<left>40</left>
 					<top>-3</top>
 					<width>48</width>
 					<height>48</height>
@@ -667,7 +651,7 @@
 					</control>
 					<control type="image">
 						<!-- Watched Overlay -->
-						<left>273</left>
+						<left>40</left>
 						<top>6</top>
 						<width>48</width>
 						<height>48</height>
@@ -1204,7 +1188,16 @@
 					<width>114</width>
 					<texture diffuse="mask-rect.png" background="true" fallback="DefaultMusicVideos.png">$VAR[IconPoster]</texture>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
-					<aspectratio scalediffuse="true">keep</aspectratio>
+					<aspectratio aligny="bottom" scalediffuse="true">keep</aspectratio>
+					<visible>Container.Content(musicvideos)</visible>
+				</control>
+				<control type="image">
+					<left>6</left>
+					<top>545</top>
+					<height>48</height>
+					<width>48</width>
+					<texture>$VAR[Overlay]</texture>
+					<colordiffuse>UnFocusedCovers</colordiffuse>
 					<visible>Container.Content(musicvideos)</visible>
 				</control>
 			</itemlayout>
@@ -1251,7 +1244,7 @@
 				</control>
 				<control type="image">
 					<left>21</left>
-					<top>165</top>
+					<top>175</top>
 					<height>60</height>
 					<width>60</width>
 					<texture>$VAR[Overlay]</texture>
@@ -1262,14 +1255,6 @@
 					<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
 					<param name="size" value="90" />
 				</include>
-				<control type="image">
-					<left>171</left>
-					<top>171</top>
-					<width>48</width>
-					<height>48</height>
-					<colordiffuse>DropShadow</colordiffuse>
-					<texture>$VAR[ListItemFlags]</texture>
-				</control>
 				<control type="image">
 					<left>170</left>
 					<top>170</top>
@@ -1293,8 +1278,16 @@
 					<top>336</top>
 					<height>366</height>
 					<width>366</width>
-					<aspectratio scalediffuse="true">keep</aspectratio>
+					<aspectratio aligny="bottom" scalediffuse="true">keep</aspectratio>
 					<texture diffuse="mask-rect.png" background="true" fallback="DefaultMusicVideos.png">$VAR[IconPoster]</texture>
+					<visible>Container.Content(musicvideos)</visible>
+				</control>
+				<control type="image">
+					<left>33</left>
+					<top>276</top>
+					<height>60</height>
+					<width>60</width>
+					<texture>$VAR[Overlay]</texture>
 					<visible>Container.Content(musicvideos)</visible>
 				</control>
 			</focusedlayout>
@@ -1317,8 +1310,8 @@
 				<left>408</left>
 				<top>650</top>
 				<width>1394</width>
-				<height>57</height>
-				<font>apptv38</font>
+				<height>56</height>
+				<font>apptv30</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<wrapmultiline>true</wrapmultiline>
@@ -1331,7 +1324,7 @@
 				<top>650</top>
 				<width>1394</width>
 				<height>56</height>
-				<font>apptv38</font>
+				<font>apptv30</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<visible>$EXP[isParentFolder]</visible>
@@ -1873,17 +1866,9 @@
 					<width>390</width>
 					<height>46</height>
 					<align>right</align>
-					<font>apptv30</font>
+					<font>apptv23</font>
 					<label>$VAR[VideoDuration]</label>
 					<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
-				</control>
-				<control type="image">
-					<left>1845</left>
-					<top>1008</top>
-					<width>48</width>
-					<height>48</height>
-					<colordiffuse>DropShadow</colordiffuse>
-					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 				<control type="image">
 					<left>1844</left>
@@ -2148,14 +2133,6 @@
 					<font>apptv22</font>
 					<label>$INFO[Container(5058).NumItems,, $LOCALIZE[342]]</label>
 					<visible>ListItem.IsCollection</visible>
-				</control>
-				<control type="image">
-					<left>363</left>
-					<top>372</top>
-					<width>48</width>
-					<height>48</height>
-					<colordiffuse>DropShadow</colordiffuse>
-					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 				<control type="image">
 					<left>362</left>
