@@ -497,7 +497,7 @@
 		</control>
 		<include>sortletternotification</include>
 		<control type="group">
-			<visible>Control.IsVisible(50) + Skin.HasSetting(show-letterbar) + [Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows)]</visible>
+			<visible>Control.IsVisible(50) + Skin.HasSetting(show-letterbar) + [Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]</visible>
 			<control type="button" id="1240">
 				<!-- Search -->
 				<left>1848</left>
@@ -561,10 +561,10 @@
 			<top>165</top>
 			<width>18</width>
 			<height>864</height>
-			<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows)]">1260</onleft>
-			<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows)]">50</onleft>
+			<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]">1260</onleft>
+			<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]">50</onleft>
 			<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-			<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows)]" effect="slide" end="15,0" reversible="true">Conditional</animation>
+			<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]" effect="slide" end="15,0" reversible="true">Conditional</animation>
 			<visible>Control.IsVisible(50) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 		</control>
 	</include>
@@ -767,7 +767,7 @@
 		</control>
 		<include>sortletternotification</include>
 		<control type="group" id="1232">
-			<visible>Control.IsVisible(52) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+			<visible>Control.IsVisible(52) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]</visible>
 			<control type="button" id="1242">
 				<!-- Search -->
 				<left>1851</left>
@@ -829,10 +829,10 @@
 			<top>165</top>
 			<width>18</width>
 			<height>864</height>
-			<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">1262</onleft>
-			<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(movies) | Container.Content(tvshows)]">52</onleft>
+			<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]">1262</onleft>
+			<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]">52</onleft>
 			<animation condition="!Control.HasFocus(1252) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-			<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]" effect="slide" end="15,0" reversible="true">Conditional</animation>
+			<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]" effect="slide" end="15,0" reversible="true">Conditional</animation>
 			<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(52)</visible>
 		</control>
 	</include>
@@ -1373,7 +1373,7 @@
 			</control>
 			<include>sortletternotification</include>
 			<control type="group" id="1234">
-				<visible>Control.IsVisible(54) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+				<visible>Control.IsVisible(54) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]</visible>
 				<control type="button" id="1244">
 					<!-- Search -->
 					<left>54</left>
@@ -1437,10 +1437,10 @@
 				<width>1860</width>
 				<height>18</height>
 				<orientation>horizontal</orientation>
-				<onup condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">1264</onup>
-				<onup condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(movies) | Container.Content(tvshows)]">54</onup>
+				<onup condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]">1264</onup>
+				<onup condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]">54</onup>
 				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]" effect="slide" end="0,15" reversible="true">Conditional</animation>
+				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]" effect="slide" end="0,15" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(54)</visible>
 			</control>
 		</control>
@@ -1880,7 +1880,7 @@
 			</control>
 			<include>sortletternotification</include>
 			<control type="group" id="1237">
-				<visible>Control.IsVisible(57) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]</visible>
+				<visible>Control.IsVisible(57) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]</visible>
 				<control type="button" id="1247">
 					<!-- Search -->
 					<left>54</left>
@@ -1944,10 +1944,10 @@
 				<width>1830</width>
 				<height>18</height>
 				<orientation>horizontal</orientation>
-				<onup condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]">1267</onup>
-				<onup condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(movies) | Container.Content(tvshows)]">57</onup>
+				<onup condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]">1267</onup>
+				<onup condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]">57</onup>
 				<animation condition="!Control.HasFocus(1257) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows)]" effect="slide" end="0,15" reversible="true">Conditional</animation>
+				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]" effect="slide" end="0,15" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(57)</visible>
 			</control>
 		</control>
@@ -2247,7 +2247,7 @@
 			</control>
 			<include>sortletternotification</include>
 			<control type="group" id="1238">
-				<visible>Control.IsVisible(58) + Skin.HasSetting(show-letterbar) + [Container.Content(Sets) | Container.Content(movies) | Container.Content(tvshows)]</visible>
+				<visible>Control.IsVisible(58) + Skin.HasSetting(show-letterbar) + [Container.Content(Sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]</visible>
 				<control type="button" id="1248">
 					<!-- Search -->
 					<left>1839</left>
@@ -2310,10 +2310,10 @@
 				<top>165</top>
 				<width>18</width>
 				<height>864</height>
-				<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows)]">1268</onleft>
-				<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows)]">58</onleft>
+				<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]">1268</onleft>
+				<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]">58</onleft>
 				<animation condition="!Control.HasFocus(1258) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows)]" effect="slide" end="15,0" reversible="true">Conditional</animation>
+				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]" effect="slide" end="15,0" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(58)</visible>
 			</control>
 		</control>

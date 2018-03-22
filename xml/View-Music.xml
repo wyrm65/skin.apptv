@@ -314,10 +314,20 @@
 			</control>
 			<control type="group">
 				<visible>Container.Content(musicvideos) + $EXP[isnotDefaultIcon]</visible>
+				<control type="label">
+					<!-- Genre -->
+					<left>30</left>
+					<top>674</top>
+					<width>726</width>
+					<height>30</height>
+					<label>$INFO[ListItem.Genre]</label>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					<font>apptv20</font>
+				</control>
 				<control type="textbox">
 					<!-- Plot Outline -->
 					<left>30</left>
-					<top>700</top>
+					<top>710</top>
 					<width>954</width>
 					<height>318</height>
 					<font>apptv20</font>
@@ -328,7 +338,7 @@
 				<control type="textbox">
 					<!-- Plot (Show if no outline available) -->
 					<left>30</left>
-					<top>700</top>
+					<top>710</top>
 					<width>954</width>
 					<height>318</height>
 					<font>apptv20</font>
@@ -342,7 +352,7 @@
 		<control type="group">
 			<include>sortletternotification</include>
 			<control type="group" id="1230">
-				<visible>Control.IsVisible(50) + Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]</visible>
+				<visible>Control.IsVisible(50) + Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]</visible>
 				<control type="button" id="1240">
 					<!-- Search -->
 					<left>1846</left>
@@ -405,10 +415,10 @@
 				<top>165</top>
 				<width>18</width>
 				<height>864</height>
-				<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]">1260</onleft>
-				<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(artists) | Container.Content(albums)]">50</onleft>
+				<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">1260</onleft>
+				<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">50</onleft>
 				<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]" effect="slide" end="24,0" reversible="true">Conditional</animation>
+				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]" effect="slide" end="24,0" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(50)</visible>
 			</control>
 		</control>
@@ -424,8 +434,7 @@
 			<height>660</height>
 			<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
 			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
-			<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
-			<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">1262</onright>
+			<onright>$VAR[ListScrollNavMusic]</onright>
 			<onup>52</onup>
 			<ondown>52</ondown>
 			<viewtype label="31943">icon</viewtype>
@@ -547,7 +556,7 @@
 		</control>
 		<include>sortletternotification</include>
 		<control type="group" id="1232">
-			<visible>Control.IsVisible(52) + Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]</visible>
+			<visible>Control.IsVisible(52) + Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]</visible>
 			<control type="button" id="1242">
 				<!-- Search -->
 				<left>1830</left>
@@ -610,8 +619,8 @@
 			<top>165</top>
 			<width>18</width>
 			<height>864</height>
-			<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]">1262</onleft>
-			<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(artists) | Container.Content(albums)]">52</onleft>
+			<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">1262</onleft>
+			<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">52</onleft>
 			<animation condition="!Control.HasFocus(1252) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(52)</visible>
 		</control>
@@ -739,11 +748,10 @@
 				</control>
 			</focusedlayout>
 		</control>
-
 		<control type="group">
 			<visible>Control.IsVisible(54)</visible>
 			<control type="group" id="1234">
-				<visible>Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]</visible>
+				<visible>Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]</visible>
 				<control type="button" id="1244">
 					<!-- Search -->
 					<left>54</left>
@@ -807,10 +815,10 @@
 				<width>1830</width>
 				<height>18</height>
 				<orientation>horizontal</orientation>
-				<onup condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]">1264</onup>
-				<onup condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(artists) | Container.Content(albums)]">54</onup>
+				<onup condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">1264</onup>
+				<onup condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">54</onup>
 				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]" effect="slide" end="0,15" reversible="true">Conditional</animation>
+				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]" effect="slide" end="0,15" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(54)</visible>
 			</control>
 			<control type="image">
@@ -1187,7 +1195,7 @@
 		<control type="group">
 			<visible>Control.IsVisible(57)</visible>
 			<control type="group" id="1237">
-				<visible>Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]</visible>
+				<visible>Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]</visible>
 				<control type="button" id="1247">
 					<!-- Search -->
 					<left>54</left>
@@ -1251,10 +1259,10 @@
 				<width>1830</width>
 				<height>18</height>
 				<orientation>horizontal</orientation>
-				<onup condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]">1267</onup>
-				<onup condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(artists) | Container.Content(albums)]">57</onup>
+				<onup condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">1267</onup>
+				<onup condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">57</onup>
 				<animation condition="!Control.HasFocus(1257) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]" effect="slide" end="0,18" reversible="true">Conditional</animation>
+				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]" effect="slide" end="0,18" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(57)</visible>
 			</control>
 			<control type="label">
@@ -1328,51 +1336,54 @@
 					<texture>$VAR[MediaRating]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
-				<control type="image">
-					<!-- MPAA Rating -->
-					<left>26</left>
-					<top>950</top>
-					<width>240</width>
-					<height>70</height>
-					<aligny>bottom</aligny>
-					<texture>$VAR[VideoRating]</texture>
-					<aspectratio>keep</aspectratio>
-				</control>
-				<control type="image">
-					<!-- Video special features available -->
-					<left>270</left>
-					<top>968</top>
-					<width>32</width>
-					<height>32</height>
-					<texture>overlayvideoextras.png</texture>
-					<visible>System.HasAddon(plugin.video.specialfeatures) + !String.IsEmpty(Window(home).Property(SpecialFeatures.Visible))</visible>
-				</control>
-				<control type="image">
-					<!-- Star Rating -->
-					<left>878</left>
-					<top>1022</top>
-					<width>165</width>
-					<height>33</height>
-					<texture>$VAR[MediaRating]</texture>
-					<aspectratio>keep</aspectratio>
-				</control>
-				<control type="label">
-					<!-- Duration -->
-					<left>1500</left>
-					<top>927</top>
-					<width>390</width>
-					<height>56</height>
-					<align>right</align>
-					<font>apptv23</font>
-					<label>$VAR[VideoDuration]</label>
-					<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
-				</control>
-				<control type="image">
-					<left>1844</left>
-					<top>1007</top>
-					<width>48</width>
-					<height>48</height>
-					<texture>$VAR[ListItemFlags]</texture>
+				<control type="group">
+					<visible>!ListItem.IsFolder + Container.Content(musicvideos)</visible>
+					<control type="image">
+						<!-- MPAA Rating -->
+						<left>26</left>
+						<top>950</top>
+						<width>240</width>
+						<height>70</height>
+						<aligny>bottom</aligny>
+						<texture>$VAR[VideoRating]</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="image">
+						<!-- Video special features available -->
+						<left>270</left>
+						<top>968</top>
+						<width>32</width>
+						<height>32</height>
+						<texture>overlayvideoextras.png</texture>
+						<visible>System.HasAddon(plugin.video.specialfeatures) + !String.IsEmpty(Window(home).Property(SpecialFeatures.Visible))</visible>
+					</control>
+					<control type="image">
+						<!-- Star Rating -->
+						<left>878</left>
+						<top>1022</top>
+						<width>165</width>
+						<height>33</height>
+						<texture>$VAR[MediaRating]</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="label">
+						<!-- Duration -->
+						<left>1500</left>
+						<top>927</top>
+						<width>390</width>
+						<height>56</height>
+						<align>right</align>
+						<font>apptv23</font>
+						<label>$VAR[VideoDuration]</label>
+						<visible>!String.IsEmpty(ListItem.Duration)</visible>
+					</control>
+					<control type="image">
+						<left>1844</left>
+						<top>1007</top>
+						<width>48</width>
+						<height>48</height>
+						<texture>$VAR[ListItemFlags]</texture>
+					</control>
 				</control>
 			</control>
 		</control>
@@ -1654,7 +1665,7 @@
 				</control>
 			</control>
 			<control type="group" id="1238">
-				<visible>Control.IsVisible(58) + Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]</visible>
+				<visible>Control.IsVisible(58) + Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]</visible>
 				<control type="button" id="1248">
 					<!-- Search -->
 					<left>1845</left>
@@ -1717,10 +1728,10 @@
 				<top>165</top>
 				<width>18</width>
 				<height>864</height>
-				<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]">1268</onleft>
-				<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(artists) | Container.Content(albums)]">58</onleft>
+				<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">1268</onleft>
+				<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">58</onleft>
 				<animation condition="!Control.HasFocus(1258) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums)]" effect="slide" end="24,0" reversible="true">Conditional</animation>
+				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]" effect="slide" end="24,0" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(58)</visible>
 			</control>
 		</control>
