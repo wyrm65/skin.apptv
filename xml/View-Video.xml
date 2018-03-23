@@ -24,7 +24,7 @@
 					<height>96</height>
 					<texture border="9">button-default.png</texture>
 					<aspectratio>stretch</aspectratio>
-					<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(50)">Conditional</animation>
+					<animation condition="!Control.HasFocus(50)" effect="fade" start="100" end="60" reversible="true">Conditional</animation>
 				</control>
 				<control type="image">
 					<left>3</left>
@@ -143,7 +143,7 @@
 					<height>96</height>
 					<texture border="9">button-default-focus.png</texture>
 					<aspectratio>stretch</aspectratio>
-					<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(50)">Conditional</animation>
+					<animation condition="!Control.HasFocus(50)" effect="fade" start="100" end="60" reversible="true">Conditional</animation>
 				</control>
 				<control type="image">
 					<left>3</left>
@@ -496,66 +496,17 @@
 			</control>
 		</control>
 		<include>sortletternotification</include>
-		<control type="group">
-			<visible>Control.IsVisible(50) + Skin.HasSetting(show-letterbar) + [Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]</visible>
-			<control type="button" id="1240">
-				<!-- Search -->
-				<left>1848</left>
-				<top>132</top>
-				<width>30</width>
-				<height>30</height>
-				<onleft>50</onleft>
-				<onright>1250</onright>
-				<ondown>1260</ondown>
-				<texturefocus>touch-search.png</texturefocus>
-				<texturenofocus>touch-search.png</texturenofocus>
-				<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
-				<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-				<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1240)">Conditional</animation>
-			</control>
-			<control type="panel" id="1260">
-				<left>1850</left>
-				<top>165</top>
-				<width>30</width>
-				<height>891</height>
-				<onleft>50</onleft>
-				<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">1250</onright>
-				<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
-				<onup>1240</onup>
-				<ondown>noop</ondown>
-				<orientation>vertical</orientation>
-				<itemlayout height="33" width="30">
-					<control type="label">
-						<height>30</height>
-						<label>$INFO[ListItem.Label]</label>
-						<font>apptv20</font>
-						<align>center</align>
-						<textcolor>disabled-text</textcolor>
-						<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-					</control>
-					<control type="label">
-						<height>30</height>
-						<label>$INFO[ListItem.Label]</label>
-						<font>apptv20</font>
-						<align>center</align>
-						<textcolor>listselected-text</textcolor>
-						<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
-					</control>
-				</itemlayout>
-				<focusedlayout height="33" width="30">
-					<control type="label">
-						<height>30</height>
-						<label>$INFO[ListItem.Label]</label>
-						<font>apptv20</font>
-						<align>center</align>
-						<textcolor>button-text</textcolor>
-						<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-						<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-					</control>
-				</focusedlayout>
-				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
-			</control>
-		</control>
+		<include content="letterbar-vertical">
+			<param name="searchleft" value="1848"/>
+			<param name="searchtop" value="132"/>
+			<param name="letterbarleft" value="1850"/>
+			<param name="letterbartop" value="165"/>
+			<param name="searchid" value="1240"/>
+			<param name="letterbarid" value="1260"/>
+			<param name="scrollbarid" value="1250"/>
+			<param name="listitemid" value="50"/>
+			<param name="letterbarvisible" value="Control.IsVisible(50)+Skin.HasSetting(show-letterbar)+[Container.Content(sets)|Container.Content(movies)|Container.Content(tvshows)|Container.Content(musicvideos)]"/>
+		</include>
 		<control type="scrollbar" id="1250">
 			<left>1872</left>
 			<top>165</top>
@@ -766,64 +717,17 @@
 			</control>
 		</control>
 		<include>sortletternotification</include>
-		<control type="group" id="1232">
-			<visible>Control.IsVisible(52) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]</visible>
-			<control type="button" id="1242">
-				<!-- Search -->
-				<left>1851</left>
-				<top>132</top>
-				<width>30</width>
-				<height>30</height>
-				<onleft>52</onleft>
-				<onright>1252</onright>
-				<ondown>1262</ondown>
-				<texturefocus>touch-search.png</texturefocus>
-				<texturenofocus>touch-search.png</texturenofocus>
-				<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
-				<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-				<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1242)">Conditional</animation>
-			</control>
-			<control type="panel" id="1262">
-				<left>1852</left>
-				<top>165</top>
-				<width>30</width>
-				<height>891</height>
-				<onleft>52</onleft>
-				<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">1252</onright>
-				<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
-				<onup>1242</onup>
-				<orientation>vertical</orientation>
-				<itemlayout height="33" width="30">
-					<control type="label">
-						<height>30</height>
-						<label>$INFO[ListItem.Label]</label>
-						<font>apptv20</font>
-						<align>center</align>
-						<textcolor>disabled-text</textcolor>
-						<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-					</control>
-					<control type="label">
-						<height>30</height>
-						<label>$INFO[ListItem.Label]</label>
-						<font>apptv20</font>
-						<align>center</align>
-						<textcolor>listselected-text</textcolor>
-						<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
-					</control>
-				</itemlayout>
-				<focusedlayout height="33" width="30">
-					<control type="label">
-						<height>30</height>
-						<label>$INFO[ListItem.Label]</label>
-						<font>apptv20</font>
-						<align>center</align>
-						<animation effect="zoom" end="130" center="auto">focus</animation>
-						<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-					</control>
-				</focusedlayout>
-				<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
-			</control>
-		</control>
+		<include content="letterbar-vertical">
+			<param name="searchleft" value="1848"/>
+			<param name="searchtop" value="132"/>
+			<param name="letterbarleft" value="1850"/>
+			<param name="letterbartop" value="165"/>
+			<param name="searchid" value="1242"/>
+			<param name="letterbarid" value="1262"/>
+			<param name="scrollbarid" value="1252"/>
+			<param name="listitemid" value="52"/>
+			<param name="letterbarvisible" value="Control.IsVisible(52)+Skin.HasSetting(show-letterbar)+[Container.Content(movies)|Container.Content(tvshows)|Container.Content(musicvideos)]"/>
+		</include>
 		<control type="scrollbar" id="1252">
 			<left>1872</left>
 			<top>165</top>
@@ -1044,75 +948,27 @@
 					</control>
 				</control>
 				<include>sortletternotification</include>
-				<control type="group" id="1233">
-					<visible>Control.IsVisible(53) + Skin.HasSetting(show-letterbar) + Container.Content(tvshows)</visible>
-					<control type="button" id="1243">
-						<!-- Search -->
-						<left>1833</left>
-						<top>132</top>
-						<width>30</width>
-						<height>30</height>
-						<onleft>53</onleft>
-						<onright>1253</onright>
-						<ondown>1263</ondown>
-						<texturefocus>touch-search.png</texturefocus>
-						<texturenofocus>touch-search.png</texturenofocus>
-						<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
-						<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-						<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1243)">Conditional</animation>
-					</control>
-					<control type="panel" id="1263">
-						<left>1836</left>
-						<top>165</top>
-						<width>30</width>
-						<height>891</height>
-						<onleft>53</onleft>
-						<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">1253</onright>
-						<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
-						<onup>1243</onup>
-						<orientation>vertical</orientation>
-						<itemlayout height="33" width="30">
-							<control type="label">
-								<height>30</height>
-								<label>$INFO[ListItem.Label]</label>
-								<font>apptv20</font>
-								<align>center</align>
-								<textcolor>disabled-text</textcolor>
-								<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-							</control>
-							<control type="label">
-								<height>30</height>
-								<label>$INFO[ListItem.Label]</label>
-								<font>apptv20</font>
-								<align>center</align>
-								<textcolor>listselected-text</textcolor>
-								<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
-							</control>
-						</itemlayout>
-						<focusedlayout height="33" width="30">
-							<control type="label">
-								<height>30</height>
-								<label>$INFO[ListItem.Label]</label>
-								<font>apptv20</font>
-								<align>center</align>
-								<textcolor>button-text</textcolor>
-								<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-								<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-							</control>
-						</focusedlayout>
-						<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
-					</control>
-					<control type="scrollbar" id="1253">
-						<left>1854</left>
-						<top>202</top>
-						<width>18</width>
-						<height>774</height>
-						<onleft condition="Skin.HasSetting(show-letterbar)">1263</onleft>
-						<onleft condition="!Skin.HasSetting(show-letterbar) | !Container.Content(tvshows)">53</onleft>
-						<animation condition="!Control.HasFocus(1253) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-						<animation condition="Skin.HasSetting(show-letterbar)" effect="slide" end="33,0" reversible="true">Conditional</animation>
-						<visible>Control.IsVisible(53) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
-					</control>
+				<include content="letterbar-vertical">
+					<param name="searchleft" value="1833"/>
+					<param name="searchtop" value="132"/>
+					<param name="letterbarleft" value="1836"/>
+					<param name="letterbartop" value="165"/>
+					<param name="searchid" value="1243"/>
+					<param name="letterbarid" value="1263"/>
+					<param name="scrollbarid" value="1253"/>
+					<param name="listitemid" value="53"/>
+					<param name="letterbarvisible" value="Control.IsVisible(53)+Skin.HasSetting(show-letterbar)+Container.Content(tvshows)"/>
+				</include>
+				<control type="scrollbar" id="1253">
+					<left>1854</left>
+					<top>202</top>
+					<width>18</width>
+					<height>774</height>
+					<onleft condition="Skin.HasSetting(show-letterbar)">1263</onleft>
+					<onleft condition="!Skin.HasSetting(show-letterbar) | Container.Content(tvshows)">53</onleft>
+					<animation condition="!Control.HasFocus(1253) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<animation condition="Skin.HasSetting(show-letterbar)" effect="slide" end="15,0" reversible="true">Conditional</animation>
+					<visible>Control.IsVisible(53) + $EXP[isEnabledScrollbar]</visible>
 				</control>
 			</control>
 		</control>
@@ -1269,9 +1125,9 @@
 					<top>336</top>
 					<height>366</height>
 					<width>366</width>
-					<aspectratio scalediffuse="true">keep</aspectratio>
-					<texture diffuse="mask-rect.png" background="true" fallback="DefaultVideo.png">$VAR[IconPoster]</texture>
-					<visible>!Container.Content(musicvideos)</visible>
+					<aspectratio aligny="bottom" scalediffuse="true">keep</aspectratio>
+					<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+					<visible>Control.HasFocus(54)</visible>
 				</control>
 				<control type="image">
 					<left>33</left>
@@ -1279,8 +1135,9 @@
 					<height>366</height>
 					<width>366</width>
 					<aspectratio aligny="bottom" scalediffuse="true">keep</aspectratio>
-					<texture diffuse="mask-rect.png" background="true" fallback="DefaultMusicVideos.png">$VAR[IconPoster]</texture>
-					<visible>Container.Content(musicvideos)</visible>
+					<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+					<colordiffuse>UnFocusedCovers</colordiffuse>
+					<visible>!Control.HasFocus(54)</visible>
 				</control>
 				<control type="image">
 					<left>33</left>
@@ -1372,65 +1229,17 @@
 				</control>
 			</control>
 			<include>sortletternotification</include>
-			<control type="group" id="1234">
-				<visible>Control.IsVisible(54) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]</visible>
-				<control type="button" id="1244">
-					<!-- Search -->
-					<left>54</left>
-					<top>954</top>
-					<width>30</width>
-					<height>30</height>
-					<onup>54</onup>
-					<ondown>1254</ondown>
-					<onright>1264</onright>
-					<texturefocus>touch-search.png</texturefocus>
-					<texturenofocus>touch-search.png</texturenofocus>
-					<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
-					<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-					<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1244)">Conditional</animation>
-				</control>
-				<control type="panel" id="1264">
-					<left>102</left>
-					<top>951</top>
-					<width>1848</width>
-					<height>33</height>
-					<onup>54</onup>
-					<ondown condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">1254</ondown>
-					<ondown condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</ondown>
-					<onleft>1244</onleft>
-					<onright>noop</onright>
-					<orientation>horizontal</orientation>
-					<itemlayout height="33" width="66">
-						<control type="label">
-							<height>30</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv20</font>
-							<textcolor>disabled-text</textcolor>
-							<align>center</align>
-							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-						</control>
-						<control type="label">
-							<height>30</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv20</font>
-							<textcolor>listselected-text</textcolor>
-							<align>center</align>
-							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
-						</control>
-					</itemlayout>
-					<focusedlayout height="33" width="66">
-						<control type="label">
-							<height>30</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv20</font>
-							<align>center</align>
-							<animation effect="zoom" end="130" center="auto">focus</animation>
-							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-						</control>
-					</focusedlayout>
-					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
-				</control>
-			</control>
+			<include content="letterbar-horizontal">
+				<param name="searchleft" value="54"/>
+				<param name="searchtop" value="954"/>
+				<param name="letterbarleft" value="102"/>
+				<param name="letterbartop" value="951"/>
+				<param name="searchid" value="1244"/>
+				<param name="letterbarid" value="1264"/>
+				<param name="scrollbarid" value="1254"/>
+				<param name="listitemid" value="54"/>
+				<param name="letterbarvisible" value="Control.IsVisible(54)+Skin.HasSetting(show-letterbar)+[Container.Content(movies)|Container.Content(tvshows)|Container.Content(musicvideos)]"/>
+			</include>
 			<control type="scrollbar" id="1254">
 				<left>30</left>
 				<top>984</top>
@@ -1879,65 +1688,17 @@
 				</control>
 			</control>
 			<include>sortletternotification</include>
-			<control type="group" id="1237">
-				<visible>Control.IsVisible(57) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]</visible>
-				<control type="button" id="1247">
-					<!-- Search -->
-					<left>54</left>
-					<top>849</top>
-					<width>30</width>
-					<height>30</height>
-					<onup>57</onup>
-					<ondown>1257</ondown>
-					<onright>1267</onright>
-					<texturefocus>touch-search.png</texturefocus>
-					<texturenofocus>touch-search.png</texturenofocus>
-					<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
-					<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-					<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1247)">Conditional</animation>
-				</control>
-				<control type="panel" id="1267">
-					<left>102</left>
-					<top>846</top>
-					<width>1848</width>
-					<height>33</height>
-					<onup>57</onup>
-					<ondown condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">1257</ondown>
-					<ondown condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</ondown>
-					<onleft>1247</onleft>
-					<onright>noop</onright>
-					<orientation>horizontal</orientation>
-					<itemlayout height="33" width="66">
-						<control type="label">
-							<height>30</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv20</font>
-							<textcolor>disabled-text</textcolor>
-							<align>center</align>
-							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-						</control>
-						<control type="label">
-							<height>30</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv20</font>
-							<textcolor>listselected-text</textcolor>
-							<align>center</align>
-							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
-						</control>
-					</itemlayout>
-					<focusedlayout height="33" width="66">
-						<control type="label">
-							<height>30</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv20</font>
-							<align>center</align>
-							<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-						</control>
-					</focusedlayout>
-					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
-				</control>
-			</control>
+			<include content="letterbar-horizontal">
+				<param name="searchleft" value="54"/>
+				<param name="searchtop" value="849"/>
+				<param name="letterbarleft" value="102"/>
+				<param name="letterbartop" value="846"/>
+				<param name="searchid" value="1247"/>
+				<param name="letterbarid" value="1267"/>
+				<param name="scrollbarid" value="1257"/>
+				<param name="listitemid" value="57"/>
+				<param name="letterbarvisible" value="Control.IsVisible(57)+Skin.HasSetting(show-letterbar)+[Container.Content(movies)|Container.Content(tvshows)|Container.Content(musicvideos)]"/>
+			</include>
 			<control type="scrollbar" id="1257">
 				<left>45</left>
 				<top>873</top>
@@ -2246,65 +2007,17 @@
 				</control>
 			</control>
 			<include>sortletternotification</include>
-			<control type="group" id="1238">
-				<visible>Control.IsVisible(58) + Skin.HasSetting(show-letterbar) + [Container.Content(Sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]</visible>
-				<control type="button" id="1248">
-					<!-- Search -->
-					<left>1839</left>
-					<top>132</top>
-					<width>30</width>
-					<height>30</height>
-					<onleft>58</onleft>
-					<onright>1258</onright>
-					<ondown>1268</ondown>
-					<texturefocus>touch-search.png</texturefocus>
-					<texturenofocus>touch-search.png</texturenofocus>
-					<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
-					<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-					<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1248)">Conditional</animation>
-				</control>
-				<control type="panel" id="1268">
-					<left>1838</left>
-					<top>165</top>
-					<width>30</width>
-					<height>891</height>
-					<onleft>58</onleft>
-					<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">1258</onright>
-					<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
-					<onup>1248</onup>
-					<ondown>noop</ondown>
-					<orientation>vertical</orientation>
-					<itemlayout height="33" width="30">
-						<control type="label">
-							<height>30</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv20</font>
-							<textcolor>disabled-text</textcolor>
-							<align>center</align>
-							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-						</control>
-						<control type="label">
-							<height>30</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv20</font>
-							<textcolor>listselected-text</textcolor>
-							<align>center</align>
-							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
-						</control>
-					</itemlayout>
-					<focusedlayout height="33" width="30">
-						<control type="label">
-							<height>30</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv20</font>
-							<align>center</align>
-							<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-						</control>
-					</focusedlayout>
-					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
-				</control>
-			</control>
+			<include content="letterbar-vertical">
+				<param name="searchleft" value="1848"/>
+				<param name="searchtop" value="132"/>
+				<param name="letterbarleft" value="1850"/>
+				<param name="letterbartop" value="165"/>
+				<param name="searchid" value="1248"/>
+				<param name="letterbarid" value="1268"/>
+				<param name="scrollbarid" value="1258"/>
+				<param name="listitemid" value="58"/>
+				<param name="letterbarvisible" value="Control.IsVisible(58)+Skin.HasSetting(show-letterbar)+[Container.Content(Sets)|Container.Content(movies)|Container.Content(tvshows)|Container.Content(musicvideos)]"/>
+			</include>
 			<control type="scrollbar" id="1258">
 				<left>1872</left>
 				<top>165</top>

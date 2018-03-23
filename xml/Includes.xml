@@ -4009,7 +4009,149 @@
 			</control>
 		</definition>
 	</include>
-
+	<include name="letterbar-vertical">
+		<param name="searchleft"/>
+		<param name="searchtop"/>
+		<param name="letterbarleft"/>
+		<param name="letterbartop"/>
+		<param name="searchid"/>
+		<param name="letterbarid"/>
+		<param name="scrollbarid"/>
+		<param name="listitemid"/>
+		<param name="letterbarvisible"/>
+		<definition>
+			<control type="group">
+				<visible>$PARAM[letterbarvisible]</visible>
+				<control type="button" id="$PARAM[searchid]">
+					<left>$PARAM[searchleft]</left>
+					<top>$PARAM[searchtop]</top>
+					<width>30</width>
+					<height>30</height>
+					<onleft>$PARAM[listitemid]</onleft>
+					<onright>$PARAM[scrollbarid]</onright>
+					<ondown>$PARAM[letterbarid]</ondown>
+					<texturefocus>touch-search.png</texturefocus>
+					<texturenofocus>touch-search.png</texturenofocus>
+					<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
+					<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
+					<animation effect="fade" start="100" end="50" condition="!Control.HasFocus($PARAM[searchid])">Conditional</animation>
+				</control>
+				<control type="panel" id="$PARAM[letterbarid]">
+					<left>$PARAM[letterbarleft]</left>
+					<top>$PARAM[letterbartop]</top>
+					<width>30</width>
+					<height>891</height>
+					<onleft>$PARAM[listitemid]</onleft>
+					<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">$PARAM[scrollbarid]</onright>
+					<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+					<onup>$PARAM[searchid]</onup>
+					<ondown>noop</ondown>
+					<orientation>vertical</orientation>
+					<itemlayout height="33" width="30">
+						<control type="label">
+							<height>30</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>apptv20</font>
+							<align>center</align>
+							<textcolor>disabled-text</textcolor>
+							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						</control>
+						<control type="label">
+							<height>30</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>apptv20</font>
+							<align>center</align>
+							<textcolor>listselected-text</textcolor>
+							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout height="33" width="30">
+						<control type="label">
+							<height>30</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>apptv20</font>
+							<align>center</align>
+							<textcolor>button-text</textcolor>
+							<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
+							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						</control>
+					</focusedlayout>
+					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+				</control>
+			</control>
+		</definition>
+	</include>
+	<include name="letterbar-horizontal">
+		<param name="searchleft"/>
+		<param name="searchtop"/>
+		<param name="letterbarleft"/>
+		<param name="letterbartop"/>
+		<param name="searchid"/>
+		<param name="letterbarid"/>
+		<param name="scrollbarid"/>
+		<param name="listitemid"/>
+		<param name="letterbarvisible"/>
+		<definition>
+			<control type="group">
+				<visible>$PARAM[letterbarvisible]</visible>
+				<control type="button" id="$PARAM[searchid]">
+					<left>$PARAM[searchleft]</left>
+					<top>$PARAM[searchtop]</top>
+					<width>30</width>
+					<height>30</height>
+					<onup>$PARAM[listitemid]</onup>
+					<ondown>$PARAM[scrollbarid]</ondown>
+					<onright>$PARAM[letterbarid]</onright>
+					<texturefocus>touch-search.png</texturefocus>
+					<texturenofocus>touch-search.png</texturenofocus>
+					<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
+					<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
+					<animation effect="fade" start="100" end="50" condition="!Control.HasFocus($PARAM[searchid])">Conditional</animation>
+				</control>
+				<control type="panel" id="$PARAM[letterbarid]">
+					<left>$PARAM[letterbarleft]</left>
+					<top>$PARAM[letterbartop]</top>
+					<width>1848</width>
+					<height>33</height>
+					<onup>$PARAM[listitemid]</onup>
+					<ondown condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">$PARAM[scrollbarid]</ondown>
+					<ondown condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</ondown>
+					<onleft>$PARAM[searchid]</onleft>
+					<onright>noop</onright>
+					<orientation>horizontal</orientation>
+					<itemlayout height="33" width="66">
+						<control type="label">
+							<height>30</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>apptv20</font>
+							<textcolor>disabled-text</textcolor>
+							<align>center</align>
+							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						</control>
+						<control type="label">
+							<height>30</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>apptv20</font>
+							<textcolor>listselected-text</textcolor>
+							<align>center</align>
+							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout height="33" width="66">
+						<control type="label">
+							<height>30</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>apptv20</font>
+							<align>center</align>
+							<animation effect="zoom" end="130" center="auto">focus</animation>
+							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						</control>
+					</focusedlayout>
+					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+				</control>
+			</control>
+		</definition>
+	</include>
 	<include name="touch-controls">
 		<control type="grouplist" id="8000">
 			<visible>$EXP[isEnabledTouch]</visible>
