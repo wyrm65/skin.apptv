@@ -1,5 +1,5 @@
 <p align="center">
-<img src="http://mirrors.kodi.tv/addons/krypton/skin.apptv/resources/icon.png" width="256" align="middle">
+<img src="http://mirrors.kodi.tv/addons/krypton/skin.apptv/resources/icon.png" width="128" align="middle">
 </p>
 
 ## ABOUT AppTV
@@ -16,7 +16,7 @@ Created by Wyrm
 
 [Kodi Wiki](https://kodi.wiki/view/Add-on:AppTV)
 
-### [Screenshots](https://kodi.wiki/view/Add-on:AppTV#Screenshots)
+[Screenshots](https://kodi.wiki/view/Add-on:AppTV#Screenshots)
 
 ## INSTALL   
 Can be installed through the official Kodi repository.
