@@ -53,4 +53,14 @@ script globalsearch
 script.artistslideshow  
 script.image.resource.select  
 script.kodi.loguploader  
-service.libreelec.settings
+
+## SCRIPTS WITH SKINABLE ELEMENTS
+The following scripts are supported with custom skin files to match the script to the rest of the skin
+
+script.cu.lrclyrics  
+script.globalsearch  
+script.tv.show.next.aired  
+service.nextup.notification  
+plugin.video.specialfeatures  
+script.extendedinfo  
+service.libreelec.settings  
