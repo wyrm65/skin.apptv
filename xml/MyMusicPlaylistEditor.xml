@@ -3,6 +3,7 @@
 	<defaultcontrol always="true">50</defaultcontrol>
 	<onload>ClearProperty(ShowScreenSettings,home)</onload>
 	<onunload>ClearProperty(ShowScreenSettings,home)</onunload>
+	<onunload>ClearProperty(Focus)</onunload>
 	<menucontrol>9000</menucontrol>
 	<include>window-openclose</include>
 	<controls>
@@ -28,7 +29,7 @@
 		<control type="image">
 			<left>0</left>
 			<top>135</top>
-			<width>1920</width>
+			<width>100%</width>
 			<height>6</height>
 			<texture>separator.png</texture>
 			<colordiffuse>ProgressBarColor</colordiffuse>
@@ -36,15 +37,7 @@
 		<control type="image">
 			<left>0</left>
 			<top>195</top>
-			<width>1920</width>
-			<height>6</height>
-			<texture>separator.png</texture>
-			<colordiffuse>ProgressBarColor</colordiffuse>
-		</control>
-		<control type="image">
-			<left>0</left>
-			<top>960</top>
-			<width>1920</width>
+			<width>100%</width>
 			<height>6</height>
 			<texture>separator.png</texture>
 			<colordiffuse>ProgressBarColor</colordiffuse>
@@ -52,25 +45,35 @@
 		<control type="image">
 			<left>0</left>
 			<top>1016</top>
-			<width>1920</width>
+			<width>100%</width>
 			<height>6</height>
 			<texture>separator.png</texture>
 			<colordiffuse>ProgressBarColor</colordiffuse>
 		</control>
+		<!-- Markers for off screen menu items -->
+		<include content="page-offscreen-vertical">
+			<param name="indicator1left" value="468"/>
+			<param name="indicator1top" value="208"/>
+			<param name="indicator2left" value="468"/>
+			<param name="indicator2top" value="984"/>
+			<param name="indicatorsize" value="24"/>
+			<param name="indicatorcontainer" value="50"/>
+		</include>
 		<control type="list" id="50">
 			<left>30</left>
-			<top>207</top>
+			<top>235</top>
 			<width>900</width>
 			<height>748</height>
 			<onleft>9000</onleft>
 			<onright>100</onright>
 			<onup>50</onup>
 			<ondown>50</ondown>
+			<onfocus>SetProperty(Focus,left)</onfocus>
 			<itemlayout width="900" height="68">
 				<control type="label">
 					<left>10</left>
 					<top>16</top>
-					<width>750</width>
+					<width>740</width>
 					<height>36</height>
 					<font>apptv20</font>
 					<selectedcolor>listselected-text</selectedcolor>
@@ -78,11 +81,11 @@
 					<label>$INFO[ListItem.Label]</label>
 				</control>
 				<control type="label">
-					<left>770</left>
+					<left>752</left>
 					<top>16</top>
-					<width>120</width>
+					<width>142</width>
 					<height>36</height>
-					<font>apptv20</font>
+					<font>apptv18</font>
 					<align>right</align>
 					<selectedcolor>listselected-text</selectedcolor>
 					<label>$INFO[ListItem.Label2]</label>
@@ -100,7 +103,7 @@
 				<control type="label">
 					<left>10</left>
 					<top>16</top>
-					<width>750</width>
+					<width>740</width>
 					<height>36</height>
 					<font>apptv20</font>
 					<selectedcolor>listselected-text</selectedcolor>
@@ -108,42 +111,52 @@
 					<label>$INFO[ListItem.Label]</label>
 				</control>
 				<control type="label">
-					<left>770</left>
+					<left>752</left>
 					<top>16</top>
-					<width>120</width>
+					<width>142</width>
 					<height>36</height>
-					<font>apptv20</font>
+					<font>apptv18</font>
 					<align>right</align>
 					<selectedcolor>listselected-text</selectedcolor>
 					<label>$INFO[ListItem.Label2]</label>
 				</control>
 			</focusedlayout>
 		</control>
+		<!-- Markers for off screen menu items -->
+		<include content="page-offscreen-vertical">
+			<param name="indicator1left" value="1428"/>
+			<param name="indicator1top" value="208"/>
+			<param name="indicator2left" value="1428"/>
+			<param name="indicator2top" value="984"/>
+			<param name="indicatorsize" value="24"/>
+			<param name="indicatorcontainer" value="100"/>
+		</include>
 		<control type="list" id="100">
 			<left>990</left>
-			<top>207</top>
+			<top>235</top>
 			<width>900</width>
 			<height>748</height>
 			<onleft>50</onleft>
 			<onright>9000</onright>
 			<onup>100</onup>
 			<ondown>100</ondown>
+			<onfocus>SetProperty(Focus,right)</onfocus>
 			<itemlayout width="900" height="68">
 				<control type="label">
 					<left>10</left>
 					<top>16</top>
-					<width>750</width>
+					<width>740</width>
 					<height>36</height>
 					<font>apptv20</font>
 					<selectedcolor>listselected-text</selectedcolor>
 					<label>$INFO[ListItem.Label]</label>
 				</control>
 				<control type="label">
-					<left>770</left>
+					<left>752</left>
 					<top>16</top>
-					<width>120</width>
+					<width>142</width>
 					<height>36</height>
-					<font>apptv20</font>
+					<font>apptv18</font>
 					<align>right</align>
 					<selectedcolor>listselected-text</selectedcolor>
 					<label>$INFO[ListItem.Label2]</label>
@@ -161,7 +174,7 @@
 				<control type="label">
 					<left>10</left>
 					<top>16</top>
-					<width>750</width>
+					<width>740</width>
 					<height>36</height>
 					<font>apptv20</font>
 					<selectedcolor>listselected-text</selectedcolor>
@@ -169,11 +182,11 @@
 					<label>$INFO[ListItem.Label]</label>
 				</control>
 				<control type="label">
-					<left>770</left>
+					<left>752</left>
 					<top>16</top>
-					<width>120</width>
+					<width>142</width>
 					<height>36</height>
-					<font>apptv20</font>
+					<font>apptv18</font>
 					<align>right</align>
 					<selectedcolor>listselected-text</selectedcolor>
 					<label>$INFO[ListItem.Label2]</label>
@@ -187,7 +200,7 @@
 			<width>900</width>
 			<height>36</height>
 			<font>apptv23</font>
-			<label>$LOCALIZE[31030]</label>
+			<label>$LOCALIZE[31030] $INFO[Container(50).NumItems,(,)]</label>
 		</control>
 		<control type="label">
 			<!-- Playlist label -->
@@ -196,23 +209,7 @@
 			<width>900</width>
 			<height>36</height>
 			<font>apptv23</font>
-			<label>$LOCALIZE[31659]</label>
-		</control>
-		<control type="label" id="12">
-			<!-- Number of files in left list text label -->
-			<left>40</left>
-			<top>972</top>
-			<width>900</width>
-			<height>36</height>
-			<font>apptv20</font>
-		</control>
-		<control type="label" id="101">
-			<!-- Number of songs in playlist text label -->
-			<left>1000</left>
-			<top>972</top>
-			<width>900</width>
-			<height>36</height>
-			<font>apptv20</font>
+			<label>$LOCALIZE[31659] $INFO[Container(100).NumItems,(,)]</label>
 		</control>
 		<include>touch-controls</include>
 		<control type="group">
@@ -259,13 +256,18 @@
 				<texture>separator.png</texture>
 			</control>
 			<control type="grouplist" id="9000">
+				<defaultcontrol>6</defaultcontrol>
 				<left>716</left>
 				<top>339</top>
 				<width>543</width>
 				<height>255</height>
 				<itemgap>0</itemgap>
-				<onright>100</onright>
-				<onleft>50</onleft>
+				<onright condition="String.IsEqual(Window(musicplaylisteditor).Property(Focus),left)">50</onright>
+				<onright condition="String.IsEqual(Window(musicplaylisteditor).Property(Focus),right)">100</onright>
+				<onright>ClearProperty(ShowScreenSettings,home)</onright>
+				<onleft condition="String.IsEqual(Window(musicplaylisteditor).Property(Focus),left)">50</onleft>
+				<onleft condition="String.IsEqual(Window(musicplaylisteditor).Property(Focus),right)">100</onleft>
+				<onleft>ClearProperty(ShowScreenSettings,home)</onleft>
 				<control type="button" id="6">
 					<!-- Open button -->
 					<width>543</width>
@@ -298,12 +300,14 @@
 				<param name="indicatorwidth" value="192" />
 				<param name="indicatorheight" value="48" />
 				<param name="indicatororientation" value="horizontal" />
-				<param name="grp1indicate" value="[ControlGroup(9000).HasFocus()|String.IsEqual(Window(home).Property(ShowScreenSettings),show)]" />
+				<param name="grp1indicate" value="[ControlGroup(9000).HasFocus()+String.IsEqual(Window(musicplaylisteditor).Property(Focus),left)]" />
 				<param name="grp1visible" value="[!Skin.HasSetting(lock-screensettings)]" />
 				<param name="grp2indicate" value="[Control.HasFocus(50)]" />
-				<param name="grp2visible" value="[Control.IsVisible(50)]+[!Skin.HasSetting(lock-screensettings)]" />
+				<param name="grp2visible" value="[Control.IsVisible(50)]" />
 				<param name="grp3indicate" value="[Control.HasFocus(100)]" />
-				<param name="grp3visible" value="[Control.IsVisible(100)]+[!Skin.HasSetting(lock-screensettings)]" />
+				<param name="grp3visible" value="[Control.IsVisible(100)]" />
+				<param name="grp4indicate" value="[ControlGroup(9000).HasFocus()+String.IsEqual(Window(musicplaylisteditor).Property(Focus),right)]" />
+				<param name="grp4visible" value="[!Skin.HasSetting(lock-screensettings)]" />
 			</include>
 		</control>
 	</controls>

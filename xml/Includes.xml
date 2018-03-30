@@ -274,6 +274,7 @@
 	<variable name="ListScrollNavVideo">
 		<value condition="Control.IsVisible(50) + Skin.HasSetting(show-letterbar) + [Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]">SetFocus(1260)</value>
 		<value condition="Control.IsVisible(50) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1250)</value>
+		<value condition="Control.IsVisible(50)">SetFocus(4502)</value>
 		<value condition="Control.IsVisible(52) + Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]">SetFocus(1262)</value>
 		<value condition="Control.IsVisible(52) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1252)</value>
 		<value condition="Control.IsVisible(53) + Skin.HasSetting(show-letterbar) + Container.Content(tvshows)">SetFocus(1263)</value>
@@ -302,6 +303,7 @@
 	<variable name="ListScrollNavSets">
 		<value condition="Control.IsVisible(50) + Container(50).Content(sets) + !Skin.HasSetting(lock-screensettings) + !ListItem.IsParentFolder">SetFocus(5050)</value>
 		<value condition="Control.IsVisible(50) + !Skin.HasSetting(lock-screensettings)">SetFocus(9000)</value>
+		<value condition="Control.IsVisible(50)">SetFocus(4501)</value>
 		<value condition="Control.IsVisible(58) + Container(50).Content(sets) + !Skin.HasSetting(lock-screensettings) + !ListItem.IsParentFolder">SetFocus(5058)</value>
 		<value condition="Control.IsVisible(58) + !Skin.HasSetting(lock-screensettings)">SetFocus(9000)</value>
 		<value condition="[Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(54) | Control.IsVisible(57)] + !Skin.HasSetting(lock-screensettings)">SetFocus(9000)</value>
@@ -3385,8 +3387,8 @@
 		<!-- Postion and size of fullscreen image -->
 		<left>0</left>
 		<top>0</top>
-		<width>1920</width>
-		<height>1080</height>
+		<width>100%</width>
+		<height>100%</height>
 	</include>
 	<include name="fadebackground">
 		<!-- Background shadow -->
@@ -3699,8 +3701,8 @@
 		<control type="button" id="3550">
 			<left>0</left>
 			<top>0</top>
-			<width>1920</width>
-			<height>1080</height>
+			<width>100%</width>
+			<height>100%</height>
 			<texturefocus>blank.png</texturefocus>
 			<texturenofocus>blank.png</texturenofocus>
 			<visible>$EXP[isEnabledTouch]</visible>
@@ -4029,6 +4031,8 @@
 		<param name="letterbarid"/>
 		<param name="scrollbarid"/>
 		<param name="listitemid"/>
+		<param name="illegalexitsearch" default="noop"/>
+		<param name="illegalexitbar" default="noop"/>
 		<param name="letterbarvisible"/>
 		<definition>
 			<control type="group">
@@ -4040,6 +4044,7 @@
 					<height>30</height>
 					<onleft>$PARAM[listitemid]</onleft>
 					<onright>$PARAM[scrollbarid]</onright>
+					<onup>$PARAM[illegalexitsearch]</onup>
 					<ondown>$PARAM[letterbarid]</ondown>
 					<texturefocus>touch-search.png</texturefocus>
 					<texturenofocus>touch-search.png</texturenofocus>
@@ -4054,9 +4059,9 @@
 					<height>891</height>
 					<onleft>$PARAM[listitemid]</onleft>
 					<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">$PARAM[scrollbarid]</onright>
-					<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
+					<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">$PARAM[illegalexitbar]</onright>
 					<onup>$PARAM[searchid]</onup>
-					<ondown>noop</ondown>
+					<ondown>$PARAM[illegalexitbar]</ondown>
 					<orientation>vertical</orientation>
 					<itemlayout height="33" width="30">
 						<control type="label">
@@ -4101,6 +4106,8 @@
 		<param name="letterbarid"/>
 		<param name="scrollbarid"/>
 		<param name="listitemid"/>
+		<param name="illegalexitsearch" default="noop"/>
+		<param name="illegalexitbar" default="noop"/>
 		<param name="letterbarvisible"/>
 		<definition>
 			<control type="group">
@@ -4112,6 +4119,7 @@
 					<height>30</height>
 					<onup>$PARAM[listitemid]</onup>
 					<ondown>$PARAM[scrollbarid]</ondown>
+					<onleft>$PARAM[illegalexitsearch]</onleft>
 					<onright>$PARAM[letterbarid]</onright>
 					<texturefocus>touch-search.png</texturefocus>
 					<texturenofocus>touch-search.png</texturenofocus>
@@ -4126,9 +4134,9 @@
 					<height>33</height>
 					<onup>$PARAM[listitemid]</onup>
 					<ondown condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">$PARAM[scrollbarid]</ondown>
-					<ondown condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</ondown>
+					<ondown condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">$PARAM[illegalexitbar]</ondown>
 					<onleft>$PARAM[searchid]</onleft>
-					<onright>noop</onright>
+					<onright>$PARAM[illegalexitbar]</onright>
 					<orientation>horizontal</orientation>
 					<itemlayout height="33" width="66">
 						<control type="label">
@@ -4229,6 +4237,7 @@
 				<height>48</height>
 				<texturefocus>touch-settings.png</texturefocus>
 				<texturenofocus>touch-settings.png</texturenofocus>
+				<onclick condition="!String.IsEqual(Window(home).Property(ShowScreenSettings),show)">SetFocus(9000)</onclick>
 				<onclick condition="!String.IsEqual(Window(home).Property(ShowScreenSettings),show)">SetProperty(ShowScreenSettings,show,home)</onclick>
 				<onclick condition="String.IsEqual(Window(home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,home)</onclick>
 				<include>focus-zoom</include>

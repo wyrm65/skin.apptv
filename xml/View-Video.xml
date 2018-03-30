@@ -456,11 +456,11 @@
 						<height>276</height>
 						<orientation>vertical</orientation>
 						<itemgap>0</itemgap>
-						<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
+						<onleft condition="Skin.HasSetting(lock-screensettings)">4501</onleft>
 						<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
 						<onright>50</onright>
-						<onup>noop</onup>
-						<ondown>noop</ondown>
+						<onup>4501</onup>
+						<ondown>4501</ondown>
 						<itemlayout height="46" width="954">
 							<control type="label">
 								<left>10</left>
@@ -505,6 +505,8 @@
 			<param name="letterbarid" value="1260"/>
 			<param name="scrollbarid" value="1250"/>
 			<param name="listitemid" value="50"/>
+			<param name="illegalexitsearch" value="4503"/>
+			<param name="illegalexitbar" value="4505"/>
 			<param name="letterbarvisible" value="Control.IsVisible(50)+Skin.HasSetting(show-letterbar)+[Container.Content(sets)|Container.Content(movies)|Container.Content(tvshows)|Container.Content(musicvideos)]"/>
 		</include>
 		<control type="scrollbar" id="1250">
@@ -518,6 +520,31 @@
 			<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]" effect="slide" end="15,0" reversible="true">Conditional</animation>
 			<visible>Control.IsVisible(50) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
 		</control>
+		<!-- Play bump sound if user tries to leave sets list by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="4501" />
+			<param name="returnid" value="5050" />
+		</include>
+		<!-- Play bump sound if user tries to leave item list by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="4502" />
+			<param name="returnid" value="50" />
+		</include>
+		<!-- Play bump sound if user tries to leave search button by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="4503" />
+			<param name="returnid" value="1240" />
+		</include>
+		<!-- Play bump sound if user tries to leave scrollbar by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="4504" />
+			<param name="returnid" value="1250" />
+		</include>
+		<!-- Play bump sound if user tries to leave letterbar by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="4505" />
+			<param name="returnid" value="1260" />
+		</include>
 	</include>
 	<include name="VideoIconView">
 		<control type="panel" id="52">
