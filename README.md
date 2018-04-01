@@ -5,7 +5,7 @@
 ## ABOUT AppTV
 AppTV is a Kodi media centre skin that follows the design language of Apple's AppleTVs.  While there are elements of the original AppleTV interface, there are three Kodi home screens types available to allow the user to customise the look and feel to match each of the major design generations.
 There are also a number of design ideas borrowed from Apple's iOS to help the user spot the currently focused user interface elements.  Also like the AppleTV user interface, sound is used thruout the skin to clue the user to what is happening on screen.  But unlike the Apple interface, this skin is heavily customisable. This allows the skin to be used on systems with a very small amount of resources (memory and processor capacity) while allowing more capable systems access to all of Kodi's advanced options.
-While Kodi and thus this skin is built around the idea of a 10' interface, the skin has full support for mouse and PVR.
+While Kodi and thus this skin is built around the idea of a 10' interface, the skin has full support for mouse/touch. There is also full support for the Kodi PVR subsytem.
   
 Created by Wyrm
 
@@ -41,7 +41,7 @@ script.skin.helper.service v1.1.3
 script.skin.helper.widgets v1.0.22  
 
 ## OPTIONAL ADDONS
-The following addons will be made use of if installed by the user.  The skin will prompt the user to allow the installation of any nessecary addons if the user selects an option requiring an addon.  In addition a number of the optional addons can be installed via the skins settings menus.
+The following addons will be made use of if installed by the user.  The skin will prompt the user to allow the installation of any necessary addons if the user selects an option requiring an addon.  In addition a number of the optional addons can be installed via the skins settings menus.
 
 script.libraryeditor  
 script.cdartmanager  
