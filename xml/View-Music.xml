@@ -9,7 +9,7 @@
 			<height>864</height>
 			<focusposition>2</focusposition>
 			<movement>4</movement>
-			<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
+			<onleft condition="Skin.HasSetting(lock-screensettings)">4501</onleft>
 			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
 			<onright>$VAR[ListScrollNavMusic]</onright>
 			<onup>50</onup>
@@ -364,6 +364,8 @@
 				<param name="letterbarid" value="1260"/>
 				<param name="scrollbarid" value="1250"/>
 				<param name="listitemid" value="50"/>
+				<param name="illegalexitsearch" value="4502"/>
+				<param name="illegalexitbar" value="4504"/>
 				<param name="letterbarvisible" value="Control.IsVisible(50)+Skin.HasSetting(show-letterbar)+[Container.Content(artists)|Container.Content(albums)|Container.Content(musicvideos)]"/>
 			</include>
 			<control type="scrollbar" id="1250">
@@ -371,12 +373,33 @@
 				<top>165</top>
 				<width>18</width>
 				<height>864</height>
+				<onright>4503</onright>
 				<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">1260</onleft>
 				<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">50</onleft>
 				<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]" effect="slide" end="24,0" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(50)</visible>
 			</control>
+			<!-- Play bump sound if user tries to leave item list by undefined direction -->
+			<include content="illegal-action">
+				<param name="controlid" value="4501" />
+				<param name="returnid" value="50" />
+			</include>
+			<!-- Play bump sound if user tries to leave search button by undefined direction -->
+			<include content="illegal-action">
+				<param name="controlid" value="4502" />
+				<param name="returnid" value="1240" />
+			</include>
+			<!-- Play bump sound if user tries to leave scrollbar by undefined direction -->
+			<include content="illegal-action">
+				<param name="controlid" value="4503" />
+				<param name="returnid" value="1250" />
+			</include>
+			<!-- Play bump sound if user tries to leave letterbar by undefined direction -->
+			<include content="illegal-action">
+				<param name="controlid" value="4504" />
+				<param name="returnid" value="1260" />
+			</include>
 		</control>
 	</include>
 	<include name="CategoryView">
@@ -388,7 +411,7 @@
 			<top>195</top>
 			<width>1800</width>
 			<height>660</height>
-			<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
+			<onleft condition="Skin.HasSetting(lock-screensettings)">4521</onleft>
 			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
 			<onright>$VAR[ListScrollNavMusic]</onright>
 			<onup>52</onup>
@@ -500,37 +523,62 @@
 				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(14)Thumb]</texture>
 			</control>
 		</control>
-		<control type="button">
-			<!-- Onfocus, move to next row of icon panel -->
-			<left>0</left>
-			<top>861</top>
-			<width>1830</width>
-			<height>240</height>
-			<texturefocus>blank.png</texturefocus>
-			<texturenofocus>blank.png</texturenofocus>
-			<onfocus>Control.Message(52,moveup)</onfocus>
-		</control>
-		<include>sortletternotification</include>
-		<include content="letterbar-vertical">
-			<param name="searchleft" value="1830"/>
-			<param name="searchtop" value="132"/>
-			<param name="letterbarleft" value="1830"/>
-			<param name="letterbartop" value="165"/>
-			<param name="searchid" value="1242"/>
-			<param name="letterbarid" value="1262"/>
-			<param name="scrollbarid" value="1252"/>
-			<param name="listitemid" value="52"/>
-			<param name="letterbarvisible" value="Control.IsVisible(52)+Skin.HasSetting(show-letterbar)+[Container.Content(artists)|Container.Content(albums)|Container.Content(musicvideos)]"/>
-		</include>
-		<control type="scrollbar" id="1252">
-			<left>1872</left>
-			<top>165</top>
-			<width>18</width>
-			<height>864</height>
-			<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">1262</onleft>
-			<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">52</onleft>
-			<animation condition="!Control.HasFocus(1252) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-			<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(52)</visible>
+		<control type="group">
+			<control type="button">
+				<!-- Onfocus, move to next row of icon panel -->
+				<left>0</left>
+				<top>861</top>
+				<width>1830</width>
+				<height>240</height>
+				<texturefocus>blank.png</texturefocus>
+				<texturenofocus>blank.png</texturenofocus>
+				<onfocus>Control.Message(52,moveup)</onfocus>
+			</control>
+			<include>sortletternotification</include>
+			<include content="letterbar-vertical">
+				<param name="searchleft" value="1830"/>
+				<param name="searchtop" value="132"/>
+				<param name="letterbarleft" value="1830"/>
+				<param name="letterbartop" value="165"/>
+				<param name="searchid" value="1242"/>
+				<param name="letterbarid" value="1262"/>
+				<param name="scrollbarid" value="1252"/>
+				<param name="listitemid" value="52"/>
+				<param name="illegalexitsearch" value="4522"/>
+				<param name="illegalexitbar" value="4524"/>
+				<param name="letterbarvisible" value="Control.IsVisible(52)+Skin.HasSetting(show-letterbar)+[Container.Content(artists)|Container.Content(albums)|Container.Content(musicvideos)]"/>
+			</include>
+			<control type="scrollbar" id="1252">
+				<left>1872</left>
+				<top>165</top>
+				<width>18</width>
+				<height>864</height>
+				<onright>4523</onright>
+				<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">1262</onleft>
+				<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">52</onleft>
+				<animation condition="!Control.HasFocus(1252) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(52)</visible>
+			</control>
+			<!-- Play bump sound if user tries to leave item list by undefined direction -->
+			<include content="illegal-action">
+				<param name="controlid" value="4521" />
+				<param name="returnid" value="50" />
+			</include>
+			<!-- Play bump sound if user tries to leave search button by undefined direction -->
+			<include content="illegal-action">
+				<param name="controlid" value="4522" />
+				<param name="returnid" value="1242" />
+			</include>
+			<!-- Play bump sound if user tries to leave scrollbar by undefined direction -->
+			<include content="illegal-action">
+				<param name="controlid" value="4523" />
+				<param name="returnid" value="1252" />
+			</include>
+			<!-- Play bump sound if user tries to leave letterbar by undefined direction -->
+			<include content="illegal-action">
+				<param name="controlid" value="4524" />
+				<param name="returnid" value="1262" />
+			</include>
 		</control>
 	</include>
 	<include name="AlbumWrapView">
@@ -542,7 +590,7 @@
 			<height>549</height>
 			<onleft>54</onleft>
 			<onright>54</onright>
-			<onup condition="Skin.HasSetting(lock-screensettings)">noop</onup>
+			<onup condition="Skin.HasSetting(lock-screensettings)">4541</onup>
 			<onup condition="!Skin.HasSetting(lock-screensettings)">9000</onup>
 			<ondown>$VAR[ListScrollNavMusic]</ondown>
 			<focusposition>0</focusposition>
@@ -669,30 +717,6 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(54)</visible>
-			<include>sortletternotification</include>
-			<include content="letterbar-horizontal">
-				<param name="searchleft" value="54"/>
-				<param name="searchtop" value="894"/>
-				<param name="letterbarleft" value="102"/>
-				<param name="letterbartop" value="891"/>
-				<param name="searchid" value="1244"/>
-				<param name="letterbarid" value="1264"/>
-				<param name="scrollbarid" value="1254"/>
-				<param name="listitemid" value="54"/>
-				<param name="letterbarvisible" value="Skin.HasSetting(show-letterbar)+[Container.Content(artists)|Container.Content(albums)|Container.Content(musicvideos)]"/>
-			</include>
-			<control type="scrollbar" id="1254">
-				<left>42</left>
-				<top>918</top>
-				<width>1830</width>
-				<height>18</height>
-				<orientation>horizontal</orientation>
-				<onup condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">1264</onup>
-				<onup condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">54</onup>
-				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]" effect="slide" end="0,15" reversible="true">Conditional</animation>
-				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(54)</visible>
-			</control>
 			<control type="image">
 				<!-- Music logo if available -->
 				<left>108</left>
@@ -746,6 +770,53 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Genre]</label>
 			</control>
+			<include>sortletternotification</include>
+			<include content="letterbar-horizontal">
+				<param name="searchleft" value="54"/>
+				<param name="searchtop" value="894"/>
+				<param name="letterbarleft" value="102"/>
+				<param name="letterbartop" value="891"/>
+				<param name="searchid" value="1244"/>
+				<param name="letterbarid" value="1264"/>
+				<param name="scrollbarid" value="1254"/>
+				<param name="listitemid" value="54"/>
+				<param name="illegalexitsearch" value="4542"/>
+				<param name="illegalexitbar" value="4544"/>
+				<param name="letterbarvisible" value="Skin.HasSetting(show-letterbar)+[Container.Content(artists)|Container.Content(albums)|Container.Content(musicvideos)]"/>
+			</include>
+			<control type="scrollbar" id="1254">
+				<left>42</left>
+				<top>918</top>
+				<width>1830</width>
+				<height>18</height>
+				<orientation>horizontal</orientation>
+				<ondown>4543</ondown>
+				<onup condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">1264</onup>
+				<onup condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">54</onup>
+				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]" effect="slide" end="0,15" reversible="true">Conditional</animation>
+				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(54)</visible>
+			</control>
+			<!-- Play bump sound if user tries to leave item list by undefined direction -->
+			<include content="illegal-action">
+				<param name="controlid" value="4541" />
+				<param name="returnid" value="54" />
+			</include>
+			<!-- Play bump sound if user tries to leave search button by undefined direction -->
+			<include content="illegal-action">
+				<param name="controlid" value="4542" />
+				<param name="returnid" value="1244" />
+			</include>
+			<!-- Play bump sound if user tries to leave scrollbar by undefined direction -->
+			<include content="illegal-action">
+				<param name="controlid" value="4543" />
+				<param name="returnid" value="1254" />
+			</include>
+			<!-- Play bump sound if user tries to leave letterbar by undefined direction -->
+			<include content="illegal-action">
+				<param name="controlid" value="4544" />
+				<param name="returnid" value="1264" />
+			</include>
 		</control>
 	</include>
 	<include name="AlbumCoverflow">
@@ -757,7 +828,7 @@
 			<height>432</height>
 			<onleft>57</onleft>
 			<onright>57</onright>
-			<onup condition="Skin.HasSetting(lock-screensettings)">noop</onup>
+			<onup condition="Skin.HasSetting(lock-screensettings)">4571</onup>
 			<onup condition="!Skin.HasSetting(lock-screensettings)">9000</onup>
 			<ondown>$VAR[ListScrollNavMusic]</ondown>
 			<focusposition>2</focusposition>
@@ -1066,30 +1137,6 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(57)</visible>
-			<include>sortletternotification</include>
-			<include content="letterbar-horizontal">
-				<param name="searchleft" value="54"/>
-				<param name="searchtop" value="864"/>
-				<param name="letterbarleft" value="102"/>
-				<param name="letterbartop" value="861"/>
-				<param name="searchid" value="1247"/>
-				<param name="letterbarid" value="1267"/>
-				<param name="scrollbarid" value="1257"/>
-				<param name="listitemid" value="57"/>
-				<param name="letterbarvisible" value="Skin.HasSetting(show-letterbar)+[Container.Content(artists)|Container.Content(albums)|Container.Content(musicvideos)]"/>
-			</include>
-			<control type="scrollbar" id="1257">
-				<left>42</left>
-				<top>888</top>
-				<width>1830</width>
-				<height>18</height>
-				<orientation>horizontal</orientation>
-				<onup condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">1267</onup>
-				<onup condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">57</onup>
-				<animation condition="!Control.HasFocus(1257) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]" effect="slide" end="0,18" reversible="true">Conditional</animation>
-				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(57)</visible>
-			</control>
 			<control type="label">
 				<!-- Go Back -->
 				<left>39</left>
@@ -1211,6 +1258,53 @@
 					</control>
 				</control>
 			</control>
+			<include>sortletternotification</include>
+			<include content="letterbar-horizontal">
+				<param name="searchleft" value="54"/>
+				<param name="searchtop" value="864"/>
+				<param name="letterbarleft" value="102"/>
+				<param name="letterbartop" value="861"/>
+				<param name="searchid" value="1247"/>
+				<param name="letterbarid" value="1267"/>
+				<param name="scrollbarid" value="1257"/>
+				<param name="listitemid" value="57"/>
+				<param name="illegalexitsearch" value="4572"/>
+				<param name="illegalexitbar" value="4574"/>
+				<param name="letterbarvisible" value="Skin.HasSetting(show-letterbar)+[Container.Content(artists)|Container.Content(albums)|Container.Content(musicvideos)]"/>
+			</include>
+			<control type="scrollbar" id="1257">
+				<left>42</left>
+				<top>888</top>
+				<width>1830</width>
+				<height>18</height>
+				<orientation>horizontal</orientation>
+				<ondown>4573</ondown>
+				<onup condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">1267</onup>
+				<onup condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">57</onup>
+				<animation condition="!Control.HasFocus(1257) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]" effect="slide" end="0,18" reversible="true">Conditional</animation>
+				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(57)</visible>
+			</control>
+			<!-- Play bump sound if user tries to leave item list by undefined direction -->
+			<include content="illegal-action">
+				<param name="controlid" value="4571" />
+				<param name="returnid" value="57" />
+			</include>
+			<!-- Play bump sound if user tries to leave search button by undefined direction -->
+			<include content="illegal-action">
+				<param name="controlid" value="4572" />
+				<param name="returnid" value="1247" />
+			</include>
+			<!-- Play bump sound if user tries to leave scrollbar by undefined direction -->
+			<include content="illegal-action">
+				<param name="controlid" value="4573" />
+				<param name="returnid" value="1257" />
+			</include>
+			<!-- Play bump sound if user tries to leave letterbar by undefined direction -->
+			<include content="illegal-action">
+				<param name="controlid" value="4574" />
+				<param name="returnid" value="1267" />
+			</include>
 		</control>
 	</include>
 	<include name="AudioWallView">
@@ -1219,7 +1313,7 @@
 			<top>192</top>
 			<width>1064</width>
 			<height>797</height>
-			<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
+			<onleft condition="Skin.HasSetting(lock-screensettings)">4581</onleft>
 			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
 			<onright>$VAR[ListScrollNavMusic]</onright>
 			<onup>58</onup>
@@ -1499,6 +1593,8 @@
 				<param name="letterbarid" value="1268"/>
 				<param name="scrollbarid" value="1258"/>
 				<param name="listitemid" value="58"/>
+				<param name="illegalexitsearch" value="4582"/>
+				<param name="illegalexitbar" value="4584"/>
 				<param name="letterbarvisible" value="Control.IsVisible(58)+Skin.HasSetting(show-letterbar)+[Container.Content(artists)|Container.Content(albums)|Container.Content(musicvideos)]"/>
 			</include>
 			<control type="scrollbar" id="1258">
@@ -1506,12 +1602,33 @@
 				<top>165</top>
 				<width>18</width>
 				<height>864</height>
+				<onright>4583</onright>
 				<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">1268</onleft>
 				<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">58</onleft>
 				<animation condition="!Control.HasFocus(1258) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]" effect="slide" end="24,0" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(58)</visible>
 			</control>
+			<!-- Play bump sound if user tries to leave item list by undefined direction -->
+			<include content="illegal-action">
+				<param name="controlid" value="4581" />
+				<param name="returnid" value="58" />
+			</include>
+			<!-- Play bump sound if user tries to leave search button by undefined direction -->
+			<include content="illegal-action">
+				<param name="controlid" value="4582" />
+				<param name="returnid" value="1248" />
+			</include>
+			<!-- Play bump sound if user tries to leave scrollbar by undefined direction -->
+			<include content="illegal-action">
+				<param name="controlid" value="4583" />
+				<param name="returnid" value="1258" />
+			</include>
+			<!-- Play bump sound if user tries to leave letterbar by undefined direction -->
+			<include content="illegal-action">
+				<param name="controlid" value="4584" />
+				<param name="returnid" value="1268" />
+			</include>
 		</control>
 	</include>
 </includes>
