@@ -7,8 +7,9 @@
 		<content target="video" limit="12">plugin://script.skin.helper.widgets/?action=recommended&amp;mediatype=movies&amp;reload=$INFO[Window(Home).Property(widgetreload-movies)]</content>
 	</include>
 	<include name="EpisodeRecent">
-		<content target="video" limit="12">videodb://recentlyaddedepisodes/</content>
+		<content target="video" sortby="dateadded" sortorder="descending" limit="12">videodb://tvshows/titles/</content>
 	</include>
+	<!--<content target="video" sortby="dateadded" sortorder="desending" limit="12">videodb://recentlyaddedepisodes/</content>-->
 	<include name="EpisodeRecommended">
 		<content target="video" limit="12">plugin://script.skin.helper.widgets/?action=next&amp;mediatype=episodes&amp;reload=$INFO[Window(Home).Property(widgetreload-episodes)]</content>
 	</include>
@@ -163,7 +164,7 @@
 			<height>195</height>
 			<aligny>bottom</aligny>
 			<aspectratio>stretch</aspectratio>
-			<texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+			<texture background="true">$VAR[TVShowThumb]</texture>
 			<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 		</control>
 		<control type="image">
@@ -173,7 +174,7 @@
 			<height>63</height>
 			<aligny>bottom</aligny>
 			<aspectratio>stretch</aspectratio>
-			<texture diffuse="mask-squ.png" background="true">$INFO[ListItem.Art(tvshow.banner)]</texture>
+			<texture diffuse="mask-squ.png" background="true">$VAR[TVShowBanner]</texture>
 			<animation effect="zoom" start="100" end="104" center="188,156" time="200" tween="back" easing="out" reversible="false">focus</animation>
 		</control>
 		<control type="image">
@@ -182,7 +183,7 @@
 			<width>348</width>
 			<height>63</height>
 			<aspectratio>stretch</aspectratio>
-			<texture flipy="true" diffuse="mask-fade.png" background="true">$INFO[ListItem.Art(tvshow.banner)]</texture>
+			<texture flipy="true" diffuse="mask-fade.png" background="true">$VAR[TVShowBanner]</texture>
 			<animation effect="zoom" start="100" end="104" center="188,156" time="200" tween="back" easing="out" reversible="false">focus</animation>
 		</control>
 	</include>
@@ -193,7 +194,7 @@
 			<width>240</width>
 			<height>321</height>
 			<aspectratio scalediffuse="false">stretch</aspectratio>
-			<texture diffuse="mask-rect.png" fallback="DefaultTvshows.png" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+			<texture diffuse="mask-rect.png" fallback="DefaultTvshows.png" background="true">$VAR[TVShowPoster]</texture>
 			<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 		</control>
 		<control type="image">
@@ -202,7 +203,7 @@
 			<width>240</width>
 			<height>321</height>
 			<aspectratio scalediffuse="false">stretch</aspectratio>
-			<texture flipy="true" diffuse="mask-fade.png" fallback="DefaultTvshows.png" background="true">$INFO[ListItem.Art(tvshow.poster)]</texture>
+			<texture flipy="true" diffuse="mask-fade.png" fallback="DefaultTvshows.png" background="true">$VAR[TVShowPoster]</texture>
 			<animation effect="zoom" start="100" end="104" center="188,156" time="200" tween="back" easing="out" reversible="false">focus</animation>
 		</control>
 	</include>
@@ -241,7 +242,7 @@
 					<height>195</height>
 					<aligny>bottom</aligny>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfArt0]</texture>
+					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfThumb0]</texture>
 					<animation effect="rotatey" center="0" end="-60" time="300" condition="true">Conditional</animation>
 				</control>
 				<control type="image">
@@ -251,7 +252,7 @@
 					<height>63</height>
 					<aligny>bottom</aligny>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfIcon0]</texture>
+					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfBanner0]</texture>
 					<animation effect="rotatey" center="0" end="-60" time="300" condition="true">Conditional</animation>
 				</control>
 				<control type="image">
@@ -261,7 +262,7 @@
 					<height>195</height>
 					<aligny>bottom</aligny>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfArt6]</texture>
+					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfThumb6]</texture>
 					<animation effect="rotatey" center="1920" end="60" time="300" condition="true">Conditional</animation>
 				</control>
 				<control type="image">
@@ -271,7 +272,7 @@
 					<height>63</height>
 					<aligny>bottom</aligny>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfIcon6]</texture>
+					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfBanner6]</texture>
 					<animation effect="rotatey" center="1920" end="60" time="300" condition="true">Conditional</animation>
 				</control>
 			</control>
@@ -286,7 +287,7 @@
 					<width>267</width>
 					<height>267</height>
 					<aspectratio scalediffuse="false">keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfIcon0]</texture>
+					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfPoster0]</texture>
 					<animation effect="rotatey" center="0" end="-60" time="300" condition="true">Conditional</animation>
 				</control>
 				<control type="image">
@@ -295,7 +296,7 @@
 					<width>267</width>
 					<height>267</height>
 					<aspectratio scalediffuse="false">keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfIcon6]</texture>
+					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfPoster6]</texture>
 					<animation effect="rotatey" center="1920" end="60" time="300" condition="true">Conditional</animation>
 				</control>
 			</control>
@@ -311,11 +312,11 @@
 				<viewtype label="31028">list</viewtype>
 				<orientation>horizontal</orientation>
 				<itemlayout height="405" width="378">
-					<include condition="String.IsEmpty(Skin.String(shelf-tvshowimgtyp)) | String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31950])">tvshow-shelfposter</include>
+					<include condition="[String.IsEmpty(Skin.String(shelf-tvshowimgtyp)) | String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31950])]">tvshow-shelfposter</include>
 					<include condition="String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31949])">tvshow-shelfbanner</include>
 				</itemlayout>
 				<focusedlayout height="405" width="378">
-					<include condition="String.IsEmpty(Skin.String(shelf-tvshowimgtyp)) | String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31950])">tvshow-shelfposter</include>
+					<include condition="[String.IsEmpty(Skin.String(shelf-tvshowimgtyp)) | String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31950])]">tvshow-shelfposter</include>
 					<include condition="String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31949])">tvshow-shelfbanner</include>
 					<control type="group">
 						<animation effect="fade" time="100" delay="100">Focus</animation>
