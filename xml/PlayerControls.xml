@@ -254,9 +254,9 @@
 		</control>
 		<!-- End of Media Info-->
 		<control type="grouplist" id="620">
-			<!-- Settings group OSD Buttons -->
+			<!-- Play group OSD Buttons -->
 			<left>962</left>
-			<top>306</top>
+			<top>307</top>
 			<width>288</width>
 			<height>48</height>
 			<itemgap>3</itemgap>
@@ -288,7 +288,7 @@
 		<control type="grouplist" id="630">
 			<!-- Settings group OSD Buttons -->
 			<left>828</left>
-			<top>306</top>
+			<top>307</top>
 			<width>288</width>
 			<height>48</height>
 			<itemgap>3</itemgap>
@@ -296,7 +296,24 @@
 			<align>center</align>
 			<ondown>650</ondown>
 			<visible>Control.HasFocus(652) | ControlGroup(630).HasFocus()</visible>
-			<control type="button" id="631">
+			<control type="togglebutton" id="631">
+				<!-- Lyrics -->
+				<width>48</width>
+				<height>48</height>
+				<texturenofocus>osd-btn-lyric.png</texturenofocus>
+				<texturefocus>osd-btn-lyric-focus.png</texturefocus>
+				<alttexturenofocus>osd-btn-lyric.png</alttexturenofocus>
+				<alttexturefocus>osd-btn-lyric-focus.png</alttexturefocus>
+				<onclick>Dialog.Close(playercontrols)</onclick>
+				<onclick>ActivateWindow(visualisation)</onclick>
+				<onclick>RunScript(script.cu.lrclyrics)</onclick>
+				<altclick>InstallAddon(script.cu.lrclyrics)</altclick>
+				<altclick>Dialog.Close(playercontrols)</altclick>
+				<altclick>RunScript(script.cu.lrclyrics)</altclick>
+				<usealttexture>!System.HasAddon(script.cu.lrclyrics)</usealttexture>
+				<visible>Player.HasAudio + !VideoPlayer.Content(LiveTV)</visible>
+			</control>
+			<control type="button" id="632">
 				<!-- Subtitles Menu -->
 				<width>48</width>
 				<height>48</height>
@@ -307,7 +324,7 @@
 				<include>focus-zoom</include>
 				<visible>Player.HasVideo</visible>
 			</control>
-			<control type="button" id="632">
+			<control type="button" id="633">
 				<!-- 3D Menu -->
 				<width>48</width>
 				<height>48</height>
@@ -318,7 +335,7 @@
 				<include>focus-zoom</include>
 				<visible>VideoPlayer.IsStereoscopic</visible>
 			</control>
-			<control type="button" id="633">
+			<control type="button" id="634">
 				<!-- Popup Vis Preset List -->
 				<width>48</width>
 				<height>48</height>
@@ -328,7 +345,7 @@
 				<include>focus-zoom</include>
 				<visible>Player.HasAudio + Visualisation.Enabled + Visualisation.HasPresets</visible>
 			</control>
-			<control type="button" id="634">
+			<control type="button" id="635">
 				<!-- Popup Vis Settings -->
 				<width>48</width>
 				<height>48</height>
@@ -338,7 +355,7 @@
 				<include>focus-zoom</include>
 				<visible>Player.HasAudio + Visualisation.Enabled + Visualisation.HasPresets</visible>
 			</control>
-			<control type="button" id="635">
+			<control type="button" id="636">
 				<!-- Audio Menu -->
 				<width>48</width>
 				<height>48</height>
@@ -347,7 +364,7 @@
 				<onclick>ActivateWindow(osdaudiosettings)</onclick>
 				<include>focus-zoom</include>
 			</control>
-			<control type="button" id="636">
+			<control type="button" id="637">
 				<!-- Video Menu -->
 				<width>48</width>
 				<height>48</height>
@@ -361,7 +378,7 @@
 		<control type="grouplist" id="640">
 			<!-- Back group OSD buttons -->
 			<left>1005</left>
-			<top>306</top>
+			<top>307</top>
 			<width>102</width>
 			<height>48</height>
 			<itemgap>3</itemgap>
@@ -407,7 +424,7 @@
 				<texturefocus>osd-btn-setting-focus.png</texturefocus>
 				<texturenofocus>osd-btn-setting.png</texturenofocus>
 				<onclick>SetFocus(630)</onclick>
-				<onup>630</onup>
+				<onup>SetFocus(630)</onup>
 				<include>focus-zoom</include>
 			</control>
 			<control type="image" id="653">
@@ -478,7 +495,7 @@
 		<control type="grouplist" id="660">
 			<!-- Forward group OSD Button -->
 			<left>1170</left>
-			<top>306</top>
+			<top>307</top>
 			<width>102</width>
 			<height>48</height>
 			<itemgap>3</itemgap>
@@ -499,7 +516,7 @@
 		<control type="grouplist" id="670">
 			<!-- More group OSD Buttons -->
 			<left>1101</left>
-			<top>306</top>
+			<top>307</top>
 			<width>408</width>
 			<height>48</height>
 			<itemgap>3</itemgap>
