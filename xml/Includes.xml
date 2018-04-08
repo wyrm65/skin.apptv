@@ -35,7 +35,7 @@
 	<expression name="isDefaultIcon">String.StartsWith(ListItem.Icon,Default)</expression>
 	<expression name="isnotDefaultIcon">![String.StartsWith(ListItem.Icon,Default)]</expression>
 	<expression name="isInfoDialog">[Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]</expression>
-	<expression name="isEnabledTouch">Skin.HasSetting(touch-controls)</expression>
+	<expression name="isEnabledTouch">Skin.HasSetting(show-touchcontrols)</expression>
 	<expression name="isEnabledParentDirectory">System.GetBool(filelists.showparentdiritems)</expression>
 	<expression name="isnotEnabledParentDirectory">!System.GetBool(filelists.showparentdiritems)</expression>
 	<expression name="isEnabledScrollbar">!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</expression>
@@ -4278,6 +4278,7 @@
 				<texturenofocus>touch-back.png</texturenofocus>
 				<onclick>Back</onclick>
 				<include>focus-zoom</include>
+				<visible>!Window.IsVisible(home)</visible>
 			</control>
 			<control type="togglebutton">
 				<!-- OSD Play/Pause -->
@@ -4320,6 +4321,7 @@
 				<texturenofocus>touch-fav.png</texturenofocus>
 				<onclick>ActivateWindow(favourites)</onclick>
 				<include>focus-zoom</include>
+				<visible>!Window.IsVisible(home)</visible>
 			</control>
 			<control type="button">
 				<!-- Screen Settings -->

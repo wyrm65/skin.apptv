@@ -297,18 +297,10 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31890]</label>
 						<textwidth>1125</textwidth>
-						<onclick>Skin.ToggleSetting(touch-controls)</onclick>
+						<onclick>Skin.ToggleSetting(show-touchcontrols)</onclick>
 						<selected>$EXP[isEnabledTouch]</selected>
 						<radioposx>1266</radioposx>
 						<enable>System.GetBool(input.enablemouse)</enable>
-					</control>
-					<control type="button" id="212">
-						<!-- TV Logo Downloader Script -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31893]</label>
-						<textwidth>1178</textwidth>
-						<onclick>RunScript(script.artwork.downloader,mode=custom,fanart,extrafanart,poster,seasonposter,clearlogo,clearart,banner,seasonbanner)</onclick>
-						<enable>System.HasAddon(script.artwork.downloader)</enable>
 					</control>
 					<control type="button" id="213">
 						<!-- Reset Above Settings button -->
@@ -321,8 +313,7 @@
 						<onclick>Skin.Reset(sbar)</onclick>
 						<onclick>Skin.Reset(text-autoscroll)</onclick>
 						<onclick>Skin.Reset(media-overlay)</onclick>
-						<onclick>Skin.Reset(touch-controls)</onclick>
-						<onclick>Skin.Reset(media-themetune)</onclick>
+						<onclick>Skin.Reset(show-touchcontrols)</onclick>
 					</control>
 				</control>
 			</control>
@@ -749,7 +740,7 @@
 						<control type="togglebutton" id="703">
 							<!-- Artist slideshow script install/config -->
 							<onup>718</onup>
-							<ondown>705</ondown>
+							<ondown>707</ondown>
 							<onright>999</onright>
 							<include>settings-submenu-common</include>
 							<textwidth>1178</textwidth>
@@ -766,35 +757,12 @@
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
-					<control type="group" id="704">
-						<height>84</height>
-						<width>1328</width>
-						<control type="togglebutton" id="705">
-							<!-- Artwork downloader script install/config -->
-							<onup>703</onup>
-							<ondown>707</ondown>
-							<onright>999</onright>
-							<include>settings-submenu-common</include>
-							<textwidth>1178</textwidth>
-							<label>$LOCALIZE[24020]</label>
-							<altlabel>$LOCALIZE[24038]</altlabel>
-							<align>right</align>
-							<onclick>Addon.OpenSettings(script.artwork.downloader)</onclick>
-							<altclick>InstallAddon(script.artwork.downloader)</altclick>
-							<usealttexture>!System.HasAddon(script.artwork.downloader)</usealttexture>
-						</control>
-						<control type="label">
-							<include>settings-submenu-common</include>
-							<label>$LOCALIZE[31591]</label>
-							<textoffsetx>27</textoffsetx>
-						</control>
-					</control>
 					<control type="group" id="706">
 						<height>84</height>
 						<width>1328</width>
 						<control type="togglebutton" id="707">
 							<!-- Autocompletion text script install/config -->
-							<onup>705</onup>
+							<onup>703</onup>
 							<ondown>709</ondown>
 							<onright>999</onright>
 							<include>settings-submenu-common</include>

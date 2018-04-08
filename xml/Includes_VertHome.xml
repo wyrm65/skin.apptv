@@ -2,15 +2,6 @@
 <includes>
 	<include name="VertHomeMenu">
 		<include>background</include>
-		<control type="button" id="421">
-			<!-- Bring up Player controls if go left -->
-			<left>-36</left>
-			<top>-36</top>
-			<width>1</width>
-			<height>1</height>
-			<onfocus>ActivateWindow(playercontrols)</onfocus>
-			<onfocus>Control.SetFocus(9000)</onfocus>
-		</control>
 		<control type="group">
 			<!-- Show time on home screen -->
 			<visible>!Skin.HasSetting(home-time)</visible>
@@ -111,7 +102,7 @@
 			<top>177</top>
 			<height>756</height>
 			<width>771</width>
-			<onleft condition="[Player.HasVideo | Player.HasAudio]">421</onleft>
+			<onleft>6100</onleft>
 			<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
 			<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">23</onright>
 			<onup>9000</onup>
