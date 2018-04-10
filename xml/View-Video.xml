@@ -34,8 +34,16 @@
 					<texture>$VAR[Overlay]</texture>
 				</control>
 				<control type="image">
+					<left>782</left>
+					<top>18</top>
+					<width>24</width>
+					<height>24</height>
+					<texture>overlayvideoextras.png</texture>
+					<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
+				</control>
+				<control type="image">
 					<left>771</left>
-					<top>45</top>
+					<top>48</top>
 					<width>48</width>
 					<height>48</height>
 					<texture>$VAR[ListItemFlags]</texture>
@@ -151,6 +159,14 @@
 					<width>48</width>
 					<height>48</height>
 					<texture>$VAR[Overlay]</texture>
+				</control>
+				<control type="image">
+					<left>782</left>
+					<top>18</top>
+					<width>24</width>
+					<height>24</height>
+					<texture>overlayvideoextras.png</texture>
+					<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
 				</control>
 				<control type="image">
 					<left>771</left>
@@ -396,15 +412,6 @@
 					<visible>!String.IsEmpty(ListItem.Mpaa)</visible>
 				</control>
 				<control type="image">
-					<!-- Video special features available -->
-					<left>270</left>
-					<top>434</top>
-					<width>32</width>
-					<height>32</height>
-					<texture>overlayvideoextras.png</texture>
-					<visible>System.HasAddon(plugin.video.specialfeatures) + !String.IsEmpty(Window(home).Property(SpecialFeatures.Visible))</visible>
-				</control>
-				<control type="image">
 					<!-- Logo -->
 					<left>26</left>
 					<top>546</top>
@@ -587,6 +594,14 @@
 					<height>48</height>
 					<texture>$VAR[Overlay]</texture>
 				</control>
+				<control type="image">
+					<left>52</left>
+					<top>46</top>
+					<width>24</width>
+					<height>24</height>
+					<texture>overlayvideoextras.png</texture>
+					<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
+				</control>
 				<include content="listitem-count">
 					<param name="left" value="225" />
 					<param name="top" value="222" />
@@ -635,6 +650,14 @@
 						<width>48</width>
 						<height>48</height>
 						<texture>$VAR[Overlay]</texture>
+					</control>
+					<control type="image">
+						<left>52</left>
+						<top>46</top>
+						<width>24</width>
+						<height>24</height>
+						<texture>overlayvideoextras.png</texture>
+						<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
 					</control>
 					<include content="listitem-count">
 						<param name="left" value="216" />
@@ -1093,6 +1116,14 @@
 					<texture>$VAR[Overlay]</texture>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 				</control>
+				<control type="image">
+					<left>92</left>
+					<top>488</top>
+					<width>16</width>
+					<height>16</height>
+					<texture>overlayvideoextras.png</texture>
+					<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
+				</control>
 				<include content="listitem-count">
 					<param name="left" value="42" />
 					<param name="top" value="666" />
@@ -1178,6 +1209,14 @@
 					<height>60</height>
 					<width>60</width>
 					<texture>$VAR[Overlay]</texture>
+				</control>
+				<control type="image">
+					<left>324</left>
+					<top>192</top>
+					<width>24</width>
+					<height>24</height>
+					<texture>overlayvideoextras.png</texture>
+					<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
 				</control>
 				<include content="listitem-count">
 					<param name="left" value="255" />
@@ -1272,15 +1311,6 @@
 					<font>apptv25</font>
 					<label>$VAR[VideoDuration]</label>
 					<visible>!Container.Content(tvshows) + !Container.Content(seasons)</visible>
-				</control>
-				<control type="image">
-					<!-- Video special features available -->
-					<left>318</left>
-					<top>420</top>
-					<width>32</width>
-					<height>32</height>
-					<texture>overlayvideoextras.png</texture>
-					<visible>System.HasAddon(plugin.video.specialfeatures) + !String.IsEmpty(Window(home).Property(SpecialFeatures.Visible))</visible>
 				</control>
 				<control type="image">
 					<!-- Star Rating -->
@@ -1748,15 +1778,6 @@
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="image">
-					<!-- Video special features available -->
-					<left>270</left>
-					<top>968</top>
-					<width>32</width>
-					<height>32</height>
-					<texture>overlayvideoextras.png</texture>
-					<visible>System.HasAddon(plugin.video.specialfeatures) + !String.IsEmpty(Window(home).Property(SpecialFeatures.Visible))</visible>
-				</control>
-				<control type="image">
 					<!-- Star Rating -->
 					<left>878</left>
 					<top>1022</top>
@@ -1777,8 +1798,26 @@
 					<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
 				</control>
 				<control type="image">
+					<!-- Video special features available -->
+					<left>1760</left>
+					<top>1018</top>
+					<width>24</width>
+					<height>24</height>
+					<texture>overlayvideoextras.png</texture>
+					<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
+				</control>
+				<control type="image">
+					<!-- Watched -->
+					<left>1784</left>
+					<top>1000</top>
+					<height>60</height>
+					<width>60</width>
+					<texture>$VAR[Overlay]</texture>
+				</control>
+				<control type="image">
+					<!-- Resolution/3D flag -->
 					<left>1844</left>
-					<top>1007</top>
+					<top>1006</top>
 					<width>48</width>
 					<height>48</height>
 					<texture>$VAR[ListItemFlags]</texture>
@@ -1872,9 +1911,18 @@
 					<visible>!String.IsEmpty(ListItem.Art(thumb))</visible>
 				</control>
 				<control type="image">
+					<!-- Video special features available -->
+					<left>2</left>
+					<top>4</top>
+					<width>24</width>
+					<height>24</height>
+					<texture>overlayvideoextras.png</texture>
+					<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
+				</control>
+				<control type="image">
 					<!-- Watched Overlay -->
-					<left>156</left>
-					<top>-3</top>
+					<left>158</left>
+					<top>-8</top>
 					<width>48</width>
 					<height>48</height>
 					<texture>$VAR[Overlay]</texture>
@@ -1920,9 +1968,18 @@
 						<visible>!String.IsEmpty(ListItem.Art(thumb))</visible>
 					</control>
 					<control type="image">
+						<!-- Video special features available -->
+						<left>16</left>
+						<top>16</top>
+						<width>24</width>
+						<height>24</height>
+						<texture>overlayvideoextras.png</texture>
+						<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
+					</control>
+					<control type="image">
 						<!-- Watched Overlay -->
-						<left>147</left>
-						<top>8</top>
+						<left>146</left>
+						<top>2</top>
 						<width>48</width>
 						<height>48</height>
 						<texture>$VAR[Overlay]</texture>
@@ -2031,15 +2088,6 @@
 					<aligny>bottom</aligny>
 					<texture>$VAR[VideoRating]</texture>
 					<aspectratio>keep</aspectratio>
-				</control>
-				<control type="image">
-					<!-- Video special features available -->
-					<left>270</left>
-					<top>438</top>
-					<width>32</width>
-					<height>32</height>
-					<texture>overlayvideoextras.png</texture>
-					<visible>System.HasAddon(plugin.video.specialfeatures) + !String.IsEmpty(Window(home).Property(SpecialFeatures.Visible))</visible>
 				</control>
 				<control type="image">
 					<!-- Star Rating -->
