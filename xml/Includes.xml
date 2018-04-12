@@ -446,6 +446,8 @@
 		<value>ActivateWindow(music,videodb://musicvideos/titles/,return)</value>
 	</variable>
 	<variable name="VideoHeadings">
+	
+		<value condition="String.Contains(Container.FolderPath,plugin.video.specialfeatures)">$ADDON[plugin.video.specialfeatures 30000]</value>
 		<value condition="Container.Content(movies)">$LOCALIZE[20342]</value>
 		<value condition="Container.Content(tvshows)">$LOCALIZE[31027]</value>
 		<value condition="Container.Content(episodes) + !String.IsEmpty(Container.ShowTitle) + Integer.IsGreater(ListItem.Season,0)">$INFO[Container.ShowTitle][CR]$INFO[ListItem.Season,$LOCALIZE[20373] - ]</value>
