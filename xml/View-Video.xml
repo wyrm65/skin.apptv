@@ -151,7 +151,7 @@
 					<height>96</height>
 					<texture border="9">button-default-focus.png</texture>
 					<aspectratio>stretch</aspectratio>
-					<animation condition="!Control.HasFocus(50)" effect="fade" start="100" end="60" reversible="true">Conditional</animation>
+					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 				</control>
 				<control type="image">
 					<left>3</left>
@@ -619,6 +619,7 @@
 						<height>270</height>
 						<aspectratio scalediffuse="false">keep</aspectratio>
 						<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 						<visible>$EXP[isDefaultIcon]</visible>
 					</control>
 					<control type="image">
@@ -630,6 +631,7 @@
 						<bordertexture border="10">mask-hilite.png</bordertexture>
 						<bordersize>10</bordersize>
 						<aspectratio scalediffuse="false">keep</aspectratio>
+						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 						<visible>$EXP[isnotDefaultIcon] + ![Container.Content(movies) | Container.Content(tvshows)]</visible>
 					</control>
 					<control type="image">
@@ -641,6 +643,7 @@
 						<bordertexture border="10">mask-hilite.png</bordertexture>
 						<bordersize>10</bordersize>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 						<visible>$EXP[isnotDefaultIcon] + [Container.Content(movies) | Container.Content(tvshows)]</visible>
 					</control>
 					<control type="image">
@@ -879,6 +882,7 @@
 							<height>150</height>
 							<texture background="true">$INFO[ListItem.Icon]</texture>
 							<aspectratio>keep</aspectratio>
+							<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 							<visible>$EXP[isParentFolder]</visible>
 						</control>
 						<control type="image">
@@ -891,6 +895,7 @@
 							<bordertexture border="12">mask-hilite.png</bordertexture>
 							<bordersize>12</bordersize>
 							<aspectratio>keep</aspectratio>
+							<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 							<visible>$EXP[isnotParentFolder]</visible>
 						</control>
 					</control>
@@ -1191,17 +1196,7 @@
 					<width>304</width>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<texture diffuse="mask-rect.png" background="true" fallback="DefaultVideo.png">$VAR[IconPoster]</texture>
-					<visible>Control.HasFocus(54)</visible>
-				</control>
-				<control type="image">
-					<left>39</left>
-					<top>222</top>
-					<height>468</height>
-					<width>304</width>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture diffuse="mask-rect.png" background="true" fallback="DefaultVideo.png">$VAR[IconPoster]</texture>
-					<colordiffuse>UnFocusedCovers</colordiffuse>
-					<visible>!Control.HasFocus(54)</visible>
+					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 				</control>
 				<control type="image">
 					<left>21</left>
@@ -1496,7 +1491,7 @@
 						<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-1)Poster]</texture>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<visible>[Integer.IsGreater(Container(57).NumItems,2) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,1) + $EXP[isEnabledParentDirectory]]</visible>
-						<animation condition="!Control.HasFocus(57)" effect="fade" start="100" end="60" reversible="true">Conditional</animation>
+						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 						<animation effect="rotatey" center="330" start="0" end="-60" time="200" reversible="false">Hidden</animation>
 					</control>
 					<control type="image">
@@ -1605,7 +1600,7 @@
 						<height>450</height>
 						<texture background="true" diffuse="mask-rect.png">$VAR[Icon(1)Poster]</texture>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<animation condition="!Control.HasFocus(57)" effect="fade" start="100" end="60" reversible="true">Conditional</animation>
+						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 						<animation effect="rotatey" center="750" start="0" end="60" time="200" reversible="false">Hidden</animation>
 						<visible>[Integer.IsGreater(Container(57).NumItems,1) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,0) + $EXP[isEnabledParentDirectory]]</visible>
 					</control>
@@ -1721,7 +1716,7 @@
 					<width>321</width>
 					<height>450</height>
 					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(0)Poster]</texture>
-					<animation condition="!Control.HasFocus(57)" effect="fade" start="100" end="60" reversible="true">Conditional</animation>
+					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 				</control>
 			</control>
@@ -1954,6 +1949,7 @@
 						<height>279</height>
 						<aspectratio>stretch</aspectratio>
 						<texture background="true">$VAR[IconPoster]</texture>
+						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 						<visible>String.IsEmpty(ListItem.Art(thumb))</visible>
 					</control>
 					<control type="image">
@@ -1965,6 +1961,7 @@
 						<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
 						<bordertexture border="12">mask-hilite.png</bordertexture>
 						<bordersize>12</bordersize>
+						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 						<visible>!String.IsEmpty(ListItem.Art(thumb))</visible>
 					</control>
 					<control type="image">
@@ -2000,6 +1997,7 @@
 					<height>198</height>
 					<aspectratio>keep</aspectratio>
 					<texture diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
+					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 					<animation effect="zoom" start="90" end="112" center="auto" time="400" tween="back" easing="out" reversible="false">focus</animation>
 				</control>
 			</focusedlayout>
