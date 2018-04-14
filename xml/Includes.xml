@@ -312,6 +312,20 @@
 		<value condition="Control.IsVisible(58)">SetFocus(4581)</value>
 		<value condition="[Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(54) | Control.IsVisible(57)] + !Skin.HasSetting(lock-screensettings)">SetFocus(9000)</value>
 	</variable>
+	<variable name="ListScrollDiffuse">
+		<value condition="Control.IsVisible(50) + Control.HasFocus(50)">white</value>
+		<value condition="Control.IsVisible(50) + !Control.HasFocus(50)">UnFocusedCovers</value>
+		<value condition="Control.IsVisible(52) + Control.HasFocus(52)">white</value>
+		<value condition="Control.IsVisible(52) + !Control.HasFocus(52)">UnFocusedCovers</value>
+		<value condition="Control.IsVisible(53) + Control.HasFocus(53)">white</value>
+		<value condition="Control.IsVisible(53) + !Control.HasFocus(53)">UnFocusedCovers</value>
+		<value condition="Control.IsVisible(54) + Control.HasFocus(54)">white</value>
+		<value condition="Control.IsVisible(54) + !Control.HasFocus(54)">UnFocusedCovers</value>
+		<value condition="Control.IsVisible(57) + Control.HasFocus(57)">white</value>
+		<value condition="Control.IsVisible(57) + !Control.HasFocus(57)">SecondaryCovers</value>
+		<value condition="Control.IsVisible(58) + Control.HasFocus(58)">white</value>
+		<value condition="Control.IsVisible(58) + !Control.HasFocus(58)">UnFocusedCovers</value>
+	</variable>
 	<variable name="ListSecondLine">
 		<value condition="Container.Content(movies) | Container.Content(musicvideos) | Container.Content(episodes)">$INFO[ListItem.Duration,, $LOCALIZE[12391]]</value>
 		<value condition="Container.Content(tvshows) | Container.Content(seasons)">$INFO[ListItem.PlotOutline]</value>
@@ -3471,20 +3485,22 @@
 		<onload>Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
 		<onload>Skin.SetString(SkinHelper.RandomFanartDelay,0)</onload>
 	</include>
+	<!-- Postion and size of fullscreen image -->
+	<!-- NB, don't change height to a percentage as it will break fadebackground -->
 	<include name="fullscreenimage">
-		<!-- Postion and size of fullscreen image -->
 		<left>0</left>
 		<top>0</top>
 		<width>100%</width>
-		<height>100%</height>
+		<height>1080</height>
 	</include>
+	<!-- Background shadow -->
+	<!-- Don't fade background if on Fullscreen video screen -->
 	<include name="fadebackground">
-		<!-- Background shadow -->
-		<!-- Don't fade background if on Fullscreen video screen -->
 		<control type="image">
 			<include>fullscreenimage</include>
-			<texture colordiffuse="mask-background">background-mask.png</texture>
-			<aspectratio>scale</aspectratio>
+			<texture>background-mask.png</texture>
+			<colordiffuse>mask-background</colordiffuse>
+			<aspectratio>stretch</aspectratio>
 			<visible>!Window.IsVisible(fullscreenvideo)</visible>
 		</control>
 	</include>
