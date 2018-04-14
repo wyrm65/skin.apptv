@@ -50,7 +50,7 @@
 		<value condition="Skin.HasSetting(background-slideshow) + Player.HasAudio + !String.IsEmpty(Window(visualisation).Property(ArtistSlideshow))">$INFO[Window(visualisation).Property(ArtistSlideshow)]</value>
 		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + Skin.HasSetting(SkinHelper.EnableAnimatedPosters) + !String.IsEmpty(ListItem.Art(animatedfanart))">$INFO[ListItem.Art(animatedfanart)]</value>
 		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))+ !String.IsEmpty(Window(home).Property(SkinHelper.Player.Art.ExtraFanArt))">$INFO[Window(home).Property(SkinHelper.Player.Art.ExtraFanArt)]</value>
-		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.ExtraFanArt))">$INFO[Window(home).Property(SkinHelper.ListItem.Art.ExtraFanArt)]</value>
+		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(Control.GetLabel(300000))">$INFO[Control.GetLabel(300000)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + Player.HasAudio + !String.IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(Window(home).Property(SkinHelper.Music.FanArt))">$INFO[Window(home).Property(SkinHelper.Music.FanArt)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(set.fanart))">$INFO[ListItem.Art(set.fanart)]</value>
@@ -3469,7 +3469,6 @@
 		<!-- various default settings  -->
 		<onload>Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
 		<onload>Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
-		<onload>Skin.SetBool(SkinHelper.EnableExtraFanart)</onload>
 		<onload>Skin.SetString(SkinHelper.RandomFanartDelay,0)</onload>
 	</include>
 	<include name="fullscreenimage">
@@ -3493,6 +3492,38 @@
 		<control type="group">
 			<visible>!Window.IsVisible(fullscreenvideo)</visible>
 			<!-- Don't try to show background if Video screen is showing -->
+			<control type="fadelabel" id="300000"><!-- Randomizer for plugin-free multiple fanart -->
+				<top>-1000</top> <!-- Don't need to see it, but can't change its visibility. Put it off screen -->
+				<width>1</width>
+				<height>1</height>
+				<info>ListItem.Art(fanart1)</info>
+				<info>ListItem.Art(fanart2)</info>
+				<info>ListItem.Art(fanart3)</info>
+				<info>ListItem.Art(fanart4)</info>
+				<info>ListItem.Art(fanart5)</info>
+				<info>ListItem.Art(fanart6)</info>
+				<info>ListItem.Art(fanart7)</info>
+				<info>ListItem.Art(fanart8)</info>
+				<info>ListItem.Art(fanart9)</info>
+				<!-- tvshow.fanart are filled with the series fanart when navigating season and episode lists -->
+				<info>ListItem.Art(tvshow.fanart1)</info>
+				<info>ListItem.Art(tvshow.fanart2)</info>
+				<info>ListItem.Art(tvshow.fanart3)</info>
+				<info>ListItem.Art(tvshow.fanart4)</info>
+				<info>ListItem.Art(tvshow.fanart5)</info>
+				<info>ListItem.Art(tvshow.fanart6)</info>
+				<info>ListItem.Art(tvshow.fanart7)</info>
+				<info>ListItem.Art(tvshow.fanart8)</info>
+				<info>ListItem.Art(tvshow.fanart9)</info>
+				<randomize>true</randomize>
+				<pauseatend>6000</pauseatend> <!-- Time to show each image, in milliseconds -->
+				<!-- No scrolling so only the pauseatend above (plus a short fade-in) affects length of time each image is shown -->
+				<scroll>false</scroll>
+				<scrollout>false</scrollout>
+				<!-- Resets the timer when navigating to a new item, so each item's first visible fanart will
+					show for the full amount of time -->
+				<resetonlabelchange>true</resetonlabelchange>
+			</control>
 			<control type="image"><!-- Use Skin default background as a base layer for backdrops -->
 				<include>fullscreenimage</include>
 				<texture>background.png</texture>
