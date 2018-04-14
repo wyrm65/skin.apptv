@@ -4138,7 +4138,8 @@
 					<ondown>$PARAM[letterbarid]</ondown>
 					<texturefocus>touch-search.png</texturefocus>
 					<texturenofocus>touch-search.png</texturenofocus>
-					<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
+					<onclick condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
+					<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
 					<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
 					<animation effect="fade" start="100" end="50" condition="!Control.HasFocus($PARAM[searchid])">Conditional</animation>
 				</control>
@@ -4213,7 +4214,8 @@
 					<onright>$PARAM[letterbarid]</onright>
 					<texturefocus>touch-search.png</texturefocus>
 					<texturenofocus>touch-search.png</texturenofocus>
-					<onclick>RunScript(script.skin.helper.service,action=videosearch)</onclick>
+					<onclick condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
+					<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
 					<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
 					<animation effect="fade" start="100" end="50" condition="!Control.HasFocus($PARAM[searchid])">Conditional</animation>
 				</control>
