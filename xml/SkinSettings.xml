@@ -68,7 +68,7 @@
 				<width>480</width>
 				<height>84</height>
 				<font>apptv23</font>
-				<label>$LOCALIZE[31803]</label>
+				<label>$LOCALIZE[31806]</label>
 				<onfocus>Skin.SetString(skinsettingmenu,custom)</onfocus>
 				<onclick>ActivateWindow(1152,,return)</onclick>
 				<onup>983</onup>
@@ -348,49 +348,6 @@
 					<onleft>1223</onleft>
 					<onright>999</onright>
 					<pagecontrol>1223</pagecontrol>
-					<control type="radiobutton" id="302">
-						<!-- Time On Home Screen toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31888]</label>
-						<textwidth>1125</textwidth>
-						<onclick>Skin.ToggleSetting(home-time)</onclick>
-						<selected>!Skin.HasSetting(home-time)</selected>
-						<radioposx>1266</radioposx>
-					</control>
-					<control type="radiobutton" id="303">
-						<!-- Current Weather On Home Screen toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31889]</label>
-						<textwidth>1125</textwidth>
-						<onclick>Skin.ToggleSetting(home-currentweather)</onclick>
-						<selected>Skin.HasSetting(home-currentweather)</selected>
-						<enable>!String.IsEmpty(Weather.plugin)</enable>
-						<radioposx>1266</radioposx>
-					</control>
-					<control type="button" id="304">
-						<!-- Custom Homescreen Watermark Image -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31871]</label>
-						<textwidth>1178</textwidth>
-						<onclick>Skin.SetImage(custom-watermark)</onclick>
-						<enable>Skin.HasSetting(homemenu-horizontal) | [!Skin.HasSetting(homemenu-vertical) + !Skin.HasSetting(homemenu-horizontal) + !Skin.HasSetting(homemenu-icon)]</enable>
-						<visible>!Skin.String(custom-watermark)</visible>
-					</control>
-					<control type="button" id="305">
-						<!-- Reset Custom Homescreen Watermark Image -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31872]</label>
-						<textwidth>1178</textwidth>
-						<onclick>Skin.Reset(custom-watermark)</onclick>
-						<enable>Skin.HasSetting(homemenu-horizontal) | [!Skin.HasSetting(homemenu-vertical) + !Skin.HasSetting(homemenu-horizontal) + !Skin.HasSetting(homemenu-icon)]</enable>
-						<visible>Skin.String(custom-watermark)</visible>
-					</control>
-					<control type="label" id="306">
-						<include>settings-submenu-common</include>
-						<label>[I]$LOCALIZE[31939][/I]</label>
-						<textoffsetx>27</textoffsetx>
-						<visible>!Skin.HasSetting(homemenu-vertical)</visible>
-					</control>
 					<control type="button" id="307">
 						<!-- Movie Shelf icon type -->
 						<include>settings-submenu-common</include>
@@ -473,9 +430,6 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[10041]</label>
 						<textwidth>1178</textwidth>
-						<onclick>Skin.Reset(home-time)</onclick>
-						<onclick>Skin.Reset(home-currentweather)</onclick>
-						<onclick>Skin.Reset(custom-watermark)</onclick>
 						<onclick>Skin.Reset(shelf-movieimages)</onclick>
 						<onclick>Skin.Reset(shelf-tvshowimages)</onclick>
 						<onclick>Skin.Reset(shelf-tvshowimgtyp)</onclick>
