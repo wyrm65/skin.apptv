@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
 	<onload condition="Skin.HasSetting(background-slideshow)">RunScript(script.artistslideshow)</onload>
-	<visible>!Window.IsVisible(fullscreenvideo) + !Window.IsActive(script-cu-lrclyrics-main.xml)</visible>
+	<visible>!Window.IsVisible(fullscreenvideo) + !Window.IsActive(script-cu-lrclyrics-main.xml + String.IsEmpty(Window(home).Property(PlayingOST))</visible>
 	<controls>
 		<include>background</include>
 		<control type="group">
