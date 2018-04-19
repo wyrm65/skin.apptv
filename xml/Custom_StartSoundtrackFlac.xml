@@ -2,7 +2,6 @@
 <!-- Replace for TVTunes script using skin files only -->
 <!-- Thanks to Kodi forum user manfeed -->
 <window type="dialog" id="1159">
-	<allowoverlay>no</allowoverlay>
 	<onload>Stop</onload>
 	<onload condition="String.IsEmpty(Window(home).Property(PlayingOST))">PlayMedia($ESCINFO[ListItem.Path,,theme.flac])</onload>
 	<onload>SetProperty(OST,$INFO[ListItem.Path],home)</onload>
