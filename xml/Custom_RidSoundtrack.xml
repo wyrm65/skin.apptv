@@ -3,7 +3,7 @@
 <!-- Thanks to Kodi forum user manfeed -->
 <window type="dialog" id="1158">
 	<onload>Stop</onload>
-	<onload>ClearProperty(PlayingOST,Home)</onload>
+	<onload>ClearProperty(PlayingOST,home)</onload>
 	<visible>Skin.HasSetting(media-theme) + [String.Contains(Player.Filenameandpath,theme.mp3) | String.Contains(Player.Filenameandpath,theme.flac)] + [!Window.IsActive(videos) | String.IsEmpty(ListItem.Path)]</visible>
 	<controls></controls>
 </window>

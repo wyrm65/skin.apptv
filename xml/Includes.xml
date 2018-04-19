@@ -3737,6 +3737,7 @@
 			<control type="group">
 				<!-- Audio Stuff -->
 				<visible>Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))</visible>
+				<animation effect="fade" delay="2600" time="400">Visible</animation>
 				<control type="group">
 					<!-- Local Audio or a stream -->
 					<visible>!Pvr.IsPlayingRadio</visible>
