@@ -746,16 +746,6 @@
 			<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			<visible>$EXP[isEnabledScrollbar]</visible>
 		</control>
-		<control type="image">
-			<!-- Home menu watermark -->
-			<left>1650</left>
-			<top>888</top>
-			<width>192</width>
-			<height>192</height>
-			<aspectratio aligny="top">keep</aspectratio>
-			<texture colordiffuse="UnFocusedPosters" background="true">$INFO[Skin.String(custom-watermark)]</texture>
-			<visible>!String.IsEmpty(Skin.String(custom-watermark))</visible>
-		</control>
 		<!-- RSS info -->
 		<include condition="System.GetBool(lookandfeel.enablerssfeeds)">page-info</include>
 		<!-- media infos (music) -->
