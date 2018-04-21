@@ -3617,18 +3617,19 @@
 	<include name="page-info">
 		<control type="group">
 			<visible>!System.ScreenSaverActive</visible>
+			<animation effect="slide" end="282,0" condition="$EXP[isEnabledTouch]">Conditional</animation>
 			<control type="image">
 				<!-- RSS Logo -->
 				<left>8</left>
-				<top>1023</top>
-				<width>48</width>
-				<height>48</height>
+				<top>1026</top>
+				<width>32</width>
+				<height>32</height>
 				<aspectratio>keep</aspectratio>
 				<texture>rss.png</texture>
 			</control>
 			<control type="rss">
 				<left>60</left>
-				<top>1026</top>
+				<top>1018</top>
 				<width>1860</width>
 				<height>33</height>
 				<font>apptv20</font>
