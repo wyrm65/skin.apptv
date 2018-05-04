@@ -3,17 +3,15 @@
 	<controls>
 		<control type="group" id="1">
 			<visible>[Player.ShowInfo | Window.IsActive(videoosd)] + ![Window.IsVisible(sliderdialog) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(videobookmarks) | Window.IsVisible(script-nextup-notification-StillWatchingInfo.xml) | Window.IsVisible(script-nextup-notification-NextUpInfo.xml) | Window.IsVisible(DialogParametricEQ.xml) | Window.IsVisible(DialogSpeakerDistance.xml) | Window.IsVisible(DialogMasterModeFreeSurround.xml) | Window.IsVisible(DialogSpeakerGain.xml)]</visible>
-			<control type="group" id="1">
-				<control type="image" id="1">
-					<!-- Dialog background -->
-					<left>0</left>
-					<top>690</top>
-					<height>393</height>
-					<width>1920</width>
-					<texture colordiffuse="mask-background">background-mask.png</texture>
-				</control>
-				<include>player-mediaicon</include>
+			<control type="image" id="1">
+				<!-- Dialog background -->
+				<left>0</left>
+				<top>690</top>
+				<height>393</height>
+				<width>1920</width>
+				<texture colordiffuse="mask-background">background-mask.png</texture>
 			</control>
+			<include>player-mediaicon</include>
 			<control type="label" id="1">
 				<!-- Title of currently playing video -->
 				<left>435</left>
@@ -93,18 +91,18 @@
 					<visible>!String.IsEmpty(VideoPlayer.Plot) + String.IsEmpty(VideoPlayer.PlotOutline)</visible>
 				</control>
 			</control>
-				<control type="textbox" id="1">
-					<!-- LiveTV Plot -->
-					<left>420</left>
-					<top>742</top>
-					<width>1455</width>
-					<height>154</height>
-					<font>apptv18</font>
-					<label>$INFO[VideoPlayer.Plot]</label>
-					<align>justify</align>
-					<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
-					<visible>VideoPlayer.Content(LiveTV) + !String.IsEmpty(VideoPlayer.Plot)</visible>
-				</control>
+			<control type="textbox" id="1">
+				<!-- LiveTV Plot -->
+				<left>420</left>
+				<top>742</top>
+				<width>1455</width>
+				<height>154</height>
+				<font>apptv18</font>
+				<label>$INFO[VideoPlayer.Plot]</label>
+				<align>justify</align>
+				<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
+				<visible>VideoPlayer.Content(LiveTV) + !String.IsEmpty(VideoPlayer.Plot)</visible>
+			</control>
 			<control type="grouplist" id="1">
 				<!-- Media flags -->
 				<left>1642</left>
@@ -163,8 +161,8 @@
 					<font>apptv20</font>
 					<label>-$INFO[VideoPlayer.TimeRemaining] [COLOR=disabled-text]($INFO[Player.FinishTime])[/COLOR]</label>
 				</control>
-				<control type="group">
-					<visible>![Window.IsVisible(seekbar)]</visible>
+				<control type="group" id="1">
+					<visible>![Window.IsVisible(seekbar)] + ![Window.IsVisible(videoosd)]</visible>
 					<control type="progress" id="1">
 						<left>717</left>
 						<top>1040</top>

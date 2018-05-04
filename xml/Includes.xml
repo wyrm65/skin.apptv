@@ -3556,7 +3556,7 @@
 			<!-- Player Media Icon -->
 			<visible>[$EXP[isFullscreenVideo]] + ![Window.IsActive(musicosd)]</visible>
 			<animation effect="fade" time="200">VisibleChange</animation>
-			<control type="image">
+			<control type="image" id="1">
 				<!-- Movies or Tv Episodes -->
 				<left>12</left>
 				<top>746</top>
@@ -3568,7 +3568,7 @@
 				<aspectratio>keep</aspectratio>
 				<visible>[VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)] + ![String.Contains(Player.FolderPath,pvr://) | String.StartsWith(Player.FileNameAndPath,http) | String.StartsWith(Player.FileNameAndPath,htsp) | String.StartsWith(Player.FileNameAndPath,mms) | String.StartsWith(Player.FileNameAndPath,rtmp)]</visible>
 			</control>
-			<control type="image">
+			<control type="image" id="1">
 				<!-- LiveTV playing -->
 				<left>12</left>
 				<top>746</top>
@@ -3580,7 +3580,7 @@
 				<aspectratio>keep</aspectratio>
 				<visible>String.Contains(Player.FolderPath,pvr://) + ![String.StartsWith(Player.FileNameAndPath,http) | String.StartsWith(Player.FileNameAndPath,htsp) | String.StartsWith(Player.FileNameAndPath,mms) | String.StartsWith(Player.FileNameAndPath,rtmp)]</visible>
 			</control>
-			<control type="image">
+			<control type="image" id="1">
 				<!-- Any video other than Movies and TV Episodes and LiveTV -->
 				<left>12</left>
 				<top>746</top>
