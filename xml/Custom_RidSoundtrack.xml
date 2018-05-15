@@ -4,6 +4,6 @@
 <window type="dialog" id="1158">
 	<onload>Stop</onload>
 	<onload>ClearProperty(PlayingOST,home)</onload>
-	<visible>Skin.HasSetting(media-theme) + [String.Contains(Player.Filenameandpath,theme.mp3) | String.Contains(Player.Filenameandpath,theme.flac)] + [!Window.IsActive(videos) | String.IsEmpty(ListItem.Path) | ListItem.IsCollection]</visible>
+	<visible>Skin.HasSetting(media-theme) + String.Contains(Player.Filenameandpath,theme.mp3) + [!Window.IsActive(videos) | String.IsEmpty(ListItem.Path) | ListItem.IsCollection]</visible>
 	<controls></controls>
 </window>
