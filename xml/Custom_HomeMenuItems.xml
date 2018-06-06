@@ -434,6 +434,17 @@
 				<label>$LOCALIZE[31928]$INFO[Container(6001).NumItems,(,)]</label>
 				<align>center</align>
 			</control>
+			<control type="button">
+				<!-- Touch Close button -->
+				<left>1680</left>
+				<top>328</top>
+				<width>48</width>
+				<height>48</height>
+				<texturefocus>touch-close.png</texturefocus>
+				<texturenofocus>touch-close.png</texturenofocus>
+				<onclick>SetFocus(6005)</onclick>
+				<visible>$EXP[isEnabledTouch]</visible>
+			</control>
 			<control type="image">
 				<left>1168</left>
 				<top>411</top>
@@ -556,6 +567,17 @@
 				<font>apptv25</font>
 				<label>$LOCALIZE[31929]$INFO[Container(6011).NumItems,(,)]</label>
 				<align>center</align>
+			</control>
+			<control type="button">
+				<!-- Touch Close button -->
+				<left>1680</left>
+				<top>398</top>
+				<width>48</width>
+				<height>48</height>
+				<texturefocus>touch-close.png</texturefocus>
+				<texturenofocus>touch-close.png</texturenofocus>
+				<onclick>SetFocus(6015)</onclick>
+				<visible>$EXP[isEnabledTouch]</visible>
 			</control>
 			<control type="image">
 				<left>1168</left>
@@ -730,8 +752,7 @@
 						<!-- Custom command - Show Radio EPG -->
 						<label>$LOCALIZE[19274]</label>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],ActivateWindow(radioguide))</onclick>
-						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[19274
-						])</onclick>
+						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[19274])</onclick>
 						<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
 						<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/EPG.png)</onclick>
 						<onclick>ClearProperty(ShowCommands,settings)</onclick>
@@ -762,6 +783,17 @@
 				<font>apptv25</font>
 				<label>$LOCALIZE[31914]$INFO[Container(6021).NumItems,(,)]</label>
 				<align>center</align>
+			</control>
+			<control type="button">
+				<!-- Touch Close button -->
+				<left>1680</left>
+				<top>398</top>
+				<width>48</width>
+				<height>48</height>
+				<texturefocus>touch-close.png</texturefocus>
+				<texturenofocus>touch-close.png</texturenofocus>
+				<onclick>SetFocus(6025)</onclick>
+				<visible>$EXP[isEnabledTouch]</visible>
 			</control>
 			<control type="image">
 				<left>1168</left>
