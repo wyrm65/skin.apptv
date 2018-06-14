@@ -6,11 +6,11 @@
 			<visible>Control.IsVisible(10) + Integer.IsGreater(Container(10).NumItems,0)</visible>
 			<control type="label">
 				<!-- Current time -->
-				<left>1170</left>
-				<top>82</top>
-				<width>705</width>
+				<left>810</left>
+				<top>32</top>
+				<width>300</width>
 				<height>38</height>
-				<align>right</align>
+				<align>center</align>
 				<font>apptv25</font>
 				<label>$INFO[System.Time]</label>
 			</control>
@@ -23,9 +23,9 @@
 				<height>676</height>
 				<pagecontrol>60</pagecontrol>
 				<scrolltime>300</scrolltime>
-				<timeblocks>40</timeblocks>
+				<timeblocks>21</timeblocks>
 				<progresstexture border="0,13.5,4,0">progress-timeline.png</progresstexture>
-				<rulerunit>12</rulerunit>
+				<rulerunit>3</rulerunit>
 				<onleft>9000</onleft>
 				<onright>60</onright>
 				<onup>10</onup>
@@ -77,7 +77,7 @@
 						<top>6</top>
 						<width>66</width>
 						<height>66</height>
-						<font>apptv23</font>
+						<font>apptv20</font>
 						<align>center</align>
 						<selectedcolor>listselected-text</selectedcolor>
 						<label>$INFO[ListItem.ChannelNumberLabel]</label>
@@ -88,7 +88,7 @@
 						<top>0</top>
 						<width>357</width>
 						<height>78</height>
-						<font>apptv22</font>
+						<font>apptv20</font>
 						<selectedcolor>listselected-text</selectedcolor>
 						<label>$INFO[ListItem.ChannelName]</label>
 					</control>
@@ -115,7 +115,7 @@
 						<top>6</top>
 						<width>66</width>
 						<height>66</height>
-						<font>apptv23</font>
+						<font>apptv20</font>
 						<align>center</align>
 						<selectedcolor>listselected-text</selectedcolor>
 						<label>$INFO[ListItem.ChannelNumberLabel]</label>
@@ -126,7 +126,7 @@
 						<top>0</top>
 						<width>357</width>
 						<height>78</height>
-						<font>apptv22</font>
+						<font>apptv20</font>
 						<selectedcolor>listselected-text</selectedcolor>
 						<label>$INFO[ListItem.ChannelName]</label>
 					</control>
@@ -141,9 +141,9 @@
 						<texture border="4">epg-genres/$INFO[ListItem.Property(GenreType)].png</texture>
 					</control>
 					<control type="label" id="1">
-						<left>30</left>
+						<left>26</left>
 						<top>0</top>
-						<width>15</width>
+						<width>10</width>
 						<height>72</height>
 						<font>apptv18</font>
 						<selectedcolor>listselected-text</selectedcolor>
@@ -151,10 +151,10 @@
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="image">
-						<left>3</left>
-						<top>27</top>
-						<width>24</width>
-						<height>24</height>
+						<left>2</left>
+						<top>29</top>
+						<width>20</width>
+						<height>20</height>
 						<texture>$VAR[PVROverlay]</texture>
 					</control>
 				</itemlayout>
@@ -177,9 +177,9 @@
 						<colordiffuse>mask-background</colordiffuse>
 					</control>
 					<control type="label" id="1">
-						<left>30</left>
+						<left>26</left>
 						<top>0</top>
-						<width>15</width>
+						<width>10</width>
 						<height>72</height>
 						<font>apptv18</font>
 						<selectedcolor>listselected-text</selectedcolor>
@@ -188,10 +188,10 @@
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="image">
-						<left>3</left>
-						<top>27</top>
-						<width>24</width>
-						<height>24</height>
+						<left>2</left>
+						<top>29</top>
+						<width>20</width>
+						<height>20</height>
 						<texture>$VAR[PVROverlay]</texture>
 					</control>
 				</focusedlayout>
@@ -207,23 +207,22 @@
 			</control>
 			<control type="label">
 				<left>45</left>
-				<top>834</top>
-				<width>1050</width>
-				<height>48</height>
+				<top>837</top>
+				<width>1310</width>
+				<height>45</height>
 				<label>$INFO[ListItem.Title]$INFO[ListItem.EpisodeName, (,)]</label>
-				<font>apptv30</font>
-				<wrapmultiline>true</wrapmultiline>
+				<font>apptv25</font>
 			</control>
 			<control type="label">
 				<!-- Start time -->
 				<visible>!String.IsEmpty(ListItem.StartTime)</visible>
-				<left>1275</left>
-				<top>846</top>
-				<width>600</width>
-				<height>36</height>
+				<left>1375</left>
+				<top>852</top>
+				<width>500</width>
+				<height>30</height>
 				<align>right</align>
-				<font>apptv22</font>
-				<label>$LOCALIZE[19126] $INFO[ListItem.StartTime] • $VAR[VideoDuration]</label>
+				<font>apptv20</font>
+				<label>$LOCALIZE[19126] $INFO[ListItem.StartTime] • $VAR[ListitemDuration]</label>
 			</control>
 			<control type="image">
 				<visible>!String.IsEmpty(ListItem.Title)</visible>
@@ -239,7 +238,7 @@
 				<top>896</top>
 				<width>1830</width>
 				<height>122</height>
-				<font>apptv22</font>
+				<font>apptv20</font>
 				<label>$INFO[ListItem.Plot]</label>
 				<visible>!String.IsEmpty(ListItem.Plot)</visible>
 			</control>
@@ -477,7 +476,8 @@
 							<height>36</height>
 							<font>apptv22</font>
 							<textcolor>disabled-text</textcolor>
-							<label>$INFO[ListItem.ChannelNumberLabel]</label>
+							<label>$VAR[ListitemDuration]</label>
+							<visible>$EXP[isnotDefaultIcon] + [Window.IsVisible(tvrecordings) | Window.IsVisible(radiorecordings)]</visible>
 						</control>
 					</itemlayout>
 					<focusedlayout width="840" height="105">
@@ -512,7 +512,8 @@
 							<height>36</height>
 							<font>apptv22</font>
 							<textcolor>disabled-text</textcolor>
-							<label>$INFO[ListItem.ChannelNumberLabel]</label>
+							<label>$VAR[ListitemDuration]</label>
+							<visible>$EXP[isnotDefaultIcon] + [Window.IsVisible(tvrecordings) | Window.IsVisible(radiorecordings)]</visible>
 						</control>
 					</focusedlayout>
 				</control>

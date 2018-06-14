@@ -1192,19 +1192,19 @@
 				<visible>Player.HasVideo</visible>
 				<control type="image">
 					<!-- Video cover image -->
-					<left>60</left>
+					<left>53</left>
 					<top>69</top>
-					<width>225</width>
-					<height>291</height>
+					<width>240</width>
+					<height>321</height>
 					<texture diffuse="mask-rect.png" background="true" fallback="DefaultVideo.png">$VAR[PlayerVideoCover]</texture>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<visible>!Pvr.IsPlayingTv</visible>
 				</control>
 				<control type="image">
-					<left>60</left>
-					<top>362</top>
-					<width>225</width>
-					<height>291</height>
+					<left>53</left>
+					<top>391</top>
+					<width>240</width>
+					<height>321</height>
 					<texture diffuse="mask-fade.png" background="true" fallback="DefaultVideo.png" flipy="true">$VAR[PlayerVideoCover]</texture>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<visible>!Pvr.IsPlayingTv</visible>
@@ -1240,21 +1240,45 @@
 					<onclick>Fullscreen</onclick>
 					<visible>$EXP[isEnabledTouch]</visible>
 				</control>
-				<control type="textbox">
-					<left>15</left>
-					<top>357</top>
-					<height>72</height>
-					<width>315</width>
-					<font>apptv20</font>
-					<align>center</align>
-					<aligny>top</aligny>
-					<label>$INFO[VideoPlayer.Title]</label>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				<control type="group">
 					<visible>!Pvr.IsPlayingTv</visible>
+					<control type="label">
+						<left>15</left>
+						<top>394</top>
+						<width>315</width>
+						<height>30</height>
+						<label>$INFO[VideoPlayer.Title]</label>
+						<font>apptv20</font>
+						<align>center</align>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<visible>!VideoPlayer.Content(episodes)</visible>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<top>394</top>
+						<width>315</width>
+						<height>30</height>
+						<label>$INFO[VideoPlayer.TVShowTitle]</label>
+						<font>apptv20</font>
+						<align>center</align>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<visible>VideoPlayer.Content(episodes)</visible>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<top>429</top>
+						<width>315</width>
+						<height>30</height>
+						<label>$INFO[VideoPlayer.Title]</label>
+						<font>apptv20</font>
+						<align>center</align>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<visible>VideoPlayer.Content(episodes)</visible>
+					</control>
 				</control>
 				<control type="textbox">
 					<left>15</left>
-					<top>357</top>
+					<top>394</top>
 					<height>72</height>
 					<width>315</width>
 					<font>apptv20</font>

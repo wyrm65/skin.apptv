@@ -361,11 +361,13 @@
 		<value condition="[Player.Rewinding32x | Player.Forwarding32x]">x32</value>
 		<value condition="Player.IsTempo">$INFO[Player.Playspeed,x,]</value>
 	</variable>
-	<variable name="VideoDuration">
+	<variable name="ListitemDuration">
 		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItemDuration)) + !String.IsEqual(Window(home).Property(SkinHelper.ListItemDuration.Hours),0)">$INFO[Window(home).Property(SkinHelper.ListItemDuration.Hours),,h]$INFO[Window(home).Property(SkinHelper.ListItemDuration.Minutes),,m]</value>
-		<value condition="!Window.IsVisible(tvguide) + !Window.IsVisible(radioguide) + Integer.IsGreater(ListItem.Duration,1)">$INFO[ListItem.Duration,, $LOCALIZE[31814]]</value>
-		<value condition="!Window.IsVisible(tvguide) + !Window.IsVisible(radioguide) + Integer.IsGreater(ListItem.Duration,0)">$INFO[ListItem.Duration,, $LOCALIZE[31813]]</value>
-		<value condition="!Window.IsVisible(tvguide) + !Window.IsVisible(radioguide) + Integer.IsLess(ListItem.Duration,1)">( $LOCALIZE[19695] )</value>
+		<value condition="Integer.IsLess(ListItem.Duration(mins),1)">( $LOCALIZE[19695] )</value>
+		<value condition="Integer.IsEqual(ListItem.Duration(mins),1)">$INFO[ListItem.Duration,, $LOCALIZE[31813]]</value>
+		<value condition="Integer.IsLess(ListItem.Duration(mins),60)">$INFO[ListItem.Duration,, $LOCALIZE[31814]]</value>
+		<value condition="Integer.IsLess(ListItem.Duration(mins),120)">$INFO[ListItem.Duration,, $LOCALIZE[31817]]</value>
+		<value condition="Integer.IsGreater(ListItem.Duration(hours),1)">$INFO[ListItem.Duration,, $LOCALIZE[31816]]</value>
 		<value>$INFO[ListItem.Duration]</value>
 	</variable>
 	<variable name="MovieLibEntry">
@@ -3658,49 +3660,83 @@
 				<!-- Video Stuff -->
 				<visible>Player.HasVideo + !Skin.HasSetting(background-playingmedia)</visible>
 				<control type="videowindow">
-					<left>52</left>
-					<top>8</top>
-					<width>250</width>
-					<height>150</height>
+					<left>30</left>
+					<top>12</top>
+					<width>240</width>
+					<height>144</height>
 				</control>
 				<control type="label">
 					<!-- Now playing -->
-					<left>318</left>
-					<top>21</top>
-					<width>645</width>
+					<left>280</left>
+					<top>3</top>
+					<width>520</width>
 					<height>38</height>
 					<label>$LOCALIZE[31037]</label>
-					<font>apptv23</font>
+					<font>apptv22</font>
 					<textcolor>listselected-text</textcolor>
 				</control>
-				<control type="label">
-					<left>318</left>
-					<top>58</top>
-					<width>645</width>
-					<height>38</height>
-					<label>$INFO[VideoPlayer.Title]</label>
-					<font>apptv23</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				<control type="group">
 					<visible>!Pvr.IsPlayingTv</visible>
+					<control type="label">
+						<left>280</left>
+						<top>45</top>
+						<width>520</width>
+						<height>30</height>
+						<label>$INFO[VideoPlayer.Title]</label>
+						<font>apptv20</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<visible>!VideoPlayer.Content(episodes)</visible>
+					</control>
+					<control type="label">
+						<left>280</left>
+						<top>45</top>
+						<width>520</width>
+						<height>30</height>
+						<label>$INFO[VideoPlayer.TVShowTitle]</label>
+						<font>apptv20</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<visible>VideoPlayer.Content(episodes)</visible>
+					</control>
+					<control type="label">
+						<left>280</left>
+						<top>80</top>
+						<width>520</width>
+						<height>30</height>
+						<label>$INFO[VideoPlayer.Title]</label>
+						<font>apptv20</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<visible>VideoPlayer.Content(episodes)</visible>
+					</control>
 				</control>
 				<control type="label">
-					<left>318</left>
-					<top>58</top>
-					<width>645</width>
-					<height>38</height>
-					<label>$INFO[VideoPlayer.ChannelNumberLabel] - $INFO[VideoPlayer.ChannelName]</label>
-					<font>apptv23</font>
+					<left>280</left>
+					<top>45</top>
+					<width>520</width>
+					<height>30</height>
+					<label>$INFO[VideoPlayer.ChannelName]</label>
+					<font>apptv20</font>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					<visible>Pvr.IsPlayingTv</visible>
+				</control>
+				<control type="label">
+					<left>280</left>
+					<top>80</top>
+					<width>520</width>
+					<height>30</height>
+					<label>$INFO[VideoPlayer.Title]</label>
+					<font>apptv20</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>Pvr.IsPlayingTv</visible>
 				</control>
 				<control type="label">
 					<!-- Time and duration -->
-					<left>318</left>
-					<top>96</top>
-					<width>645</width>
-					<height>38</height>
+					<left>280</left>
+					<top>114</top>
+					<width>520</width>
+					<height>30</height>
 					<label>$INFO[Player.Time]$INFO[Player.Duration, / ]</label>
-					<font>apptv23</font>
+					<font>apptv20</font>
+					<visible>!String.IsEmpty(Player.Time) + !String.IsEmpty(Player.Duration)</visible>
 				</control>
 			</control>
 			<control type="group">
@@ -3712,16 +3748,16 @@
 					<visible>!Pvr.IsPlayingRadio</visible>
 					<control type="image">
 						<left>36</left>
-						<top>3</top>
-						<width>150</width>
-						<height>150</height>
+						<top>6</top>
+						<width>144</width>
+						<height>144</height>
 						<texture background="true" fallback="DefaultAudio.png">$VAR[PlayerMusicCover]</texture>
 						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="label">
 						<left>218</left>
 						<top>3</top>
-						<width>712</width>
+						<width>600</width>
 						<height>38</height>
 						<label>$VAR[PlayerMusicInfo1]</label>
 						<font>apptv22</font>
@@ -3729,8 +3765,8 @@
 					</control>
 					<control type="label">
 						<left>218</left>
-						<top>40</top>
-						<width>712</width>
+						<top>45</top>
+						<width>600</width>
 						<height>30</height>
 						<label>$VAR[PlayerMusicInfo2]</label>
 						<font>apptv20</font>
@@ -3738,9 +3774,9 @@
 					</control>
 					<control type="label">
 						<left>218</left>
-						<top>72</top>
-						<width>712</width>
-						<height>38</height>
+						<top>80</top>
+						<width>600</width>
+						<height>30</height>
 						<label>$VAR[PlayerMusicInfo3]</label>
 						<font>apptv20</font>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
@@ -3748,10 +3784,10 @@
 					<control type="label">
 						<left>218</left>
 						<top>114</top>
-						<width>712</width>
+						<width>600</width>
 						<height>38</height>
 						<label>$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ]</label>
-						<font>apptv23</font>
+						<font>apptv20</font>
 						<visible>!Player.IsInternetStream</visible>
 					</control>
 				</control>
@@ -3760,29 +3796,40 @@
 					<visible>Pvr.IsPlayingRadio</visible>
 					<control type="image">
 						<left>36</left>
-						<top>3</top>
-						<width>150</width>
-						<height>150</height>
+						<top>6</top>
+						<width>144</width>
+						<height>144</height>
 						<texture background="true" fallback="icon-radio.png">$VAR[PVRIcon]</texture>
 						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="label">
+						<!-- Now playing -->
+						<left>218</left>
+						<top>3</top>
+						<width>600</width>
+						<height>38</height>
+						<label>$LOCALIZE[31037]</label>
+						<font>apptv22</font>
+						<textcolor>listselected-text</textcolor>
+					</control>
+					<control type="label">
 						<!-- Radio channel name -->
 						<left>218</left>
-						<top>22</top>
-						<width>712</width>
-						<height>38</height>
+						<top>45</top>
+						<width>600</width>
+						<height>30</height>
 						<label>$LOCALIZE[19021] - $INFO[MusicPlayer.ChannelName]</label>
-						<font>apptv25</font>
+						<font>apptv20</font>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="label">
 						<!-- Radio Program name -->
 						<left>218</left>
-						<top>63</top>
-						<width>712</width>
-						<height>38</height>
+						<top>80</top>
+						<width>600</width>
+						<height>30</height>
 						<label>$INFO[MusicPlayer.Title]</label>
-						<font>apptv22</font>
+						<font>apptv20</font>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 				</control>

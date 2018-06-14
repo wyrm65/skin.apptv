@@ -137,8 +137,9 @@
 						<height>34</height>
 						<font>apptv22</font>
 						<textcolor>disabled-text</textcolor>
-						<label>$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
+						<label>$VAR[ListitemDuration]</label>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<visible>!String.IsEmpty(ListItem.Duration)</visible>
 					</control>
 				</control>
 			</itemlayout>
@@ -264,8 +265,9 @@
 						<height>34</height>
 						<font>apptv22</font>
 						<textcolor>disabled-text</textcolor>
-						<label>$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
+						<label>$VAR[ListitemDuration]</label>
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<visible>!String.IsEmpty(ListItem.Duration)</visible>
 					</control>
 				</control>
 			</focusedlayout>
@@ -387,7 +389,7 @@
 						<width>398</width>
 						<height>46</height>
 						<font>apptv30</font>
-						<label>$VAR[VideoDuration]</label>
+						<label>$VAR[ListitemDuration]</label>
 					</control>
 				</control>
 				<control type="label">
@@ -1304,7 +1306,7 @@
 					<height>38</height>
 					<align>center</align>
 					<font>apptv25</font>
-					<label>$VAR[VideoDuration]</label>
+					<label>$VAR[ListitemDuration]</label>
 					<visible>!Container.Content(tvshows) + !Container.Content(seasons)</visible>
 				</control>
 				<control type="image">
@@ -1789,7 +1791,7 @@
 					<height>46</height>
 					<align>right</align>
 					<font>apptv23</font>
-					<label>$VAR[VideoDuration]</label>
+					<label>$VAR[ListitemDuration]</label>
 					<visible>!String.IsEmpty(ListItem.Duration) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
 				</control>
 				<control type="image">
@@ -2057,7 +2059,7 @@
 					<width>300</width>
 					<height>38</height>
 					<font>apptv22</font>
-					<label>$VAR[VideoDuration]</label>
+					<label>$VAR[ListitemDuration]</label>
 					<visible>!Container.Content(tvshows) + !Container.Content(seasons)</visible>
 				</control>
 				<control type="label">
