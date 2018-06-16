@@ -4403,6 +4403,19 @@
 			</control>
 		</control>
 	</include>
+	<include name="PVRChannelNumberInput">
+		<control type="label">
+			<left>0</left>
+			<top>0</top>
+			<width>95%</width>
+			<height>100%</height>
+			<label>$INFO[PVR.ChannelNumberInput]</label>
+			<align>right</align>
+			<font>Clock</font>
+			<aligny>top</aligny>
+			<visible>!String.IsEmpty(PVR.ChannelNumberInput)</visible>
+		</control>
+</include>
 	<include name="settings-submenu-common">
 		<width>1328</width>
 		<height>84</height>

@@ -316,12 +316,12 @@
 				<height>64</height>
 				<texturefocus>osd-btn-rec-focus.png</texturefocus>
 				<texturenofocus>osd-btn-rec.png</texturenofocus>
-				<usealttexture>Player.CanRecord + Player.Recording</usealttexture>
+				<usealttexture>PVR.CanRecordPlayingChannel + PVR.IsRecordingPlayingChannel</usealttexture>
 				<alttexturefocus>osd-btn-rec-recording-focus.png</alttexturefocus>
 				<alttexturenofocus>osd-btn-rec-recording.png</alttexturenofocus>
-				<onclick>PlayerControl(record)</onclick>
+				<onclick>PVR.ToggleRecordPlayingChannel</onclick>
 				<include>focus-zoom</include>
-				<visible>Player.CanRecord</visible>
+				<visible>PVR.CanRecordPlayingChannel</visible>
 			</control>
 			<control type="button" id="983">
 				<!-- RDS Info -->
