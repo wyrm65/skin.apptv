@@ -1101,8 +1101,7 @@
 					<width>928</width>
 					<aligny>center</aligny>
 					<font>apptv18</font>
-					<label>[B]$INFO[ListItem.Label][/B]</label>
-					<shadowcolor>disabled-text</shadowcolor>
+					<label>$INFO[ListItem.Label]</label>
 				</control>
 				<control type="label">
 					<left>110</left>
@@ -1112,7 +1111,8 @@
 					<aligny>center</aligny>
 					<font>apptv18</font>
 					<label>$INFO[ListItem.Genre]</label>
-					<shadowcolor>disabled-text</shadowcolor>
+					<textcolor>disabled-text</textcolor>
+					<shadowcolor>shadow-text</shadowcolor>
 					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(artists)</visible>
 				</control>
 				<control type="label">
@@ -1123,7 +1123,8 @@
 					<aligny>center</aligny>
 					<font>apptv18</font>
 					<label>$INFO[ListItem.TVShowTitle]</label>
-					<shadowcolor>disabled-text</shadowcolor>
+					<textcolor>disabled-text</textcolor>
+					<shadowcolor>shadow-text</shadowcolor>
 					<visible>Container.Content(seasons) | Container.Content(episodes)</visible>
 				</control>
 				<control type="label">
@@ -1134,7 +1135,8 @@
 					<aligny>center</aligny>
 					<font>apptv18</font>
 					<label>$INFO[ListItem.Property(artist_genre)]</label>
-					<shadowcolor>disabled-text</shadowcolor>
+					<textcolor>disabled-text</textcolor>
+					<shadowcolor>shadow-text</shadowcolor>
 					<visible>Container.Content(artists)</visible>
 				</control>
 				<control type="label">
@@ -1145,7 +1147,8 @@
 					<aligny>center</aligny>
 					<font>apptv18</font>
 					<label>$INFO[ListItem.Artist]</label>
-					<shadowcolor>disabled-text</shadowcolor>
+					<textcolor>disabled-text</textcolor>
+					<shadowcolor>shadow-text</shadowcolor>
 					<visible>Container.Content(musicvideos) | Container.Content(albums) | Container.Content(songs)</visible>
 				</control>
 				<control type="label">
@@ -1156,7 +1159,8 @@
 					<aligny>center</aligny>
 					<font>apptv18</font>
 					<label>$INFO[ListItem.Property(Starttime)]</label>
-					<shadowcolor>disabled-text</shadowcolor>
+					<textcolor>disabled-text</textcolor>
+					<shadowcolor>shadow-text</shadowcolor>
 					<visible>Container.Content(livetv)</visible>
 				</control>
 				<control type="label">
@@ -1167,7 +1171,8 @@
 					<aligny>center</aligny>
 					<font>apptv18</font>
 					<label>$INFO[ListItem.Label2]</label>
-					<shadowcolor>disabled-text</shadowcolor>
+					<textcolor>disabled-text</textcolor>
+					<shadowcolor>shadow-text</shadowcolor>
 					<visible>Container.Content(actors) | Container.Content(directors)</visible>
 				</control>
 			</itemlayout>
@@ -1207,8 +1212,7 @@
 					<width>928</width>
 					<aligny>center</aligny>
 					<font>apptv18</font>
-					<label>[B]$INFO[ListItem.Label][/B]</label>
-					<shadowcolor>disabled-text</shadowcolor>
+					<label>$INFO[ListItem.Label]</label>
 				</control>
 				<control type="label">
 					<left>110</left>
@@ -1218,7 +1222,8 @@
 					<aligny>center</aligny>
 					<font>apptv18</font>
 					<label>$INFO[ListItem.Genre]</label>
-					<shadowcolor>disabled-text</shadowcolor>
+					<textcolor>disabled-text</textcolor>
+					<shadowcolor>shadow-text</shadowcolor>
 					<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
 				</control>
 				<control type="label">
@@ -1229,7 +1234,8 @@
 					<aligny>center</aligny>
 					<font>apptv18</font>
 					<label>$INFO[ListItem.TVShowTitle]</label>
-					<shadowcolor>disabled-text</shadowcolor>
+					<textcolor>disabled-text</textcolor>
+					<shadowcolor>shadow-text</shadowcolor>
 					<visible>Container.Content(seasons) | Container.Content(episodes)</visible>
 				</control>
 				<control type="label">
@@ -1240,7 +1246,8 @@
 					<aligny>center</aligny>
 					<font>apptv18</font>
 					<label>$INFO[ListItem.Property(artist_genre)]</label>
-					<shadowcolor>disabled-text</shadowcolor>
+					<textcolor>disabled-text</textcolor>
+					<shadowcolor>shadow-text</shadowcolor>
 					<visible>Container.Content(artists)</visible>
 				</control>
 				<control type="label">
@@ -1251,7 +1258,8 @@
 					<aligny>center</aligny>
 					<font>apptv18</font>
 					<label>$INFO[ListItem.Artist]</label>
-					<shadowcolor>disabled-text</shadowcolor>
+					<textcolor>disabled-text</textcolor>
+					<shadowcolor>shadow-text</shadowcolor>
 					<visible>Container.Content(musicvideos) | Container.Content(albums) | Container.Content(songs)</visible>
 				</control>
 				<control type="label">
@@ -1262,7 +1270,8 @@
 					<aligny>center</aligny>
 					<font>apptv18</font>
 					<label>$INFO[ListItem.Property(Starttime)]</label>
-					<shadowcolor>disabled-text</shadowcolor>
+					<textcolor>disabled-text</textcolor>
+					<shadowcolor>shadow-text</shadowcolor>
 					<visible>Container.Content(livetv)</visible>
 				</control>
 				<control type="label">
@@ -1273,7 +1282,8 @@
 					<aligny>center</aligny>
 					<font>apptv18</font>
 					<label>$INFO[ListItem.Label2]</label>
-					<shadowcolor>disabled-text</shadowcolor>
+					<textcolor>disabled-text</textcolor>
+					<shadowcolor>shadow-text</shadowcolor>
 					<visible>Container.Content(actors) | Container.Content(directors)</visible>
 				</control>
 			</focusedlayout>
@@ -1484,7 +1494,7 @@
 					<font>apptv16</font>
 					<align>center</align>
 					<aligny>center</aligny>
-					<label>[B]$INFO[ListItem.TvShowTitle][/B]</label>
+					<label>$INFO[ListItem.TvShowTitle]</label>
 					<visible>Container.Content(episodes)</visible>
 				</control>
 				<control type="label">
@@ -1495,7 +1505,7 @@
 					<font>apptv16</font>
 					<align>center</align>
 					<aligny>center</aligny>
-					<label>[B]$INFO[ListItem.Artist][/B]</label>
+					<label>$INFO[ListItem.Artist]</label>
 					<visible>Container.Content(musicvideos)</visible>
 				</control>
 				<control type="label">
@@ -1551,7 +1561,7 @@
 					<font>apptv16</font>
 					<align>center</align>
 					<aligny>center</aligny>
-					<label>[B]$INFO[ListItem.Artist][/B]</label>
+					<label>$INFO[ListItem.Artist]</label>
 					<visible>Container.Content(albums) | Container.Content(songs)</visible>
 				</control>
 				<control type="label">
@@ -1562,7 +1572,7 @@
 					<font>apptv16</font>
 					<align>center</align>
 					<aligny>center</aligny>
-					<label>[B]$INFO[ListItem.Property(ChannelName)][/B]</label>
+					<label>$INFO[ListItem.Property(ChannelName)]</label>
 					<visible>Container.Content(livetv)</visible>
 				</control>
 				<control type="label">
@@ -1665,7 +1675,7 @@
 						<font>apptv16</font>
 						<align>center</align>
 						<aligny>center</aligny>
-						<label>[B]$INFO[ListItem.TvShowTitle][/B]</label>
+						<label>$INFO[ListItem.TvShowTitle]</label>
 						<visible>Container.Content(episodes)</visible>
 					</control>
 					<control type="label">
@@ -1676,7 +1686,7 @@
 						<font>apptv16</font>
 						<align>center</align>
 						<aligny>center</aligny>
-						<label>[B]$INFO[ListItem.Artist][/B]</label>
+						<label>$INFO[ListItem.Artist]</label>
 						<visible>Container.Content(musicvideos)</visible>
 					</control>
 					<control type="label">
@@ -1735,7 +1745,7 @@
 						<font>apptv16</font>
 						<align>center</align>
 						<aligny>center</aligny>
-						<label>[B]$INFO[ListItem.Artist][/B]</label>
+						<label>$INFO[ListItem.Artist]</label>
 						<visible>Container.Content(albums) | Container.Content(songs)</visible>
 					</control>
 					<control type="label">
@@ -1746,7 +1756,7 @@
 						<font>apptv16</font>
 						<align>center</align>
 						<aligny>center</aligny>
-						<label>[B]$INFO[ListItem.Property(ChannelName)][/B]</label>
+						<label>$INFO[ListItem.Property(ChannelName)]</label>
 						<visible>Container.Content(livetv)</visible>
 					</control>
 					<control type="label">
