@@ -1536,7 +1536,7 @@
 					<onup condition="Integer.IsLessOrEqual(Container(9360).NumItems,0)">9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9300</onleft>
-					<onright>9400</onright>
+					<onright>9600</onright>
 					<viewtype label="31941">list</viewtype>
 					<itemlayout height="63" width="315">
 						<control type="label">
@@ -1638,6 +1638,108 @@
 					</content>
 				</control>
 			</control>
+			<control type="group" id="9620">
+				<!-- Games Sub menu -->
+					<visible>!Skin.HasSetting(home-games)</visible>
+				<width>315</width>
+				<control type="button" id="9630">
+					<!-- Dummy button for mouse control -->
+					<left>0</left>
+					<top>0</top>
+					<width>315</width>
+					<height>518</height>
+					<texturefocus>blank.png</texturefocus>
+					<texturenofocus>blank.png</texturenofocus>
+					<onfocus>SetFocus(9600)</onfocus>
+				</control>
+				<control type="image">
+					<!-- Menu Heading Hilite-->
+					<left>0</left>
+					<top>0</top>
+					<width>315</width>
+					<height>102</height>
+					<texture>menu-focus.png</texture>
+					<visible>Control.HasFocus(9600) | Control.HasFocus(9630)</visible>
+				</control>
+				<control type="label">
+					<!-- Menu Heading -->
+					<left>0</left>
+					<top>26</top>
+					<width>315</width>
+					<height>48</height>
+					<font>apptv30</font>
+					<textcolor>tab-text</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
+					<align>center</align>
+					<label>$INFO[Container(9600).ListItem.Label2]</label>
+					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
+					<visible>!Control.HasFocus(9600)</visible>
+				</control>
+				<control type="label">
+					<!-- Menu Heading -->
+					<left>0</left>
+					<top>26</top>
+					<width>315</width>
+					<height>48</height>
+					<font>apptv30</font>
+					<textcolor>tab-hilite</textcolor>
+					<shadowcolor>tab-shadow</shadowcolor>
+					<align>center</align>
+					<label>$INFO[Container(9600).ListItem.Label2]</label>
+					<animation condition="!Control.HasFocus(9600) + !Control.HasFocus(9630)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+				</control>
+				<control type="list" id="9600">
+					<animation condition="!Control.HasFocus(9600) + !Control.HasFocus(9630)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<left>0</left>
+					<top>126</top>
+					<width>315</width>
+					<height>378</height>
+					<onup>9005</onup>
+					<ondown>9005</ondown>
+					<onleft>9350</onleft>
+					<onright>9400</onright>
+					<viewtype label="31941">list</viewtype>
+					<itemlayout height="63" width="315">
+						<control type="label">
+							<left>12</left>
+							<top>12</top>
+							<width>291</width>
+							<height>33</height>
+							<font>apptv22</font>
+							<align>center</align>
+							<label>$INFO[ListItem.Label]</label>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						</control>
+					</itemlayout>
+					<focusedlayout height="63" width="315">
+						<control type="image">
+							<left>0</left>
+							<top>0</top>
+							<width>315</width>
+							<height>63</height>
+							<texture border="9">button-default-focus.png</texture>
+						</control>
+						<control type="label">
+							<left>12</left>
+							<top>12</top>
+							<width>291</width>
+							<height>33</height>
+							<font>apptv22</font>
+							<align>center</align>
+							<label>$INFO[ListItem.Label]</label>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						</control>
+					</focusedlayout>
+					<content>
+						<item>
+							<!-- Games -->
+							<label>$LOCALIZE[15016]</label>
+							<label2>$LOCALIZE[15016]</label2>
+							<onclick>ActivateWindow(games,,return)</onclick>
+						</item>
+					</content>
+				</control>
+			</control>
 			<control type="group" id="9420">
 				<!-- Weather Sub menu -->
 				<visible>!String.IsEmpty(Weather.plugin) + [Skin.HasSetting(home-weather) | Skin.HasSetting(home-currentweather)]</visible>
@@ -1696,7 +1798,7 @@
 					<height>378</height>
 					<onup>9005</onup>
 					<ondown>9005</ondown>
-					<onleft>9350</onleft>
+					<onleft>9600</onleft>
 					<onright>9450</onright>
 					<viewtype label="31941">list</viewtype>
 					<itemlayout height="63" width="315">
