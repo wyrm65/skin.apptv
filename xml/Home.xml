@@ -72,6 +72,15 @@
 				<onright>9000</onright>
 				<onleft>ClearProperty(ShowScreenSettings,home)</onleft>
 				<onleft>9000</onleft>
+				<control type="button" id="6101">
+					<!-- Home menu type -->
+					<width>639</width>
+					<height>69</height>
+					<label>$LOCALIZE[31900] - $VAR[MenuType]</label>
+					<font>apptv20</font>
+					<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=homemenu-typeval,header=$LOCALIZE[31900])</onclick>
+					<onclick>AlarmClock(changehome,ReloadSkin(),00:2,silent)</onclick>
+				</control>
 				<control type="button" id="6102">
 					<!-- Home menu Settings Menu -->
 					<width>639</width>
