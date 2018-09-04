@@ -75,92 +75,6 @@
 				<top>160</top>
 				<width>1328</width>
 				<height>750</height>
-				<!-- about page -->
-				<control type="group" id="1900">
-					<left>0</left>
-					<top>0</top>
-					<width>1328</width>
-					<height>3</height>
-					<visible>String.IsEqual(Container(1000).ListItem.Property(listTyp), 1900)</visible>
-					<control type="label">
-						<left>60</left>
-						<top>50</top>
-						<width>300</width>
-						<height>30</height>
-						<aligny>center</aligny>
-						<font>apptv22</font>
-						<label>$ADDON[service.libreelec.settings 606]</label>
-					</control>
-					<control type="label">
-						<left>300</left>
-						<top>50</top>
-						<width>500</width>
-						<height>30</height>
-						<aligny>center</aligny>
-						<font>apptv22</font>
-						<label>$INFO[Window.Property(Distri)] ($INFO[Window.Property(build)])</label>
-					</control>
-					<control type="label">
-						<left>60</left>
-						<top>90</top>
-						<width>300</width>
-						<height>30</height>
-						<aligny>center</aligny>
-						<font>apptv22</font>
-						<label>$ADDON[service.libreelec.settings 607]</label>
-					</control>
-					<control type="label">
-						<left>300</left>
-						<top>90</top>
-						<width>500</width>
-						<height>30</height>
-						<aligny>center</aligny>
-						<font>apptv22</font>
-						<label>$INFO[Window.Property(Version)]</label>
-					</control>
-					<control type="label">
-						<left>60</left>
-						<top>130</top>
-						<width>300</width>
-						<height>30</height>
-						<aligny>center</aligny>
-						<font>apptv22</font>
-						<label>$ADDON[service.libreelec.settings 608]</label>
-					</control>
-					<control type="label">
-						<left>300</left>
-						<top>130</top>
-						<width>500</width>
-						<height>30</height>
-						<aligny>center</aligny>
-						<font>apptv22</font>
-						<label>$INFO[Window.Property(Arch)]</label>
-					</control>
-					<control type="textbox">
-						<left>60</left>
-						<top>170</top>
-						<width>1208</width>
-						<height>300</height>
-						<font>apptv18</font>
-						<label>$ADDON[service.libreelec.settings 609]</label>
-					</control>
-					<control type="textbox">
-						<left>60</left>
-						<top>340</top>
-						<width>1208</width>
-						<height>400</height>
-						<font>apptv18</font>
-						<label>$ADDON[service.libreelec.settings 610]</label>
-					</control>
-					<control type="textbox">
-						<left>60</left>
-						<top>670</top>
-						<width>1208</width>
-						<height>90</height>
-						<font>apptv18</font>
-						<align>left</align>
-					</control>
-				</control>
 				<!-- simple list content -->
 				<control type="list" id="1100">
 					<left>0</left>
@@ -1014,6 +928,92 @@
 							<texture>libre-elec/Key.png</texture>
 						</control>
 					</focusedlayout>
+				</control>
+				<!-- about page -->
+				<control type="group" id="1900">
+					<left>0</left>
+					<top>0</top>
+					<width>1328</width>
+					<height>3</height>
+					<visible>String.IsEqual(Container(1000).ListItem.Property(listTyp), 1900)</visible>
+					<control type="label">
+						<left>60</left>
+						<top>50</top>
+						<width>300</width>
+						<height>30</height>
+						<aligny>center</aligny>
+						<font>apptv22</font>
+						<label>$ADDON[service.libreelec.settings 606]</label>
+					</control>
+					<control type="label">
+						<left>300</left>
+						<top>50</top>
+						<width>500</width>
+						<height>30</height>
+						<aligny>center</aligny>
+						<font>apptv22</font>
+						<label>$INFO[Window.Property(Distri)] ($INFO[Window.Property(build)])</label>
+					</control>
+					<control type="label">
+						<left>60</left>
+						<top>90</top>
+						<width>300</width>
+						<height>30</height>
+						<aligny>center</aligny>
+						<font>apptv22</font>
+						<label>$ADDON[service.libreelec.settings 607]</label>
+					</control>
+					<control type="label">
+						<left>300</left>
+						<top>90</top>
+						<width>500</width>
+						<height>30</height>
+						<aligny>center</aligny>
+						<font>apptv22</font>
+						<label>$INFO[Window.Property(Version)]</label>
+					</control>
+					<control type="label">
+						<left>60</left>
+						<top>130</top>
+						<width>300</width>
+						<height>30</height>
+						<aligny>center</aligny>
+						<font>apptv22</font>
+						<label>$ADDON[service.libreelec.settings 608]</label>
+					</control>
+					<control type="label">
+						<left>300</left>
+						<top>130</top>
+						<width>500</width>
+						<height>30</height>
+						<aligny>center</aligny>
+						<font>apptv22</font>
+						<label>$INFO[Window.Property(Arch)]</label>
+					</control>
+					<control type="textbox">
+						<left>60</left>
+						<top>170</top>
+						<width>1208</width>
+						<height>300</height>
+						<font>apptv18</font>
+						<label>$ADDON[service.libreelec.settings 609]</label>
+					</control>
+					<control type="textbox">
+						<left>60</left>
+						<top>340</top>
+						<width>1208</width>
+						<height>400</height>
+						<font>apptv18</font>
+						<label>$ADDON[service.libreelec.settings 610]</label>
+					</control>
+					<control type="textbox">
+						<left>60</left>
+						<top>670</top>
+						<width>1208</width>
+						<height>90</height>
+						<font>apptv18</font>
+						<align>left</align>
+					</control>
 				</control>
 			</control>
 			<control type="textbox" id="1400">
