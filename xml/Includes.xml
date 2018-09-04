@@ -153,48 +153,6 @@
 		<value condition="String.Contains(Window.Property(mpaa),TV-14)">special://skin/extras/images/rating/TV-14.png</value>
 		<value condition="String.Contains(Window.Property(mpaa),TV-MA)">special://skin/extras/images/rating/TV-MA.png</value>
 	</variable>
-	<variable name="GlobalSearchRating">
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),Rated G) | String.Contains(Container(100).ListItem.Property(Mpaa),Rated: G)">special://skin/extras/images/rating/mpaa_general.png</value>
-		<value condition="[String.Contains(Container(100).ListItem.Property(Mpaa),Rated PG) | String.Contains(Container(100).ListItem.Property(Mpaa),Rated: PG)] + !String.Contains(Container(100).ListItem.Property(Mpaa),Rated PG-13) + !String.Contains(Container(100).ListItem.Property(Mpaa),Rated: PG-13)">special://skin/extras/images/rating/mpaa_pg.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),Rated PG-13) | String.Contains(Container(100).ListItem.Property(Mpaa),Rated: PG-13)">special://skin/extras/images/rating/mpaa_pg13.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),Rated R) | String.Contains(Container(100).ListItem.Property(Mpaa),Rated: R)">special://skin/extras/images/rating/mpaa_restricted.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),Rated NC-17) | String.Contains(Container(100).ListItem.Property(Mpaa),Rated: NC-17)">special://skin/extras/images/rating/mpaa_nc17.png</value>
-		<value condition="String.IsEqual(Container(100).ListItem.Property(Mpaa),UK:U)">special://skin/extras/images/rating/bbfc_u.png</value>
-		<value condition="String.IsEqual(Container(100).ListItem.Property(Mpaa),UK:UC)">special://skin/extras/images/rating/bbfc_uc.png</value>
-		<value condition="String.IsEqual(Container(100).ListItem.Property(Mpaa),UK:PG)">special://skin/extras/images/rating/bbfc_pg.png</value>
-		<value condition="String.IsEqual(Container(100).ListItem.Property(Mpaa),UK:12)">special://skin/extras/images/rating/bbfc_12.png</value>
-		<value condition="String.IsEqual(Container(100).ListItem.Property(Mpaa),UK:12A)">special://skin/extras/images/rating/bbfc_12.png</value>
-		<value condition="String.IsEqual(Container(100).ListItem.Property(Mpaa),UK:15)">special://skin/extras/images/rating/bbfc_15.png</value>
-		<value condition="String.IsEqual(Container(100).ListItem.Property(Mpaa),UK:18)">special://skin/extras/images/rating/bbfc_18.png</value>
-		<value condition="String.IsEqual(Container(100).ListItem.Property(Mpaa),UK:R18)">special://skin/extras/images/rating/bbfc_R18.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),FSK0) | String.Contains(Container(100).ListItem.Property(Mpaa),FSK 0) | String.Contains(ListItem.Mpaa,FSK o.A.)">special://skin/extras/images/rating/FSK-0.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),FSK6) | String.Contains(Container(100).ListItem.Property(Mpaa),FSK 6)">special://skin/extras/images/rating/FSK-6.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),FSK12) | String.Contains(Container(100).ListItem.Property(Mpaa),FSK 12)">special://skin/extras/images/rating/FSK-12.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),FSK16) | String.Contains(Container(100).ListItem.Property(Mpaa),FSK 16)">special://skin/extras/images/rating/FSK-16.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),FSK18) | String.Contains(Container(100).ListItem.Property(Mpaa),FSK 18)">special://skin/extras/images/rating/FSK-18.png</value>
-		<value condition="String.IsEqual(Container(100).Listitem.Property(Mpaa),Australia:G) | String.IsEqual(Container(100).Listitem.Property(Mpaa),Australia:TV-G) | String.IsEqual(Container(100).Listitem.Property(Mpaa),Australia:TV-C) | String.IsEqual(Container(100).Listitem.Property(Mpaa),Australia:TV-P)">special://skin/extras/images/rating/australia_g.png</value>
-		<value condition="String.Contains(Container(100).Listitem.Property(Mpaa),Australia:MA) | String.Contains(Container(100).Listitem.Property(Mpaa),Australia:TV-MA) | String.Contains(Container(100).Listitem.Property(Mpaa),Australia:TV-MAV) | String.Contains(Container(100).Listitem.Property(Mpaa),Australia:TV-AV)">special://skin/extras/images/rating/australia_ma.png</value>
-		<value condition="String.IsEqual(Container(100).Listitem.Property(Mpaa),Australia:M) | String.IsEqual(Container(100).Listitem.Property(Mpaa),Australia:TV-M)">special://skin/extras/images/rating/australia_m.png</value>
-		<value condition="String.IsEqual(Container(100).Listitem.Property(Mpaa),Australia:PG) | String.IsEqual(Container(100).Listitem.Property(Mpaa),Australia:TV-PG)">special://skin/extras/images/rating/australia_pg.png</value>
-		<value condition="String.IsEqual(Container(100).Listitem.Property(Mpaa),Australia:R) | String.IsEqual(Container(100).Listitem.Property(Mpaa),Australia:TV-R)">special://skin/extras/images/rating/australia_r.png</value>
-		<value condition="String.IsEqual(Container(100).ListItem.Property(Mpaa),Australia:X)">special://skin/extras/images/rating/australia_x.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),Brazil:Livre) | String.Contains(ListItem.Property(Mpaa),Livre)">special://skin/extras/images/rating/Brazil_Livre.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),Brazil:10) | String.Contains(Container(100).ListItem.Property(Mpaa),10 anos)">special://skin/extras/images/rating/Brazil_10.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),Brazil:12) | String.Contains(Container(100).ListItem.Property(Mpaa),12 anos)">special://skin/extras/images/rating/Brazil_12.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),Brazil:14) | String.Contains(Container(100).ListItem.Property(Mpaa),14 anos)">special://skin/extras/images/rating/Brazil_14.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),Brazil:16) | String.Contains(Container(100).ListItem.Property(Mpaa),16 anos)">special://skin/extras/images/rating/Brazil_16.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),Brazil:18) | String.Contains(Container(100).ListItem.Property(Mpaa),18 anos)">special://skin/extras/images/rating/Brazil_18.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),HU-KN)">special://skin/extras/images/rating/HU_KN.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),HU-12)">special://skin/extras/images/rating/HU_12.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),HU-16)">special://skin/extras/images/rating/HU_16.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),HU-18)">special://skin/extras/images/rating/HU_18.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),TV-Y) + ![String.Contains(Container(100).ListItem.Property(Mpaa),TV-Y7) | String.Contains(ListItem.Mpaa,TV-Y7-FV)]">special://skin/extras/images/rating/TV-Y.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),TV-Y7) | String.Contains(Container(100).ListItem.Property(Mpaa),TV-Y7-FV)">special://skin/extras/images/rating/TV-Y7.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),TV-G)">special://skin/extras/images/rating/TV-G.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),TV-PG)">special://skin/extras/images/rating/TV-PG.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),TV-14)">special://skin/extras/images/rating/TV-14.png</value>
-		<value condition="String.Contains(Container(100).ListItem.Property(Mpaa),TV-MA)">special://skin/extras/images/rating/TV-MA.png</value>
-	</variable>
 	<variable name="MediaRating">
 		<value condition="String.Contains(ListItem.UserRating,10)">rating10.png</value>
 		<value condition="String.Contains(ListItem.UserRating,9)">rating9.png</value>
@@ -1326,15 +1284,15 @@
 		<value condition="Container(9560).Position(4)">$INFO[Container(9560).ListItemNoWrap(1).Icon]</value>
 	</variable>
 	<variable name="WeatherView">
-		<value condition="!String.Contains(Weather.plugin,weather.openweathermap.extended) + !String.Contains(Weather.plugin,weather.ozweather)">Skin.SetString(weather-view,$LOCALIZE[10508])</value>
+		<value condition="!String.Contains(Weather.plugin,weather.gismeteo) + !String.Contains(Weather.plugin,weather.openweathermap.extended) + !String.Contains(Weather.plugin,weather.ozweather)">Skin.SetString(weather-view,$LOCALIZE[10508])</value>
 		<!-- Standard Forecast if not using extended forecast plugins -->
 		<value condition="[String.IsEqual(Skin.String(weather-view),$LOCALIZE[10508]) | String.IsEmpty(Skin.String(weather-view))] + String.Contains(Weather.plugin,weather.ozweather)">Skin.SetString(weather-view,$LOCALIZE[33035])</value>
 		<!-- Maps -->
-		<value condition="[String.IsEqual(Skin.String(weather-view),$LOCALIZE[10508]) | String.IsEmpty(Skin.String(weather-view))] + String.Contains(Weather.plugin,weather.openweathermap.extended)">Skin.SetString(weather-view,$LOCALIZE[33034])</value>
+		<value condition="[String.IsEqual(Skin.String(weather-view),$LOCALIZE[10508]) | String.IsEmpty(Skin.String(weather-view))] + [String.Contains(Weather.plugin,weather.openweathermap.extended) | String.Contains(Weather.plugin,weather.gismeteo)]">Skin.SetString(weather-view,$LOCALIZE[33034])</value>
 		<!-- 36 Hour forecast -->
-		<value condition="String.IsEqual(Skin.String(weather-view),$LOCALIZE[33034]) + String.Contains(Weather.plugin,weather.openweathermap.extended)">Skin.SetString(weather-view,$LOCALIZE[33037])</value>
+		<value condition="String.IsEqual(Skin.String(weather-view),$LOCALIZE[33034]) + [String.Contains(Weather.plugin,weather.openweathermap.extended) | String.Contains(Weather.plugin,weather.gismeteo)]">Skin.SetString(weather-view,$LOCALIZE[33037])</value>
 		<!-- Weekend forecast -->
-		<value condition="String.IsEqual(Skin.String(weather-view),$LOCALIZE[33037]) + String.Contains(Weather.plugin,weather.openweathermap.extended)">Skin.SetString(weather-view,$LOCALIZE[33036])</value>
+		<value condition="String.IsEqual(Skin.String(weather-view),$LOCALIZE[33037]) + [String.Contains(Weather.plugin,weather.openweathermap.extended) | String.Contains(Weather.plugin,weather.gismeteo)]">Skin.SetString(weather-view,$LOCALIZE[33036])</value>
 		<!-- Hourly -->
 		<value condition="String.IsEqual(Skin.String(weather-view),$LOCALIZE[33036]) + String.Contains(Weather.plugin,weather.openweathermap.extended)">Skin.SetString(weather-view,$LOCALIZE[10508])</value>
 		<!-- Maps -->
@@ -4226,14 +4184,6 @@
 							<textcolor>disabled-text</textcolor>
 							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
-						<control type="label">
-							<height>30</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv20</font>
-							<align>center</align>
-							<textcolor>listselected-text</textcolor>
-							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
-						</control>
 					</itemlayout>
 					<focusedlayout height="33" width="30">
 						<control type="label">
@@ -4301,14 +4251,6 @@
 							<textcolor>disabled-text</textcolor>
 							<align>center</align>
 							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-						</control>
-						<control type="label">
-							<height>30</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv20</font>
-							<textcolor>listselected-text</textcolor>
-							<align>center</align>
-							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter)</visible>
 						</control>
 					</itemlayout>
 					<focusedlayout height="33" width="66">
