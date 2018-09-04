@@ -11,7 +11,7 @@
 			<texturefocus>blank.png</texturefocus>
 			<texturenofocus>blank.png</texturenofocus>
 			<onclick>noop</onclick>
-			<visible>![String.IsEqual(Skin.String(weather-view),$LOCALIZE[33035]) + String.Contains(Weather.plugin,weather.openweathermap.extended)]</visible>
+			<visible>![String.IsEqual(Skin.String(weather-view),$LOCALIZE[33035]) + [String.Contains(Weather.plugin,weather.openweathermap.extended) | String.Contains(Weather.plugin,weather.gismeteo)]]</visible>
 		</control>
 		<control type="label">
 			<!-- Weather heading label -->
@@ -69,7 +69,7 @@
 		</control>
 		<include file="Includes_Weather.xml">standardweather</include>
 		<include condition="String.Contains(Weather.plugin,weather.ozweather)" file="Includes_Weather.xml">ozweather</include>
-		<include condition="String.Contains(Weather.plugin,weather.openweathermap.extended)" file="Includes_Weather.xml">openweatherextended</include>
+		<include condition="String.Contains(Weather.plugin,weather.openweathermap.extended) | String.Contains(Weather.plugin,weather.gismeteo)" file="Includes_Weather.xml">openweatherextended</include>
 		<control type="label">
 			<!-- Update label -->
 			<left>1350</left>
