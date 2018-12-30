@@ -1623,6 +1623,10 @@
 		<value condition="!String.IsEmpty(Skin.String(home-programs-icon))">$INFO[Skin.String(home-programs-icon)]</value>
 		<value>special://skin/extras/homeicons/addons.png</value>
 	</variable>
+	<variable name="HomeGamesIcon">
+		<value condition="!String.IsEmpty(Skin.String(home-programs-icon))">$INFO[Skin.String(home-games-icon)]</value>
+		<value>special://skin/extras/homeicons/games.png</value>
+	</variable>
 	<variable name="HomePhotosIcon">
 		<value condition="!String.IsEmpty(Skin.String(home-photos-icon))">$INFO[Skin.String(home-photos-icon)]</value>
 		<value>special://skin/extras/homeicons/pics.png</value>
@@ -1667,6 +1671,8 @@
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-radio)">special://skin/extras/homeicons/radio.png</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-programs) + !String.IsEmpty(Skin.String(home-programs-icon))">$INFO[Skin.String(home-programs-icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-programs)">special://skin/extras/homeicons/addons.png</value>
+		<value condition="String.Contains(Window(settings).Property(ListToggle),home-games) + !String.IsEmpty(Skin.String(home-games-icon))">$INFO[Skin.String(home-games-icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListToggle),home-programs)">special://skin/extras/homeicons/games.png</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-photos) + !String.IsEmpty(Skin.String(home-photos-icon))">$INFO[Skin.String(home-photos-icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-photos)">special://skin/extras/homeicons/pics.png</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-favorites) + !String.IsEmpty(Skin.String(home-favorites-icon))">$INFO[Skin.String(home-favorites-icon)]</value>

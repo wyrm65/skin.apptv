@@ -395,6 +395,12 @@
 					<visible>!String.IsEmpty(Skin.String(CustomAddon.5.Path))</visible>
 				</item>
 				<item>
+					<thumb>DefaultGameAddons.png</thumb>
+					<label>$LOCALIZE[15016]</label>
+					<onclick>ActivateWindow(games,,return)</onclick>
+					<visible>!Skin.HasSetting(home-games)</visible>
+				</item>
+				<item>
 					<thumb>DefaultPicture.png</thumb>
 					<label>$LOCALIZE[1]</label>
 					<onclick>ActivateWindow(pictures,,return)</onclick>

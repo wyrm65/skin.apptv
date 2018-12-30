@@ -1322,7 +1322,6 @@
 							<content>
 								<item>
 									<label>$LOCALIZE[5]</label>
-									<onclick>noop</onclick>
 									<property name="isActive">true</property>
 									<property name="menuHeading">$LOCALIZE[13000]</property>
 								</item>
@@ -1494,7 +1493,6 @@
 							<property name="visibleToggle"/>
 							<thumb>special://skin/extras/homeicons/setting.png</thumb>
 							<label>$LOCALIZE[5]</label>
-							<onclick>noop</onclick>
 							<property name="isActive">true</property>
 							<property name="menuID">9021</property>
 						</item>
@@ -1525,6 +1523,13 @@
 							<param name="itemcondition" value="!Skin.HasSetting(home-programs)" />
 							<param name="itemmenuid" value="9021" />
 							<param name="itemtoggle" value="home-programs" />
+						</include>
+						<include content="listpanelitems">
+							<param name="itemthumb" value="$VAR[HomeGamesIcon]" />
+							<param name="itemlabel" value="$LOCALIZE[15016]" />
+							<param name="itemcondition" value="!Skin.HasSetting(home-games)" />
+							<param name="itemmenuid" value="9021" />
+							<param name="itemtoggle" value="home-games" />
 						</include>
 						<include content="listpanelitems">
 							<param name="itemthumb" value="$VAR[HomePhotosIcon]" />
@@ -2170,6 +2175,13 @@
 							<param name="itemmenuid" value="9031" />
 						</include>
 						<include content="listpanelitems">
+							<param name="itemthumb" value="DefaultGameAddons.png" />
+							<param name="itemlabel" value="$LOCALIZE[15016]" />
+							<param name="itemcondition" value="!Skin.HasSetting(home-games)" />
+							<param name="itemmenuid" value="9031" />
+							<param name="itemtoggle" value="home-games" />
+						</include>
+						<include content="listpanelitems">
 							<param name="itemthumb" value="DefaultPicture.png" />
 							<param name="itemlabel" value="$LOCALIZE[1]" />
 							<param name="itemcondition" value="Skin.HasSetting(home-photos)" />
@@ -2223,7 +2235,6 @@
 							<property name="visibleToggle"/>
 							<thumb>icon-settings.png</thumb>
 							<label>$LOCALIZE[5]</label>
-							<onclick>noop</onclick>
 							<property name="isActive">true</property>
 							<property name="menuID">9031</property>
 						</item>

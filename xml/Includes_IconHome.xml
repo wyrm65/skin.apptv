@@ -378,6 +378,14 @@
 					<onclick>ActivateWindow(1155,,return)</onclick>
 				</item>
 				<item>
+					<!-- Games menu -->
+					<visible>!Skin.HasSetting(home-games)</visible>
+					<thumb>special://skin/extras/homeicons/games.png</thumb>
+					<label>$LOCALIZE[15016]</label>
+					<label2>$LOCALIZE[571]</label2>
+					<onclick>ActivateWindow(games,,return)</onclick>
+				</item>
+				<item>
 					<!-- Pictures -->
 					<visible>Skin.HasSetting(home-photos)</visible>
 					<thumb>$VAR[HomePhotosIcon]</thumb>
