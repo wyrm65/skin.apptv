@@ -5,14 +5,7 @@
 	<onload>Dialog.Close(videoosd,true)</onload>
 	<controls>
 		<control type="group">
-			<animation type="WindowOpen" reversible="false">
-				<effect type="fade" start="0" end="100" time="400" />
-				<effect type="slide" start="0,-181" end="0,0" time="400" />
-			</animation>
-			<animation type="WindowClose" reversible="false">
-				<effect type="fade" start="100" end="0" time="400" />
-				<effect type="slide" start="0,0" end="0,-181" time="400" />
-			</animation>
+			<include>window-openclose</include>
 			<control type="group">
 				<height>181</height>
 				<!-- Background -->
@@ -31,7 +24,7 @@
 						<left>10</left>
 						<width>230</width>
 						<height>121</height>
-						<font>apptv23</font>
+						<font>apptv22</font>
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>$INFO[Window.Property(tvshowtitle)]</label>
@@ -96,7 +89,7 @@
 							<width>auto</width>
 							<height>35</height>
 							<aligny>center</aligny>
-							<font>apptv23</font>
+							<font>apptv22</font>
 							<label>$INFO[Window.Property(tvshowtitle),, - ]$INFO[Window.Property(season),S,]$INFO[Window.Property(episode),E, - ]$INFO[Window.Property(title)]   </label>
 							<visible>!String.IsEmpty(Window.Property(title))</visible>
 						</control>
@@ -104,7 +97,7 @@
 							<width>auto</width>
 							<height>35</height>
 							<aligny>center</aligny>
-							<font>apptv23</font>
+							<font>apptv22</font>
 							<label>$INFO[Window.Property(year),,   ]</label>
 							<visible>!String.IsEmpty(Window.Property(year))</visible>
 						</control>
@@ -121,7 +114,7 @@
 							<height>35</height>
 							<aligny>center</aligny>
 							<label>$INFO[Window.Property(rating), ,   ]</label>
-							<font>apptv23</font>
+							<font>apptv22</font>
 							<visible>!String.IsEmpty(Window.Property(rating))</visible>
 						</control>
 					</control>
@@ -135,7 +128,7 @@
 							<label>    $ADDON[service.upnext 30006]</label>
 							<height>56</height>
 							<width min="50">auto</width>
-							<font>apptv22</font>
+							<font>apptv23</font>
 							<aligny>center</aligny>
 							<align>center</align>
 						</control>
@@ -143,7 +136,7 @@
 							<label>$ADDON[service.upnext 30034]</label>
 							<height>56</height>
 							<width min="50">auto</width>
-							<font>apptv22</font>
+							<font>apptv23</font>
 							<aligny>center</aligny>
 							<align>center</align>
 						</control>

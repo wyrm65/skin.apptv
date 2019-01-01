@@ -5,14 +5,7 @@
 	<onload>Dialog.Close(videoosd,true)</onload>
 	<controls>
 		<control type="group">
-			<animation type="WindowOpen" reversible="false">
-				<effect type="fade" start="0" end="100" time="600" />
-				<effect type="slide" start="0,-115" end="0,0" time="600" />
-			</animation>
-			<animation type="WindowClose" reversible="false">
-				<effect type="fade" start="100" end="0" time="400" />
-				<effect type="slide" start="0,0" end="0,-115" time="400" />
-			</animation>
+			<include>window-openclose</include>
 			<control type="group">
 				<height>80</height>
 				<!-- Background -->
@@ -36,7 +29,7 @@
 							<label>    $ADDON[service.upnext 30010] $ADDON[service.upnext 30036] [COLOR ProgressBarColor]$INFO[Player.TimeRemaining(ss),,][/COLOR] $ADDON[service.upnext 30035]</label>
 							<height>56</height>
 							<width min="50">auto</width>
-							<font>apptv22</font>
+							<font>apptv23</font>
 							<aligny>center</aligny>
 							<align>center</align>
 						</control>
@@ -44,7 +37,7 @@
 							<label>$ADDON[service.upnext 30034]</label>
 							<height>56</height>
 							<width min="50">auto</width>
-							<font>apptv22</font>
+							<font>apptv23</font>
 							<aligny>center</aligny>
 							<align>center</align>
 						</control>
@@ -53,7 +46,7 @@
 							<width>auto</width>
 							<height>56</height>
 							<aligny>center</aligny>
-							<font>apptv30</font>
+							<font>apptv25</font>
 							<label>[CAPITALIZE]$ADDON[service.upnext 30024][/CAPITALIZE]</label>
 						</control>
 					</control>
