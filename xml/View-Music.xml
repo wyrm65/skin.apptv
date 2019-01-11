@@ -589,7 +589,7 @@
 			<left>6</left>
 			<top>444</top>
 			<width>1860</width>
-			<height>549</height>
+			<height>462</height>
 			<onleft>54</onleft>
 			<onright>54</onright>
 			<onup condition="Skin.HasSetting(lock-screensettings)">4541</onup>
@@ -600,14 +600,14 @@
 			<preloaditems>4</preloaditems>
 			<scrolltime>0</scrolltime>
 			<pagecontrol>1254</pagecontrol>
-			<itemlayout height="233" width="233">
+			<itemlayout height="200" width="200">
 				<control type="group">
 					<visible>Container.Content(albums) | Container.Content(songs)</visible>
 					<control type="image">
-						<left>-80</left>
-						<top>240</top>
-						<height>216</height>
-						<width>228</width>
+						<left>0</left>
+						<top>276</top>
+						<height>180</height>
+						<width>194</width>
 						<colordiffuse>UnFocusedCovers</colordiffuse>
 						<texture background="true">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
@@ -616,10 +616,10 @@
 						<visible>$EXP[isnotDefaultIcon] + Skin.HasSetting(media-case)</visible>
 					</control>
 					<control type="image">
-						<left>-48</left>
-						<top>245</top>
-						<height>192</height>
-						<width>192</width>
+						<left>32</left>
+						<top>276</top>
+						<height>160</height>
+						<width>160</width>
 						<colordiffuse>UnFocusedCovers</colordiffuse>
 						<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
@@ -629,69 +629,68 @@
 				<control type="group">
 					<visible>!Container.Content(albums) + !Container.Content(songs)</visible>
 					<control type="image">
-						<left>-48</left>
-						<top>245</top>
-						<height>192</height>
-						<width>192</width>
+						<left>32</left>
+						<top>276</top>
+						<height>160</height>
+						<width>160</width>
 						<colordiffuse>UnFocusedCovers</colordiffuse>
 						<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 						<aspectratio aligny="bottom">keep</aspectratio>
 					</control>
 					<control type="image">
-						<left>-50</left>
+						<left>30</left>
 						<top>200</top>
-						<height>48</height>
-						<width>48</width>
+						<height>32</height>
+						<width>32</width>
 						<texture>$INFO[ListItem.Overlay]</texture>
 						<colordiffuse>UnFocusedCovers</colordiffuse>
 					</control>
 				</control>
 			</itemlayout>
-			<focusedlayout height="549" width="549">
+			<focusedlayout height="462" width="462">
 				<control type="group">
 					<visible>Container.Content(albums) | Container.Content(songs)</visible>
 					<control type="image">
-						<left>130</left>
-						<top>160</top>
+						<left>0</left>
+						<top>240</top>
 						<height>216</height>
-						<width>228</width>
+						<width>232</width>
 						<texture background="true">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
 						<bordertexture border="28,18,4,19">case-cd.png</bordertexture>
 						<bordersize>28,18,4,19</bordersize>
-						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
-						<animation effect="zoom" start="100" end="185" center="auto" condition="true">Conditional</animation>
+						<animation effect="zoom" start="100" end="185" center="-16,440" time="0" tween="back" easing="out" reversible="false" condition="true">Conditional</animation>
 						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + $EXP[isnotEmptyIcon]</visible>
 					</control>
 					<control type="image">
-						<left>156</left>
-						<top>162</top>
-						<height>192</height>
-						<width>192</width>
+						<left>0</left>
+						<top>228</top>
+						<height>232</height>
+						<width>232</width>
 						<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
-						<aspectratio>stretch</aspectratio>
+						<aspectratio aligny="bottom">stretch</aspectratio>
 						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
-						<animation effect="zoom" start="100" end="185" center="auto" condition="true">Conditional</animation>
+						<animation effect="zoom" start="100" end="160" center="-62,496" time="0" tween="back" easing="out" reversible="false" condition="true">Conditional</animation>
 						<visible>!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | $EXP[isEmptyIcon]</visible>
 					</control>
 				</control>
 				<control type="group">
 					<visible>!Container.Content(albums) + !Container.Content(songs)</visible>
 					<control type="image">
-						<left>156</left>
-						<top>162</top>
-						<height>192</height>
-						<width>192</width>
+						<left>0</left>
+						<top>228</top>
+						<height>232</height>
+						<width>232</width>
 						<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 						<aspectratio aligny="bottom">keep</aspectratio>
-						<animation effect="zoom" start="100" end="185" center="auto" condition="true">Conditional</animation>
+						<animation effect="zoom" start="100" end="160" center="-62,496" time="0" tween="back" easing="out" reversible="false" condition="true">Conditional</animation>
 						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 					</control>
 					<control type="image">
-						<left>70</left>
-						<top>30</top>
-						<height>60</height>
-						<width>60</width>
+						<left>68</left>
+						<top>28</top>
+						<height>64</height>
+						<width>64</width>
 						<texture>$INFO[ListItem.Overlay]</texture>
 					</control>
 					<control type="label">
@@ -1302,10 +1301,10 @@
 	</include>
 	<include name="AudioWallView">
 		<control type="panel" id="58">
-			<left>765</left>
-			<top>192</top>
-			<width>1064</width>
-			<height>797</height>
+			<left>792</left>
+			<top>188</top>
+			<width>1010</width>
+			<height>808</height>
 			<onleft condition="Skin.HasSetting(lock-screensettings)">4581</onleft>
 			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
 			<onright>$VAR[ListScrollNavMusic]</onright>
@@ -1319,12 +1318,12 @@
 				<effect type="slide" end="82,0" />
 				<effect type="zoom" start="100" end="115" center="auto" tween="back" easing="out" />
 			</animation>
-			<itemlayout height="266" width="266">
+			<itemlayout height="202" width="202">
 				<control type="image">
 					<left>1</left>
 					<top>1</top>
-					<width>264</width>
-					<height>264</height>
+					<width>200</width>
+					<height>200</height>
 					<aspectratio>stretch</aspectratio>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 					<texture diffuse="mask-squ.png" background="true">$VAR[IconCover]</texture>
@@ -1333,8 +1332,8 @@
 				<control type="image">
 					<left>1</left>
 					<top>1</top>
-					<width>264</width>
-					<height>264</height>
+					<width>200</width>
+					<height>200</height>
 					<aspectratio>stretch</aspectratio>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 					<texture diffuse="mask-squ.png" background="true">$VAR[IconCover]</texture>
@@ -1345,8 +1344,8 @@
 					<control type="image">
 						<left>1</left>
 						<top>1</top>
-						<width>264</width>
-						<height>264</height>
+						<width>200</width>
+						<height>200</height>
 						<aspectratio>stretch</aspectratio>
 						<colordiffuse>UnFocusedCovers</colordiffuse>
 						<texture diffuse="mask-squ.png" background="true">$VAR[IconCover]</texture>
@@ -1354,22 +1353,22 @@
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
-						<height>48</height>
-						<width>48</width>
+						<height>32</height>
+						<width>32</width>
 						<texture>$INFO[ListItem.Overlay]</texture>
 					</control>
 				</control>
 			</itemlayout>
-			<focusedlayout height="266" width="266">
+			<focusedlayout height="202" width="202">
 				<control type="image">
 					<left>1</left>
 					<top>1</top>
-					<width>264</width>
-					<height>264</height>
+					<width>200</width>
+					<height>200</height>
 					<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 					<aspectratio>stretch</aspectratio>
 					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
-					<animation effect="zoom" start="100" end="112" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
+					<animation effect="zoom" start="100" end="114" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
 					<visible>$EXP[isDefaultIcon]</visible>
 				</control>
 				<control type="group">
@@ -1377,48 +1376,48 @@
 					<control type="image">
 						<left>1</left>
 						<top>1</top>
-						<width>264</width>
-						<height>264</height>
+						<width>200</width>
+						<height>200</height>
 						<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
-						<bordertexture border="10">mask-hilite.png</bordertexture>
-						<bordersize>10</bordersize>
+						<bordertexture border="12">mask-hilite.png</bordertexture>
+						<bordersize>12</bordersize>
 						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
-						<animation effect="zoom" start="100" end="112" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
+						<animation effect="zoom" start="100" end="114" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
 						<visible>!Container.Content(addons) + !Container.Content(musicvideos)</visible>
 					</control>
 					<control type="image">
 						<left>1</left>
 						<top>1</top>
-						<width>264</width>
-						<height>264</height>
+						<width>200</width>
+						<height>200</height>
 						<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
-						<bordertexture border="10">mask-hilite.png</bordertexture>
-						<bordersize>10</bordersize>
+						<bordertexture border="12">mask-hilite.png</bordertexture>
+						<bordersize>12</bordersize>
 						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
-						<animation effect="zoom" start="100" end="112" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
+						<animation effect="zoom" start="100" end="114" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
 						<visible>Container.Content(addons)</visible>
 					</control>
 					<control type="group">
 						<visible>Container.Content(musicvideos)</visible>
-						<animation effect="zoom" start="100" end="112" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
+						<animation effect="zoom" start="100" end="114" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
 						<control type="image">
 							<left>1</left>
 							<top>1</top>
-							<width>264</width>
-							<height>264</height>
+							<width>200</width>
+							<height>200</height>
 							<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 							<aspectratio>stretch</aspectratio>
-							<bordertexture border="10">mask-hilite.png</bordertexture>
-							<bordersize>10</bordersize>
+							<bordertexture border="12">mask-hilite.png</bordertexture>
+							<bordersize>12</bordersize>
 							<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 						</control>
 						<control type="image">
-							<left>10</left>
-							<top>10</top>
-							<height>48</height>
-							<width>48</width>
+							<left>8</left>
+							<top>8</top>
+							<height>32</height>
+							<width>32</width>
 							<texture>$INFO[ListItem.Overlay]</texture>
 						</control>
 					</control>
