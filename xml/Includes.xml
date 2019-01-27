@@ -180,6 +180,10 @@
 		<value condition="Control.IsVisible(3)">$INFO[Container(3).NumItems,(,)]</value>
 		<value condition="Control.IsVisible(6)">$INFO[Container(6).NumItems,(,)]</value>
 	</variable>
+	<variable name="MasterModeLabel">
+		<value condition="!System.IsMaster">$LOCALIZE[20045]</value>
+		<value>$LOCALIZE[20046]</value>
+	</variable>
 	<variable name="DelayListAnimation">
 		<value condition="String.IsEqual(Skin.String(listview-idleanim),60)">60$LOCALIZE[31810]</value>
 		<value condition="String.IsEqual(Skin.String(listview-idleanim),90)">90$LOCALIZE[31810]</value>
@@ -469,6 +473,7 @@
 	<variable name="CustomDialogSelectHeading">
 		<value condition="String.IsEqual(Window(home).Property(SelectDialogType),videoinfomore)">$LOCALIZE[31693]</value>
 		<value condition="String.IsEqual(Window(home).Property(SelectDialogType),musicinfomore)">$LOCALIZE[31693]</value>
+		<value condition="String.IsEqual(Window(home).Property(SelectDialogType),gamesettings)">$LOCALIZE[10022]</value>
 	</variable>
 	<variable name="IconBanner">
 		<value condition="!String.IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
@@ -1409,7 +1414,6 @@
 	</variable>
 	<variable name="SystemPlatform">
 		<value condition="System.Platform.Windows">$LOCALIZE[31566] $LOCALIZE[31568]</value>
-		<value condition="System.Platform.ATV2">$LOCALIZE[31566] $LOCALIZE[31573]</value>
 		<value condition="System.Platform.IOS">$LOCALIZE[31566] $LOCALIZE[31569]</value>
 		<value condition="System.Platform.OSX">$LOCALIZE[31566] $LOCALIZE[31570]</value>
 		<value condition="System.Platform.Android">$LOCALIZE[31566] $LOCALIZE[31572]</value>
