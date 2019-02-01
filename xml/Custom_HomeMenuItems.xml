@@ -876,7 +876,7 @@
 						<onclick>Skin.Reset($INFO[Window(settings).Property(ListToggle)])</onclick>
 						<onclick>ClearProperty(ShowQuit,settings)</onclick>
 						<onclick>SetFocus(5000)</onclick>
-						<visible>System.CanReboot + System.Platform.Android</visible>
+						<visible>System.CanReboot + [System.Platform.Android | System.Platform.Linux]</visible>
 					</item>
 					<item>
 						<!-- Custom Quit - Power down -->

@@ -131,7 +131,8 @@
 					<label>$LOCALIZE[31554]</label>
 					<onclick>SetProperty(ShutdownKodi,true,home)</onclick>
 					<onclick>System.ExecWait("/usr/sbin/rebootfromnand")</onclick>
-					<visible>System.Platform.Android</visible>
+					<onclick>Reset()</onclick>
+					<visible>System.Platform.Android | System.Platform.Linux</visible>
 				</item>
 				<item>
 					<label>$LOCALIZE[20126] $INFO[system.profilename]</label>
