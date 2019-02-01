@@ -1275,9 +1275,9 @@
 			<control type="label">
 				<!-- Title -->
 				<left>408</left>
-				<top>650</top>
+				<top>672</top>
 				<width>1394</width>
-				<height>56</height>
+				<height>48</height>
 				<font>apptv30</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
@@ -1288,9 +1288,9 @@
 			<control type="label">
 				<!-- Go Back -->
 				<left>408</left>
-				<top>650</top>
+				<top>672</top>
 				<width>1394</width>
-				<height>56</height>
+				<height>48</height>
 				<font>apptv30</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
@@ -1327,6 +1327,29 @@
 					<aligny>bottom</aligny>
 					<texture>$VAR[VideoRating]</texture>
 					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="textbox">
+					<!-- Plot Outline -->
+					<left>820</left>
+					<top>452</top>
+					<width>1050</width>
+					<height>216</height>
+					<font>apptv18</font>
+					<label>$INFO[ListItem.PlotOutline]</label>
+					<align>justify</align>
+					<aligny>top</aligny>
+				</control>
+				<control type="textbox">
+					<!-- Plot (Show if no outline available) -->
+					<left>820</left>
+					<top>452</top>
+					<width>1050</width>
+					<height>216</height>
+					<font>apptv18</font>
+					<label>$INFO[ListItem.Plot]</label>
+					<align>justify</align>
+					<aligny>top</aligny>
+					<visible>String.IsEmpty(ListItem.PlotOutline) + !String.IsEmpty(ListItem.Plot)</visible>
 				</control>
 			</control>
 			<include>sortletternotification</include>
