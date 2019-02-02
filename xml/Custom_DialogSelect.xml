@@ -208,7 +208,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>String.IsEqual(Window(home).Property(SelectDialogType),videoinfomore) | String.IsEqual(Window(home).Property(SelectDialogType),musicinfomore)</visible>
+			<visible>String.IsEqual(Window(home).Property(SelectDialogType),videoinfomore) | String.IsEqual(Window(home).Property(SelectDialogType),musicinfomore | String.IsEqual(Window(home).Property(SelectDialogType),gamesettings)</visible>
 			<left>506</left>
 			<top>330</top>
 			<control type="image">
@@ -254,8 +254,8 @@
 				<width>831</width>
 				<height>375</height>
 				<viewtype label="536">list</viewtype>
-				<onright>998</onright>
-				<onleft>998</onleft>
+				<onright>Dialog.Close(1154)</onright>
+				<onleft>Dialog.Close(1154)</onleft>
 				<itemlayout height="75">
 					<control type="image">
 						<left>0</left>
@@ -270,7 +270,7 @@
 						<width>771</width>
 						<height>75</height>
 						<label>$INFO[ListItem.Label]</label>
-						<font>apptv22</font>
+						<font>apptv20</font>
 					</control>
 				</itemlayout>
 				<focusedlayout height="75">
@@ -288,7 +288,7 @@
 						<width>771</width>
 						<height>75</height>
 						<label>$INFO[ListItem.Label]</label>
-						<font>apptv22</font>
+						<font>apptv20</font>
 					</control>
 				</focusedlayout>
 				<content>
@@ -341,6 +341,37 @@
 						<onclick>Dialog.Close(1154)</onclick>
 						<onclick>RunScript(script.libraryeditor,DBID=$INFO[ListItem.DBID])</onclick>
 						<visible>String.IsEqual(Window(home).Property(SelectDialogType),musicinfomore) + System.HasAddon(script.libraryeditor) + $EXP[isnotEmptyDBID]</visible>
+					</item>
+					<!-- Advanced game settings options -->
+					<item>
+						<label>$LOCALIZE[35225]</label>
+						<onclick>Dialog.Close(1154)</onclick>
+						<onclick>ActivateWindow(GameVideoFilter)</onclick>
+						<visible>String.IsEqual(Window(home).Property(SelectDialogType),gamesettings)</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[629]</label>
+						<onclick>Dialog.Close(1154)</onclick>
+						<onclick>ActivateWindow(GameViewMode)</onclick>
+						<visible>String.IsEqual(Window(home).Property(SelectDialogType),gamesettings)</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[13376]</label>
+						<onclick>Dialog.Close(1154)</onclick>
+						<onclick>ActivateWindow(GameVolume)</onclick>
+						<visible>String.IsEqual(Window(home).Property(SelectDialogType),gamesettings)</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[35234]</label>
+						<onclick>Dialog.Close(1154)</onclick>
+						<onclick>ActivateWindow(GameControllers)</onclick>
+						<visible>String.IsEqual(Window(home).Property(SelectDialogType),gamesettings)</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[35226]</label>
+						<onclick>Dialog.Close(1154)</onclick>
+						<onclick>ActivateWindow(GameAdvancedSettings)</onclick>
+						<visible>String.IsEqual(Window(home).Property(SelectDialogType),gamesettings)</visible>
 					</item>
 				</content>
 			</control>
