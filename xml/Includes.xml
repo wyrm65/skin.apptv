@@ -1628,7 +1628,7 @@
 		<value>special://skin/extras/homeicons/addons.png</value>
 	</variable>
 	<variable name="HomeGamesIcon">
-		<value condition="!String.IsEmpty(Skin.String(home-programs-icon))">$INFO[Skin.String(home-games-icon)]</value>
+		<value condition="!String.IsEmpty(Skin.String(home-games-icon))">$INFO[Skin.String(home-games-icon)]</value>
 		<value>special://skin/extras/homeicons/games.png</value>
 	</variable>
 	<variable name="HomePhotosIcon">
@@ -1676,7 +1676,7 @@
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-programs) + !String.IsEmpty(Skin.String(home-programs-icon))">$INFO[Skin.String(home-programs-icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-programs)">special://skin/extras/homeicons/addons.png</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-games) + !String.IsEmpty(Skin.String(home-games-icon))">$INFO[Skin.String(home-games-icon)]</value>
-		<value condition="String.Contains(Window(settings).Property(ListToggle),home-programs)">special://skin/extras/homeicons/games.png</value>
+		<value condition="String.Contains(Window(settings).Property(ListToggle),home-games)">special://skin/extras/homeicons/games.png</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-photos) + !String.IsEmpty(Skin.String(home-photos-icon))">$INFO[Skin.String(home-photos-icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-photos)">special://skin/extras/homeicons/pics.png</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-favorites) + !String.IsEmpty(Skin.String(home-favorites-icon))">$INFO[Skin.String(home-favorites-icon)]</value>
@@ -1727,6 +1727,11 @@
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.3)">$INFO[Skin.String(CustomAddon.3.Path)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.4)">$INFO[Skin.String(CustomAddon.4.Path)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.5)">$INFO[Skin.String(CustomAddon.5.Path)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.1)">$INFO[Skin.String(CustomGame.1.Path)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.2)">$INFO[Skin.String(CustomGame.2.Path)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.3)">$INFO[Skin.String(CustomGame.3.Path)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.4)">$INFO[Skin.String(CustomGame.4.Path)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.5)">$INFO[Skin.String(CustomGame.5.Path)]</value>
 	</variable>
 	<variable name="CustomPlaylistAction">
 		<!-- Show custom skin playlist action in customisation dialog -->
@@ -1765,6 +1770,11 @@
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.3) + !Skin.HasSetting(CustomAddon.3.Show)">$LOCALIZE[14098]</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.4) + !Skin.HasSetting(CustomAddon.4.Show)">$LOCALIZE[14098]</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.5) + !Skin.HasSetting(CustomAddon.5.Show)">$LOCALIZE[14098]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.1) + !Skin.HasSetting(CustomGame.1.Show)">$LOCALIZE[14098]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.2) + !Skin.HasSetting(CustomGame.2.Show)">$LOCALIZE[14098]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.3) + !Skin.HasSetting(CustomGame.3.Show)">$LOCALIZE[14098]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.4) + !Skin.HasSetting(CustomGame.4.Show)">$LOCALIZE[14098]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.5) + !Skin.HasSetting(CustomGame.5.Show)">$LOCALIZE[14098]</value>
 		<value>$LOCALIZE[31941]</value>
 	</variable>
 	<variable name="CustomSkinPlaylist">
@@ -1804,6 +1814,11 @@
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.3)">$INFO[Skin.String(CustomAddon.3.List)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.4)">$INFO[Skin.String(CustomAddon.4.List)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.5)">$INFO[Skin.String(CustomAddon.5.List)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.1)">$INFO[Skin.String(CustomGame.1.List)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.2)">$INFO[Skin.String(CustomGame.2.List)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.3)">$INFO[Skin.String(CustomGame.3.List)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.4)">$INFO[Skin.String(CustomGame.4.List)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.5)">$INFO[Skin.String(CustomGame.5.List)]</value>
 	</variable>
 	<variable name="CustomPlaylistMusic">
 		<!-- Custom skin item playlist action (List Music) in customisation dialog -->
@@ -1842,6 +1857,11 @@
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.3)">ActivateWindow(music,$INFO[Skin.String(CustomAddon.3.List)],return)</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.4)">ActivateWindow(music,$INFO[Skin.String(CustomAddon.4.List)],return)</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.5)">ActivateWindow(music,$INFO[Skin.String(CustomAddon.5.List)],return)</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.1)">ActivateWindow(music,$INFO[Skin.String(CustomGame.1.List)],return)</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.2)">ActivateWindow(music,$INFO[Skin.String(CustomGame.2.List)],return)</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.3)">ActivateWindow(music,$INFO[Skin.String(CustomGame.3.List)],return)</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.4)">ActivateWindow(music,$INFO[Skin.String(CustomGame.4.List)],return)</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.5)">ActivateWindow(music,$INFO[Skin.String(CustomGame.5.List)],return)</value>
 	</variable>
 	<variable name="CustomPlaylistVideo">
 		<!-- Custom skin item playlist action (List Video) in customisation dialog -->
@@ -1880,6 +1900,11 @@
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.3)">ActivateWindow(videos,$INFO[Skin.String(CustomAddon.3.List)],return)</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.4)">ActivateWindow(videos,$INFO[Skin.String(CustomAddon.4.List)],return)</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.5)">ActivateWindow(videos,$INFO[Skin.String(CustomAddon.5.List)],return)</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.1)">ActivateWindow(videos,$INFO[Skin.String(CustomGame.1.List)],return)</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.2)">ActivateWindow(videos,$INFO[Skin.String(CustomGame.2.List)],return)</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.3)">ActivateWindow(videos,$INFO[Skin.String(CustomGame.3.List)],return)</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.4)">ActivateWindow(videos,$INFO[Skin.String(CustomGame.4.List)],return)</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.5)">ActivateWindow(videos,$INFO[Skin.String(CustomGame.5.List)],return)</value>
 	</variable>
 	<variable name="CustomPlaylistPlay">
 		<!-- Custom skin item playlist action (Play playlist) in customisation dialog -->
@@ -1918,6 +1943,11 @@
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.3)">$INFO[Skin.String(CustomAddon.3.List),PlayMedia(",")]</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.4)">$INFO[Skin.String(CustomAddon.4.List),PlayMedia(",")]</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.5)">$INFO[Skin.String(CustomAddon.5.List),PlayMedia(",")]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.1)">$INFO[Skin.String(CustomGame.1.List),PlayMedia(",")]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.2)">$INFO[Skin.String(CustomGame.2.List),PlayMedia(",")]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.3)">$INFO[Skin.String(CustomGame.3.List),PlayMedia(",")]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.4)">$INFO[Skin.String(CustomGame.4.List),PlayMedia(",")]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.5)">$INFO[Skin.String(CustomGame.5.List),PlayMedia(",")]</value>
 	</variable>
 	<variable name="CustomSkinIcon">
 		<!-- Show custom skin item icon in customisation dialog -->
@@ -1956,6 +1986,11 @@
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.3)">$INFO[Skin.String(CustomAddon.3.Icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.4)">$INFO[Skin.String(CustomAddon.4.Icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.5)">$INFO[Skin.String(CustomAddon.5.Icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.1)">$INFO[Skin.String(CustomGame.1.Icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.2)">$INFO[Skin.String(CustomGame.2.Icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.3)">$INFO[Skin.String(CustomGame.3.Icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.4)">$INFO[Skin.String(CustomGame.4.Icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.5)">$INFO[Skin.String(CustomGame.5.Icon)]</value>
 	</variable>
 	<variable name="CustomSkinLabel">
 		<!-- Show custom skin item label in customisation dialog -->
@@ -1994,6 +2029,11 @@
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.3)">$INFO[Skin.String(CustomAddon.3.Label)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.4)">$INFO[Skin.String(CustomAddon.4.Label)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.5)">$INFO[Skin.String(CustomAddon.5.Label)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.1)">$INFO[Skin.String(CustomGame.1.Label)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.2)">$INFO[Skin.String(CustomGame.2.Label)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.3)">$INFO[Skin.String(CustomGame.3.Label)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.4)">$INFO[Skin.String(CustomGame.4.Label)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.5)">$INFO[Skin.String(CustomGame.5.Label)]</value>
 	</variable>
 	<variable name="SkinSettingHelp">
 		<!-- Help strings for skin settings -->

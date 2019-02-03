@@ -1022,7 +1022,7 @@
 							<onup>402</onup>
 							<ondown>9350</ondown>
 							<onleft>9300</onleft>
-							<onright>9400</onright>
+							<onright>9600</onright>
 						</control>
 						<control type="group">
 							<visible>Control.HasFocus(9350) | Control.HasFocus(9380)</visible>
@@ -1074,7 +1074,7 @@
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9300</onleft>
-							<onright>9400</onright>
+							<onright>9600</onright>
 							<viewtype label="31941">list</viewtype>
 							<itemlayout height="63" width="315">
 								<include>horzhomelistitem</include>
@@ -1164,6 +1164,134 @@
 							</content>
 						</control>
 					</control>
+					<control type="group" id="9620">
+						<!-- Games Sub menu -->
+						<width>315</width>
+						<control type="button" id="9630">
+							<!-- Dummy button for mouse control -->
+							<left>0</left>
+							<top>0</top>
+							<width>315</width>
+							<height>518</height>
+							<texturefocus>blank.png</texturefocus>
+							<texturenofocus>blank.png</texturenofocus>
+							<onup>402</onup>
+							<ondown>9600</ondown>
+							<onleft>9350</onleft>
+							<onright>9400</onright>
+						</control>
+						<control type="group">
+							<visible>Control.HasFocus(9600) | Control.HasFocus(9630)</visible>
+							<control type="image">
+								<!-- Menu Heading Hilite-->
+								<left>0</left>
+								<top>0</top>
+								<width>315</width>
+								<height>99</height>
+								<texture>menu-focus.png</texture>
+							</control>
+							<control type="group">
+								<!-- Markers for control area items -->
+								<control type="image">
+									<left>144</left>
+									<top>102</top>
+									<height>24</height>
+									<width>24</width>
+									<texture>scroll-up.png</texture>
+									<visible>Container(9600).HasPrevious</visible>
+								</control>
+								<control type="image">
+									<left>144</left>
+									<top>504</top>
+									<height>24</height>
+									<width>24</width>
+									<texture>scroll-down.png</texture>
+									<visible>Container(9600).HasNext</visible>
+								</control>
+							</control>
+						</control>
+						<control type="label">
+							<!-- Menu Heading -->
+							<left>0</left>
+							<top>26</top>
+							<width>315</width>
+							<height>48</height>
+							<font>apptv30</font>
+							<align>center</align>
+							<label>$INFO[Container(9600).ListItem.Property(menuHeading)]</label>
+							<animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(home-games) + String.IsEmpty(Skin.String(CustomGame.1.Path)) + String.IsEmpty(Skin.String(CustomGame.2.Path)) + String.IsEmpty(Skin.String(CustomGame.3.Path)) + String.IsEmpty(Skin.String(CustomGame.4.Path)) + String.IsEmpty(Skin.String(CustomGame.5.Path))">Conditional</animation>
+						</control>
+						<control type="list" id="9600">
+							<animation condition="!Control.HasFocus(9600) + !Control.HasFocus(9630)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+							<left>0</left>
+							<top>126</top>
+							<width>315</width>
+							<height>378</height>
+							<onup>402</onup>
+							<ondown>noop</ondown>
+							<onleft>9350</onleft>
+							<onright>9400</onright>
+							<viewtype label="31941">list</viewtype>
+							<itemlayout height="63" width="315">
+								<include>horzhomelistitem</include>
+							</itemlayout>
+							<focusedlayout height="63" width="315">
+								<control type="image">
+									<left>0</left>
+									<top>0</top>
+									<width>315</width>
+									<height>63</height>
+									<texture border="9">button-default-focus.png</texture>
+									<animation effect="fade" start="100" end="60" condition="String.IsEmpty(ListItem.Property(isActive))">Conditional</animation>
+								</control>
+								<include>horzhomelistitem</include>
+							</focusedlayout>
+							<content>
+								<include content="listpanelitems">
+									<param name="itemlabel" value="$LOCALIZE[15016]" />
+									<param name="itemcondition" value="Skin.HasSetting(home-games)" />
+									<param name="itemmenuheading" value="$LOCALIZE[15016]" />
+									<param name="itemmenuid" value="9600" />
+									<param name="itemtoggle" value="home-games" />
+								</include>
+								<include content="listpanelitems">
+									<param name="itemcustombase" value="CustomGame.1" />
+									<param name="itemlabel" value="$INFO[Skin.String(CustomGame.1.Label)]" />
+									<param name="itemcondition" value="!String.IsEmpty(Skin.String(CustomGame.1.Path))" />
+									<param name="itemmenuheading" value="$LOCALIZE[15016]" />
+									<param name="itemmenuid" value="9600" />
+								</include>
+								<include content="listpanelitems">
+									<param name="itemcustombase" value="CustomGame.2" />
+									<param name="itemlabel" value="$INFO[Skin.String(CustomGame.2.Label)]" />
+									<param name="itemcondition" value="!String.IsEmpty(Skin.String(CustomGame.2.Path))" />
+									<param name="itemmenuheading" value="$LOCALIZE[15016]" />
+									<param name="itemmenuid" value="9600" />
+								</include>
+								<include content="listpanelitems">
+									<param name="itemcustombase" value="CustomGame.3" />
+									<param name="itemlabel" value="$INFO[Skin.String(CustomGame.3.Label)]" />
+									<param name="itemcondition" value="!String.IsEmpty(Skin.String(CustomGame.3.Path))" />
+									<param name="itemmenuheading" value="$LOCALIZE[15016]" />
+									<param name="itemmenuid" value="9600" />
+								</include>
+								<include content="listpanelitems">
+									<param name="itemcustombase" value="CustomGame.4" />
+									<param name="itemlabel" value="$INFO[Skin.String(CustomGame.4.Label)]" />
+									<param name="itemcondition" value="!String.IsEmpty(Skin.String(CustomGame.4.Path))" />
+									<param name="itemmenuheading" value="$LOCALIZE[15016]" />
+									<param name="itemmenuid" value="9600" />
+								</include>
+								<include content="listpanelitems">
+									<param name="itemcustombase" value="CustomGame.5" />
+									<param name="itemlabel" value="$INFO[Skin.String(CustomGame.5.Label)]" />
+									<param name="itemcondition" value="!String.IsEmpty(Skin.String(CustomGame.5.Path))" />
+									<param name="itemmenuheading" value="$LOCALIZE[15016]" />
+									<param name="itemmenuid" value="9600" />
+								</include>
+							</content>
+						</control>
+					</control>
 					<control type="group" id="9420">
 						<!-- Weather Sub menu -->
 						<width>315</width>
@@ -1177,7 +1305,7 @@
 							<texturenofocus>blank.png</texturenofocus>
 							<onup>402</onup>
 							<ondown>9400</ondown>
-							<onleft>9350</onleft>
+							<onleft>9600</onleft>
 							<onright>9450</onright>
 						</control>
 						<control type="image">
@@ -1208,7 +1336,7 @@
 							<height>378</height>
 							<onup>402</onup>
 							<ondown>noop</ondown>
-							<onleft>9350</onleft>
+							<onleft>9600</onleft>
 							<onright>9450</onright>
 							<viewtype label="31941">list</viewtype>
 							<itemlayout height="63" width="315">
@@ -1527,7 +1655,7 @@
 						<include content="listpanelitems">
 							<param name="itemthumb" value="$VAR[HomeGamesIcon]" />
 							<param name="itemlabel" value="$LOCALIZE[15016]" />
-							<param name="itemcondition" value="!Skin.HasSetting(home-games)" />
+							<param name="itemcondition" value="Skin.HasSetting(home-games)" />
 							<param name="itemmenuid" value="9021" />
 							<param name="itemtoggle" value="home-games" />
 						</include>
@@ -1788,6 +1916,41 @@
 							<param name="itemthumb" value="$INFO[Skin.String(CustomAddon.5.Icon)]" />
 							<param name="itemlabel" value="$INFO[Skin.String(CustomAddon.5.Label)]" />
 							<param name="itemcondition" value="!String.IsEmpty(Skin.String(CustomAddon.5.Path))" />
+							<param name="itemmenuid" value="9021" />
+						</include>
+						<include content="listpanelitems">
+							<param name="itemcustombase" value="CustomGame.1" />
+							<param name="itemthumb" value="$INFO[Skin.String(CustomGame.1.Icon)]" />
+							<param name="itemlabel" value="$INFO[Skin.String(CustomGame.1.Label)]" />
+							<param name="itemcondition" value="!String.IsEmpty(Skin.String(CustomGame.1.Path))" />
+							<param name="itemmenuid" value="9021" />
+						</include>
+						<include content="listpanelitems">
+							<param name="itemcustombase" value="CustomGame.2" />
+							<param name="itemthumb" value="$INFO[Skin.String(CustomGame.2.Icon)]" />
+							<param name="itemlabel" value="$INFO[Skin.String(CustomGame.2.Label)]" />
+							<param name="itemcondition" value="!String.IsEmpty(Skin.String(CustomGame.2.Path))" />
+							<param name="itemmenuid" value="9021" />
+						</include>
+						<include content="listpanelitems">
+							<param name="itemcustombase" value="CustomGame.3" />
+							<param name="itemthumb" value="$INFO[Skin.String(CustomGame.3.Icon)]" />
+							<param name="itemlabel" value="$INFO[Skin.String(CustomGame.3.Label)]" />
+							<param name="itemcondition" value="!String.IsEmpty(Skin.String(CustomGame.3.Path))" />
+							<param name="itemmenuid" value="9021" />
+						</include>
+						<include content="listpanelitems">
+							<param name="itemcustombase" value="CustomGame.4" />
+							<param name="itemthumb" value="$INFO[Skin.String(CustomGame.4.Icon)]" />
+							<param name="itemlabel" value="$INFO[Skin.String(CustomGame.4.Label)]" />
+							<param name="itemcondition" value="!String.IsEmpty(Skin.String(CustomGame.4.Path))" />
+							<param name="itemmenuid" value="9021" />
+						</include>
+						<include content="listpanelitems">
+							<param name="itemcustombase" value="CustomGame.5" />
+							<param name="itemthumb" value="$INFO[Skin.String(CustomGame.5.Icon)]" />
+							<param name="itemlabel" value="$INFO[Skin.String(CustomGame.5.Label)]" />
+							<param name="itemcondition" value="!String.IsEmpty(Skin.String(CustomGame.5.Path))" />
 							<param name="itemmenuid" value="9021" />
 						</include>
 						<include content="listpanelitems">
@@ -2177,9 +2340,44 @@
 						<include content="listpanelitems">
 							<param name="itemthumb" value="DefaultGameAddons.png" />
 							<param name="itemlabel" value="$LOCALIZE[15016]" />
-							<param name="itemcondition" value="!Skin.HasSetting(home-games)" />
+							<param name="itemcondition" value="Skin.HasSetting(home-games)" />
 							<param name="itemmenuid" value="9031" />
 							<param name="itemtoggle" value="home-games" />
+						</include>
+						<include content="listpanelitems">
+							<param name="itemcustombase" value="CustomGame.1" />
+							<param name="itemthumb" value="$INFO[Skin.String(CustomGame.1.Icon)]" />
+							<param name="itemlabel" value="$INFO[Skin.String(CustomGame.1.Label)]" />
+							<param name="itemcondition" value="!String.IsEmpty(Skin.String(CustomGame.1.Path))" />
+							<param name="itemmenuid" value="9031" />
+						</include>
+						<include content="listpanelitems">
+							<param name="itemcustombase" value="CustomGame.2" />
+							<param name="itemthumb" value="$INFO[Skin.String(CustomGame.2.Icon)]" />
+							<param name="itemlabel" value="$INFO[Skin.String(CustomGame.2.Label)]" />
+							<param name="itemcondition" value="!String.IsEmpty(Skin.String(CustomGame.2.Path))" />
+							<param name="itemmenuid" value="9031" />
+						</include>
+						<include content="listpanelitems">
+							<param name="itemcustombase" value="CustomGame.3" />
+							<param name="itemthumb" value="$INFO[Skin.String(CustomGame.3.Icon)]" />
+							<param name="itemlabel" value="$INFO[Skin.String(CustomGame.3.Label)]" />
+							<param name="itemcondition" value="!String.IsEmpty(Skin.String(CustomGame.3.Path))" />
+							<param name="itemmenuid" value="9031" />
+						</include>
+						<include content="listpanelitems">
+							<param name="itemcustombase" value="CustomGame.4" />
+							<param name="itemthumb" value="$INFO[Skin.String(CustomGame.4.Icon)]" />
+							<param name="itemlabel" value="$INFO[Skin.String(CustomGame.4.Label)]" />
+							<param name="itemcondition" value="!String.IsEmpty(Skin.String(CustomGame.4.Path))" />
+							<param name="itemmenuid" value="9031" />
+						</include>
+						<include content="listpanelitems">
+							<param name="itemcustombase" value="CustomGame.5" />
+							<param name="itemthumb" value="$INFO[Skin.String(CustomGame.5.Icon)]" />
+							<param name="itemlabel" value="$INFO[Skin.String(CustomGame.5.Label)]" />
+							<param name="itemcondition" value="!String.IsEmpty(Skin.String(CustomGame.5.Path))" />
+							<param name="itemmenuid" value="9031" />
 						</include>
 						<include content="listpanelitems">
 							<param name="itemthumb" value="DefaultPicture.png" />

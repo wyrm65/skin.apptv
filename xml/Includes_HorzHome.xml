@@ -1640,7 +1640,7 @@
 			</control>
 			<control type="group" id="9620">
 				<!-- Games Sub menu -->
-					<visible>!Skin.HasSetting(home-games)</visible>
+				<visible>Skin.HasSetting(home-games) | !String.IsEmpty(Skin.String(CustomGame.1.Path)) | !String.IsEmpty(Skin.String(CustomGame.2.Path)) | !String.IsEmpty(Skin.String(CustomGame.3.Path)) | !String.IsEmpty(Skin.String(CustomGame.4.Path)) | !String.IsEmpty(Skin.String(CustomGame.5.Path))</visible>
 				<width>315</width>
 				<control type="button" id="9630">
 					<!-- Dummy button for mouse control -->
@@ -1736,6 +1736,41 @@
 							<label>$LOCALIZE[15016]</label>
 							<label2>$LOCALIZE[15016]</label2>
 							<onclick>ActivateWindow(games,,return)</onclick>
+						</item>
+						<item>
+							<!-- Custom Games 1 -->
+							<visible>!String.IsEmpty(Skin.String(CustomGame.1.Path))</visible>
+							<label>$INFO[Skin.String(CustomGame.1.Label)]</label>
+							<label2>$LOCALIZE[15016]</label2>
+							<onclick>$INFO[Skin.String(CustomGame.1.Path)]</onclick>
+						</item>
+						<item>
+							<!-- Custom Games 2 -->
+							<visible>!String.IsEmpty(Skin.String(CustomGame.2.Path))</visible>
+							<label>$INFO[Skin.String(CustomGame.2.Label)]</label>
+							<label2>$LOCALIZE[15016]</label2>
+							<onclick>$INFO[Skin.String(CustomGame.2.Path)]</onclick>
+						</item>
+						<item>
+							<!-- Custom Games 3 -->
+							<visible>!String.IsEmpty(Skin.String(CustomGame.3.Path))</visible>
+							<label>$INFO[Skin.String(CustomGame.3.Label)]</label>
+							<label2>$LOCALIZE[15016]</label2>
+							<onclick>$INFO[Skin.String(CustomGame.3.Path)]</onclick>
+						</item>
+						<item>
+							<!-- Custom Games 4 -->
+							<visible>!String.IsEmpty(Skin.String(CustomGame.4.Path))</visible>
+							<label>$INFO[Skin.String(CustomGame.4.Label)]</label>
+							<label2>$LOCALIZE[15016]</label2>
+							<onclick>$INFO[Skin.String(CustomGame.4.Path)]</onclick>
+						</item>
+						<item>
+							<!-- Custom Games 5 -->
+							<visible>!String.IsEmpty(Skin.String(CustomGame.5.Path))</visible>
+							<label>$INFO[Skin.String(CustomGame.5.Label)]</label>
+							<label2>$LOCALIZE[15016]</label2>
+							<onclick>$INFO[Skin.String(CustomGame.5.Path)]</onclick>
 						</item>
 					</content>
 				</control>
