@@ -50,51 +50,84 @@
 		<control type="group">
 			<visible>[Window.IsVisible(fullscreenvideo)] + ![Window.IsVisible(sliderdialog) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(subtitlesearch) | Window.IsVisible(osdsubtitlesettings) | Window.IsVisible(videobookmarks)]</visible>
 			<!-- Player info labels -->
-			<control type="label">
-				<left>342</left>
-				<top>1032</top>
-				<width>345</width>
-				<height>30</height>
-				<font>apptv20</font>
-				<label>[COLOR=disabled-text]($INFO[System.Time])[/COLOR] $INFO[VideoPlayer.Time]</label>
-				<align>right</align>
+			<control type="group" id="1">
+				<visible>!VideoPlayer.Content(LiveTV)</visible>
+				<control type="label" id="1">
+					<left>342</left>
+					<top>1032</top>
+					<width>345</width>
+					<height>30</height>
+					<font>apptv20</font>
+					<label>[COLOR=disabled-text]($INFO[System.Time])[/COLOR] $INFO[VideoPlayer.Time]</label>
+					<align>right</align>
+				</control>
+				<control type="label" id="1">
+					<left>1617</left>
+					<top>1032</top>
+					<width>345</width>
+					<height>30</height>
+					<font>apptv20</font>
+					<label>-$INFO[VideoPlayer.TimeRemaining] [COLOR=disabled-text]($INFO[Player.FinishTime])[/COLOR]</label>
+				</control>
 			</control>
-			<control type="label">
-				<left>1617</left>
-				<top>1032</top>
-				<width>345</width>
-				<height>30</height>
-				<font>apptv20</font>
-				<label>-$INFO[VideoPlayer.TimeRemaining] [COLOR=disabled-text]($INFO[Player.FinishTime])[/COLOR]</label>
+			<control type="group" id="1">
+				<visible>VideoPlayer.Content(LiveTV)</visible>
+				<control type="label" id="1">
+					<left>342</left>
+					<top>1032</top>
+					<width>345</width>
+					<height>30</height>
+					<font>apptv20</font>
+					<label>[COLOR=disabled-text]($INFO[System.Time])[/COLOR] $INFO[PVR.EpgEventElapsedTime]</label>
+					<align>right</align>
+				</control>
+				<control type="label" id="1">
+					<left>1617</left>
+					<top>1032</top>
+					<width>345</width>
+					<height>30</height>
+					<font>apptv20</font>
+					<label>-$INFO[PVR.EpgEventRemainingTime] [COLOR=disabled-text]($INFO[PVR.EpgEventFinishTime])[/COLOR]</label>
+				</control>
 			</control>
 			<control type="group">
 				<animation effect="fade" start="100" end="0" condition="String.IsEmpty(MusicPlayer.TimeRemaining)">Conditional</animation>
-				<!-- Progress bar -->
-				<control type="progress">
-					<left>717</left>
-					<top>1040</top>
-					<width>870</width>
-					<height>18</height>
-					<info>Player.ProgressCache</info>
-					<colordiffuse>CacheBarColor</colordiffuse>
+				<control type="group" id="1">
+					<visible>!Pvr.IsPlayingTv</visible>
+					<control type="progress">
+						<left>717</left>
+						<top>1040</top>
+						<width>870</width>
+						<height>18</height>
+						<info>Player.ProgressCache</info>
+						<colordiffuse>CacheBarColor</colordiffuse>
+					</control>
+					<control type="progress">
+						<left>717</left>
+						<top>1040</top>
+						<width>870</width>
+						<height>18</height>
+						<info>Player.Progress</info>
+					</control>
+					<control type="slider" id="401">
+						<!-- Seek Slider -->
+						<left>717</left>
+						<top>1040</top>
+						<width>870</width>
+						<height>18</height>
+						<textureslidernib>progress-marker-focus.png</textureslidernib>
+						<textureslidernibfocus>progress-marker-focus.png</textureslidernibfocus>
+						<action>seek</action>
+						<animation effect="fade" start="100" end="60" condition="!Control.HasFocus(401) + !Player.DisplayAfterSeek">Conditional</animation>
+					</control>
 				</control>
 				<control type="progress">
 					<left>717</left>
 					<top>1040</top>
 					<width>870</width>
 					<height>18</height>
-					<info>Player.Progress</info>
-				</control>
-				<control type="slider" id="401">
-					<!-- Seek Slider -->
-					<left>717</left>
-					<top>1040</top>
-					<width>870</width>
-					<height>18</height>
-					<textureslidernib>progress-marker-focus.png</textureslidernib>
-					<textureslidernibfocus>progress-marker-focus.png</textureslidernibfocus>
-					<action>seek</action>
-					<animation effect="fade" start="100" end="60" condition="!Control.HasFocus(401) + !Player.DisplayAfterSeek">Conditional</animation>
+					<info>PVR.EpgEventProgress</info>
+					<visible>Pvr.IsPlayingTv</visible>
 				</control>
 			</control>
 		</control>
