@@ -110,10 +110,10 @@
 				<control type="group">
 					<visible>!Container.Content(addons)</visible>
 					<control type="image">
-						<left>183</left>
-						<top>225</top>
-						<width>576</width>
-						<height>576</height>
+						<left>212</left>
+						<top>175</top>
+						<width>512</width>
+						<height>512</height>
 						<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
 						<aspectratio scalediffuse="false">keep</aspectratio>
 					</control>
@@ -123,21 +123,43 @@
 					<control type="group">
 						<visible>!String.StartsWith(ListItem.Icon,DefaultFolder.png)</visible>
 						<control type="image">
-							<left>183</left>
-							<top>225</top>
-							<width>576</width>
-							<height>576</height>
+							<left>212</left>
+							<top>175</top>
+							<width>512</width>
+							<height>512</height>
 							<texture background="true" fallback="DefaultAddon.png" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
 							<aspectratio>keep</aspectratio>
+						</control>
+						<control type="textbox">
+							<!-- Addon description -->
+							<left>26</left>
+							<top>730</top>
+							<width>954</width>
+							<height>288</height>
+							<label>$INFO[ListItem.AddonDescription]</label>
+							<font>apptv20</font>
+							<align>justify</align>
+							<visible>!String.IsEmpty(ListItem.AddonDescription)</visible>
+						</control>
+						<control type="textbox">
+							<!-- Addon summary (Show if no description available)-->
+							<left>26</left>
+							<top>730</top>
+							<width>954</width>
+							<height>288</height>
+							<label fallback="161">$INFO[ListItem.AddonSummary]</label>
+							<font>apptv20</font>
+							<align>justify</align>
+							<visible>String.IsEmpty(ListItem.AddonDescription)</visible>
 						</control>
 					</control>
 					<control type="group">
 						<visible>String.StartsWith(ListItem.Icon,DefaultFolder.png)</visible>
 						<control type="image">
-							<left>183</left>
-							<top>225</top>
-							<width>576</width>
-							<height>576</height>
+							<left>212</left>
+							<top>175</top>
+							<width>512</width>
+							<height>512</height>
 							<texture background="true">DefaultAddon.png</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
@@ -329,6 +351,31 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(54)</visible>
+			<control type="group">
+				<visible>Container.Content(addons)</visible>
+				<control type="textbox">
+					<!-- Addon description -->
+					<left>560</left>
+					<top>400</top>
+					<width>1290</width>
+					<height>216</height>
+					<label>$INFO[ListItem.AddonDescription]</label>
+					<font>apptv20</font>
+					<align>justify</align>
+					<visible>!String.IsEmpty(ListItem.AddonDescription)</visible>
+				</control>
+				<control type="textbox">
+					<!-- Addon summary (Show if no description available)-->
+					<left>560</left>
+					<top>400</top>
+					<width>1290</width>
+					<height>216</height>
+					<label fallback="161">$INFO[ListItem.AddonSummary]</label>
+					<font>apptv20</font>
+					<align>justify</align>
+					<visible>String.IsEmpty(ListItem.AddonDescription)</visible>
+				</control>
+			</control>
 			<include>sortletternotification</include>
 			<control type="scrollbar" id="1254">
 				<left>26</left>
