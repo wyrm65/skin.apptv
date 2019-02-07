@@ -125,20 +125,21 @@
 				<top>902</top>
 				<width>384</width>
 				<height>64</height>
+				<defaultcontrol always="true">635</defaultcontrol>
 				<itemgap>6</itemgap>
 				<orientation>horizontal</orientation>
 				<align>center</align>
 				<ondown>650</ondown>
 				<visible>Control.HasFocus(652) | ControlGroup(630).HasFocus()</visible>
 				<control type="button" id="631">
-					<!-- Subtitles Menu -->
+					<!-- Colour management Menu -->
 					<width>64</width>
 					<height>64</height>
-					<texturenofocus>osd-btn-subtitle.png</texturenofocus>
-					<texturefocus>osd-btn-subtitle-focus.png</texturefocus>
-					<onclick>ActivateWindow(osdsubtitlesettings)</onclick>
+					<texturefocus>osd-btn-cms-focus.png</texturefocus>
+					<texturenofocus>osd-btn-cms.png</texturenofocus>
+					<onclick>ActivateWindow(osdcmssettings)</onclick>
 					<include>focus-zoom</include>
-					<visible>Player.HasVideo</visible>
+					<visible>System.HasCMS</visible>
 				</control>
 				<control type="button" id="632">
 					<!-- 3D Menu -->
@@ -152,14 +153,14 @@
 					<visible>VideoPlayer.IsStereoscopic</visible>
 				</control>
 				<control type="button" id="633">
-					<!-- Colour management Menu -->
+					<!-- Subtitles Menu -->
 					<width>64</width>
 					<height>64</height>
-					<texturefocus>osd-btn-cms-focus.png</texturefocus>
-					<texturenofocus>osd-btn-cms.png</texturenofocus>
-					<onclick>ActivateWindow(osdcmssettings)</onclick>
+					<texturenofocus>osd-btn-subtitle.png</texturenofocus>
+					<texturefocus>osd-btn-subtitle-focus.png</texturefocus>
+					<onclick>ActivateWindow(osdsubtitlesettings)</onclick>
 					<include>focus-zoom</include>
-					<visible>System.HasCMS</visible>
+					<visible>Player.HasVideo</visible>
 				</control>
 				<control type="button" id="635">
 					<!-- Audio Menu -->
@@ -325,6 +326,7 @@
 				<width>768</width>
 				<height>64</height>
 				<itemgap>6</itemgap>
+				<defaultcontrol always="true">678</defaultcontrol>
 				<orientation>horizontal</orientation>
 				<align>center</align>
 				<ondown>650</ondown>
@@ -347,6 +349,7 @@
 					<texturenofocus>osd-btn-bookmark.png</texturenofocus>
 					<onclick>ActivateWindow(videobookmarks)</onclick>
 					<include>focus-zoom</include>
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
 				</control>
 				<control type="button" id="673">
 					<!-- Playlist -->
@@ -356,6 +359,18 @@
 					<texturenofocus>osd-btn-playlist.png</texturenofocus>
 					<onclick>ActivateWindow(videoplaylist)</onclick>
 					<include>focus-zoom</include>
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
+				</control>
+				<control type="button" id="674">
+					<!-- Eject Disk -->
+					<width>64</width>
+					<height>64</height>
+					<texturefocus>osd-btn-eject-focus.png</texturefocus>
+					<texturenofocus>osd-btn-eject.png</texturenofocus>
+					<onclick>EjectTray()</onclick>
+					<onclick>SetFocus(1115)</onclick>
+					<include>focus-zoom</include>
+					<visible>System.HasMediadvd</visible>
 				</control>
 				<control type="button" id="675">
 					<!-- Channel Up -->
@@ -377,36 +392,7 @@
 					<include>focus-zoom</include>
 					<visible>VideoPlayer.Content(LiveTV)</visible>
 				</control>
-				<control type="button" id="677">
-					<!-- Volume Up -->
-					<width>64</width>
-					<height>64</height>
-					<texturefocus>osd-btn-volumeup-focus.png</texturefocus>
-					<texturenofocus>osd-btn-volumeup.png</texturenofocus>
-					<include>focus-zoom</include>
-					<onclick>VolumeUp</onclick>
-				</control>
-				<control type="button" id="678">
-					<!-- Volume Down -->
-					<width>64</width>
-					<height>64</height>
-					<texturefocus>osd-btn-volumedown-focus.png</texturefocus>
-					<texturenofocus>osd-btn-volumedown.png</texturenofocus>
-					<include>focus-zoom</include>
-					<onclick>VolumeDown</onclick>
-				</control>
-				<control type="button" id="679">
-					<!-- Eject Disk -->
-					<width>64</width>
-					<height>64</height>
-					<texturefocus>osd-btn-eject-focus.png</texturefocus>
-					<texturenofocus>osd-btn-eject.png</texturenofocus>
-					<onclick>EjectTray()</onclick>
-					<onclick>SetFocus(1115)</onclick>
-					<include>focus-zoom</include>
-					<visible>System.HasMediadvd</visible>
-				</control>
-				<control type="togglebutton" id="680">
+				<control type="togglebutton" id="677">
 					<!-- Record -->
 					<width>64</width>
 					<height>64</height>
@@ -419,7 +405,25 @@
 					<include>focus-zoom</include>
 					<visible>PVR.CanRecordPlayingChannel</visible>
 				</control>
-				<control type="button" id="982">
+				<control type="button" id="678">
+					<!-- Volume Up -->
+					<width>64</width>
+					<height>64</height>
+					<texturefocus>osd-btn-volumeup-focus.png</texturefocus>
+					<texturenofocus>osd-btn-volumeup.png</texturenofocus>
+					<include>focus-zoom</include>
+					<onclick>VolumeUp</onclick>
+				</control>
+				<control type="button" id="679">
+					<!-- Volume Down -->
+					<width>64</width>
+					<height>64</height>
+					<texturefocus>osd-btn-volumedown-focus.png</texturefocus>
+					<texturenofocus>osd-btn-volumedown.png</texturenofocus>
+					<include>focus-zoom</include>
+					<onclick>VolumeDown</onclick>
+				</control>
+				<control type="button" id="980">
 					<!-- EPG Menu -->
 					<width>64</width>
 					<height>64</height>
@@ -429,7 +433,7 @@
 					<include>focus-zoom</include>
 					<visible>VideoPlayer.HasEpg</visible>
 				</control>
-				<control type="button" id="983">
+				<control type="button" id="981">
 					<!-- RDS Info -->
 					<width>64</width>
 					<height>64</height>
