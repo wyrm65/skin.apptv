@@ -51,7 +51,7 @@
 				<control type="group">
 					<visible>![Window.IsVisible(seekbar)]</visible>
 					<control type="group" id="1">
-						<visible>!Pvr.IsPlayingTv</visible>
+						<visible>!VideoPlayer.Content(LiveTV)</visible>
 						<control type="progress" id="1">
 							<left>717</left>
 							<top>1040</top>
@@ -83,7 +83,18 @@
 						<width>870</width>
 						<height>18</height>
 						<info>PVR.EpgEventProgress</info>
-						<visible>Pvr.IsPlayingTv</visible>
+						<visible>VideoPlayer.Content(LiveTV)</visible>
+					</control>
+					<control type="slider" id="691">
+						<!-- Seek Slider -->
+						<left>717</left>
+						<top>1040</top>
+						<width>870</width>
+						<height>18</height>
+						<info>PVR.TimeshiftProgressPlayPos</info>
+						<action>pvr.seek</action>
+						<onup>650</onup>
+						<visible>VideoPlayer.Content(LiveTV)</visible>
 					</control>
 				</control>
 			</control>
@@ -181,6 +192,17 @@
 					<include>focus-zoom</include>
 					<visible>Player.HasVideo</visible>
 				</control>
+				<control type="button" id="637">
+					<!-- Teletext -->
+					<width>64</width>
+					<height>64</height>
+					<texturenofocus>osd-btn-teletext.png</texturenofocus>
+					<texturefocus>osd-btn-teletext-focus.png</texturefocus>
+					<onclick>Dialog.Close(VideoOSD)</onclick>
+					<onclick>ActivateWindow(Teletext)</onclick>
+					<include>focus-zoom</include>
+					<visible>VideoPlayer.HasTeletext</visible>
+				</control>
 			</control>
 			<control type="grouplist" id="640">
 				<!-- Back group OSD buttons -->
@@ -212,7 +234,8 @@
 				<itemgap>6</itemgap>
 				<orientation>horizontal</orientation>
 				<align>center</align>
-				<ondown>690</ondown>
+				<ondown condition="!VideoPlayer.Content(LiveTV)">690</ondown>
+				<ondown condition="VideoPlayer.Content(LiveTV)">691</ondown>
 				<control type="button" id="651">
 					<!-- Fullscreen -->
 					<width>64</width>
@@ -339,29 +362,9 @@
 					<texturenofocus>osd-btn-dvdmenu.png</texturenofocus>
 					<onclick>PlayerControl(ShowVideoMenu)</onclick>
 					<include>focus-zoom</include>
-					<visible>VideoPlayer.HasMenu</visible>
+					<visible>!VideoPlayer.Content(LiveTV) + VideoPlayer.HasMenu</visible>
 				</control>
 				<control type="button" id="672">
-					<!-- Bookmarks menu -->
-					<width>64</width>
-					<height>64</height>
-					<texturefocus>osd-btn-bookmark-focus.png</texturefocus>
-					<texturenofocus>osd-btn-bookmark.png</texturenofocus>
-					<onclick>ActivateWindow(videobookmarks)</onclick>
-					<include>focus-zoom</include>
-					<visible>!VideoPlayer.Content(LiveTV)</visible>
-				</control>
-				<control type="button" id="673">
-					<!-- Playlist -->
-					<width>64</width>
-					<height>64</height>
-					<texturefocus>osd-btn-playlist-focus.png</texturefocus>
-					<texturenofocus>osd-btn-playlist.png</texturenofocus>
-					<onclick>ActivateWindow(videoplaylist)</onclick>
-					<include>focus-zoom</include>
-					<visible>!VideoPlayer.Content(LiveTV)</visible>
-				</control>
-				<control type="button" id="674">
 					<!-- Eject Disk -->
 					<width>64</width>
 					<height>64</height>
@@ -371,6 +374,26 @@
 					<onclick>SetFocus(1115)</onclick>
 					<include>focus-zoom</include>
 					<visible>System.HasMediadvd</visible>
+				</control>
+				<control type="button" id="673">
+					<!-- Bookmarks menu -->
+					<width>64</width>
+					<height>64</height>
+					<texturefocus>osd-btn-bookmark-focus.png</texturefocus>
+					<texturenofocus>osd-btn-bookmark.png</texturenofocus>
+					<onclick>ActivateWindow(videobookmarks)</onclick>
+					<include>focus-zoom</include>
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
+				</control>
+				<control type="button" id="674">
+					<!-- Playlist -->
+					<width>64</width>
+					<height>64</height>
+					<texturefocus>osd-btn-playlist-focus.png</texturefocus>
+					<texturenofocus>osd-btn-playlist.png</texturenofocus>
+					<onclick>ActivateWindow(videoplaylist)</onclick>
+					<include>focus-zoom</include>
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
 				</control>
 				<control type="button" id="675">
 					<!-- Channel Up -->
@@ -431,17 +454,7 @@
 					<texturenofocus>osd-btn-guide.png</texturenofocus>
 					<onclick>ActivateWindow(tvguide)</onclick>
 					<include>focus-zoom</include>
-					<visible>VideoPlayer.HasEpg</visible>
-				</control>
-				<control type="button" id="981">
-					<!-- RDS Info -->
-					<width>64</width>
-					<height>64</height>
-					<texturefocus>osd-btn-guide-focus.png</texturefocus>
-					<texturenofocus>osd-btn-guide.png</texturenofocus>
-					<onclick>ActivateWindow(pvrradiordsinfo)</onclick>
-					<include>focus-zoom</include>
-					<visible>MusicPlayer.Content(LiveTV) + RDS.HasRadiotextPlus</visible>
+					<visible>VideoPlayer.Content(livetv) + VideoPlayer.HasEPG</visible>
 				</control>
 			</control>
 		</control>
