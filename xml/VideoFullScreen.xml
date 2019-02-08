@@ -65,17 +65,6 @@
 				<texture>separator.png</texture>
 			</control>
 			<control type="textbox" id="1">
-				<!-- Plot Outline (Show if available) -->
-				<left>420</left>
-				<top>742</top>
-				<width>1455</width>
-				<height>154</height>
-				<font>apptv18</font>
-				<label>$INFO[VideoPlayer.PlotOutline]</label>
-				<align>justify</align>
-				<visible>!String.IsEmpty(VideoPlayer.PlotOutline)</visible>
-			</control>
-			<control type="textbox" id="1">
 				<!-- Plot (Show if plotoutline not found) -->
 				<left>420</left>
 				<top>742</top>
@@ -85,7 +74,7 @@
 				<label>$INFO[VideoPlayer.Plot]</label>
 				<align>justify</align>
 				<autoscroll time="4000" delay="12000" repeat="8000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
-				<visible>!String.IsEmpty(VideoPlayer.Plot) + String.IsEmpty(VideoPlayer.PlotOutline)</visible>
+				<visible>!String.IsEmpty(VideoPlayer.Plot)</visible>
 			</control>
 			<control type="grouplist" id="1">
 				<!-- Media flags -->
