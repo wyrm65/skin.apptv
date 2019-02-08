@@ -93,7 +93,7 @@
 			<control type="group">
 				<animation effect="fade" start="100" end="0" condition="String.IsEmpty(MusicPlayer.TimeRemaining)">Conditional</animation>
 				<control type="group" id="1">
-					<visible>!Pvr.IsPlayingTv</visible>
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
 					<control type="progress">
 						<left>717</left>
 						<top>1040</top>
@@ -127,7 +127,17 @@
 					<width>870</width>
 					<height>18</height>
 					<info>PVR.EpgEventProgress</info>
-					<visible>Pvr.IsPlayingTv</visible>
+					<visible>VideoPlayer.Content(LiveTV)</visible>
+				</control>
+				<control type="slider" id="401">
+					<!-- Live TV Seek Slider -->
+					<left>717</left>
+					<top>1040</top>
+					<width>870</width>
+					<height>18</height>
+					<info>PVR.TimeshiftProgressPlayPos</info>
+					<action>pvr.seek</action>
+					<visible>VideoPlayer.Content(LiveTV)</visible>
 				</control>
 			</control>
 		</control>
