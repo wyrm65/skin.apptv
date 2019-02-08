@@ -10,14 +10,14 @@
 		<control type="group">
 			<control type="image">
 				<!-- Dialog background -->
-				<left>600</left>
+				<left>580</left>
 				<top>92</top>
-				<width>720</width>
+				<width>740</width>
 				<height>890</height>
 				<texture border="14">button-menu-background.png</texture>
 			</control>
 			<control type="grouplist">
-				<left>640</left>
+				<left>630</left>
 				<top>105</top>
 				<width>645</width>
 				<height>60</height>
@@ -44,7 +44,7 @@
 			</control>
 			<control type="label">
 				<!-- Header -->
-				<left>618</left>
+				<left>598</left>
 				<top>152</top>
 				<width>684</width>
 				<height>36</height>
@@ -63,9 +63,9 @@
 				<visible>$EXP[isEnabledTouch]</visible>
 			</control>
 			<control type="image">
-				<left>618</left>
+				<left>598</left>
 				<top>196</top>
-				<width>684</width>
+				<width>704</width>
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
@@ -74,7 +74,8 @@
 				<top>205</top>
 				<width>684</width>
 				<height>765</height>
-				<onright>60</onright>
+				<onleft>60</onleft>
+				<onright>close</onright>
 				<viewtype label="535">list</viewtype>
 				<pagecontrol>60</pagecontrol>
 				<itemlayout height="153" width="684">
@@ -237,11 +238,12 @@
 				</focusedlayout>
 			</control>
 			<control type="scrollbar" id="60">
-				<left>1268</left>
+				<left>596</left>
 				<top>205</top>
 				<width>18</width>
 				<height>765</height>
-				<onleft>11</onleft>
+				<onleft>close</onleft>
+				<onright>11</onright>
 				<animation condition="!Control.HasFocus(60) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar]</visible>
 			</control>
