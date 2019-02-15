@@ -45,16 +45,16 @@
 					<control type="image">
 						<width>46</width>
 						<height>46</height>
-						<aspect>keep</aspect>
-						<texture colordiffuse="ddffffff">nextupicons/30.png</texture>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="ddffffff">upnexticons/30.png</texture>
 						<animation effect="slide" end="13,5" time="0" condition="true">Conditional</animation>
 						<visible>Integer.IsGreater(Player.TimeRemaining(ss),30)</visible>
 					</control>
 					<control type="image">
 						<width>46</width>
 						<height>46</height>
-						<aspect>keep</aspect>
-						<texture colordiffuse="ddffffff">$INFO[Player.TimeRemaining(ss),nextupicons/,.png]</texture>
+						<aspectratio>keep</aspectratio>
+						<texture colordiffuse="ddffffff">$INFO[Player.TimeRemaining(ss),upnexticons/,.png]</texture>
 						<animation effect="slide" end="13,5" time="0" condition="true">Conditional</animation>
 						<visible>!Integer.IsGreater(Player.TimeRemaining(ss),30)</visible>
 					</control>

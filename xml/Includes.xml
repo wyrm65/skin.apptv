@@ -200,13 +200,6 @@
 		<value condition="String.IsEqual(ListItem.DBTYPE,movie)">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=movies&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)">plugin://script.skin.helper.widgets/?action=similarshows&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
 	</variable>
-	<variable name="SearchInfoIcons">
-		<value condition="Control.IsVisible(110)">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=movies&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
-		<value condition="Control.IsVisible(120) | Control.IsVisible(130) | Control.IsVisible(140)">plugin://script.skin.helper.widgets/?action=similarshows&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
-		<value condition="Control.IsVisible(150)">plugin://script.skin.helper.widgets/?action=inprogressandrecommended&amp;mediatype=media&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
-		<value condition="Control.IsVisible(160) | Control.IsVisible(170) | Control.IsVisible(180)">plugin://script.skin.helper.widgets/?action=recommended&amp;mediatype=albums&amp;reload=$INFO[Window(Home).Property(widgetreload-music)]</value>
-		<value condition="Control.IsVisible(200)">plugin://script.skin.helper.widgets/?action=channels&amp;mediatype=pvr&amp;reload=$INFO[Window(Home).Property(widgetreload2)]</value>
-	</variable>
 	<variable name="Overlay">
 		<value condition="ListItem.IsResumable">OverlayPartialyWatched.png</value>
 		<value condition="String.StartsWith(ListItem.Overlay,OverlayWatched)">OverlayWatched.png</value>
