@@ -200,6 +200,10 @@
 		<value condition="String.IsEqual(ListItem.DBTYPE,movie)">plugin://script.skin.helper.widgets/?action=similar&amp;mediatype=movies&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)">plugin://script.skin.helper.widgets/?action=similarshows&amp;reload=$INFO[Window(Home).Property(widgetreload)]</value>
 	</variable>
+	<variable name="DefaultVideoInfoIcons">
+		<value condition="String.IsEqual(ListItem.DBTYPE,movie)">videodb://recentlyaddedmovies/</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)">videodb://tvshows/titles/</value>
+	</variable>
 	<variable name="Overlay">
 		<value condition="ListItem.IsResumable">OverlayPartialyWatched.png</value>
 		<value condition="String.StartsWith(ListItem.Overlay,OverlayWatched)">OverlayWatched.png</value>
