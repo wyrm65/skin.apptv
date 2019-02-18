@@ -14,7 +14,7 @@ Created by Wyrm
 [Github](https://github.com/wyrm65/skin.apptv)
 
 ## LINKS:
-[Kodi forum (skin support)](http://forum.Kodi.org/forumdisplay.php?fid=76)
+[Kodi forum (skin support)](https://forum.kodi.tv/forumdisplay.php?fid=76)
 
 [Kodi Wiki](https://kodi.wiki/view/Add-on:AppTV)
 
@@ -60,7 +60,7 @@ The following scripts are supported with custom skin files to match the script t
 script.cu.lrclyrics  
 script.globalsearch  
 script.tv.show.next.aired  
-service.nextup.notification  
+service.upnext  
 plugin.video.specialfeatures  
 script.extendedinfo  
 service.libreelec.settings  
