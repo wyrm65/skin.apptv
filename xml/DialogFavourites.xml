@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<window>
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog">
 	<defaultcontrol always="true">450</defaultcontrol>
+	<include>window-openclose</include>
 	<controls>
 		<include>background</include>
 		<include>fake-overlay</include>
@@ -77,16 +78,14 @@
 				</control>
 			</focusedlayout>
 		</control>
-		<control type="group">
-			<control type="image">
-				<!-- List item icon -->
-				<left>243</left>
-				<top>168</top>
-				<width>576</width>
-				<height>576</height>
-				<texture fallback="icon-fav.png" background="true" diffuse="mask-rect.png">$INFO[ListItem.Icon]</texture>
-				<aspectratio scalediffuse="false">keep</aspectratio>
-			</control>
+		<control type="image">
+			<!-- List item icon -->
+			<left>243</left>
+			<top>168</top>
+			<width>576</width>
+			<height>576</height>
+			<texture fallback="icon-fav.png" background="true" diffuse="mask-rect.png">$INFO[ListItem.Icon]</texture>
+			<aspectratio scalediffuse="false">keep</aspectratio>
 		</control>
 		<control type="scrollbar" id="423">
 			<left>1866</left>
