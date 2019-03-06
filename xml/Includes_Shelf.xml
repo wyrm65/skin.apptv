@@ -9,7 +9,6 @@
 	<include name="EpisodeRecent">
 		<content target="video" sortby="dateadded" sortorder="descending" limit="12">videodb://tvshows/titles/</content>
 	</include>
-	<!--<content target="video" sortby="dateadded" sortorder="desending" limit="12">videodb://recentlyaddedepisodes/</content>-->
 	<include name="EpisodeRecommended">
 		<content target="video" limit="12">plugin://script.skin.helper.widgets/?action=next&amp;mediatype=episodes&amp;reload=$INFO[Window(Home).Property(widgetreload-episodes)]</content>
 	</include>
@@ -23,7 +22,7 @@
 		<content target="music" limit="12">plugin://script.skin.helper.widgets/?action=recommended&amp;mediatype=albums&amp;reload=$INFO[Window(Home).Property(widgetreload-music)]</content>
 	</include>
 	<include name="PVRChannels">
-		<content target="pvr" limit="24">pvr://channels/tv/*</content>
+		<content target="pvr" limit="32">pvr://channels/tv/*</content>
 	</include>
 	<include name="LatestRecordings">
 		<content target="pvr" limit="12">plugin://script.skin.helper.widgets/?action=recordings&amp;mediatype=pvr&amp;reload=$INFO[Window(home).Property(widgetreload2)]</content>
@@ -839,13 +838,13 @@
 							<top>325</top>
 							<height>33</height>
 							<width>378</width>
-							<label>$INFO[ListItem.Title]</label>
+							<label>$VAR[BroadcastShelfLabel]</label>
 							<align>center</align>
 							<selectedcolor>button-text</selectedcolor>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 							<font>apptv20</font>
 						</control>
-						<control type="label">
+						<!--<control type="label">
 							<left>0</left>
 							<top>361</top>
 							<height>33</height>
@@ -868,6 +867,17 @@
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 							<font>apptv20</font>
 							<visible>String.IsEmpty(ListItem.Season)</visible>
+						</control>-->
+						<control type="label">
+							<left>0</left>
+							<top>361</top>
+							<height>33</height>
+							<width>378</width>
+							<label>$VAR[BroadcastShelfLabel2]</label>
+							<align>center</align>
+							<selectedcolor>button-text</selectedcolor>
+							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+							<font>apptv18</font>
 						</control>
 					</control>
 				</focusedlayout>
