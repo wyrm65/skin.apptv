@@ -1081,23 +1081,25 @@
 		<control type="wraplist" id="54">
 			<visible>!Container.Content(episodes)</visible>
 			<viewtype label="31942">wrap</viewtype>
-			<left>0</left>
+			<left>240</left>
 			<top>240</top>
-			<width>1887</width>
-			<height>720</height>
+			<width>1656</width>
+			<height>700</height>
 			<onleft>54</onleft>
 			<onright>54</onright>
 			<onup condition="Skin.HasSetting(lock-screensettings)">4541</onup>
 			<onup condition="!Skin.HasSetting(lock-screensettings)">9000</onup>
 			<ondown>$VAR[ListScrollNavVideo]</ondown>
 			<focusposition>0</focusposition>
+			<itemgap>0</itemgap>
 			<orientation>horizontal</orientation>
-			<preloaditems>4</preloaditems>
+			<preloaditems>1</preloaditems>
 			<scrolltime>0</scrolltime>
+			<hitrect x="24" y="140" w="1860" h="800" />
 			<pagecontrol>1254</pagecontrol>
-			<itemlayout height="438" width="135" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
+			<itemlayout height="438" width="138" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
 				<control type="image">
-					<left>-8</left>
+					<left>0</left>
 					<top>504</top>
 					<height>192</height>
 					<width>120</width>
@@ -1107,7 +1109,7 @@
 					<visible>$EXP[isnotDefaultIcon] + Skin.HasSetting(dvd-case)</visible>
 				</control>
 				<control type="image">
-					<left>-8</left>
+					<left>2</left>
 					<top>510</top>
 					<height>180</height>
 					<width>116</width>
@@ -1116,15 +1118,15 @@
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 				</control>
 				<control type="image">
-					<left>-26</left>
-					<top>471</top>
-					<height>48</height>
-					<width>48</width>
+					<left>-10</left>
+					<top>476</top>
+					<height>40</height>
+					<width>40</width>
 					<texture>$VAR[Overlay]</texture>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 				</control>
 				<control type="image">
-					<left>92</left>
+					<left>100</left>
 					<top>488</top>
 					<width>16</width>
 					<height>16</height>
@@ -1132,19 +1134,19 @@
 					<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
 				</control>
 				<include content="listitem-count">
-					<param name="left" value="42" />
+					<param name="left" value="50" />
 					<param name="top" value="666" />
 					<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
 					<param name="size" value="54" />
 				</include>
 			</itemlayout>
-			<itemlayout height="438" width="135" condition="!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons)">
+			<itemlayout height="438" width="138" condition="!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons)">
 				<control type="image">
 					<left>6</left>
 					<top>588</top>
 					<height>114</height>
 					<width>114</width>
-					<texture diffuse="mask-rect.png" background="true" fallback="DefaultVideo.png">$VAR[IconPoster]</texture>
+					<texture diffuse="mask-squ.png" background="true" fallback="DefaultVideo.png">$VAR[IconPoster]</texture>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 					<aspectratio scalediffuse="true">keep</aspectratio>
 					<visible>!Container.Content(musicvideos)</visible>
@@ -1154,7 +1156,7 @@
 					<top>588</top>
 					<height>114</height>
 					<width>114</width>
-					<texture diffuse="mask-rect.png" background="true" fallback="DefaultMusicVideos.png">$VAR[IconPoster]</texture>
+					<texture diffuse="mask-squ.png" background="true" fallback="DefaultMusicVideos.png">$VAR[IconPoster]</texture>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 					<aspectratio aligny="bottom" scalediffuse="true">keep</aspectratio>
 					<visible>Container.Content(musicvideos)</visible>
@@ -1162,18 +1164,26 @@
 				<control type="image">
 					<left>6</left>
 					<top>545</top>
-					<height>48</height>
-					<width>48</width>
+					<height>40</height>
+					<width>40</width>
 					<texture>$VAR[Overlay]</texture>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 					<visible>Container.Content(musicvideos)</visible>
 				</control>
 			</itemlayout>
-			<focusedlayout height="608" width="414" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
+			<focusedlayout height="608" width="138">
+				<!-- Show focused content outside of wrap list to stop jumping and flickering of content. Issue caused by difference in unfocused and focused icon sizes. -->
+			</focusedlayout>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(54)</visible>
+			<control type="group">
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+				<top>240</top>
 				<control type="group">
 					<visible>$EXP[isnotDefaultIcon]</visible>
 					<control type="image">
-						<left>0</left>
+						<left>8</left>
 						<top>195</top>
 						<height>525</height>
 						<width>384</width>
@@ -1182,7 +1192,7 @@
 						<visible>Control.HasFocus(54)</visible>
 					</control>
 					<control type="image">
-						<left>38</left>
+						<left>46</left>
 						<top>216</top>
 						<height>482</height>
 						<width>315</width>
@@ -1192,7 +1202,8 @@
 					</control>
 				</control>
 				<control type="image">
-					<left>39</left>
+					<left>48
+					</left>
 					<top>222</top>
 					<height>468</height>
 					<width>304</width>
@@ -1201,14 +1212,14 @@
 					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 				</control>
 				<control type="image">
-					<left>21</left>
+					<left>30</left>
 					<top>175</top>
 					<height>60</height>
 					<width>60</width>
 					<texture>$VAR[Overlay]</texture>
 				</control>
 				<control type="image">
-					<left>324</left>
+					<left>332</left>
 					<top>192</top>
 					<width>24</width>
 					<height>24</height>
@@ -1216,51 +1227,50 @@
 					<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
 				</control>
 				<include content="listitem-count">
-					<param name="left" value="255" />
+					<param name="left" value="262" />
 					<param name="top" value="648" />
 					<param name="count" value="ListItem.Property(UnwatchedEpisodes)" />
 					<param name="size" value="90" />
 				</include>
 				<control type="image">
-					<left>170</left>
+					<left>178</left>
 					<top>170</top>
 					<width>48</width>
 					<height>48</height>
 					<texture>$VAR[ListItemFlags]</texture>
 				</control>
-			</focusedlayout>
-			<focusedlayout height="608" width="414" condition="!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons)">
+			</control>
+			<control type="group">
+				<visible>!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
+				<top>240</top>
 				<control type="image">
-					<left>33</left>
-					<top>336</top>
-					<height>366</height>
-					<width>366</width>
+					<left>48</left>
+					<top>398</top>
+					<height>304</height>
+					<width>304</width>
 					<aspectratio aligny="bottom" scalediffuse="true">keep</aspectratio>
-					<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+					<texture diffuse="mask-squ.png" background="true" fallback="DefaultVideo.png">$VAR[IconPoster]</texture>
 					<visible>Control.HasFocus(54)</visible>
 				</control>
 				<control type="image">
-					<left>33</left>
-					<top>336</top>
-					<height>366</height>
-					<width>366</width>
+					<left>48</left>
+					<top>398</top>
+					<height>304</height>
+					<width>304</width>
 					<aspectratio aligny="bottom" scalediffuse="true">keep</aspectratio>
-					<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+					<texture diffuse="mask-squ.png" background="true" fallback="DefaultMusicVideos.png">$VAR[IconPoster]</texture>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 					<visible>!Control.HasFocus(54)</visible>
 				</control>
 				<control type="image">
-					<left>33</left>
-					<top>276</top>
+					<left>30</left>
+					<top>346</top>
 					<height>60</height>
 					<width>60</width>
 					<texture>$VAR[Overlay]</texture>
 					<visible>Container.Content(musicvideos)</visible>
 				</control>
-			</focusedlayout>
-		</control>
-		<control type="group">
-			<visible>Control.IsVisible(54)</visible>
+			</control>
 			<control type="image" id="7216">
 				<!-- Show logo -->
 				<left>408</left>
