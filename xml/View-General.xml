@@ -33,6 +33,7 @@
 					<width>759</width>
 					<height>34</height>
 					<font>apptv23</font>
+					<selectedcolor>button-text</selectedcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<visible>String.IsEmpty(ListItem.Label2)</visible>
 				</control>
@@ -44,6 +45,7 @@
 						<width>759</width>
 						<height>34</height>
 						<font>apptv22</font>
+						<selectedcolor>button-text</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
@@ -53,9 +55,16 @@
 						<height>34</height>
 						<font>apptv22</font>
 						<textcolor>disabled-text</textcolor>
+						<selectedcolor>disabled-text</selectedcolor>
 						<label>$INFO[ListItem.Label2]</label>
 					</control>
 				</control>
+				<!-- Equaliser (listitem is being played) -->
+				<include content="fake-equaliser">
+					<param name="feleft" value="24" />
+					<param name="fetop" value="34" />
+					<param name="fesize" value="32" />
+				</include>
 			</itemlayout>
 			<focusedlayout width="862" height="99">
 				<control type="image">
@@ -73,6 +82,7 @@
 					<width>759</width>
 					<height>34</height>
 					<font>apptv23</font>
+					<selectedcolor>button-text</selectedcolor>
 					<label>$INFO[ListItem.Label]</label>
 					<visible>String.IsEmpty(ListItem.Label2)</visible>
 				</control>
@@ -84,6 +94,7 @@
 						<width>759</width>
 						<height>34</height>
 						<font>apptv22</font>
+						<selectedcolor>button-text</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
@@ -93,9 +104,16 @@
 						<height>34</height>
 						<font>apptv22</font>
 						<textcolor>disabled-text</textcolor>
+						<selectedcolor>disabled-text</selectedcolor>
 						<label>$INFO[ListItem.Label2]</label>
 					</control>
 				</control>
+				<!-- Equaliser (listitem is being played) -->
+				<include content="fake-equaliser">
+					<param name="feleft" value="24" />
+					<param name="fetop" value="34" />
+					<param name="fesize" value="32" />
+				</include>
 			</focusedlayout>
 		</control>
 		<control type="group">

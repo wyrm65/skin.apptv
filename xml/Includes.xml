@@ -1830,6 +1830,22 @@
 			<visible>$EXP[isEnabledTouch]</visible>
 		</control>
 	</include>
+	<!-- Fake Equaliser (listitem is being played) -->
+	<include name="fake-equaliser">
+		<param name="feleft"/>
+		<param name="fetop"/>
+		<param name="fesize" default="64"/>
+		<definition>
+			<control type="image">
+				<left>$PARAM[feleft]</left>
+				<top>$PARAM[fetop]</top>
+				<width>$PARAM[fesize]</width>
+				<height>$PARAM[fesize]</height>
+				<texture>equaliser.gif</texture>
+				<visible>ListItem.IsPlaying</visible>
+			</control>
+		</definition>
+	</include>
 	<include name="osd-button">
 		<param name="osdid"/>
 		<param name="osdsize" default="64"/>
@@ -1899,7 +1915,7 @@
 					<top>0</top>
 					<width>64</width>
 					<height>40</height>
-					<texture border="16,0,16,0">overlaynumberitems.png</texture>
+					<texture border="17,0,17,0">overlaynumberitems.png</texture>
 					<visible>Integer.IsGreater($PARAM[count],9) + !Integer.IsGreater($PARAM[count],99)</visible>
 				</control>
 				<control type="image">
@@ -1908,13 +1924,13 @@
 					<top>0</top>
 					<width>84</width>
 					<height>40</height>
-					<texture border="16,0,16,0">overlaynumberitems.png</texture>
+					<texture border="17,0,17,0">overlaynumberitems.png</texture>
 					<visible>Integer.IsGreater($PARAM[count],99) + !Integer.IsGreater($PARAM[count],999)</visible>
 				</control>
 				<control type="label">
 					<shadowcolor/>
 					<left>14</left>
-					<top>4</top>
+					<top>5</top>
 					<width>54</width>
 					<height>30</height>
 					<font>apptv20</font>

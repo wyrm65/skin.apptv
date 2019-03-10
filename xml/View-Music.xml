@@ -30,18 +30,25 @@
 					<visible>!Container.Content(musicvideos)</visible>
 					<control type="image">
 						<left>4</left>
-						<top>24</top>
+						<top>10</top>
 						<width>48</width>
 						<height>48</height>
 						<texture>$VAR[Overlay]</texture>
 						<visible>Container.Content(songs) | Container.Content(albums)</visible>
 					</control>
+					<!-- Equaliser (listitem is being played) -->
+					<include content="fake-equaliser">
+						<param name="feleft" value="12" />
+						<param name="fetop" value="50" />
+						<param name="fesize" value="32" />
+					</include>
 					<control type="label">
 						<left>57</left>
 						<top>12</top>
 						<width>720</width>
 						<height>35</height>
 						<font>apptv22</font>
+						<selectedcolor>button-text</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<animation condition="String.IsEmpty(ListItem.Label2)" effect="slide" start="0,0" end="0,18" time="0">Conditonal</animation>
 					</control>
@@ -51,6 +58,7 @@
 						<width>720</width>
 						<height>35</height>
 						<font>apptv20</font>
+						<selectedcolor>disabled-text</selectedcolor>
 						<textcolor>disabled-text</textcolor>
 						<label>$INFO[ListItem.Label2]</label>
 					</control>
@@ -108,18 +116,25 @@
 					<visible>!Container.Content(musicvideos)</visible>
 					<control type="image">
 						<left>4</left>
-						<top>24</top>
+						<top>10</top>
 						<width>48</width>
 						<height>48</height>
-						<texture>$INFO[ListItem.Overlay]</texture>
+						<texture>$VAR[Overlay]</texture>
 						<visible>Container.Content(songs) | Container.Content(albums)</visible>
 					</control>
+					<!-- Equaliser (listitem is being played) -->
+					<include content="fake-equaliser">
+						<param name="feleft" value="12" />
+						<param name="fetop" value="50" />
+						<param name="fesize" value="32" />
+					</include>
 					<control type="label">
 						<left>57</left>
 						<top>12</top>
 						<width>720</width>
 						<height>35</height>
 						<font>apptv22</font>
+						<selectedcolor>button-text</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<animation condition="String.IsEmpty(ListItem.Label2)" effect="slide" start="0,0" end="0,18" time="0">Conditonal</animation>
 					</control>
@@ -129,6 +144,7 @@
 						<width>720</width>
 						<height>35</height>
 						<font>apptv20</font>
+						<selectedcolor>disabled-text</selectedcolor>
 						<textcolor>disabled-text</textcolor>
 						<label>$INFO[ListItem.Label2]</label>
 					</control>
@@ -140,7 +156,7 @@
 						<top>24</top>
 						<width>48</width>
 						<height>48</height>
-						<texture>$INFO[ListItem.Overlay]</texture>
+						<texture>$VAR[Overlay]</texture>
 					</control>
 					<control type="label">
 						<left>57</left>
