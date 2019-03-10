@@ -330,9 +330,9 @@
 	<include name="WrapView">
 		<control type="wraplist" id="54">
 			<viewtype label="31942">wrap</viewtype>
-			<left>39</left>
+			<left>36</left>
 			<top>330</top>
-			<width>1824</width>
+			<width>1828</width>
 			<height>675</height>
 			<onleft>54</onleft>
 			<onright>54</onright>
@@ -341,41 +341,42 @@
 			<ondown condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</ondown>
 			<ondown condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">1254</ondown>
 			<focusposition>0</focusposition>
+			<itemgap>0</itemgap>
 			<orientation>horizontal</orientation>
 			<preloaditems>4</preloaditems>
 			<scrolltime>0</scrolltime>
 			<pagecontrol>1254</pagecontrol>
-			<itemlayout height="264" width="264">
+			<itemlayout height="176" width="176">
 				<control type="image">
-					<left>12</left>
-					<top>318</top>
-					<width>240</width>
-					<height>240</height>
+					<left>8</left>
+					<top>394</top>
+					<width>160</width>
+					<height>160</height>
 					<aspectratio aligny="bottom">keep</aspectratio>
 					<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 				</control>
 			</itemlayout>
-			<focusedlayout height="504" width="504">
-				<control type="image">
-					<left>12</left>
-					<top>78</top>
-					<width>480</width>
-					<height>480</height>
-					<aspectratio aligny="bottom">keep</aspectratio>
-					<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
-				</control>
+			<focusedlayout height="432" width="432">
 			</focusedlayout>
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(54)</visible>
+			<control type="image">
+				<left>44</left>
+				<top>466</top>
+				<width>416</width>
+				<height>416</height>
+				<aspectratio aligny="bottom">keep</aspectratio>
+				<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
+			</control>
 			<control type="group">
 				<visible>Container.Content(addons)</visible>
 				<control type="textbox">
 					<!-- Addon description -->
-					<left>560</left>
-					<top>400</top>
-					<width>1290</width>
+					<left>476</left>
+					<top>456</top>
+					<width>1384</width>
 					<height>216</height>
 					<label>$INFO[ListItem.AddonDescription]</label>
 					<font>apptv20</font>
@@ -384,9 +385,9 @@
 				</control>
 				<control type="textbox">
 					<!-- Addon summary (Show if no description available)-->
-					<left>560</left>
-					<top>400</top>
-					<width>1290</width>
+					<left>476</left>
+					<top>456</top>
+					<width>1384</width>
 					<height>216</height>
 					<label>$INFO[ListItem.AddonSummary]</label>
 					<font>apptv20</font>
