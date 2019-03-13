@@ -602,9 +602,9 @@
 	<include name="AlbumWrapView">
 		<control type="wraplist" id="54">
 			<viewtype label="31942">wrap</viewtype>
-			<left>6</left>
+			<left>256</left>
 			<top>444</top>
-			<width>1860</width>
+			<width>1598</width>
 			<height>462</height>
 			<onleft>54</onleft>
 			<onright>54</onright>
@@ -615,6 +615,7 @@
 			<orientation>horizontal</orientation>
 			<preloaditems>4</preloaditems>
 			<scrolltime>0</scrolltime>
+			<hitrect x="6" y="140" w="1860" h="766" />
 			<pagecontrol>1254</pagecontrol>
 			<itemlayout height="200" width="200">
 				<control type="group">
@@ -663,68 +664,73 @@
 					</control>
 				</control>
 			</itemlayout>
-			<focusedlayout height="462" width="462">
-				<control type="group">
-					<visible>Container.Content(albums) | Container.Content(songs)</visible>
-					<control type="image">
-						<left>0</left>
-						<top>240</top>
-						<height>216</height>
-						<width>232</width>
-						<texture background="true">$VAR[IconCover]</texture>
-						<aspectratio>stretch</aspectratio>
-						<bordertexture border="28,18,4,19">case-cd.png</bordertexture>
-						<bordersize>28,18,4,19</bordersize>
-						<animation effect="zoom" start="100" end="185" center="-16,440" time="0" tween="back" easing="out" reversible="false" condition="true">Conditional</animation>
-						<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + $EXP[isnotEmptyIcon]</visible>
-					</control>
-					<control type="image">
-						<left>0</left>
-						<top>228</top>
-						<height>232</height>
-						<width>232</width>
-						<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
-						<aspectratio aligny="bottom">stretch</aspectratio>
-						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
-						<animation effect="zoom" start="100" end="160" center="-62,496" time="0" tween="back" easing="out" reversible="false" condition="true">Conditional</animation>
-						<visible>!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | $EXP[isEmptyIcon]</visible>
-					</control>
-				</control>
-				<control type="group">
-					<visible>!Container.Content(albums) + !Container.Content(songs)</visible>
-					<control type="image">
-						<left>0</left>
-						<top>228</top>
-						<height>232</height>
-						<width>232</width>
-						<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
-						<aspectratio aligny="bottom">keep</aspectratio>
-						<animation effect="zoom" start="100" end="160" center="-62,496" time="0" tween="back" easing="out" reversible="false" condition="true">Conditional</animation>
-						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
-					</control>
-					<control type="image">
-						<left>68</left>
-						<top>28</top>
-						<height>64</height>
-						<width>64</width>
-						<texture>$INFO[ListItem.Overlay]</texture>
-					</control>
-					<control type="label">
-						<!-- Duration -->
-						<left>130</left>
-						<top>44</top>
-						<width>350</width>
-						<height>30</height>
-						<align>left</align>
-						<font>apptv20</font>
-						<label>$VAR[ListitemDuration]</label>
-						 <visible>!String.IsEmpty(ListItem.Duration)</visible>
-					</control>
-				</control>
+			<focusedlayout height="200" width="200">
+			<!-- Show focused content outside of wrap list to stop jumping and flickering of content. Issue caused by difference in unfocused and focused icon sizes. -->
 			</focusedlayout>
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(54)</visible>
+			<control type="group">
+				<left>6</left>
+				<top>444</top>
+				<visible>Container.Content(albums) | Container.Content(songs)</visible>
+				<control type="image">
+					<left>0</left>
+					<top>240</top>
+					<height>216</height>
+					<width>232</width>
+					<texture background="true">$VAR[IconCover]</texture>
+					<aspectratio>stretch</aspectratio>
+					<bordertexture border="28,18,4,19">case-cd.png</bordertexture>
+					<bordersize>28,18,4,19</bordersize>
+					<animation effect="zoom" start="100" end="185" center="-16,440" time="0" tween="back" easing="out" reversible="false" condition="true">Conditional</animation>
+					<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + $EXP[isnotEmptyIcon]</visible>
+				</control>
+				<control type="image">
+					<left>0</left>
+					<top>228</top>
+					<height>232</height>
+					<width>232</width>
+					<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
+					<aspectratio aligny="bottom">stretch</aspectratio>
+					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
+					<animation effect="zoom" start="100" end="160" center="-62,496" time="0" tween="back" easing="out" reversible="false" condition="true">Conditional</animation>
+					<visible>!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | $EXP[isEmptyIcon]</visible>
+				</control>
+			</control>
+			<control type="group">
+				<visible>!Container.Content(albums) + !Container.Content(songs)</visible>
+				<left>6</left>
+				<top>444</top>
+				<control type="image">
+					<left>0</left>
+					<top>228</top>
+					<height>232</height>
+					<width>232</width>
+					<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
+					<aspectratio aligny="bottom">keep</aspectratio>
+					<animation effect="zoom" start="100" end="160" center="-62,496" time="0" tween="back" easing="out" reversible="false" condition="true">Conditional</animation>
+					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
+				</control>
+				<control type="image">
+					<left>68</left>
+					<top>28</top>
+					<height>64</height>
+					<width>64</width>
+					<texture>$INFO[ListItem.Overlay]</texture>
+				</control>
+				<control type="label">
+					<!-- Duration -->
+					<left>130</left>
+					<top>44</top>
+					<width>350</width>
+					<height>30</height>
+					<align>left</align>
+					<font>apptv20</font>
+					<label>$VAR[ListitemDuration]</label>
+					 <visible>!String.IsEmpty(ListItem.Duration)</visible>
+				</control>
+			</control>
 			<control type="image">
 				<!-- Music logo if available -->
 				<left>108</left>
