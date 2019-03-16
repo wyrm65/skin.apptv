@@ -351,7 +351,7 @@
 					<font>apptv22</font>
 					<textcolor>disabled-text</textcolor>
 					<shadowcolor>shadow-text</shadowcolor>
-					<visible>$EXP[isMovie] | $EXP[isEpisode]</visible>
+					<visible>[$EXP[isMovie] | $EXP[isEpisode]] + Integer.IsGreater(Container(50).Numitems,0)</visible>
 				</control>
 				<control type="label">
 					<left>1012</left>
@@ -362,7 +362,7 @@
 					<font>apptv22</font>
 					<textcolor>disabled-text</textcolor>
 					<shadowcolor>shadow-text</shadowcolor>
-					<visible>$EXP[isMusicvideo]</visible>
+					<visible>$EXP[isMusicvideo] + Integer.IsGreater(Container(50).Numitems,0)</visible>
 				</control>
 				<control type="label">
 					<!-- Actor 1 -->
