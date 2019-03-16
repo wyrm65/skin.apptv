@@ -28,9 +28,10 @@
 			<width>480</width>
 			<height>675</height>
 			<itemgap>0</itemgap>
-			<onleft>5</onleft>
-			<onup>noop</onup>
+			<onup>4503</onup>
 			<ondown>20</ondown>
+			<onleft>5</onleft>
+			<onright>4503</onright>
 		</control>
 		<control type="button" id="20">
 			<!-- Setting level button -->
@@ -43,8 +44,9 @@
 			<label>$LOCALIZE[10037]</label>
 			<align>right</align>
 			<onleft>5</onleft>
-			<onright>5</onright>
+			<onright>4520</onright>
 			<onup>3</onup>
+			<ondown>4520</ondown>
 			<onclick>SettingsLevelChange</onclick>
 		</control>
 		<control type="label">
@@ -72,7 +74,9 @@
 			<width>1328</width>
 			<height>750</height>
 			<itemgap>0</itemgap>
-			<onleft condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>
+			<onup>4505</onup>
+			<ondown>4505</ondown>
+			<onleft condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">4505</onleft>
 			<onleft condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">23</onleft>
 			<onright>3</onright>
 			<pagecontrol>23</pagecontrol>
@@ -82,8 +86,10 @@
 			<top>159</top>
 			<width>18</width>
 			<height>750</height>
-			<onleft>9000</onleft>
+			<onleft>4523</onleft>
 			<onright>5</onright>
+			<onup>4523</onup>
+			<ondown>4523</ondown>
 			<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			<visible>$EXP[isEnabledScrollbar]</visible>
 		</control>
@@ -130,5 +136,25 @@
 			<height>75</height>
 			<font>apptv22</font>
 		</control>
+		<!-- Play bump sound if user tries to leave sub headings by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="4503" />
+			<param name="returnid" value="3" />
+		</include>
+		<!-- Play bump sound if user tries to leave controls by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="4505" />
+			<param name="returnid" value="5" />
+		</include>
+		<!-- Play bump sound if user tries to leave settings level control by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="4520" />
+			<param name="returnid" value="20" />
+		</include>
+		<!-- Play bump sound if user tries to leave scrollbar by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="4523" />
+			<param name="returnid" value="23" />
+		</include>
 	</controls>
 </window>

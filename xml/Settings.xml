@@ -39,10 +39,12 @@
 				<left>0</left>
 				<top>0</top>
 				<width>720</width>
-				<height>750</height>
+				<height>825</height>
 				<itemgap>0</itemgap>
-				<onup>noop</onup>
-				<ondown>noop</ondown>
+				<onleft>4999</onleft>
+				<onright>4999</onright>
+				<onup>4999</onup>
+				<ondown>4999</ondown>
 				<viewtype label="31941">list</viewtype>
 				<itemlayout width="720" height="75">
 					<control type="image">
@@ -128,5 +130,10 @@
 				</content>
 			</control>
 		</control>
+		<!-- Play bump sound if user tries to leave Settings heading by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="4999" />
+			<param name="returnid" value="8999" />
+		</include>
 	</controls>
 </window>
