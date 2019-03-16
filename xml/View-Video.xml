@@ -1098,7 +1098,7 @@
 			<scrolltime>0</scrolltime>
 			<hitrect x="24" y="140" w="1860" h="800" />
 			<pagecontrol>1254</pagecontrol>
-			<itemlayout height="438" width="138" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
+			<itemlayout height="438" width="138" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)">
 				<control type="image">
 					<left>0</left>
 					<top>504</top>
@@ -1141,7 +1141,7 @@
 					<param name="size" value="60" />
 				</include>
 			</itemlayout>
-			<itemlayout height="438" width="138" condition="!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons)">
+			<itemlayout height="438" width="138" condition="!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(sets)">
 				<control type="image">
 					<left>6</left>
 					<top>588</top>
@@ -1179,7 +1179,7 @@
 		<control type="group">
 			<visible>Control.IsVisible(54)</visible>
 			<control type="group">
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
 				<top>240</top>
 				<control type="group">
 					<visible>$EXP[isnotDefaultIcon]</visible>
@@ -1242,7 +1242,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons)</visible>
+				<visible>!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(sets)</visible>
 				<top>240</top>
 				<control type="image">
 					<left>48</left>
@@ -1276,8 +1276,8 @@
 				<!-- Show logo -->
 				<left>408</left>
 				<top>572</top>
-				<width>393</width>
-				<height>152</height>
+				<width>388</width>
+				<height>150</height>
 				<texture>$VAR[VideoLogo]</texture>
 				<aspectratio align="left" aligny="bottom">keep</aspectratio>
 				<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
@@ -1286,9 +1286,9 @@
 			<control type="label">
 				<!-- Title -->
 				<left>408</left>
-				<top>672</top>
-				<width>1394</width>
-				<height>48</height>
+				<top>572</top>
+				<width>388</width>
+				<height>144</height>
 				<font>apptv30</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
@@ -1299,9 +1299,9 @@
 			<control type="label">
 				<!-- Go Back -->
 				<left>408</left>
-				<top>672</top>
-				<width>1394</width>
-				<height>48</height>
+				<top>572</top>
+				<width>388</width>
+				<height>144</height>
 				<font>apptv30</font>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
@@ -1344,7 +1344,7 @@
 					<left>820</left>
 					<top>452</top>
 					<width>1050</width>
-					<height>216</height>
+					<height>278</height>
 					<font>apptv18</font>
 					<label>$INFO[ListItem.PlotOutline]</label>
 					<align>justify</align>
@@ -1355,7 +1355,7 @@
 					<left>820</left>
 					<top>452</top>
 					<width>1050</width>
-					<height>216</height>
+					<height>278</height>
 					<font>apptv18</font>
 					<label>$INFO[ListItem.Plot]</label>
 					<align>justify</align>
