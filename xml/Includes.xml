@@ -2210,8 +2210,8 @@
 					<texturenofocus>touch-search.png</texturenofocus>
 					<onclick condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
 					<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
-					<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-					<animation effect="fade" start="100" end="50" condition="!Control.HasFocus($PARAM[searchid])">Conditional</animation>
+					<animation effect="zoom" start="100" end="155" center="auto">focus</animation>
+					<animation effect="fade" start="100" end="40" condition="!Control.HasFocus($PARAM[searchid])">Conditional</animation>
 				</control>
 				<control type="panel" id="$PARAM[letterbarid]">
 					<left>$PARAM[letterbarleft]</left>
@@ -2231,7 +2231,7 @@
 							<font>apptv20</font>
 							<align>center</align>
 							<textcolor>disabled-text</textcolor>
-							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="40" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 					</itemlayout>
 					<focusedlayout height="33" width="30">
@@ -2241,8 +2241,8 @@
 							<font>apptv20</font>
 							<align>center</align>
 							<textcolor>button-text</textcolor>
-							<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
-							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="zoom" start="100" end="155" center="auto">focus</animation>
+							<animation effect="fade" start="100" end="40" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 					</focusedlayout>
 					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
@@ -2278,7 +2278,7 @@
 					<texturenofocus>touch-search.png</texturenofocus>
 					<onclick condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
 					<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
-					<animation effect="zoom" start="100" end="130" center="auto">focus</animation>
+					<animation effect="zoom" start="100" end="160" center="auto">focus</animation>
 					<animation effect="fade" start="100" end="50" condition="!Control.HasFocus($PARAM[searchid])">Conditional</animation>
 				</control>
 				<control type="panel" id="$PARAM[letterbarid]">
@@ -2299,7 +2299,7 @@
 							<font>apptv20</font>
 							<textcolor>disabled-text</textcolor>
 							<align>center</align>
-							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="50" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 					</itemlayout>
 					<focusedlayout height="33" width="66">
@@ -2308,8 +2308,8 @@
 							<label>$INFO[ListItem.Label]</label>
 							<font>apptv20</font>
 							<align>center</align>
-							<animation effect="zoom" end="130" center="auto">focus</animation>
-							<animation effect="fade" start="100" end="20" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="zoom" end="160" center="auto">focus</animation>
+							<animation effect="fade" start="100" end="50" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 					</focusedlayout>
 					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>

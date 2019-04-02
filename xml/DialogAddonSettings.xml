@@ -10,15 +10,15 @@
 		<control type="image">
 			<!-- Dialog background -->
 			<left>45</left>
-			<top>60</top>
+			<top>30</top>
 			<width>1830</width>
-			<height>960</height>
+			<height>990</height>
 			<texture border="14">button-menu-background.png</texture>
 		</control>
 		<control type="label" id="2">
 			<!-- Dialog heading -->
 			<left>66</left>
-			<top>72</top>
+			<top>42</top>
 			<width>1788</width>
 			<height>54</height>
 			<align>center</align>
@@ -26,7 +26,7 @@
 		</control>
 		<control type="image">
 			<left>66</left>
-			<top>132</top>
+			<top>102</top>
 			<width>1788</width>
 			<height>6</height>
 			<texture>separator.png</texture>
@@ -34,49 +34,63 @@
 		<!-- Markers for control area items -->
 		<include content="page-offscreen-vertical">
 			<param name="indicator1left" value="1628"/>
-			<param name="indicator1top" value="140"/>
+			<param name="indicator1top" value="110"/>
 			<param name="indicator2left" value="1628"/>
-			<param name="indicator2top" value="922"/>
+			<param name="indicator2top" value="824"/>
 			<param name="indicatorsize" value="24"/>
 			<param name="indicatorcontainer" value="3"/>
 		</include>
 		<control type="grouplist" id="3">
 			<!-- Button area -->
 			<left>1428</left>
-			<top>164</top>
+			<top>134</top>
 			<width>424</width>
-			<height>748</height>
+			<height>680</height>
 			<itemgap>0</itemgap>
 			<onleft>5</onleft>
+			<onright>noop</onright>
+			<onup>noop</onup>
 			<ondown>9001</ondown>
 		</control>
 		<!-- Markers for control area items -->
 		<include content="page-offscreen-vertical">
 			<param name="indicator1left" value="751"/>
-			<param name="indicator1top" value="140"/>
+			<param name="indicator1top" value="110"/>
 			<param name="indicator2left" value="751"/>
-			<param name="indicator2top" value="922"/>
+			<param name="indicator2top" value="824"/>
 			<param name="indicatorsize" value="24"/>
 			<param name="indicatorcontainer" value="5"/>
 		</include>
 		<control type="grouplist" id="5">
 			<!-- Control area -->
 			<left>99</left>
-			<top>164</top>
+			<top>134</top>
 			<width>1328</width>
-			<height>748</height>
+			<height>680</height>
 			<itemgap>0</itemgap>
 			<pagecontrol>60</pagecontrol>
+			<onup>noop</onup>
 			<ondown>9001</ondown>
 			<onleft condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>
 			<onleft condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">60</onleft>
 			<onright>3</onright>
 		</control>
+		<control type="textbox" id="6">
+			<!-- Settings description area -->
+			<left>60</left>
+			<top>700</top>
+			<width>1792</width>
+			<height>98</height>
+			<font>apptv20</font>
+			<align>center</align>
+			<textcolor>button-text</textcolor>
+		</control>
 		<control type="scrollbar" id="60">
 			<left>60</left>
-			<top>164</top>
+			<top>134</top>
 			<width>18</width>
-			<height>748</height>
+			<height>680</height>
+			<onleft>noop</onleft>
 			<onright>5</onright>
 			<animation condition="!Control.HasFocus(60) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			<visible>$EXP[isEnabledScrollbar]</visible>
