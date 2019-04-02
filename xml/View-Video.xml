@@ -403,13 +403,13 @@
 					<visible>ListItem.IsCollection</visible>
 				</control>
 				<control type="image">
-					<!-- MPAA Rating -->
+					<!-- Classification Rating -->
 					<left>26</left>
 					<top>414</top>
-					<width>240</width>
-					<height>70</height>
+					<width>64</width>
+					<height>64</height>
 					<aligny>bottom</aligny>
-					<texture>$VAR[VideoRating]</texture>
+					<texture>$VAR[ClassificationRating]</texture>
 					<aspectratio>keep</aspectratio>
 					<visible>!String.IsEmpty(ListItem.Mpaa)</visible>
 				</control>
@@ -433,7 +433,7 @@
 					<label>$INFO[ListItem.PlotOutline]</label>
 					<align>justify</align>
 					<aligny>top</aligny>
-					<visible>Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
+					<visible>!String.IsEmpty(ListItem.PlotOutline)</visible>
 				</control>
 				<control type="textbox">
 					<!-- Plot (Show if no outline available) -->
@@ -445,7 +445,7 @@
 					<label>$INFO[ListItem.Plot]</label>
 					<align>justify</align>
 					<aligny>top</aligny>
-					<visible>String.IsEmpty(ListItem.PlotOutline) + !String.IsEmpty(ListItem.Plot) + [Container.Content(movies) | Container.Content(episodes) | Container.Content(musicvideos)]</visible>
+					<visible>String.IsEmpty(ListItem.PlotOutline) + !String.IsEmpty(ListItem.Plot)</visible>
 				</control>
 				<control type="group">
 					<visible>ListItem.IsCollection</visible>
@@ -945,6 +945,16 @@
 						<visible>!Skin.HasSetting(background-fanarts)</visible>
 					</control>
 				</control>
+				<control type="image">
+					<!-- Classification Rating -->
+					<left>45</left>
+					<top>170</top>
+					<width>64</width>
+					<height>64</height>
+					<aligny>bottom</aligny>
+					<texture>$VAR[ClassificationRating]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
 				<control type="grouplist">
 					<left>45</left>
 					<top>516</top>
@@ -1214,7 +1224,7 @@
 				</control>
 				<control type="image">
 					<left>30</left>
-					<top>175</top>
+					<top>168</top>
 					<height>60</height>
 					<width>60</width>
 					<texture>$VAR[Overlay]</texture>
@@ -1321,22 +1331,22 @@
 					<visible>Container.Content(movies) | Container.Content(episodes)</visible>
 				</control>
 				<control type="image">
-					<!-- Star Rating -->
+					<!-- Classification Rating -->
 					<left>408</left>
 					<top>460</top>
-					<width>165</width>
-					<height>33</height>
-					<texture>$VAR[MediaRating]</texture>
+					<width>64</width>
+					<height>64</height>
+					<aligny>bottom</aligny>
+					<texture>$VAR[ClassificationRating]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="image">
-					<!-- MPAA Rating -->
+					<!-- Star Rating -->
 					<left>408</left>
-					<top>500</top>
-					<width>240</width>
-					<height>70</height>
-					<aligny>bottom</aligny>
-					<texture>$VAR[VideoRating]</texture>
+					<top>534</top>
+					<width>165</width>
+					<height>33</height>
+					<texture>$VAR[MediaRating]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="textbox">
@@ -1799,13 +1809,13 @@
 			<control type="group">
 				<visible>!String.IsEmpty(ListItem.Title)</visible>
 				<control type="image">
-					<!-- MPAA Rating -->
+					<!-- Classification Rating -->
 					<left>26</left>
 					<top>950</top>
-					<width>240</width>
-					<height>70</height>
+					<width>64</width>
+					<height>64</height>
 					<aligny>bottom</aligny>
-					<texture>$VAR[VideoRating]</texture>
+					<texture>$VAR[ClassificationRating]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="image">
@@ -2114,13 +2124,13 @@
 					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 				<control type="image">
-					<!-- MPAA Rating -->
+					<!-- Classification Rating -->
 					<left>26</left>
 					<top>420</top>
-					<width>240</width>
-					<height>70</height>
+					<width>64</width>
+					<height>64</height>
 					<aligny>bottom</aligny>
-					<texture>$VAR[VideoRating]</texture>
+					<texture>$VAR[ClassificationRating]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="image">
