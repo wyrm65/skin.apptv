@@ -2233,6 +2233,14 @@
 							<textcolor>disabled-text</textcolor>
 							<animation effect="fade" start="100" end="40" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
+						<control type="label">
+							<height>30</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>apptv20</font>
+							<textcolor>listselected-text</textcolor>
+							<align>center</align>
+							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter) | String.IsEqual(ListItem.Property(IsNumber),Container.ListItem.SortLetter)</visible>
+						</control>
 					</itemlayout>
 					<focusedlayout height="33" width="30">
 						<control type="label">
@@ -2243,6 +2251,16 @@
 							<textcolor>button-text</textcolor>
 							<animation effect="zoom" start="100" end="155" center="auto">focus</animation>
 							<animation effect="fade" start="100" end="40" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						</control>
+						<control type="label">
+							<height>30</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>apptv20</font>
+							<align>center</align>
+							<textcolor>listselected-text</textcolor>
+							<animation effect="zoom" start="100" end="155" center="auto">focus</animation>
+							<animation effect="fade" start="100" end="40" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter) | String.IsEqual(ListItem.Property(IsNumber),Container.ListItem.SortLetter)</visible>
 						</control>
 					</focusedlayout>
 					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
@@ -2301,6 +2319,14 @@
 							<align>center</align>
 							<animation effect="fade" start="100" end="50" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
+						<control type="label">
+							<height>30</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>apptv20</font>
+							<textcolor>listselected-text</textcolor>
+							<align>center</align>
+							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter) | String.IsEqual(ListItem.Property(IsNumber),Container.ListItem.SortLetter)</visible>
+						</control>
 					</itemlayout>
 					<focusedlayout height="33" width="66">
 						<control type="label">
@@ -2310,6 +2336,16 @@
 							<align>center</align>
 							<animation effect="zoom" end="160" center="auto">focus</animation>
 							<animation effect="fade" start="100" end="50" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+						</control>
+						<control type="label">
+							<height>30</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>apptv20</font>
+							<align>center</align>
+							<textcolor>listselected-text</textcolor>
+							<animation effect="zoom" end="160" center="auto">focus</animation>
+							<animation effect="fade" start="100" end="50" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter) | String.IsEqual(ListItem.Property(IsNumber),Container.ListItem.SortLetter)</visible>
 						</control>
 					</focusedlayout>
 					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
