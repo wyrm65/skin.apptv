@@ -30,29 +30,16 @@
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
-			<control type="textbox">
+			<control type="textbox" id="1122">
 				<!-- Addon description -->
 				<left>570</left>
 				<top>165</top>
 				<width>1290</width>
 				<height>180</height>
-				<label>$INFO[ListItem.AddonDescription]</label>
+				<label>$VAR[AddonInfoDescription]</label>
 				<font>apptv20</font>
 				<align>justify</align>
 				<pagecontrol>1123</pagecontrol>
-				<visible>!String.IsEmpty(ListItem.AddonDescription)</visible>
-			</control>
-			<control type="textbox">
-				<!-- Addon summary (Show if no description available)-->
-				<left>570</left>
-				<top>165</top>
-				<width>1290</width>
-				<height>180</height>
-				<label>$INFO[ListItem.AddonSummary]</label>
-				<font>apptv20</font>
-				<align>justify</align>
-				<pagecontrol>1123</pagecontrol>
-				<visible>String.IsEmpty(ListItem.AddonDescription)</visible>
 			</control>
 			<control type="scrollbar" id="1123">
 				<!-- Addon description scrollbar -->
@@ -185,8 +172,8 @@
 				<align>center</align>
 				<onleft>1005</onleft>
 				<onright>1005</onright>
-				<onup condition="Integer.IsGreater(Container(1123).NumPages,1)">1123</onup>
-				<onup condition="Integer.IsLessOrEqual(Container(1123).NumPages,1)">1005</onup>
+				<onup condition="Integer.IsGreater(Container(1122).NumPages,1)">1123</onup>
+				<onup condition="Integer.IsLessOrEqual(Container(1122).NumPages,1)">1005</onup>
 				<ondown condition="Integer.IsGreater(Container(50).NumItems,0)">50</ondown>
 				<ondown condition="Integer.IsLessOrEqual(Container(50).NumItems,0)">950</ondown>
 				<control type="button" id="6">

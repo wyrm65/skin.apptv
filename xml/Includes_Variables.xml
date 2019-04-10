@@ -340,6 +340,10 @@
 		<value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
 		<value condition="!String.IsEmpty(ListItem.PlotOutline)">$INFO[ListItem.PlotOutline]</value>
 	</variable>
+	<variable name="AddonInfoDescription">
+		<value condition="!String.IsEmpty(ListItem.AddonDescription)">$INFO[ListItem.AddonDescription]</value>
+		<value condition="!String.IsEmpty(ListItem.AddonSummary)">$INFO[ListItem.AddonSummary]</value>
+	</variable>
 	<variable name="PlayerControlRepeatImage">
 		<value condition="Playlist.IsRepeatOne + Control.HasFocus(674)">osd-btn-repeatone-focus.png</value>
 		<value condition="Playlist.IsRepeat + Control.HasFocus(674)">osd-btn-repeatall-focus.png</value>
