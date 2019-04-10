@@ -4,6 +4,7 @@
 	<onunload>ClearProperty(showinfo,addoninformation)</onunload>
 	<controls>
 		<include>background</include>
+		<include>fullscreendummy</include>
 		<control type="group">
 			<visible>!Window.isVisible(addonsettings) + !Window.IsActive(textviewer)</visible>
 			<control type="image">
@@ -387,17 +388,33 @@
 				<param name="controlid" value="1005" />
 				<param name="returnid" value="9000" />
 			</include>
-
 			<!-- Play bump sound if user tries to leave screenshots widget by undefined direction -->
 			<include content="illegal-action">
 				<param name="controlid" value="1010" />
 				<param name="returnid" value="50" />
 			</include>
-
 			<!-- Play bump sound if user tries to leave recent updates widget by undefined direction -->
 			<include content="illegal-action">
 				<param name="controlid" value="1015" />
 				<param name="returnid" value="950" />
+			</include>
+		</control>
+
+		<!-- Show a iOS style page indicator to show which focus group has the current focus -->
+		<!-- Focus group can be hidden or shown but is potentially focusable, that is it has not be disabled -->
+		<control type="group">
+			<include content="page-indicator">
+				<param name="indicatorleft" value="0" />
+				<param name="indicatortop" value="444" />
+				<param name="indicatorwidth" value="48" />
+				<param name="indicatorheight" value="192" />
+				<param name="indicatororientation" value="vertical" />
+				<param name="grp1indicate" value="Control.HasFocus(1123)" />
+				<param name="grp1visible" value="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])+Integer.IsGreater(Container(1122).NumPages,1)" />
+				<param name="grp2indicate" value="ControlGroup(9000).HasFocus()|Control.HasFocus(3550)" />
+				<param name="grp2visible" value="Integer.IsGreater(Container(950).NumItems,0)|Integer.IsGreater(Container(50).NumItems,0)|[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])+Integer.IsGreater(Container(1122).NumPages,1)]" />
+				<param name="grp3indicate" value="Control.HasFocus(950)|Control.HasFocus(50)" />
+				<param name="grp3visible" value="[Integer.IsGreater(Container(950).NumItems,0)+Control.IsVisible(950)]|[Integer.IsGreater(Container(50).NumItems,0)+Control.IsVisible(50)]" />
 			</include>
 		</control>
 	</controls>
