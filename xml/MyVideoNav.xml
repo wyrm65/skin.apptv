@@ -315,7 +315,7 @@
 					<param name="grp4indicate" value="[Control.HasFocus(1240)|Control.HasFocus(1242)|Control.HasFocus(1243)|Control.HasFocus(1248)|Control.HasFocus(1260)|Control.HasFocus(1262)|Control.HasFocus(1263)|Control.HasFocus(1268)]" />
 					<param name="grp4visible" value="[Skin.HasSetting(show-letterbar)+[Container.Content(sets)|Container.Content(movies)|Container.Content(tvshows)|Container.Content(musicvideos)]]" />
 					<param name="grp5indicate" value="[Control.HasFocus(1250)|Control.HasFocus(1252)|Control.HasFocus(1253)|Control.HasFocus(1258)]" />
-					<param name="grp5visible" value="[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
+					<param name="grp5visible" value="[Control.IsVisible(1250)|Control.IsVisible(1252)|Control.IsVisible(1253)|Control.IsVisible(1258)]+[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
 				</include>
 			</control>
 			<control type="group">
@@ -333,7 +333,7 @@
 					<param name="grp3indicate" value="[Control.HasFocus(1244)|Control.HasFocus(1247)|Control.HasFocus(1264)|Control.HasFocus(1267)]" />
 					<param name="grp3visible" value="[Skin.HasSetting(show-letterbar)+[Container.Content(movies)|Container.Content(tvshows)|Container.Content(musicvideos)]]" />
 					<param name="grp4indicate" value="[Control.HasFocus(1254)|Control.HasFocus(1257)]" />
-					<param name="grp4visible" value="[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
+					<param name="grp4visible" value="[Control.IsVisible(1254)|Control.IsVisible(1257)]+[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
 				</include>
 			</control>
 		</control>
