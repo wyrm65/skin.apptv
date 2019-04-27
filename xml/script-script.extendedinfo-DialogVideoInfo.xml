@@ -267,17 +267,7 @@
 				<alttexturefocus>button-info-browse-focus.png</alttexturefocus>
 				<alttexturenofocus>button-info-browse.png</alttexturenofocus>
 				<usealttexture>$EXP[isTvshow] | $EXP[isSeason]</usealttexture>
-				<visible>!System.HasAddon(script.cinema.experience) + !String.IsEmpty(Window.Property(DBID)) + [$EXP[isMovie] | $EXP[isEpisode] | $EXP[isTvshow] | $EXP[isMusicvideo]]</visible>
-			</control>
-			<control type="button" id="18">
-				<!-- Home cinema button -->
-				<include>info-options-common</include>
-				<label>$LOCALIZE[31692]</label>
-				<texturefocus>button-info-play-focus.png</texturefocus>
-				<texturenofocus>button-info-play.png</texturenofocus>
-				<onclick>Dialog.Close(movieinformation)</onclick>
-				<onclick>RunScript(script.cinemavision,experience)</onclick>
-				<visible>System.HasAddon(script.cinemavision) + [$EXP[isMovie] | $EXP[isEpisode] | $EXP[isTvshow] | $EXP[isMusicvideo]]</visible>
+				<visible>!String.IsEmpty(Window.Property(DBID)) + [$EXP[isMovie] | $EXP[isEpisode] | $EXP[isTvshow] | $EXP[isMusicvideo]]</visible>
 			</control>
 			<control type="button" id="11">
 				<!-- Trailer button -->
