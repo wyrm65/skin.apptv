@@ -201,46 +201,28 @@
 			<width>1920</width>
 			<height>609</height>
 			<texture>background-iconhome.png</texture>
-		</control>
-		<control type="group">
 			<visible>[Container(9000).Row(0) | Container(9000).Row(1)] + !Container(9000).HasPrevious()</visible>
-			<control type="image">
-				<!-- Hilite first row of icons (first page) -->
-				<left>0</left>
-				<top>501</top>
-				<width>1920</width>
-				<height>249</height>
-				<texture>background-iconhomehilite.png</texture>
-				<visible>Container(9000).Row(0)</visible>
-			</control>
-			<control type="image">
-				<!-- Hilite second row of icons (first page) -->
-				<left>0</left>
-				<top>738</top>
-				<width>1920</width>
-				<height>264</height>
-				<texture>background-iconhomehilite.png</texture>
-				<visible>Container(9000).Row(1)</visible>
-			</control>
 		</control>
+
 		<control type="panel" id="9000">
 			<!-- Home menu icon panel -->
 			<animation condition="![Container(9000).Row(0) | Container(9000).Row(1)] | Container(9000).HasPrevious()" effect="slide" start="0,0" end="0,-465" time="100">Conditonal</animation>
-			<top>510</top>
+			<top>500</top>
 			<left>15</left>
 			<width>1890</width>
-			<height>964</height>
+			<height>986</height>
+			<itemgap>0</itemgap>
 			<onleft>6100</onleft>
 			<onright>9005</onright>
 			<onup condition="![Control.IsVisible(9802) | Control.IsVisible(9803)]">9800</onup>
 			<onup condition="Control.IsVisible(9802) | Control.IsVisible(9803)">9005</onup>
 			<ondown>9005</ondown>
-			<itemlayout height="240" width="378">
+			<itemlayout height="246" width="378">
 				<control type="image">
-					<left>39</left>
-					<top>15</top>
-					<width>300</width>
-					<height>180</height>
+					<left>36</left>
+					<top>10</top>
+					<width>306</width>
+					<height>185</height>
 					<aspectratio>keep</aspectratio>
 					<texture diffuse="homeiconmask.png">$INFO[ListItem.Art(thumb)]</texture>
 				</control>
@@ -258,11 +240,11 @@
 					<param name="visible" value="String.IsEqual(ListItem.Label2,$LOCALIZE[8])" />
 				</include>-->
 			</itemlayout>
-			<focusedlayout height="240" width="378">
+			<focusedlayout height="246" width="378">
 				<control type="image">
-					<left>10</left>
+					<left>11</left>
 					<top>0</top>
-					<width>357</width>
+					<width>356</width>
 					<height>213</height>
 					<aspectratio>keep</aspectratio>
 					<texture diffuse="homeiconmask.png">$INFO[ListItem.Art(thumb)]</texture>
@@ -284,7 +266,7 @@
 				</include>-->
 				<control type="label">
 					<left>0</left>
-					<top>206</top>
+					<top>210</top>
 					<width>378</width>
 					<height>34</height>
 					<align>center</align>
@@ -728,26 +710,17 @@
 				</item>
 			</content>
 		</control>
-		<control type="group">
+
+		<control type="button">
+			<!-- Onfocus, move to next row of icon panel -->
+			<left>0</left>
+			<top>1005</top>
+			<width>1920</width>
+			<height>75</height>
+			<texturefocus>blank.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
+			<onfocus>Control.Message(9000,moveup)</onfocus>
 			<visible>[Container(9000).Row(0) | Container(9000).Row(1)] + !Container(9000).HasPrevious()</visible>
-			<control type="image">
-				<!-- Hide third row of icons if still in the first two rows of panel -->
-				<left>0</left>
-				<top>1005</top>
-				<width>1920</width>
-				<height>75</height>
-				<texture>background-iconhome.png</texture>
-			</control>
-			<control type="button">
-				<!-- Onfocus, move to next row of icon panel -->
-				<left>0</left>
-				<top>1005</top>
-				<width>1920</width>
-				<height>75</height>
-				<texturefocus>blank.png</texturefocus>
-				<texturenofocus>blank.png</texturenofocus>
-				<onfocus>Control.Message(9000,moveup)</onfocus>
-			</control>
 		</control>
 		<!-- RSS info -->
 		<control type="group" id="9940">
