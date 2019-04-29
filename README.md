@@ -47,7 +47,6 @@ script.libraryeditor
 script.cdartmanager  
 script.favourites  
 script.tv.show.next.aired  
-script.cinemavision  
 plugin.video.specialfeatures  
 script globalsearch  
 script.artistslideshow  
