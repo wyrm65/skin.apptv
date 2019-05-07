@@ -265,10 +265,12 @@
 			<width>384</width>
 			<height>84</height>
 			<font>apptv23</font>
+			<label>$LOCALIZE[222]</label>
 			<align>center</align>
 			<onup>5</onup>
 			<onleft condition="Control.IsVisible(3)">3</onleft>
 			<onleft condition="Control.IsVisible(6)">6</onleft>
+			<visible>!String.IsEmpty(Control.GetLabel(312).index(1)) + !Window.IsVisible(numericinput) + !System.HasHiddenInput</visible>
 		</control>
 	</controls>
 </window>
