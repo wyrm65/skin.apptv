@@ -87,9 +87,9 @@
 				<height>64</height>
 				<align>right</align>
 				<aligny>bottom</aligny>
-				<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$VAR[ClassificationRating]</texture>
+				<texture>$VAR[ClassificationRating]</texture>
 				<aspectratio>keep</aspectratio>
-				<visible>!String.IsEmpty(ListItem.Mpaa) + String.IsEqual(Control.GetLabel(4500),blank.png)</visible>
+				<visible>String.IsEqual(Control.GetLabel(4500),blank.png)</visible>
 			</control>
 			<control type="label">
 				<!-- Studio -->

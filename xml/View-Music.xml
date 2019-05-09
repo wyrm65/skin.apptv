@@ -1224,7 +1224,7 @@
 				</control>
 				<control type="group">
 					<visible>!ListItem.IsFolder + Container.Content(musicvideos)</visible>
-					<control type="image" id="4500">
+					<control type="image" id="4557">
 						<!-- Classification Rating (quick way) -->
 						<left>26</left>
 						<top>950</top>
@@ -1233,7 +1233,6 @@
 						<aligny>bottom</aligny>
 						<texture fallback="blank.png">$INFO[Listitem.MPAA,resource://resource.images.classificationicons.colour/,.png]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>!String.IsEmpty(ListItem.Mpaa)</visible>
 					</control>
 					<control type="image">
 						<!-- Classification Rating -->
@@ -1244,7 +1243,7 @@
 						<aligny>bottom</aligny>
 						<texture>$VAR[ClassificationRating]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>!String.IsEmpty(ListItem.Mpaa) + String.IsEqual(Control.GetLabel(4500),blank.png)</visible>
+						<visible>String.IsEqual(Control.GetLabel(4557),blank.png)</visible>
 					</control>
 					<control type="image">
 						<!-- Video special features available -->
@@ -1544,7 +1543,7 @@
 						<height>48</height>
 						<texture>$VAR[ListItemFlags]</texture>
 					</control>
-					<control type="image" id="4500">
+					<control type="image" id="4558">
 						<!-- Classification Rating (quick way) -->
 						<left>464</left>
 						<top>0</top>
@@ -1553,7 +1552,6 @@
 						<aligny>bottom</aligny>
 						<texture fallback="blank.png">$INFO[Listitem.MPAA,resource://resource.images.classificationicons.colour/,.png]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>!String.IsEmpty(ListItem.Mpaa)</visible>
 					</control>
 					<control type="image">
 						<!-- Classification Rating -->
@@ -1564,7 +1562,7 @@
 						<aligny>bottom</aligny>
 						<texture>$VAR[ClassificationRating]</texture>
 						<aspectratio>keep</aspectratio>
-						<visible>!String.IsEmpty(ListItem.Mpaa) + String.IsEqual(Control.GetLabel(4500),blank.png)</visible>
+						<visible>String.IsEqual(Control.GetLabel(4558),blank.png)</visible>
 					</control>
 				</control>
 				<control type="group">
