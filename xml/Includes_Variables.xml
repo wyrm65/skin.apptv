@@ -25,6 +25,7 @@
 		<value condition="Skin.HasSetting(background-visibiltyhigh)">HighBgnVisibity</value>
 	</variable>
 	<variable name="AustraliaClassification">
+		<value condition="!String.Contains(Listitem.Mpaa,Australia:)">blank.png</value>
 		<value condition="String.Contains(Listitem.Mpaa,Australia:G)">resource://resource.images.classificationicons.colour/Australia G.png</value>
 		<value condition="String.Contains(Listitem.Mpaa,Australia:MA)">resource://resource.images.classificationicons.colour/Australia MA.png</value>
 		<value condition="String.Contains(Listitem.Mpaa,Australia:M)">resource://resource.images.classificationicons.colour/Australia M.png</value>
@@ -40,6 +41,7 @@
 		<value condition="String.Contains(ListItem.Mpaa,Australia:TV-AV)">resource://resource.images.classificationicons.colour/Australia TV-AV.png</value>
 	</variable>
 	<variable name="BrazilClassification">
+		<value condition="!String.Contains(Listitem.Mpaa,Brazil:)">blank.png</value>
 		<value condition="String.Contains(ListItem.Mpaa,Brazil:Livre) | String.Contains(ListItem.Mpaa,Livre)">resource://resource.images.classificationicons.colour/Brazil Livre.png</value>
 		<value condition="String.Contains(ListItem.Mpaa,Brazil:10) | String.Contains(ListItem.Mpaa,10 anos)">resource://resource.images.classificationicons.colour/Brazil 10.png</value>
 		<value condition="String.Contains(ListItem.Mpaa,Brazil:12) | String.Contains(ListItem.Mpaa,12 anos)">resource://resource.images.classificationicons.colour/Brazil 12.png</value>
@@ -47,27 +49,8 @@
 		<value condition="String.Contains(ListItem.Mpaa,Brazil:16) | String.Contains(ListItem.Mpaa,16 anos)">resource://resource.images.classificationicons.colour/Brazil 16.png</value>
 		<value condition="String.Contains(ListItem.Mpaa,Brazil:18) | String.Contains(ListItem.Mpaa,18 anos)">resource://resource.images.classificationicons.colour/Brazil 18.png</value>
 	</variable>
-	<variable name="CanadaClassification">
-		<value condition="String.Contains(Listitem.Mpaa,Canada:G)">resource://resource.images.classificationicons.colour/Canada G.png</value>
-		<value condition="String.Contains(Listitem.Mpaa,Canada:14A)">resource://resource.images.classificationicons.colour/Canada 14A.png</value>
-		<value condition="String.Contains(Listitem.Mpaa,Canada:18A)">resource://resource.images.classificationicons.colour/Canada 18A.png</value>
-		<value condition="String.Contains(Listitem.Mpaa,Canada:PG)">resource://resource.images.classificationicons.colour/Canada PG.png</value>
-		<value condition="String.Contains(Listitem.Mpaa,Canada:R)">resource://resource.images.classificationicons.colour/Canada R.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,Canada:TV-PG)">resource://resource.images.classificationicons.colour/Canada TV-PG.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,Canada:TV-G)">resource://resource.images.classificationicons.colour/Canada TV-G.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,Canada:TV-C8)">resource://resource.images.classificationicons.colour/Canada TV-C8.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,Canada:TV-C)">resource://resource.images.classificationicons.colour/Canada TV-C.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,Canada:TV-14)">resource://resource.images.classificationicons.colour/Canada TV-14.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,Canada:TV-18)">resource://resource.images.classificationicons.colour/Canada TV-18.png</value>
-	</variable>
-	<variable name="FranceClassification">
-		<value condition="String.Contains(Listitem.mpaa,French:U)">resource://resource.images.classificationicons.colour/France TV-U.png</value>
-		<value condition="String.Contains(Listitem.mpaa,French:-10)">resource://resource.images.classificationicons.colour/France TV-10.png</value>
-		<value condition="String.Contains(Listitem.mpaa,French:-12)">resource://resource.images.classificationicons.colour/France TV-12.png</value>
-		<value condition="String.Contains(Listitem.mpaa,French:-16)">resource://resource.images.classificationicons.colour/France TV-16.png</value>
-		<value condition="String.Contains(Listitem.mpaa,French:-18)">resource://resource.images.classificationicons.colour/France TV-18.png</value>
-	</variable>
 	<variable name="GermanyClassification">
+		<value condition="!String.Contains(Listitem.Mpaa,FSK)">blank.png</value>
 		<value condition="String.Contains(ListItem.Mpaa,FSK0) | String.Contains(ListItem.Mpaa,FSK 0) | String.Contains(ListItem.Mpaa,FSK o.A.)">resource://resource.images.classificationicons.colour/Germany 0.png</value>
 		<value condition="String.Contains(ListItem.Mpaa,FSK6) | String.Contains(ListItem.Mpaa,FSK 6)">resource://resource.images.classificationicons.colour/Germany 6.png</value>
 		<value condition="String.Contains(ListItem.Mpaa,FSK12) | String.Contains(ListItem.Mpaa,FSK 12)">resource://resource.images.classificationicons.colour/Germany 12.png</value>
@@ -75,6 +58,7 @@
 		<value condition="String.Contains(ListItem.Mpaa,FSK18) | String.Contains(ListItem.Mpaa,FSK 18)">resource://resource.images.classificationicons.colour/Germany 18.png</value>
 	</variable>
 	<variable name="HungaryClassification">
+		<value condition="!String.Contains(Listitem.Mpaa,HU-)">blank.png</value>
 		<value condition="String.Contains(ListItem.Mpaa,HU-0)">resource://resource.images.classificationicons.colour/Hungary 0.png</value>
 		<value condition="String.Contains(ListItem.Mpaa,HU-6)">resource://resource.images.classificationicons.colour/Hungary 6.png</value>
 		<value condition="String.Contains(ListItem.Mpaa,HU-12)">resource://resource.images.classificationicons.colour/Hungary 12.png</value>
@@ -82,29 +66,8 @@
 		<value condition="String.Contains(ListItem.Mpaa,HU-18)">resource://resource.images.classificationicons.colour/Hungary 18.png</value>
 		<value condition="String.Contains(ListItem.Mpaa,HU-X)">resource://resource.images.classificationicons.colour/Hungary X.png</value>
 	</variable>
-	<variable name="SouthKoreaClassification">
-		<value condition="String.Contains(ListItem.Mpaa,SouthKorea:12)">resource://resource.images.classificationicons.colour/SouthKorea 12.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,SouthKorea:15)">resource://resource.images.classificationicons.colour/SouthKorea 15.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,SouthKorea:All)">resource://resource.images.classificationicons.colour/SouthKorea All.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,SouthKorea:Restricted)">resource://resource.images.classificationicons.colour/SouthKorea Restricted.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,SouthKorea:R)">resource://resource.images.classificationicons.colour/SouthKorea R.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,SouthKorea:TV-7)">resource://resource.images.classificationicons.colour/SouthKorea TV-7.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,SouthKorea:TV-12)">resource://resource.images.classificationicons.colour/SouthKorea TV-12.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,SouthKorea:TV-15)">resource://resource.images.classificationicons.colour/SouthKorea TV-15.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,SouthKorea:TV-19)">resource://resource.images.classificationicons.colour/SouthKorea TV-19.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,SouthKorea:TV-All)">resource://resource.images.classificationicons.colour/SouthKorea TV-All.png</value>
-	</variable>
-	<variable name="SpainClassification">
-		<value condition="String.Contains(ListItem.Mpaa,ES:TP)">resource://resource.images.classificationicons.colour/Spain A.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,ES:R7)">resource://resource.images.classificationicons.colour/Spain 7.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,ES:ITP)">resource://resource.images.classificationicons.colour/Spain A.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,ES:IR7)">resource://resource.images.classificationicons.colour/Spain 7.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,ES:R12)">resource://resource.images.classificationicons.colour/Spain 12.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,ES:R16)">resource://resource.images.classificationicons.colour/Spain 16.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,ES:R18)">resource://resource.images.classificationicons.colour/Spain 18.png</value>
-		<value condition="String.Contains(ListItem.Mpaa,ES:X)">resource://resource.images.classificationicons.colour/Spain X.png</value>
-	</variable>
 	<variable name="UKClassification">
+		<value condition="!String.Contains(Listitem.Mpaa,UK:)">blank.png</value>
 		<value condition="String.Contains(ListItem.Mpaa,UK:UC)">resource://resource.images.classificationicons.colour/UK UC.png</value>
 		<value condition="String.Contains(ListItem.Mpaa,UK:U)">resource://resource.images.classificationicons.colour/UK U.png</value>
 		<value condition="String.Contains(ListItem.Mpaa,UK:PG)">resource://resource.images.classificationicons.colour/UK PG.png</value>
@@ -132,16 +95,13 @@
 		<value condition="String.IsEmpty(ListItem.Mpaa)">resource://resource.images.classificationicons.colour/Check Classification.png</value>
 		<value condition="String.Contains(Listitem.Mpaa,Australia:)">$VAR[AustraliaClassification]</value>
 		<value condition="String.Contains(Listitem.Mpaa,Brazil:)">$VAR[BrazilClassification]</value>
-		<value condition="String.Contains(Listitem.Mpaa,Canada:)">$VAR[CanadaClassification]</value>
-		<value condition="String.Contains(Listitem.Mpaa,French:)">$VAR[FranceClassification]</value>
 		<value condition="String.Contains(Listitem.Mpaa,FSK)">$VAR[GermanyClassification]</value>
 		<value condition="String.Contains(Listitem.Mpaa,HU-)">$VAR[HungaryClassification]</value>
-		<value condition="String.Contains(Listitem.Mpaa,SouthKorea:)">$VAR[SouthKoreaClassification]</value>
-		<value condition="String.Contains(Listitem.Mpaa,ES:)">$VAR[SpainClassification]</value>
 		<value condition="String.Contains(Listitem.Mpaa,UK:)">$VAR[UKClassification]</value>
 		<value>$VAR[USAClassification]</value>
 	</variable>
 	<variable name="AustraliaInfoClassification">
+		<value condition="!String.Contains(Window.Property(mpaa),Australia:)">blank.png</value>
 		<value condition="String.Contains(Window.Property(mpaa),Australia:G)">resource://resource.images.classificationicons.colour/Australia G.png</value>
 		<value condition="String.Contains(Window.Property(mpaa),Australia:MA)">resource://resource.images.classificationicons.colour/Australia MA.png</value>
 		<value condition="String.Contains(Window.Property(mpaa),Australia:M)">resource://resource.images.classificationicons.colour/Australia M.png</value>
@@ -157,6 +117,7 @@
 		<value condition="String.Contains(Window.Property(mpaa),Australia:TV-AV)">resource://resource.images.classificationicons.colour/Australia TV-AV.png</value>
 	</variable>
 	<variable name="BrazilInfoClassification">
+		<value condition="!String.Contains(Window.Property(mpaa),Brazil:)">blank.png</value>
 		<value condition="String.Contains(Window.Property(mpaa),Brazil:Livre) | String.Contains(Window.Property(mpaa),Livre)">resource://resource.images.classificationicons.colour/Brazil Livre.png</value>
 		<value condition="String.Contains(Window.Property(mpaa),Brazil:10) | String.Contains(Window.Property(mpaa),10 anos)">resource://resource.images.classificationicons.colour/Brazil 10.png</value>
 		<value condition="String.Contains(Window.Property(mpaa),Brazil:12) | String.Contains(Window.Property(mpaa),12 anos)">resource://resource.images.classificationicons.colour/Brazil 12.png</value>
@@ -164,27 +125,8 @@
 		<value condition="String.Contains(Window.Property(mpaa),Brazil:16) | String.Contains(Window.Property(mpaa),16 anos)">resource://resource.images.classificationicons.colour/Brazil 16.png</value>
 		<value condition="String.Contains(Window.Property(mpaa),Brazil:18) | String.Contains(Window.Property(mpaa),18 anos)">resource://resource.images.classificationicons.colour/Brazil 18.png</value>
 	</variable>
-	<variable name="CanadaInfoClassification">
-		<value condition="String.Contains(Window.Property(mpaa),Canada:G)">resource://resource.images.classificationicons.colour/Canada G.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),Canada:14A)">resource://resource.images.classificationicons.colour/Canada 14A.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),Canada:18A)">resource://resource.images.classificationicons.colour/Canada 18A.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),Canada:PG)">resource://resource.images.classificationicons.colour/Canada PG.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),Canada:R)">resource://resource.images.classificationicons.colour/Canada R.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),Canada:TV-PG)">resource://resource.images.classificationicons.colour/Canada TV-PG.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),Canada:TV-G)">resource://resource.images.classificationicons.colour/Canada TV-G.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),Canada:TV-C8)">resource://resource.images.classificationicons.colour/Canada TV-C8.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),Canada:TV-C)">resource://resource.images.classificationicons.colour/Canada TV-C.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),Canada:TV-14)">resource://resource.images.classificationicons.colour/Canada TV-14.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),Canada:TV-18)">resource://resource.images.classificationicons.colour/Canada TV-18.png</value>
-	</variable>
-	<variable name="FrenchInfoClassification">
-		<value condition="String.Contains(Window.Property(mpaa),French:U)">resource://resource.images.classificationicons.colour/France TV-U.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),French:-10)">resource://resource.images.classificationicons.colour/France TV-10.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),French:-12)">resource://resource.images.classificationicons.colour/France TV-12.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),French:-16)">resource://resource.images.classificationicons.colour/France TV-16.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),French:-18)">resource://resource.images.classificationicons.colour/France TV-18.png</value>
-	</variable>
 	<variable name="GermanyInfoClassification">
+		<value condition="!String.Contains(Window.Property(mpaa),FSK)">blank.png</value>
 		<value condition="String.Contains(Window.Property(mpaa),FSK0) | String.Contains(Window.Property(mpaa),FSK 0) | String.Contains(Window.Property(mpaa),FSK o.A.)">resource://resource.images.classificationicons.colour/Germany FSK-0.png</value>
 		<value condition="String.Contains(Window.Property(mpaa),FSK6) | String.Contains(Window.Property(mpaa),FSK 6)">resource://resource.images.classificationicons.colour/Germany FSK-6.png</value>
 		<value condition="String.Contains(Window.Property(mpaa),FSK12) | String.Contains(Window.Property(mpaa),FSK 12)">resource://resource.images.classificationicons.colour/Germany FSK-12.png</value>
@@ -192,6 +134,7 @@
 		<value condition="String.Contains(Window.Property(mpaa),FSK18) | String.Contains(Window.Property(mpaa),FSK 18)">resource://resource.images.classificationicons.colour/Germany FSK-18.png</value>
 	</variable>
 	<variable name="HungaryInfoClassification">
+		<value condition="!String.Contains(Window.Property(mpaa),HU-)">blank.png</value>
 		<value condition="String.Contains(Window.Property(mpaa),HU-0)">resource://resource.images.classificationicons.colour/Hungary 0.png</value>
 		<value condition="String.Contains(Window.Property(mpaa),HU-6)">resource://resource.images.classificationicons.colour/Hungary 6.png</value>
 		<value condition="String.Contains(Window.Property(mpaa),HU-12)">resource://resource.images.classificationicons.colour/Hungary 12.png</value>
@@ -199,29 +142,8 @@
 		<value condition="String.Contains(Window.Property(mpaa),HU-18)">resource://resource.images.classificationicons.colour/Hungary 18.png</value>
 		<value condition="String.Contains(Window.Property(mpaa),HU-X)">resource://resource.images.classificationicons.colour/Hungary X.png</value>
 	</variable>
-	<variable name="SouthKoreaInfoClassification">
-		<value condition="String.Contains(Window.Property(mpaa),SouthKorea:12)">resource://resource.images.classificationicons.colour/SouthKorea 12.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),SouthKorea:15)">resource://resource.images.classificationicons.colour/SouthKorea 15.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),SouthKorea:All)">resource://resource.images.classificationicons.colour/SouthKorea All.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),SouthKorea:Restricted)">resource://resource.images.classificationicons.colour/SouthKorea Restricted.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),SouthKorea:R)">resource://resource.images.classificationicons.colour/SouthKorea R.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),SouthKorea:TV-7)">resource://resource.images.classificationicons.colour/SouthKorea TV-7.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),SouthKorea:TV-12)">resource://resource.images.classificationicons.colour/SouthKorea TV-12.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),SouthKorea:TV-15)">resource://resource.images.classificationicons.colour/SouthKorea TV-15.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),SouthKorea:TV-19)">resource://resource.images.classificationicons.colour/SouthKorea TV-19.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),SouthKorea:TV-All)">resource://resource.images.classificationicons.colour/SouthKorea TV-All.png</value>
-	</variable>
-	<variable name="SpainInfoClassification">
-		<value condition="String.Contains(Window.Property(mpaa),ES:TP)">resource://resource.images.classificationicons.colour/Spain A.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),ES:R7)">resource://resource.images.classificationicons.colour/Spain 7.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),ES:ITP)">resource://resource.images.classificationicons.colour/Spain A.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),ES:IR7)">resource://resource.images.classificationicons.colour/Spain 7.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),ES:R12)">resource://resource.images.classificationicons.colour/Spain 12.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),ES:R16)">resource://resource.images.classificationicons.colour/Spain 16.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),ES:R18)">resource://resource.images.classificationicons.colour/Spain 18.png</value>
-		<value condition="String.Contains(Window.Property(mpaa),ES:X)">resource://resource.images.classificationicons.colour/Spain X.png</value>
-	</variable>
 	<variable name="UKInfoClassification">
+		<value condition="!String.Contains(Window.Property(mpaa),UK:)">blank.png</value>
 		<value condition="String.Contains(Window.Property(mpaa),UK:UC)">resource://resource.images.classificationicons.colour/UK UC.png</value>
 		<value condition="String.Contains(Window.Property(mpaa),UK:U)">resource://resource.images.classificationicons.colour/UK U.png</value>
 		<value condition="String.Contains(Window.Property(mpaa),UK:PG)">resource://resource.images.classificationicons.colour/UK PG.png</value>
@@ -249,12 +171,8 @@
 		<value condition="String.IsEmpty(Window.Property(mpaa))">resource://resource.images.classificationicons.colour/Check Classification.png</value>
 		<value condition="String.Contains(Window.Property(mpaa),Australia:)">$VAR[AustraliaInfoClassification]</value>
 		<value condition="String.Contains(Window.Property(mpaa),Brazil:)">$VAR[BrazilInfoClassification]</value>
-		<value condition="String.Contains(Window.Property(mpaa),Canada:)">$VAR[CanadaInfoClassification]</value>
-		<value condition="String.Contains(Window.Property(mpaa),French:)">$VAR[FrenchInfoClassification]</value>
 		<value condition="String.Contains(Window.Property(mpaa),FSK)">$VAR[GermanyInfoClassification]</value>
 		<value condition="String.Contains(Window.Property(mpaa),HU-)">$VAR[HungaryInfoClassification]</value>
-		<value condition="String.Contains(Window.Property(mpaa),SouthKorea:)">$VAR[SouthKoreaInfoClassification]</value>
-		<value condition="String.Contains(Window.Property(mpaa),ES:)">$VAR[SpainInfoClassification]</value>
 		<value condition="String.Contains(Window.Property(mpaa),UK:)">$VAR[UKInfoClassification]</value>
 		<value>$VAR[USAInfoClassification]</value>
 	</variable>
