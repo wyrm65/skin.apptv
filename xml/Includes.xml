@@ -1831,6 +1831,35 @@
 			<visible>$EXP[isEnabledTouch]</visible>
 		</control>
 	</include>
+	<include name="screen-name">
+		<param name="screenlabel"/>
+		<param name="listitems"/>
+		<definition>
+			<control type="grouplist">
+				<left>1170</left>
+				<top>30</top>
+				<width>auto</width>
+				<height>108</height>
+				<align>left</align>
+				<aligny>top</aligny>
+				<orientation>horizontal</orientation>
+				<control type="label">
+					<width max="600">auto</width>
+					<height>93</height>
+					<label>$PARAM[screenlabel]</label>
+					<font>apptv30</font>
+					<wrapmultiline>true</wrapmultiline>
+					<aligny>top</aligny>
+				</control>
+				<control type="label">
+					<width max="120">auto</width>
+					<height>64</height>
+					<label>$PARAM[listitems]</label>
+					<font>apptv25</font>
+				</control>
+			</control>
+		</definition>
+	</include>
 	<!-- Fake Equaliser (listitem is being played) -->
 	<include name="fake-equaliser">
 		<param name="feleft"/>

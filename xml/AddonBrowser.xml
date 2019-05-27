@@ -8,31 +8,10 @@
 	<controls>
 		<include>background</include>
 		<include>fake-overlay</include>
-		<control type="grouplist">
-			<left>1170</left>
-			<top>52</top>
-			<width>auto</width>
-			<height>93</height>
-			<align>left</align>
-			<aligny>bottom</aligny>
-			<orientation>horizontal</orientation>
-			<control type="label">
-				<!-- Addons heading -->
-				<width max="384">auto</width>
-				<height>108</height>
-				<label>$LOCALIZE[24001]</label>
-				<font>apptv30</font>
-				<wrapmultiline>true</wrapmultiline>
-				<aligny>top</aligny>
-			</control>
-			<control type="label">
-				<!-- Number of file -->
-				<width max="120">auto</width>
-				<height>75</height>
-				<label>$INFO[Container.NumItems,(,)]</label>
-				<aligny>top</aligny>
-			</control>
-		</control>
+		<include content="screen-name">
+			<param name="screenlabel" value="$LOCALIZE[24001]"/>
+			<param name="listitems" value="$INFO[Container.NumItems,(,)]"/>
+		</include>
 		<control type="group">
 			<!-- Various Views of Addons Browser -->
 			<include file="View-General.xml">ListView</include>

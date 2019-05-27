@@ -6,29 +6,10 @@
 	<controls>
 		<include>background</include>
 		<include>fake-overlay</include>
-		<control type="grouplist">
-			<left>1170</left>
-			<top>30</top>
-			<width>auto</width>
-			<height>48</height>
-			<align>left</align>
-			<aligny>center</aligny>
-			<orientation>horizontal</orientation>
-			<control type="label">
-				<!-- Heading label -->
-				<width max="600">auto</width>
-				<height>48</height>
-				<label>$LOCALIZE[1]</label>
-				<font>apptv30</font>
-			</control>
-			<control type="label">
-				<!-- Number of files -->
-				<top>21</top>
-				<width max="120">auto</width>
-				<height>48</height>
-				<label>$INFO[Container.NumItems,(,)]</label>
-			</control>
-		</control>
+		<include content="screen-name">
+			<param name="screenlabel" value="$LOCALIZE[1]"/>
+			<param name="listitems" value="$INFO[Container.NumItems,(,)]"/>
+		</include>
 		<control type="group">
 			<!-- Various Views of Pictures library -->
 			<include file="View-General.xml">ListView</include>

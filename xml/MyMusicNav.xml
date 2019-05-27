@@ -4,44 +4,25 @@
 	<menucontrol>9000</menucontrol>
 	<views>50,51,52,54,57,58</views>
 	<onload>ClearProperty(ShowScreenSettings,home)</onload>
+	<onload>ClearProperty(EditViews,home)</onload>
 	<onunload>ClearProperty(ShowScreenSettings,home)</onunload>
+	<onunload>ClearProperty(EditViews,home)</onunload>
 	<controls>
 		<include>background</include>
 		<include>fake-overlay</include>
-		<control type="grouplist">
-			<left>1170</left>
-			<top>30</top>
-			<width>auto</width>
-			<height>108</height>
-			<align>left</align>
-			<aligny>center</aligny>
-			<orientation>horizontal</orientation>
-			<control type="label">
-				<!-- Music screen heading -->
-				<width max="600">auto</width>
-				<height>93</height>
-				<label>$VAR[MusicHeadings]</label>
-				<font>apptv30</font>
-				<wrapmultiline>true</wrapmultiline>
-				<aligny>top</aligny>
-			</control>
-			<control type="label">
-				<!-- Number of files -->
-				<top>20</top>
-				<width max="120">auto</width>
-				<height>57</height>
-				<label>$INFO[Container.NumItems,(,)]</label>
-			</control>
-		</control>
+		<include content="screen-name">
+			<param name="screenlabel" value="$VAR[MusicHeadings]"/>
+			<param name="listitems" value="$INFO[Container.NumItems,(,)]"/>
+		</include>
 		<control type="group">
 			<!-- Various Views of Music library node -->
 			<visible>![String.IsEmpty(ListItem.Label) + String.IsEmpty(ListItem(1).Label)]</visible>
 			<include file="View-Music.xml">AlbumListView</include>
-			<!-- <include file="View-Music.xml">CategoryView</include> -->
-			<include file="View-Music.xml">AlbumIconView</include>
-			<include file="View-Music.xml">AlbumWrapView</include>
-			<include file="View-Music.xml">AudioWallView</include>
-			<include file="View-Music.xml">AlbumCoverflow</include>
+			<!-- <include file="View-Music.xml" condition="!Skin.HasSetting(musicviewcategory)">CategoryView</include> -->
+			<include file="View-Music.xml" condition="!Skin.HasSetting(musicviewicon)">AlbumIconView</include>
+			<include file="View-Music.xml" condition="!Skin.HasSetting(musicviewwrap)">AlbumWrapView</include>
+			<include file="View-Music.xml" condition="!Skin.HasSetting(musicviewcoverflow)">AlbumCoverflow</include>
+			<include file="View-Music.xml" condition="!Skin.HasSetting(musicviewwall)">AudioWallView</include>
 		</control>
 		<control type="group">
 			<!-- No Label tag means music addon is busy pulling in content, so show a busy animation -->
@@ -68,15 +49,15 @@
 			<control type="image">
 				<!-- Button background -->
 				<left>690</left>
-				<top>60</top>
+				<top>115</top>
 				<width>592</width>
-				<height>900</height>
+				<height>812</height>
 				<texture border="14">button-menu-background.png</texture>
 			</control>
 			<control type="label">
 				<!-- Dialog heading -->
 				<left>708</left>
-				<top>84</top>
+				<top>123</top>
 				<width>558</width>
 				<height>51</height>
 				<font>apptv23</font>
@@ -86,7 +67,7 @@
 			<control type="button">
 				<!-- Touch Close button -->
 				<left>1252</left>
-				<top>42</top>
+				<top>97</top>
 				<width>48</width>
 				<height>48</height>
 				<texturefocus>touch-close.png</texturefocus>
@@ -97,17 +78,25 @@
 			</control>
 			<control type="image">
 				<left>708</left>
-				<top>138</top>
+				<top>178</top>
 				<width>558</width>
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
+			<include content="page-offscreen-vertical">
+				<param name="indicator1left" value="971"/>
+				<param name="indicator1top" value="180"/>
+				<param name="indicator2left" value="971"/>
+				<param name="indicator2top" value="892"/>
+				<param name="indicatorsize" value="32"/>
+				<param name="indicatorcontainer" value="9000"/>
+			</include>
 			<control type="grouplist" id="9000">
 				<defaultcontrol>2</defaultcontrol>
 				<left>708</left>
-				<top>150</top>
+				<top>206</top>
 				<width>558</width>
-				<height>792</height>
+				<height>690</height>
 				<itemgap>0</itemgap>
 				<onright>ClearProperty(ShowScreenSettings,home)</onright>
 				<onright>50</onright>
@@ -116,15 +105,25 @@
 				<control type="button" id="2">
 					<!-- View type -->
 					<width>558</width>
-					<height>72</height>
+					<height>69</height>
 					<font>apptv22</font>
 					<label>$LOCALIZE[100]</label>
 					<textoffsetx>15</textoffsetx>
 				</control>
+				<control type="button" id="1194">
+					<!-- Remove unused views -->
+					<width>558</width>
+					<height>69</height>
+					<label>$LOCALIZE[31895]</label>
+					<font>apptv22</font>
+					<textoffsetx>15</textoffsetx>
+					<onclick>SetProperty(EditViews,Music,home)</onclick>
+					<onclick>ActivateWindow(1161)</onclick>
+				</control>
 				<control type="radiobutton" id="1198">
 					<!-- Tilt icon list view -->
 					<width>558</width>
-					<height>72</height>
+					<height>69</height>
 					<label>$LOCALIZE[31886]</label>
 					<font>apptv22</font>
 					<onclick>Skin.ToggleSetting(tiltmusiclisticon)</onclick>
@@ -136,7 +135,7 @@
 				<control type="radiobutton" id="1197">
 					<!-- Tilt icon wall view -->
 					<width>558</width>
-					<height>72</height>
+					<height>69</height>
 					<label>$LOCALIZE[31886]</label>
 					<font>apptv22</font>
 					<onclick>Skin.ToggleSetting(tiltmusicwallicon)</onclick>
@@ -148,7 +147,7 @@
 				<control type="radiobutton" id="208">
 					<!-- Use Media case Toggle -->
 					<width>558</width>
-					<height>72</height>
+					<height>69</height>
 					<label>$LOCALIZE[31869]</label>
 					<font>apptv22</font>
 					<onclick>Skin.ToggleSetting(media-case)</onclick>
@@ -159,7 +158,7 @@
 				<control type="button" id="3">
 					<!-- Sort by -->
 					<width>558</width>
-					<height>72</height>
+					<height>69</height>
 					<font>apptv22</font>
 					<label>$LOCALIZE[103]</label>
 					<textoffsetx>15</textoffsetx>
@@ -167,7 +166,7 @@
 				<control type="togglebutton" id="4">
 					<!-- Sort direction -->
 					<width>558</width>
-					<height>72</height>
+					<height>69</height>
 					<font>apptv22</font>
 					<label>$LOCALIZE[21429]: $LOCALIZE[21430]</label>
 					<altlabel>$LOCALIZE[21429]: $LOCALIZE[21431]</altlabel>
@@ -176,7 +175,7 @@
 				<control type="button" id="211">
 					<!-- Custom Genre Icons Button -->
 					<width>558</width>
-					<height>72</height>
+					<height>69</height>
 					<label>$LOCALIZE[31879]</label>
 					<font>apptv22</font>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
@@ -188,7 +187,7 @@
 				<control type="button" id="8">
 					<!-- Search -->
 					<width>558</width>
-					<height>72</height>
+					<height>69</height>
 					<font>apptv22</font>
 					<label>$LOCALIZE[137]</label>
 					<textoffsetx>15</textoffsetx>
@@ -196,7 +195,7 @@
 				<control type="edit" id="19">
 					<!-- Filter -->
 					<width>558</width>
-					<height>72</height>
+					<height>69</height>
 					<font>apptv22</font>
 					<label>$LOCALIZE[587]</label>
 					<textwidth>510</textwidth>
@@ -206,7 +205,7 @@
 				<control type="radiobutton" id="98">
 					<!-- Advanced filter -->
 					<width>558</width>
-					<height>72</height>
+					<height>69</height>
 					<label>$LOCALIZE[587]</label>
 					<font>apptv22</font>
 					<selected>Container.Filtered</selected>
@@ -218,7 +217,7 @@
 				<control type="button" id="16">
 					<!-- Party mode -->
 					<width>558</width>
-					<height>72</height>
+					<height>69</height>
 					<font>apptv22</font>
 					<label>$LOCALIZE[589]</label>
 					<textoffsetx>15</textoffsetx>
@@ -226,7 +225,7 @@
 				<control type="button" id="200">
 					<!-- Clean library button -->
 					<width>558</width>
-					<height>72</height>
+					<height>69</height>
 					<font>apptv22</font>
 					<label>$LOCALIZE[334]</label>
 					<onclick>CleanLibrary(music)</onclick>
@@ -235,7 +234,7 @@
 				<control type="togglebutton" id="20">
 					<!-- Update library -->
 					<width>558</width>
-					<height>72</height>
+					<height>69</height>
 					<font>apptv22</font>
 					<label>$LOCALIZE[653]</label>
 					<altlabel>$LOCALIZE[13353]</altlabel>
@@ -245,7 +244,7 @@
 				<control type="button" id="1200">
 					<!-- Player controls -->
 					<width>558</width>
-					<height>72</height>
+					<height>69</height>
 					<font>apptv22</font>
 					<label>$LOCALIZE[16003] $LOCALIZE[478]</label>
 					<onclick>SetFocus(50)</onclick>
@@ -257,7 +256,7 @@
 				<control type="button" id="22">
 					<!-- Now playing -->
 					<width>558</width>
-					<height>72</height>
+					<height>69</height>
 					<font>apptv22</font>
 					<label>$LOCALIZE[13350]</label>
 					<onclick>ActivateWindow(musicplaylist)</onclick>

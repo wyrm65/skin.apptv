@@ -4,15 +4,10 @@
 	<controls>
 		<include>background</include>
 		<include>fake-overlay</include>
-		<control type="label">
-			<!-- Settings Label -->
-			<left>1170</left>
-			<top>30</top>
-			<width>465</width>
-			<height>45</height>
-			<label>$LOCALIZE[24001]</label>
-			<font>apptv30</font>
-		</control>
+		<include content="screen-name">
+			<param name="screenlabel" value="$LOCALIZE[24001]"/>
+			<param name="listitems" value="$INFO[Container(999).NumItems,(,)]"/>
+		</include>
 		<control type="list" id="999">
 			<viewtype label="31941">list</viewtype>
 			<left>1017</left>
@@ -75,25 +70,25 @@
 					<!-- Video Addons -->
 					<icon>DefaultAddon.png</icon>
 					<label>$LOCALIZE[1037]</label>
-					<onclick>ActivateWindow(videos,Addons)</onclick>
+					<onclick>ActivateWindow(videos,Addons,return)</onclick>
 				</item>
 				<item>
 					<!-- Music Addons -->
 					<icon>DefaultAddon.png</icon>
 					<label>$LOCALIZE[1038]</label>
-					<onclick>ActivateWindow(music,addons://sources/audio/)</onclick>
+					<onclick>ActivateWindow(music,addons://sources/audio/,return)</onclick>
 				</item>
 				<item>
 					<!-- Picture Addons -->
 					<icon>DefaultAddon.png</icon>
 					<label>$LOCALIZE[1039]</label>
-					<onclick>ActivateWindow(pictures,Addons)</onclick>
+					<onclick>ActivateWindow(pictures,Addons,return)</onclick>
 				</item>
 				<item>
 					<!-- Program Addons -->
 					<icon>DefaultAddon.png</icon>
 					<label>$LOCALIZE[1043]</label>
-					<onclick>ActivateWindow(programs,Addons)</onclick>
+					<onclick>ActivateWindow(programs,Addons,return)</onclick>
 				</item>
 				<item>
 					<!-- Get More Addons -->

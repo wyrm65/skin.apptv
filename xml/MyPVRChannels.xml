@@ -9,31 +9,11 @@
 	<controls>
 		<include>background</include>
 		<include>fake-overlay</include>
-		<control type="grouplist">
-			<left>1170</left>
-			<top>30</top>
-			<width>auto</width>
-			<height>93</height>
-			<align>left</align>
-			<aligny>center</aligny>
-			<orientation>horizontal</orientation>
-			<control type="label">
-				<!-- Video screen heading -->
-				<width max="600">auto</width>
-				<height>93</height>
-				<label>$VAR[PVRHeading]</label>
-				<font>apptv30</font>
-				<wrapmultiline>true</wrapmultiline>
-				<aligny>top</aligny>
-			</control>
-			<control type="label">
-				<!-- Number of files -->
-				<width max="120">auto</width>
-				<height>93</height>
-				<label>$INFO[Container.NumItems,(,)]</label>
-				<aligny>top</aligny>
-			</control>
-		</control>
+		<include content="screen-name">
+			<param name="screenlabel" value="$VAR[PVRHeading]"/>
+			<param name="listitems" value="$INFO[Container.NumItems,(,)]"/>
+		</include>
+
 		<include file="View-PVR.xml">PVRListView</include>
 
 		<include>touch-controls</include>
