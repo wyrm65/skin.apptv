@@ -315,7 +315,7 @@
 						<label>$LOCALIZE[31689]</label>
 						<onclick>Dialog.Close(1154)</onclick>
 						<onclick>RunScript(script.libraryeditor,DBID=$INFO[ListItem.DBID])</onclick>
-						<visible>String.IsEqual(Window(home).Property(SelectDialogType),videoinfomore) + System.HasAddon(script.artwork.beef) + $EXP[isnotEmptyDBID]</visible>
+						<visible>String.IsEqual(Window(home).Property(SelectDialogType),videoinfomore) + System.HasAddon(script.libraryeditor) + $EXP[isnotEmptyDBID]</visible>
 					</item>
 					<!-- More Music Info options -->
 					<item>
