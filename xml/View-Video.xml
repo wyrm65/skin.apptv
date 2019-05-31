@@ -215,6 +215,7 @@
 				</control>
 			</control>
 			<control type="group">
+				<visible>$EXP[isnotParentFolder]</visible>
 				<control type="image">
 					<!-- Star Rating -->
 					<left>36</left>
@@ -232,7 +233,7 @@
 					<height>46</height>
 					<font>apptv22</font>
 					<label>$VAR[ListitemDuration]</label>
-					<visible>!String.IsEmpty(ListItem.Duration) + $EXP[isnotParentFolder]</visible>
+					<visible>!String.IsEmpty(ListItem.Duration)</visible>
 				</control>
 				<control type="label">
 					<!-- Number of movies in the set -->
@@ -814,11 +815,10 @@
 					<width>900</width>
 					<height>900</height>
 					<itemgap>3</itemgap>
-					<visible>$EXP[isnotEmptyIcon]</visible>
+					<visible>$EXP[isnotEmptyIcon] + $EXP[isnotParentFolder]</visible>
 					<control type="group">
 						<width>900</width>
 						<height>75</height>
-						<visible>$EXP[isnotParentFolder]</visible>
 						<control type="image" id="7316">
 							<!-- Show logo -->
 							<left>352</left>
@@ -871,7 +871,6 @@
 						<width>900</width>
 						<height>6</height>
 						<texture>separator.png</texture>
-						<visible>$EXP[isnotParentFolder]</visible>
 					</control>
 					<control type="textbox">
 						<!-- Plot -->
@@ -1161,7 +1160,7 @@
 				<visible>$EXP[isParentFolder]</visible>
 			</control>
 			<control type="group">
-				<visible>!String.IsEmpty(ListItem.Title)</visible>
+				<visible>!String.IsEmpty(ListItem.Title) + $EXP[isnotParentFolder]</visible>
 				<control type="label">
 					<!-- Duration -->
 					<left>39</left>
@@ -1649,7 +1648,7 @@
 				<visible>$EXP[isParentFolder]</visible>
 			</control>
 			<control type="group">
-				<visible>!String.IsEmpty(ListItem.Title)</visible>
+				<visible>!String.IsEmpty(ListItem.Title) + $EXP[isnotParentFolder]</visible>
 				<control type="image" id="4557">
 					<!-- Classification Rating (quick way) -->
 					<left>46</left>
@@ -1689,7 +1688,7 @@
 					<align>right</align>
 					<font>apptv23</font>
 					<label>$VAR[ListitemDuration]</label>
-					<visible>$EXP[isnotParentFolder] + !String.IsEmpty(ListItem.Duration)</visible>
+					<visible>!String.IsEmpty(ListItem.Duration)</visible>
 				</control>
 				<control type="image">
 					<!-- Video special features available -->
@@ -1938,7 +1937,7 @@
 				<visible>$EXP[isParentFolder]</visible>
 			</control>
 			<control type="group">
-				<visible>!String.IsEmpty(ListItem.Title)</visible>
+				<visible>!String.IsEmpty(ListItem.Title) + $EXP[isnotParentFolder]</visible>
 				<control type="label">
 					<!-- Genre -->
 					<left>36</left>
