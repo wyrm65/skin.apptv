@@ -1437,6 +1437,7 @@
 		<onload>Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
 		<onload>Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
 		<onload>Skin.SetString(SkinHelper.RandomFanartDelay,0)</onload>
+		<onload>RunScript(script.embuary.helper,action=getkodisetting,setting=locale.country,strip=timeformat)</onload>
 	</include>
 	<!-- Postion and size of fullscreen image -->
 	<!-- NB, don't change height to a percentage as it will break fadebackground -->
@@ -2248,6 +2249,7 @@
 					<top>$PARAM[letterbartop]</top>
 					<width>30</width>
 					<height>891</height>
+					<itemgap>0</itemgap>
 					<onleft>$PARAM[listitemid]</onleft>
 					<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">$PARAM[scrollbarid]</onright>
 					<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">$PARAM[illegalexitbar]</onright>
@@ -2293,7 +2295,7 @@
 							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter) | String.IsEqual(ListItem.Property(IsNumber),Container.ListItem.SortLetter)</visible>
 						</control>
 					</focusedlayout>
-					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+					<content>plugin://script.embuary.helper/?info=jumptoletter&amp;showall=true&amp;reload=$INFO[Container.NumItems]</content>
 				</control>
 			</control>
 		</definition>
@@ -2378,7 +2380,7 @@
 							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter) | String.IsEqual(ListItem.Property(IsNumber),Container.ListItem.SortLetter)</visible>
 						</control>
 					</focusedlayout>
-					<content>plugin://script.skin.helper.service/?action=alphabet&amp;reload=$INFO[Container.NumItems]</content>
+					<content>plugin://script.embuary.helper/?info=jumptoletter&amp;showall=true&amp;reload=$INFO[Container.NumItems]</content>
 				</control>
 			</control>
 		</definition>

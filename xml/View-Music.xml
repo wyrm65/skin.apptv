@@ -1224,26 +1224,15 @@
 				</control>
 				<control type="group">
 					<visible>!ListItem.IsFolder + Container.Content(musicvideos)</visible>
-					<control type="image" id="4557">
+					<control type="image">
 						<!-- Classification Rating (quick way) -->
 						<left>26</left>
 						<top>950</top>
 						<width>64</width>
 						<height>64</height>
 						<aligny>bottom</aligny>
-						<texture fallback="blank.png">$INFO[Listitem.MPAA,resource://resource.images.classificationicons.colour/,.png]</texture>
+						<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</texture>
 						<aspectratio>keep</aspectratio>
-					</control>
-					<control type="image">
-						<!-- Classification Rating -->
-						<left>26</left>
-						<top>950</top>
-						<width>64</width>
-						<height>64</height>
-						<aligny>bottom</aligny>
-						<texture>$VAR[ClassificationRating]</texture>
-						<aspectratio>keep</aspectratio>
-						<visible>String.IsEqual(Control.GetLabel(4557),blank.png)</visible>
 					</control>
 					<control type="image">
 						<!-- Video special features available -->
@@ -1543,26 +1532,15 @@
 						<height>48</height>
 						<texture>$VAR[ListItemFlags]</texture>
 					</control>
-					<control type="image" id="4558">
+					<control type="image">
 						<!-- Classification Rating (quick way) -->
 						<left>464</left>
 						<top>0</top>
 						<width>64</width>
 						<height>64</height>
 						<aligny>bottom</aligny>
-						<texture fallback="blank.png">$INFO[Listitem.MPAA,resource://resource.images.classificationicons.colour/,.png]</texture>
+						<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</texture>
 						<aspectratio>keep</aspectratio>
-					</control>
-					<control type="image">
-						<!-- Classification Rating -->
-						<left>464</left>
-						<top>0</top>
-						<width>64</width>
-						<height>64</height>
-						<aligny>bottom</aligny>
-						<texture>$VAR[ClassificationRating]</texture>
-						<aspectratio>keep</aspectratio>
-						<visible>String.IsEqual(Control.GetLabel(4558),blank.png)</visible>
 					</control>
 				</control>
 				<control type="group">

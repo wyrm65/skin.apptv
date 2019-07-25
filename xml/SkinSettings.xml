@@ -711,7 +711,8 @@
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
 							<onclick>Addon.OpenSettings(script.artistslideshow)</onclick>
-							<altclick>InstallAddon(script.artistslideshow)</altclick>
+							<altclick>RunScript(script.embuary.helper,action=toggleaddons,addonid=script.artistslideshow,enable=true)</altclick>
+							<altclick condition="!System.HasAddon(script.artistslideshow)">InstallAddon(script.artistslideshow)</altclick>
 							<usealttexture>!System.HasAddon(script.artistslideshow)</usealttexture>
 						</control>
 						<control type="label">
@@ -734,7 +735,8 @@
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
 							<onclick>Addon.OpenSettings(plugin.program.autocompletion)</onclick>
-							<altclick>InstallAddon(plugin.program.autocompletion)</altclick>
+							<altclick>RunScript(script.embuary.helper,action=toggleaddons,addonid=plugin.program.autocompletion,enable=true)</altclick>
+							<altclick condition="!System.HasAddon(plugin.program.autocompletion)">InstallAddon(plugin.program.autocompletion)</altclick>
 							<usealttexture>!System.HasAddon(plugin.program.autocompletion)</usealttexture>
 						</control>
 						<control type="label">
@@ -757,12 +759,13 @@
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
 							<onclick>Addon.OpenSettings(script.cu.lrclyrics)</onclick>
-							<altclick>InstallAddon(script.cu.lrclyrics)</altclick>
+							<altclick>RunScript(script.embuary.helper,action=toggleaddons,addonid=script.cu.lrclyrics,enable=true)</altclick>
+							<altclick condition="!System.HasAddon(script.cu.lrclyrics)">InstallAddon(script.cu.lrclyrics)</altclick>
 							<usealttexture>!System.HasAddon(script.cu.lrclyrics)</usealttexture>
 						</control>
 						<control type="label">
 							<include>settings-submenu-common</include>
-							<label>$ADDON[script.cu.lrclyrics 32199]</label>
+							<label>$LOCALIZE[31591]</label>
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
@@ -780,7 +783,8 @@
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
 							<onclick>Addon.OpenSettings(script.globalsearch)</onclick>
-							<altclick>InstallAddon(script.globalsearch)</altclick>
+							<altclick>RunScript(script.embuary.helper,action=toggleaddons,addonid=script.globalsearch,enable=true)</altclick>
+							<altclick condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</altclick>
 							<usealttexture>!System.HasAddon(script.globalsearch)</usealttexture>
 						</control>
 						<control type="label">
@@ -803,7 +807,8 @@
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
 							<onclick>noop</onclick>
-							<altclick>InstallAddon(script.image.resource.select)</altclick>
+							<altclick>RunScript(script.embuary.helper,action=toggleaddons,addonid=script.image.resource.select,enable=true)</altclick>
+							<altclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</altclick>
 							<usealttexture>!System.HasAddon(script.image.resource.select)</usealttexture>
 						</control>
 						<control type="label">
@@ -826,7 +831,8 @@
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
 							<onclick>Addon.OpenSettings(service.upnext)</onclick>
-							<altclick>InstallAddon(service.upnext)</altclick>
+							<altclick>RunScript(script.embuary.helper,action=toggleaddons,addonid=service.upnext,enable=true)</altclick>
+							<altclick condition="!System.HasAddon(service.upnext)">InstallAddon(service.upnext)</altclick>
 							<usealttexture>!System.HasAddon(service.upnext)</usealttexture>
 						</control>
 						<control type="label">
@@ -849,7 +855,8 @@
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
 							<onclick>Addon.OpenSettings(script.tv.show.next.aired)</onclick>
-							<altclick>InstallAddon(script.tv.show.next.aired)</altclick>
+							<altclick>RunScript(script.embuary.helper,action=toggleaddons,addonid=script.tv.show.next.aired,enable=true)</altclick>
+							<altclick condition="!System.HasAddon(script.tv.show.next.aired)">InstallAddon(script.tv.show.next.aired)</altclick>
 							<usealttexture>!System.HasAddon(script.tv.show.next.aired)</usealttexture>
 						</control>
 						<control type="label">
@@ -872,7 +879,8 @@
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
 							<onclick>Addon.OpenSettings(script.extendedinfo)</onclick>
-							<altclick>InstallAddon(script.extendedinfo)</altclick>
+							<altclick>RunScript(script.embuary.helper,action=toggleaddons,addonid=script.extendedinfo,enable=true)</altclick>
+							<altclick condition="!System.HasAddon(script.extendedinfo)">InstallAddon(script.extendedinfo)</altclick>
 							<usealttexture>!System.HasAddon(script.extendedinfo)</usealttexture>
 						</control>
 						<control type="label">

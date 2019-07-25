@@ -233,7 +233,7 @@
 					<height>46</height>
 					<font>apptv22</font>
 					<label>$VAR[ListitemDuration]</label>
-					<visible>!String.IsEmpty(ListItem.Duration)</visible>
+					<visible>!String.IsEmpty(ListItem.Duration) + !String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEqual(ListItem.DBTYPE,season)</visible>
 				</control>
 				<control type="label">
 					<!-- Number of movies in the set -->
@@ -247,26 +247,15 @@
 				</control>
 				<control type="group">
 					<visible>$EXP[isnotEmptyDBID]</visible>
-					<control type="image" id="4550">
+					<control type="image">
 						<!-- Classification Rating (quick way) -->
 						<left>36</left>
 						<top>414</top>
 						<width>64</width>
 						<height>64</height>
 						<aligny>bottom</aligny>
-						<texture fallback="blank.png">$INFO[ListItem.Mpaa,resource://resource.images.classificationicons.colour/,.png]</texture>
+						<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</texture>
 						<aspectratio>keep</aspectratio>
-					</control>
-					<control type="image">
-						<!-- Classification Rating -->
-						<left>36</left>
-						<top>414</top>
-						<width>64</width>
-						<height>64</height>
-						<aligny>bottom</aligny>
-						<texture>$VAR[ClassificationRating]</texture>
-						<aspectratio>keep</aspectratio>
-						<visible>String.IsEqual(Control.GetLabel(4550),blank.png)</visible>
 					</control>
 				</control>
 				<control type="image">
@@ -278,6 +267,7 @@
 					<texture>$VAR[ListViewVideoLogo]</texture>
 					<aligny>bottom</aligny>
 					<aspectratio align="left">keep</aspectratio>
+					<visible>$EXP[isnotEmptyDBID]</visible>
 				</control>
 				<control type="textbox">
 					<!-- Plot -->
@@ -788,26 +778,15 @@
 						<visible>!Skin.HasSetting(background-fanarts)</visible>
 					</control>
 				</control>
-				<control type="image" id="4553">
+				<control type="image">
 					<!-- Classification Rating (quick way) -->
 					<left>45</left>
 					<top>170</top>
 					<width>64</width>
 					<height>64</height>
 					<aligny>bottom</aligny>
-					<texture fallback="blank.png">$INFO[ListItem.Mpaa,resource://resource.images.classificationicons.colour/,.png]</texture>
+					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</texture>
 					<aspectratio>keep</aspectratio>
-				</control>
-				<control type="image">
-					<!-- Classification Rating -->
-					<left>45</left>
-					<top>170</top>
-					<width>64</width>
-					<height>64</height>
-					<aligny>bottom</aligny>
-					<texture>$VAR[ClassificationRating]</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>String.IsEqual(Control.GetLabel(4553),blank.png)</visible>
 				</control>
 				<control type="grouplist">
 					<left>45</left>
@@ -1170,28 +1149,17 @@
 					<align>center</align>
 					<font>apptv25</font>
 					<label>$VAR[ListitemDuration]</label>
-					<visible>!String.IsEmpty(ListItem.Duration)</visible>
+					<visible>!String.IsEmpty(ListItem.Duration) + !String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEqual(ListItem.DBTYPE,season)</visible>
 				</control>
-				<control type="image" id="4554">
+				<control type="image">
 					<!-- Classification Rating (quick way) -->
 					<left>408</left>
 					<top>460</top>
 					<width>64</width>
 					<height>64</height>
 					<aligny>bottom</aligny>
-					<texture fallback="blank.png">$INFO[ListItem.Mpaa,resource://resource.images.classificationicons.colour/,.png]</texture>
+					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</texture>
 					<aspectratio>keep</aspectratio>
-				</control>
-				<control type="image">
-					<!-- Classification Rating -->
-					<left>408</left>
-					<top>460</top>
-					<width>64</width>
-					<height>64</height>
-					<aligny>bottom</aligny>
-					<texture>$VAR[ClassificationRating]</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>String.IsEqual(Control.GetLabel(4554),blank.png)</visible>
 				</control>
 				<control type="image">
 					<!-- Star Rating -->
@@ -1649,26 +1617,15 @@
 			</control>
 			<control type="group">
 				<visible>!String.IsEmpty(ListItem.Title) + $EXP[isnotParentFolder]</visible>
-				<control type="image" id="4557">
+				<control type="image">
 					<!-- Classification Rating (quick way) -->
 					<left>46</left>
 					<top>950</top>
 					<width>64</width>
 					<height>64</height>
 					<aligny>bottom</aligny>
-					<texture fallback="blank.png">$INFO[ListItem.Mpaa,resource://resource.images.classificationicons.colour/,.png]</texture>
+					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</texture>
 					<aspectratio>keep</aspectratio>
-				</control>
-				<control type="image">
-					<!-- Classification Rating -->
-					<left>46</left>
-					<top>950</top>
-					<width>64</width>
-					<height>64</height>
-					<aligny>bottom</aligny>
-					<texture>$VAR[ClassificationRating]</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>String.IsEqual(Control.GetLabel(4557),blank.png)</visible>
 				</control>
 				<control type="image">
 					<!-- Star Rating -->
@@ -1688,7 +1645,7 @@
 					<align>right</align>
 					<font>apptv23</font>
 					<label>$VAR[ListitemDuration]</label>
-					<visible>!String.IsEmpty(ListItem.Duration)</visible>
+					<visible>!String.IsEmpty(ListItem.Duration) + !String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEqual(ListItem.DBTYPE,season)</visible>
 				</control>
 				<control type="image">
 					<!-- Video special features available -->
@@ -1911,6 +1868,7 @@
 				<texture>$VAR[VideoLogo]</texture>
 				<aspectratio align="left" aligny="bottom">keep</aspectratio>
 				<animation effect="fade" delay="200" start="0" end="100" time="200">Visible</animation>
+				<visible>$EXP[isnotParentFolder]</visible>
 			</control>
 			<control type="label">
 				<!-- Title -->
@@ -1956,7 +1914,7 @@
 					<height>38</height>
 					<font>apptv22</font>
 					<label>$VAR[ListitemDuration]</label>
-					<visible>!String.IsEmpty(ListItem.Duration)</visible>
+					<visible>!String.IsEmpty(ListItem.Duration) + !String.IsEqual(ListItem.DBTYPE,tvshow) + !String.IsEqual(ListItem.DBTYPE,season)</visible>
 				</control>
 				<control type="label">
 					<!-- Number of movies in the set -->
@@ -1975,26 +1933,15 @@
 					<height>48</height>
 					<texture>$VAR[ListItemFlags]</texture>
 				</control>
-				<control type="image" id="4558">
+				<control type="image">
 					<!-- Classification Rating (quick way) -->
 					<left>36</left>
 					<top>420</top>
 					<width>64</width>
 					<height>64</height>
 					<aligny>bottom</aligny>
-					<texture fallback="blank.png">$INFO[ListItem.Mpaa,resource://resource.images.classificationicons.colour/,.png]</texture>
+					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</texture>
 					<aspectratio>keep</aspectratio>
-				</control>
-				<control type="image">
-					<!-- Classification Rating -->
-					<left>36</left>
-					<top>420</top>
-					<width>64</width>
-					<height>64</height>
-					<aligny>bottom</aligny>
-					<texture>$VAR[ClassificationRating]</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>String.IsEqual(Control.GetLabel(4558),blank.png)</visible>
 				</control>
 				<control type="image">
 					<!-- Star Rating -->
