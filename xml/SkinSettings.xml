@@ -311,6 +311,28 @@
 						<selected>Skin.HasSetting(media-theme)</selected>
 						<radioposx>1266</radioposx>
 					</control>
+					<control type="group" id="211">
+						<height>84</height>
+						<width>1328</width>
+						<control type="togglebutton" id="212">
+							<!-- Artist slideshow script install/config -->
+							<onup>210</onup>
+							<ondown>213</ondown>
+							<onright>999</onright>
+							<include>settings-submenu-common</include>
+							<textwidth>1178</textwidth>
+							<label>$LOCALIZE[571]</label>
+							<altlabel>$INFO[Window(home).property(locale.country)]</altlabel>
+							<align>right</align>
+							<onclick>Skin.ToggleSetting(defaultmpaa-locale)</onclick>
+							<usealttexture>!Skin.HasSetting(defaultmpaa-locale)</usealttexture>
+						</control>
+						<control type="label">
+							<include>settings-submenu-common</include>
+							<label>$LOCALIZE[31896]</label>
+							<textoffsetx>27</textoffsetx>
+						</control>
+					</control>
 					<control type="button" id="213">
 						<!-- Reset Above Settings button -->
 						<include>settings-submenu-common</include>

@@ -245,18 +245,16 @@
 					<label>$INFO[Container(5050).NumItems,, $LOCALIZE[342]]</label>
 					<visible>ListItem.IsCollection</visible>
 				</control>
-				<control type="group">
+				<control type="image">
+					<!-- Classification Rating (quick way) -->
+					<left>36</left>
+					<top>414</top>
+					<width>64</width>
+					<height>64</height>
+					<aligny>bottom</aligny>
+					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$VAR[MPAARatingIcons]</texture>
+					<aspectratio>keep</aspectratio>
 					<visible>$EXP[isnotEmptyDBID]</visible>
-					<control type="image">
-						<!-- Classification Rating (quick way) -->
-						<left>36</left>
-						<top>414</top>
-						<width>64</width>
-						<height>64</height>
-						<aligny>bottom</aligny>
-						<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</texture>
-						<aspectratio>keep</aspectratio>
-					</control>
 				</control>
 				<control type="image">
 					<!-- Logo -->
@@ -785,8 +783,9 @@
 					<width>64</width>
 					<height>64</height>
 					<aligny>bottom</aligny>
-					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</texture>
+					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$VAR[MPAARatingIcons]</texture>
 					<aspectratio>keep</aspectratio>
+					<visible>$EXP[isnotEmptyDBID]</visible>
 				</control>
 				<control type="grouplist">
 					<left>45</left>
@@ -1139,7 +1138,7 @@
 				<visible>$EXP[isParentFolder]</visible>
 			</control>
 			<control type="group">
-				<visible>!String.IsEmpty(ListItem.Title) + $EXP[isnotParentFolder]</visible>
+				<visible>$EXP[isnotEmptyDBID]</visible>
 				<control type="label">
 					<!-- Duration -->
 					<left>39</left>
@@ -1158,7 +1157,7 @@
 					<width>64</width>
 					<height>64</height>
 					<aligny>bottom</aligny>
-					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</texture>
+					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$VAR[MPAARatingIcons]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="image">
@@ -1616,7 +1615,7 @@
 				<visible>$EXP[isParentFolder]</visible>
 			</control>
 			<control type="group">
-				<visible>!String.IsEmpty(ListItem.Title) + $EXP[isnotParentFolder]</visible>
+				<visible>$EXP[isnotEmptyDBID]</visible>
 				<control type="image">
 					<!-- Classification Rating (quick way) -->
 					<left>46</left>
@@ -1624,7 +1623,7 @@
 					<width>64</width>
 					<height>64</height>
 					<aligny>bottom</aligny>
-					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</texture>
+					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$VAR[MPAARatingIcons]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="image">
@@ -1940,8 +1939,9 @@
 					<width>64</width>
 					<height>64</height>
 					<aligny>bottom</aligny>
-					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</texture>
+					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$VAR[MPAARatingIcons]</texture>
 					<aspectratio>keep</aspectratio>
+					<visible>$EXP[isnotEmptyDBID]</visible>
 				</control>
 				<control type="image">
 					<!-- Star Rating -->

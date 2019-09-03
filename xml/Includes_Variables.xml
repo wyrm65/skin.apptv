@@ -65,6 +65,10 @@
 		<value condition="String.IsEqual(ListItem.DBTYPE,movie)">videodb://recentlyaddedmovies/</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)">videodb://tvshows/titles/</value>
 	</variable>
+	<variable name="MPAARatingIcons">
+		<value condition="Skin.HasSetting(defaultmpaa-locale)">$INFO[Listitem.MPAA,resource://resource.images.classificationicons.colour/,.png]</value>
+		<value condition="!Skin.HasSetting(defaultmpaa-locale)">$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</value>
+	</variable>
 	<variable name="Overlay">
 		<value condition="ListItem.IsResumable">OverlayPartialyWatched.png</value>
 		<value condition="String.StartsWith(ListItem.Overlay,OverlayWatched)">OverlayWatched.png</value>
@@ -198,7 +202,6 @@
 		<value condition="Player.IsTempo">$INFO[Player.Playspeed,x,]</value>
 	</variable>
 	<variable name="ListitemDuration">
-		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItemDuration)) + !String.IsEqual(Window(home).Property(SkinHelper.ListItemDuration.Hours),0)">$INFO[Window(home).Property(SkinHelper.ListItemDuration.Hours),,h]$INFO[Window(home).Property(SkinHelper.ListItemDuration.Minutes),,m]</value>
 		<value condition="Integer.IsLess(ListItem.Duration(mins),1)">( $LOCALIZE[19695] )</value>
 		<value condition="Integer.IsEqual(ListItem.Duration(mins),1)">$INFO[ListItem.Duration,, $LOCALIZE[31813]]</value>
 		<value condition="Integer.IsLess(ListItem.Duration(mins),60)">$INFO[ListItem.Duration,, $LOCALIZE[31814]]</value>
@@ -1954,6 +1957,7 @@
 		<value condition="Control.HasFocus(206)">$LOCALIZE[31307]</value>
 		<value condition="Control.HasFocus(209)">$LOCALIZE[31310]</value>
 		<value condition="Control.HasFocus(210)">$LOCALIZE[31323]</value>
+		<value condition="Control.HasFocus(212)">$LOCALIZE[31324]</value>
 		<value condition="Control.HasFocus(307)">$LOCALIZE[31315]</value>
 		<value condition="Control.HasFocus(308)">$LOCALIZE[31316]</value>
 		<value condition="ControlGroup(309).HasFocus()">$LOCALIZE[31317]</value>
