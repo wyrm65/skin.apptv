@@ -59,12 +59,12 @@
 				<onright condition="!Control.IsVisible(5)">7</onright>
 				<onright condition="Control.IsVisible(5)">5</onright>
 				<pagecontrol>23</pagecontrol>
-				<itemlayout width="1050" height="96">
+				<itemlayout width="1050" height="84">
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
 						<width>1050</width>
-						<height>96</height>
+						<height>84</height>
 						<texture border="9">button-default.png</texture>
 					</control>
 					<control type="group">
@@ -102,12 +102,12 @@
 						<visible>String.IsEmpty(ListItem.Label2)</visible>
 					</control>
 				</itemlayout>
-				<focusedlayout width="1050" height="96">
+				<focusedlayout width="1050" height="84">
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
 						<width>1050</width>
-						<height>96</height>
+						<height>84</height>
 						<texture border="9">button-default-focus.png</texture>
 						<animation condition="!Control.HasFocus(3)" effect="fade" start="100" end="60">Conditional</animation>
 					</control>
@@ -158,7 +158,7 @@
 				<onright condition="!Control.IsVisible(5)">7</onright>
 				<onright condition="Control.IsVisible(5)">5</onright>
 				<pagecontrol>26</pagecontrol>
-				<itemlayout width="1050" height="96">
+				<itemlayout width="1050" height="84">
 					<control type="image">
 						<left>0</left>
 						<top>3</top>
@@ -185,7 +185,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="1050" height="96">
+				<focusedlayout width="1050" height="84">
 					<control type="image">
 						<left>0</left>
 						<top>3</top>
@@ -237,7 +237,7 @@
 			</control>
 			<control type="image">
 				<left>1326</left>
-				<top>369</top>
+				<top>424</top>
 				<height>384</height>
 				<width>384</width>
 				<texture fallback="DefaultFile.png">$INFO[Container(6).ListItem.Icon]</texture>
@@ -245,32 +245,36 @@
 				<animation effect="fade" time="300">VisibleChange</animation>
 			</control>
 		</control>
-		<control type="button" id="5">
-			<!-- Manual -->
+		<control type="grouplist">
 			<left>1326</left>
 			<top>186</top>
+			<height>168</height>
 			<width>384</width>
-			<height>84</height>
-			<font>apptv23</font>
-			<label>$LOCALIZE[186]</label>
-			<align>center</align>
-			<ondown>7</ondown>
-			<onleft condition="Control.IsVisible(3)">3</onleft>
-			<onleft condition="Control.IsVisible(6)">6</onleft>
-		</control>
-		<control type="button" id="7">
-			<!-- Cancel -->
-			<left>1326</left>
-			<top>270</top>
-			<width>384</width>
-			<height>84</height>
-			<font>apptv23</font>
-			<label>$LOCALIZE[222]</label>
-			<align>center</align>
-			<onup>5</onup>
-			<onleft condition="Control.IsVisible(3)">3</onleft>
-			<onleft condition="Control.IsVisible(6)">6</onleft>
-			<visible>!String.IsEmpty(Control.GetLabel(312).index(1)) + !Window.IsVisible(numericinput) + !System.HasHiddenInput</visible>
+			<orientation>vertical</orientation>
+			<itemgap>0</itemgap>
+			<control type="button" id="5">
+				<!-- Manual -->
+				<width>384</width>
+				<height>84</height>
+				<font>apptv23</font>
+				<label>$LOCALIZE[186]</label>
+				<align>center</align>
+				<ondown>7</ondown>
+				<onleft condition="Control.IsVisible(3)">3</onleft>
+				<onleft condition="Control.IsVisible(6)">6</onleft>
+				<visible>!String.IsEmpty(Control.GetLabel(5))</visible>
+			</control>
+			<control type="button" id="7">
+				<!-- Cancel -->
+				<width>384</width>
+				<height>84</height>
+				<font>apptv23</font>
+				<label>$LOCALIZE[222]</label>
+				<align>center</align>
+				<onup>5</onup>
+				<onleft condition="Control.IsVisible(3)">3</onleft>
+				<onleft condition="Control.IsVisible(6)">6</onleft>
+			</control>
 		</control>
 	</controls>
 </window>
