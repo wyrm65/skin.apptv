@@ -3,7 +3,36 @@
 	<defaultcontrol always="true">6000</defaultcontrol>
 	<menucontrol>9000</menucontrol>
 	<controls>
-		<include>background</include>
+		<control type="image"><!-- Use Skin default background as a base layer for backdrops -->
+			<include>fullscreenimage</include>
+			<texture>background.png</texture>
+			<aspectratio>scale</aspectratio>
+		</control>
+		<control type="multiimage">
+			<include>fullscreenimage</include>
+			<randomize>true</randomize>
+			<timeperimage>6000</timeperimage>
+			<fadetime>400</fadetime>
+			<imagepath background="false">$VAR[BackgndWeatherImage]</imagepath>
+			<aspectratio>stretch</aspectratio>
+			<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
+			<animation effect="fade" start="0" end="100" time="200" delay="300">Visible</animation>
+			<visible>!System.ScreenSaverActive + ![Skin.HasSetting(background-playingmedia) + Player.HasVideo]</visible>
+		</control>
+		<control type="group">
+			<visible>Skin.HasSetting(background-playingmedia) + [[Skin.HasSetting(homemenu-vertical) + Window.IsVisible(home)] | !Window.IsVisible(home)]</visible>
+			<control type="videowindow">
+				<include>fullscreenimage</include>
+				<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
+				<visible>Player.HasVideo</visible>
+			</control>
+			<control type="visualisation">
+				<include>fullscreenimage</include>
+				<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
+				<animation effect="fade" time="200">VisibleChange</animation>
+				<visible>Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))</visible>
+			</control>
+		</control>
 		<control type="button" id="6000">
 			<!-- Fake button to steal focus, don't show if Open weather map screen is showing -->
 			<onleft>9000</onleft>
