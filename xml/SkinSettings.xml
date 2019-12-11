@@ -173,7 +173,15 @@
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31854]</label>
 						<label2>$INFO[Skin.String(startup-screentype)]</label2>
-						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=startup-screentype-val,header=$LOCALIZE[31854])</onclick>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31856])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(startup-screentype,$LOCALIZE[31856]))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31857])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(startup-screentype,$LOCALIZE[31857]))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31858])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(startup-screentype,$LOCALIZE[31858]))</onclick>
+						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31855])</onclick>
+						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(startup-screentype,$LOCALIZE[31855]))</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31854])</onclick>
 					</control>
 					<control type="button" id="105">
 						<!-- Startup Screen Path -->
@@ -272,7 +280,13 @@
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31881]</label>
 						<label2>$INFO[Skin.String(show-scrollbar)]</label2>
-						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=show-scrollbar-val,header=$LOCALIZE[31881])</onclick>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31876])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(show-scrollbar,$LOCALIZE[31876]))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31875])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(show-scrollbar,$LOCALIZE[31875]))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31877])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(show-scrollbar,$LOCALIZE[31877]))</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31881])</onclick>
 					</control>
 					<control type="radiobutton" id="205">
 						<!-- Autoscroll Toggle -->
@@ -385,7 +399,13 @@
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31026]</label>
 						<label2>$INFO[Skin.String(shelf-movieimages)]</label2>
-						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=shelf-movieimages-val,header=$LOCALIZE[31939] - $LOCALIZE[31026])</onclick>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31953])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31953]))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31954])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31954]))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31955])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31955]))</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31939] - $LOCALIZE[31026])</onclick>
 						<visible>!Skin.HasSetting(homemenu-vertical)</visible>
 					</control>
 					<control type="button" id="308">
@@ -394,7 +414,13 @@
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31027]</label>
 						<label2>$INFO[Skin.String(shelf-tvshowimages)]</label2>
-						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=shelf-tvshowimages-val,header=$LOCALIZE[31939] - $LOCALIZE[31027])</onclick>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31953])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(shelf-tvshowimages,$LOCALIZE[31953]))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31954])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(shelf-tvshowimages,$LOCALIZE[31954]))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31955])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(shelf-tvshowimages,$LOCALIZE[31955]))</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31939] - $LOCALIZE[31027])</onclick>
 						<visible>!Skin.HasSetting(homemenu-vertical)</visible>
 					</control>
 					<control type="group" id="309">
@@ -426,7 +452,13 @@
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[2]</label>
 						<label2>$INFO[Skin.String(shelf-musicimages)]</label2>
-						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=shelf-musicimages-val,header=$LOCALIZE[31939] - $LOCALIZE[2])</onclick>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31953])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(shelf-musicimages,$LOCALIZE[31953]))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31954])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(shelf-musicimages,$LOCALIZE[31954]))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31955])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(shelf-musicimages,$LOCALIZE[31955]))</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31939] - $LOCALIZE[2])</onclick>
 						<visible>!Skin.HasSetting(homemenu-vertical)</visible>
 					</control>
 					<control type="button" id="313">
@@ -435,7 +467,15 @@
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31031]</label>
 						<label2>$INFO[Skin.String(shelf-broadcastimages)]</label2>
-						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=shelf-broadcastimages-val,header=$LOCALIZE[31939] - $LOCALIZE[31031])</onclick>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31953])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(shelf-broadcastimages,$LOCALIZE[31953]))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31956])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(shelf-broadcastimages,$LOCALIZE[31956]))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31957])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(shelf-broadcastimages,$LOCALIZE[31957]))</onclick>
+						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31958])</onclick>
+						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(shelf-broadcastimages,$LOCALIZE[31958]))</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31939] - $LOCALIZE[31031])</onclick>
 						<visible>Skin.HasSetting(homemenu-horizontal)</visible>
 					</control>
 					<control type="button" id="314">
@@ -444,7 +484,13 @@
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[24001]</label>
 						<label2>$INFO[Skin.String(shelf-addonimages)]</label2>
-						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=shelf-addonimages-val,header=$LOCALIZE[31939] - $LOCALIZE[24001])</onclick>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31953])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(shelf-addonimages,$LOCALIZE[31953]))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31954])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(shelf-addonimages,$LOCALIZE[31954]))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31959])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(shelf-addonimages,$LOCALIZE[31959]))</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31939] - $LOCALIZE[24001])</onclick>
 						<visible>Skin.HasSetting(homemenu-horizontal)</visible>
 					</control>
 					<control type="button" id="315">
@@ -453,7 +499,13 @@
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[1036]</label>
 						<label2>$INFO[Skin.String(shelf-customimages)]</label2>
-						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=shelf-customimages-val,header=$LOCALIZE[31939] - $LOCALIZE[1036])</onclick>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31953])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(shelf-customimages,$LOCALIZE[31953]))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[593] $LOCALIZE[1036])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(shelf-customimages,$LOCALIZE[593]$LOCALIZE[1036]))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[14211] $LOCALIZE[1036])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(shelf-customimages,$LOCALIZE[14211]$LOCALIZE[1036]))</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31939] - $LOCALIZE[1036])</onclick>
 						<visible>Skin.HasSetting(homemenu-horizontal)</visible>
 					</control>
 					<control type="button" id="317">
@@ -546,8 +598,8 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31864]</label>
 						<textwidth>1125</textwidth>
-						<onclick>Skin.ToggleSetting(SkinHelper.EnableExtraFanart)</onclick>
-						<selected>Skin.HasSetting(SkinHelper.EnableExtraFanart)</selected>
+						<onclick>Skin.ToggleSetting(background-extrafanarts)</onclick>
+						<selected>Skin.HasSetting(background-extrafanarts)</selected>
 						<enable>!Skin.HasSetting(background-fanarts)</enable>
 						<radioposx>1266</radioposx>
 					</control>
@@ -576,7 +628,13 @@
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31868]</label>
 						<label2>$VAR[BackgroundVisibilty]</label2>
-						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=backgroundvisibilty-val,header=$LOCALIZE[31868])</onclick>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[391])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(background-visibiltyhigh)||Skin.Reset(background-visibiltymed))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[392])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetBool(background-visibiltymed)||Skin.Reset(background-visibiltyhigh))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[393])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetBool(background-visibiltyhigh)||Skin.Reset(background-visibiltymed))</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31868])</onclick>
 					</control>
 					<control type="button" id="514">
 						<!-- Reset Above Settings button -->
@@ -662,7 +720,23 @@
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31924]</label>
 						<label2>$INFO[Skin.String(libraryentry-tv)]</label2>
-						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=libraryentry-tv-val,header=$LOCALIZE[31924])</onclick>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[20108])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(libraryentry-tv,$LOCALIZE[20108]))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31703])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(libraryentry-tv,$LOCALIZE[31703]))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[19024])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(libraryentry-tv,$LOCALIZE[19023]))</onclick>
+						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[19069])</onclick>
+						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(libraryentry-tv,$LOCALIZE[19069]))</onclick>
+						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[19163])</onclick>
+						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(libraryentry-tv,$LOCALIZE[19163]))</onclick>
+						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[19040])</onclick>
+						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(libraryentry-tv,$LOCALIZE[19040]))</onclick>
+						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[137])</onclick>
+						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(libraryentry-tv,$LOCALIZE[137]))</onclick>
+						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.8.Label,$LOCALIZE[31652])</onclick>
+						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.8.BuiltIn,Skin.SetString(libraryentry-tv,$LOCALIZE[31652])||RunScript(script.favourites,changetitle=false&amp;property=CustomTVEntry))</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31924])</onclick>
 						<enable>Pvr.HasTVChannels</enable>
 					</control>
 					<control type="button" id="607">
@@ -671,7 +745,23 @@
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31925]</label>
 						<label2>$INFO[Skin.String(libraryentry-radio)]</label2>
-						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=libraryentry-radio-val,header=$LOCALIZE[31925])</onclick>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[20108])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(libraryentry-radio,$LOCALIZE[20108]))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31703])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(libraryentry-radio,$LOCALIZE[31703]))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[19024])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(libraryentry-radio,$LOCALIZE[19024]))</onclick>
+						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[19069])</onclick>
+						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(libraryentry-radio,$LOCALIZE[19069]))</onclick>
+						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[19163])</onclick>
+						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(libraryentry-radio,$LOCALIZE[19163]))</onclick>
+						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[19040])</onclick>
+						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(libraryentry-radio,$LOCALIZE[19040]))</onclick>
+						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[137])</onclick>
+						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(libraryentry-radio,$LOCALIZE[137]))</onclick>
+						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.8.Label,$LOCALIZE[31652])</onclick>
+						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.8.BuiltIn,Skin.SetString(libraryentry-radio,$LOCALIZE[31652])||RunScript(script.favourites,changetitle=false&amp;property=CustomRadioEntry))</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31925])</onclick>
 						<enable>Pvr.HasRadioChannels</enable>
 					</control>
 					<control type="button" id="608">

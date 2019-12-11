@@ -79,8 +79,13 @@
 					<height>69</height>
 					<label>$LOCALIZE[31900] - $VAR[MenuType]</label>
 					<font>apptv20</font>
-					<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=homemenu-typeval,header=$LOCALIZE[31900])</onclick>
-					<onclick>AlarmClock(changehome,ReloadSkin(),00:5,silent)</onclick>
+					<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31952])</onclick>
+					<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetBool(homemenu-horizontal)||Skin.Reset(homemenu-vertical)||Skin.Reset(homemenu-icon)||ReloadSkin())</onclick>
+					<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31953])</onclick>
+					<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetBool(homemenu-icon)||Skin.Reset(homemenu-vertical)||Skin.Reset(homemenu-horizontal)||ReloadSkin())</onclick>
+					<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31951])</onclick>
+					<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetBool(homemenu-vertical)||Skin.Reset(homemenu-horizontal)||Skin.Reset(homemenu-icon)||ReloadSkin())</onclick>
+					<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31900])</onclick>
 				</control>
 				<control type="button" id="6102">
 					<!-- Home menu Settings Menu -->

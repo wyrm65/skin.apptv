@@ -16,31 +16,6 @@
 			<param name="screenlabel" value="$VAR[VideoHeadings]"/>
 			<param name="listitems" value="$INFO[Container.NumItems,(,)]"/>
 		</include>
-		<!--<control type="grouplist">
-			<left>1170</left>
-			<top>30</top>
-			<width>auto</width>
-			<height>108</height>
-			<align>left</align>
-			<aligny>top</aligny>
-			<orientation>horizontal</orientation>
-			<control type="label">-->
-				<!-- Video screen heading -->
-				<!--<width max="600">auto</width>
-				<height>93</height>
-				<label>$VAR[VideoHeadings]</label>
-				<font>apptv30</font>
-				<wrapmultiline>true</wrapmultiline>
-				<aligny>top</aligny>
-			</control>
-			<control type="label">-->
-				<!-- Number of files -->
-				<!--<width max="120">auto</width>
-				<height>64</height>
-				<label>$INFO[Container.NumItems,(,)]</label>
-				<font>apptv25</font>
-			</control>
-		</control>-->
 		<control type="group">
 			<!-- Various Views of Video library node -->
 			<visible>![String.IsEmpty(ListItem.Label) + String.IsEmpty(ListItem(1).Label)]</visible>
@@ -152,7 +127,15 @@
 					<label>$LOCALIZE[31885]</label>
 					<label2>$VAR[DelayListAnimation]</label2>
 					<font>apptv22</font>
-					<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=listview-idleanim-val,header=$LOCALIZE[31885])</onclick>
+					<onclick>SetProperty(Dialog.1.Label,60 $LOCALIZE[31812])</onclick>
+					<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(listview-idleanim,60))</onclick>
+					<onclick>SetProperty(Dialog.2.Label,90 $LOCALIZE[31812])</onclick>
+					<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(listview-idleanim,90))</onclick>
+					<onclick>SetProperty(Dialog.3.Label,120 $LOCALIZE[31812])</onclick>
+					<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(listview-idleanim,120))</onclick>
+					<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31815])</onclick>
+					<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(listview-idleanim,$LOCALIZE[31815]))</onclick>
+					<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31885])</onclick>
 					<visible>String.EndsWith(Control.GetLabel(2),$LOCALIZE[31941])</visible>
 				</control>
 				<control type="radiobutton" id="1196">
@@ -161,10 +144,10 @@
 					<height>69</height>
 					<label>$LOCALIZE[31867]</label>
 					<font>apptv22</font>
-					<onclick>Skin.ToggleSetting(SkinHelper.EnableAnimatedPosters)</onclick>
-					<selected>Skin.HasSetting(SkinHelper.EnableAnimatedPosters)</selected>
+					<onclick>Skin.ToggleSetting(animated-artwork)</onclick>
+					<selected>Skin.HasSetting(animated-artwork)</selected>
 					<radioposx>495</radioposx>
-					<visible>Skin.HasSetting(SkinHelper.EnableExtraFanart) + Container.Content(movies)</visible>
+					<visible>Container.Content(movies)</visible>
 				</control>
 				<control type="radiobutton" id="1198">
 					<!-- Tilt wall view icons button -->

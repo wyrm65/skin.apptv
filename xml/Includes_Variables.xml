@@ -2,20 +2,24 @@
 <includes>
 	<!-- Skin Variable section -->
 	<variable name="BackgndImage">
-		<value condition="Window.IsActive(weather) + Skin.HasSetting(background-customweather.multi) + !String.IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(weather).Property(Day0.FanartCode)]</value>
-		<value condition="Window.IsActive(weather) + !Skin.HasSetting(background-customweather.multi) + String.IsEmpty(Window(weather).Property(Current.FanartCode)) + !String.IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(weather).Property(Day0.FanartCode)]</value>
-		<value condition="Window.IsActive(weather) + !Skin.HasSetting(background-customweather.multi) + !String.IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(weather).Property(Day0.FanartCode)]$INFO[Skin.String(background-customweather.ext)]</value>
 		<value condition="Skin.HasSetting(background-slideshow) + Player.HasAudio + !String.IsEmpty(Window(visualisation).Property(ArtistSlideshow))">$INFO[Window(visualisation).Property(ArtistSlideshow)]</value>
-		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + Skin.HasSetting(SkinHelper.EnableAnimatedPosters) + !String.IsEmpty(ListItem.Art(animatedfanart))">$INFO[ListItem.Art(animatedfanart)]</value>
-		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))+ !String.IsEmpty(Window(home).Property(SkinHelper.Player.Art.ExtraFanArt))">$INFO[Window(home).Property(SkinHelper.Player.Art.ExtraFanArt)]</value>
-		<value condition="Skin.HasSetting(SkinHelper.EnableExtraFanart) + !String.IsEmpty(Control.GetLabel(300000))">$INFO[Control.GetLabel(300000)]</value>
+		<value condition="Skin.HasSetting(animated-artwork) + !String.IsEmpty(ListItem.Art(animatedfanart))">$INFO[ListItem.Art(animatedfanart)]</value>
+		<value condition="Skin.HasSetting(background-extrafanarts) + !String.IsEmpty(Control.GetLabel(300000))">$INFO[Control.GetLabel(300000)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + Player.HasAudio + !String.IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
-		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(Window(home).Property(SkinHelper.Music.FanArt))">$INFO[Window(home).Property(SkinHelper.Music.FanArt)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(set.fanart))">$INFO[ListItem.Art(set.fanart)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(Fanart.Image)">$INFO[Fanart.Image]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(Window.Property(Fanart))">$INFO[Window.Property(Fanart)]</value>
+		<value condition="!String.IsEmpty(Skin.String(background-custom))">$INFO[Skin.String(background-custom)]</value>
+		<value>background.png</value>
+	</variable>
+	<variable name="BackgndWeatherImage">
+		<value condition="Window.IsActive(weather) + Skin.HasSetting(background-customweather.multi) + !String.IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(weather).Property(Day0.FanartCode)]</value>
+		<value condition="Window.IsActive(weather) + !Skin.HasSetting(background-customweather.multi) + String.IsEmpty(Window(weather).Property(Current.FanartCode)) + !String.IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(weather).Property(Day0.FanartCode)]</value>
+		<value condition="Window.IsActive(weather) + !Skin.HasSetting(background-customweather.multi) + !String.IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(weather).Property(Day0.FanartCode)]$INFO[Skin.String(background-customweather.ext)]</value>
+		<value condition="Skin.HasSetting(background-slideshow) + Player.HasAudio + !String.IsEmpty(Window(visualisation).Property(ArtistSlideshow))">$INFO[Window(visualisation).Property(ArtistSlideshow)]</value>
+		<value condition="!Skin.HasSetting(background-fanarts) + Player.HasAudio + !String.IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
 		<value condition="!String.IsEmpty(Skin.String(background-custom))">$INFO[Skin.String(background-custom)]</value>
 		<value>background.png</value>
 	</variable>
@@ -46,7 +50,7 @@
 		<value>$LOCALIZE[20046]</value>
 	</variable>
 	<variable name="DelayListAnimation">
-		<value condition="String.IsEqual(Skin.String(listview-idleanim),60)">60$LOCALIZE[31810]</value>
+		<value condition="[String.IsEqual(Skin.String(listview-idleanim),60) | String.IsEmpty(Skin.String(listview-idleanim)]">60$LOCALIZE[31810]</value>
 		<value condition="String.IsEqual(Skin.String(listview-idleanim),90)">90$LOCALIZE[31810]</value>
 		<value condition="String.IsEqual(Skin.String(listview-idleanim),120)">120$LOCALIZE[31810]</value>
 		<value>$LOCALIZE[31815]</value>
@@ -374,7 +378,7 @@
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="IconPoster">
-		<value condition="!Container.Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem.Art(animatedposter)) + Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">$INFO[ListItem.Art(animatedposter)]</value>
+		<value condition="!Container.Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem.Art(animatedposter)) + Skin.HasSetting(animated-artwork)">$INFO[ListItem.Art(animatedposter)]</value>
 		<value condition="Control.IsVisible(50) + !String.IsEmpty(ListItem(1).Art(tvshow.poster)) + Container.Content(seasons) + String.Contains(ListItem.Label,$LOCALIZE[20366])">$INFO[ListItem(1).Art(tvshow.poster)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
@@ -394,7 +398,7 @@
 	</variable>
 	<variable name="Icon(-5)Poster">
 		<value condition="ListItem(-5).IsParentFolder">DefaultFolderBack.png</value>
-		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(-5).Art(animatedposter)) + Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">$INFO[ListItem(-5).Art(animatedposter)]</value>
+		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(-5).Art(animatedposter)) + Skin.HasSetting(animated-artwork)">$INFO[ListItem(-5).Art(animatedposter)]</value>
 		<value condition="!String.IsEmpty(ListItem(-5).Art(poster))">$INFO[ListItem(-5).Art(poster)]</value>
 		<value condition="!String.IsEmpty(ListItem(-5).Icon) + !String.Contains(ListItem(-5).Icon,Default)">$INFO[ListItem(-5).Icon]</value>
 		<value condition="!String.IsEmpty(ListItem(-5).Art(thumb))">$INFO[ListItem(-5).Art(thumb)]</value>
@@ -411,7 +415,7 @@
 	</variable>
 	<variable name="Icon(-4)Poster">
 		<value condition="ListItem(-4).IsParentFolder">DefaultFolderBack.png</value>
-		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(-4).Art(animatedposter)) + Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">$INFO[ListItem(-4).Art(animatedposter)]</value>
+		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(-4).Art(animatedposter)) + Skin.HasSetting(animated-artwork)">$INFO[ListItem(-4).Art(animatedposter)]</value>
 		<value condition="!String.IsEmpty(ListItem(-4).Art(poster))">$INFO[ListItem(-4).Art(poster)]</value>
 		<value condition="!String.IsEmpty(ListItem(-4).Icon) + !String.Contains(ListItem(-4).Icon,Default)">$INFO[ListItem(-4).Icon]</value>
 		<value condition="!String.IsEmpty(ListItem(-4).Art(thumb))">$INFO[ListItem(-4).Art(thumb)]</value>
@@ -428,7 +432,7 @@
 	</variable>
 	<variable name="Icon(-3)Poster">
 		<value condition="ListItem(-3).IsParentFolder">DefaultFolderBack.png</value>
-		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(-3).Art(animatedposter)) + Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">$INFO[ListItem(-3).Art(animatedposter)]</value>
+		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(-3).Art(animatedposter)) + Skin.HasSetting(animated-artwork)">$INFO[ListItem(-3).Art(animatedposter)]</value>
 		<value condition="!String.IsEmpty(ListItem(-3).Art(poster))">$INFO[ListItem(-3).Art(poster)]</value>
 		<value condition="!String.IsEmpty(ListItem(-3).Icon) + !String.Contains(ListItem(-3).Icon,Default)">$INFO[ListItem(-3).Icon]</value>
 		<value condition="!String.IsEmpty(ListItem(-3).Art(thumb))">$INFO[ListItem(-3).Art(thumb)]</value>
@@ -445,7 +449,7 @@
 	</variable>
 	<variable name="Icon(-2)Poster">
 		<value condition="ListItem(-2).IsParentFolder">DefaultFolderBack.png</value>
-		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(-2).Art(animatedposter)) + Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">$INFO[ListItem(-2).Art(animatedposter)]</value>
+		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(-2).Art(animatedposter)) + Skin.HasSetting(animated-artwork)">$INFO[ListItem(-2).Art(animatedposter)]</value>
 		<value condition="!String.IsEmpty(ListItem(-2).Art(poster))">$INFO[ListItem(-2).Art(poster)]</value>
 		<value condition="!String.IsEmpty(ListItem(-2).Icon) + !String.Contains(ListItem(-2).Icon,Default)">$INFO[ListItem(-2).Icon]</value>
 		<value condition="!String.IsEmpty(ListItem(-2).Art(thumb))">$INFO[ListItem(-2).Art(thumb)]</value>
@@ -462,7 +466,7 @@
 	</variable>
 	<variable name="Icon(-1)Poster">
 		<value condition="ListItem(-1).IsParentFolder">DefaultFolderBack.png</value>
-		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(-1).Art(animatedposter)) + Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">$INFO[ListItem(-1).Art(animatedposter)]</value>
+		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(-1).Art(animatedposter)) + Skin.HasSetting(animated-artwork)">$INFO[ListItem(-1).Art(animatedposter)]</value>
 		<value condition="!String.IsEmpty(ListItem(-1).Art(poster))">$INFO[ListItem(-1).Art(poster)]</value>
 		<value condition="!String.IsEmpty(ListItem(-1).Icon) + !String.Contains(ListItem(-1).Icon,Default)">$INFO[ListItem(-1).Icon]</value>
 		<value condition="!String.IsEmpty(ListItem(-1).Art(thumb))">$INFO[ListItem(-1).Art(thumb)]</value>
@@ -479,7 +483,7 @@
 	</variable>
 	<variable name="Icon(0)Poster">
 		<value condition="ListItem(0).IsParentFolder">DefaultFolderBack.png</value>
-		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(0).Art(animatedposter)) + Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">$INFO[ListItem(0).Art(animatedposter)]</value>
+		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(0).Art(animatedposter)) + Skin.HasSetting(animated-artwork)">$INFO[ListItem(0).Art(animatedposter)]</value>
 		<value condition="!String.IsEmpty(ListItem(0).Art(poster))">$INFO[ListItem(0).Art(poster)]</value>
 		<value condition="!String.IsEmpty(ListItem(0).Icon) + !String.Contains(ListItem(0).Icon,Default)">$INFO[ListItem(0).Icon]</value>
 		<value condition="!String.IsEmpty(ListItem(0).Art(thumb))">$INFO[ListItem(0).Art(thumb)]</value>
@@ -496,7 +500,7 @@
 	</variable>
 	<variable name="Icon(1)Poster">
 		<value condition="ListItem(1).IsParentFolder">DefaultFolderBack.png</value>
-		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(1).Art(animatedposter)) + Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">$INFO[ListItem(1).Art(animatedposter)]</value>
+		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(1).Art(animatedposter)) + Skin.HasSetting(animated-artwork)">$INFO[ListItem(1).Art(animatedposter)]</value>
 		<value condition="!String.IsEmpty(ListItem(1).Art(poster))">$INFO[ListItem(1).Art(poster)]</value>
 		<value condition="!String.IsEmpty(ListItem(1).Icon) + !String.Contains(ListItem(1).Icon,Default)">$INFO[ListItem(1).Icon]</value>
 		<value condition="!String.IsEmpty(ListItem(1).Art(thumb))">$INFO[ListItem(1).Art(thumb)]</value>
@@ -513,7 +517,7 @@
 	</variable>
 	<variable name="Icon(2)Poster">
 		<value condition="ListItem(2).IsParentFolder">DefaultFolderBack.png</value>
-		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(2).Art(animatedposter)) + Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">$INFO[ListItem(2).Art(animatedposter)]</value>
+		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(2).Art(animatedposter)) + Skin.HasSetting(animated-artwork)">$INFO[ListItem(2).Art(animatedposter)]</value>
 		<value condition="!String.IsEmpty(ListItem(2).Art(poster))">$INFO[ListItem(2).Art(poster)]</value>
 		<value condition="!String.IsEmpty(ListItem(2).Icon) + !String.Contains(ListItem(2).Icon,Default)">$INFO[ListItem(2).Icon]</value>
 		<value condition="!String.IsEmpty(ListItem(2).Art(thumb))">$INFO[ListItem(2).Art(thumb)]</value>
@@ -530,7 +534,7 @@
 	</variable>
 	<variable name="Icon(3)Poster">
 		<value condition="ListItem(3).IsParentFolder">DefaultFolderBack.png</value>
-		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(3).Art(animatedposter)) + Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">$INFO[ListItem(3).Art(animatedposter)]</value>
+		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(3).Art(animatedposter)) + Skin.HasSetting(animated-artwork)">$INFO[ListItem(3).Art(animatedposter)]</value>
 		<value condition="!String.IsEmpty(ListItem(3).Art(poster))">$INFO[ListItem(3).Art(poster)]</value>
 		<value condition="!String.IsEmpty(ListItem(3).Icon) + !String.Contains(ListItem(3).Icon,Default)">$INFO[ListItem(3).Icon]</value>
 		<value condition="!String.IsEmpty(ListItem(3).Art(thumb))">$INFO[ListItem(3).Art(thumb)]</value>
@@ -547,7 +551,7 @@
 	</variable>
 	<variable name="Icon(4)Poster">
 		<value condition="ListItem(4).IsParentFolder">DefaultFolderBack.png</value>
-		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(4).Art(animatedposter)) + Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">$INFO[ListItem(4).Art(animatedposter)]</value>
+		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(4).Art(animatedposter)) + Skin.HasSetting(animated-artwork)">$INFO[ListItem(4).Art(animatedposter)]</value>
 		<value condition="!String.IsEmpty(ListItem(4).Art(poster))">$INFO[ListItem(4).Art(poster)]</value>
 		<value condition="!String.IsEmpty(ListItem(4).Icon) + !String.Contains(ListItem(4).Icon,Default)">$INFO[ListItem(4).Icon]</value>
 		<value condition="!String.IsEmpty(ListItem(4).Art(thumb))">$INFO[ListItem(4).Art(thumb)]</value>
@@ -564,7 +568,7 @@
 	</variable>
 	<variable name="Icon(5)Poster">
 		<value condition="ListItem(5).IsParentFolder">DefaultFolderBack.png</value>
-		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(5).Art(animatedposter)) + Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">$INFO[ListItem(5).Art(animatedposter)]</value>
+		<value condition="!Container().Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem(5).Art(animatedposter)) + Skin.HasSetting(animated-artwork)">$INFO[ListItem(5).Art(animatedposter)]</value>
 		<value condition="!String.IsEmpty(ListItem(5).Art(poster))">$INFO[ListItem(5).Art(poster)]</value>
 		<value condition="!String.IsEmpty(ListItem(5).Icon) + !String.Contains(ListItem(5).Icon,Default)">$INFO[ListItem(5).Icon]</value>
 		<value condition="!String.IsEmpty(ListItem(5).Art(thumb))">$INFO[ListItem(5).Art(thumb)]</value>
@@ -886,14 +890,12 @@
 	<variable name="VideoLogo">
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo)) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,movie)]">$INFO[ListItem.Art(clearlogo)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + String.IsEqual(ListItem.DBTYPE,tvshow)">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
-		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.Clearlogo))">$INFO[Window(home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
 	</variable>
 	<variable name="ListViewVideoLogo">
 		<value condition="!String.IsEmpty(ListItem(1).Art(tvshow.clearlogo)) + Container.Content(seasons) + String.Contains(ListItem.Label,$LOCALIZE[20366])">$INFO[ListItem(1).Art(tvshow.clearlogo)]</value>
 		<value condition="!String.IsEmpty(ListItem(1).Art(clearlogo)) + Container.Content(seasons) + String.Contains(ListItem.Label,$LOCALIZE[20366])">$INFO[ListItem(1).Art(clearlogo)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo)) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies)]">$INFO[ListItem.Art(clearlogo)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
-		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Art.Clearlogo))">$INFO[Window(home).Property(SkinHelper.ListItem.Art.Clearlogo)]</value>
 	</variable>
 	<variable name="PlayerVideoArt">
 		<value condition="[VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)] + !String.IsEmpty(Player.Art(clearart))">$INFO[Player.Art(clearart)]</value>
@@ -915,11 +917,15 @@
 	</variable>
 	<variable name="PlayerMusicCover">
 		<value condition="!String.IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Thumb))">$INFO[Window(home).Property(plugin.audio.streaming-radio.Thumb)]</value>
-		<value condition="Pvr.IsPlayingRadio + !String.IsEmpty(Window(home).Property(SkinHelper.PVR.ChannelLogo))">Window(home).Property(SkinHelper.PVR.ChannelLogo)</value>
 		<value condition="!String.IsEmpty(MusicPlayer.Cover)">$INFO[MusicPlayer.Cover]</value>
 		<value condition="!String.IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
 		<value condition="Pvr.IsPlayingRadio">icon-radio.png</value>
 		<value>DefaultAudio.png</value>
+	</variable>
+	<variable name="PlayerDiscArt">
+		<value condition="!String.IsEmpty(Player.Art(album.discart))">$INFO[Player.Art(album.discart)]</value>
+		<value condition="!String.IsEmpty(Player.Art(discart))">$INFO[Player.Art(discart)]</value>
+		<value>cd.png</value>
 	</variable>
 	<variable name="PlayerMusicInfo1">
 		<value condition="Player.IsInternetStream + !String.IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Title))">$INFO[Window(home).Property(plugin.audio.streaming-radio.Title)]</value>
@@ -943,17 +949,11 @@
 	</variable>
 	<variable name="PVRThumb">
 		<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
-		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
 		<value condition="!String.IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
 		<value condition="String.IsEmpty(Window.Property(IsRadio))">icon-livetv.png</value>
 		<value>icon-radio.png</value>
 	</variable>
 	<variable name="PVRPgmIcon">
-		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.PVR.Poster))">$INFO[Window(home).Property(SkinHelper.PVR.Poster)]</value>
-		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.Poster))">$INFO[Window(home).Property(SkinHelper.ListItem.Poster)]</value>
-		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.PVR.Thumb))">$INFO[Window(home).Property(SkinHelper.PVR.Thumb)]</value>
-		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.PVR.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.PVR.ChannelLogo)]</value>
-		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
 		<value condition="!String.IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
 		<value condition="String.IsEmpty(Window.Property(IsRadio))">icon-livetv.png</value>
@@ -961,13 +961,11 @@
 	</variable>
 	<variable name="PVRIcon">
 		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
-		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.ListItem.ChannelLogo)]</value>
 	</variable>
 	<variable name="PVRPlayingIcon">
 		<value condition="!String.IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>
 		<value condition="!String.IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
 		<value condition="!String.IsEmpty(VideoPlayer.Cover)">$INFO[VideoPlayer.Cover]</value>
-		<value condition="!String.IsEmpty(Window(home).Property(SkinHelper.Player.ChannelLogo))">$INFO[Window(home).Property(SkinHelper.Player.ChannelLogo)]</value>
 	</variable>
 	<variable name="HorzHomeShelfIcon">
 		<value condition="Control.HasFocus(9100) | Control.HasFocus(9130)">DefaultVideo.png</value>

@@ -1434,10 +1434,9 @@
 
 	<include name="defaultskinsettings">
 		<!-- various default settings  -->
-		<onload>Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
-		<onload>Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
-		<onload>Skin.SetString(SkinHelper.RandomFanartDelay,0)</onload>
 		<onload>RunScript(script.embuary.helper,action=getkodisetting,setting=locale.country,strip=timeformat)</onload>
+		<onload condition="!Skin.HasSetting(FontCheck)">RunScript(script.embuary.helper,action=fontchange,locales=ja+zh+ar+he+ko+vi+bn+my+hi+ks+km+ms,font="Kodi Default")</onload>
+		<onload condition="!Skin.HasSetting(FontCheck)">Skin.ToggleSetting(FontCheck)</onload>
 	</include>
 	<!-- Postion and size of fullscreen image -->
 	<!-- NB, don't change height to a percentage as it will break fadebackground -->
@@ -1507,7 +1506,7 @@
 				<imagepath background="false">$VAR[BackgndImage]</imagepath>
 				<aspectratio>stretch</aspectratio>
 				<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
-				<animation effect="fade" start="0" end="100" time="200" delay="1300">Visible</animation>
+				<animation effect="fade" start="0" end="100" time="200" delay="300">Visible</animation>
 				<visible>!Container().Scrolling + !System.ScreenSaverActive + ![Skin.HasSetting(background-playingmedia) + Player.HasVideo]</visible>
 			</control>
 			<control type="group">
@@ -1722,7 +1721,7 @@
 						<top>6</top>
 						<width>144</width>
 						<height>144</height>
-						<texture background="true" fallback="DefaultAudio.png">$VAR[PlayerMusicCover]</texture>
+						<texture background="true">$VAR[PlayerMusicCover]</texture>
 						<aspectratio>keep</aspectratio>
 					</control>
 					<control type="label">
