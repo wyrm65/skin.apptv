@@ -206,18 +206,18 @@
 
 		<control type="panel" id="9000">
 			<!-- Home menu icon panel -->
-			<animation condition="![Container(9000).Row(0) | Container(9000).Row(1)] | Container(9000).HasPrevious()" effect="slide" start="0,0" end="0,-465" time="100">Conditonal</animation>
-			<top>500</top>
+			<animation condition="![Container(9000).Row(0) | Container(9000).Row(1)] | Container(9000).HasPrevious()" effect="slide" start="0,0" end="0,-495" time="100">Conditonal</animation>
+			<top>530</top>
 			<left>15</left>
 			<width>1890</width>
-			<height>986</height>
+			<height>1002</height>
 			<itemgap>0</itemgap>
 			<onleft>6100</onleft>
 			<onright>9005</onright>
 			<onup condition="![Control.IsVisible(9802) | Control.IsVisible(9803)]">9800</onup>
 			<onup condition="Control.IsVisible(9802) | Control.IsVisible(9803)">9005</onup>
 			<ondown>9005</ondown>
-			<itemlayout height="246" width="378">
+			<itemlayout height="250" width="378">
 				<control type="image">
 					<left>36</left>
 					<top>10</top>
@@ -240,7 +240,7 @@
 					<param name="visible" value="String.IsEqual(ListItem.Label2,$LOCALIZE[8])" />
 				</include>-->
 			</itemlayout>
-			<focusedlayout height="246" width="378">
+			<focusedlayout height="250" width="378">
 				<control type="image">
 					<left>11</left>
 					<top>0</top>
