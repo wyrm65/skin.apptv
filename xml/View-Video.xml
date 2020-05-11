@@ -118,7 +118,7 @@
 			</focusedlayout>
 		</control>
 		<control type="group" id="945">
-			<visible>Control.IsVisible(50) + !System.ScreenSaverActive + [Container.Content(movies) | Container.Content(tvshows)]  + [[System.IdleTime(60) + String.IsEqual(Skin.String(listview-idleanim),60)] | [System.IdleTime(90) + String.IsEqual(Skin.String(listview-idleanim),90)] | [System.IdleTime(120) + String.IsEqual(Skin.String(listview-idleanim),120)]]</visible>
+			<visible>Control.IsVisible(50) + !System.ScreenSaverActive + [Container.Content(movies) | Container.Content(tvshows)]  + [[System.IdleTime(60) + [String.IsEqual(Skin.String(listview-idleanim),60) | String.IsEmpty(Skin.String(listview-idleanim))]] | [System.IdleTime(90) + String.IsEqual(Skin.String(listview-idleanim),90)] | [System.IdleTime(120) + String.IsEqual(Skin.String(listview-idleanim),120)]]</visible>
 			<animation effect="fade" start="0" end="100" time="1000">Visible</animation>
 			<control type="wraplist" id="950">
 				<left>-15</left>
@@ -1051,7 +1051,7 @@
 				</control>
 				<control type="image">
 					<left>332</left>
-					<top>192</top>
+					<top>188</top>
 					<width>24</width>
 					<height>24</height>
 					<texture>overlayvideoextras.png</texture>
