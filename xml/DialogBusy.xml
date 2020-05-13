@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
-	<onload condition="String.Contains(Player.Filenameandpath,theme.mp3) | !String.IsEmpty(Window(home).Property(PlayingOST))">Dialog.Close(all,true)</onload>
+	<onload condition="String.Contains(Player.Filenameandpath,theme.mp3) | !IsEmpty(Window(videos).Property(PlayingBackgroundMedia))">Dialog.Close(all,true)</onload>
 	<animation effect="fade" time="250" delay="1750">WindowOpen</animation>
 	<animation effect="fade" time="100">WindowClose</animation>
 	<coordinates>

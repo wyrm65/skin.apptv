@@ -788,7 +788,7 @@
 		<control type="group" id="9950">
 			<visible>Skin.HasSetting(media-overlay) + !Window.IsActive(playercontrols)</visible>
 			<control type="group" id="9960">
-				<visible>Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))</visible>
+				<visible>Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
 				<control type="image">
 					<left>30</left>
 					<top>804</top>

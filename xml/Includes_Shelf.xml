@@ -4,13 +4,13 @@
 		<content target="video" limit="12">videodb://recentlyaddedmovies/</content>
 	</include>
 	<include name="MovieRecommended">
-		<content target="video" limit="12">plugin://script.embuary.helper/?info=getsimilar&type=movie&pos=0</content>
+		<content target="video" limit="12">plugin://script.embuary.helper/?info=getsimilar&amp;type=movie&amp;pos=0</content>
 	</include>
 	<include name="EpisodeRecent">
 		<content target="video" sortby="random" limit="12">videodb://recentlyaddedepisodes/</content>
 	</include>
 	<include name="EpisodeRecommended">
-		<content target="video" limit="12">plugin://script.embuary.helper/?info=getinprogress&type=tvshow</content>
+		<content target="video" limit="12">plugin://script.embuary.helper/?info=getinprogress&amp;type=tvshow</content>
 	</include>
 	<include name="AiringToday">
 		<content target="video" limit="12">plugin://script.embuary.helper/?info=getnextup</content>
@@ -38,7 +38,7 @@
 	</include>
 
 	<include name="movie-shelficons">
-		<animation effect="slide" end="315,0" condition="![Control.HasFocus(9160) + Container(9160).Position(5)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))]]">Conditional</animation>
+		<animation effect="slide" end="315,0" condition="![Control.HasFocus(9160) + Container(9160).Position(5)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
 			<control type="label">
 				<!-- Movie shelf icons label -->
@@ -61,7 +61,7 @@
 				<onfocus>SetFocus(9160)</onfocus>
 			</control>
 			<control type="group">
-				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))]]</visible>
+				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
 				<control type="image">
 					<left>0</left>
 					<top>87</top>
@@ -204,7 +204,7 @@
 		</control>
 	</include>
 	<include name="tvshow-shelficons">
-		<animation effect="slide" end="378,0" condition="![Control.HasFocus(9210) + Container(9210).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))]]">Conditional</animation>
+		<animation effect="slide" end="378,0" condition="![Control.HasFocus(9210) + Container(9210).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
 			<control type="label">
 				<!-- TV Episodes shelf icons label -->
@@ -229,7 +229,7 @@
 			<control type="group">
 				<visible>String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31949])</visible>
 				<!-- Banners -->
-				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))]]</visible>
+				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
 				<camera x="960" y="270" />
 				<control type="image">
 					<left>0</left>
@@ -275,7 +275,7 @@
 			<control type="group">
 				<visible>[String.IsEmpty(Skin.String(shelf-tvshowimgtyp)) | String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31950])]</visible>
 				<!-- Posters -->
-				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))]]</visible>
+				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
 				<camera x="960" y="238" />
 				<control type="image">
 					<left>-45</left>
@@ -372,7 +372,7 @@
 		</control>
 	</include>
 	<include name="custom-shelficons">
-		<animation effect="slide" end="366,0" condition="![Control.HasFocus(9560) + Container(9560).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))]]">Conditional</animation>
+		<animation effect="slide" end="366,0" condition="![Control.HasFocus(9560) + Container(9560).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
 			<control type="label">
 				<!-- Addon shelf icon label-->
@@ -395,7 +395,7 @@
 				<onfocus>SetFocus(9560)</onfocus>
 			</control>
 			<control type="group">
-				<visible>![[Skin.HasSetting(media-overlay) + [Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))]]</visible>
+				<visible>![[Skin.HasSetting(media-overlay) + [Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
 				<control type="image">
 					<left>0</left>
 					<top>104</top>
@@ -490,7 +490,7 @@
 		</control>
 	</include>
 	<include name="music-shelficons">
-		<animation effect="slide" end="366,0" condition="![Control.HasFocus(9260) + Container(9260).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))]]">Conditional</animation>
+		<animation effect="slide" end="366,0" condition="![Control.HasFocus(9260) + Container(9260).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
 			<control type="label">
 				<!-- Album shelf icon label-->
@@ -513,7 +513,7 @@
 				<onfocus>SetFocus(9260)</onfocus>
 			</control>
 			<control type="group">
-				<visible>![[Skin.HasSetting(media-overlay) + [Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))]]</visible>
+				<visible>![[Skin.HasSetting(media-overlay) + [Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
 				<control type="image">
 					<left>0</left>
 					<top>104</top>
@@ -609,7 +609,7 @@
 		</control>
 	</include>
 	<include name="addons-shelficons">
-		<animation effect="slide" end="366,0" condition="![Control.HasFocus(9360) + Container(9360).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))]]">Conditional</animation>
+		<animation effect="slide" end="366,0" condition="![Control.HasFocus(9360) + Container(9360).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
 			<control type="label">
 				<!-- Addon shelf icon label-->
@@ -632,7 +632,7 @@
 				<onfocus>SetFocus(9360)</onfocus>
 			</control>
 			<control type="group">
-				<visible>![[Skin.HasSetting(media-overlay) + [Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))]]</visible>
+				<visible>![[Skin.HasSetting(media-overlay) + [Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
 				<control type="image">
 					<left>0</left>
 					<top>104</top>
@@ -728,7 +728,7 @@
 		</control>
 	</include>
 	<include name="broadcast-shelficons">
-		<animation effect="slide" end="378,0" condition="![Control.HasFocus(9510) + Container(9510).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))]]">Conditional</animation>
+		<animation effect="slide" end="378,0" condition="![Control.HasFocus(9510) + Container(9510).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
 			<control type="label">
 				<!-- Broadcast shelf icons label -->
@@ -751,7 +751,7 @@
 				<onfocus>SetFocus(9510)</onfocus>
 			</control>
 			<control type="group">
-				<visible>![[Skin.HasSetting(media-overlay) + [Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))]]</visible>
+				<visible>![[Skin.HasSetting(media-overlay) + [Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
 				<camera x="960" y="238" />
 				<control type="image">
 					<left>-45</left>
@@ -860,7 +860,7 @@
 		</control>
 	</include>
 	<include name="ShelfWeather">
-		<animation effect="slide" end="315,0" condition="Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))]]">Conditional</animation>
+		<animation effect="slide" end="315,0" condition="Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
 			<visible>!String.IsEmpty(Window(weather).Property(Current.Temperature))</visible>
 			<control type="image">
@@ -1149,7 +1149,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))]]</visible>
+				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
 				<left>1530</left>
 				<top>93</top>
 				<control type="label">
@@ -1213,7 +1213,7 @@
 	</include>
 	<include name="shelf-nowplaying">
 		<control type="group">
-			<visible>!Container(9160).Position(5) + !Container(9210).Position(4) + !Container(9260).Position(4) + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))]]</visible>
+			<visible>!Container(9160).Position(5) + !Container(9210).Position(4) + !Container(9260).Position(4) + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
 			<control type="label">
 				<!-- Now playing -->
 				<left>15</left>
@@ -1336,7 +1336,7 @@
 			</control>
 			<control type="group">
 				<!-- Audio Stuff -->
-				<visible>Player.HasAudio + String.IsEmpty(Window(home).Property(PlayingOST))</visible>
+				<visible>Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
 				<control type="group">
 					<!-- Playing Non Radio Audio -->
 					<visible>!Pvr.IsPlayingRadio</visible>

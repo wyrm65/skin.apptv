@@ -5,7 +5,7 @@
 	<controls>
 		<control type="image">
 			<!-- Kodi has been asked to quit/restart, fade screen down to show that something is happening -->
-			<animation effect="fade" delay="5000" start="0" end="100" time="1000" condition="true">Conditional</animation>
+			<animation effect="fade" delay="2000" start="0" end="100" time="1000" condition="true">Conditional</animation>
 			<include>fullscreenimage</include>
 			<texture colordiffuse="mask-background">background-mask.png</texture>
 			<aspectratio>scale</aspectratio>
@@ -68,24 +68,6 @@
 					<textcolor>info-text</textcolor>
 					<label>Custom_PVRRootList.xml</label>
 					<visible>Window.IsVisible(Custom_PVRRootList.xml)</visible>
-				</control>
-				<control type="label">
-					<include>overlay-label</include>
-					<textcolor>info-text</textcolor>
-					<label>Custom_RidSoundtrack.xml</label>
-					<visible>Window.IsVisible(Custom_RidSoundtrack.xml)</visible>
-				</control>
-				<control type="label">
-					<include>overlay-label</include>
-					<textcolor>info-text</textcolor>
-					<label>Custom_StartSoundtrack.xml</label>
-					<visible>Window.IsVisible(Custom_StartSoundtrack.xml)</visible>
-				</control>
-				<control type="label">
-					<include>overlay-label</include>
-					<textcolor>info-text</textcolor>
-					<label>Custom_StopSoundtrack.xml</label>
-					<visible>Window.IsVisible(Custom_StopSoundtrack.xml)</visible>
 				</control>
 				<!-- Window labels -->
 				<control type="label">
