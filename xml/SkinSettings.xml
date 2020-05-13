@@ -329,7 +329,7 @@
 						<height>84</height>
 						<width>1328</width>
 						<control type="togglebutton" id="212">
-							<!-- Artist slideshow script install/config -->
+							<!-- Use default mpaa local toggle -->
 							<onup>210</onup>
 							<ondown>213</ondown>
 							<onright>999</onright>
@@ -359,6 +359,8 @@
 						<onclick>Skin.Reset(text-autoscroll)</onclick>
 						<onclick>Skin.Reset(media-overlay)</onclick>
 						<onclick>Skin.Reset(show-touchcontrols)</onclick>
+						<onclick>Skin.Reset(media-theme)</onclick>
+						<onclick>Skin.Reset(defaultmpaa-locale)</onclick>
 					</control>
 				</control>
 			</control>
@@ -593,16 +595,6 @@
 						<selected>!Skin.HasSetting(background-fanarts)</selected>
 						<radioposx>1266</radioposx>
 					</control>
-					<control type="radiobutton" id="505">
-						<!-- Background ExtraFanart Toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31864]</label>
-						<textwidth>1125</textwidth>
-						<onclick>Skin.ToggleSetting(background-extrafanarts)</onclick>
-						<selected>Skin.HasSetting(background-extrafanarts)</selected>
-						<enable>!Skin.HasSetting(background-fanarts)</enable>
-						<radioposx>1266</radioposx>
-					</control>
 					<control type="radiobutton" id="506">
 						<!-- Media In Background Toggle -->
 						<include>settings-submenu-common</include>
@@ -643,7 +635,6 @@
 						<textwidth>1178</textwidth>
 						<onclick>Skin.Reset(background-custom)</onclick>
 						<onclick>Skin.Reset(background-fanarts)</onclick>
-						<onclick>Skin.Reset(background-extrafanart)</onclick>
 						<onclick>Skin.Reset(background-playingmedia)</onclick>
 						<onclick>Skin.Reset(background-slideshow)</onclick>
 						<onclick>Skin.Reset(background-visibiltymed)</onclick>
@@ -688,7 +679,33 @@
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31920]</label>
 						<label2>$INFO[Skin.String(libraryentry-movie)]</label2>
-						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=libraryentry-movie-val,header=$LOCALIZE[31920])</onclick>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[369])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[369]))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[20108])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[20108]))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[20386])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[20386]))</onclick>
+						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[135])</onclick>
+						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[135]))</onclick>
+						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[652])</onclick>
+						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[652]))</onclick>
+						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[344])</onclick>
+						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[344]))</onclick>
+						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[20348])</onclick>
+						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[20348]))</onclick>
+						<onclick>SetProperty(Dialog.8.Label,$LOCALIZE[20388])</onclick>
+						<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[20388]))</onclick>
+						<onclick>SetProperty(Dialog.9.Label,$LOCALIZE[20434])</onclick>
+						<onclick>SetProperty(Dialog.9.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[20434]))</onclick>
+						<onclick>SetProperty(Dialog.10.Label,$LOCALIZE[20451])</onclick>
+						<onclick>SetProperty(Dialog.10.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[20451]))</onclick>
+						<onclick>SetProperty(Dialog.11.Label,$LOCALIZE[20459])</onclick>
+						<onclick>SetProperty(Dialog.11.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[20459]))</onclick>
+						<onclick>SetProperty(Dialog.12.Label,$LOCALIZE[744])</onclick>
+						<onclick>SetProperty(Dialog.12.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[744]))</onclick>
+						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.13.Label,$LOCALIZE[31652])</onclick>
+						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.13.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[31652])||RunScript(script.favourites,changetitle=false&amp;property=CustomMovieEntry))</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31920])</onclick>
 					</control>
 					<control type="button" id="603">
 						<!-- Set TVShow library entry point -->
@@ -696,7 +713,25 @@
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31921]</label>
 						<label2>$INFO[Skin.String(libraryentry-tvshow)]</label2>
-						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=libraryentry-tvshow-val,header=$LOCALIZE[31921])</onclick>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[369])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[369]))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[20108])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[20108]))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[20387])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[20387]))</onclick>
+						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[135])</onclick>
+						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[135]))</onclick>
+						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[652])</onclick>
+						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[652]))</onclick>
+						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[344])</onclick>
+						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[344]))</onclick>
+						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[20388])</onclick>
+						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[20388]))</onclick>
+						<onclick>SetProperty(Dialog.8.Label,$LOCALIZE[744])</onclick>
+						<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[744]))</onclick>
+						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.9.Label,$LOCALIZE[31652])</onclick>
+						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.9.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[31652])||RunScript(script.favourites,changetitle=false&amp;property=CustomTVShowEntry))</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31921])</onclick>
 					</control>
 					<control type="button" id="604">
 						<!-- Set Music Video library entry point -->
@@ -704,7 +739,29 @@
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31922]</label>
 						<label2>$INFO[Skin.String(libraryentry-musicvideo)]</label2>
-						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=libraryentry-musicvideo-val,header=$LOCALIZE[31922])</onclick>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[369])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[369]))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[20108])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[20108]))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[20390])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[20390]))</onclick>
+						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[135])</onclick>
+						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[135]))</onclick>
+						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[652])</onclick>
+						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[652]))</onclick>
+						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[133])</onclick>
+						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[133]))</onclick>
+						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[132])</onclick>
+						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[132]))</onclick>
+						<onclick>SetProperty(Dialog.8.Label,$LOCALIZE[20348])</onclick>
+						<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[20348]))</onclick>
+						<onclick>SetProperty(Dialog.9.Label,$LOCALIZE[20388])</onclick>
+						<onclick>SetProperty(Dialog.9.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[20388]))</onclick>
+						<onclick>SetProperty(Dialog.10.Label,$LOCALIZE[744])</onclick>
+						<onclick>SetProperty(Dialog.10.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[744]))</onclick>
+						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.11.Label,$LOCALIZE[31652])</onclick>
+						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.11.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[31652])||RunScript(script.favourites,changetitle=false&amp;property=CustomMusicVideoEntry))</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31922])</onclick>
 					</control>
 					<control type="button" id="605">
 						<!-- Set Music library entry point -->
@@ -712,7 +769,35 @@
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31923]</label>
 						<label2>$INFO[Skin.String(libraryentry-music)]</label2>
-						<onclick>RunScript(script.skin.helper.service,action=setskinsetting,setting=libraryentry-music-val,header=$LOCALIZE[31923])</onclick>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[132])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[132]))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[20108])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[20108]))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[135])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[135]))</onclick>
+						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[133])</onclick>
+						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[133]))</onclick>
+						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[134])</onclick>
+						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[134]))</onclick>
+						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[10504])</onclick>
+						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[10504]))</onclick>
+						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[10505])</onclick>
+						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[10505]))</onclick>
+						<onclick>SetProperty(Dialog.8.Label,$LOCALIZE[359])</onclick>
+						<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[359]))</onclick>
+						<onclick>SetProperty(Dialog.9.Label,$LOCALIZE[517])</onclick>
+						<onclick>SetProperty(Dialog.9.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[517]))</onclick>
+						<onclick>SetProperty(Dialog.10.Label,$LOCALIZE[521])</onclick>
+						<onclick>SetProperty(Dialog.10.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[521]))</onclick>
+						<onclick>SetProperty(Dialog.11.Label,$LOCALIZE[652])</onclick>
+						<onclick>SetProperty(Dialog.11.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[652]))</onclick>
+						<onclick>SetProperty(Dialog.12.Label,$LOCALIZE[1050])</onclick>
+						<onclick>SetProperty(Dialog.12.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[1050]))</onclick>
+						<onclick>SetProperty(Dialog.13.Label,$LOCALIZE[744])</onclick>
+						<onclick>SetProperty(Dialog.13.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[744]))</onclick>
+						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.14.Label,$LOCALIZE[31652])</onclick>
+						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.14.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[31652])||RunScript(script.favourites,changetitle=false&amp;property=CustomMusicEntry))</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31923])</onclick>
 					</control>
 					<control type="button" id="606">
 						<!-- Set TV library entry point -->
@@ -949,7 +1034,7 @@
 						</control>
 						<control type="label">
 							<include>settings-submenu-common</include>
-							<label>$ADDON[service.upnext 30045]</label>
+							<label>$ADDON[service.upnext 30008]</label>
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
@@ -1069,22 +1154,6 @@
 						<onclick>Skin.ToggleSetting(debug-info)</onclick>
 						<selected>Skin.HasSetting(debug-info)</selected>
 						<radioposx>1266</radioposx>
-					</control>
-					<control type="button" id="808">
-						<!-- Backup skin settings -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31980]</label>
-						<textwidth>1125</textwidth>
-						<onclick condition="!System.HasAddon(script.skin.helper.skinbackup)">InstallAddon(script.skin.helper.skinbackup)</onclick>
-						<onclick condition="System.HasAddon(script.skin.helper.skinbackup)">RunScript(script.skin.helper.skinbackup,action=backup)</onclick>
-					</control>
-					<control type="button" id="809">
-						<!-- Restore skin settings -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31981]</label>
-						<textwidth>1125</textwidth>
-						<onclick condition="!System.HasAddon(script.skin.helper.skinbackup)">InstallAddon(script.skin.helper.skinbackup)</onclick>
-						<onclick condition="System.HasAddon(script.skin.helper.skinbackup)">RunScript(script.skin.helper.skinbackup,action=restore)</onclick>
 					</control>
 					<control type="button" id="810">
 						<!-- Reset skin settings to defaults -->
