@@ -28,7 +28,6 @@
 				<width>1620</width>
 				<height>56</height>
 				<align>center</align>
-				<aligny>center</aligny>
 				<orientation>horizontal</orientation>
 				<control type="label">
 					<!-- Dialog heading -->
@@ -314,8 +313,14 @@
 					<item>
 						<label>$LOCALIZE[31689]</label>
 						<onclick>Dialog.Close(1154)</onclick>
+						<onclick>RunScript(script.metadata.editor,dbid=$INFO[ListItem.DBID],type=$INFO[ListItem.DBType])</onclick>
+						<visible>String.IsEqual(Window(home).Property(SelectDialogType),videoinfomore) + System.HasAddon(script.metadata.editor) + $EXP[isnotEmptyDBID]</visible>
+					</item>
+					<item>
+						<label>$LOCALIZE[31689]</label>
+						<onclick>Dialog.Close(1154)</onclick>
 						<onclick>RunScript(script.libraryeditor,DBID=$INFO[ListItem.DBID])</onclick>
-						<visible>String.IsEqual(Window(home).Property(SelectDialogType),videoinfomore) + System.HasAddon(script.libraryeditor) + $EXP[isnotEmptyDBID]</visible>
+						<visible>String.IsEqual(Window(home).Property(SelectDialogType),videoinfomore) + System.HasAddon(script.libraryeditor) + !System.HasAddon(script.metadata.editor) + $EXP[isnotEmptyDBID]</visible>
 					</item>
 					<!-- More Music Info options -->
 					<item>

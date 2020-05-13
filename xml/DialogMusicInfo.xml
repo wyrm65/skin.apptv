@@ -124,30 +124,9 @@
 					<label>$INFO[ListItem.Genre,$LOCALIZE[135] : ]</label>
 				</control>
 				<control type="label">
-					<!-- Playcount heading-->
-					<left>1455</left>
-					<top>360</top>
-					<width>435</width>
-					<height>33</height>
-					<label>$LOCALIZE[567]</label>
-					<font>apptv22</font>
-					<textcolor>disabled-text</textcolor>
-					<shadowcolor>shadow-text</shadowcolor>
-					<visible>!String.IsEmpty(ListItem.PlayCount)</visible>
-				</control>
-				<control type="label">
-					<left>1455</left>
-					<top>399</top>
-					<width>435</width>
-					<height>30</height>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<label>$INFO[ListItem.PlayCount]</label>
-					<font>apptv20</font>
-				</control>
-				<control type="label">
 					<!-- Duration -->
 					<left>510</left>
-					<top>477</top>
+					<top>438</top>
 					<width>480</width>
 					<height>30</height>
 					<font>apptv20</font>
@@ -156,12 +135,22 @@
 				<control type="label">
 					<!-- Release date -->
 					<left>510</left>
-					<top>516</top>
+					<top>477</top>
 					<width>900</width>
 					<height>30</height>
 					<font>apptv20</font>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Year,$LOCALIZE[172] : ]</label>
+				</control>
+				<control type="label">
+					<!-- Playcount -->
+					<left>510</left>
+					<top>516</top>
+					<width>900</width>
+					<height>30</height>
+					<label>$INFO[ListItem.PlayCount,$LOCALIZE[567] : ]</label>
+					<font>apptv20</font>
+					<visible>!String.IsEmpty(ListItem.PlayCount)</visible>
 				</control>
 				<control type="image">
 					<!-- Star Rating Dropshadow-->

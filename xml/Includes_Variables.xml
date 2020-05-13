@@ -4,7 +4,7 @@
 	<variable name="BackgndImage">
 		<value condition="Skin.HasSetting(background-slideshow) + Player.HasAudio + !String.IsEmpty(Window(visualisation).Property(ArtistSlideshow))">$INFO[Window(visualisation).Property(ArtistSlideshow)]</value>
 		<value condition="Skin.HasSetting(animated-artwork) + !String.IsEmpty(ListItem.Art(animatedfanart))">$INFO[ListItem.Art(animatedfanart)]</value>
-		<value condition="Skin.HasSetting(background-extrafanarts) + !String.IsEmpty(Control.GetLabel(300000))">$INFO[Control.GetLabel(300000)]</value>
+		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(Control.GetLabel(300000))">$INFO[Control.GetLabel(300000)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + Player.HasAudio + !String.IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(set.fanart))">$INFO[ListItem.Art(set.fanart)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
@@ -50,20 +50,20 @@
 		<value>$LOCALIZE[20046]</value>
 	</variable>
 	<variable name="DelayListAnimation">
-		<value condition="[String.IsEqual(Skin.String(listview-idleanim),60) | String.IsEmpty(Skin.String(listview-idleanim)]">60$LOCALIZE[31810]</value>
+		<value condition="[String.IsEqual(Skin.String(listview-idleanim),60) | String.IsEmpty(Skin.String(listview-idleanim))]">60$LOCALIZE[31810]</value>
 		<value condition="String.IsEqual(Skin.String(listview-idleanim),90)">90$LOCALIZE[31810]</value>
 		<value condition="String.IsEqual(Skin.String(listview-idleanim),120)">120$LOCALIZE[31810]</value>
 		<value>$LOCALIZE[31815]</value>
 	</variable>
 	<variable name="CastInfoIcons">
-		<value condition="String.IsEqual(ListItem.DBTYPE,movie)">plugin://script.skin.helper.service/?action=getcast&amp;movie=$INFO[ListItem.DBID]&amp;downloadthumbs=true&amp;castaction=extendedinfo</value>
-		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow)">plugin://script.skin.helper.service/?action=getcast&amp;tvshow=$INFO[ListItem.DBID]&amp;downloadthumbs=true&amp;castaction=extendedinfo</value>
-		<value condition="String.IsEqual(ListItem.DBTYPE,movieset)">plugin://script.skin.helper.service/?action=getcast&amp;movieset=$INFO[ListItem.DBID]&amp;downloadthumbs=true&amp;castaction=extendedinfo</value>
-		<value condition="String.IsEqual(ListItem.DBTYPE,episode)">plugin://script.skin.helper.service/?action=getcast&amp;episode=$INFO[ListItem.DBID]&amp;downloadthumbs=true&amp;castaction=extendedinfo</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,movie)">plugin://script.embuary.helper?info=getcast&amp;type=movie&amp;dbid=$INFO[ListItem.DBID]</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow)">plugin://script.embuary.helper?info=getcast&amp;type=tvshow&amp;title='$ESCINFO[VideoPlayer.TVShowTitle]'</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,movieset)">plugin://script.embuary.helper?info=getsetcast&amp;dbid=$INFO[ListItem.DBID]</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,episode)">plugin://script.embuary.helper?info=getcast&amp;type=tvshow&amp;dbid=$INFO[ListItem.DBID]&amp;idtype=episode</value>
 	</variable>
 	<variable name="VideoInfoIcons">
-		<value condition="String.IsEqual(ListItem.DBTYPE,movie)">plugin://script.embuary.helper/?info=getsimilar&dbid=$INFO[ListItem.DBID]&type=movie</value>
-		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)">plugin://script.embuary.helper/?info=getsimilar&dbid=$INFO[ListItem.DBID]&type=tvshow</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,movie)">plugin://script.embuary.helper/?info=getsimilar&amp;dbid=$INFO[ListItem.DBID]&amp;type=movie</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)">plugin://script.embuary.helper/?info=getsimilar&amp;dbid=$INFO[ListItem.DBID]&amp;type=tvshow</value>
 	</variable>
 	<variable name="DefaultVideoInfoIcons">
 		<value condition="String.IsEqual(ListItem.DBTYPE,movie)">videodb://recentlyaddedmovies/</value>
@@ -926,6 +926,11 @@
 		<value condition="!String.IsEmpty(Player.Art(album.discart))">$INFO[Player.Art(album.discart)]</value>
 		<value condition="!String.IsEmpty(Player.Art(discart))">$INFO[Player.Art(discart)]</value>
 		<value>cd.png</value>
+	</variable>
+	<variable name="MusicInfo">
+		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Description)]</value>
+		<value condition="Container.Content(songs)">$INFO[ListItem.Comment]</value>
+		<value condition="Container.Content(artist)">$INFO[ListItem.Property(Artist_Description)]</value>
 	</variable>
 	<variable name="PlayerMusicInfo1">
 		<value condition="Player.IsInternetStream + !String.IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Title))">$INFO[Window(home).Property(plugin.audio.streaming-radio.Title)]</value>
@@ -1987,8 +1992,6 @@
 		<value condition="Control.HasFocus(803)">$LOCALIZE[31370]</value>
 		<value condition="Control.HasFocus(805)">$LOCALIZE[31372]</value>
 		<value condition="Control.HasFocus(806)">$LOCALIZE[31373]</value>
-		<value condition="Control.HasFocus(808)">$LOCALIZE[31375]</value>
-		<value condition="Control.HasFocus(809)">$LOCALIZE[31376]</value>
 		<value condition="Control.HasFocus(984)">$LOCALIZE[31360]</value>
 		<value condition="Control.HasFocus(987)">$LOCALIZE[31359]</value>
 		<value condition="Window.IsVisible(Custom_HomeCustomise.xml) + !Control.HasFocus(402)">$LOCALIZE[31374]</value>

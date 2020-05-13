@@ -60,7 +60,7 @@
 						<font>apptv20</font>
 						<selectedcolor>disabled-text</selectedcolor>
 						<textcolor>disabled-text</textcolor>
-						<label>$INFO[ListItem.Label2]</label>
+						<label>$INFO[ListItem.Label2]$INFO[ListItem.Playcount, - $LOCALIZE[567] ]</label>
 					</control>
 				</control>
 				<control type="group">
@@ -146,7 +146,7 @@
 						<font>apptv20</font>
 						<selectedcolor>disabled-text</selectedcolor>
 						<textcolor>disabled-text</textcolor>
-						<label>$INFO[ListItem.Label2]</label>
+						<label>$INFO[ListItem.Label2]$INFO[ListItem.Playcount, - $LOCALIZE[567] ]</label>
 					</control>
 				</control>
 				<control type="group">
@@ -199,8 +199,8 @@
 				<control type="group">
 					<visible>Container.Content(albums) | Container.Content(songs)</visible>
 					<control type="image">
-						<left>494</left>
-						<top>311</top>
+						<left>524</left>
+						<top>150</top>
 						<height>444</height>
 						<width>444</width>
 						<texture>case-cd.png</texture>
@@ -209,8 +209,8 @@
 					</control>
 					<control type="image">
 						<!-- Cover image -->
-						<left>540</left>
-						<top>340</top>
+						<left>570</left>
+						<top>179</top>
 						<width>392</width>
 						<height>384</height>
 						<texture diffuse="mask-squ.png">$VAR[IconCover]</texture>
@@ -218,8 +218,8 @@
 					</control>
 				</control>
 				<control type="image">
-					<left>471</left>
-					<top>174</top>
+					<left>460</left>
+					<top>154</top>
 					<width>504</width>
 					<height>504</height>
 					<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
@@ -229,7 +229,7 @@
 			</control>
 			<control type="group">
 				<visible>[Container.Content(songs) | Container.Content(albums)] + $EXP[isnotDefaultIcon]</visible>
-				<control type="image" id="992">
+				<control type="image">
 					<!-- Music logo if available -->
 					<left>44</left>
 					<top>225</top>
@@ -239,97 +239,54 @@
 					<aspectratio align="left" aligny="bottom">keep</aspectratio>
 					<colordiffuse>mask-background</colordiffuse>
 				</control>
-				<control type="image">
-					<left>30</left>
-					<top>768</top>
-					<width>936</width>
-					<height>6</height>
-					<texture>separator.png</texture>
-				</control>
-				<control type="label">
-					<!-- Artist heading -->
-					<left>30</left>
-					<top>788</top>
-					<width>195</width>
-					<height>38</height>
-					<label>$LOCALIZE[31230]</label>
-					<font>apptv22</font>
-					<align>right</align>
-				</control>
 				<control type="label">
 					<!-- Artist -->
-					<left>240</left>
-					<top>788</top>
-					<width>726</width>
+					<left>30</left>
+					<top>288</top>
+					<width>420</width>
 					<height>38</height>
 					<label>$INFO[ListItem.Artist]</label>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<font>apptv20</font>
 				</control>
 				<control type="label">
-					<!-- Genre heading -->
-					<left>30</left>
-					<top>825</top>
-					<width>195</width>
-					<height>38</height>
-					<label>$LOCALIZE[31231]</label>
-					<font>apptv22</font>
-					<align>right</align>
-				</control>
-				<control type="label">
 					<!-- Genre -->
-					<left>240</left>
-					<top>825</top>
-					<width>726</width>
+					<left>30</left>
+					<top>425</top>
+					<width>420</width>
 					<height>38</height>
 					<label>$INFO[ListItem.Genre]</label>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<font>apptv20</font>
 				</control>
 				<control type="label">
-					<!-- Year heading -->
-					<left>30</left>
-					<top>863</top>
-					<width>195</width>
-					<height>38</height>
-					<label>$LOCALIZE[31232]</label>
-					<font>apptv22</font>
-					<align>right</align>
-				</control>
-				<control type="label">
 					<!-- Year -->
-					<left>240</left>
-					<top>863</top>
-					<width>726</width>
+					<left>30</left>
+					<top>463</top>
+					<width>420</width>
 					<height>38</height>
 					<label>$INFO[ListItem.Year]</label>
 					<font>apptv20</font>
 				</control>
-				<control type="label">
-					<!-- Rating heading -->
-					<left>30</left>
-					<top>900</top>
-					<width>195</width>
-					<height>38</height>
-					<label>$LOCALIZE[563]:</label>
-					<font>apptv22</font>
-					<align>right</align>
-				</control>
 				<control type="image">
 					<!-- Rating -->
-					<left>240</left>
-					<top>905</top>
+					<left>30</left>
+					<top>505</top>
 					<width>165</width>
 					<height>33</height>
 					<texture>$VAR[MediaRating]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
-				<control type="image">
+				<control type="textbox">
+					<!-- Music item Description -->
 					<left>30</left>
-					<top>951</top>
-					<width>936</width>
-					<height>6</height>
-					<texture>separator.png</texture>
+					<top>650</top>
+					<width>954</width>
+					<height>318</height>
+					<font>apptv20</font>
+					<label>$VAR[MusicInfo]</label>
+					<align>justify</align>
+					<aligny>top</aligny>
 				</control>
 			</control>
 			<control type="group">
@@ -418,9 +375,9 @@
 			</include>
 		</control>
 	</include>
+	<!-- WIP , maybe in next version 
 	<include name="CategoryView">
-	<!-- WIP , maybe in next version -->
-	</include>
+	</include> -->
 	<include name="AlbumIconView">
 		<control type="panel" id="52">
 			<left>30</left>
@@ -1332,7 +1289,7 @@
 			<onright>$VAR[ListScrollNavMusic]</onright>
 			<onup>58</onup>
 			<ondown>58</ondown>
-			<viewtype label="31944">wall</viewtype>
+			<viewtype label="31944">bigicon</viewtype>
 			<pagecontrol>1258</pagecontrol>
 			<preloaditems>4</preloaditems>
 			<animation type="TYPE" condition="Skin.HasSetting(tiltmusicwallicon)" reversible="false">

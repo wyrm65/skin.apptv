@@ -30,7 +30,6 @@
 			<width>840</width>
 			<height>864</height>
 			<scrolltime>0</scrolltime>
-			<itemgap>0</itemgap>
 			<focusposition>2</focusposition>
 			<movement>2</movement>
 			<onleft>$VAR[ListScrollNavSets]</onleft>
@@ -296,7 +295,6 @@
 						<width>944</width>
 						<height>276</height>
 						<orientation>vertical</orientation>
-						<itemgap>0</itemgap>
 						<onleft condition="Skin.HasSetting(lock-screensettings)">4501</onleft>
 						<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
 						<onright>50</onright>
@@ -656,7 +654,7 @@
 			<visible>Control.IsVisible(53)</visible>
 			<control type="list" id="53">
 				<visible>container.content(tvshows) + !String.IsEmpty(Container.FolderPath)</visible>
-				<viewtype label="31946">banner</viewtype>
+				<viewtype label="31946">biglist</viewtype>
 				<left>993</left>
 				<top>214</top>
 				<width>813</width>
@@ -922,7 +920,6 @@
 			<onup condition="!Skin.HasSetting(lock-screensettings)">9000</onup>
 			<ondown>$VAR[ListScrollNavVideo]</ondown>
 			<focusposition>0</focusposition>
-			<itemgap>0</itemgap>
 			<orientation>horizontal</orientation>
 			<preloaditems>4</preloaditems>
 			<scrolltime>0</scrolltime>
@@ -1193,7 +1190,7 @@
 				<param name="listitemid" value="54"/>
 				<param name="illegalexitsearch" value="4542"/>
 				<param name="illegalexitbar" value="4544"/>
-				<param name="letterbarvisible" value="Control.IsVisible(54)+Skin.HasSetting(show-letterbar)+[Container.Content(movies)|Container.Content(tvshows)|Container.Content(musicvideos)]"/>
+				<param name="letterbarvisible" value="Skin.HasSetting(show-letterbar)+[Container.Content(movies)|Container.Content(tvshows)|Container.Content(musicvideos)]"/>
 			</include>
 			<control type="scrollbar" id="1254">
 				<left>50</left>
@@ -1649,7 +1646,7 @@
 				<control type="image">
 					<!-- Video special features available -->
 					<left>1730</left>
-					<top>1028</top>
+					<top>1018</top>
 					<width>24</width>
 					<height>24</height>
 					<texture>overlayvideoextras.png</texture>
@@ -1684,7 +1681,7 @@
 				<param name="listitemid" value="57"/>
 				<param name="illegalexitsearch" value="4572"/>
 				<param name="illegalexitbar" value="4574"/>
-				<param name="letterbarvisible" value="Control.IsVisible(57)+Skin.HasSetting(show-letterbar)+[Container.Content(movies)|Container.Content(tvshows)|Container.Content(musicvideos)]"/>
+				<param name="letterbarvisible" value="Skin.HasSetting(show-letterbar)+[Container.Content(movies)|Container.Content(tvshows)|Container.Content(musicvideos)]"/>
 			</include>
 			<control type="scrollbar" id="1257">
 				<left>45</left>
@@ -1732,7 +1729,7 @@
 			<onright>$VAR[ListScrollNavVideo]</onright>
 			<onup>58</onup>
 			<ondown>58</ondown>
-			<viewtype label="31944">wall</viewtype>
+			<viewtype label="31944">bigicon</viewtype>
 			<pagecontrol>1258</pagecontrol>
 			<preloaditems>4</preloaditems>
 			<animation type="TYPE" condition="Skin.HasSetting(tiltvideowallicon)" reversible="false">
@@ -1979,7 +1976,6 @@
 						<width>740</width>
 						<height>460</height>
 						<orientation>vertical</orientation>
-						<itemgap>0</itemgap>
 						<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
 						<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
 						<onright>50</onright>
