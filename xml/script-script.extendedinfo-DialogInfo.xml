@@ -22,7 +22,6 @@
 				<width>auto</width>
 				<height>50</height>
 				<align>left</align>
-				<aligny>top</aligny>
 				<orientation>horizontal</orientation>
 				<control type="label">
 					<!-- Actor Name -->
@@ -253,7 +252,7 @@
 							<visible>Control.HasFocus(140)</visible>
 						</control>
 					</focusedlayout>
-					<content>plugin://script.skin.helper.service/?action=getcastmedia&amp;name=$INFO[Window.Property(Label)]</content>
+					<content>plugin://script.embuary.helper?info=getcast&amp;type=movie&amp;dbid=$INFO[ListItem.DBID]</content>
 				</control>
 				<control type="group">
 					<!-- Markers for control area items -->
