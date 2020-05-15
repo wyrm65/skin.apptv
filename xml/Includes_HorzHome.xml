@@ -1,39 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
 	<include name="HorzHomeMenu">
-		<control type="group">
-			<!-- Build up home menu shelf image -->
-			<control type="image">
-				<left>0</left>
-				<top>0</top>
-				<width>1920</width>
-				<height>288</height>
-				<texture>background-horzshelfbackdrop.png</texture>
-			</control>
-			<control type="image">
-				<left>0</left>
-				<top>288</top>
-				<width>1920</width>
-				<height>180</height>
-				<texture>background-horzshelf.png</texture>
-			</control>
-			<control type="image">
-				<left>0</left>
-				<top>0</top>
-				<width>1920</width>
-				<height>468</height>
-				<texture>menu-mask.png</texture>
-			</control>
-			<control type="button" id="9810">
-				<!-- Dummy button for mouse control -->
-				<left>0</left>
-				<top>0</top>
-				<width>100%</width>
-				<height>1080</height>
-				<texturefocus>blank.png</texturefocus>
-				<texturenofocus>blank.png</texturenofocus>
-			</control>
-		</control>
+		<include file="Includes_Shelf.xml">homeshelf-background</include>
 		<!-- Show time on home screen -->
 		<include condition="!Skin.HasSetting(home-time)" file="Includes_Shelf.xml">homeshelf-time</include>
 		<!-- Now Playing -->

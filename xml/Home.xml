@@ -96,7 +96,32 @@
 					<onfocus>Skin.SetString(skinsettingmenu,custom)</onfocus>
 					<onclick>ActivateWindow(1152,,return)</onclick>
 				</control>
-				<control type="radiobutton" id="6103">
+					<control type="group" id="6103">
+						<visible>!Skin.HasSetting(homemenu-vertical)</visible>
+						<width>639</width>
+						<height>69</height>
+						<control type="togglebutton" id="6104">
+							<!-- TVShow Shelf image type -->
+							<onup>6102</onup>
+							<ondown>6106</ondown>
+							<onright>ClearProperty(ShowScreenSettings,home)</onright>
+							<onright>9000</onright>
+							<onleft>ClearProperty(ShowScreenSettings,home)</onleft>
+							<onleft>9000</onleft>
+							<textwidth>585</textwidth>
+							<label fallback="31575">$INFO[Skin.String(shelf-backgroundtype)]</label>
+							<font>apptv20</font>
+							<align>right</align>
+							<onclick>Skin.SetString(shelf-backgroundtype,$LOCALIZE[20445])</onclick>
+							<altclick>Skin.SetString(shelf-backgroundtype,$LOCALIZE[31575])</altclick>
+						</control>
+						<control type="label" id="6105">
+							<label>$LOCALIZE[31859]</label>
+							<font>apptv20</font>
+							<textoffsetx>27</textoffsetx>
+						</control>
+					</control>
+				<control type="radiobutton" id="6106">
 					<!-- Time On Home Screen toggle -->
 					<width>639</width>
 					<height>69</height>
@@ -108,7 +133,7 @@
 					<selected>!Skin.HasSetting(home-time)</selected>
 					<radioposx>1266</radioposx>
 				</control>
-				<control type="radiobutton" id="6104">
+				<control type="radiobutton" id="6107">
 					<!-- Current Weather On Home Screen toggle -->
 					<width>639</width>
 					<height>69</height>
@@ -121,7 +146,7 @@
 					<enable>!String.IsEmpty(Weather.plugin)</enable>
 					<radioposx>1266</radioposx>
 				</control>
-				<control type="button" id="6105">
+				<control type="button" id="6108">
 					<!-- player controls button -->
 					<width>639</width>
 					<height>69</height>

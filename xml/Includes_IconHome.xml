@@ -9,35 +9,12 @@
 		<control type="group">
 			<visible>[Container(9000).Row(0) | Container(9000).Row(1)] + !Container(9000).HasPrevious()</visible>
 			<animation effect="fade" start="0" end="100" time="200">Visible</animation>
-			<control type="group">
-				<!-- Build up home menu shelf image -->
-				<visible>![Window.IsActive(videos) | Window.IsActive(music)]</visible>
-				<control type="image">
-					<left>0</left>
-					<top>0</top>
-					<width>1920</width>
-					<height>288</height>
-					<texture>background-iconshelfbackdrop.png</texture>
-				</control>
-				<control type="image">
-					<left>0</left>
-					<top>288</top>
-					<width>1920</width>
-					<height>183</height>
-					<texture>background-iconshelf.png</texture>
-				</control>
-				<control type="image">
-					<left>0</left>
-					<top>0</top>
-					<width>1920</width>
-					<height>471</height>
-					<texture>menu-mask.png</texture>
-				</control>
-			</control>
-			<include condition="!Skin.HasSetting(home-time)" file="Includes_Shelf.xml">homeshelf-time</include>
+			<!-- Background shelf image -->
+			<include file="Includes_Shelf.xml">homeshelf-background</include>
 			<!-- Show time on home screen -->
-			<include condition="Skin.HasSetting(media-overlay)" file="Includes_Shelf.xml">shelf-nowplaying</include>
+			<include condition="!Skin.HasSetting(home-time)" file="Includes_Shelf.xml">homeshelf-time</include>
 			<!-- Now Playing -->
+			<include condition="Skin.HasSetting(media-overlay)" file="Includes_Shelf.xml">shelf-nowplaying</include>
 			<control type="group" id="9800">
 				<!-- Shelf icons-->
 				<control type="group" id="9801">
