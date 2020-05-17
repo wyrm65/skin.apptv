@@ -316,21 +316,12 @@
 						<radioposx>1266</radioposx>
 						<enable>System.GetBool(input.enablemouse)</enable>
 					</control>
-					<control type="radiobutton" id="210">
-						<!-- Play videos theme tune Toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31894]</label>
-						<textwidth>1125</textwidth>
-						<onclick>Skin.ToggleSetting(media-theme)</onclick>
-						<selected>Skin.HasSetting(media-theme)</selected>
-						<radioposx>1266</radioposx>
-					</control>
 					<control type="group" id="211">
 						<height>84</height>
 						<width>1328</width>
 						<control type="togglebutton" id="212">
 							<!-- Use default mpaa local toggle -->
-							<onup>210</onup>
+							<onup>209</onup>
 							<ondown>213</ondown>
 							<onright>999</onright>
 							<include>settings-submenu-common</include>
@@ -359,7 +350,6 @@
 						<onclick>Skin.Reset(text-autoscroll)</onclick>
 						<onclick>Skin.Reset(media-overlay)</onclick>
 						<onclick>Skin.Reset(show-touchcontrols)</onclick>
-						<onclick>Skin.Reset(media-theme)</onclick>
 						<onclick>Skin.Reset(defaultmpaa-locale)</onclick>
 					</control>
 				</control>
@@ -900,7 +890,7 @@
 						<control type="togglebutton" id="703">
 							<!-- Artist slideshow script install/config -->
 							<onup>718</onup>
-							<ondown>707</ondown>
+							<ondown>705</ondown>
 							<onright>999</onright>
 							<include>settings-submenu-common</include>
 							<textwidth>1178</textwidth>
@@ -918,12 +908,36 @@
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
+					<control type="group" id="704">
+						<height>84</height>
+						<width>1328</width>
+						<control type="togglebutton" id="705">
+							<!-- TV Tunes script install/config -->
+							<onup>702</onup>
+							<ondown>707</ondown>
+							<onright>999</onright>
+							<include>settings-submenu-common</include>
+							<textwidth>1178</textwidth>
+							<label>$LOCALIZE[24020]</label>
+							<altlabel>$LOCALIZE[24038]</altlabel>
+							<align>right</align>
+							<onclick>Addon.OpenSettings(service.tvtunes)</onclick>
+							<altclick>RunScript(script.embuary.helper,action=toggleaddons,addonid=service.tvtunes,enable=true)</altclick>
+							<altclick condition="!System.HasAddon(service.tvtunes)">InstallAddon(service.tvtunes)</altclick>
+							<usealttexture>!System.HasAddon(service.tvtunes)</usealttexture>
+						</control>
+						<control type="label">
+							<include>settings-submenu-common</include>
+							<label>$LOCALIZE[31596]</label>
+							<textoffsetx>27</textoffsetx>
+						</control>
+					</control>
 					<control type="group" id="706">
 						<height>84</height>
 						<width>1328</width>
 						<control type="togglebutton" id="707">
 							<!-- Autocompletion text script install/config -->
-							<onup>703</onup>
+							<onup>705</onup>
 							<ondown>709</ondown>
 							<onright>999</onright>
 							<include>settings-submenu-common</include>
@@ -1067,7 +1081,7 @@
 						<width>1328</width>
 						<control type="togglebutton" id="719">
 							<!-- Extended Info script install/config -->
-							<onup>715</onup>
+							<onup>717</onup>
 							<ondown>702</ondown>
 							<onright>999</onright>
 							<include>settings-submenu-common</include>
