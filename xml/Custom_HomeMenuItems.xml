@@ -731,7 +731,7 @@
 					<item>
 						<!-- Custom command - Show OSD -->
 						<label>$LOCALIZE[478]</label>
-						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],ActivateWindow(PlayerControls))</onclick>
+						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],ActivateWindow(playercontrols))</onclick>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[478])</onclick>
 						<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
 						<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>

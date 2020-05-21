@@ -10,9 +10,6 @@
 		_AddonsList 1155
 		_PVRRootList 1156
 		_DummyDialog 1157
-		_RidSoundtrack 1158
-		_StartSoundtrack 1159
-		_StopSoundtrack 1160
 		_DialogToggleSelect 1161
 	-->
 	<!-- Expressions section -->
@@ -1957,7 +1954,6 @@
 					<visible>Integer.IsGreater($PARAM[count],99) + !Integer.IsGreater($PARAM[count],999)</visible>
 				</control>
 				<control type="label">
-					<shadowcolor/>
 					<left>14</left>
 					<top>5</top>
 					<width>54</width>
@@ -1965,39 +1961,7 @@
 					<font>apptv20</font>
 					<label>$INFO[$PARAM[count]]</label>
 					<textcolor>white</textcolor>
-					<align>center</align>
-				</control>
-			</control>
-		</definition>
-	</include>
-	<include name="listitem-weather">
-		<param name="left" default="0"/>
-		<param name="top" default="0"/>
-		<param name="size" default="100"/>
-		<param name="currently"/>
-		<param name="visible"/>
-		<definition>
-			<control type="group">
-				<visible>$PARAM[visible]</visible>
-				<animation condition="true" effect="zoom" start="100" end="$PARAM[size]" center="auto">Conditional</animation>
-				<left>$PARAM[left]</left>
-				<top>$PARAM[top]</top>
-				<control type="image">
-					<left>60</left>
-					<top>30</top>
-					<width>140</width>
-					<height>140</height>
-					<aspectratio>keep</aspectratio>
-					<texture background="true">http://localhost:52307/getvarimage&amp;title=$INFO{Window(weather).Property(Day0.OutlookIcon)}</texture>
-				</control> <!-- future feature, currently depends on Skin helper script, so needs changing -->
-				<control type="label">
-					<left>200</left>
-					<top>70</top>
-					<width>130</width>
-					<height>57</height>
-					<font>apptv38</font>
-					<textcolor>white</textcolor>
-					<label>$INFO[$PARAM[currently]]</label>
+					<shadowcolor/>
 					<align>center</align>
 				</control>
 			</control>

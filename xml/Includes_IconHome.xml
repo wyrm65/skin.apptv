@@ -208,13 +208,6 @@
 					<param name="count" value="ListItem.Property(count)" />
 					<param name="size" value="75" />
 				</include>
-				<!--<include content="listitem-weather">
-					<param name="left" value="0" />
-					<param name="top" value="0" />
-					<param name="size" value="100" />
-					<param name="currently" value="ListItem.Property(currenttemp)" />
-					<param name="visible" value="String.IsEqual(ListItem.Label2,$LOCALIZE[8])" />
-				</include>-->
 			</itemlayout>
 			<focusedlayout height="250" width="378">
 				<control type="image">
@@ -233,13 +226,6 @@
 					<param name="count" value="ListItem.Property(count)" />
 					<param name="size" value="85" />
 				</include>
-				<!--<include content="listitem-weather">
-					<param name="left" value="0" />
-					<param name="top" value="0" />
-					<param name="size" value="118" />
-					<param name="currently" value="ListItem.Property(currenttemp)" />
-					<param name="visible" value="String.IsEqual(ListItem.Label2,$LOCALIZE[8])" />
-				</include>-->
 				<control type="label">
 					<left>0</left>
 					<top>210</top>
@@ -292,7 +278,7 @@
 					<label>$LOCALIZE[8]</label>
 					<label2>$LOCALIZE[8]</label2>
 					<property name="currenttemp">$INFO[Window(Weather).Property(Current.Temperature)]</property>
-					<onclick>ActivateWindow(weather,,return)</onclick>
+					<onclick>ActivateWindow(weather)</onclick>
 				</item>
 				<item>
 					<!-- System menu -->
@@ -334,7 +320,7 @@
 					<thumb>$VAR[HomeProgramsIcon]</thumb>
 					<label>$LOCALIZE[24001]</label>
 					<label2>$LOCALIZE[571]</label2>
-					<onclick>ActivateWindow(1155,,return)</onclick>
+					<onclick>ActivateWindow(1155)</onclick>
 				</item>
 				<item>
 					<!-- Games menu -->
