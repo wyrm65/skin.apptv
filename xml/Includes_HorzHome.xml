@@ -13,20 +13,9 @@
 				<visible>Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9165) | Control.HasFocus(9180)</visible>
 				<control type="group">
 					<visible>String.IsEqual(Skin.String(shelf-movieimages),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9160).NumItems,0)</visible>
-					<control type="image">
-						<left>828</left>
-						<top>57</top>
-						<width>264</width>
-						<height>264</height>
-						<texture>DefaultMovies.png</texture>
-					</control>
-					<control type="image">
-						<left>828</left>
-						<top>321</top>
-						<width>264</width>
-						<height>264</height>
-						<texture flipy="true" diffuse="mask-fadesqu.png">DefaultMovies.png</texture>
-					</control>
+					<include content="shelf-defaulticon">
+						<param name="defaulticon" value="DefaultMovies.png"/>
+					</include>
 				</control>
 				<control type="group">
 					<visible>!String.IsEqual(Skin.String(shelf-movieimages),$LOCALIZE[31953])</visible>
@@ -38,20 +27,9 @@
 				<visible>Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9215) | Control.HasFocus(9230)</visible>
 				<control type="group">
 					<visible>String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31953]) | [!Integer.IsGreater(Container(9210).NumItems,0) + !String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31953])]</visible>
-					<control type="image">
-						<left>828</left>
-						<top>57</top>
-						<width>264</width>
-						<height>264</height>
-						<texture>DefaultTvshows.png</texture>
-					</control>
-					<control type="image">
-						<left>828</left>
-						<top>321</top>
-						<width>264</width>
-						<height>264</height>
-						<texture flipy="true" diffuse="mask-fadesqu.png">DefaultTvshows.png</texture>
-					</control>
+					<include content="shelf-defaulticon">
+						<param name="defaulticon" value="DefaultTvshows.png"/>
+					</include>
 				</control>
 				<control type="group">
 					<visible>String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31954]) | String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31955])</visible>
@@ -63,20 +41,9 @@
 				<visible>Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9265) | Control.HasFocus(9280)</visible>
 				<control type="group">
 					<visible>String.IsEqual(Skin.String(shelf-musicimages),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9260).NumItems,0)</visible>
-					<control type="image">
-						<left>828</left>
-						<top>57</top>
-						<width>264</width>
-						<height>264</height>
-						<texture>DefaultAudio.png</texture>
-					</control>
-					<control type="image">
-						<left>828</left>
-						<top>321</top>
-						<width>264</width>
-						<height>264</height>
-						<texture flipy="true" diffuse="mask-fadesqu.png">DefaultAudio.png</texture>
-					</control>
+					<include content="shelf-defaulticon">
+						<param name="defaulticon" value="DefaultAudio.png"/>
+					</include>
 				</control>
 				<control type="group">
 					<visible>!String.IsEqual(Skin.String(shelf-musicimages),$LOCALIZE[31953])</visible>
@@ -88,20 +55,9 @@
 				<visible>Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9365) | Control.HasFocus(9380)</visible>
 				<control type="group">
 					<visible>String.IsEqual(Skin.String(shelf-addonimages),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9360).NumItems,0)</visible>
-					<control type="image">
-						<left>828</left>
-						<top>57</top>
-						<width>264</width>
-						<height>264</height>
-						<texture>DefaultAddon.png</texture>
-					</control>
-					<control type="image">
-						<left>828</left>
-						<top>321</top>
-						<width>264</width>
-						<height>264</height>
-						<texture flipy="true" diffuse="mask-fadesqu.png">DefaultAddon.png</texture>
-					</control>
+					<include content="shelf-defaulticon">
+						<param name="defaulticon" value="DefaultAddon.png"/>
+					</include>
 				</control>
 				<control type="group">
 					<visible>!String.IsEqual(Skin.String(shelf-addonimages),$LOCALIZE[31953])</visible>
@@ -113,20 +69,9 @@
 				<visible>Control.HasFocus(9400) | Control.HasFocus(9430)</visible>
 				<control type="group">
 					<visible>!Weather.IsFetched | String.IsEmpty(Window(weather).Property(Current.Temperature))</visible>
-					<control type="image">
-						<left>828</left>
-						<top>57</top>
-						<width>264</width>
-						<height>264</height>
-						<texture>icon-weather.png</texture>
-					</control>
-					<control type="image">
-						<left>828</left>
-						<top>321</top>
-						<width>264</width>
-						<height>264</height>
-						<texture flipy="true" diffuse="mask-fadesqu.png">icon-weather.png</texture>
-					</control>
+					<include content="shelf-defaulticon">
+						<param name="defaulticon" value="icon-weather.png"/>
+					</include>
 				</control>
 				<control type="group">
 					<visible>Weather.IsFetched</visible>
@@ -138,20 +83,9 @@
 				<visible>Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9515) | Control.HasFocus(9530)</visible>
 				<control type="group">
 					<visible>String.IsEqual(Skin.String(shelf-broadcastimages),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9510).NumItems,0)</visible>
-					<control type="image">
-						<left>828</left>
-						<top>57</top>
-						<width>264</width>
-						<height>264</height>
-						<texture>icon-broadcast.png</texture>
-					</control>
-					<control type="image">
-						<left>828</left>
-						<top>321</top>
-						<width>264</width>
-						<height>264</height>
-						<texture flipy="true" diffuse="mask-fadesqu.png">icon-broadcast.png</texture>
-					</control>
+					<include content="shelf-defaulticon">
+						<param name="defaulticon" value="icon-broadcast.png"/>
+					</include>
 				</control>
 				<control type="group">
 					<visible>String.IsEqual(Skin.String(shelf-broadcastimages),$LOCALIZE[31956]) | String.IsEqual(Skin.String(shelf-broadcastimages),$LOCALIZE[31957]) | String.IsEqual(Skin.String(shelf-broadcastimages),$LOCALIZE[31958])</visible>
@@ -163,20 +97,9 @@
 				<visible>Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9565) | Control.HasFocus(9580)</visible>
 				<control type="group">
 					<visible>String.IsEqual(Skin.String(shelf-customimages),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9560).NumItems,0)</visible>
-					<control type="image">
-						<left>828</left>
-						<top>57</top>
-						<width>264</width>
-						<height>264</height>
-						<texture>icon-fav.png</texture>
-					</control>
-					<control type="image">
-						<left>828</left>
-						<top>321</top>
-						<width>264</width>
-						<height>264</height>
-						<texture flipy="true" diffuse="mask-fadesqu.png">icon-fav.png</texture>
-					</control>
+					<include content="shelf-defaulticon">
+						<param name="defaulticon" value="icon-fav.png"/>
+					</include>
 				</control>
 				<control type="group">
 					<visible>!String.IsEqual(Skin.String(shelf-customimages),$LOCALIZE[31953])</visible>
@@ -186,20 +109,9 @@
 			<control type="group">
 				<!-- Default Shelf icons -->
 				<visible>![Control.IsVisible(9155) | Control.IsVisible(9205) | Control.IsVisible(9255) | Control.IsVisible(9355) | Control.IsVisible(9405) | Control.IsVisible(9505) | Control.IsVisible(9555)]</visible>
-				<control type="image">
-					<left>828</left>
-					<top>57</top>
-					<width>264</width>
-					<height>264</height>
-					<texture>$VAR[HorzHomeShelfIcon]</texture>
-				</control>
-				<control type="image">
-					<left>828</left>
-					<top>321</top>
-					<width>264</width>
-					<height>264</height>
-					<texture flipy="true" diffuse="mask-fadesqu.png">$VAR[HorzHomeShelfIcon]</texture>
-				</control>
+				<include content="shelf-defaulticon">
+					<param name="defaulticon" value="$VAR[HorzHomeShelfIcon]"/>
+				</include>
 			</control>
 		</control>
 		<control type="group">

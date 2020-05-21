@@ -1816,6 +1816,25 @@
 			<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
 		</control>
 	</include>
+	<include name="shelf-defaulticon">
+		<param name="defaulticon"/>
+		<definition>
+			<control type="image">
+				<left>812</left>
+				<top>56</top>
+				<width>296</width>
+				<height>296</height>
+				<texture>$PARAM[defaulticon]</texture>
+			</control>
+			<control type="image">
+				<left>812</left>
+				<top>352</top>
+				<width>296</width>
+				<height>296</height>
+				<texture flipy="true" diffuse="mask-fade.png">$PARAM[defaulticon]</texture>
+			</control>
+		</definition>
+	</include>
 	<!-- Dummy button for mouse control -->
 	<include name="fullscreendummy">
 		<control type="button" id="3550">

@@ -24,20 +24,9 @@
 						<visible>String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31026])</visible>
 						<control type="group">
 							<visible>String.IsEqual(Skin.String(shelf-movieimages),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9160).NumItems,0)</visible>
-							<control type="image">
-								<left>813</left>
-								<top>57</top>
-								<width>294</width>
-								<height>294</height>
-								<texture>DefaultVideo.png</texture>
-							</control>
-							<control type="image">
-								<left>813</left>
-								<top>351</top>
-								<width>294</width>
-								<height>294</height>
-								<texture flipy="true" diffuse="mask-fade.png">DefaultVideo.png</texture>
-							</control>
+							<include content="shelf-defaulticon">
+								<param name="defaulticon" value="DefaultVideo.png"/>
+							</include>
 						</control>
 						<control type="group">
 							<visible>!String.IsEqual(Skin.String(shelf-movieimages),$LOCALIZE[31953])</visible>
@@ -49,20 +38,9 @@
 						<visible>String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[20343])</visible>
 						<control type="group">
 							<visible>String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9210).NumItems,0)</visible>
-							<control type="image">
-								<left>813</left>
-								<top>57</top>
-								<width>294</width>
-								<height>294</height>
-								<texture>DefaultTvshows.png</texture>
-							</control>
-							<control type="image">
-								<left>813</left>
-								<top>351</top>
-								<width>294</width>
-								<height>294</height>
-								<texture flipy="true" diffuse="mask-fade.png">DefaultTvshows.png</texture>
-							</control>
+							<include content="shelf-defaulticon">
+								<param name="defaulticon" value="DefaultTvshows.png"/>
+							</include>
 						</control>
 						<control type="group">
 							<visible>![String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31953])]</visible>
@@ -74,20 +52,9 @@
 						<visible>String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[2])</visible>
 						<control type="group">
 							<visible>String.IsEqual(Skin.String(shelf-musicimages),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9260).NumItems,0)</visible>
-							<control type="image">
-								<left>813</left>
-								<top>57</top>
-								<width>294</width>
-								<height>294</height>
-								<texture>DefaultAudio.png</texture>
-							</control>
-							<control type="image">
-								<left>813</left>
-								<top>351</top>
-								<width>294</width>
-								<height>294</height>
-								<texture flipy="true" diffuse="mask-fade.png">DefaultAudio.png</texture>
-							</control>
+							<include content="shelf-defaulticon">
+								<param name="defaulticon" value="DefaultAudio.png"/>
+							</include>
 						</control>
 						<control type="group">
 							<visible>!String.IsEqual(Skin.String(shelf-musicimages),$LOCALIZE[31953])</visible>
@@ -100,20 +67,9 @@
 					<visible>String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[8])</visible>
 					<control type="group">
 						<visible>!Weather.IsFetched</visible>
-						<control type="image">
-							<left>828</left>
-							<top>87</top>
-							<width>264</width>
-							<height>264</height>
-							<texture>icon-weather.png</texture>
-						</control>
-						<control type="image">
-							<left>828</left>
-							<top>351</top>
-							<width>264</width>
-							<height>264</height>
-							<texture flipy="true" diffuse="mask-fade.png">icon-weather.png</texture>
-						</control>
+						<include content="shelf-defaulticon">
+							<param name="defaulticon" value="icon-weather.png"/>
+						</include>
 					</control>
 					<control type="group">
 						<visible>Weather.IsFetched</visible>
@@ -126,7 +82,7 @@
 					<control type="group">
 						<control type="image">
 							<left>696</left>
-							<top>87</top>
+							<top>86</top>
 							<width>528</width>
 							<height>264</height>
 							<aspectratio>keep</aspectratio>
@@ -134,7 +90,7 @@
 						</control>
 						<control type="image">
 							<left>696</left>
-							<top>351</top>
+							<top>350</top>
 							<width>528</width>
 							<height>264</height>
 							<aspectratio scalediffuse="true">keep</aspectratio>
