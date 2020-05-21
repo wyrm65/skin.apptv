@@ -8,29 +8,22 @@
 		<value condition="!Skin.HasSetting(background-fanarts) + Player.HasAudio + !String.IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(set.fanart))">$INFO[ListItem.Art(set.fanart)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
-		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
-		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(Fanart.Image)">$INFO[Fanart.Image]</value>
-		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(Window.Property(Fanart))">$INFO[Window.Property(Fanart)]</value>
 		<value condition="!String.IsEmpty(Skin.String(background-custom))">$INFO[Skin.String(background-custom)]</value>
 		<value>background.png</value>
 	</variable>
 	<variable name="BackgndWeatherImage">
-		<value condition="Window.IsActive(weather) + Skin.HasSetting(background-customweather.multi) + !String.IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(weather).Property(Day0.FanartCode)]</value>
-		<value condition="Window.IsActive(weather) + !Skin.HasSetting(background-customweather.multi) + String.IsEmpty(Window(weather).Property(Current.FanartCode)) + !String.IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(weather).Property(Day0.FanartCode)]</value>
-		<value condition="Window.IsActive(weather) + !Skin.HasSetting(background-customweather.multi) + !String.IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(weather).Property(Day0.FanartCode)]$INFO[Skin.String(background-customweather.ext)]</value>
-		<value condition="!Skin.HasSetting(background-fanarts) + Player.HasAudio + !String.IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
+		<value condition="Skin.HasSetting(background-customweather.multi) + !String.IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(weather).Property(Day0.FanartCode)]</value>
+		<value condition="!Skin.HasSetting(background-customweather.multi) + String.IsEmpty(Window(weather).Property(Current.FanartCode)) + !String.IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(weather).Property(Day0.FanartCode)]</value>
+		<value condition="!Skin.HasSetting(background-customweather.multi) + !String.IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(weather).Property(Day0.FanartCode)]$INFO[Skin.String(background-customweather.ext)]</value>
 		<value condition="!String.IsEmpty(Skin.String(background-custom))">$INFO[Skin.String(background-custom)]</value>
 		<value>background.png</value>
 	</variable>
 	<variable name="BackgndShelfImage">
 		<value condition="Skin.HasSetting(animated-artwork) + !String.IsEmpty(ListItem.Art(animatedfanart))">$INFO[ListItem.Art(animatedfanart)]</value>
+		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(Control.GetLabel(300000))">$INFO[Control.GetLabel(300000)]</value>
-		<value condition="!Skin.HasSetting(background-fanarts) + Player.HasAudio + !String.IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(set.fanart))">$INFO[ListItem.Art(set.fanart)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
-		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Property(Fanart_Image))">$INFO[ListItem.Property(Fanart_Image)]</value>
-		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(Fanart.Image)">$INFO[Fanart.Image]</value>
-		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(Window.Property(Fanart))">$INFO[Window.Property(Fanart)]</value>
 		<value condition="!String.IsEmpty(Skin.String(background-custom))">$INFO[Skin.String(background-custom)]</value>
 	</variable>
 	<variable name="BackgndImageVisibity">
