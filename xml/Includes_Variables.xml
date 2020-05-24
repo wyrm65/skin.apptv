@@ -1512,14 +1512,14 @@
 		<value>special://skin/extras/homeicons/music.png</value>
 	</variable>
 	<variable name="HomeWeatherIcon">
-		<value condition="String.IsEmpty(Skin.String(home-weather-icon))">special://skin/extras/homeicons/weather.png</value>
 		<value condition="!String.IsEmpty(Skin.String(home-weather-icon))">$INFO[Skin.String(home-weather-icon)]</value>
-		<value condition="!String.IsEmpty(Window(weather).Property(Today.Sunrise)) + System.Time(Window(weather).Property(Today.Sunrise),Window(weather).Property(Today.Sunset))">special://skin/extras/homeicons/dayweather.png</value>
-		<value condition="!String.IsEmpty(Window(weather).Property(Today.Sunrise)) + !System.Time(Window(weather).Property(Today.Sunrise),Window(weather).Property(Today.Sunset))">special://skin/extras/homeicons/nightweather.png</value>
-		<value condition="!String.IsEmpty(Window(weather).Property(Current.Sunrise)) + System.Time(Window(weather).Property(Current.Sunrise),Window(weather).Property(Current.Sunset))">special://skin/extras/homeicons/dayweather.png</value>
-		<value condition="!String.IsEmpty(Window(weather).Property(Current.Sunrise)) + !System.Time(Window(weather).Property(Current.Sunrise),Window(weather).Property(Current.Sunset))">special://skin/extras/homeicons/nightweather.png</value>
-		<value condition="System.Time(06:00,18:00)">special://skin/extras/homeicons/dayweather.png</value>
-		<value condition="!System.Time(06:00,18:00)">special://skin/extras/homeicons/nightweather.png</value>
+		<value condition="String.IsEqual(Window(weather).Property(Current.FanartCode),27)">special://skin/extras/homeicons/nightweather.png</value>
+		<value condition="String.IsEqual(Window(weather).Property(Current.FanartCode),29)">special://skin/extras/homeicons/nightweather.png</value>
+		<value condition="String.IsEqual(Window(weather).Property(Current.FanartCode),31)">special://skin/extras/homeicons/nightweather.png</value>
+		<value condition="String.IsEqual(Window(weather).Property(Current.FanartCode),45)">special://skin/extras/homeicons/nightweather.png</value>
+		<value condition="String.IsEqual(Window(weather).Property(Current.FanartCode),46)">special://skin/extras/homeicons/nightweather.png</value>
+		<value condition="String.IsEqual(Window(weather).Property(Current.FanartCode),47)">special://skin/extras/homeicons/nightweather.png</value>
+		<value>special://skin/extras/homeicons/dayweather.png</value>
 	</variable>
 	<variable name="HomeMusicVideoIcon">
 		<value condition="!String.IsEmpty(Skin.String(home-musicvideo-icon))">$INFO[Skin.String(home-musicvideo-icon)]</value>
