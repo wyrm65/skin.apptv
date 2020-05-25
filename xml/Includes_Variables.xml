@@ -1018,7 +1018,8 @@
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.banner))">$INFO[ListItem.Art(tvshow.banner)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo))">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
-		<value>$INFO[ListItem.Art(clearlogo)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
+		<value>background-mask.png</value>
 	</variable>
 	<variable name="TVShowShelfPoster0">
 		<value condition="Container(9210).Position(0) + !String.IsEmpty(Container(9210).ListItemNoWrap(-1).Art(tvshow.poster))">$INFO[Container(9210).ListItemNoWrap(-1).Art(tvshow.poster)]</value>
@@ -1092,45 +1093,55 @@
 		<value condition="Container(9210).Position(0) + !String.IsEmpty(Container(9210).ListItemNoWrap(-1).Art(tvshow.banner))">$INFO[Container(9210).ListItemNoWrap(-1).Art(tvshow.banner)]</value>
 		<value condition="Container(9210).Position(0) + !String.IsEmpty(Container(9210).ListItemNoWrap(-1).Art(banner))">$INFO[Container(9210).ListItemNoWrap(-1).Art(banner)]</value>
 		<value condition="Container(9210).Position(0) + !String.IsEmpty(Container(9210).ListItemNoWrap(-1).Art(tvshow.clearlogo))">$INFO[Container(9210).ListItemNoWrap(-1).Art(tvshow.clearlogo)]</value>
-		<value condition="Container(9210).Position(0)">$INFO[Container(9210).ListItemNoWrap(-1).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(0) + !String.IsEmpty(Container(9210).ListItemNoWrap(-1).Art(clearlogo))">$INFO[Container(9210).ListItemNoWrap(-1).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(0) + Container(9210).HasPrevious">background-mask.png</value>
 		<value condition="Container(9210).Position(1) + !String.IsEmpty(Container(9210).ListItemNoWrap(-2).Art(tvshow.banner))">$INFO[Container(9210).ListItemNoWrap(-2).Art(tvshow.banner)]</value>
 		<value condition="Container(9210).Position(1) + !String.IsEmpty(Container(9210).ListItemNoWrap(-2).Art(banner))">$INFO[Container(9210).ListItemNoWrap(-2).Art(banner)]</value>
 		<value condition="Container(9210).Position(1) + !String.IsEmpty(Container(9210).ListItemNoWrap(-2).Art(tvshow.clearlogo))">$INFO[Container(9210).ListItemNoWrap(-2).Art(tvshow.clearlogo)]</value>
-		<value condition="Container(9210).Position(1)">$INFO[Container(9210).ListItemNoWrap(-2).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(1) + !String.IsEmpty(Container(9210).ListItemNoWrap(-2).Art(clearlogo))">$INFO[Container(9210).ListItemNoWrap(-2).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(1) + Container(9210).HasPrevious">background-mask.png</value>
 		<value condition="Container(9210).Position(2) + !String.IsEmpty(Container(9210).ListItemNoWrap(-3).Art(tvshow.banner))">$INFO[Container(9210).ListItemNoWrap(-3).Art(tvshow.banner)]</value>
 		<value condition="Container(9210).Position(2) + !String.IsEmpty(Container(9210).ListItemNoWrap(-3).Art(banner))">$INFO[Container(9210).ListItemNoWrap(-3).Art(banner)]</value>
-		<value condition="Container(9210).Position(2) + !String.IsEmpty(Container(9210).ListItemNoWrap(-3).Art(tvshow.clearlogo))">$INFO[Container(9210).ListItemNoWrap(-3).Art(tvshow.clearlogo)]</value>
-		<value condition="Container(9210).Position(2)">$INFO[Container(9210).ListItemNoWrap(3).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(2) + !String.IsEmpty(Container(9210).ListItemNoWrap(-3).Art(clearlogo))">$INFO[Container(9210).ListItemNoWrap(-3).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(2)">$INFO[Container(9210).ListItemNoWrap(-3).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(2) + Container(9210).HasPrevious">background-mask.png</value>
 		<value condition="Container(9210).Position(3) + !String.IsEmpty(Container(9210).ListItemNoWrap(-4).Art(tvshow.banner))">$INFO[Container(9210).ListItemNoWrap(-4).Art(tvshow.banner)]</value>
 		<value condition="Container(9210).Position(3) + !String.IsEmpty(Container(9210).ListItemNoWrap(-4).Art(banner))">$INFO[Container(9210).ListItemNoWrap(-4).Art(banner)]</value>
 		<value condition="Container(9210).Position(3) + !String.IsEmpty(Container(9210).ListItemNoWrap(-4).Art(tvshow.clearlogo))">$INFO[Container(9210).ListItemNoWrap(-4).Art(tvshow.clearlogo)]</value>
-		<value condition="Container(9210).Position(3)">$INFO[Container(9210).ListItemNoWrap(-4).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(3) + !String.IsEmpty(Container(9210).ListItemNoWrap(-4).Art(clearlogo))">$INFO[Container(9210).ListItemNoWrap(-4).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(3) + Container(9210).HasPrevious">background-mask.png</value>
 		<value condition="Container(9210).Position(4) + !String.IsEmpty(Container(9210).ListItemNoWrap(-5).Art(tvshow.banner))">$INFO[Container(9210).ListItemNoWrap(-5).Art(tvshow.banner)]</value>
 		<value condition="Container(9210).Position(4) + !String.IsEmpty(Container(9210).ListItemNoWrap(-5).Art(banner))">$INFO[Container(9210).ListItemNoWrap(-5).Art(banner)]</value>
 		<value condition="Container(9210).Position(4) + !String.IsEmpty(Container(9210).ListItemNoWrap(-5).Art(tvshow.clearlogo))">$INFO[Container(9210).ListItemNoWrap(-5).Art(tvshow.clearlogo)]</value>
-		<value condition="Container(9210).Position(4)">$INFO[Container(9210).ListItemNoWrap(-5).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(4) + !String.IsEmpty(Container(9210).ListItemNoWrap(-5).Art(clearlogo))">$INFO[Container(9210).ListItemNoWrap(-5).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(4) + Container(9210).HasPrevious">background-mask.png</value>
 	</variable>
 	<variable name="TVShowShelfBanner6">
 		<value condition="Container(9210).Position(0) + !String.IsEmpty(Container(9210).ListItemNoWrap(5).Art(tvshow.banner))">$INFO[Container(9210).ListItemNoWrap(5).Art(tvshow.banner)]</value>
 		<value condition="Container(9210).Position(0) + !String.IsEmpty(Container(9210).ListItemNoWrap(5).Art(banner))">$INFO[Container(9210).ListItemNoWrap(5).Art(banner)]</value>
 		<value condition="Container(9210).Position(0) + !String.IsEmpty(Container(9210).ListItemNoWrap(5).Art(tvshow.clearlogo))">$INFO[Container(9210).ListItemNoWrap(5).Art(tvshow.clearlogo)]</value>
-		<value condition="Container(9210).Position(0)">$INFO[Container(9210).ListItemNoWrap(5).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(0) + !String.IsEmpty(Container(9210).ListItemNoWrap(5).Art(clearlogo))">$INFO[Container(9210).ListItemNoWrap(5).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(0) + Container(9210).HasNext">background-mask.png</value>
 		<value condition="Container(9210).Position(1) + !String.IsEmpty(Container(9210).ListItemNoWrap(4).Art(tvshow.banner))">$INFO[Container(9210).ListItemNoWrap(4).Art(tvshow.banner)]</value>
 		<value condition="Container(9210).Position(1) + !String.IsEmpty(Container(9210).ListItemNoWrap(4).Art(banner))">$INFO[Container(9210).ListItemNoWrap(4).Art(banner)]</value>
 		<value condition="Container(9210).Position(1) + !String.IsEmpty(Container(9210).ListItemNoWrap(4).Art(tvshow.clearlogo))">$INFO[Container(9210).ListItemNoWrap(4).Art(tvshow.clearlogo)]</value>
-		<value condition="Container(9210).Position(1)">$INFO[Container(9210).ListItemNoWrap(4).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(1) + !String.IsEmpty(Container(9210).ListItemNoWrap(4).Art(clearlogo))">$INFO[Container(9210).ListItemNoWrap(4).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(1) + Container(9210).HasNext">background-mask.png</value>
 		<value condition="Container(9210).Position(2) + !String.IsEmpty(Container(9210).ListItemNoWrap(3).Art(tvshow.banner))">$INFO[Container(9210).ListItemNoWrap(3).Art(tvshow.banner)]</value>
 		<value condition="Container(9210).Position(2) + !String.IsEmpty(Container(9210).ListItemNoWrap(3).Art(banner))">$INFO[Container(9210).ListItemNoWrap(3).Art(banner)]</value>
 		<value condition="Container(9210).Position(2) + !String.IsEmpty(Container(9210).ListItemNoWrap(3).Art(tvshow.clearlogo))">$INFO[Container(9210).ListItemNoWrap(3).Art(tvshow.clearlogo)]</value>
-		<value condition="Container(9210).Position(2)">$INFO[Container(9210).ListItemNoWrap(3).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(2) + !String.IsEmpty(Container(9210).ListItemNoWrap(3).Art(clearlogo))">$INFO[Container(9210).ListItemNoWrap(3).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(2) + Container(9210).HasNext">background-mask.png</value>
 		<value condition="Container(9210).Position(3) + !String.IsEmpty(Container(9210).ListItemNoWrap(2).Art(tvshow.banner))">$INFO[Container(9210).ListItemNoWrap(2).Art(tvshow.banner)]</value>
 		<value condition="Container(9210).Position(3) + !String.IsEmpty(Container(9210).ListItemNoWrap(2).Art(banner))">$INFO[Container(9210).ListItemNoWrap(2).Art(banner)]</value>
 		<value condition="Container(9210).Position(3) + !String.IsEmpty(Container(9210).ListItemNoWrap(2).Art(tvshow.clearlogo))">$INFO[Container(9210).ListItemNoWrap(2).Art(tvshow.clearlogo)]</value>
-		<value condition="Container(9210).Position(3)">$INFO[Container(9210).ListItemNoWrap(2).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(3) + !String.IsEmpty(Container(9210).ListItemNoWrap(2).Art(clearlogo))">$INFO[Container(9210).ListItemNoWrap(2).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(3) + Container(9210).HasNext">background-mask.png</value>
 		<value condition="Container(9210).Position(4) + !String.IsEmpty(Container(9210).ListItemNoWrap(1).Art(tvshow.banner))">$INFO[Container(9210).ListItemNoWrap(1).Art(tvshow.banner)]</value>
 		<value condition="Container(9210).Position(4) + !String.IsEmpty(Container(9210).ListItemNoWrap(1).Art(banner))">$INFO[Container(9210).ListItemNoWrap(1).Art(banner)]</value>
 		<value condition="Container(9210).Position(4) + !String.IsEmpty(Container(9210).ListItemNoWrap(1).Art(tvshow.clearlogo))">$INFO[Container(9210).ListItemNoWrap(1).Art(tvshow.clearlogo)]</value>
-		<value condition="Container(9210).Position(4)">$INFO[Container(9210).ListItemNoWrap(1).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(4) + !String.IsEmpty(Container(9210).ListItemNoWrap(1).Art(clearlogo))">$INFO[Container(9210).ListItemNoWrap(1).Art(clearlogo)]</value>
+		<value condition="Container(9210).Position(4) + Container(9210).HasNext">background-mask.png</value>
 	</variable>
 	<variable name="BroadcastShelfIcon0">
 		<value condition="Container(9510).Position(0)">$INFO[Container(9510).ListItemNoWrap(-1).Icon]</value>
