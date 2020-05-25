@@ -492,8 +492,19 @@
 				<label>$LOCALIZE[31693]</label>
 				<texturefocus>button-info-more-focus.png</texturefocus>
 				<texturenofocus>button-info-more.png</texturenofocus>
-				<onclick>SetProperty(SelectDialogType,musicinfomore,home)</onclick>
-				<onclick>ActivateWindow(1154)</onclick>
+				<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[13405])</onclick>
+				<onclick condition="Window.IsActive(musicinformation)">SetProperty(Dialog.1.BuiltIn,SendClick(musicinformation,10))</onclick>
+				<onclick condition="Window.IsActive(songinformation)">SetProperty(Dialog.1.BuiltIn,SendClick(musicinformation,13))</onclick>
+				<onclick condition="Window.IsActive(musicinformation)">SetProperty(Dialog.2.Label,$LOCALIZE[20413])</onclick>
+				<onclick condition="![Window.IsActive(musicinformation)]">SetProperty(Dialog.2.Label,[COLOR=disabled-text] - [/COLOR])</onclick>
+				<onclick>SetProperty(Dialog.2.BuiltIn,SendClick(musicinformation,12))</onclick>
+				<onclick condition="System.HasAddon(script.artwork.beef) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.3.Label,$LOCALIZE[31681])</onclick>
+				<onclick condition="!System.HasAddon(script.artwork.beef) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.3.Label,[COLOR=disabled-text]$LOCALIZE[31681][/COLOR])</onclick>
+				<onclick condition="System.HasAddon(script.artwork.beef) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.3.BuiltIn,RunScript(script.artwork.beef, mode=gui, mediatype=$INFO[ListItem.DBTYPE], DBID=$INFO[ListItem.DBID]))</onclick>
+				<onclick condition="System.HasAddon(script.libraryeditor) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.4.Label,$LOCALIZE[31689])</onclick>
+				<onclick condition="![System.HasAddon(script.libraryeditor) + $EXP[isnotEmptyDBID]]">SetProperty(Dialog.4.Label,[COLOR=disabled-text]$LOCALIZE[31689][/COLOR])</onclick>
+				<onclick>SetProperty(Dialog.4.BuiltIn,RunScript(script.libraryeditor,DBID=$INFO[ListItem.DBID]))</onclick>
+				<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31693])</onclick>
 			</control>
 		</control>
 		<control type="group">

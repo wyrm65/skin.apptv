@@ -18,23 +18,23 @@
 			<visible>Control.IsVisible(3)</visible>
 			<control type="image">
 				<!-- Dialog background image -->
-				<left>476</left>
+				<left>526</left>
 				<top>90</top>
-				<width>968</width>
-				<height>892</height>
+				<width>868</width>
+				<height>910</height>
 				<texture border="14">button-menu-background.png</texture>
 			</control>
 			<control type="grouplist">
-				<left>506</left>
-				<top>104</top>
-				<width>910</width>
-				<height>52</height>
+				<left>556</left>
+				<top>96</top>
+				<width>810</width>
+				<height>50</height>
 				<align>center</align>
 				<orientation>horizontal</orientation>
 				<control type="label">
 					<!-- Dialog heading -->
-					<width max="766">auto</width>
-					<height>52</height>
+					<width max="665">auto</width>
+					<height>50</height>
 					<label>$INFO[Control.GetLabel(1)]</label>
 					<wrapmultiline>true</wrapmultiline>
 					<aligny>top</aligny>
@@ -43,24 +43,24 @@
 				<control type="label">
 					<!-- Number of files -->
 					<width max="144">auto</width>
-					<height>52</height>
+					<height>50</height>
 					<label>$VAR[SelectDialogNumObjects]</label>
 					<aligny>top</aligny>
 					<font>apptv25</font>
 				</control>
 			</control>
 			<control type="image">
-				<left>506</left>
-				<top>162</top>
-				<width>910</width>
+				<left>556</left>
+				<top>152</top>
+				<width>810</width>
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
 			<control type="scrollbar" id="23">
-				<left>504</left>
-				<top>186</top>
+				<left>554</left>
+				<top>176</top>
 				<width>16</width>
-				<height>672</height>
+				<height>720</height>
 				<onright>3</onright>
 				<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
@@ -68,24 +68,24 @@
 			<!-- Markers for control area items -->
 			<include content="page-offscreen-vertical">
 				<param name="indicator1left" value="949"/>
-				<param name="indicator1top" value="166"/>
+				<param name="indicator1top" value="154"/>
 				<param name="indicator2left" value="949"/>
-				<param name="indicator2top" value="856"/>
+				<param name="indicator2top" value="894"/>
 				<param name="indicatorsize" value="24"/>
 				<param name="indicatorcontainer" value="3"/>
 			</include>
 			<control type="grouplist">
-				<left>576</left>
-				<top>878</top>
-				<height>84</height>
-				<width>768</width>
+				<left>626</left>
+				<top>916</top>
+				<height>70</height>
+				<width>668</width>
 				<itemgap>0</itemgap>
 				<align>center</align>
 				<orientation>horizontal</orientation>
 				<control type="button" id="5">
 					<!-- Manual -->
-					<width>384</width>
-					<height>84</height>
+					<width>334</width>
+					<height>70</height>
 					<font>apptv23</font>
 					<label>$LOCALIZE[186]</label>
 					<align>center</align>
@@ -95,8 +95,8 @@
 				</control>
 				<control type="button" id="7">
 					<!-- Cancel -->
-					<width>384</width>
-					<height>84</height>
+					<width>334</width>
+					<height>70</height>
 					<font>apptv23</font>
 					<label>$LOCALIZE[222]</label>
 					<align>center</align>
@@ -207,30 +207,30 @@
 		<control type="group" id="1000">
 			<control type="list" id="3">
 				<!-- Type 3 Select -->
-				<left>536</left>
-				<top>186</top>
-				<width>850</width>
-				<height>672</height>
+				<left>586</left>
+				<top>176</top>
+				<width>750</width>
+				<height>720</height>
 				<onup>noop</onup>
 				<onleft condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>
 				<onleft condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">23</onleft>
 				<ondown condition="!Control.IsVisible(5)">7</ondown>
 				<ondown condition="Control.IsVisible(5)">5</ondown>
 				<pagecontrol>23</pagecontrol>
-				<itemlayout width="850" height="84">
+				<itemlayout width="750" height="72">
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
-						<width>850</width>
-						<height>84</height>
+						<width>750</width>
+						<height>72</height>
 						<texture border="9">button-default.png</texture>
 					</control>
 					<control type="group">
 						<visible>!String.IsEmpty(ListItem.Label2)</visible>
 						<control type="label">
 							<left>15</left>
-							<top>6</top>
-							<width>820</width>
+							<top>4</top>
+							<width>720</width>
 							<height>36</height>
 							<font>apptv22</font>
 							<selectedcolor>listselected-text</selectedcolor>
@@ -239,8 +239,8 @@
 						</control>
 						<control type="label">
 							<left>15</left>
-							<top>46</top>
-							<width>820</width>
+							<top>42</top>
+							<width>720</width>
 							<height>30</height>
 							<font>apptv18</font>
 							<textcolor>disabled-text</textcolor>
@@ -251,8 +251,8 @@
 					</control>
 					<control type="label">
 						<left>15</left>
-						<top>30</top>
-						<width>820</width>
+						<top>18</top>
+						<width>720</width>
 						<height>36</height>
 						<font>apptv23</font>
 						<selectedcolor>listselected-text</selectedcolor>
@@ -261,12 +261,12 @@
 						<visible>String.IsEmpty(ListItem.Label2)</visible>
 					</control>
 				</itemlayout>
-				<focusedlayout width="850" height="84">
+				<focusedlayout width="750" height="72">
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
-						<width>850</width>
-						<height>84</height>
+						<width>750</width>
+						<height>72</height>
 						<texture border="9">button-default-focus.png</texture>
 						<animation condition="!Control.HasFocus(3)" effect="fade" start="100" end="60">Conditional</animation>
 					</control>
@@ -274,8 +274,8 @@
 						<visible>!String.IsEmpty(ListItem.Label2)</visible>
 						<control type="label">
 							<left>15</left>
-							<top>6</top>
-							<width>820</width>
+							<top>4</top>
+							<width>720</width>
 							<height>36</height>
 							<font>apptv22</font>
 							<selectedcolor>listselected-text</selectedcolor>
@@ -284,8 +284,8 @@
 						</control>
 						<control type="label">
 							<left>15</left>
-							<top>46</top>
-							<width>820</width>
+							<top>42</top>
+							<width>720</width>
 							<height>30</height>
 							<font>apptv18</font>
 							<textcolor>disabled-text</textcolor>
@@ -296,8 +296,8 @@
 					</control>
 					<control type="label">
 						<left>15</left>
-						<top>30</top>
-						<width>820</width>
+						<top>18</top>
+						<width>720</width>
 						<height>36</height>
 						<font>apptv23</font>
 						<selectedcolor>listselected-text</selectedcolor>
