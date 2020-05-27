@@ -49,14 +49,14 @@
 				<onleft>200</onleft>
 			</control>
 			<control type="button" id="983">
-				<!-- Home window Settings Menu -->
+				<!-- Widget Settings Menu -->
 				<left>1410</left>
 				<top>330</top>
 				<width>480</width>
 				<height>84</height>
 				<font>apptv23</font>
 				<label>$LOCALIZE[31808]</label>
-				<onfocus>Skin.SetString(skinsettingmenu,homescreen)</onfocus>
+				<onfocus>Skin.SetString(skinsettingmenu,widget)</onfocus>
 				<onup>982</onup>
 				<ondown>984</ondown>
 				<onleft>300</onleft>
@@ -355,8 +355,8 @@
 				</control>
 			</control>
 			<control type="group" id="300">
-				<!-- Home Screen Settings -->
-				<visible>Skin.String(skinsettingmenu,homescreen)</visible>
+				<!-- Widget Settings -->
+				<visible>Skin.String(skinsettingmenu,widget)</visible>
 				<control type="image">
 					<!-- Background Settings Button Image -->
 					<left>1410</left>
@@ -386,22 +386,36 @@
 					<onright>999</onright>
 					<pagecontrol>1223</pagecontrol>
 					<control type="button" id="307">
-						<!-- Movie Shelf icon type -->
+						<!-- Movie Widget type -->
 						<include>settings-submenu-common</include>
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31026]</label>
 						<label2>$INFO[Skin.String(shelf-movieimages)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31953])</onclick>
 						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31953]))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31954])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31954]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31955])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31955]))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31939] - $LOCALIZE[31026])</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31964])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31964]))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31960])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31960]))</onclick>
+						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31971])</onclick>
+						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31971]))</onclick>
+						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[31972])</onclick>
+						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31972]))</onclick>
+						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[31973])</onclick>
+						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31973]))</onclick>
+						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[31974])</onclick>
+						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31974]))</onclick>
+						<onclick>SetProperty(Dialog.8.Label,$LOCALIZE[31661])</onclick>
+						<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31661]))</onclick>
+						<onclick>SetProperty(Dialog.9.Label,$LOCALIZE[31660])</onclick>
+						<onclick>SetProperty(Dialog.9.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31660]))</onclick>
+						<onclick>SetProperty(Dialog.10.Label,$LOCALIZE[31652])</onclick>
+						<onclick>SetProperty(Dialog.10.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31652]))</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31026])</onclick>
 						<visible>!Skin.HasSetting(homemenu-vertical)</visible>
 					</control>
 					<control type="button" id="308">
-						<!-- TVShow Shelf icon type -->
+						<!-- TVShow Widget type -->
 						<include>settings-submenu-common</include>
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31027]</label>
@@ -412,7 +426,7 @@
 						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(shelf-tvshowimages,$LOCALIZE[31954]))</onclick>
 						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31955])</onclick>
 						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(shelf-tvshowimages,$LOCALIZE[31955]))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31939] - $LOCALIZE[31027])</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31027])</onclick>
 						<visible>!Skin.HasSetting(homemenu-vertical)</visible>
 					</control>
 					<control type="group" id="309">
@@ -420,7 +434,7 @@
 						<height>84</height>
 						<width>1328</width>
 						<control type="togglebutton" id="310">
-							<!-- TVShow Shelf image type -->
+							<!-- TVShow Widget image type -->
 							<onup>308</onup>
 							<ondown>312</ondown>
 							<onright>999</onright>
@@ -432,14 +446,14 @@
 							<altclick>Skin.SetString(shelf-tvshowimgtyp,$LOCALIZE[31949])</altclick>
 							<enable>String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31955]) | String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31954])</enable>
 						</control>
-						<control type="label" id="311">
+						<control type="label">
 							<include>settings-submenu-common</include>
 							<label> - $LOCALIZE[31940]</label>
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
 					<control type="button" id="312">
-						<!-- Music Shelf icon type -->
+						<!-- Music Widget type -->
 						<include>settings-submenu-common</include>
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[2]</label>
@@ -450,11 +464,11 @@
 						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(shelf-musicimages,$LOCALIZE[31954]))</onclick>
 						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31955])</onclick>
 						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(shelf-musicimages,$LOCALIZE[31955]))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31939] - $LOCALIZE[2])</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[2])</onclick>
 						<visible>!Skin.HasSetting(homemenu-vertical)</visible>
 					</control>
 					<control type="button" id="313">
-						<!-- Broadcast Shelf icon type -->
+						<!-- Broadcast Widget type -->
 						<include>settings-submenu-common</include>
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31031]</label>
@@ -467,11 +481,11 @@
 						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(shelf-broadcastimages,$LOCALIZE[31957]))</onclick>
 						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31958])</onclick>
 						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(shelf-broadcastimages,$LOCALIZE[31958]))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31939] - $LOCALIZE[31031])</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31031])</onclick>
 						<visible>Skin.HasSetting(homemenu-horizontal)</visible>
 					</control>
 					<control type="button" id="314">
-						<!-- Addon Shelf icon type -->
+						<!-- Addon Widget type -->
 						<include>settings-submenu-common</include>
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[24001]</label>
@@ -482,11 +496,11 @@
 						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(shelf-addonimages,$LOCALIZE[31954]))</onclick>
 						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31959])</onclick>
 						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(shelf-addonimages,$LOCALIZE[31959]))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31939] - $LOCALIZE[24001])</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[24001])</onclick>
 						<visible>Skin.HasSetting(homemenu-horizontal)</visible>
 					</control>
 					<control type="button" id="315">
-						<!-- Favourites Shelf icon type -->
+						<!-- Favourites Widget type -->
 						<include>settings-submenu-common</include>
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[1036]</label>
@@ -497,7 +511,7 @@
 						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(shelf-customimages,$LOCALIZE[593]$LOCALIZE[1036]))</onclick>
 						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[14211] $LOCALIZE[1036])</onclick>
 						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(shelf-customimages,$LOCALIZE[14211]$LOCALIZE[1036]))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31939] - $LOCALIZE[1036])</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[1036])</onclick>
 						<visible>Skin.HasSetting(homemenu-horizontal)</visible>
 					</control>
 					<control type="button" id="317">
