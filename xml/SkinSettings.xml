@@ -390,27 +390,42 @@
 						<include>settings-submenu-common</include>
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31026]</label>
-						<label2>$INFO[Skin.String(shelf-movieimages)]</label2>
+						<label2>$INFO[Skin.String(widget-movie)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31953])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31953]))</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(widget-movie,$LOCALIZE[31953]))</onclick>
 						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31964])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31964]))</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget-movie,$LOCALIZE[31964]))</onclick>
 						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31960])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31960]))</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget-movie,$LOCALIZE[31960]))</onclick>
 						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31971])</onclick>
-						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31971]))</onclick>
+						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(widget-movie,$LOCALIZE[31971]))</onclick>
 						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[31972])</onclick>
-						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31972]))</onclick>
+						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(widget-movie,$LOCALIZE[31972]))</onclick>
 						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[31973])</onclick>
-						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31973]))</onclick>
+						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(widget-movie,$LOCALIZE[31973]))</onclick>
 						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[31974])</onclick>
-						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31974]))</onclick>
+						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(widget-movie,$LOCALIZE[31974]))</onclick>
 						<onclick>SetProperty(Dialog.8.Label,$LOCALIZE[31661])</onclick>
-						<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31661]))</onclick>
+						<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(widget-movie,$LOCALIZE[31661])
+						||Skin.SetString(widget-movie.Type,$LOCALIZE[31661])
+						||Skin.Reset(widget-movie.List)||Skin.Reset(widget-movie.Path)||Skin.Reset(widget-movie.Icon)
+						||Skin.Reset(widget-movie.Label)||Skin.Reset(widget-movie.Type)||SetProperty(ListCustomBase,widget-movie,settings)
+						||SetProperty(SelectDialogType,selectskinplaylist,home)||Skin.SetString(widget-movie.Label)||ActivateWindow(1154))</onclick>
 						<onclick>SetProperty(Dialog.9.Label,$LOCALIZE[31660])</onclick>
-						<onclick>SetProperty(Dialog.9.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31660]))</onclick>
+						<onclick>SetProperty(Dialog.9.BuiltIn,Skin.SetString(widget-movie,$LOCALIZE[31660])
+						||Skin.SetString(widget-movie.Type,$LOCALIZE[31660])
+						||Skin.Reset(widget-movie.List)||Skin.Reset(widget-movie.Path)||Skin.Reset(widget-movie.Icon)
+						||Skin.Reset(widget-movie.Label)||Skin.Reset(widget-movie.Type)||SetProperty(ListCustomBase,widget-movie,settings)
+						||SetProperty(SelectDialogType,selectuserplaylist,home)||Skin.SetString(widget-movie.Label)||ActivateWindow(1154))</onclick>
 						<onclick>SetProperty(Dialog.10.Label,$LOCALIZE[31652])</onclick>
-						<onclick>SetProperty(Dialog.10.BuiltIn,Skin.SetString(shelf-movieimages,$LOCALIZE[31652]))</onclick>
+						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.10.BuiltIn,Skin.SetString(widget-movie,$LOCALIZE[31652])
+						||Skin.Reset(widget-movie.List)||Skin.Reset(widget-movie.Path)
+						||Skin.Reset(widget-movie.Icon)||Skin.Reset(widget-movie.Label)||Skin.Reset(widget-movie.Type)
+						||RunScript(script.favourites,changetitle=true&amp;property=widget-movie))</onclick>
+						<onclick condition="!System.HasAddon(script.favourites)">SetProperty(Dialog.10.BuiltIn,Skin.SetString(widget-movie,$LOCALIZE[31652])
+						||Skin.Reset(widget-movie.List)||Skin.Reset(widget-movie.Path)
+						||Skin.Reset(widget-movie.Icon)||Skin.Reset(widget-movie.Label)||Skin.Reset(widget-movie.Type)
+						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-movie))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31026])</onclick>
 						<visible>!Skin.HasSetting(homemenu-vertical)</visible>
 					</control>
@@ -419,13 +434,42 @@
 						<include>settings-submenu-common</include>
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31027]</label>
-						<label2>$INFO[Skin.String(shelf-tvshowimages)]</label2>
+						<label2>$INFO[Skin.String(widget-tvshow)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31953])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(shelf-tvshowimages,$LOCALIZE[31953]))</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31953]))</onclick>
 						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31954])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(shelf-tvshowimages,$LOCALIZE[31954]))</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31954]))</onclick>
 						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31955])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(shelf-tvshowimages,$LOCALIZE[31955]))</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31955]))</onclick>
+						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31975])</onclick>
+						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31975]))</onclick>
+						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[31976])</onclick>
+						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31976]))</onclick>
+						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[31977])</onclick>
+						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31977]))</onclick>
+						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[31978])</onclick>
+						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31978]))</onclick>
+						<onclick>SetProperty(Dialog.8.Label,$LOCALIZE[31661])</onclick>
+						<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31661])
+						||Skin.SetString(widget-tvshow.Type,$LOCALIZE[31661])
+						||Skin.Reset(widget-tvshow.List)||Skin.Reset(widget-tvshow.Path)||Skin.Reset(widget-tvshow.Icon)
+						||Skin.Reset(widget-tvshow.Label)||Skin.Reset(widget-tvshow.Type)||SetProperty(ListCustomBase,widget-tvshow,settings)
+						||SetProperty(SelectDialogType,selectskinplaylist,home)||Skin.SetString(widget-tvshow.Label)||ActivateWindow(1154))</onclick>
+						<onclick>SetProperty(Dialog.9.Label,$LOCALIZE[31660])</onclick>
+						<onclick>SetProperty(Dialog.9.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31660])
+						||Skin.SetString(widget-tvshow.Type,$LOCALIZE[31660])
+						||Skin.Reset(widget-tvshow.List)||Skin.Reset(widget-tvshow.Path)||Skin.Reset(widget-tvshow.Icon)
+						||Skin.Reset(widget-tvshow.Label)||Skin.Reset(widget-tvshow.Type)||SetProperty(ListCustomBase,widget-tvshow,settings)
+						||SetProperty(SelectDialogType,selectuserplaylist,home)||Skin.SetString(widget-tvshow.Label)||ActivateWindow(1154))</onclick>
+						<onclick>SetProperty(Dialog.10.Label,$LOCALIZE[31652])</onclick>
+						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.10.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31652])
+						||Skin.Reset(widget-tvshow.List)||Skin.Reset(widget-tvshow.Path)
+						||Skin.Reset(widget-tvshow.Icon)||Skin.Reset(widget-tvshow.Label)||Skin.Reset(widget-tvshow.Type)
+						||RunScript(script.favourites,changetitle=true&amp;property=widget-tvshow))</onclick>
+						<onclick condition="!System.HasAddon(script.favourites)">SetProperty(Dialog.10.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31652])
+						||Skin.Reset(widget-tvshow.List)||Skin.Reset(widget-tvshow.Path)
+						||Skin.Reset(widget-tvshow.Icon)||Skin.Reset(widget-tvshow.Label)||Skin.Reset(widget-tvshow.Type)
+						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-tvshow))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31027])</onclick>
 						<visible>!Skin.HasSetting(homemenu-vertical)</visible>
 					</control>
@@ -440,11 +484,11 @@
 							<onright>999</onright>
 							<include>settings-submenu-common</include>
 							<textwidth>1178</textwidth>
-							<label>$INFO[Skin.String(shelf-tvshowimgtyp)]</label>
+							<label>$INFO[Skin.String(widget-tvshowimgtyp)]</label>
 							<align>right</align>
-							<onclick>Skin.SetString(shelf-tvshowimgtyp,$LOCALIZE[31950])</onclick>
-							<altclick>Skin.SetString(shelf-tvshowimgtyp,$LOCALIZE[31949])</altclick>
-							<enable>String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31955]) | String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31954])</enable>
+							<onclick>Skin.SetString(widget-tvshowimgtyp,$LOCALIZE[31950])</onclick>
+							<altclick>Skin.SetString(widget-tvshowimgtyp,$LOCALIZE[31949])</altclick>
+							<enable>String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31955]) | String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31954])</enable>
 						</control>
 						<control type="label">
 							<include>settings-submenu-common</include>
@@ -457,13 +501,13 @@
 						<include>settings-submenu-common</include>
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[2]</label>
-						<label2>$INFO[Skin.String(shelf-musicimages)]</label2>
+						<label2>$INFO[Skin.String(widget-music)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31953])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(shelf-musicimages,$LOCALIZE[31953]))</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(widget-music,$LOCALIZE[31953]))</onclick>
 						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31954])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(shelf-musicimages,$LOCALIZE[31954]))</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget-music,$LOCALIZE[31954]))</onclick>
 						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31955])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(shelf-musicimages,$LOCALIZE[31955]))</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget-music,$LOCALIZE[31955]))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[2])</onclick>
 						<visible>!Skin.HasSetting(homemenu-vertical)</visible>
 					</control>
@@ -472,15 +516,15 @@
 						<include>settings-submenu-common</include>
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31031]</label>
-						<label2>$INFO[Skin.String(shelf-broadcastimages)]</label2>
+						<label2>$INFO[Skin.String(widget-broadcast)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31953])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(shelf-broadcastimages,$LOCALIZE[31953]))</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(widget-broadcast,$LOCALIZE[31953]))</onclick>
 						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31956])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(shelf-broadcastimages,$LOCALIZE[31956]))</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget-broadcast,$LOCALIZE[31956]))</onclick>
 						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31957])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(shelf-broadcastimages,$LOCALIZE[31957]))</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget-broadcast,$LOCALIZE[31957]))</onclick>
 						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31958])</onclick>
-						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(shelf-broadcastimages,$LOCALIZE[31958]))</onclick>
+						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(widget-broadcast,$LOCALIZE[31958]))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31031])</onclick>
 						<visible>Skin.HasSetting(homemenu-horizontal)</visible>
 					</control>
@@ -489,13 +533,13 @@
 						<include>settings-submenu-common</include>
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[24001]</label>
-						<label2>$INFO[Skin.String(shelf-addonimages)]</label2>
+						<label2>$INFO[Skin.String(widget-addon)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31953])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(shelf-addonimages,$LOCALIZE[31953]))</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(widget-addon,$LOCALIZE[31953]))</onclick>
 						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31954])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(shelf-addonimages,$LOCALIZE[31954]))</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget-addon,$LOCALIZE[31954]))</onclick>
 						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31959])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(shelf-addonimages,$LOCALIZE[31959]))</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget-addon,$LOCALIZE[31959]))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[24001])</onclick>
 						<visible>Skin.HasSetting(homemenu-horizontal)</visible>
 					</control>
@@ -504,13 +548,13 @@
 						<include>settings-submenu-common</include>
 						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[1036]</label>
-						<label2>$INFO[Skin.String(shelf-customimages)]</label2>
+						<label2>$INFO[Skin.String(widget-favourite)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31953])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(shelf-customimages,$LOCALIZE[31953]))</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(widget-favourite,$LOCALIZE[31953]))</onclick>
 						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[593] $LOCALIZE[1036])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(shelf-customimages,$LOCALIZE[593]$LOCALIZE[1036]))</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget-favourite,$LOCALIZE[593]$LOCALIZE[1036]))</onclick>
 						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[14211] $LOCALIZE[1036])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(shelf-customimages,$LOCALIZE[14211]$LOCALIZE[1036]))</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget-favourite,$LOCALIZE[14211]$LOCALIZE[1036]))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[1036])</onclick>
 						<visible>Skin.HasSetting(homemenu-horizontal)</visible>
 					</control>
@@ -519,14 +563,14 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[10041]</label>
 						<textwidth>1178</textwidth>
-						<onclick>Skin.Reset(shelf-movieimages)</onclick>
-						<onclick>Skin.Reset(shelf-tvshowimages)</onclick>
-						<onclick>Skin.Reset(shelf-tvshowimgtyp)</onclick>
-						<onclick>Skin.Reset(shelf-musicimages)</onclick>
-						<onclick>Skin.Reset(shelf-addonimages)</onclick>
-						<onclick>Skin.Reset(shelf-broadcastimages)</onclick>
-						<onclick>Skin.Reset(shelf-addonimages)</onclick>
-						<onclick>Skin.Reset(shelf-customimages)</onclick>
+						<onclick>Skin.Reset(widget-movie)</onclick>
+						<onclick>Skin.Reset(widget-tvshow)</onclick>
+						<onclick>Skin.Reset(widget-tvshowimgtyp)</onclick>
+						<onclick>Skin.Reset(widget-music)</onclick>
+						<onclick>Skin.Reset(widget-addon)</onclick>
+						<onclick>Skin.Reset(widget-broadcast)</onclick>
+						<onclick>Skin.Reset(widget-addon)</onclick>
+						<onclick>Skin.Reset(widget-favourite)</onclick>
 					</control>
 				</control>
 			</control>
@@ -1062,7 +1106,7 @@
 						</control>
 						<control type="label">
 							<include>settings-submenu-common</include>
-							<label>$ADDON[service.upnext 30008]</label>
+							<label>$LOCALIZE[31593]</label>
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
@@ -1086,7 +1130,7 @@
 						</control>
 						<control type="label">
 							<include>settings-submenu-common</include>
-							<label>$ADDON[script.tv.show.next.aired 32101]</label>
+							<label>$LOCALIZE[31597]</label>
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>

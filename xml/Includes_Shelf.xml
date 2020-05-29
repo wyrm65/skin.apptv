@@ -4,16 +4,46 @@
 		<content target="video" limit="12">videodb://recentlyaddedmovies/</content>
 	</include>
 	<include name="MovieRecommended">
-		<content target="video" limit="12">plugin://script.embuary.helper/?info=getsimilar&amp;type=movie&amp;pos=0</content>
+		<content target="video" limit="12">plugin://script.embuary.helper/?info=getsimilar&amp;type=movie</content>
+	</include>
+	<include name="MovieInProgress">
+		<content target="video" limit="12">plugin://script.embuary.helper/?info=getinprogress&amp;type=movie&amp;pos=0</content>
+	</include>
+	<include name="MovieRandom">
+		<content target="video" limit="12">plugin://script.embuary.helper/?info=getbygenre&amp;unwatched=True&amp;type=movie</content>
+	</include>
+	<include name="MovieTags">
+		<content target="video" sortby="random" limit="12">videodb://movies/tags/</content>
+	</include>
+	<include name="MovieSets">
+		<content target="video" sortby="random" limit="12">videodb://movies/sets/</content>
+	</include>
+	<include name="MovieCustom">
+		<content target="video" limit="12">$INFO[Skin.String(widget-movie.List)]</content>
 	</include>
 	<include name="EpisodeRecent">
 		<content target="video" sortby="random" limit="12">videodb://recentlyaddedepisodes/</content>
 	</include>
 	<include name="EpisodeRecommended">
+		<content target="video" limit="12">plugin://script.embuary.helper/?info=getsimilar&amp;type=tvshow&amp;pos=0</content>
+	</include>
+	<include name="EpisodeInProgress">
 		<content target="video" limit="12">plugin://script.embuary.helper/?info=getinprogress&amp;type=tvshow</content>
 	</include>
-	<include name="AiringToday">
+	<include name="EpisodeNextUp">
 		<content target="video" limit="12">plugin://script.embuary.helper/?info=getnextup</content>
+	</include>
+	<include name="TVShowsNew">
+		<content target="video" limit="12">plugin://script.embuary.helper/?info=getnewshows</content>
+	</include>
+	<include name="TVShowsTags">
+		<content target="video" limit="12">videodb://tvshows/tags/</content>
+	</include>
+	<include name="TVShowsSets">
+		<content target="video" limit="12">videodb://tvshows/sets/</content>
+	</include>
+	<include name="TVShowCustom">
+		<content target="video" limit="12">$INFO[Skin.String(widget-tvshow.List)]</content>
 	</include>
 	<include name="AlbumRecent">
 		<content target="music" limit="12">musicdb://recentlyaddedalbums/</content>
@@ -21,11 +51,17 @@
 	<include name="AlbumRecommended">
 		<content target="music" limit="12">special://skin/extras/playlists/music/UnplayedAlbums.xsp</content>
 	</include>
+	<include name="AlbumRandom">
+		<content target="music" limit="12" sortby="random">musicdb://albums/</content>
+	</include>
 	<include name="PVRChannels">
 		<content target="pvr" limit="32">pvr://channels/tv/*</content>
 	</include>
 	<include name="LatestRecordings">
 		<content target="pvr" limit="12">pvr://recordings/tv/active?view=flat</content>
+	</include>
+	<include name="AiringToday">
+		<content target="video" limit="12">plugin://script.embuary.helper/?info=getnextup</content>
 	</include>
 	<include name="AddonRecent">
 		<content target="programs" limit="12">addons://recently_updated/</content>
@@ -46,7 +82,7 @@
 				<top>18</top>
 				<height>33</height>
 				<width>600</width>
-				<label>$VAR[ShelfType]</label>
+				<label>$VAR[MovieShelfLabel]</label>
 				<font>apptv22</font>
 				<visible>Integer.IsGreater(Container(9160).NumItems,0)</visible>
 			</control>
@@ -60,31 +96,17 @@
 				<texturenofocus>blank.png</texturenofocus>
 				<onfocus>SetFocus(9160)</onfocus>
 			</control>
-			<control type="group">
-				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
-				<control type="image">
-					<left>0</left>
-					<top>87</top>
-					<width>195</width>
-					<height>267</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[MovieShelfIcon0]</texture>
-					<camera x="98" y="238" />
-					<animation effect="rotatey" center="0" end="-60" time="600" condition="true">Conditional</animation>
-					<visible>Container(9160).HasPrevious</visible>
-				</control>
-				<control type="image">
-					<left>1785</left>
-					<top>87</top>
-					<width>195</width>
-					<height>267</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[MovieShelfIcon7]</texture>
-					<camera x="1822" y="238" />
-					<animation effect="rotatey" center="1920" end="60" time="600" condition="true">Conditional</animation>
-					<visible>Container(9160).HasNext</visible>
-				</control>
-			</control>
+
+			<!-- Markers for control area items -->
+			<include content="page-offscreen-horizontal">
+				<param name="indicator1left" value="0"/>
+				<param name="indicator1top" value="195"/>
+				<param name="indicator2left" value="1872"/>
+				<param name="indicator2top" value="195"/>
+				<param name="indicatorsize" value="48"/>
+				<param name="indicatorcontainer" value="9160"/>
+			</include>
+
 			<control type="list" id="9160">
 				<left>15</left>
 				<top>69</top>
@@ -147,8 +169,14 @@
 						<visible>Control.HasFocus(9160) | Control.HasFocus(9165)</visible>
 					</control>
 				</focusedlayout>
-				<include condition="String.IsEqual(Skin.String(shelf-movieimages),$LOCALIZE[31954])">MovieRecent</include>
-				<include condition="String.IsEqual(Skin.String(shelf-movieimages),$LOCALIZE[31955])">MovieRecommended</include>
+				<include condition="String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31964])">MovieRecent</include>
+				<include condition="String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31960])">MovieRecommended</include>
+				<include condition="String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31971])">MovieInProgress</include>
+				<include condition="String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31972])">MovieRandom</include>
+				<include condition="String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31973])">MovieTags</include>
+				<include condition="String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31974])">MovieSets</include>
+				<include condition="String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31661])|String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31660])
+				|String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31652])">MovieCustom</include>
 			</control>
 		</control>
 	</include>
@@ -212,7 +240,7 @@
 				<top>18</top>
 				<height>33</height>
 				<width>600</width>
-				<label>$VAR[ShelfType]</label>
+				<label>$VAR[TVShowShelfLabel]</label>
 				<font>apptv22</font>
 				<visible>Integer.IsGreater(Container(9210).NumItems,0)</visible>
 			</control>
@@ -226,76 +254,17 @@
 				<texturenofocus>blank.png</texturenofocus>
 				<onfocus>SetFocus(9210)</onfocus>
 			</control>
-			<control type="group">
-				<visible>String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31949])</visible>
-				<!-- Banners -->
-				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
-				<camera x="960" y="270" />
-				<control type="image">
-					<left>0</left>
-					<top>108</top>
-					<width>348</width>
-					<height>195</height>
-					<aligny>bottom</aligny>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfThumb0]</texture>
-					<animation effect="rotatey" center="0" end="-60" time="300" condition="true">Conditional</animation>
-				</control>
-				<control type="image">
-					<left>0</left>
-					<top>303</top>
-					<width>348</width>
-					<height>63</height>
-					<aligny>bottom</aligny>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfBanner0]</texture>
-					<animation effect="rotatey" center="0" end="-60" time="300" condition="true">Conditional</animation>
-				</control>
-				<control type="image">
-					<left>1572</left>
-					<top>108</top>
-					<width>348</width>
-					<height>195</height>
-					<aligny>bottom</aligny>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfThumb6]</texture>
-					<animation effect="rotatey" center="1920" end="60" time="300" condition="true">Conditional</animation>
-				</control>
-				<control type="image">
-					<left>1572</left>
-					<top>303</top>
-					<width>348</width>
-					<height>63</height>
-					<aligny>bottom</aligny>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfBanner6]</texture>
-					<animation effect="rotatey" center="1920" end="60" time="300" condition="true">Conditional</animation>
-				</control>
-			</control>
-			<control type="group">
-				<visible>[String.IsEmpty(Skin.String(shelf-tvshowimgtyp)) | String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31950])]</visible>
-				<!-- Posters -->
-				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
-				<camera x="960" y="238" />
-				<control type="image">
-					<left>-45</left>
-					<top>81</top>
-					<width>267</width>
-					<height>267</height>
-					<aspectratio scalediffuse="false">keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfPoster0]</texture>
-					<animation effect="rotatey" center="0" end="-60" time="300" condition="true">Conditional</animation>
-				</control>
-				<control type="image">
-					<left>1701</left>
-					<top>81</top>
-					<width>267</width>
-					<height>267</height>
-					<aspectratio scalediffuse="false">keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[TVShowShelfPoster6]</texture>
-					<animation effect="rotatey" center="1920" end="60" time="300" condition="true">Conditional</animation>
-				</control>
-			</control>
+
+			<!-- Markers for control area items -->
+			<include content="page-offscreen-horizontal">
+				<param name="indicator1left" value="0"/>
+				<param name="indicator1top" value="195"/>
+				<param name="indicator2left" value="1872"/>
+				<param name="indicator2top" value="195"/>
+				<param name="indicatorsize" value="48"/>
+				<param name="indicatorcontainer" value="9210"/>
+			</include>
+
 			<control type="list" id="9210">
 				<left>15</left>
 				<top>69</top>
@@ -308,12 +277,12 @@
 				<viewtype label="31028">list</viewtype>
 				<orientation>horizontal</orientation>
 				<itemlayout height="405" width="378">
-					<include condition="[String.IsEmpty(Skin.String(shelf-tvshowimgtyp)) | String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31950])]">tvshow-shelfposter</include>
-					<include condition="String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31949])">tvshow-shelfbanner</include>
+					<include condition="[String.IsEmpty(Skin.String(widget-tvshowimgtyp)) | String.IsEqual(Skin.String(widget-tvshowimgtyp),$LOCALIZE[31950])]">tvshow-shelfposter</include>
+					<include condition="String.IsEqual(Skin.String(widget-tvshowimgtyp),$LOCALIZE[31949])">tvshow-shelfbanner</include>
 				</itemlayout>
 				<focusedlayout height="405" width="378">
-					<include condition="[String.IsEmpty(Skin.String(shelf-tvshowimgtyp)) | String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31950])]">tvshow-shelfposter</include>
-					<include condition="String.IsEqual(Skin.String(shelf-tvshowimgtyp),$LOCALIZE[31949])">tvshow-shelfbanner</include>
+					<include condition="[String.IsEmpty(Skin.String(widget-tvshowimgtyp)) | String.IsEqual(Skin.String(widget-tvshowimgtyp),$LOCALIZE[31950])]">tvshow-shelfposter</include>
+					<include condition="String.IsEqual(Skin.String(widget-tvshowimgtyp),$LOCALIZE[31949])">tvshow-shelfbanner</include>
 					<control type="group">
 						<animation effect="fade" time="100" delay="100">Focus</animation>
 						<visible>Control.HasFocus(9210) | Control.HasFocus(9215)</visible>
@@ -366,8 +335,14 @@
 						</control>
 					</control>
 				</focusedlayout>
-				<include condition="String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31954])">EpisodeRecent</include>
-				<include condition="String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31955])">EpisodeRecommended</include>
+				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31954])">EpisodeRecent</include>
+				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31955])">EpisodeRecommended</include>
+				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31975])">EpisodeInProgress</include>
+				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31976])">EpisodeNextUp</include>
+				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31977])">TVShowsNew</include>
+				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31978])">TVShowsTags</include>
+				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31661])|String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31660])
+				|String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31652])">TVShowCustom</include>
 			</control>
 		</control>
 	</include>
@@ -394,31 +369,17 @@
 				<texturenofocus>blank.png</texturenofocus>
 				<onfocus>SetFocus(9560)</onfocus>
 			</control>
-			<control type="group">
-				<visible>![[Skin.HasSetting(media-overlay) + [Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
-				<control type="image">
-					<left>0</left>
-					<top>104</top>
-					<width>246</width>
-					<height>246</height>
-					<aspectratio scalediffuse="false">keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" fallback="icon-fav.png" diffuse="mask-squ.png" background="true">$VAR[CustomShelfIcon0]</texture>
-					<camera x="98" y="238" />
-					<animation effect="rotatey" center="0" end="-60" time="300" condition="true">Conditional</animation>
-					<visible>Container(9560).HasPrevious</visible>
-				</control>
-				<control type="image">
-					<left>1704</left>
-					<top>104</top>
-					<width>246</width>
-					<height>246</height>
-					<aspectratio scalediffuse="false">keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" fallback="icon-fav.png" diffuse="mask-squ.png" background="true">$VAR[CustomShelfIcon6]</texture>
-					<camera x="1818" y="238" />
-					<animation effect="rotatey" center="1914" end="60" time="300" condition="true">Conditional</animation>
-					<visible>Container(9560).HasNext</visible>
-				</control>
-			</control>
+
+			<!-- Markers for control area items -->
+			<include content="page-offscreen-horizontal">
+				<param name="indicator1left" value="0"/>
+				<param name="indicator1top" value="195"/>
+				<param name="indicator2left" value="1872"/>
+				<param name="indicator2top" value="195"/>
+				<param name="indicatorsize" value="48"/>
+				<param name="indicatorcontainer" value="9560"/>
+			</include>
+
 			<control type="list" id="9560">
 				<left>15</left>
 				<top>66</top>
@@ -485,7 +446,7 @@
 						<visible>Control.HasFocus(9560) | Control.HasFocus(9565)</visible>
 					</control>
 				</focusedlayout>
-				<include condition="String.IsEqual(Skin.String(shelf-customimages),$LOCALIZE[593]$LOCALIZE[1036])">AllFavourites</include>
+				<include condition="String.IsEqual(Skin.String(widget-favourite),$LOCALIZE[593]$LOCALIZE[1036])">AllFavourites</include>
 			</control>
 		</control>
 	</include>
@@ -512,31 +473,17 @@
 				<texturenofocus>blank.png</texturenofocus>
 				<onfocus>SetFocus(9260)</onfocus>
 			</control>
-			<control type="group">
-				<visible>![[Skin.HasSetting(media-overlay) + [Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
-				<control type="image">
-					<left>0</left>
-					<top>104</top>
-					<width>246</width>
-					<height>246</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" fallback="DefaultAudio.png" diffuse="mask-squ.png" background="true">$VAR[MusicShelfIcon0]</texture>
-					<camera x="98" y="238" />
-					<animation effect="rotatey" center="0" end="-60" time="300" condition="true">Conditional</animation>
-					<visible>Container(9260).HasPrevious</visible>
-				</control>
-				<control type="image">
-					<left>1704</left>
-					<top>104</top>
-					<width>246</width>
-					<height>246</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" fallback="DefaultAudio.png" diffuse="mask-squ.png" background="true">$VAR[MusicShelfIcon6]</texture>
-					<camera x="1818" y="238" />
-					<animation effect="rotatey" center="1914" end="60" time="300" condition="true">Conditional</animation>
-					<visible>Container(9260).HasNext</visible>
-				</control>
-			</control>
+
+			<!-- Markers for control area items -->
+			<include content="page-offscreen-horizontal">
+				<param name="indicator1left" value="0"/>
+				<param name="indicator1top" value="195"/>
+				<param name="indicator2left" value="1872"/>
+				<param name="indicator2top" value="195"/>
+				<param name="indicatorsize" value="48"/>
+				<param name="indicatorcontainer" value="9260"/>
+			</include>
+
 			<control type="list" id="9260">
 				<left>15</left>
 				<top>66</top>
@@ -603,8 +550,8 @@
 						<visible>Control.HasFocus(9260) | Control.HasFocus(9265)</visible>
 					</control>
 				</focusedlayout>
-				<include condition="String.IsEqual(Skin.String(shelf-musicimages),$LOCALIZE[31954])">AlbumRecent</include>
-				<include condition="String.IsEqual(Skin.String(shelf-musicimages),$LOCALIZE[31955])">AlbumRecommended</include>
+				<include condition="String.IsEqual(Skin.String(widget-music),$LOCALIZE[31954])">AlbumRecent</include>
+				<include condition="String.IsEqual(Skin.String(widget-music),$LOCALIZE[31955])">AlbumRecommended</include>
 			</control>
 		</control>
 	</include>
@@ -631,31 +578,17 @@
 				<texturenofocus>blank.png</texturenofocus>
 				<onfocus>SetFocus(9360)</onfocus>
 			</control>
-			<control type="group">
-				<visible>![[Skin.HasSetting(media-overlay) + [Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
-				<control type="image">
-					<left>0</left>
-					<top>104</top>
-					<width>246</width>
-					<height>246</height>
-					<aspectratio scalediffuse="false">keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" fallback="DefaultAddon.png" diffuse="mask-squ.png" background="true">$VAR[AddonShelfIcon0]</texture>
-					<camera x="98" y="238" />
-					<animation effect="rotatey" center="0" end="-60" time="300" condition="true">Conditional</animation>
-					<visible>Container(9360).HasPrevious</visible>
-				</control>
-				<control type="image">
-					<left>1704</left>
-					<top>104</top>
-					<width>246</width>
-					<height>246</height>
-					<aspectratio scalediffuse="false">keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" fallback="DefaultAddon.png" diffuse="mask-squ.png" background="true">$VAR[AddonShelfIcon6]</texture>
-					<camera x="1818" y="238" />
-					<animation effect="rotatey" center="1914" end="60" time="300" condition="true">Conditional</animation>
-					<visible>Container(9360).HasNext</visible>
-				</control>
-			</control>
+
+			<!-- Markers for control area items -->
+			<include content="page-offscreen-horizontal">
+				<param name="indicator1left" value="0"/>
+				<param name="indicator1top" value="195"/>
+				<param name="indicator2left" value="1872"/>
+				<param name="indicator2top" value="195"/>
+				<param name="indicatorsize" value="48"/>
+				<param name="indicatorcontainer" value="9360"/>
+			</include>
+
 			<control type="list" id="9360">
 				<left>15</left>
 				<top>66</top>
@@ -722,8 +655,8 @@
 						<visible>Control.HasFocus(9360)  | Control.HasFocus(9365)</visible>
 					</control>
 				</focusedlayout>
-				<include condition="String.IsEqual(Skin.String(shelf-addonimages),$LOCALIZE[31954])">AddonRecent</include>
-				<include condition="String.IsEqual(Skin.String(shelf-addonimages),$LOCALIZE[31959])">AddonUpdated</include>
+				<include condition="String.IsEqual(Skin.String(widget-addon),$LOCALIZE[31954])">AddonRecent</include>
+				<include condition="String.IsEqual(Skin.String(widget-addon),$LOCALIZE[31959])">AddonUpdated</include>
 			</control>
 		</control>
 	</include>
@@ -750,30 +683,17 @@
 				<texturenofocus>blank.png</texturenofocus>
 				<onfocus>SetFocus(9510)</onfocus>
 			</control>
-			<control type="group">
-				<visible>![[Skin.HasSetting(media-overlay) + [Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
-				<camera x="960" y="238" />
-				<control type="image">
-					<left>-45</left>
-					<top>81</top>
-					<width>267</width>
-					<height>267</height>
-					<aspectratio scalediffuse="false">keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" fallback="icon-broadcast.png" background="true">$VAR[BroadcastShelfIcon0]</texture>
-					<animation effect="rotatey" center="0" end="-60" time="300" condition="true">Conditional</animation>
-					<visible>Container(9510).HasPrevious</visible>
-				</control>
-				<control type="image">
-					<left>1701</left>
-					<top>81</top>
-					<width>267</width>
-					<height>267</height>
-					<aspectratio scalediffuse="false">keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" fallback="icon-broadcast.png" background="true">$VAR[BroadcastShelfIcon6]</texture>
-					<animation effect="rotatey" center="1920" end="60" time="300" condition="true">Conditional</animation>
-					<visible>Container(9510).HasNext</visible>
-				</control>
-			</control>
+
+			<!-- Markers for control area items -->
+			<include content="page-offscreen-horizontal">
+				<param name="indicator1left" value="0"/>
+				<param name="indicator1top" value="195"/>
+				<param name="indicator2left" value="1872"/>
+				<param name="indicator2top" value="195"/>
+				<param name="indicatorsize" value="48"/>
+				<param name="indicatorcontainer" value="9510"/>
+			</include>
+
 			<control type="list" id="9510">
 				<left>15</left>
 				<top>69</top>
@@ -853,9 +773,9 @@
 						</control>
 					</control>
 				</focusedlayout>
-				<include condition="String.IsEqual(Skin.String(shelf-broadcastimages),$LOCALIZE[31956])">AiringToday</include>
-				<include condition="String.IsEqual(Skin.String(shelf-broadcastimages),$LOCALIZE[31957])">PVRChannels</include>
-				<include condition="String.IsEqual(Skin.String(shelf-broadcastimages),$LOCALIZE[31958])">LatestRecordings</include>
+				<include condition="String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31956])">AiringToday</include>
+				<include condition="String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31957])">PVRChannels</include>
+				<include condition="String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31958])">LatestRecordings</include>
 			</control>
 		</control>
 	</include>
