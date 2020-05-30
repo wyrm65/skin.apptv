@@ -1937,7 +1937,7 @@
 	<include name="listitem-count">
 		<param name="left" default="0"/>
 		<param name="top" default="0"/>
-		<param name="itemcount"/>
+		<param name="count"/>
 		<param name="size" default="100"/>
 		<definition>
 			<control type="group">
@@ -1952,7 +1952,7 @@
 					<width>40</width>
 					<height>40</height>
 					<texture>overlaynumberitems.png</texture>
-					<visible>!Integer.IsGreater($PARAM[itemcount],9)</visible>
+					<visible>!Integer.IsGreater($PARAM[count],9)</visible>
 				</control>
 				<control type="image">
 					<description> Count (10 - 99) </description>
@@ -1961,7 +1961,7 @@
 					<width>64</width>
 					<height>40</height>
 					<texture border="17,0,17,0">overlaynumberitems.png</texture>
-					<visible>Integer.IsGreater($PARAM[itemcount],9) + !Integer.IsGreater($PARAM[itemcount],99)</visible>
+					<visible>Integer.IsGreater($PARAM[count],9) + !Integer.IsGreater($PARAM[count],99)</visible>
 				</control>
 				<control type="image">
 					<description> Count (100 - 999) </description>
@@ -1970,7 +1970,7 @@
 					<width>84</width>
 					<height>40</height>
 					<texture border="17,0,17,0">overlaynumberitems.png</texture>
-					<visible>Integer.IsGreater($PARAM[itemcount],99) + !Integer.IsGreater($PARAM[itemcount],999)</visible>
+					<visible>Integer.IsGreater($PARAM[count],99) + !Integer.IsGreater($PARAM[count],999)</visible>
 				</control>
 				<control type="label">
 					<left>14</left>
@@ -1978,7 +1978,7 @@
 					<width>54</width>
 					<height>30</height>
 					<font>apptv20</font>
-					<label>$INFO[$PARAM[itemcount]]</label>
+					<label>$INFO[$PARAM[count]]</label>
 					<textcolor>white</textcolor>
 					<shadowcolor/>
 					<align>center</align>
