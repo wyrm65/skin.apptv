@@ -23,13 +23,13 @@
 						<!-- Movie icons -->
 						<visible>String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31026])</visible>
 						<control type="group">
-							<visible>String.IsEqual(Skin.String(shelf-movieimages),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9160).NumItems,0)</visible>
+							<visible>String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9160).NumItems,0)</visible>
 							<include content="shelf-defaulticon">
 								<param name="defaulticon" value="DefaultVideo.png"/>
 							</include>
 						</control>
 						<control type="group">
-							<visible>!String.IsEqual(Skin.String(shelf-movieimages),$LOCALIZE[31953])</visible>
+							<visible>!String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31953])</visible>
 							<include file="Includes_Shelf.xml">movie-shelficons</include>
 						</control>
 					</control>
@@ -37,13 +37,13 @@
 						<!-- TV Shows icons -->
 						<visible>String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[20343])</visible>
 						<control type="group">
-							<visible>String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9210).NumItems,0)</visible>
+							<visible>String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9210).NumItems,0)</visible>
 							<include content="shelf-defaulticon">
 								<param name="defaulticon" value="DefaultTvshows.png"/>
 							</include>
 						</control>
 						<control type="group">
-							<visible>![String.IsEqual(Skin.String(shelf-tvshowimages),$LOCALIZE[31953])]</visible>
+							<visible>![String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31953])]</visible>
 							<include file="Includes_Shelf.xml">tvshow-shelficons</include>
 						</control>
 					</control>
@@ -51,13 +51,13 @@
 						<!-- Music icons -->
 						<visible>String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[2])</visible>
 						<control type="group">
-							<visible>String.IsEqual(Skin.String(shelf-musicimages),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9260).NumItems,0)</visible>
+							<visible>String.IsEqual(Skin.String(widget-music),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9260).NumItems,0)</visible>
 							<include content="shelf-defaulticon">
 								<param name="defaulticon" value="DefaultAudio.png"/>
 							</include>
 						</control>
 						<control type="group">
-							<visible>!String.IsEqual(Skin.String(shelf-musicimages),$LOCALIZE[31953])</visible>
+							<visible>!String.IsEqual(Skin.String(widget-music),$LOCALIZE[31953])</visible>
 							<include file="Includes_Shelf.xml">music-shelficons</include>
 						</control>
 					</control>
@@ -233,7 +233,6 @@
 					<thumb>$VAR[HomeWeatherIcon]</thumb>
 					<label>$LOCALIZE[8]</label>
 					<label2>$LOCALIZE[8]</label2>
-					<property name="currenttemp">$INFO[Window(Weather).Property(Current.Temperature)]</property>
 					<onclick>ActivateWindow(weather)</onclick>
 				</item>
 				<item>
