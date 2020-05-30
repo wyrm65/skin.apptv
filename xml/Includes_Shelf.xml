@@ -39,9 +39,6 @@
 	<include name="TVShowsTags">
 		<content target="video" limit="12">videodb://tvshows/tags/</content>
 	</include>
-	<include name="TVShowsSets">
-		<content target="video" limit="12">videodb://tvshows/sets/</content>
-	</include>
 	<include name="TVShowCustom">
 		<content target="video" limit="12">$INFO[Skin.String(widget-tvshow.List)]</content>
 	</include>
@@ -54,6 +51,9 @@
 	<include name="AlbumRandom">
 		<content target="music" limit="12" sortby="random">musicdb://albums/</content>
 	</include>
+	<include name="MusicCustom">
+		<content target="music" limit="12">$INFO[Skin.String(widget-music.List)]</content>
+	</include>
 	<include name="PVRChannels">
 		<content target="pvr" limit="32">pvr://channels/tv/*</content>
 	</include>
@@ -62,6 +62,9 @@
 	</include>
 	<include name="AiringToday">
 		<content target="video" limit="12">plugin://script.embuary.helper/?info=getnextup</content>
+	</include>
+	<include name="BroadcastCustom">
+		<content target="video" limit="12">$INFO[Skin.String(widget-broadcast.List)]</content>
 	</include>
 	<include name="AddonRecent">
 		<content target="programs" limit="12">addons://recently_updated/</content>
@@ -96,7 +99,6 @@
 				<texturenofocus>blank.png</texturenofocus>
 				<onfocus>SetFocus(9160)</onfocus>
 			</control>
-
 			<!-- Markers for control area items -->
 			<include content="page-offscreen-horizontal">
 				<param name="indicator1left" value="0"/>
@@ -106,7 +108,6 @@
 				<param name="indicatorsize" value="48"/>
 				<param name="indicatorcontainer" value="9160"/>
 			</include>
-
 			<control type="list" id="9160">
 				<left>15</left>
 				<top>69</top>
@@ -254,7 +255,6 @@
 				<texturenofocus>blank.png</texturenofocus>
 				<onfocus>SetFocus(9210)</onfocus>
 			</control>
-
 			<!-- Markers for control area items -->
 			<include content="page-offscreen-horizontal">
 				<param name="indicator1left" value="0"/>
@@ -264,7 +264,6 @@
 				<param name="indicatorsize" value="48"/>
 				<param name="indicatorcontainer" value="9210"/>
 			</include>
-
 			<control type="list" id="9210">
 				<left>15</left>
 				<top>69</top>
@@ -350,7 +349,7 @@
 		<animation effect="slide" end="366,0" condition="![Control.HasFocus(9560) + Container(9560).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
 			<control type="label">
-				<!-- Addon shelf icon label-->
+				<!-- Custom/Favourites shelf icon label-->
 				<left>45</left>
 				<top>15</top>
 				<height>30</height>
@@ -369,7 +368,6 @@
 				<texturenofocus>blank.png</texturenofocus>
 				<onfocus>SetFocus(9560)</onfocus>
 			</control>
-
 			<!-- Markers for control area items -->
 			<include content="page-offscreen-horizontal">
 				<param name="indicator1left" value="0"/>
@@ -379,7 +377,6 @@
 				<param name="indicatorsize" value="48"/>
 				<param name="indicatorcontainer" value="9560"/>
 			</include>
-
 			<control type="list" id="9560">
 				<left>15</left>
 				<top>66</top>
@@ -473,7 +470,6 @@
 				<texturenofocus>blank.png</texturenofocus>
 				<onfocus>SetFocus(9260)</onfocus>
 			</control>
-
 			<!-- Markers for control area items -->
 			<include content="page-offscreen-horizontal">
 				<param name="indicator1left" value="0"/>
@@ -483,7 +479,6 @@
 				<param name="indicatorsize" value="48"/>
 				<param name="indicatorcontainer" value="9260"/>
 			</include>
-
 			<control type="list" id="9260">
 				<left>15</left>
 				<top>66</top>
@@ -552,6 +547,8 @@
 				</focusedlayout>
 				<include condition="String.IsEqual(Skin.String(widget-music),$LOCALIZE[31954])">AlbumRecent</include>
 				<include condition="String.IsEqual(Skin.String(widget-music),$LOCALIZE[31955])">AlbumRecommended</include>
+				<include condition="String.IsEqual(Skin.String(widget-music),$LOCALIZE[31661])|String.IsEqual(Skin.String(widget-music),$LOCALIZE[31660])
+				|String.IsEqual(Skin.String(widget-music),$LOCALIZE[31652])">MusicCustom</include>
 			</control>
 		</control>
 	</include>
@@ -578,7 +575,6 @@
 				<texturenofocus>blank.png</texturenofocus>
 				<onfocus>SetFocus(9360)</onfocus>
 			</control>
-
 			<!-- Markers for control area items -->
 			<include content="page-offscreen-horizontal">
 				<param name="indicator1left" value="0"/>
@@ -588,7 +584,6 @@
 				<param name="indicatorsize" value="48"/>
 				<param name="indicatorcontainer" value="9360"/>
 			</include>
-
 			<control type="list" id="9360">
 				<left>15</left>
 				<top>66</top>
@@ -776,6 +771,8 @@
 				<include condition="String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31956])">AiringToday</include>
 				<include condition="String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31957])">PVRChannels</include>
 				<include condition="String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31958])">LatestRecordings</include>
+				<include condition="String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31661])|String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31660])
+				|String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31652])">BroadcastCustom</include>
 			</control>
 		</control>
 	</include>
@@ -783,56 +780,6 @@
 		<animation effect="slide" end="315,0" condition="Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
 			<visible>!String.IsEmpty(Window(weather).Property(Current.Temperature))</visible>
-			<control type="image">
-				<!-- background masks -->
-				<left>30</left>
-				<top>128</top>
-				<width>350</width>
-				<height>330</height>
-				<aligny>top</aligny>
-				<texture colordiffuse="LowBgnVisibity">mask-rectbkgrnd.png</texture>
-				<aspectratio scalediffuse="true">stretch</aspectratio>
-			</control>
-			<control type="image">
-				<!-- background masks -->
-				<left>405</left>
-				<top>128</top>
-				<width>350</width>
-				<height>330</height>
-				<aligny>top</aligny>
-				<texture colordiffuse="LowBgnVisibity">mask-rectbkgrnd.png</texture>
-				<aspectratio scalediffuse="true">stretch</aspectratio>
-			</control>
-			<control type="image">
-				<!-- background masks -->
-				<left>780</left>
-				<top>128</top>
-				<width>350</width>
-				<height>330</height>
-				<aligny>top</aligny>
-				<texture colordiffuse="LowBgnVisibity">mask-rectbkgrnd.png</texture>
-				<aspectratio scalediffuse="true">stretch</aspectratio>
-			</control>
-			<control type="image">
-				<!-- background masks -->
-				<left>1155</left>
-				<top>128</top>
-				<width>350</width>
-				<height>330</height>
-				<aligny>top</aligny>
-				<texture colordiffuse="LowBgnVisibity">mask-rectbkgrnd.png</texture>
-				<aspectratio scalediffuse="true">stretch</aspectratio>
-			</control>
-			<control type="image">
-				<!-- background masks -->
-				<left>1530</left>
-				<top>128</top>
-				<width>350</width>
-				<height>330</height>
-				<aligny>top</aligny>
-				<texture colordiffuse="LowBgnVisibity">mask-rectbkgrnd.png</texture>
-				<aspectratio scalediffuse="true">stretch</aspectratio>
-			</control>
 			<control type="group">
 				<left>30</left>
 				<top>0</top>
@@ -878,244 +825,164 @@
 						<texture>$INFO[Window(weather).Property(WeatherProviderLogo)]</texture>
 					</control>
 				</control>
-				<control type="label">
-					<!-- Currently -->
-					<left>0</left>
-					<top>132</top>
-					<height>48</height>
-					<width>350</width>
-					<label>$LOCALIZE[31528] $INFO[Window(weather).Property(Current.Temperature)]</label>
-					<font>apptv22</font>
-					<align>center</align>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				</control>
-				<control type="multiimage">
-					<!-- Todays weather condition icon -->
-					<left>104</left>
-					<top>180</top>
-					<width>144</width>
-					<height>144</height>
-					<imagepath>$VAR[WeatherIconCurrent]</imagepath>
-					<aspectratio>keep</aspectratio>
-					<timeperimage>100</timeperimage>
-					<randomize>false</randomize>
-					<fadetime>1</fadetime>
-				</control>
-				<control type="label">
-					<!-- Todays temperature range -->
-					<left>0</left>
-					<top>318</top>
-					<height>57</height>
-					<width>350</width>
-					<shadowcolor>80000000</shadowcolor>
-					<label>[COLOR red]$INFO[Window(weather).Property(Day0.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(weather).Property(Day0.LowTemp)][/COLOR]</label>
-					<align>center</align>
-					<font>apptv25</font>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<top>369</top>
-					<height>63</height>
-					<width>350</width>
-					<label>$INFO[Weather.Conditions]</label>
-					<align>center</align>
-					<wrapmultiline>true</wrapmultiline>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<font>apptv20</font>
-				</control>
 			</control>
-			<control type="group">
-				<left>405</left>
-				<top>93</top>
-				<control type="label">
-					<left>0</left>
-					<top>45</top>
-					<height>39</height>
-					<width>350</width>
-					<label>$INFO[Window(weather).Property(Day1.Title)]</label>
-					<font>apptv22</font>
-					<align>center</align>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				</control>
-				<control type="multiimage">
-					<!-- Day 1 weather condition icon -->
-					<left>115</left>
-					<top>102</top>
-					<width>120</width>
-					<height>120</height>
-					<imagepath>$VAR[WeatherIconDay1]</imagepath>
-					<aspectratio>keep</aspectratio>
-					<timeperimage>100</timeperimage>
-					<randomize>false</randomize>
-					<fadetime>1</fadetime>
-				</control>
-				<control type="label">
-					<!-- Day 1 temperature range -->
-					<left>0</left>
-					<top>225</top>
-					<height>57</height>
-					<width>350</width>
-					<shadowcolor>80000000</shadowcolor>
-					<label>[COLOR red]$INFO[Window(weather).Property(Day1.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(weather).Property(Day1.LowTemp)][/COLOR]</label>
-					<align>center</align>
-					<font>apptv25</font>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<top>276</top>
-					<height>63</height>
-					<width>350</width>
-					<label>$INFO[Window(weather).Property(Day1.Outlook)]</label>
-					<align>center</align>
-					<wrapmultiline>true</wrapmultiline>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<font>apptv20</font>
-				</control>
+			<control type="button" id="9415">
+				<!-- Dummy button for mouse control -->
+				<left>0</left>
+				<top>0</top>
+				<width>1920</width>
+				<height>468</height>
+				<texturefocus>blank.png</texturefocus>
+				<texturenofocus>blank.png</texturenofocus>
+				<onfocus>SetFocus(9410)</onfocus>
 			</control>
-			<control type="group">
-				<left>780</left>
-				<top>93</top>
-				<control type="label">
-					<left>0</left>
-					<top>45</top>
-					<height>39</height>
-					<width>350</width>
-					<label>$INFO[Window(weather).Property(Day2.Title)]</label>
-					<font>apptv22</font>
-					<align>center</align>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				</control>
-				<control type="multiimage">
-					<!-- Day 2 weather condition icon -->
-					<left>115</left>
-					<top>102</top>
-					<width>120</width>
-					<height>120</height>
-					<imagepath>$VAR[WeatherIconDay2]</imagepath>
-					<aspectratio>keep</aspectratio>
-					<timeperimage>100</timeperimage>
-					<randomize>false</randomize>
-					<fadetime>1</fadetime>
-				</control>
-				<control type="label">
-					<!-- Day 2 temperature range -->
-					<left>0</left>
-					<top>225</top>
-					<height>57</height>
-					<width>350</width>
-					<shadowcolor>80000000</shadowcolor>
-					<label>[COLOR red]$INFO[Window(weather).Property(Day2.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(weather).Property(Day2.LowTemp)][/COLOR]</label>
-					<align>center</align>
-					<font>apptv25</font>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<top>276</top>
-					<height>63</height>
-					<width>350</width>
-					<label>$INFO[Window(weather).Property(Day2.Outlook)]</label>
-					<align>center</align>
-					<wrapmultiline>true</wrapmultiline>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<font>apptv20</font>
-				</control>
-			</control>
-			<control type="group">
-				<left>1155</left>
-				<top>93</top>
-				<control type="label">
-					<left>0</left>
-					<top>45</top>
-					<height>39</height>
-					<width>350</width>
-					<label>$INFO[Window(weather).Property(Day3.Title)]</label>
-					<font>apptv22</font>
-					<align>center</align>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				</control>
-				<control type="multiimage">
-					<!-- Day 3 weather condition icon -->
-					<left>115</left>
-					<top>102</top>
-					<width>120</width>
-					<height>120</height>
-					<imagepath>$VAR[WeatherIconDay3]</imagepath>
-					<aspectratio>keep</aspectratio>
-					<timeperimage>100</timeperimage>
-					<randomize>false</randomize>
-					<fadetime>1</fadetime>
-				</control>
-				<control type="label">
-					<!-- Day3 temperature range -->
-					<left>0</left>
-					<top>225</top>
-					<height>57</height>
-					<width>350</width>
-					<shadowcolor>80000000</shadowcolor>
-					<label>[COLOR red]$INFO[Window(weather).Property(Day3.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(weather).Property(Day3.LowTemp)][/COLOR]</label>
-					<align>center</align>
-					<font>apptv25</font>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<top>276</top>
-					<height>63</height>
-					<width>350</width>
-					<label>$INFO[Window(weather).Property(Day3.Outlook)]</label>
-					<align>center</align>
-					<wrapmultiline>true</wrapmultiline>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<font>apptv20</font>
-				</control>
-			</control>
-			<control type="group">
-				<visible>![Skin.HasSetting(media-overlay) + [[Player.HasVideo + !VideoPlayer.Content(livetv)] | Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
-				<left>1530</left>
-				<top>93</top>
-				<control type="label">
-					<left>0</left>
-					<top>45</top>
-					<height>39</height>
-					<width>350</width>
-					<label>$INFO[Window(Weather).Property(Day4.Title)]</label>
-					<font>apptv22</font>
-					<align>center</align>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				</control>
-				<control type="multiimage">
-					<!-- Day 4 weather condition icon -->
-					<left>115</left>
-					<top>102</top>
-					<width>120</width>
-					<height>120</height>
-					<imagepath>$VAR[WeatherIconDay4]</imagepath>
-					<aspectratio>keep</aspectratio>
-					<timeperimage>100</timeperimage>
-					<randomize>false</randomize>
-					<fadetime>1</fadetime>
-				</control>
-				<control type="label">
-					<!-- Day 4 temperature range -->
-					<left>0</left>
-					<top>225</top>
-					<height>57</height>
-					<width>350</width>
-					<shadowcolor>80000000</shadowcolor>
-					<label>[COLOR red]$INFO[Window(Weather).Property(Day4.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(Weather).Property(Day4.LowTemp)][/COLOR]</label>
-					<align>center</align>
-					<font>apptv25</font>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<top>276</top>
-					<height>63</height>
-					<width>350</width>
-					<label>$INFO[Window(Weather).Property(Day4.Outlook)]</label>
-					<align>center</align>
-					<wrapmultiline>true</wrapmultiline>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<font>apptv20</font>
-				</control>
+			<control type="list" id="9410">
+				<left>15</left>
+				<top>130</top>
+				<width>1890</width>
+				<height>405</height>
+				<viewtype label="31028">list</viewtype>
+				<orientation>horizontal</orientation>
+				<itemlayout height="405" width="378">
+					<control type="image">
+						<!-- background masks -->
+						<left>14</left>
+						<top>0</top>
+						<width>350</width>
+						<height>330</height>
+						<aligny>top</aligny>
+						<texture colordiffuse="LowBgnVisibity">mask-rectbkgrnd.png</texture>
+						<aspectratio scalediffuse="true">stretch</aspectratio>
+					</control>
+					<control type="label">
+						<left>14</left>
+						<top>8</top>
+						<height>48</height>
+						<width>350</width>
+						<label>$INFO[ListItem.Property(day)]</label>
+						<font>apptv22</font>
+						<align>center</align>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					</control>
+					<control type="multiimage">
+						<left>117</left>
+						<top>56</top>
+						<width>144</width>
+						<height>144</height>
+						<imagepath>$INFO[Listitem.Icon]</imagepath>
+						<aspectratio>keep</aspectratio>
+						<timeperimage>100</timeperimage>
+						<randomize>false</randomize>
+						<fadetime>1</fadetime>
+					</control>
+					<control type="label">
+						<left>14</left>
+						<top>194</top>
+						<height>57</height>
+						<width>350</width>
+						<shadowcolor>80000000</shadowcolor>
+						<label>$INFO[Listitem.Label]</label>
+						<align>center</align>
+						<font>apptv25</font>
+					</control>
+					<control type="label">
+						<left>14</left>
+						<top>245</top>
+						<height>63</height>
+						<width>350</width>
+						<label>$INFO[Listitem.Label2]</label>
+						<align>center</align>
+						<wrapmultiline>true</wrapmultiline>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<font>apptv20</font>
+					</control>
+				</itemlayout>
+				<focusedlayout height="405" width="378">
+					<control type="image">
+						<!-- background masks -->
+						<left>14</left>
+						<top>0</top>
+						<width>350</width>
+						<height>330</height>
+						<aligny>top</aligny>
+						<texture colordiffuse="LowBgnVisibity">mask-rectbkgrnd.png</texture>
+						<aspectratio scalediffuse="true">stretch</aspectratio>
+					</control>
+					<control type="label">
+						<left>14</left>
+						<top>8</top>
+						<height>48</height>
+						<width>350</width>
+						<label>$INFO[ListItem.Property(day)]</label>
+						<font>apptv22</font>
+						<align>center</align>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+					</control>
+					<control type="multiimage">
+						<left>117</left>
+						<top>56</top>
+						<width>144</width>
+						<height>144</height>
+						<imagepath>$INFO[Listitem.Icon]</imagepath>
+						<aspectratio>keep</aspectratio>
+						<timeperimage>100</timeperimage>
+						<randomize>false</randomize>
+						<fadetime>1</fadetime>
+					</control>
+					<control type="label">
+						<left>14</left>
+						<top>194</top>
+						<height>57</height>
+						<width>350</width>
+						<shadowcolor>80000000</shadowcolor>
+						<label>$INFO[Listitem.Label]</label>
+						<align>center</align>
+						<font>apptv25</font>
+					</control>
+					<control type="label">
+						<left>14</left>
+						<top>245</top>
+						<height>63</height>
+						<width>350</width>
+						<label>$INFO[Listitem.Label2]</label>
+						<align>center</align>
+						<wrapmultiline>true</wrapmultiline>
+						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+						<font>apptv20</font>
+					</control>
+				</focusedlayout>
+				<content>
+					<item>
+						<property name="day">$LOCALIZE[31528] $INFO[Window(weather).Property(Current.Temperature)]</property>
+						<label>[COLOR red]$INFO[Window(weather).Property(Day0.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(weather).Property(Day0.LowTemp)][/COLOR]</label>
+						<label2>$INFO[Weather.Conditions]</label2>
+						<icon>$VAR[WeatherIconCurrent]</icon>	
+					</item>
+					<item>
+						<property name="day">$INFO[Window(weather).Property(Day1.Title)]</property>
+						<label>[COLOR red]$INFO[Window(weather).Property(Day1.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(weather).Property(Day1.LowTemp)][/COLOR]</label>
+						<label2>$INFO[Window(weather).Property(Day1.Outlook)]</label2>
+						<icon>$VAR[WeatherIconDay1]</icon>	
+					</item>
+					<item>
+						<property name="day">$INFO[Window(weather).Property(Day2.Title)]</property>
+						<label>[COLOR red]$INFO[Window(weather).Property(Day2.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(weather).Property(Day2.LowTemp)][/COLOR]</label>
+						<label2>$INFO[Window(weather).Property(Day2.Outlook)]</label2>
+						<icon>$VAR[WeatherIconDay2]</icon>	
+					</item>
+					<item>
+						<property name="day">$INFO[Window(weather).Property(Day3.Title)]</property>
+						<label>[COLOR red]$INFO[Window(weather).Property(Day3.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(weather).Property(Day3.LowTemp)][/COLOR]</label>
+						<label2>$INFO[Window(weather).Property(Day3.Outlook)]</label2>
+						<icon>$VAR[WeatherIconDay3]</icon>
+					</item>
+					<item>
+						<property name="day">$INFO[Window(weather).Property(Day4.Title)]</property>
+						<label>[COLOR red]$INFO[Window(weather).Property(Day4.HighTemp)][/COLOR] • [COLOR lightblue]$INFO[Window(weather).Property(Day4.LowTemp)][/COLOR]</label>
+						<label2>$INFO[Window(weather).Property(Day4.Outlook)]</label2>
+						<icon>$VAR[WeatherIconDay4]</icon>	
+					</item>
+				</content>
 			</control>
 		</control>
 	</include>
