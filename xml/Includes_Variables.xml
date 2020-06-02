@@ -1142,19 +1142,6 @@
 		<value>$LOCALIZE[13205]</value>
 		<!-- Unknown platform type -->
 	</variable>
-	<variable name="ShelfType">
-		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[2])] + String.IsEqual(Skin.String(widget-music),$LOCALIZE[31954])">$LOCALIZE[31966]</value>
-		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[2])] + String.IsEqual(Skin.String(widget-music),$LOCALIZE[31955])">$LOCALIZE[31963]</value>
-		<value condition="[Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9530) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31031])] + String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31956])">$LOCALIZE[31961]</value>
-		<value condition="[Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9530) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31031])] + String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31957])">$LOCALIZE[31967]</value>
-		<value condition="[Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9530) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31031])] + String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31958])">$LOCALIZE[31968]</value>
-		<value condition="[Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9380) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(widget-addon),$LOCALIZE[31652])">$LOCALIZE[31652]</value>
-		<value condition="[Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9380) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(widget-addon),$LOCALIZE[31954])">$LOCALIZE[31969]</value>
-		<value condition="[Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9380) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(widget-addon),$LOCALIZE[31959])">$LOCALIZE[31970]</value>
-		<value condition="[Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9580) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(widget-favourite),$LOCALIZE[31652])">$LOCALIZE[31652]</value>
-		<value condition="[Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9580) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(widget-favourite),$LOCALIZE[593]$LOCALIZE[1036])">$LOCALIZE[593] $LOCALIZE[1036]</value>
-		<value condition="[Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9580) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(widget-favourite),$LOCALIZE[14211]$LOCALIZE[1036])">$LOCALIZE[14211] $LOCALIZE[1036]</value>
-	</variable>
 	<variable name="MovieShelfLabel">
 		<value condition="[Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31026])] + String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31964])">$LOCALIZE[31964]</value>
 		<value condition="[Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31026])] + String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31960])">$LOCALIZE[31960]</value>
@@ -1176,6 +1163,35 @@
 		<value condition="[Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[20343])] + String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31660])">$INFO[Skin.String(widget-tvshow.Label)]</value>
 		<value condition="[Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[20343])] + String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31661])">$INFO[Skin.String(widget-tvshow.Label)]</value>
 		<value condition="[Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[20343])] + String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31652])">$INFO[Skin.String(widget-tvshow.Label)]</value>
+	</variable>
+	<variable name="MusicShelfLabel">
+		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[2])] + String.IsEqual(Skin.String(widget-music),$LOCALIZE[31954])">$LOCALIZE[31966]</value>
+		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[2])] + String.IsEqual(Skin.String(widget-music),$LOCALIZE[31955])">$LOCALIZE[31963]</value>
+		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[2])] + String.IsEqual(Skin.String(widget-music),$LOCALIZE[31978])">$LOCALIZE[31978]</value>
+		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[2])] + String.IsEqual(Skin.String(widget-music),$LOCALIZE[31979])">$LOCALIZE[31979]</value>
+		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[2])] + String.IsEqual(Skin.String(widget-music),$LOCALIZE[31980])">$LOCALIZE[31980]</value>		
+		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[2])] + String.IsEqual(Skin.String(widget-music),$LOCALIZE[31981])">$LOCALIZE[31981]</value>
+		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[2])] + String.IsEqual(Skin.String(widget-music),$LOCALIZE[31660])">$INFO[Skin.String(widget-music.Label)]</value>
+		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[2])] + String.IsEqual(Skin.String(widget-music),$LOCALIZE[31661])">$INFO[Skin.String(widget-music.Label)]</value>
+		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[2])] + String.IsEqual(Skin.String(widget-music),$LOCALIZE[31652])">$INFO[Skin.String(widget-music.Label)]</value>
+	</variable>
+	<variable name="AddonShelfLabel">
+		<value condition="[Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9380) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(widget-addon),$LOCALIZE[31652])">$LOCALIZE[31652]</value>
+		<value condition="[Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9380) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(widget-addon),$LOCALIZE[31954])">$LOCALIZE[31969]</value>
+		<value condition="[Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9380) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(widget-addon),$LOCALIZE[31959])">$LOCALIZE[31970]</value>
+		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(widget-music),$LOCALIZE[31652])">$INFO[Skin.String(widget-music.Label)]</value>
+	</variable>
+	<variable name="BroadcastShelfLabel">
+		<value condition="[Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9530) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31031])] + String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31956])">$LOCALIZE[31961]</value>
+		<value condition="[Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9530) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31031])] + String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31957])">$LOCALIZE[31967]</value>
+		<value condition="[Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9530) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31031])] + String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31958])">$LOCALIZE[31968]</value>
+		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31031])] + String.IsEqual(Skin.String(widget-music),$LOCALIZE[31652])">$INFO[Skin.String(widget-music.Label)]</value>
+	</variable>
+	<variable name="FavouriteShelfLabel">
+		<value condition="[Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9580) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(widget-favourite),$LOCALIZE[31652])">$LOCALIZE[31652]</value>
+		<value condition="[Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9580) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(widget-favourite),$LOCALIZE[593]$LOCALIZE[1036])">$LOCALIZE[593] $LOCALIZE[1036]</value>
+		<value condition="[Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9580) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(widget-favourite),$LOCALIZE[14211]$LOCALIZE[1036])">$LOCALIZE[14211] $LOCALIZE[1036]</value>
+		<value condition="[Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9580) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(widget-music),$LOCALIZE[31652])">$INFO[Skin.String(widget-music.Label)]</value>
 	</variable>
 	<variable name="MenuType">
 		<value condition="Skin.HasSetting(homemenu-vertical)">$LOCALIZE[31951]</value>

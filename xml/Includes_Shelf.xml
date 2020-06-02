@@ -50,6 +50,15 @@
 	</include>
 	<include name="AlbumRandom">
 		<content target="music" limit="12" sortby="random">musicdb://albums/</content>
+	</include>	
+	<include name="SongsRandom">
+		<content target="music" limit="12" sortby="random">musicdb://songs/</content>
+	</include>
+	<include name="SongsTop30">
+		<content target="music" limit="30">musicdb://top100/songs/</content>
+	</include>
+	<include name="AlbumTop30">
+		<content target="music" limit="30">musicdb://top100/songs/</content>
 	</include>
 	<include name="MusicCustom">
 		<content target="music" limit="12">$INFO[Skin.String(widget-music.List)]</content>
@@ -174,7 +183,6 @@
 				<include condition="String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31960])">MovieRecommended</include>
 				<include condition="String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31971])">MovieInProgress</include>
 				<include condition="String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31972])">MovieRandom</include>
-				<include condition="String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31973])">MovieTags</include>
 				<include condition="String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31974])">MovieSets</include>
 				<include condition="String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31661])|String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31660])
 				|String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31652])">MovieCustom</include>
@@ -339,7 +347,6 @@
 				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31975])">EpisodeInProgress</include>
 				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31976])">EpisodeNextUp</include>
 				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31977])">TVShowsNew</include>
-				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31978])">TVShowsTags</include>
 				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31661])|String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31660])
 				|String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31652])">TVShowCustom</include>
 			</control>
@@ -354,7 +361,7 @@
 				<top>15</top>
 				<height>30</height>
 				<width>600</width>
-				<label>$VAR[ShelfType]</label>
+				<label>$VAR[FavouriteShelfLabel]</label>
 				<font>apptv22</font>
 				<visible>Integer.IsGreater(Container(9560).NumItems,0)</visible>
 			</control>
@@ -456,7 +463,7 @@
 				<top>15</top>
 				<height>30</height>
 				<width>600</width>
-				<label>$VAR[ShelfType]</label>
+				<label>$VAR[MusicShelfLabel]</label>
 				<font>apptv22</font>
 				<visible>Integer.IsGreater(Container(9260).NumItems,0)</visible>
 			</control>
@@ -547,6 +554,10 @@
 				</focusedlayout>
 				<include condition="String.IsEqual(Skin.String(widget-music),$LOCALIZE[31954])">AlbumRecent</include>
 				<include condition="String.IsEqual(Skin.String(widget-music),$LOCALIZE[31955])">AlbumRecommended</include>
+				<include condition="String.IsEqual(Skin.String(widget-music),$LOCALIZE[31978])">AlbumRandom</include>
+				<include condition="String.IsEqual(Skin.String(widget-music),$LOCALIZE[31979])">AlbumTop30</include>
+				<include condition="String.IsEqual(Skin.String(widget-music),$LOCALIZE[31980])">SongsRandom</include>
+				<include condition="String.IsEqual(Skin.String(widget-music),$LOCALIZE[31981])">SongsTop30</include>
 				<include condition="String.IsEqual(Skin.String(widget-music),$LOCALIZE[31661])|String.IsEqual(Skin.String(widget-music),$LOCALIZE[31660])
 				|String.IsEqual(Skin.String(widget-music),$LOCALIZE[31652])">MusicCustom</include>
 			</control>
@@ -561,7 +572,7 @@
 				<top>15</top>
 				<height>30</height>
 				<width>600</width>
-				<label>$VAR[ShelfType]</label>
+				<label>$VAR[AddonShelfLabel]</label>
 				<font>apptv22</font>
 				<visible>Integer.IsGreater(Container(9360).NumItems,0)</visible>
 			</control>
@@ -664,7 +675,7 @@
 				<top>18</top>
 				<height>33</height>
 				<width>600</width>
-				<label>$VAR[ShelfType]</label>
+				<label>$VAR[BroadcastShelfLabel]</label>
 				<font>apptv22</font>
 				<visible>Integer.IsGreater(Container(9510).NumItems,0)</visible>
 			</control>
