@@ -47,7 +47,7 @@
 
 	<include file="Defaults.xml"/>
 
-	<!-- Video Lyrics includes, "borrowed" from skin.aeon.nox.5 -->
+	<!-- Fancy Video Lyrics includes, "borrowed" from skin.aeon.nox.5 -->
 	<!-- Thanks to BigNoid -->
 	<include name="Lyrics1">
 		<param name="col11" default="black"/>
@@ -1888,6 +1888,33 @@
 				<height>$PARAM[fesize]</height>
 				<texture>equaliser.gif</texture>
 				<visible>ListItem.IsPlaying</visible>
+			</control>
+		</definition>
+	</include>
+	<include name="osd-togglebutton">
+		<param name="osdid"/>
+		<param name="osdsize" default="64"/>
+		<param name="osdtexture"/>
+		<param name="osdusealttexture"/>
+		<param name="osdalttexture"/>
+		<param name="osdaction"/>
+		<param name="osdaction2" default="noop"/>
+		<param name="osdup" default="noop"/>
+		<param name="osdvisible" default="true"/>
+		<definition>
+			<control type="togglebutton" id="$PARAM[osdid]">
+				<width>$PARAM[osdsize]</width>
+				<height>$PARAM[osdsize]</height>
+				<texturefocus>$PARAM[osdtexture]-focus.png</texturefocus>
+				<texturenofocus>$PARAM[osdtexture].png</texturenofocus>
+				<usealttexture>$PARAM[osdusealttexture]</usealttexture>
+				<alttexturefocus>$PARAM[osdalttexture]-focus.png</alttexturefocus>
+				<alttexturenofocus>$PARAM[osdalttexture]-focus.png</alttexturenofocus>
+				<onclick>$PARAM[osdaction]</onclick>
+				<onclick>$PARAM[osdaction2]</onclick>
+				<onup>$PARAM[osdup]</onup>
+				<include>focus-zoom</include>
+				<visible>$PARAM[osdvisible]</visible>
 			</control>
 		</definition>
 	</include>

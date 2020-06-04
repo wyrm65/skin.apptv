@@ -48,10 +48,12 @@
 				<texturefocus>osd-btn-lyric-focus.png</texturefocus>
 				<alttexturenofocus>osd-btn-lyric.png</alttexturenofocus>
 				<alttexturefocus>osd-btn-lyric-focus.png</alttexturefocus>
+				<onclick>Skin.ToggleSetting(lyrics-display)</onclick>
 				<onclick>Dialog.Close(musicosd)</onclick>
-				<onclick>RunScript(script.cu.lrclyrics)</onclick>
+				<onclick condition="[Skin.HasSetting(lyrics-display) + String.IsEmpty(Window(Home).Property(culrc.running))]">RunScript(script.cu.lrclyrics)</onclick>
 				<altclick>InstallAddon(script.cu.lrclyrics)</altclick>
 				<altclick>Dialog.Close(musicosd)</altclick>
+				<altclick>Skin.SetBool(lyrics-display)</altclick>
 				<altclick>RunScript(script.cu.lrclyrics)</altclick>
 				<usealttexture>!System.HasAddon(script.cu.lrclyrics)</usealttexture>
 			</control>
@@ -130,32 +132,24 @@
 				<param name="osdaction" value="PlayerControl(Rewind)" />
 				<param name="osdup" value="640" />
 			</include>
-			<control type="togglebutton" id="680">
-				<!-- Record -->
-				<width>64</width>
-				<height>64</height>
-				<texturefocus>osd-btn-rec-focus.png</texturefocus>
-				<texturenofocus>osd-btn-rec.png</texturenofocus>
-				<usealttexture>PVR.CanRecordPlayingChannel + PVR.IsRecordingPlayingChannel</usealttexture>
-				<alttexturefocus>osd-btn-rec-recording-focus.png</alttexturefocus>
-				<alttexturenofocus>osd-btn-rec-recording.png</alttexturenofocus>
-				<onclick>PVR.ToggleRecordPlayingChannel</onclick>
-				<include>focus-zoom</include>
-				<visible>PVR.CanRecordPlayingChannel</visible>
-			</control>
-			<control type="togglebutton" id="655">
-				<!-- Play -->
-				<width>64</width>
-				<height>64</height>
-				<texturefocus>osd-btn-pause-focus.png</texturefocus>
-				<texturenofocus>osd-btn-pause.png</texturenofocus>
-				<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
-				<alttexturefocus>osd-btn-play-focus.png</alttexturefocus>
-				<alttexturenofocus>osd-btn-play.png</alttexturenofocus>
-				<onclick>PlayerControl(Play)</onclick>
-				<onup>620</onup>
-				<include>focus-zoom</include>
-			</control>
+			<!-- Record -->
+			<include content="osd-togglebutton">
+				<param name="osdid" value="680" />
+				<param name="osdtexture" value="osd-btn-rec" />
+				<param name="osdusealttexture" value="PVR.CanRecordPlayingChannel+PVR.IsRecordingPlayingChannel" />
+				<param name="osdalttexture" value="osd-btn-rec-recording" />
+				<param name="osdaction" value="PVR.ToggleRecordPlayingChannel" />
+				<param name="osdvisible" value="PVR.CanRecordPlayingChannel" />
+			</include>
+			<!-- Play -->
+			<include content="osd-togglebutton">
+				<param name="osdid" value="655" />
+				<param name="osdtexture" value="osd-btn-pause" />
+				<param name="osdusealttexture" value="Player.Paused|Player.Forwarding|Player.Rewinding" />
+				<param name="osdalttexture" value="osd-btn-play" />
+				<param name="osdaction" value="PlayerControl(Play)" />
+				<param name="osdup" value="620" />
+			</include>
 			<!-- Stop -->
 			<include content="osd-button">
 				<param name="osdid" value="656" />
@@ -202,27 +196,39 @@
 		</control>
 		<control type="grouplist" id="670">
 			<!-- More group OSD Buttons -->
+			<defaultcontrol>677</defaultcontrol>
 			<left>1333</left>
 			<top>902</top>
-			<width>560</width>
+			<width>470</width>
 			<height>64</height>
 			<itemgap>3</itemgap>
 			<orientation>horizontal</orientation>
 			<align>center</align>
 			<ondown>650</ondown>
 			<visible>Control.HasFocus(659) | ControlGroup(670).HasFocus()</visible>
-			<control type="togglebutton" id="672">
-				<!-- Random -->
-				<width>64</width>
-				<height>64</height>
-				<texturefocus>osd-btn-playthru-focus.png</texturefocus>
-				<texturenofocus>osd-btn-playthru.png</texturenofocus>
-				<usealttexture>Playlist.IsRandom</usealttexture>
-				<alttexturefocus>osd-btn-random-focus.png</alttexturefocus>
-				<alttexturenofocus>osd-btn-random.png</alttexturenofocus>
-				<onclick>PlayerControl(Random)</onclick>
-				<include>focus-zoom</include>
-			</control>
+			<!-- Eject Disk -->
+			<include content="osd-button">
+				<param name="osdid" value="679" />
+				<param name="osdtexture" value="osd-btn-eject" />
+				<param name="osdaction" value="EjectTray()" />
+				<param name="osdvisible" value="System.HasMediadvd" />
+			</include>
+			<!-- RDS Info -->
+			<include content="osd-button">
+				<param name="osdid" value="983" />
+				<param name="osdtexture" value="osd-btn-guide" />
+				<param name="osdaction" value="ChannelDown" />
+				<param name="osdvisible" value="ActivateWindow(pvrradiordsinfo)" />
+				<param name="osdvisible" value="MusicPlayer.Content(LiveTV)+RDS.HasRadiotextPlus" />
+			</include>
+			<!-- Random -->
+			<include content="osd-togglebutton">
+				<param name="osdid" value="672" />
+				<param name="osdtexture" value=">osd-btn-playthru" />
+				<param name="osdusealttexture" value="Playlist.IsRandom" />
+				<param name="osdalttexture" value="osd-btn-random" />
+				<param name="osdaction" value="PlayerControl(Random)" />
+			</include>
 			<control type="group" id="673">
 				<!-- Repeat -->
 				<width>64</width>
@@ -261,21 +267,6 @@
 				<param name="osdid" value="678" />
 				<param name="osdtexture" value="osd-btn-volumedown" />
 				<param name="osdaction" value="VolumeDown" />
-			</include>
-			<!-- Eject Disk -->
-			<include content="osd-button">
-				<param name="osdid" value="679" />
-				<param name="osdtexture" value="osd-btn-eject" />
-				<param name="osdaction" value="EjectTray()" />
-				<param name="osdvisible" value="System.HasMediadvd" />
-			</include>
-			<!-- RDS Info -->
-			<include content="osd-button">
-				<param name="osdid" value="983" />
-				<param name="osdtexture" value="osd-btn-guide" />
-				<param name="osdaction" value="ChannelDown" />
-				<param name="osdvisible" value="ActivateWindow(pvrradiordsinfo)" />
-				<param name="osdvisible" value="MusicPlayer.Content(LiveTV)+RDS.HasRadiotextPlus" />
 			</include>
 		</control>
 		<control type="group">

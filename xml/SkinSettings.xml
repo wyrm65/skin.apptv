@@ -316,6 +316,15 @@
 						<radioposx>1266</radioposx>
 						<enable>System.GetBool(input.enablemouse)</enable>
 					</control>
+					<control type="radiobutton" id="210">
+						<!-- Use Simple Lyrics -->
+						<include>settings-submenu-common</include>
+						<label>$LOCALIZE[31898] </label>
+						<textwidth>1125</textwidth>
+						<onclick>Skin.ToggleSetting(lyrics-simple)</onclick>
+						<selected>Skin.HasSetting(lyrics-simple)</selected>
+						<radioposx>1266</radioposx>
+					</control>
 					<control type="group" id="211">
 						<height>84</height>
 						<width>1328</width>
@@ -346,10 +355,10 @@
 						<onclick>Skin.Reset(lock-screensettings)</onclick>
 						<onclick>Skin.Reset(show-letterbar)</onclick>
 						<onclick>Skin.Reset(show-scrollbar)</onclick>
-						<onclick>Skin.Reset(sbar)</onclick>
 						<onclick>Skin.Reset(text-autoscroll)</onclick>
 						<onclick>Skin.Reset(media-overlay)</onclick>
 						<onclick>Skin.Reset(show-touchcontrols)</onclick>
+						<onclick>Skin.Reset(lyrics-simple)</onclick>
 						<onclick>Skin.Reset(defaultmpaa-locale)</onclick>
 					</control>
 				</control>
