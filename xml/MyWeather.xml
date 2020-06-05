@@ -30,7 +30,7 @@
 				<include>fullscreenimage</include>
 				<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
 				<animation effect="fade" time="200">VisibleChange</animation>
-				<visible>Player.HasAudio + IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
+				<visible>Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
 			</control>
 		</control>
 		<control type="button" id="6000">
