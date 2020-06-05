@@ -234,32 +234,24 @@
 					<param name="osdaction" value="PlayerControl(Rewind)" />
 					<param name="osdup" value="640" />
 				</include>
-				<control type="togglebutton" id="677">
-					<!-- Record -->
-					<width>64</width>
-					<height>64</height>
-					<texturefocus>osd-btn-rec-focus.png</texturefocus>
-					<texturenofocus>osd-btn-rec.png</texturenofocus>
-					<usealttexture>PVR.CanRecordPlayingChannel + PVR.IsRecordingPlayingChannel</usealttexture>
-					<alttexturefocus>osd-btn-rec-recording-focus.png</alttexturefocus>
-					<alttexturenofocus>osd-btn-rec-recording.png</alttexturenofocus>
-					<onclick>PVR.ToggleRecordPlayingChannel</onclick>
-					<include>focus-zoom</include>
-					<visible>PVR.CanRecordPlayingChannel</visible>
-				</control>
-				<control type="togglebutton" id="655">
-					<!-- Play -->
-					<width>64</width>
-					<height>64</height>
-					<texturefocus>osd-btn-pause-focus.png</texturefocus>
-					<texturenofocus>osd-btn-pause.png</texturenofocus>
-					<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
-					<alttexturefocus>osd-btn-play-focus.png</alttexturefocus>
-					<alttexturenofocus>osd-btn-play.png</alttexturenofocus>
-					<onclick>PlayerControl(Play)</onclick>
-					<onup>620</onup>
-					<include>focus-zoom</include>
-				</control>
+				<!-- Record -->
+				<include content="osd-togglebutton">
+					<param name="osdid" value="677" />
+					<param name="osdtexture" value="osd-btn-rec" />
+					<param name="osdusealttexture" value="PVR.CanRecordPlayingChannel+PVR.IsRecordingPlayingChannel" />
+					<param name="osdalttexture" value="osd-btn-rec-recording" />
+					<param name="osdaction" value="PVR.ToggleRecordPlayingChannel" />
+					<param name="osdvisible" value="PVR.CanRecordPlayingChannel" />
+				</include>
+				<!-- Play -->
+				<include content="osd-togglebutton">
+					<param name="osdid" value="655" />
+					<param name="osdtexture" value="osd-btn-pause" />
+					<param name="osdusealttexture" value="Player.Paused|Player.Forwarding|Player.Rewinding" />
+					<param name="osdalttexture" value="osd-btn-play" />
+					<param name="osdaction" value="PlayerControl(Play)" />
+					<param name="osdup" value="620" />
+				</include>
 				<!-- Stop -->
 				<include content="osd-button">
 					<param name="osdid" value="656" />
