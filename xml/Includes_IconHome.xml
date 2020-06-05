@@ -275,6 +275,8 @@
 					<thumb>$VAR[HomeProgramsIcon]</thumb>
 					<label>$LOCALIZE[24001]</label>
 					<label2>$LOCALIZE[571]</label2>
+					<property name="count">$INFO[Container(12345).NumItems]</property>
+					<onclick>SetProperty(PendingUpdates,$INFO[Container(12345).NumItems],addonbrowser)</onclick>
 					<onclick>ActivateWindow(1155)</onclick>
 				</item>
 				<item>
