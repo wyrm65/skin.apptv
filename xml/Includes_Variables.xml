@@ -128,9 +128,20 @@
 		<value condition="Window.IsVisible(programs)">ActivateWindow(programs,"$INFO[ListItem.FolderPath]",return)</value>
 	</variable>
 	<variable name="ListDynamicContent">
+		<value condition="Container.Content(movies) + String.IsEqual(Skin.String(widget-listview-movie),$LOCALIZE[31960])">plugin://script.embuary.helper/?info=getsimilar&amp;type=movie</value>
+		<value condition="Container.Content(movies) + String.IsEqual(Skin.String(widget-listview-movie),$LOCALIZE[31971])">plugin://script.embuary.helper/?info=getinprogress&amp;type=movie&amp;pos=0</value>
+		<value condition="Container.Content(movies) + String.IsEqual(Skin.String(widget-listview-movie),$LOCALIZE[31972])">plugin://script.embuary.helper/?info=getbygenre&amp;unwatched=True&amp;type=movie</value>
+		<value condition="Container.Content(movies) + String.IsEqual(Skin.String(widget-listview-movie),$LOCALIZE[31974])">videodb://movies/sets/</value>
+		<value condition="Container.Content(movies) + [String.IsEqual(Skin.String(widget-listview-movie),$LOCALIZE[31661]) | String.IsEqual(Skin.String(widget-listview-movie),$LOCALIZE[31660]) | String.IsEqual(Skin.String(widget-listview-movie),$LOCALIZE[31652])]">$INFO[Skin.String(widget-listview-movie.List)]</value>
 		<value condition="Container.Content(movies)">videodb://recentlyaddedmovies/</value>
+		<value condition="Container.Content(tvshows) + String.IsEqual(Skin.String(widget-listview-tvshow),$LOCALIZE[31955])">plugin://script.embuary.helper/?info=getsimilar&amp;type=tvshow&amp;pos=0</value>
+		<value condition="Container.Content(tvshows) + String.IsEqual(Skin.String(widget-listview-tvshow),$LOCALIZE[31975])">plugin://script.embuary.helper/?info=getinprogress&amp;type=tvshow</value>
+		<value condition="Container.Content(tvshows) + String.IsEqual(Skin.String(widget-listview-tvshow),$LOCALIZE[31976])">plugin://script.embuary.helper/?info=getnextup</value>
+		<value condition="Container.Content(tvshows) + String.IsEqual(Skin.String(widget-listview-tvshow),$LOCALIZE[31977])">plugin://script.embuary.helper/?info=getnewshows</value>
+		<value condition="Container.Content(tvshows) + [String.IsEqual(Skin.String(widget-listview-tvshow),$LOCALIZE[31661]) | String.IsEqual(Skin.String(widget-listview-tvshow),$LOCALIZE[31660]) | String.IsEqual(Skin.String(widget-listview-tvshow),$LOCALIZE[31652])]">$INFO[Skin.String(widget-listview-tvshow.List)]</value>
 		<value condition="Container.Content(tvshows)">videodb://recentlyaddedepisodes/</value>
 	</variable>
+
 	<variable name="ListScrollNavVideo">
 		<value condition="Control.IsVisible(50) + Skin.HasSetting(show-letterbar) + [Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]">SetFocus(1260)</value>
 		<value condition="Control.IsVisible(50) + Control.IsVisible(1250) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1250)</value>
