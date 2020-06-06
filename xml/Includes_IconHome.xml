@@ -139,20 +139,20 @@
 
 		<control type="panel" id="9000">
 			<!-- Home menu icon panel -->
-			<animation condition="![Container(9000).Row(0) | Container(9000).Row(1)] | Container(9000).HasPrevious()" effect="slide" start="0,0" end="0,-495" time="100">Conditonal</animation>
-			<top>530</top>
+			<animation condition="![Container(9000).Row(0) | Container(9000).Row(1)] | Container(9000).HasPrevious()" effect="slide" start="0,0" end="0,-480" time="100">Conditonal</animation>
+			<top>520</top>
 			<left>15</left>
 			<width>1890</width>
-			<height>1000</height>
+			<height>1014</height>
 			<onleft>6100</onleft>
 			<onright>9005</onright>
 			<onup condition="![Control.IsVisible(9802) | Control.IsVisible(9803)]">9800</onup>
 			<onup condition="Control.IsVisible(9802) | Control.IsVisible(9803)">9005</onup>
 			<ondown>9005</ondown>
-			<itemlayout height="250" width="378">
+			<itemlayout height="262" width="378">
 				<control type="image">
 					<left>36</left>
-					<top>10</top>
+					<top>12</top>
 					<width>306</width>
 					<height>185</height>
 					<aspectratio>keep</aspectratio>
@@ -160,12 +160,12 @@
 				</control>
 				<include content="listitem-count">
 					<param name="left" value="255" />
-					<param name="top" value="135" />
+					<param name="top" value="136" />
 					<param name="count" value="ListItem.Property(count)" />
 					<param name="size" value="75" />
 				</include>
 			</itemlayout>
-			<focusedlayout height="250" width="378">
+			<focusedlayout height="262" width="378">
 				<control type="image">
 					<left>11</left>
 					<top>0</top>
@@ -184,7 +184,7 @@
 				</include>
 				<control type="label">
 					<left>0</left>
-					<top>210</top>
+					<top>206</top>
 					<width>378</width>
 					<height>34</height>
 					<align>center</align>
