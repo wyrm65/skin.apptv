@@ -5,16 +5,16 @@
 	<onload>ClearProperty(ShowScreenSettings,home)</onload>
 	<onload>SetFocus(9000)</onload>
 	<onunload>ClearProperty(ShowScreenSettings,home)</onunload>
-	<onunload>SetFocus(9000)</onunload>
 	<onunload>ClearProperty(ShutdownKodi,home)</onunload>
+	<onunload>SetFocus(9000)</onunload>
 	<include>zoom-openclose</include>
 	<controls>
 		<!-- Use Vertical Home menu-->
-		<include condition="Skin.HasSetting(homemenu-vertical)" file="Includes_VertHome.xml">VertHomeMenu</include>
+		<include condition="Skin.HasSetting(HomeMenuVertical)" file="Includes_VertHome.xml">VertHomeMenu</include>
 		<!-- Use Horizontal Home menu-->
-		<include condition="Skin.HasSetting(homemenu-horizontal)" file="Includes_HorzHome.xml">HorzHomeMenu</include>
+		<include condition="Skin.HasSetting(HomeMenuHorizontal)" file="Includes_HorzHome.xml">HorzHomeMenu</include>
 		<!-- Use Icon Home menu-->
-		<include condition="Skin.HasSetting(homemenu-icon)" file="Includes_IconHome.xml">IconHomeMenu</include>
+		<include condition="Skin.HasSetting(HomeMenuIcon) | [!Skin.HasSetting(HomeMenuIcon) + !Skin.HasSetting(HomeMenuHorizontal) + !Skin.HasSetting(HomeMenuVertical)]" file="Includes_IconHome.xml">IconHomeMenu</include>
 
 		<include>touch-controls</include>
 
@@ -80,11 +80,11 @@
 					<label>$LOCALIZE[31900] - $VAR[MenuType]</label>
 					<font>apptv20</font>
 					<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31952])</onclick>
-					<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetBool(homemenu-horizontal)||Skin.Reset(homemenu-vertical)||Skin.Reset(homemenu-icon)||ReloadSkin())</onclick>
+					<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetBool(HomeMenuHorizontal)||Skin.Reset(HomeMenuVertical)||Skin.Reset(HomeMenuIcon)||ReloadSkin())</onclick>
 					<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31953])</onclick>
-					<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetBool(homemenu-icon)||Skin.Reset(homemenu-vertical)||Skin.Reset(homemenu-horizontal)||ReloadSkin())</onclick>
+					<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetBool(HomeMenuIcon)||Skin.Reset(HomeMenuVertical)||Skin.Reset(HomeMenuHorizontal)||ReloadSkin())</onclick>
 					<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31951])</onclick>
-					<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetBool(homemenu-vertical)||Skin.Reset(homemenu-horizontal)||Skin.Reset(homemenu-icon)||ReloadSkin())</onclick>
+					<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetBool(HomeMenuVertical)||Skin.Reset(HomeMenuHorizontal)||Skin.Reset(HomeMenuIcon)||ReloadSkin())</onclick>
 					<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31900])</onclick>
 				</control>
 				<control type="button" id="6102">
@@ -93,11 +93,11 @@
 					<height>69</height>
 					<label>$LOCALIZE[31803]</label>
 					<font>apptv20</font>
-					<onfocus>Skin.SetString(skinsettingmenu,custom)</onfocus>
+					<onfocus>Skin.SetString(SkinSettingMenu,custom)</onfocus>
 					<onclick>ActivateWindow(1152)</onclick>
 				</control>
 					<control type="group" id="6103">
-						<visible>!Skin.HasSetting(homemenu-vertical)</visible>
+						<visible>!Skin.HasSetting(HomeMenuVertical)</visible>
 						<width>639</width>
 						<height>69</height>
 						<control type="togglebutton" id="6104">
@@ -168,14 +168,14 @@
 				<param name="indicatororientation" value="horizontal" />
 				<param name="grp1indicate" value="[ControlGroup(6100).HasFocus()|String.IsEqual(Window(home).Property(ShowScreenSettings),show)]" />
 				<param name="grp1visible" value="[!Skin.HasSetting(lock-screensettings)]" />
-				<param name="grp2indicate" value="[Skin.HasSetting(homemenu-vertical)+Control.HasFocus(9000)]" />
-				<param name="grp2visible" value="[Skin.HasSetting(homemenu-vertical)+[!Skin.HasSetting(lock-screensettings)|!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]]" />
-				<param name="grp3indicate" value="[Skin.HasSetting(homemenu-vertical)+Control.HasFocus(23)]" />
-				<param name="grp3visible" value="[Skin.HasSetting(homemenu-vertical)+!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
-				<param name="grp4indicate" value="[Skin.HasSetting(homemenu-horizontal)]+[ControlGroup(9000).HasFocus()|ControlGroup(9800).HasFocus()]" />
-				<param name="grp4visible" value="[Skin.HasSetting(homemenu-horizontal)+!Skin.HasSetting(lock-screensettings)]" />
-				<param name="grp5indicate" value="Skin.HasSetting(homemenu-icon)+[Control.HasFocus(9000)|ControlGroup(9800).HasFocus()]" />
-				<param name="grp5visible" value="[Skin.HasSetting(homemenu-icon)+!Skin.HasSetting(lock-screensettings)]" />
+				<param name="grp2indicate" value="[Skin.HasSetting(HomeMenuVertical)+Control.HasFocus(9000)]" />
+				<param name="grp2visible" value="[Skin.HasSetting(HomeMenuVertical)+[!Skin.HasSetting(lock-screensettings)|!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]]" />
+				<param name="grp3indicate" value="[Skin.HasSetting(HomeMenuVertical)+Control.HasFocus(23)]" />
+				<param name="grp3visible" value="[Skin.HasSetting(HomeMenuVertical)+!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
+				<param name="grp4indicate" value="[Skin.HasSetting(HomeMenuHorizontal)]+[ControlGroup(9000).HasFocus()|ControlGroup(9800).HasFocus()]" />
+				<param name="grp4visible" value="[Skin.HasSetting(HomeMenuHorizontal)+!Skin.HasSetting(lock-screensettings)]" />
+				<param name="grp5indicate" value="Skin.HasSetting(HomeMenuIcon)+[Control.HasFocus(9000)|ControlGroup(9800).HasFocus()]" />
+				<param name="grp5visible" value="[Skin.HasSetting(HomeMenuIcon)+!Skin.HasSetting(lock-screensettings)]" />
 			</include>
 		</control>
 	</controls>

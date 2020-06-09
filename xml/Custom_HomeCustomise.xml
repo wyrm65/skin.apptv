@@ -33,25 +33,25 @@
 			<label>$LOCALIZE[31900] - $VAR[MenuType]</label>
 			<font>apptv20</font>
 			<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31952])</onclick>
-			<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetBool(homemenu-horizontal)||Skin.Reset(homemenu-vertical)||Skin.Reset(homemenu-icon)||ReloadSkin())</onclick>
+			<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetBool(HomeMenuHorizontal)||Skin.Reset(HomeMenuVertical)||Skin.Reset(HomeMenuIcon)||ReloadSkin())</onclick>
 			<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31953])</onclick>
-			<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetBool(homemenu-icon)||Skin.Reset(homemenu-vertical)||Skin.Reset(homemenu-horizontal)||ReloadSkin())</onclick>
+			<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetBool(HomeMenuIcon)||Skin.Reset(HomeMenuVertical)||Skin.Reset(HomeMenuHorizontal)||ReloadSkin())</onclick>
 			<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31951])</onclick>
-			<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetBool(homemenu-vertical)||Skin.Reset(homemenu-horizontal)||Skin.Reset(homemenu-icon)||ReloadSkin())</onclick>
+			<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetBool(HomeMenuVertical)||Skin.Reset(HomeMenuHorizontal)||Skin.Reset(HomeMenuIcon)||ReloadSkin())</onclick>
 			<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31900])</onclick>
-			<ondown condition="Skin.HasSetting(homemenu-horizontal)">9001</ondown>
-			<ondown condition="Skin.HasSetting(homemenu-icon)">9021</ondown>
-			<ondown condition="Skin.HasSetting(homemenu-vertical)">9031</ondown>
-			<onright condition="Skin.HasSetting(homemenu-horizontal)">9001</onright>
-			<onright condition="Skin.HasSetting(homemenu-icon)">9021</onright>
-			<onright condition="Skin.HasSetting(homemenu-vertical)">9031</onright>
+			<ondown condition="Skin.HasSetting(HomeMenuHorizontal)">9001</ondown>
+			<ondown condition="Skin.HasSetting(HomeMenuIcon)">9021</ondown>
+			<ondown condition="Skin.HasSetting(HomeMenuVertical)">9031</ondown>
+			<onright condition="Skin.HasSetting(HomeMenuHorizontal)">9001</onright>
+			<onright condition="Skin.HasSetting(HomeMenuIcon)">9021</onright>
+			<onright condition="Skin.HasSetting(HomeMenuVertical)">9031</onright>
 			<animation effect="fade" start="100" end="60" condition="!Control.HasFocus(402)">Conditional</animation>
 		</control>
 		<!-- Show apropriate home menu -->
 		<control type="group" id="9000">
 			<control type="group" id="9001">
 				<!-- Horizontal Home Menu -->
-				<visible>Skin.HasSetting(homemenu-horizontal) | [!Skin.HasSetting(homemenu-icon) + !Skin.HasSetting(homemenu-vertical)]</visible>
+				<visible>Skin.HasSetting(HomeMenuHorizontal)</visible>
 				<animation condition="true" effect="zoom" start="100" end="80" center="auto">Conditional</animation>
 				<control type="group">
 					<!-- Main Horizontal menu bar -->
@@ -1494,7 +1494,7 @@
 			</control>
 			<control type="group" id="9020">
 				<!-- Icon Home Menu -->
-				<visible>Skin.HasSetting(homemenu-icon)</visible>
+				<visible>Skin.HasSetting(HomeMenuIcon) | [!Skin.HasSetting(HomeMenuVertical) + !Skin.HasSetting(HomeMenuHorizontal) + !Skin.HasSetting(HomeMenuIcon)]</visible>
 				<!-- Markers for off screen menu items -->
 				<include content="page-offscreen-vertical">
 					<param name="indicator1left" value="936"/>
@@ -1992,7 +1992,7 @@
 			</control>
 			<control type="group" id="9030">
 				<!-- Vertical Home Menu -->
-				<visible>Skin.HasSetting(homemenu-vertical)</visible>
+				<visible>Skin.HasSetting(HomeMenuVertical)</visible>
 				<animation condition="true" effect="zoom" start="100" end="80" center="auto">Conditional</animation>
 				<!-- Markers for off screen menu items -->
 				<include content="page-offscreen-vertical">

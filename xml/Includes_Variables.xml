@@ -1231,10 +1231,10 @@
 		<value condition="[Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9580) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(widget-music),$LOCALIZE[31652])">$INFO[Skin.String(widget-music.Label)]</value>
 	</variable>
 	<variable name="MenuType">
-		<value condition="Skin.HasSetting(homemenu-vertical)">$LOCALIZE[31951]</value>
-		<value condition="Skin.HasSetting(homemenu-horizontal)">$LOCALIZE[31952]</value>
-		<value condition="Skin.HasSetting(homemenu-icon)">$LOCALIZE[31953]</value>
-		<value>$LOCALIZE[31952]</value>
+		<value condition="Skin.HasSetting(HomeMenuVertical)">$LOCALIZE[31951]</value>
+		<value condition="Skin.HasSetting(HomeMenuHorizontal)">$LOCALIZE[31952]</value>
+		<value condition="Skin.HasSetting(HomeMenuIcon)">$LOCALIZE[31953]</value>
+		<value>$LOCALIZE[31953]</value>
 	</variable>
 	<variable name="HomeItemType">
 		<value condition="String.IsEqual(Window(settings).Property(CurrentType),$LOCALIZE[31660])">$LOCALIZE[31660]</value>
@@ -1377,23 +1377,23 @@
 		<value>$INFO[Window(weather).Property(Hourly.12.OutlookIcon)]</value>
 	</variable>
 	<variable name="HomeVideoIcon">
-		<value condition="!String.IsEmpty(Skin.String(home-video-icon))">$INFO[Skin.String(home-video-icon)]</value>
+		<value condition="!String.IsEmpty(Skin.String(home-video.Icon))">$INFO[Skin.String(home-video.Icon)]</value>
 		<value>special://skin/extras/homeicons/video.png</value>
 	</variable>
 	<variable name="HomeMovieIcon">
-		<value condition="!String.IsEmpty(Skin.String(home-movie-icon))">$INFO[Skin.String(home-movie-icon)]</value>
+		<value condition="!String.IsEmpty(Skin.String(home-movie.Icon))">$INFO[Skin.String(home-movie.Icon)]</value>
 		<value>special://skin/extras/homeicons/movie.png</value>
 	</variable>
 	<variable name="HomeTVShowsIcon">
-		<value condition="!String.IsEmpty(Skin.String(home-tvshows-icon))">$INFO[Skin.String(home-tvshows-icon)]</value>
+		<value condition="!String.IsEmpty(Skin.String(home-tvshows.Icon))">$INFO[Skin.String(home-tvshows.Icon)]</value>
 		<value>special://skin/extras/homeicons/tv.png</value>
 	</variable>
 	<variable name="HomeMusicIcon">
-		<value condition="!String.IsEmpty(Skin.String(home-music-icon))">$INFO[Skin.String(home-music-icon)]</value>
+		<value condition="!String.IsEmpty(Skin.String(home-music.Icon))">$INFO[Skin.String(home-music.Icon)]</value>
 		<value>special://skin/extras/homeicons/music.png</value>
 	</variable>
 	<variable name="HomeWeatherIcon">
-		<value condition="!String.IsEmpty(Skin.String(home-weather-icon))">$INFO[Skin.String(home-weather-icon)]</value>
+		<value condition="!String.IsEmpty(Skin.String(home-weather.Icon))">$INFO[Skin.String(home-weather.Icon)]</value>
 		<value condition="String.IsEqual(Window(weather).Property(Current.FanartCode),27)">special://skin/extras/homeicons/nightweather.png</value>
 		<value condition="String.IsEqual(Window(weather).Property(Current.FanartCode),29)">special://skin/extras/homeicons/nightweather.png</value>
 		<value condition="String.IsEqual(Window(weather).Property(Current.FanartCode),31)">special://skin/extras/homeicons/nightweather.png</value>
@@ -1403,82 +1403,82 @@
 		<value>special://skin/extras/homeicons/dayweather.png</value>
 	</variable>
 	<variable name="HomeMusicVideoIcon">
-		<value condition="!String.IsEmpty(Skin.String(home-musicvideo-icon))">$INFO[Skin.String(home-musicvideo-icon)]</value>
+		<value condition="!String.IsEmpty(Skin.String(home-musicvideo.Icon))">$INFO[Skin.String(home-musicvideo.Icon)]</value>
 		<value>special://skin/extras/homeicons/musicvideo.png</value>
 	</variable>
 	<variable name="HomeTVIcon">
-		<value condition="!String.IsEmpty(Skin.String(home-tv-icon))">$INFO[Skin.String(home-tv-icon)]</value>
+		<value condition="!String.IsEmpty(Skin.String(home-tv.Icon))">$INFO[Skin.String(home-tv.Icon)]</value>
 		<value>special://skin/extras/homeicons/livetv.png</value>
 	</variable>
 	<variable name="HomeRadioIcon">
-		<value condition="!String.IsEmpty(Skin.String(home-radio-icon))">$INFO[Skin.String(home-radio-icon)]</value>
+		<value condition="!String.IsEmpty(Skin.String(home-radio.Icon))">$INFO[Skin.String(home-radio.Icon)]</value>
 		<value>special://skin/extras/homeicons/radio.png</value>
 	</variable>
 	<variable name="HomeProgramsIcon">
-		<value condition="!String.IsEmpty(Skin.String(home-programs-icon))">$INFO[Skin.String(home-programs-icon)]</value>
+		<value condition="!String.IsEmpty(Skin.String(home-programs.Icon))">$INFO[Skin.String(home-programs.Icon)]</value>
 		<value>special://skin/extras/homeicons/addons.png</value>
 	</variable>
 	<variable name="HomeGamesIcon">
-		<value condition="!String.IsEmpty(Skin.String(home-games-icon))">$INFO[Skin.String(home-games-icon)]</value>
+		<value condition="!String.IsEmpty(Skin.String(home-games.Icon))">$INFO[Skin.String(home-games.Icon)]</value>
 		<value>special://skin/extras/homeicons/games.png</value>
 	</variable>
 	<variable name="HomePhotosIcon">
-		<value condition="!String.IsEmpty(Skin.String(home-photos-icon))">$INFO[Skin.String(home-photos-icon)]</value>
+		<value condition="!String.IsEmpty(Skin.String(home-photos.Icon))">$INFO[Skin.String(home-photos.Icon)]</value>
 		<value>special://skin/extras/homeicons/pics.png</value>
 	</variable>
 	<variable name="HomeFavoritesIcon">
-		<value condition="!String.IsEmpty(Skin.String(home-favorites-icon))">$INFO[Skin.String(home-favorites-icon)]</value>
+		<value condition="!String.IsEmpty(Skin.String(home-favorites.Icon))">$INFO[Skin.String(home-favorites.Icon)]</value>
 		<value>special://skin/extras/homeicons/favs.png</value>
 	</variable>
 	<variable name="HomeSearchIcon">
-		<value condition="!String.IsEmpty(Skin.String(home-search-icon))">$INFO[Skin.String(home-search-icon)]</value>
+		<value condition="!String.IsEmpty(Skin.String(home-search.Icon))">$INFO[Skin.String(home-search.Icon)]</value>
 		<value>special://skin/extras/homeicons/search.png</value>
 	</variable>
 	<variable name="HomeFileManagerIcon">
-		<value condition="!String.IsEmpty(Skin.String(home-filemanager-icon))">$INFO[Skin.String(home-filemanager-icon)]</value>
+		<value condition="!String.IsEmpty(Skin.String(home-filemanager.Icon))">$INFO[Skin.String(home-filemanager.Icon)]</value>
 		<value>special://skin/extras/homeicons/filemanager.png</value>
 	</variable>
 	<variable name="HomeProfileIcon">
-		<value condition="!String.IsEmpty(Skin.String(home-profile-icon))">$INFO[Skin.String(home-profile-icon)]</value>
+		<value condition="!String.IsEmpty(Skin.String(home-profile.Icon))">$INFO[Skin.String(home-profile.Icon)]</value>
 		<value>special://skin/extras/homeicons/users.png</value>
 	</variable>
 	<variable name="HomeShutdownIcon">
-		<value condition="!String.IsEmpty(Skin.String(home-shutdown-icon))">$INFO[Skin.String(home-shutdown-icon)]</value>
+		<value condition="!String.IsEmpty(Skin.String(home-shutdown.Icon))">$INFO[Skin.String(home-shutdown.Icon)]</value>
 		<value>special://skin/extras/homeicons/quit.png</value>
 	</variable>
 	<variable name="CustomDefaultIcon">
 		<!-- Show custom icon for default menu items in customisation dialog -->
-		<value condition="String.Contains(Window(settings).Property(ListToggle),home-video) + !String.IsEmpty(Skin.String(home-video-icon))">$INFO[Skin.String(home-video-icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListToggle),home-video) + !String.IsEmpty(Skin.String(home-video.Icon))">$INFO[Skin.String(home-video.Icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-video)">special://skin/extras/homeicons/video.png</value>
-		<value condition="String.Contains(Window(settings).Property(ListToggle),home-movie) + !String.IsEmpty(Skin.String(home-movie-icon))">$INFO[Skin.String(home-movie-icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListToggle),home-movie) + !String.IsEmpty(Skin.String(home-movie.Icon))">$INFO[Skin.String(home-movie.Icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-movie)">special://skin/extras/homeicons/movie.png</value>
-		<value condition="String.Contains(Window(settings).Property(ListToggle),home-tvshows) + !String.IsEmpty(Skin.String(home-tvshows-icon))">$INFO[Skin.String(home-tvshows-icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListToggle),home-tvshows) + !String.IsEmpty(Skin.String(home-tvshows.Icon))">$INFO[Skin.String(home-tvshows.Icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-tvshows)">special://skin/extras/homeicons/tv.png</value>
-		<value condition="String.Contains(Window(settings).Property(ListToggle),home-music) + !String.IsEmpty(Skin.String(home-music-icon))">$INFO[Skin.String(home-music-icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListToggle),home-music) + !String.IsEmpty(Skin.String(home-music.Icon))">$INFO[Skin.String(home-music.Icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-music)">special://skin/extras/homeicons/music.png</value>
-		<value condition="String.Contains(Window(settings).Property(ListToggle),home-weather) + !String.IsEmpty(Skin.String(home-weather-icon))">$INFO[Skin.String(home-weather-icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListToggle),home-weather) + !String.IsEmpty(Skin.String(home-weather.Icon))">$INFO[Skin.String(home-weather.Icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-weather)">special://skin/extras/homeicons/weather.png</value>
-		<value condition="String.Contains(Window(settings).Property(ListToggle),home-musicvideo) + !String.IsEmpty(Skin.String(home-musicvideo-icon))">$INFO[Skin.String(home-musicvideo-icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListToggle),home-musicvideo) + !String.IsEmpty(Skin.String(home-musicvideo.Icon))">$INFO[Skin.String(home-musicvideo.Icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-musicvideo)">special://skin/extras/homeicons/musicvideo.png</value>
-		<value condition="String.Contains(Window(settings).Property(ListToggle),home-tv) + !String.IsEmpty(Skin.String(home-tv-icon))">$INFO[Skin.String(home-tv-icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListToggle),home-tv) + !String.IsEmpty(Skin.String(home-tv.Icon))">$INFO[Skin.String(home-tv.Icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-tv)">special://skin/extras/homeicons/livetv.png</value>
-		<value condition="String.Contains(Window(settings).Property(ListToggle),home-radio) + !String.IsEmpty(Skin.String(home-radio-icon))">$INFO[Skin.String(home-radio-icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListToggle),home-radio) + !String.IsEmpty(Skin.String(home-radio.Icon))">$INFO[Skin.String(home-radio.Icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-radio)">special://skin/extras/homeicons/radio.png</value>
-		<value condition="String.Contains(Window(settings).Property(ListToggle),home-programs) + !String.IsEmpty(Skin.String(home-programs-icon))">$INFO[Skin.String(home-programs-icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListToggle),home-programs) + !String.IsEmpty(Skin.String(home-programs.Icon))">$INFO[Skin.String(home-programs.Icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-programs)">special://skin/extras/homeicons/addons.png</value>
-		<value condition="String.Contains(Window(settings).Property(ListToggle),home-games) + !String.IsEmpty(Skin.String(home-games-icon))">$INFO[Skin.String(home-games-icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListToggle),home-games) + !String.IsEmpty(Skin.String(home-games.Icon))">$INFO[Skin.String(home-games.Icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-games)">special://skin/extras/homeicons/games.png</value>
-		<value condition="String.Contains(Window(settings).Property(ListToggle),home-photos) + !String.IsEmpty(Skin.String(home-photos-icon))">$INFO[Skin.String(home-photos-icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListToggle),home-photos) + !String.IsEmpty(Skin.String(home-photos.Icon))">$INFO[Skin.String(home-photos.Icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-photos)">special://skin/extras/homeicons/pics.png</value>
-		<value condition="String.Contains(Window(settings).Property(ListToggle),home-favorites) + !String.IsEmpty(Skin.String(home-favorites-icon))">$INFO[Skin.String(home-favorites-icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListToggle),home-favorites) + !String.IsEmpty(Skin.String(home-favorites.Icon))">$INFO[Skin.String(home-favorites.Icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-favorites)">special://skin/extras/homeicons/favs.png</value>
-		<value condition="String.Contains(Window(settings).Property(ListToggle),home-search) + !String.IsEmpty(Skin.String(home-search-icon))">$INFO[Skin.String(home-search-icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListToggle),home-search) + !String.IsEmpty(Skin.String(home-search.Icon))">$INFO[Skin.String(home-search.Icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-search)">special://skin/extras/homeicons/search.png</value>
-		<value condition="String.Contains(Window(settings).Property(ListToggle),home-filemanager) + !String.IsEmpty(Skin.String(home-filemanager-icon))">$INFO[Skin.String(home-filemanager-icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListToggle),home-filemanager) + !String.IsEmpty(Skin.String(home-filemanager.Icon))">$INFO[Skin.String(home-filemanager.Icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-filemanager)">special://skin/extras/homeicons/filemanager.png</value>
-		<value condition="String.Contains(Window(settings).Property(ListToggle),home-profile) + !String.IsEmpty(Skin.String(home-profile-icon))">$INFO[Skin.String(home-profile-icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListToggle),home-profile) + !String.IsEmpty(Skin.String(home-profile.Icon))">$INFO[Skin.String(home-profile.Icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-profile)">special://skin/extras/homeicons/users.png</value>
-		<value condition="String.Contains(Window(settings).Property(ListToggle),home-shutdown) + !String.IsEmpty(Skin.String(home-shutdown-icon))">$INFO[Skin.String(home-shutdown-icon)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListToggle),home-shutdown) + !String.IsEmpty(Skin.String(home-shutdown.Icon))">$INFO[Skin.String(home-shutdown.Icon)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListToggle),home-shutdown)">special://skin/extras/homeicons/quit.png</value>
 	</variable>
 	<variable name="CustomSkinAction">

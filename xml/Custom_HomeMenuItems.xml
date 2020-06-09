@@ -240,8 +240,8 @@
 					<onclick>SetProperty(SelectDialogType,selectuserplaylist,home)</onclick>
 					<onclick>ActivateWindow(1154)</onclick>
 					<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[31660])</onclick>
-					<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],DefaultPlaylist.png)</onclick>
-					<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/filemanager.png)</onclick>
+					<onclick condition="!Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],DefaultPlaylist.png)</onclick>
+					<onclick condition="Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/filemanager.png)</onclick>
 					<visible>!String.IsEmpty(Window(settings).Property(ListCustomBase)) + String.Contains(Window(settings).Property(CurrentType),$LOCALIZE[31660])</visible>
 				</control>
 				<control type="button" id="5012">
@@ -254,8 +254,8 @@
 					<onclick>SetProperty(SelectDialogType,selectskinplaylist,home)</onclick>
 					<onclick>ActivateWindow(1154)</onclick>
 					<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[31661])</onclick>
-					<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],DefaultPlaylist.png)</onclick>
-					<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/filemanager.png)</onclick>
+					<onclick condition="!Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],DefaultPlaylist.png)</onclick>
+					<onclick condition="Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/filemanager.png)</onclick>
 					<visible>!String.IsEmpty(Window(settings).Property(ListCustomBase)) + String.Contains(Window(settings).Property(CurrentType),$LOCALIZE[31661])</visible>
 				</control>
 				<control type="button" id="5013">
@@ -303,7 +303,7 @@
 					<top>0</top>
 					<width>1431</width>
 					<height>72</height>
-					<visible>Skin.HasSetting(homemenu-icon) + !String.IsEmpty(Window(settings).Property(ListToggle))</visible>
+					<visible>Skin.HasSetting(HomeMenuIcon) + !String.IsEmpty(Window(settings).Property(ListToggle))</visible>
 					<control type="button" id="5017">
 						<!-- Change Icon of icon menu default item -->
 						<width>1431</width>
@@ -312,7 +312,7 @@
 						<font>apptv22</font>
 						<onup>5014</onup>
 						<ondown>5018</ondown>
-						<onclick>Skin.SetImage($INFO[Window(settings).Property(ListToggle),,-icon])</onclick>
+						<onclick>Skin.SetImage($INFO[Window(settings).Property(ListToggle),,.Icon])</onclick>
 					</control>
 					<control type="label">
 						<left>150</left>
@@ -343,7 +343,7 @@
 					<label2>$VAR[CustomFavHeading]</label2>
 					<font>apptv22</font>
 					<onclick>Skin.SetString(CustomFav.Heading)</onclick>
-					<visible>Skin.HasSetting(homemenu-horizontal) + !String.IsEmpty(Window(settings).Property(ListToggle)) + String.IsEqual(Window(settings).Property(ListToggle),home-favorites)</visible>
+					<visible>Skin.HasSetting(HomeMenuHorizontal) + !String.IsEmpty(Window(settings).Property(ListToggle)) + String.IsEqual(Window(settings).Property(ListToggle),home-favorites)</visible>
 				</control>
 			</control>
 		</control>
@@ -380,7 +380,7 @@
 				<onclick>Skin.Reset($INFO[Window(settings).Property(ListCustomBase),,.Icon])</onclick>
 				<onclick>Skin.Reset($INFO[Window(settings).Property(ListCustomBase),,.Label])</onclick>
 				<onclick>Skin.Reset($INFO[Window(settings).Property(ListCustomBase),,.Show])</onclick>
-				<onclick>Skin.Reset($INFO[Window(settings).Property(ListToggle),,-icon])</onclick>
+				<onclick>Skin.Reset($INFO[Window(settings).Property(ListToggle),,.Icon])</onclick>
 				<onclick>Dialog.Close(1153)</onclick>
 			</control>
 		</control>
@@ -633,8 +633,8 @@
 						<label>$LOCALIZE[653] ($LOCALIZE[36912])</label>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],UpdateLibrary(video))</onclick>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[653] ($LOCALIZE[36912]))</onclick>
-						<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
-						<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>
+						<onclick condition="!Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
+						<onclick condition="Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>
 						<onclick>ClearProperty(ShowCommands,settings)</onclick>
 						<onclick>SetFocus(5000)</onclick>
 					</item>
@@ -643,8 +643,8 @@
 						<label>$LOCALIZE[653] ($LOCALIZE[36914])</label>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],UpdateLibrary(music))</onclick>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[653] ($LOCALIZE[36914]))</onclick>
-						<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
-						<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>
+						<onclick condition="!Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
+						<onclick condition="Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>
 						<onclick>ClearProperty(ShowCommands,settings)</onclick>
 						<onclick>SetFocus(5000)</onclick>
 					</item>
@@ -653,8 +653,8 @@
 						<label>$LOCALIZE[31936] ($LOCALIZE[36912])</label>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],CleanLibrary(video))</onclick>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[31936] ($LOCALIZE[36912]))</onclick>
-						<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
-						<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>
+						<onclick condition="!Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
+						<onclick condition="Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>
 						<onclick>ClearProperty(ShowCommands,settings)</onclick>
 						<onclick>SetFocus(5000)</onclick>
 					</item>
@@ -663,8 +663,8 @@
 						<label>$LOCALIZE[31936] ($LOCALIZE[36914])</label>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],CleanLibrary(music))</onclick>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[31936] ($LOCALIZE[36914]))</onclick>
-						<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
-						<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>
+						<onclick condition="!Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
+						<onclick condition="Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>
 						<onclick>ClearProperty(ShowCommands,settings)</onclick>
 						<onclick>SetFocus(5000)</onclick>
 					</item>
@@ -673,8 +673,8 @@
 						<label>$LOCALIZE[31937]</label>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],FullScreen)</onclick>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[31937])</onclick>
-						<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
-						<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>
+						<onclick condition="!Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
+						<onclick condition="Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>
 						<onclick>ClearProperty(ShowCommands,settings)</onclick>
 						<onclick>SetFocus(5000)</onclick>
 					</item>
@@ -683,8 +683,8 @@
 						<label>$LOCALIZE[31662]</label>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],Mute)</onclick>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[31662])</onclick>
-						<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
-						<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>
+						<onclick condition="!Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
+						<onclick condition="Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>
 						<onclick>ClearProperty(ShowCommands,settings)</onclick>
 						<onclick>SetFocus(5000)</onclick>
 					</item>
@@ -693,8 +693,8 @@
 						<label>$LOCALIZE[31663]</label>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],RipCD)</onclick>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[31663])</onclick>
-						<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
-						<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>
+						<onclick condition="!Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
+						<onclick condition="Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>
 						<onclick>ClearProperty(ShowCommands,settings)</onclick>
 						<onclick>SetFocus(5000)</onclick>
 					</item>
@@ -703,8 +703,8 @@
 						<label>$LOCALIZE[31664]</label>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],EjectTray())</onclick>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[31664])</onclick>
-						<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
-						<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>
+						<onclick condition="!Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
+						<onclick condition="Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>
 						<onclick>ClearProperty(ShowCommands,settings)</onclick>
 						<onclick>SetFocus(5000)</onclick>
 					</item>
@@ -713,8 +713,8 @@
 						<label>$LOCALIZE[31597]</label>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],RunScript(script.tv.show.next.aired))</onclick>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[31597])</onclick>
-						<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
-						<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/livetv.png)</onclick>
+						<onclick condition="!Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
+						<onclick condition="Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/livetv.png)</onclick>
 						<onclick>ClearProperty(ShowCommands,settings)</onclick>
 						<onclick>SetFocus(5000)</onclick>
 					</item>
@@ -723,8 +723,8 @@
 						<label>$LOCALIZE[341]</label>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],PlayDVD)</onclick>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[341])</onclick>
-						<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
-						<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>
+						<onclick condition="!Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
+						<onclick condition="Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>
 						<onclick>ClearProperty(ShowCommands,settings)</onclick>
 						<onclick>SetFocus(5000)</onclick>
 					</item>
@@ -733,8 +733,8 @@
 						<label>$LOCALIZE[478]</label>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],ActivateWindow(playercontrols))</onclick>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[478])</onclick>
-						<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
-						<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>
+						<onclick condition="!Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
+						<onclick condition="Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/command.png)</onclick>
 						<onclick>ClearProperty(ShowCommands,settings)</onclick>
 						<onclick>SetFocus(5000)</onclick>
 					</item>
@@ -743,8 +743,8 @@
 						<label>$LOCALIZE[19273]</label>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],ActivateWindow(tvguide))</onclick>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[19273])</onclick>
-						<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
-						<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/EPG.png)</onclick>
+						<onclick condition="!Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
+						<onclick condition="Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/EPG.png)</onclick>
 						<onclick>ClearProperty(ShowCommands,settings)</onclick>
 						<onclick>SetFocus(5000)</onclick>
 					</item>
@@ -753,8 +753,8 @@
 						<label>$LOCALIZE[19274]</label>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Path],ActivateWindow(radioguide))</onclick>
 						<onclick>Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$LOCALIZE[19274])</onclick>
-						<onclick condition="!Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
-						<onclick condition="Skin.HasSetting(homemenu-icon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/EPG.png)</onclick>
+						<onclick condition="!Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],icon-cmd.png)</onclick>
+						<onclick condition="Skin.HasSetting(HomeMenuIcon)">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons/EPG.png)</onclick>
 						<onclick>ClearProperty(ShowCommands,settings)</onclick>
 						<onclick>SetFocus(5000)</onclick>
 					</item>

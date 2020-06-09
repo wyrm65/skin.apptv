@@ -31,7 +31,7 @@
 				<height>84</height>
 				<font>apptv23</font>
 				<label>$LOCALIZE[31801]</label>
-				<onfocus>Skin.SetString(skinsettingmenu,startup)</onfocus>
+				<onfocus>Skin.SetString(SkinSettingMenu,startup)</onfocus>
 				<ondown>982</ondown>
 				<onleft>100</onleft>
 			</control>
@@ -43,7 +43,7 @@
 				<height>84</height>
 				<font>apptv23</font>
 				<label>$LOCALIZE[31802]</label>
-				<onfocus>Skin.SetString(skinsettingmenu,general)</onfocus>
+				<onfocus>Skin.SetString(SkinSettingMenu,general)</onfocus>
 				<onup>981</onup>
 				<ondown>983</ondown>
 				<onleft>200</onleft>
@@ -56,7 +56,7 @@
 				<height>84</height>
 				<font>apptv23</font>
 				<label>$LOCALIZE[31808]</label>
-				<onfocus>Skin.SetString(skinsettingmenu,widget)</onfocus>
+				<onfocus>Skin.SetString(SkinSettingMenu,widget)</onfocus>
 				<onup>982</onup>
 				<ondown>984</ondown>
 				<onleft>300</onleft>
@@ -69,7 +69,7 @@
 				<height>84</height>
 				<font>apptv23</font>
 				<label>$LOCALIZE[31806]</label>
-				<onfocus>Skin.SetString(skinsettingmenu,custom)</onfocus>
+				<onfocus>Skin.SetString(SkinSettingMenu,custom)</onfocus>
 				<onclick>ActivateWindow(1152)</onclick>
 				<onup>983</onup>
 				<ondown>985</ondown>
@@ -82,7 +82,7 @@
 				<height>84</height>
 				<font>apptv23</font>
 				<label>$LOCALIZE[31804]</label>
-				<onfocus>Skin.SetString(skinsettingmenu,background)</onfocus>
+				<onfocus>Skin.SetString(SkinSettingMenu,background)</onfocus>
 				<onup>984</onup>
 				<ondown>986</ondown>
 				<onleft>500</onleft>
@@ -95,7 +95,7 @@
 				<height>84</height>
 				<font>apptv23</font>
 				<label>$LOCALIZE[31805]</label>
-				<onfocus>Skin.SetString(skinsettingmenu,sources)</onfocus>
+				<onfocus>Skin.SetString(SkinSettingMenu,sources)</onfocus>
 				<onup>985</onup>
 				<ondown>987</ondown>
 				<onleft>600</onleft>
@@ -108,7 +108,7 @@
 				<height>84</height>
 				<font>apptv23</font>
 				<label>$LOCALIZE[31556] $LOCALIZE[24001]</label>
-				<onfocus>Skin.SetString(skinsettingmenu,addons)</onfocus>
+				<onfocus>Skin.SetString(SkinSettingMenu,addons)</onfocus>
 				<onup>986</onup>
 				<ondown>988</ondown>
 				<onleft>700</onleft>
@@ -121,7 +121,7 @@
 				<height>84</height>
 				<font>apptv23</font>
 				<label>$LOCALIZE[31807]</label>
-				<onfocus>Skin.SetString(skinsettingmenu,support)</onfocus>
+				<onfocus>Skin.SetString(SkinSettingMenu,support)</onfocus>
 				<onup>987</onup>
 				<onleft>800</onleft>
 			</control>
@@ -133,12 +133,12 @@
 			<height>813</height>
 			<onright>998</onright>
 			<animation condition="!Control.HasFocus(1223) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-			<visible>$EXP[isEnabledScrollbar] + !Skin.String(skinsettingmenu,custom)</visible>
+			<visible>$EXP[isEnabledScrollbar] + !Skin.String(SkinSettingMenu,custom)</visible>
 		</control>
 		<control type="group" id="998">
 			<control type="group" id="100">
 				<!-- Startup Settings -->
-				<visible>Skin.String(skinsettingmenu,startup)</visible>
+				<visible>Skin.String(SkinSettingMenu,startup)</visible>
 				<control type="image">
 					<!-- Startup Settings Button Image -->
 					<left>1410</left>
@@ -227,7 +227,7 @@
 			</control>
 			<control type="group">
 				<!-- General Settings -->
-				<visible>Skin.String(skinsettingmenu,general)</visible>
+				<visible>Skin.String(SkinSettingMenu,general)</visible>
 				<control type="image">
 					<!-- General Settings Button Image -->
 					<left>1410</left>
@@ -365,7 +365,7 @@
 			</control>
 			<control type="group" id="300">
 				<!-- Widget Settings -->
-				<visible>Skin.String(skinsettingmenu,widget)</visible>
+				<visible>Skin.String(SkinSettingMenu,widget)</visible>
 				<control type="image">
 					<!-- Background Settings Button Image -->
 					<left>1410</left>
@@ -434,7 +434,7 @@
 						||Skin.Reset(widget-movie.Icon)||Skin.Reset(widget-movie.Label)||Skin.Reset(widget-movie.Type)
 						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-movie))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31026])</onclick>
-						<visible>!Skin.HasSetting(homemenu-vertical)</visible>
+						<visible>!Skin.HasSetting(HomeMenuVertical)</visible>
 					</control>
 					<control type="button" id="308">
 						<!-- TVShow Widget type -->
@@ -476,10 +476,10 @@
 						||Skin.Reset(widget-tvshow.Icon)||Skin.Reset(widget-tvshow.Label)||Skin.Reset(widget-tvshow.Type)
 						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-tvshow))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31027])</onclick>
-						<visible>!Skin.HasSetting(homemenu-vertical)</visible>
+						<visible>!Skin.HasSetting(HomeMenuVertical)</visible>
 					</control>
 					<control type="group" id="309">
-						<visible>!Skin.HasSetting(homemenu-vertical)</visible>
+						<visible>!Skin.HasSetting(HomeMenuVertical)</visible>
 						<height>84</height>
 						<width>1328</width>
 						<control type="togglebutton" id="310">
@@ -543,7 +543,7 @@
 						||Skin.Reset(widget-music.Icon)||Skin.Reset(widget-music.Label)||Skin.Reset(widget-music.Type)
 						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-music))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[2])</onclick>
-						<visible>!Skin.HasSetting(homemenu-vertical)</visible>
+						<visible>!Skin.HasSetting(HomeMenuVertical)</visible>
 					</control>
 					<control type="button" id="313">
 						<!-- Broadcast Widget type -->
@@ -569,7 +569,7 @@
 						||Skin.Reset(widget-broadcast.Icon)||Skin.Reset(widget-broadcast.Label)||Skin.Reset(widget-broadcast.Type)
 						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-broadcast))</onclick>	
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31031])</onclick>
-						<visible>Skin.HasSetting(homemenu-horizontal)</visible>
+						<visible>Skin.HasSetting(HomeMenuHorizontal)</visible>
 					</control>
 					<control type="button" id="314">
 						<!-- Addon Widget type -->
@@ -593,7 +593,7 @@
 						||Skin.Reset(widget-addon.Icon)||Skin.Reset(widget-addon.Label)||Skin.Reset(widget-addon.Type)
 						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-addon))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[24001])</onclick>
-						<visible>Skin.HasSetting(homemenu-horizontal)</visible>
+						<visible>Skin.HasSetting(HomeMenuHorizontal)</visible>
 					</control>
 					<control type="button" id="315">
 						<!-- Favourites Widget type -->
@@ -617,7 +617,7 @@
 						||Skin.Reset(widget-favourite.Icon)||Skin.Reset(widget-favourite.Label)||Skin.Reset(widget-favourite.Type)
 						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-favourite))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[1036])</onclick>
-						<visible>Skin.HasSetting(homemenu-horizontal)</visible>
+						<visible>Skin.HasSetting(HomeMenuHorizontal)</visible>
 					</control>
 					<control type="button" id="325">
 						<!-- Reset Above Settings button -->
@@ -637,7 +637,7 @@
 			</control>
 			<control type="group" id="400">
 				<!-- Home Menu Settings -->
-				<visible>Skin.String(skinsettingmenu,custom)</visible>
+				<visible>Skin.String(SkinSettingMenu,custom)</visible>
 				<control type="image">
 					<!-- Skin Logo -->
 					<left>225</left>
@@ -650,7 +650,7 @@
 			</control>
 			<control type="group" id="500">
 				<!-- Background Settings -->
-				<visible>Skin.String(skinsettingmenu,background)</visible>
+				<visible>Skin.String(SkinSettingMenu,background)</visible>
 				<control type="image">
 					<!-- Background Settings Button Image -->
 					<left>1410</left>
@@ -753,7 +753,7 @@
 			</control>
 			<control type="group" id="600">
 				<!-- Media Entry Points Settings -->
-				<visible>Skin.String(skinsettingmenu,sources)</visible>
+				<visible>Skin.String(SkinSettingMenu,sources)</visible>
 				<control type="image">
 					<!-- Media Entry Points Settings Button Image -->
 					<left>1410</left>
@@ -974,7 +974,7 @@
 			</control>
 			<control type="group" id="700">
 				<!-- Supported Addons Settings -->
-				<visible>Skin.String(skinsettingmenu,addons)</visible>
+				<visible>Skin.String(SkinSettingMenu,addons)</visible>
 				<control type="image">
 					<!-- Media Entry Points Settings Button Image -->
 					<left>1410</left>
@@ -1223,7 +1223,7 @@
 			</control>
 			<control type="group" id="800">
 				<!-- Support Settings -->
-				<visible>Skin.String(skinsettingmenu,support)</visible>
+				<visible>Skin.String(SkinSettingMenu,support)</visible>
 				<control type="image">
 					<!-- Support Settings Button Image -->
 					<left>1410</left>
