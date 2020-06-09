@@ -9,7 +9,7 @@
 			<include>fullscreenimage</include>
 			<texture colordiffuse="mask-background">background-mask.png</texture>
 			<aspectratio>scale</aspectratio>
-			<visible>!String.IsEmpty(Window(home).Property(ShutdownKodi))</visible>
+			<visible>!String.IsEmpty(Window(home).Property(ShutdownKodi)) + ![Window.IsVisible(shutdownmenu)]</visible>
 		</control>
 		<control type="image">
 			<!-- Global debug grid -->

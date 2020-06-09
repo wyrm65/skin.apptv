@@ -30,7 +30,20 @@
 			<label>$INFO[ListItem.Label]</label>
 			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 		</control>
-	</include>	
+	</include>
+	<include name="menu-hilite">
+		<param name="fadecondition" default="false"/>
+		<definition>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>315</width>
+				<height>102</height>
+				<texture>menu-focus.png</texture>
+				<animation condition="$PARAM[fadecondition]" effect="fade" start="100" end="65">Conditional</animation>
+			</control>
+		</definition>
+	</include>
 	<include name="HorzHomeMenu">
 		<include file="Includes_Shelf.xml">homeshelf-background</include>
 		<!-- Show time on home screen -->
@@ -248,14 +261,8 @@
 				</control>
 				<control type="group">
 					<visible>Control.HasFocus(9100) | Control.HasFocus(9130)</visible>
-					<control type="image">
-						<!-- Menu Heading Hilite-->
-						<left>0</left>
-						<top>0</top>
-						<width>315</width>
-						<height>102</height>
-						<texture>menu-focus.png</texture>
-					</control>
+					<!-- Menu Heading Hilite-->
+					<include content="menu-hilite"/>
 					<!-- Markers for off screen menu items -->
 					<include content="page-offscreen-vertical">
 						<param name="indicator1left" value="144"/>
@@ -369,15 +376,10 @@
 				</control>
 				<control type="group">
 					<visible>Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180)</visible>
-					<control type="image">
-						<!-- Menu Heading Hilite-->
-						<left>0</left>
-						<top>0</top>
-						<width>315</width>
-						<height>102</height>
-						<texture>menu-focus.png</texture>
-						<animation condition="Control.HasFocus(9160)" effect="fade" start="100" end="65">Conditional</animation>
-					</control>
+					<!-- Menu Heading Hilite-->
+					<include content="menu-hilite">
+						<parm name="fadecondition" value="Control.HasFocus(9160)"/>
+					</include>
 					<!-- Markers for control area items -->
 					<include content="page-offscreen-vertical">
 						<param name="indicator1left" value="144"/>
@@ -503,15 +505,10 @@
 				</control>
 				<control type="group">
 					<visible>Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230)</visible>
-					<control type="image">
-						<!-- Menu Heading Hilite-->
-						<left>0</left>
-						<top>0</top>
-						<width>315</width>
-						<height>102</height>
-						<texture>menu-focus.png</texture>
-						<animation condition="Control.HasFocus(9210)" effect="fade" start="100" end="65">Conditional</animation>
-					</control>
+					<!-- Menu Heading Hilite-->
+					<include content="menu-hilite">
+						<parm name="fadecondition" value="Control.HasFocus(9210)"/>
+					</include>
 					<!-- Markers for control area items -->
 					<include content="page-offscreen-vertical">
 						<param name="indicator1left" value="144"/>
@@ -636,15 +633,10 @@
 				</control>
 				<control type="group">
 					<visible>Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9515) | Control.HasFocus(9530)</visible>
-					<control type="image">
-						<!-- Menu Heading Hilite-->
-						<left>0</left>
-						<top>0</top>
-						<width>315</width>
-						<height>102</height>
-						<texture>menu-focus.png</texture>
-						<animation condition="Control.HasFocus(9510)" effect="fade" start="100" end="65">Conditional</animation>
-					</control>
+					<!-- Menu Heading Hilite-->
+					<include content="menu-hilite">
+						<parm name="fadecondition" value="Control.HasFocus(9510)"/>
+					</include>
 					<!-- Markers for control area items -->
 					<include content="page-offscreen-vertical">
 						<param name="indicator1left" value="144"/>
@@ -807,14 +799,8 @@
 				</control>
 				<control type="group">
 					<visible>Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9565) | Control.HasFocus(9580)</visible>
-					<control type="image">
-						<!-- Menu Heading Hilite-->
-						<left>0</left>
-						<top>0</top>
-						<width>315</width>
-						<height>102</height>
-						<texture>menu-focus.png</texture>
-					</control>
+					<!-- Menu Heading Hilite-->
+					<include content="menu-hilite"/>
 					<!-- Markers for control area items -->
 					<include content="page-offscreen-vertical">
 						<param name="indicator1left" value="144"/>
@@ -933,15 +919,10 @@
 				</control>
 				<control type="group">
 					<visible>Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280)</visible>
-					<control type="image">
-						<!-- Menu Heading Hilite-->
-						<left>0</left>
-						<top>0</top>
-						<width>315</width>
-						<height>102</height>
-						<texture>menu-focus.png</texture>
-						<animation condition="Control.HasFocus(9260)" effect="fade" start="100" end="65">Conditional</animation>
-					</control>
+					<!-- Menu Heading Hilite-->
+					<include content="menu-hilite">
+						<parm name="fadecondition" value="Control.HasFocus(9260)"/>
+					</include>
 					<!-- Markers for control area items -->
 					<include content="page-offscreen-vertical">
 						<param name="indicator1left" value="144"/>
@@ -1071,14 +1052,10 @@
 					<texturenofocus>blank.png</texturenofocus>
 					<onfocus>SetFocus(9300)</onfocus>
 				</control>
-				<control type="image">
-					<!-- Menu Heading Hilite-->
-					<left>0</left>
-					<top>0</top>
-					<width>315</width>
-					<height>102</height>
-					<texture>menu-focus.png</texture>
+				<control type="group">
 					<visible>Control.HasFocus(9300) | Control.HasFocus(9330)</visible>
+					<!-- Menu Heading Hilite-->
+					<include content="menu-hilite"/>
 				</control>
 				<control type="label">
 					<!-- Menu Heading -->
@@ -1156,15 +1133,10 @@
 				</control>
 				<control type="group">
 					<visible>Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9380)</visible>
-					<control type="image">
-						<!-- Menu Heading Hilite-->
-						<left>0</left>
-						<top>0</top>
-						<width>315</width>
-						<height>102</height>
-						<texture>menu-focus.png</texture>
-						<animation condition="Control.HasFocus(9360)" effect="fade" start="100" end="65">Conditional</animation>
-					</control>
+					<!-- Menu Heading Hilite-->
+					<include content="menu-hilite">
+						<parm name="fadecondition" value="Control.HasFocus(9360)"/>
+					</include>
 					<!-- Markers for control area items -->
 					<include content="page-offscreen-vertical">
 						<param name="indicator1left" value="144"/>
@@ -1304,14 +1276,10 @@
 					<texturenofocus>blank.png</texturenofocus>
 					<onfocus>SetFocus(9600)</onfocus>
 				</control>
-				<control type="image">
-					<!-- Menu Heading Hilite-->
-					<left>0</left>
-					<top>0</top>
-					<width>315</width>
-					<height>102</height>
-					<texture>menu-focus.png</texture>
+				<control type="group">
 					<visible>Control.HasFocus(9600) | Control.HasFocus(9630)</visible>
+					<!-- Menu Heading Hilite-->
+					<include content="menu-hilite"/>
 				</control>
 				<control type="label">
 					<!-- Menu Heading -->
@@ -1416,14 +1384,10 @@
 					<texturenofocus>blank.png</texturenofocus>
 					<onfocus>SetFocus(9400)</onfocus>
 				</control>
-				<control type="image">
-					<!-- Menu Heading Hilite-->
-					<left>0</left>
-					<top>0</top>
-					<width>315</width>
-					<height>102</height>
-					<texture>menu-focus.png</texture>
+				<control type="group">
 					<visible>Control.HasFocus(9400) | Control.HasFocus(9430)</visible>
+					<!-- Menu Heading Hilite-->
+					<include content="menu-hilite"/>
 				</control>
 				<control type="label">
 					<!-- Menu Heading -->
@@ -1497,14 +1461,8 @@
 				</control>
 				<control type="group">
 					<visible>Control.HasFocus(9450) | Control.HasFocus(9480)</visible>
-					<control type="image">
-						<!-- Menu Heading Hilite-->
-						<left>0</left>
-						<top>0</top>
-						<width>315</width>
-						<height>102</height>
-						<texture>menu-focus.png</texture>
-					</control>
+					<!-- Menu Heading Hilite-->
+					<include content="menu-hilite"/>
 					<!-- Markers for control area items -->
 					<include content="page-offscreen-vertical">
 						<param name="indicator1left" value="144"/>
@@ -1600,7 +1558,7 @@
 							<visible>!Skin.HasSetting(home-shutdown)</visible>
 							<label>$LOCALIZE[13009]</label>
 							<label2>$LOCALIZE[13000]</label2>
-							<onclick condition="!String.IsEqual(Skin.String(home-quitaction),$LOCALIZE[31558])">SetProperty(ShutdownKodi,true,home)</onclick>
+							<onclick>SetProperty(ShutdownKodi,true,home)</onclick>
 							<onclick>$VAR[QuitAction]</onclick>
 						</item>
 					</content>
