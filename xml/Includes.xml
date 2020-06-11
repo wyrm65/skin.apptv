@@ -312,6 +312,27 @@
 			<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
 		</control>
 	</include>
+	<include name="horzhomefocusitem">
+		<control type="image">
+			<left>0</left>
+			<top>0</top>
+			<width>315</width>
+			<height>63</height>
+			<texture border="9">button-default-focus.png</texture>
+			<animation effect="fade" start="100" end="60" condition="String.IsEmpty(ListItem.Property(isActive))">Conditional</animation>
+		</control>
+		<control type="label">
+			<left>12</left>
+			<top>12</top>
+			<width>291</width>
+			<height>33</height>
+			<font>apptv22</font>
+			<align>center</align>
+			<label fallback="20333">$INFO[ListItem.Label]</label>
+			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+			<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
+		</control>
+	</include>
 	<include name="shelf-defaulticon">
 		<param name="defaulticon"/>
 		<definition>
