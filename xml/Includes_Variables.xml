@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<!-- Skin Variable section -->
 	<variable name="BackgndImage">
 		<value condition="Skin.HasSetting(background-slideshow) + Player.HasAudio + !String.IsEmpty(Window(visualisation).Property(ArtistSlideshow.Image))">$INFO[Window(visualisation).Property(ArtistSlideshow.Image)]</value>
 		<value condition="Skin.HasSetting(animated-artwork) + !String.IsEmpty(ListItem.Art(animatedfanart))">$INFO[ListItem.Art(animatedfanart)]</value>
@@ -65,12 +64,25 @@
 		<value condition="String.IsEqual(ListItem.DBTYPE,episode)">plugin://script.embuary.helper?info=getcast&amp;type=tvshow&amp;dbid=$INFO[ListItem.DBID]&amp;idtype=episode</value>
 	</variable>
 	<variable name="VideoInfoIcons">
-		<value condition="String.IsEqual(ListItem.DBTYPE,movie)">plugin://script.embuary.helper/?info=getsimilar&amp;dbid=$INFO[ListItem.DBID]&amp;type=movie</value>
-		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)">plugin://script.embuary.helper/?info=getsimilar&amp;dbid=$INFO[ListItem.DBID]&amp;type=tvshow</value>
-	</variable>
-	<variable name="DefaultVideoInfoIcons">
+		<value condition="String.IsEqual(ListItem.DBTYPE,movie) + String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31960])">plugin://script.embuary.helper/?info=getsimilar&amp;dbid=$INFO[ListItem.DBID]&amp;type=movie</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,movie) + String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31971])">plugin://script.embuary.helper/?info=getinprogress&amp;type=movie&amp;pos=0</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,movie) + String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31972])">plugin://script.embuary.helper/?info=getbygenre&amp;unwatched=True&amp;type=movie</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,movie) + String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31974])">videodb://movies/sets/</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,movie) + String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31661]) | String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31660]) | String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31652])">$INFO[Skin.String(widget-infomovie.List)]</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,movie)">videodb://recentlyaddedmovies/</value>
+		<value condition="[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)] + 
+		String.IsEqual(Skin.String(widget-infotvshow),$LOCALIZE[31955])">plugin://script.embuary.helper/?info=getsimilar&amp;dbid=$INFO[ListItem.DBID]&amp;type=tvshow</value>
+		<value condition="[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)] + 
+		String.IsEqual(Skin.String(widget-infotvshow),$LOCALIZE[31975])">plugin://script.embuary.helper/?info=getinprogress&amp;type=tvshow</value>
+		<value condition="[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)] +
+		String.IsEqual(Skin.String(widget-infotvshow),$LOCALIZE[31976])">plugin://script.embuary.helper/?info=getnextup</value>
+		<value condition="[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)] +
+		String.IsEqual(Skin.String(widget-infotvshow),$LOCALIZE[31977])">plugin://script.embuary.helper/?info=getnewshows</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)">videodb://tvshows/titles/</value>
+		<value condition="[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)] + 
+		[String.IsEqual(Skin.String(widget-infotvshow),$LOCALIZE[31661]) | String.IsEqual(Skin.String(widget-infotvshow),$LOCALIZE[31660])
+		| String.IsEqual(Skin.String(widget-infotvshow),$LOCALIZE[31652])]">$INFO[Skin.String(widget-infotvshow.List)]</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)">videodb://recentlyaddedepisodes/</value>
 	</variable>
 	<variable name="MPAARatingIcons">
 		<value condition="Skin.HasSetting(defaultmpaa-locale)">$INFO[Listitem.MPAA,resource://resource.images.classificationicons.colour/,.png]</value>
@@ -1176,6 +1188,7 @@
 		<value condition="System.Platform.Android">$LOCALIZE[31566] $LOCALIZE[31572]</value>
 		<value condition="System.Platform.Linux.RaspberryPi">$LOCALIZE[31566] $LOCALIZE[31571]</value>
 		<value condition="System.Platform.Linux">$LOCALIZE[31566] $LOCALIZE[31567]</value>
+		<value condition="System.Platform.UWP">$LOCALIZE[31566] $LOCALIZE[31574]</value>
 		<value>$LOCALIZE[13205]</value>
 		<!-- Unknown platform type -->
 	</variable>
@@ -1847,6 +1860,8 @@
 		<value condition="Control.HasFocus(313)">$LOCALIZE[31320]</value>
 		<value condition="Control.HasFocus(314)">$LOCALIZE[31319]</value>
 		<value condition="Control.HasFocus(315)">$LOCALIZE[31322]</value>
+		<value condition="Control.HasFocus(316)">$LOCALIZE[31325]</value>
+		<value condition="Control.HasFocus(317)">$LOCALIZE[31326]</value>
 		<value condition="Control.HasFocus(502) | Control.HasFocus(503)">$LOCALIZE[31340]</value>
 		<value condition="Control.HasFocus(504)">$LOCALIZE[31341]</value>
 		<value condition="Control.HasFocus(505)">$LOCALIZE[31342]</value>
