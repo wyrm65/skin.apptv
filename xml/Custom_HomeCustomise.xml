@@ -32,10 +32,10 @@
 			<textwidth>465</textwidth>
 			<label>$LOCALIZE[31900] - $VAR[MenuType]</label>
 			<font>apptv20</font>
-			<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31952])</onclick>
-			<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetBool(HomeMenuHorizontal)||Skin.Reset(HomeMenuVertical)||Skin.Reset(HomeMenuIcon)||ReloadSkin())</onclick>
-			<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31953])</onclick>
-			<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetBool(HomeMenuIcon)||Skin.Reset(HomeMenuVertical)||Skin.Reset(HomeMenuHorizontal)||ReloadSkin())</onclick>
+			<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31953])</onclick>
+			<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetBool(HomeMenuIcon)||Skin.Reset(HomeMenuVertical)||Skin.Reset(HomeMenuHorizontal)||ReloadSkin())</onclick>
+			<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31952])</onclick>
+			<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetBool(HomeMenuHorizontal)||Skin.Reset(HomeMenuVertical)||Skin.Reset(HomeMenuIcon)||ReloadSkin())</onclick>
 			<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31951])</onclick>
 			<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetBool(HomeMenuVertical)||Skin.Reset(HomeMenuHorizontal)||Skin.Reset(HomeMenuIcon)||ReloadSkin())</onclick>
 			<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31900])</onclick>
@@ -123,26 +123,15 @@
 								<texture>menu-focus.png</texture>
 								<animation effect="fade" start="100" end="35" condition="Skin.HasSetting(home-video)">Conditional</animation>
 							</control>
-							<control type="group">
-								<!-- Markers for control area items -->
-								<animation effect="fade" start="100" end="35" condition="Skin.HasSetting(home-video)">Conditional</animation>
-								<control type="image">
-									<left>144</left>
-									<top>102</top>
-									<height>24</height>
-									<width>24</width>
-									<texture>scroll-up.png</texture>
-									<visible>Container(9100).HasPrevious</visible>
-								</control>
-								<control type="image">
-									<left>144</left>
-									<top>504</top>
-									<height>24</height>
-									<width>24</width>
-									<texture>scroll-down.png</texture>
-									<visible>Container(9100).HasNext</visible>
-								</control>
-							</control>
+							<!-- Markers for off screen menu items -->
+							<include content="page-offscreen-vertical">
+								<param name="indicator1left" value="144"/>
+								<param name="indicator1top" value="102"/>
+								<param name="indicator2left" value="144"/>
+								<param name="indicator2top" value="504"/>
+								<param name="indicatorsize" value="24"/>
+								<param name="indicatorcontainer" value="9100"/>
+							</include>
 						</control>
 						<control type="label">
 							<!-- Menu Heading -->
@@ -171,15 +160,7 @@
 								<include>horzhomelistitem</include>
 							</itemlayout>
 							<focusedlayout height="63" width="315">
-								<control type="image">
-									<left>0</left>
-									<top>0</top>
-									<width>315</width>
-									<height>63</height>
-									<texture border="9">button-default-focus.png</texture>
-									<animation effect="fade" start="100" end="60" condition="String.IsEmpty(ListItem.Property(isActive))">Conditional</animation>
-								</control>
-								<include>horzhomelistitem</include>
+								<include>horzhomefocusitem</include>
 							</focusedlayout>
 							<content>
 								<include content="listpanelitems">
@@ -253,25 +234,15 @@
 								<height>99</height>
 								<texture>menu-focus.png</texture>
 							</control>
-							<control type="group">
-								<!-- Markers for control area items -->
-								<control type="image">
-									<left>144</left>
-									<top>102</top>
-									<height>24</height>
-									<width>24</width>
-									<texture>scroll-up.png</texture>
-									<visible>Container(9150).HasPrevious</visible>
-								</control>
-								<control type="image">
-									<left>144</left>
-									<top>504</top>
-									<height>24</height>
-									<width>24</width>
-									<texture>scroll-down.png</texture>
-									<visible>Container(9150).HasNext</visible>
-								</control>
-							</control>
+							<!-- Markers for control area items -->
+							<include content="page-offscreen-vertical">
+								<param name="indicator1left" value="144"/>
+								<param name="indicator1top" value="102"/>
+								<param name="indicator2left" value="144"/>
+								<param name="indicator2top" value="504"/>
+								<param name="indicatorsize" value="24"/>
+								<param name="indicatorcontainer" value="9150"/>
+							</include>
 						</control>
 						<control type="label">
 							<!-- Menu Heading -->
@@ -299,15 +270,7 @@
 								<include>horzhomelistitem</include>
 							</itemlayout>
 							<focusedlayout height="63" width="315">
-								<control type="image">
-									<left>0</left>
-									<top>0</top>
-									<width>315</width>
-									<height>63</height>
-									<texture border="9">button-default-focus.png</texture>
-									<animation effect="fade" start="100" end="60" condition="String.IsEmpty(ListItem.Property(isActive))">Conditional</animation>
-								</control>
-								<include>horzhomelistitem</include>
+								<include>horzhomefocusitem</include>
 							</focusedlayout>
 							<content>
 								<include content="listpanelitems">
@@ -388,25 +351,15 @@
 								<height>99</height>
 								<texture>menu-focus.png</texture>
 							</control>
-							<control type="group">
-								<!-- Markers for control area items -->
-								<control type="image">
-									<left>144</left>
-									<top>102</top>
-									<height>24</height>
-									<width>24</width>
-									<texture>scroll-up.png</texture>
-									<visible>Container(9200).HasPrevious</visible>
-								</control>
-								<control type="image">
-									<left>144</left>
-									<top>504</top>
-									<height>24</height>
-									<width>24</width>
-									<texture>scroll-down.png</texture>
-									<visible>Container(9200).HasNext</visible>
-								</control>
-							</control>
+							<!-- Markers for control area items -->
+							<include content="page-offscreen-vertical">
+								<param name="indicator1left" value="144"/>
+								<param name="indicator1top" value="102"/>
+								<param name="indicator2left" value="144"/>
+								<param name="indicator2top" value="504"/>
+								<param name="indicatorsize" value="24"/>
+								<param name="indicatorcontainer" value="9200"/>
+							</include>
 						</control>
 						<control type="label">
 							<!-- Menu Heading -->
@@ -434,15 +387,7 @@
 								<include>horzhomelistitem</include>
 							</itemlayout>
 							<focusedlayout height="63" width="315">
-								<control type="image">
-									<left>0</left>
-									<top>0</top>
-									<width>315</width>
-									<height>63</height>
-									<texture border="9">button-default-focus.png</texture>
-									<animation effect="fade" start="100" end="60" condition="String.IsEmpty(ListItem.Property(isActive))">Conditional</animation>
-								</control>
-								<include>horzhomelistitem</include>
+								<include>horzhomefocusitem</include>
 							</focusedlayout>
 							<content>
 								<include content="listpanelitems">
@@ -523,25 +468,15 @@
 								<height>99</height>
 								<texture>menu-focus.png</texture>
 							</control>
-							<control type="group">
-								<!-- Markers for control area items -->
-								<control type="image">
-									<left>144</left>
-									<top>102</top>
-									<height>24</height>
-									<width>24</width>
-									<texture>scroll-up.png</texture>
-									<visible>Container(9500).HasPrevious</visible>
-								</control>
-								<control type="image">
-									<left>144</left>
-									<top>504</top>
-									<height>24</height>
-									<width>24</width>
-									<texture>scroll-down.png</texture>
-									<visible>Container(9500).HasNext</visible>
-								</control>
-							</control>
+							<!-- Markers for control area items -->
+							<include content="page-offscreen-vertical">
+								<param name="indicator1left" value="144"/>
+								<param name="indicator1top" value="102"/>
+								<param name="indicator2left" value="144"/>
+								<param name="indicator2top" value="504"/>
+								<param name="indicatorsize" value="24"/>
+								<param name="indicatorcontainer" value="9500"/>
+							</include>
 						</control>
 						<control type="label">
 							<!-- Menu Heading -->
@@ -569,15 +504,7 @@
 								<include>horzhomelistitem</include>
 							</itemlayout>
 							<focusedlayout height="63" width="315">
-								<control type="image">
-									<left>0</left>
-									<top>0</top>
-									<width>315</width>
-									<height>63</height>
-									<texture border="9">button-default-focus.png</texture>
-									<animation effect="fade" start="100" end="60" condition="String.IsEmpty(ListItem.Property(isActive))">Conditional</animation>
-								</control>
-								<include>horzhomelistitem</include>
+								<include>horzhomefocusitem</include>
 							</focusedlayout>
 							<content>
 								<include content="listpanelitems">
@@ -691,25 +618,15 @@
 								<height>99</height>
 								<texture>menu-focus.png</texture>
 							</control>
-							<control type="group">
-								<!-- Markers for control area items -->
-								<control type="image">
-									<left>144</left>
-									<top>102</top>
-									<height>24</height>
-									<width>24</width>
-									<texture>scroll-up.png</texture>
-									<visible>Container(9550).HasPrevious</visible>
-								</control>
-								<control type="image">
-									<left>144</left>
-									<top>504</top>
-									<height>24</height>
-									<width>24</width>
-									<texture>scroll-down.png</texture>
-									<visible>Container(9550).HasNext</visible>
-								</control>
-							</control>
+							<!-- Markers for control area items -->
+							<include content="page-offscreen-vertical">
+								<param name="indicator1left" value="144"/>
+								<param name="indicator1top" value="102"/>
+								<param name="indicator2left" value="144"/>
+								<param name="indicator2top" value="504"/>
+								<param name="indicatorsize" value="24"/>
+								<param name="indicatorcontainer" value="9550"/>
+							</include>
 						</control>
 						<control type="label">
 							<!-- Menu Heading -->
@@ -737,15 +654,7 @@
 								<include>horzhomelistitem</include>
 							</itemlayout>
 							<focusedlayout height="63" width="315">
-								<control type="image">
-									<left>0</left>
-									<top>0</top>
-									<width>315</width>
-									<height>63</height>
-									<texture border="9">button-default-focus.png</texture>
-									<animation effect="fade" start="100" end="60" condition="String.IsEmpty(ListItem.Property(isActive))">Conditional</animation>
-								</control>
-								<include>horzhomelistitem</include>
+								<include>horzhomefocusitem</include>
 							</focusedlayout>
 							<content>
 								<include content="listpanelitems">
@@ -819,25 +728,15 @@
 								<height>99</height>
 								<texture>menu-focus.png</texture>
 							</control>
-							<control type="group">
-								<!-- Markers for control area items -->
-								<control type="image">
-									<left>144</left>
-									<top>102</top>
-									<height>24</height>
-									<width>24</width>
-									<texture>scroll-up.png</texture>
-									<visible>Container(9250).HasPrevious</visible>
-								</control>
-								<control type="image">
-									<left>144</left>
-									<top>504</top>
-									<height>24</height>
-									<width>24</width>
-									<texture>scroll-down.png</texture>
-									<visible>Container(9250).HasNext</visible>
-								</control>
-							</control>
+							<!-- Markers for control area items -->
+							<include content="page-offscreen-vertical">
+								<param name="indicator1left" value="144"/>
+								<param name="indicator1top" value="102"/>
+								<param name="indicator2left" value="144"/>
+								<param name="indicator2top" value="504"/>
+								<param name="indicatorsize" value="24"/>
+								<param name="indicatorcontainer" value="9250"/>
+							</include>
 						</control>
 						<control type="label">
 							<!-- Menu Heading -->
@@ -865,15 +764,7 @@
 								<include>horzhomelistitem</include>
 							</itemlayout>
 							<focusedlayout height="63" width="315">
-								<control type="image">
-									<left>0</left>
-									<top>0</top>
-									<width>315</width>
-									<height>63</height>
-									<texture border="9">button-default-focus.png</texture>
-									<animation effect="fade" start="100" end="60" condition="String.IsEmpty(ListItem.Property(isActive))">Conditional</animation>
-								</control>
-								<include>horzhomelistitem</include>
+								<include>horzhomefocusitem</include>
 							</focusedlayout>
 							<content>
 								<include content="listpanelitems">
@@ -986,15 +877,7 @@
 								<include>horzhomelistitem</include>
 							</itemlayout>
 							<focusedlayout height="63" width="315">
-								<control type="image">
-									<left>0</left>
-									<top>0</top>
-									<width>315</width>
-									<height>63</height>
-									<texture border="9">button-default-focus.png</texture>
-									<animation effect="fade" start="100" end="60" condition="String.IsEmpty(ListItem.Property(isActive))">Conditional</animation>
-								</control>
-								<include>horzhomelistitem</include>
+								<include>horzhomefocusitem</include>
 							</focusedlayout>
 							<content>
 								<include content="listpanelitems">
@@ -1040,25 +923,15 @@
 								<height>99</height>
 								<texture>menu-focus.png</texture>
 							</control>
-							<control type="group">
-								<!-- Markers for control area items -->
-								<control type="image">
-									<left>144</left>
-									<top>102</top>
-									<height>24</height>
-									<width>24</width>
-									<texture>scroll-up.png</texture>
-									<visible>Container(9350).HasPrevious</visible>
-								</control>
-								<control type="image">
-									<left>144</left>
-									<top>504</top>
-									<height>24</height>
-									<width>24</width>
-									<texture>scroll-down.png</texture>
-									<visible>Container(9350).HasNext</visible>
-								</control>
-							</control>
+							<!-- Markers for control area items -->
+							<include content="page-offscreen-vertical">
+								<param name="indicator1left" value="144"/>
+								<param name="indicator1top" value="102"/>
+								<param name="indicator2left" value="144"/>
+								<param name="indicator2top" value="504"/>
+								<param name="indicatorsize" value="24"/>
+								<param name="indicatorcontainer" value="9350"/>
+							</include>
 						</control>
 						<control type="label">
 							<!-- Menu Heading -->
@@ -1086,15 +959,7 @@
 								<include>horzhomelistitem</include>
 							</itemlayout>
 							<focusedlayout height="63" width="315">
-								<control type="image">
-									<left>0</left>
-									<top>0</top>
-									<width>315</width>
-									<height>63</height>
-									<texture border="9">button-default-focus.png</texture>
-									<animation effect="fade" start="100" end="60" condition="String.IsEmpty(ListItem.Property(isActive))">Conditional</animation>
-								</control>
-								<include>horzhomelistitem</include>
+								<include>horzhomefocusitem</include>
 							</focusedlayout>
 							<content>
 								<include content="listpanelitems">
@@ -1196,25 +1061,6 @@
 								<height>99</height>
 								<texture>menu-focus.png</texture>
 							</control>
-							<control type="group">
-								<!-- Markers for control area items -->
-								<control type="image">
-									<left>144</left>
-									<top>102</top>
-									<height>24</height>
-									<width>24</width>
-									<texture>scroll-up.png</texture>
-									<visible>Container(9600).HasPrevious</visible>
-								</control>
-								<control type="image">
-									<left>144</left>
-									<top>504</top>
-									<height>24</height>
-									<width>24</width>
-									<texture>scroll-down.png</texture>
-									<visible>Container(9600).HasNext</visible>
-								</control>
-							</control>
 						</control>
 						<control type="label">
 							<!-- Menu Heading -->
@@ -1242,15 +1088,7 @@
 								<include>horzhomelistitem</include>
 							</itemlayout>
 							<focusedlayout height="63" width="315">
-								<control type="image">
-									<left>0</left>
-									<top>0</top>
-									<width>315</width>
-									<height>63</height>
-									<texture border="9">button-default-focus.png</texture>
-									<animation effect="fade" start="100" end="60" condition="String.IsEmpty(ListItem.Property(isActive))">Conditional</animation>
-								</control>
-								<include>horzhomelistitem</include>
+								<include>horzhomefocusitem</include>
 							</focusedlayout>
 							<content>
 								<include content="listpanelitems">
@@ -1349,15 +1187,7 @@
 								<include>horzhomelistitem</include>
 							</itemlayout>
 							<focusedlayout height="63" width="315">
-								<control type="image">
-									<left>0</left>
-									<top>0</top>
-									<width>315</width>
-									<height>63</height>
-									<texture border="9">button-default-focus.png</texture>
-									<animation effect="fade" start="100" end="60" condition="String.IsEmpty(ListItem.Property(isActive))">Conditional</animation>
-								</control>
-								<include>horzhomelistitem</include>
+								<include>horzhomefocusitem</include>
 							</focusedlayout>
 							<content>
 								<include content="listpanelitems">
@@ -1396,25 +1226,15 @@
 								<height>99</height>
 								<texture>menu-focus.png</texture>
 							</control>
-							<control type="group">
-								<!-- Markers for control area items -->
-								<control type="image">
-									<left>144</left>
-									<top>102</top>
-									<height>24</height>
-									<width>24</width>
-									<texture>scroll-up.png</texture>
-									<visible>Container(9450).HasPrevious</visible>
-								</control>
-								<control type="image">
-									<left>144</left>
-									<top>504</top>
-									<height>24</height>
-									<width>24</width>
-									<texture>scroll-down.png</texture>
-									<visible>Container(9450).HasNext</visible>
-								</control>
-							</control>
+							<!-- Markers for control area items -->
+							<include content="page-offscreen-vertical">
+								<param name="indicator1left" value="144"/>
+								<param name="indicator1top" value="102"/>
+								<param name="indicator2left" value="144"/>
+								<param name="indicator2top" value="504"/>
+								<param name="indicatorsize" value="24"/>
+								<param name="indicatorcontainer" value="9450"/>
+							</include>
 						</control>
 						<control type="label">
 							<!-- Menu Heading -->
@@ -1443,15 +1263,7 @@
 								<include>horzhomelistitem</include>
 							</itemlayout>
 							<focusedlayout height="63" width="315">
-								<control type="image">
-									<left>0</left>
-									<top>0</top>
-									<width>315</width>
-									<height>63</height>
-									<texture border="9">button-default-focus.png</texture>
-									<animation effect="fade" start="100" end="60" condition="String.IsEmpty(ListItem.Property(isActive))">Conditional</animation>
-								</control>
-								<include>horzhomelistitem</include>
+								<include>horzhomefocusitem</include>
 							</focusedlayout>
 							<content>
 								<item>
