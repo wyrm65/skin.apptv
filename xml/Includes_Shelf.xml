@@ -993,19 +993,6 @@
 	</include>
 	<include name="homeshelf-background">
 		<control type="group">
-			<!-- Hack to get number of pending updates -->
-			<!-- Use $INFO[Container(12345).NumItems] for number of updates -->
-			<control type="list" id="12345">
-				<visible>false</visible>
-				<left>-10</left>
-				<top>-10</top>
-				<width>0</width>
-				<height>0</height>
-				<viewtype label="31028">list</viewtype>
-				<itemlayout/>
-				<focusedlayout/>
-				<include>AddonUpdated</include>
-			</control>
 			<!-- Build up home menu shelf image -->
 			<visible>![Window.IsActive(videos) | Window.IsActive(music)]</visible>
 			<control type="group">

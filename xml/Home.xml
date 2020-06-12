@@ -9,6 +9,19 @@
 	<onunload>SetFocus(9000)</onunload>
 	<include>zoom-openclose</include>
 	<controls>
+		<!-- Hack to get number of pending updates -->
+		<!-- Use $INFO[Container(12345).NumItems] for number of updates -->
+		<control type="list" id="12345">
+			<left>-100</left>
+			<top>-100</top>
+			<width>1</width>
+			<height>1</height>
+			<viewtype label="31028">list</viewtype>
+			<itemlayout/>
+			<focusedlayout/>
+			<include file="Includes_Shelf.xml">AddonUpdated</include>
+		</control>
+
 		<!-- Use Vertical Home menu-->
 		<include condition="Skin.HasSetting(HomeMenuVertical)" file="Includes_VertHome.xml">VertHomeMenu</include>
 		<!-- Use Horizontal Home menu-->
