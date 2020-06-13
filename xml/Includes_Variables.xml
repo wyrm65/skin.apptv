@@ -63,7 +63,8 @@
 		<value condition="String.IsEqual(ListItem.DBTYPE,movieset)">plugin://script.embuary.helper?info=getsetcast&amp;dbid=$INFO[ListItem.DBID]</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,episode)">plugin://script.embuary.helper?info=getcast&amp;type=tvshow&amp;dbid=$INFO[ListItem.DBID]&amp;idtype=episode</value>
 	</variable>
-	<variable name="VideoInfoIcons">
+	<variable name="VideoInfoWidget">
+		<value condition="String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)">$INFO[Window(home).Property(SpecialFeatures.Widget)]</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,movie) + String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31960])">plugin://script.embuary.helper/?info=getsimilar&amp;dbid=$INFO[ListItem.DBID]&amp;type=movie</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,movie) + String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31971])">plugin://script.embuary.helper/?info=getinprogress&amp;type=movie&amp;pos=0</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,movie) + String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31972])">plugin://script.embuary.helper/?info=getbygenre&amp;unwatched=True&amp;type=movie</value>
