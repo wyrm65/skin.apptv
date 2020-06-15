@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
+	<onload>RunScript(script.embuary.helper,action=resetposition,container=50||950,only=inactive)</onload>
 	<defaultcontrol always="true">999</defaultcontrol>
 	<controls>
 		<visible>!Window.IsVisible(script-script.extendedinfo.DialogInfo.xml)</visible>
@@ -81,9 +82,8 @@
 			<height>6</height>
 			<texture>separator.png</texture>
 		</control>
-
 		<control type="textbox" id="1122">
-			<!-- Plot outline (Show if no plot available)-->
+			<!-- Plot -->
 			<left>510</left>
 			<top>165</top>
 			<width>1350</width>
@@ -133,6 +133,24 @@
 				<visible>$EXP[isEpisode] | $EXP[isMusicvideo]</visible>
 			</control>
 			<control type="image">
+				<!-- Star Rating Dropshadow-->
+				<left>174</left>
+				<top>662</top>
+				<width>135</width>
+				<height>27</height>
+				<texture>$VAR[MediaRating]</texture>
+				<colordiffuse>DropShadow</colordiffuse>
+				<aspectratio>keep</aspectratio>
+			</control>
+			<control type="image">
+				<!-- Star Rating -->
+				<left>172</left>
+				<top>660</top>
+				<width>135</width>
+				<height>27</height>
+				<texture>$VAR[MediaRating]</texture>
+				<aspectratio>keep</aspectratio>
+			</control>
 		</control>
 		<control type="label">
 			<!-- Details heading -->
@@ -145,12 +163,12 @@
 			<textcolor>disabled-text</textcolor>
 			<shadowcolor>shadow-text</shadowcolor>
 		</control>
-		<control type="label">
+		<control type="textbox">
 			<!-- Genre -->
 			<left>510</left>
-			<top>398</top>
+			<top>392</top>
 			<width>480</width>
-			<height>30</height>
+			<height>74</height>
 			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			<label>$INFO[ListItem.Genre]</label>
 			<font>apptv20</font>
@@ -158,7 +176,7 @@
 		<control type="label">
 			<!-- Year released -->
 			<left>510</left>
-			<top>435</top>
+			<top>472</top>
 			<width>480</width>
 			<height>30</height>
 			<font>apptv20</font>
@@ -168,7 +186,7 @@
 		<control type="label">
 			<!-- Premiered -->
 			<left>510</left>
-			<top>435</top>
+			<top>472</top>
 			<width>480</width>
 			<height>30</height>
 			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
@@ -179,7 +197,7 @@
 		<control type="label">
 			<!-- Duration -->
 			<left>510</left>
-			<top>471</top>
+			<top>510</top>
 			<width>480</width>
 			<height>30</height>
 			<font>apptv20</font>
@@ -191,7 +209,7 @@
 			<control type="label">
 				<!-- Total Seasons -->
 				<left>510</left>
-				<top>472</top>
+				<top>510</top>
 				<width>480</width>
 				<height>30</height>
 				<label>$LOCALIZE[33054] $INFO[ListItem.Property(TotalSeasons)]</label>
@@ -201,7 +219,7 @@
 			<control type="label">
 				<!-- Current TVShow Name -->
 				<left>510</left>
-				<top>472</top>
+				<top>510</top>
 				<width>480</width>
 				<height>30</height>
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
@@ -222,7 +240,7 @@
 		<control type="grouplist">
 			<!-- Media flags -->
 			<left>507</left>
-			<top>507</top>
+			<top>546</top>
 			<width>435</width>
 			<height>45</height>
 			<align>left</align>
@@ -286,25 +304,6 @@
 				<visible>!String.IsEmpty(ListItem.VideoResolution)</visible>
 			</control>
 		</control>
-		<control type="image">
-			<!-- Star Rating Dropshadow-->
-			<left>512</left>
-			<top>556</top>
-			<width>135</width>
-			<height>27</height>
-			<texture>$VAR[MediaRating]</texture>
-			<colordiffuse>DropShadow</colordiffuse>
-			<aspectratio>keep</aspectratio>
-		</control>
-		<control type="image">
-			<!-- Star Rating -->
-			<left>510</left>
-			<top>555</top>
-			<width>135</width>
-			<height>27</height>
-			<texture>$VAR[MediaRating]</texture>
-			<aspectratio>keep</aspectratio>
-		</control>
 		<control type="group">
 			<visible>$EXP[isMovie] | $EXP[isEpisode] | $EXP[isMusicvideo]</visible>
 			<control type="label">
@@ -367,6 +366,15 @@
 				<font>apptv20</font>
 				<label>$INFO[Container(50).ListItemAbsolute(3).Label]</label>
 			</control>
+			<control type="label">
+				<!-- Actor 5 -->
+				<left>1012</left>
+				<top>548</top>
+				<width>428</width>
+				<height>30</height>
+				<font>apptv20</font>
+				<label>$INFO[Container(50).ListItemAbsolute(4).Label]</label>
+			</control>
 		</control>
 		<control type="group">
 			<visible>$EXP[isMovie] | $EXP[isEpisode] | $EXP[isMusicvideo]</visible>
@@ -415,7 +423,6 @@
 				<wrapmultiline>true</wrapmultiline>
 			</control>
 		</control>
-	</control>
 		<control type="grouplist" id="999">
 			<!-- Option buttons -->
 			<left>540</left>
@@ -429,8 +436,7 @@
 			<onright>1005</onright>
 			<ondown condition="Control.IsVisible(50)">50</ondown>
 			<ondown condition="Control.IsVisible(950)">950</ondown>
-			<ondown condition="Control.IsVisible(952)">952</ondown>
-			<ondown condition="[!Control.IsVisible(50) + !Control.IsVisible(950) + !Control.IsVisible(952)]">1005</ondown>
+			<ondown condition="[!Control.IsVisible(50) + !Control.IsVisible(950)]">1005</ondown>
 			<onup condition="Integer.IsGreater(Container(1122).NumPages,1)">1123</onup>
 			<onup condition="Integer.IsLessOrEqual(Container(1122).NumPages,1)">1005</onup>
 			<control type="button" id="5">
@@ -549,7 +555,7 @@
 			<texture>separator.png</texture>
 		</control>
 		<control type="list" id="50">
-			<visible>String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + System.HasAddon(script.extendedinfo)</visible>
+			<visible>String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
 			<!-- Cast -->
 			<left>15</left>
 			<top>772</top>
@@ -690,102 +696,20 @@
 			</include>
 		</control>
 
-		<control type="list" id="952">
-			<visible>String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + System.HasAddon(script.extendedinfo)</visible>
-			<!-- Cast -->
-			<left>15</left>
-			<top>772</top>
-			<width>1890</width>
-			<height>300</height>
-			<onleft>1020</onleft>
-			<onright>1020</onright>
-			<ondown>1020</ondown>
-			<onup>999</onup>
-			<oninfo>SendClick(952)</oninfo>
-			<viewtype label="31028">list</viewtype>
-			<orientation>horizontal</orientation>
-			<itemlayout height="300" width="315">
-				<control type="image">
-					<left>48</left>
-					<top>0</top>
-					<width>218</width>
-					<height>218</height>
-					<aspectratio scalediffuse="true">keep</aspectratio>
-					<texture diffuse="mask-rect.png" fallback="DefaultUser.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-				</control>
-			</itemlayout>
-			<focusedlayout height="300" width="315">
-				<control type="image">
-					<left>48</left>
-					<top>0</top>
-					<width>218</width>
-					<height>218</height>
-					<aspectratio scalediffuse="true">keep</aspectratio>
-					<texture fallback="DefaultUser.png" diffuse="mask-rect.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-					<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<top>231</top>
-					<height>30</height>
-					<width>315</width>
-					<label>$INFO[ListItem.Label]</label>
-					<font>apptv20</font>
-					<align>center</align>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<animation effect="fade" time="100" delay="300">Focus</animation>
-					<visible>Control.HasFocus(952)</visible>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<top>267</top>
-					<height>30</height>
-					<width>315</width>
-					<label>$INFO[ListItem.Label2]</label>
-					<font>apptv20</font>
-					<align>center</align>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<animation effect="fade" time="100" delay="300">Focus</animation>
-					<visible>Control.HasFocus(952)</visible>
-				</control>
-			</focusedlayout>
-			<content>$VAR[CastInfoIcons]</content>
-		</control>
-
-		<control type="group">
-			<!-- Markers for control area items -->
-			<include content="page-offscreen-horizontal">
-				<param name="indicator1left" value="30"/>
-				<param name="indicator1top" value="876"/>
-				<param name="indicator2left" value="1866"/>
-				<param name="indicator2top" value="876"/>
-				<param name="indicatorsize" value="24"/>
-				<param name="indicatorcontainer" value="952"/>
-			</include>
-		</control>
-
 		<!-- Play bump sound if user tries to leave button bar by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="1005" />
 			<param name="returnid" value="999" />
 		</include>
-
 		<!-- Play bump sound if user tries to leave cast widget by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="1010" />
 			<param name="returnid" value="50" />
 		</include>
-
 		<!-- Play bump sound if user tries to leave videos widget by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="1015" />
 			<param name="returnid" value="950" />
-		</include>
-
-		<!-- Play bump sound if user tries to leave cast widget by undefined direction -->
-		<include content="illegal-action">
-			<param name="controlid" value="1020" />
-			<param name="returnid" value="952" />
 		</include>
 
 		<!-- Show a iOS style page indicator to show which focus group has the current focus -->
@@ -801,8 +725,8 @@
 				<param name="grp1visible" value="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])+Integer.IsGreater(Container(1122).NumPages,1)" />
 				<param name="grp2indicate" value="ControlGroup(999).HasFocus()|Control.HasFocus(3550)" />
 				<param name="grp2visible" value="Integer.IsGreater(Container(950).NumItems,0)|Integer.IsGreater(Container(952).NumItems,0)|[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])+Integer.IsGreater(Container(1522).NumPages,1)]" />
-				<param name="grp3indicate" value="Control.HasFocus(950)|Control.HasFocus(952)" />
-				<param name="grp3visible" value="[Integer.IsGreater(Container(950).NumItems,0)+Control.IsVisible(950)]|[Integer.IsGreater(Container(952).NumItems,0)+Control.IsVisible(952)]" />
+				<param name="grp3indicate" value="Control.HasFocus(950)" />
+				<param name="grp3visible" value="[Integer.IsGreater(Container(950).NumItems,0)+Control.IsVisible(950)]" />
 			</include>
 		</control>
 	</controls>

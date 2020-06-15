@@ -57,12 +57,6 @@
 		<value condition="String.IsEqual(Skin.String(listview-idleanim),120)">120$LOCALIZE[31810]</value>
 		<value>$LOCALIZE[31815]</value>
 	</variable>
-	<variable name="CastInfoIcons">
-		<value condition="String.IsEqual(ListItem.DBTYPE,movie)">plugin://script.embuary.helper?info=getcast&amp;type=movie&amp;dbid=$INFO[ListItem.DBID]</value>
-		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow)">plugin://script.embuary.helper?info=getcast&amp;type=tvshow&amp;title='$ESCINFO[VideoPlayer.TVShowTitle]'</value>
-		<value condition="String.IsEqual(ListItem.DBTYPE,movieset)">plugin://script.embuary.helper?info=getsetcast&amp;dbid=$INFO[ListItem.DBID]</value>
-		<value condition="String.IsEqual(ListItem.DBTYPE,episode)">plugin://script.embuary.helper?info=getcast&amp;type=tvshow&amp;dbid=$INFO[ListItem.DBID]&amp;idtype=episode</value>
-	</variable>
 	<variable name="VideoInfoWidget">
 		<value condition="String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)">$INFO[Window(home).Property(SpecialFeatures.Widget)]</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,movie) + String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31960])">plugin://script.embuary.helper/?info=getsimilar&amp;dbid=$INFO[ListItem.DBID]&amp;type=movie</value>
