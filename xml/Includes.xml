@@ -165,7 +165,7 @@
 				<height>320</height>
 				<align>center</align>
 				<aligny>bottom</aligny>
-				<texture fallback="icon-livetv.png">$VAR[PVRPgmIcon]</texture>
+				<texture>$VAR[PVRPgmIcon]</texture>
 				<aspectratio>keep</aspectratio>
 				<visible>String.Contains(Player.FolderPath,pvr://) + ![String.StartsWith(Player.FileNameAndPath,http) | String.StartsWith(Player.FileNameAndPath,htsp) | String.StartsWith(Player.FileNameAndPath,mms) | String.StartsWith(Player.FileNameAndPath,rtmp)]</visible>
 			</control>
@@ -177,8 +177,8 @@
 				<height>320</height>
 				<align>center</align>
 				<aligny>bottom</aligny>
-				<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" >$INFO[Player.Art(thumb)]</texture>
-				<aspectratio scalediffuse="false">keep</aspectratio>
+				<texture fallback="DefaultVideo.png" >$INFO[Player.Art(thumb)]</texture>
+				<aspectratio>keep</aspectratio>
 				<visible>[!VideoPlayer.Content(movies) + !VideoPlayer.Content(episodes) + !String.Contains(Player.FolderPath,pvr://)] | [String.StartsWith(Player.FileNameAndPath,http) | String.StartsWith(Player.FileNameAndPath,htsp) | String.StartsWith(Player.FileNameAndPath,mms) | String.StartsWith(Player.FileNameAndPath,rtmp)] </visible>
 			</control>
 		</control>
