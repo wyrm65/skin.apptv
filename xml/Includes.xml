@@ -490,35 +490,17 @@
 				<left>$PARAM[left]</left>
 				<top>$PARAM[top]</top>
 				<control type="image">
-					<description> Count (less than 10) </description>
 					<left>22</left>
 					<top>0</top>
 					<width>40</width>
 					<height>40</height>
-					<texture>overlaynumberitems.png</texture>
-					<visible>!Integer.IsGreater($PARAM[count],9)</visible>
-				</control>
-				<control type="image">
-					<description> Count (10 - 99) </description>
-					<left>10</left>
-					<top>0</top>
-					<width>64</width>
-					<height>40</height>
-					<texture border="17,0,17,0">overlaynumberitems.png</texture>
-					<visible>Integer.IsGreater($PARAM[count],9) + !Integer.IsGreater($PARAM[count],99)</visible>
-				</control>
-				<control type="image">
-					<description> Count (100 - 999) </description>
-					<left>0</left>
-					<top>0</top>
-					<width>84</width>
-					<height>40</height>
-					<texture border="17,0,17,0">overlaynumberitems.png</texture>
-					<visible>Integer.IsGreater($PARAM[count],99) + !Integer.IsGreater($PARAM[count],999)</visible>
+					<texture border="15,0,15,0">overlaynumberitems.png</texture>
+					<animation condition="Integer.IsGreater($PARAM[count],9)+!Integer.IsGreater($PARAM[count],99)" effect="zoom" end="160,100" center="auto">Conditional</animation>
+					<animation condition="Integer.IsGreater($PARAM[count],99)" effect="zoom" end="210,100" center="auto">Conditional</animation>
 				</control>
 				<control type="label">
 					<left>14</left>
-					<top>5</top>
+					<top>4</top>
 					<width>54</width>
 					<height>30</height>
 					<font>apptv20</font>
