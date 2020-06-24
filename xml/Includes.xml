@@ -61,21 +61,18 @@
 		<width>100%</width>
 		<height>1080</height>
 	</include>
-	<!-- Background shadow -->
-	<!-- Don't fade background if on Fullscreen video screen -->
 	<include name="fadebackground">
 		<control type="image">
 			<include>fullscreenimage</include>
 			<texture>background-mask.png</texture>
 			<colordiffuse>mask-background</colordiffuse>
 			<aspectratio>stretch</aspectratio>
-			<visible>!Window.IsVisible(fullscreenvideo)</visible>
+			<visible>!Window.IsVisible(fullscreenvideo)</visible><!-- Don't fade background if on Fullscreen video screen -->
 		</control>
 	</include>
 	<include name="background">
 		<control type="group">
-			<visible>!Window.IsVisible(fullscreenvideo)</visible>
-			<!-- Don't try to show background if Video screen is showing -->
+			<visible>!Window.IsVisible(fullscreenvideo)</visible><!-- Don't try to show background if Video screen is showing -->
 			<control type="fadelabel" id="300000"><!-- Randomizer for plugin-free multiple fanart -->
 				<top>-1000</top> <!-- Don't need to see it, but can't change its visibility. Put it off screen -->
 				<width>1</width>
@@ -141,46 +138,18 @@
 		</control>
 	</include>
 	<include name="player-mediaicon">
-		<control type="group" id="1">
-			<!-- Player Media Icon -->
+		<!-- Player Media Icon -->
+		<control type="image" id="1">
+			<left>12</left>
+			<top>746</top>
+			<width>320</width>
+			<height>320</height>
+			<texture>$VAR[PlayerVideoArt]</texture>
+			<align>center</align>
+			<aligny>bottom</aligny>
+			<aspectratio>keep</aspectratio>
 			<visible>[$EXP[isFullscreenVideo]] + ![Window.IsActive(musicosd)]</visible>
 			<animation effect="fade" time="200">VisibleChange</animation>
-			<control type="image" id="1">
-				<!-- Movies or Tv Episodes -->
-				<left>12</left>
-				<top>746</top>
-				<width>320</width>
-				<height>320</height>
-				<texture>$VAR[PlayerVideoArt]</texture>
-				<align>center</align>
-				<aligny>bottom</aligny>
-				<aspectratio>keep</aspectratio>
-				<visible>[VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)] + ![String.Contains(Player.FolderPath,pvr://) | String.StartsWith(Player.FileNameAndPath,http) | String.StartsWith(Player.FileNameAndPath,htsp) | String.StartsWith(Player.FileNameAndPath,mms) | String.StartsWith(Player.FileNameAndPath,rtmp)]</visible>
-			</control>
-			<control type="image" id="1">
-				<!-- LiveTV playing -->
-				<left>12</left>
-				<top>746</top>
-				<width>320</width>
-				<height>320</height>
-				<align>center</align>
-				<aligny>bottom</aligny>
-				<texture>$VAR[PVRPgmIcon]</texture>
-				<aspectratio>keep</aspectratio>
-				<visible>String.Contains(Player.FolderPath,pvr://) + ![String.StartsWith(Player.FileNameAndPath,http) | String.StartsWith(Player.FileNameAndPath,htsp) | String.StartsWith(Player.FileNameAndPath,mms) | String.StartsWith(Player.FileNameAndPath,rtmp)]</visible>
-			</control>
-			<control type="image" id="1">
-				<!-- Any video other than Movies and TV Episodes and LiveTV -->
-				<left>12</left>
-				<top>746</top>
-				<width>320</width>
-				<height>320</height>
-				<align>center</align>
-				<aligny>bottom</aligny>
-				<texture fallback="DefaultVideo.png" >$INFO[Player.Art(thumb)]</texture>
-				<aspectratio>keep</aspectratio>
-				<visible>[!VideoPlayer.Content(movies) + !VideoPlayer.Content(episodes) + !String.Contains(Player.FolderPath,pvr://)] | [String.StartsWith(Player.FileNameAndPath,http) | String.StartsWith(Player.FileNameAndPath,htsp) | String.StartsWith(Player.FileNameAndPath,mms) | String.StartsWith(Player.FileNameAndPath,rtmp)] </visible>
-			</control>
 		</control>
 	</include>
 	<include name="page-info">
@@ -494,7 +463,7 @@
 					<top>0</top>
 					<width>40</width>
 					<height>40</height>
-					<texture border="15,0,15,0">overlaynumberitems.png</texture>
+					<texture border="14,0,14,0">overlaynumberitems.png</texture>
 					<animation condition="Integer.IsGreater($PARAM[count],9)+!Integer.IsGreater($PARAM[count],99)" effect="zoom" end="160,100" center="auto">Conditional</animation>
 					<animation condition="Integer.IsGreater($PARAM[count],99)" effect="zoom" end="210,100" center="auto">Conditional</animation>
 				</control>
@@ -709,11 +678,10 @@
 		<definition>
 			<control type="list" id="$PARAM[controlid]">
 				<visible>false</visible>
-				<left>-10</left>
-				<top>-10</top>
-				<width>0</width>
-				<height>0</height>
-				<viewtype label="31028">list</viewtype>
+				<left>-100</left>
+				<top>-100</top>
+				<width>1</width>
+				<height>1</height>
 				<itemlayout/>
 				<focusedlayout/>
 			</control>

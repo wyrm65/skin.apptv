@@ -935,19 +935,20 @@
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
 	</variable>
 	<variable name="PlayerVideoArt">
-		<value condition="[VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)] + !String.IsEmpty(Player.Art(clearart))">$INFO[Player.Art(clearart)]</value>
-		<value condition="VideoPlayer.Content(episodes) + !String.IsEmpty(Player.Art(tvshow.clearart))">$INFO[Player.Art(tvshow.clearart)]</value>
-		<value condition="!String.IsEmpty(Player.Art(clearlogo)) + [VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)]">$INFO[Player.Art(clearlogo)]</value>
-		<value condition="!String.IsEmpty(Player.Art(tvshow.clearlogo)) + VideoPlayer.Content(episodes)">$INFO[Player.Art(tvshow.clearlogo)]</value>
-		<value condition="!String.IsEmpty(Player.Art(poster)) + VideoPlayer.Content(movies)">$INFO[Player.Art(poster)]</value>
-		<value condition="!String.IsEmpty(VideoPlayer.cover) + VideoPlayer.Content(movies)">$INFO[VideoPlayer.Cover]</value>
-		<value condition="!String.IsEmpty(Player.Art(tvshow.poster)) + VideoPlayer.Content(episodes)">$INFO[Player.Art(tvshow.poster)]</value>
-		<value condition="!String.IsEmpty(Player.Art(tvshow.banner)) + VideoPlayer.Content(episodes)">$INFO[Player.Art(tvshow.banner)]</value>
+		<value condition="!String.IsEmpty(Player.Art(clearart))">$INFO[Player.Art(clearart)]</value>
+		<value condition="!String.IsEmpty(Player.Art(clearlogo))">$INFO[Player.Art(clearlogo)]</value>
+		<value condition="!String.IsEmpty(Player.Art(tvshow.clearart))">$INFO[Player.Art(tvshow.clearart)]</value>
+		<value condition="!String.IsEmpty(Player.Art(tvshow.clearlogo))">$INFO[Player.Art(tvshow.clearlogo)]</value>
+		<value condition="!String.IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
+		<value condition="!String.IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>
+		<value condition="!String.IsEmpty(Player.Art(tvshow.banner))">$INFO[Player.Art(tvshow.banner)]</value>
 		<value condition="!String.IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
+		<value condition="Pvr.IsPlayingTv">icon-livetv.png</value>
+		<value condition="Pvr.IsPlayingRadio">icon-radio.png</value>
+		<value>DefaultVideo.png</value>
 	</variable>
 	<variable name="PlayerVideoCover">
 		<value condition="!String.IsEmpty(Player.Art(poster)) + VideoPlayer.Content(movies)">$INFO[Player.Art(poster)]</value>
-		<value condition="!String.IsEmpty(VideoPlayer.cover) + VideoPlayer.Content(movies)">$INFO[VideoPlayer.Cover]</value>
 		<value condition="!String.IsEmpty(Player.Art(tvshow.poster)) + VideoPlayer.Content(episodes)">$INFO[Player.Art(tvshow.poster)]</value>
 		<value condition="!String.IsEmpty(Player.Art(tvshow.banner)) + VideoPlayer.Content(episodes)">$INFO[Player.Art(tvshow.banner)]</value>
 		<value condition="!String.IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
@@ -995,19 +996,12 @@
 		<value condition="String.IsEmpty(Window.Property(IsRadio))">icon-livetv.png</value>
 		<value>icon-radio.png</value>
 	</variable>
-	<variable name="PVRPgmIcon">
-		<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
-		<value condition="!String.IsEmpty(Player.Art(thumb))">$INFO[Player.Art(thumb)]</value>
-		<value condition="String.IsEmpty(Window.Property(IsRadio))">icon-livetv.png</value>
-		<value>icon-radio.png</value>
-	</variable>
 	<variable name="PVRIcon">
 		<value condition="!String.IsEmpty(ListItem.Icon)">$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="PVRPlayingIcon">
 		<value condition="!String.IsEmpty(Player.Art(tvshow.poster))">$INFO[Player.Art(tvshow.poster)]</value>
 		<value condition="!String.IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
-		<value condition="!String.IsEmpty(VideoPlayer.Cover)">$INFO[VideoPlayer.Cover]</value>
 	</variable>
 	<variable name="HorzHomeShelfIcon">
 		<value condition="Control.HasFocus(9100) | Control.HasFocus(9130)">DefaultVideo.png</value>
