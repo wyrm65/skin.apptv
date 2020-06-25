@@ -160,7 +160,7 @@
 					||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-listview-movie))</onclick>
 					<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31982])</onclick>
 					<enable>!String.IsEqual(Skin.String(listview-idleanim),$LOCALIZE[31815])</enable>
-					<visible>Container.Content(movies)</visible>
+					<visible>$EXP[isContentMovies]</visible>
 				</control>
 				<control type="button" id="1195">
 					<!-- List View TVShow Widget type -->
@@ -202,7 +202,7 @@
 					||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-listview-tvshow))</onclick>
 					<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31027])</onclick>
 					<enable>!String.IsEqual(Skin.String(listview-idleanim),$LOCALIZE[31815])</enable>
-					<visible>Container.Content(tvshows)</visible>
+					<visible>$EXP[isContentTvshows]</visible>
 				</control>
 				<control type="button" id="1196">
 					<!-- List view idle widget delay -->
@@ -231,7 +231,7 @@
 					<onclick>Skin.ToggleSetting(animated-artwork)</onclick>
 					<selected>Skin.HasSetting(animated-artwork)</selected>
 					<radioposx>495</radioposx>
-					<visible>Container.Content(movies)</visible>
+					<visible>$EXP[isContentMovies]</visible>
 				</control>
 				<control type="radiobutton" id="1198">
 					<!-- Tilt wall view icons button -->
@@ -330,7 +330,7 @@
 					<height>69</height>
 					<label>$LOCALIZE[589]</label>
 					<font>apptv22</font>
-					<visible>Container.Content(musicvideos)</visible>
+					<visible>$EXP[isContentMusicvideos]</visible>
 				</control>
 				<control type="radiobutton" id="11">
 					<!-- Unlock shares button -->
@@ -398,11 +398,11 @@
 					<param name="grp1indicate" value="[ControlGroup(9000).HasFocus()|String.IsEqual(Window(home).Property(ShowScreenSettings),show)]" />
 					<param name="grp1visible" value="[!Skin.HasSetting(lock-screensettings)]" />
 					<param name="grp2indicate" value="[Control.HasFocus(5050)|Control.HasFocus(5058)]" />
-					<param name="grp2visible" value="[[Control.IsVisible(50)|Control.IsVisible(58)]+Container.Content(sets)+!ListItem.IsParentFolder]" />
+					<param name="grp2visible" value="[[Control.IsVisible(50)|Control.IsVisible(58)]+$EXP[isContentSets]+!ListItem.IsParentFolder]" />
 					<param name="grp3indicate" value="[Control.HasFocus(50)|Control.HasFocus(52)|Control.HasFocus(53)|Control.HasFocus(58)]" />
 					<param name="grp3visible" value="[Control.IsVisible(50)|Control.IsVisible(52)|Control.IsVisible(53)|Control.IsVisible(58)]+[!Skin.HasSetting(lock-screensettings)|!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
 					<param name="grp4indicate" value="[Control.HasFocus(1240)|Control.HasFocus(1242)|Control.HasFocus(1243)|Control.HasFocus(1248)|Control.HasFocus(1260)|Control.HasFocus(1262)|Control.HasFocus(1263)|Control.HasFocus(1268)]" />
-					<param name="grp4visible" value="[Skin.HasSetting(show-letterbar)+[Container.Content(sets)|Container.Content(movies)|Container.Content(tvshows)|Container.Content(musicvideos)]]" />
+					<param name="grp4visible" value="[Skin.HasSetting(show-letterbar)+[$EXP[isContentSets]|$EXP[isContentMovies]|$EXP[isContentTvshows]|$EXP[isContentMusicvideos]]]" />
 					<param name="grp5indicate" value="[Control.HasFocus(1250)|Control.HasFocus(1252)|Control.HasFocus(1253)|Control.HasFocus(1258)]" />
 					<param name="grp5visible" value="[Control.IsVisible(1250)|Control.IsVisible(1252)|Control.IsVisible(1253)|Control.IsVisible(1258)]+[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
 				</include>
@@ -420,7 +420,7 @@
 					<param name="grp2indicate" value="[Control.HasFocus(54)|Control.HasFocus(57)]" />
 					<param name="grp2visible" value="[Control.IsVisible(54)|Control.IsVisible(57)]+[!Skin.HasSetting(lock-screensettings)|!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
 					<param name="grp3indicate" value="[Control.HasFocus(1244)|Control.HasFocus(1247)|Control.HasFocus(1264)|Control.HasFocus(1267)]" />
-					<param name="grp3visible" value="[Skin.HasSetting(show-letterbar)+[Container.Content(movies)|Container.Content(tvshows)|Container.Content(musicvideos)]]" />
+					<param name="grp3visible" value="[Skin.HasSetting(show-letterbar)+[$EXP[isContentMovies]|$EXP[isContentTvshows]|$EXP[isContentMusicvideos]]" />
 					<param name="grp4indicate" value="[Control.HasFocus(1254)|Control.HasFocus(1257)]" />
 					<param name="grp4visible" value="[Control.IsVisible(1254)|Control.IsVisible(1257)]+[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
 				</include>

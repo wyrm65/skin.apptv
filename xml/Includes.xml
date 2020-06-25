@@ -21,6 +21,7 @@
 	<expression name="isSet">String.IsEqual(ListItem.DBTYPE,set)</expression>
 	<expression name="isContentSets">Container.Content(sets)</expression>
 	<expression name="isVideo">String.IsEqual(ListItem.DBTYPE,video)</expression>
+	<expression name="isContentVideos">Container.Content(videos)</expression>
 	<expression name="isTvshow">String.IsEqual(ListItem.DBTYPE,tvshow)</expression>
 	<expression name="isContentTvshows">Container.Content(tvshows)</expression>
 	<expression name="isSeason">String.IsEqual(ListItem.DBTYPE,season)</expression>
@@ -32,8 +33,12 @@
 	<expression name="isContentAddons">Container.Content(addons)</expression>
 	<expression name="isArtist">String.IsEqual(ListItem.DBTYPE,artist)</expression>
 	<expression name="isnotArtist">![String.IsEqual(ListItem.DBTYPE,artist)]</expression>
+	<expression name="isContentArtists">Container.Content(artists)</expression>
 	<expression name="isAlbum">String.IsEqual(ListItem.DBTYPE,album)</expression>
+	<expression name="isContentAlbums">Container.Content(albums)</expression>
 	<expression name="isSong">String.IsEqual(ListItem.DBTYPE,song)</expression>
+	<expression name="isContentSongs">Container.Content(songs)</expression>
+	<expression name="isContentPlaylists">Container.Content(playlists)</expression>
 	<expression name="isEmptyIcon">String.IsEmpty(ListItem.Icon)</expression>
 	<expression name="isnotEmptyIcon">![String.IsEmpty(ListItem.Icon)]</expression>
 	<expression name="isEmptyPVRIcon">String.IsEmpty(ListItem.Icon) + String.IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))</expression>
@@ -187,10 +192,10 @@
 	</include>
 	<include name="sortletternotification">
 		<control type="group">
-			<visible>Container.Scrolling + !Window.IsVisible(progressdialog) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(albums) | Container.Content(artists)]</visible>
+			<visible>Container.Scrolling + !Window.IsVisible(progressdialog) + [$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentAlbums] | $EXP[isContentArtists]]</visible>
 			<animation effect="fade" time="200">Visible</animation>
 			<animation effect="fade" time="200" delay="500">Hidden</animation>
-			<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(albums) | Container.Content(artists)]" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+			<animation condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentAlbums] | $EXP[isContentArtists]]" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 			<left>897</left>
 			<top>36</top>
 			<width>123</width>

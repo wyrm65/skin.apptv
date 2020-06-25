@@ -840,7 +840,7 @@
 					<param name="listitemid" value="53"/>
 					<param name="illegalexitsearch" value="4532"/>
 					<param name="illegalexitbar" value="4534"/>
-					<param name="letterbarvisible" value="Control.IsVisible(53)+Skin.HasSetting(show-letterbar)+Container.Content(tvshows)"/>
+					<param name="letterbarvisible" value="Control.IsVisible(53)+Skin.HasSetting(show-letterbar)+$EXP[isContentTvshows]"/>
 				</include>
 				<control type="scrollbar" id="1253">
 					<left>1854</left>
@@ -849,7 +849,7 @@
 					<height>774</height>
 					<onright>4533</onright>
 					<onleft condition="Skin.HasSetting(show-letterbar)">1263</onleft>
-					<onleft condition="!Skin.HasSetting(show-letterbar) | Container.Content(tvshows)">53</onleft>
+					<onleft condition="!Skin.HasSetting(show-letterbar) | $EXP[isContentTvshows]">53</onleft>
 					<animation condition="!Control.HasFocus(1253) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 					<animation condition="Skin.HasSetting(show-letterbar)" effect="slide" end="15,0" reversible="true">Conditional</animation>
 					<visible>Control.IsVisible(53) + $EXP[isEnabledScrollbar]</visible>

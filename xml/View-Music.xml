@@ -1241,7 +1241,7 @@
 				<param name="listitemid" value="57"/>
 				<param name="illegalexitsearch" value="4572"/>
 				<param name="illegalexitbar" value="4574"/>
-				<param name="letterbarvisible" value="Skin.HasSetting(show-letterbar)+[Container.Content(artists)|Container.Content(albums)|Container.Content(musicvideos)]"/>
+				<param name="letterbarvisible" value="Skin.HasSetting(show-letterbar)+[$EXP[isContentArtists]|$EXP[isContentAlbums]|$EXP[isContentMusicvideos]]"/>
 			</include>
 			<control type="scrollbar" id="1257">
 				<left>42</left>
@@ -1306,7 +1306,7 @@
 					<aspectratio>stretch</aspectratio>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 					<texture diffuse="mask-squ.png" background="true">$VAR[IconCover]</texture>
-					<visible>!Container.Content(addons) + !Container.Content(musicvideos)</visible>
+					<visible>![$EXP[isContentAddons]] + ![$EXP[isContentMusicvideos]]</visible>
 				</control>
 				<control type="image">
 					<left>1</left>
@@ -1316,10 +1316,10 @@
 					<aspectratio>stretch</aspectratio>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 					<texture diffuse="mask-squ.png" background="true">$VAR[IconCover]</texture>
-					<visible>Container.Content(addons)</visible>
+					<visible>$EXP[isContentAddons]</visible>
 				</control>
 				<control type="group">
-					<visible>Container.Content(musicvideos)</visible>
+					<visible>$EXP[isContentMusicvideos]</visible>
 					<control type="image">
 						<left>1</left>
 						<top>1</top>
@@ -1363,7 +1363,7 @@
 						<bordersize>12</bordersize>
 						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 						<animation effect="zoom" start="100" end="114" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
-						<visible>!Container.Content(addons) + !Container.Content(musicvideos)</visible>
+						<visible>![$EXP[isContentAddons]] + ![$EXP[isContentMusicvideos]]</visible>
 					</control>
 					<control type="image">
 						<left>1</left>
@@ -1376,10 +1376,10 @@
 						<bordersize>12</bordersize>
 						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 						<animation effect="zoom" start="100" end="114" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
-						<visible>Container.Content(addons)</visible>
+						<visible>$EXP[isContentAddons]</visible>
 					</control>
 					<control type="group">
-						<visible>Container.Content(musicvideos)</visible>
+						<visible>$EXP[isContentMusicvideos]</visible>
 						<animation effect="zoom" start="100" end="114" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
 						<control type="image">
 							<left>1</left>
@@ -1439,7 +1439,7 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Album]</label>
 					<wrapmultiline>true</wrapmultiline>
-					<visible>Container.Content(albums)</visible>
+					<visible>$EXP[isContentAlbums]</visible>
 				</control>
 				<control type="label">
 					<!-- Track name/Listitem label -->
@@ -1449,7 +1449,7 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Label]</label>
 					<wrapmultiline>true</wrapmultiline>
-					<visible>!Container.Content(albums) + !Container.Content(artists)</visible>
+					<visible>![$EXP[isContentAlbums]] + ![$EXP[isContentArtists]]</visible>
 				</control>
 				<control type="label">
 					<!-- Genre -->
@@ -1469,7 +1469,7 @@
 					<visible>!String.IsEmpty(ListItem.UserRating) | !String.IsEmpty(ListItem.Rating)</visible>
 				</control>
 				<control type="group">
-					<visible>Container.Content(musicvideos)</visible>
+					<visible>$EXP[isContentMusicvideos]</visible>
 					<width>700</width>
 					<height>70</height>
 					<control type="label">
@@ -1501,7 +1501,7 @@
 					</control>
 				</control>
 				<control type="group">
-					<visible>[!String.IsEmpty(ListItem.Property(Album_Description)) + Container.Content(albums)] | [!String.IsEmpty(ListItem.Property(Artist_Description)) + Container.Content(artists)]</visible>
+					<visible>[!String.IsEmpty(ListItem.Property(Album_Description)) + $EXP[isContentAlbums]] | [!String.IsEmpty(ListItem.Property(Artist_Description)) + Container.Content(artists)]</visible>
 					<width>705</width>
 					<height>22</height>
 					<control type="image">
@@ -1547,7 +1547,7 @@
 					<height>564</height>
 					<font>apptv20</font>
 					<label>$INFO[ListItem.PlotOutline]</label>
-					<visible>!String.IsEmpty(ListItem.PlotOutline) + Container.Content(musicvideos)</visible>
+					<visible>!String.IsEmpty(ListItem.PlotOutline) + $EXP[isContentMusicvideos]</visible>
 				</control>
 				<control type="textbox">
 					<!-- Plot (Show if no outline available)-->
@@ -1555,7 +1555,7 @@
 					<height>564</height>
 					<font>apptv20</font>
 					<label>$INFO[ListItem.Plot]</label>
-					<visible>String.IsEmpty(ListItem.PlotOutline) + Container.Content(musicvideos)</visible>
+					<visible>String.IsEmpty(ListItem.PlotOutline) + $EXP[isContentMusicvideos]</visible>
 				</control>
 			</control>
 			<include>sortletternotification</include>
@@ -1570,7 +1570,7 @@
 				<param name="listitemid" value="58"/>
 				<param name="illegalexitsearch" value="4582"/>
 				<param name="illegalexitbar" value="4584"/>
-				<param name="letterbarvisible" value="Control.IsVisible(58)+Skin.HasSetting(show-letterbar)+[Container.Content(artists)|Container.Content(albums)|Container.Content(musicvideos)]"/>
+				<param name="letterbarvisible" value="Control.IsVisible(58)+Skin.HasSetting(show-letterbar)+[$EXP[isContentArtists]|$EXP[isContentAlbums]|$EXP[isContentMusicvideos]]"/>
 			</include>
 			<control type="scrollbar" id="1258">
 				<left>1863</left>
@@ -1578,10 +1578,10 @@
 				<width>18</width>
 				<height>864</height>
 				<onright>4583</onright>
-				<onleft condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">1268</onleft>
-				<onleft condition="!Skin.HasSetting(show-letterbar) | ![Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]">58</onleft>
+				<onleft condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentArtists] | $EXP[isContentAlbums] | $EXP[isContentMusicvideos]]">1268</onleft>
+				<onleft condition="!Skin.HasSetting(show-letterbar) | ![$EXP[isContentArtists] | $EXP[isContentAlbums] | $EXP[isContentMusicvideos]]">58</onleft>
 				<animation condition="!Control.HasFocus(1258) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<animation condition="Skin.HasSetting(show-letterbar) + [Container.Content(artists) | Container.Content(albums) | Container.Content(musicvideos)]" effect="slide" end="24,0" reversible="true">Conditional</animation>
+				<animation condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentArtists] | $EXP[isContentAlbums] | $EXP[isContentMusicvideos]]" effect="slide" end="24,0" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(58)</visible>
 			</control>
 			<!-- Play bump sound if user tries to leave item list by undefined direction -->

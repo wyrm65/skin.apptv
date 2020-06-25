@@ -1561,7 +1561,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<label>$INFO[ListItem.TvShowTitle]</label>
-					<visible>Container.Content(episodes)</visible>
+					<visible>$EXP[isContentEpisodes]</visible>
 				</control>
 				<control type="label">
 					<left>40</left>
@@ -1572,7 +1572,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<label>$INFO[ListItem.Artist]</label>
-					<visible>Container.Content(musicvideos)</visible>
+					<visible>$EXP[isContentMusicvideos]</visible>
 				</control>
 				<control type="label">
 					<left>40</left>
@@ -1698,7 +1698,7 @@
 					</control>
 				</control>
 			</focusedlayout>
-			<focusedlayout height="370" width="440" condition="Container.Content(episodes) | Container.Content(musicvideos)">
+			<focusedlayout height="370" width="440" condition="$EXP[isContentEpisodes] | $EXP[isContentMusicvideos]">
 				<control type="group">
 					<animation condition="true" effect="zoom" start="100" end="104" center="auto">Conditional</animation>
 					<control type="image">
@@ -1742,7 +1742,7 @@
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.TvShowTitle]</label>
-						<visible>Container.Content(episodes)</visible>
+						<visible>$EXP[isContentEpisodes]</visible>
 					</control>
 					<control type="label">
 						<left>40</left>
@@ -1753,7 +1753,7 @@
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Artist]</label>
-						<visible>Container.Content(musicvideos)</visible>
+						<visible>$EXP[isContentMusicvideos]</visible>
 					</control>
 					<control type="label">
 						<left>40</left>
