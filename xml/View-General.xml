@@ -126,7 +126,7 @@
 					<effect type="zoom" start="100" end="114" center="auto" tween="back" easing="out" />
 				</animation>
 				<control type="group">
-					<visible>!Container.Content(addons)</visible>
+					<visible>![$EXP[isContentAddons]]</visible>
 					<control type="image">
 						<left>212</left>
 						<top>175</top>
@@ -137,7 +137,7 @@
 					</control>
 				</control>
 				<control type="group">
-					<visible>Container.Content(addons)</visible>
+					<visible>$EXP[isContentAddons]</visible>
 					<control type="group">
 						<visible>!String.StartsWith(ListItem.Icon,DefaultFolder.png)</visible>
 						<control type="image">
@@ -371,7 +371,7 @@
 				<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
 			</control>
 			<control type="group">
-				<visible>Container.Content(addons)</visible>
+				<visible>$EXP[isContentAddons]</visible>
 				<control type="textbox">
 					<!-- Addon description -->
 					<left>476</left>
@@ -1149,7 +1149,7 @@
 					<height>90</height>
 					<texture background="true">$INFO[ListItem.Art(poster)]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+					<visible>$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons]</visible>
 				</control>
 				<control type="image">
 					<left>5</left>
@@ -1158,7 +1158,7 @@
 					<height>90</height>
 					<texture background="true">$INFO[ListItem.Icon]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+					<visible>![$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons]]</visible>
 				</control>
 				<control type="label">
 					<left>110</left>
@@ -1179,7 +1179,7 @@
 					<label>$INFO[ListItem.Genre]</label>
 					<textcolor>disabled-text</textcolor>
 					<shadowcolor>shadow-text</shadowcolor>
-					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(artists)</visible>
+					<visible>$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentArtists]</visible>
 				</control>
 				<control type="label">
 					<left>110</left>
@@ -1191,7 +1191,7 @@
 					<label>$INFO[ListItem.TVShowTitle]</label>
 					<textcolor>disabled-text</textcolor>
 					<shadowcolor>shadow-text</shadowcolor>
-					<visible>Container.Content(seasons) | Container.Content(episodes)</visible>
+					<visible>$EXP[isContentSeasons] | $EXP[isContentEpisodes]</visible>
 				</control>
 				<control type="label">
 					<left>110</left>
@@ -1203,7 +1203,7 @@
 					<label>$INFO[ListItem.Property(artist_genre)]</label>
 					<textcolor>disabled-text</textcolor>
 					<shadowcolor>shadow-text</shadowcolor>
-					<visible>Container.Content(artists)</visible>
+					<visible>$EXP[isContentArtists]</visible>
 				</control>
 				<control type="label">
 					<left>110</left>
@@ -1215,7 +1215,7 @@
 					<label>$INFO[ListItem.Artist]</label>
 					<textcolor>disabled-text</textcolor>
 					<shadowcolor>shadow-text</shadowcolor>
-					<visible>Container.Content(musicvideos) | Container.Content(albums) | Container.Content(songs)</visible>
+					<visible>$EXP[isContentMusicvideos] | $EXP[isContentAlbums] | $EXP[isContentSongs]</visible>
 				</control>
 				<control type="label">
 					<left>110</left>
@@ -1260,7 +1260,7 @@
 					<height>90</height>
 					<texture background="true">$INFO[ListItem.Art(poster)]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+					<visible>$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons]</visible>
 				</control>
 				<control type="image">
 					<left>5</left>
@@ -1269,7 +1269,7 @@
 					<height>90</height>
 					<texture>$INFO[ListItem.Icon]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+					<visible>![$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons]]</visible>
 				</control>
 				<control type="label">
 					<left>110</left>
@@ -1290,7 +1290,7 @@
 					<label>$INFO[ListItem.Genre]</label>
 					<textcolor>disabled-text</textcolor>
 					<shadowcolor>shadow-text</shadowcolor>
-					<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+					<visible>$EXP[isContentMovies] | $EXP[isContentTvshows]</visible>
 				</control>
 				<control type="label">
 					<left>110</left>
@@ -1302,7 +1302,7 @@
 					<label>$INFO[ListItem.TVShowTitle]</label>
 					<textcolor>disabled-text</textcolor>
 					<shadowcolor>shadow-text</shadowcolor>
-					<visible>Container.Content(seasons) | Container.Content(episodes)</visible>
+					<visible>$EXP[isContentSeasons] | $EXP[isContentEpisodes]</visible>
 				</control>
 				<control type="label">
 					<left>110</left>
@@ -1314,7 +1314,7 @@
 					<label>$INFO[ListItem.Property(artist_genre)]</label>
 					<textcolor>disabled-text</textcolor>
 					<shadowcolor>shadow-text</shadowcolor>
-					<visible>Container.Content(artists)</visible>
+					<visible>$EXP[isContentArtists]</visible>
 				</control>
 				<control type="label">
 					<left>110</left>
@@ -1326,7 +1326,7 @@
 					<label>$INFO[ListItem.Artist]</label>
 					<textcolor>disabled-text</textcolor>
 					<shadowcolor>shadow-text</shadowcolor>
-					<visible>Container.Content(musicvideos) | Container.Content(albums) | Container.Content(songs)</visible>
+					<visible>$EXP[isContentMusicvideos] | $EXP[isContentAlbums] | $EXP[isContentSongs]</visible>
 				</control>
 				<control type="label">
 					<left>110</left>
@@ -1365,7 +1365,7 @@
 				<height>380</height>
 				<texture diffuse="mask-rect.png" background="true">$INFO[ListItem.Art(poster)]</texture>
 				<aspectratio>keep</aspectratio>
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+				<visible>$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons]</visible>
 			</control>
 			<control type="image">
 				<left>20</left>
@@ -1374,7 +1374,7 @@
 				<height>380</height>
 				<texture diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
 				<aspectratio>keep</aspectratio>
-				<visible>![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+				<visible>![$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons]]</visible>
 			</control>
 			<control type="textbox">
 				<left>420</left>
@@ -1384,7 +1384,7 @@
 				<align>justify</align>
 				<font>apptv18</font>
 				<label>$INFO[ListItem.Plot]</label>
-				<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
+				<visible>$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons] | $EXP[isContentEpisodes] | $EXP[isContentMusicvideos]</visible>
 			</control>
 			<control type="textbox">
 				<left>420</left>
@@ -1404,7 +1404,7 @@
 				<align>justify</align>
 				<font>apptv18</font>
 				<label>$INFO[ListItem.Property(Artist_Description)]</label>
-				<visible>Container.Content(artists)</visible>
+				<visible>$EXP[isContentArtists]</visible>
 			</control>
 			<control type="textbox">
 				<left>420</left>
@@ -1414,7 +1414,7 @@
 				<align>justify</align>
 				<font>apptv18</font>
 				<label>$INFO[ListItem.Property(Album_Description)]</label>
-				<visible>Container.Content(albums)</visible>
+				<visible>$EXP[isContentAlbums]</visible>
 			</control>
 			<control type="textbox">
 				<left>420</left>
@@ -1424,7 +1424,7 @@
 				<align>justify</align>
 				<font>apptv18</font>
 				<label>$INFO[ListItem.Comment]</label>
-				<visible>Container.Content(songs)</visible>
+				<visible>$EXP[isContentSongs]</visible>
 			</control>
 		</control>
 		<control type="group">
@@ -1484,7 +1484,7 @@
 			<pagecontrol>1251</pagecontrol>
 			<animation effect="fade" time="200">VisibleChange</animation>
 			<scrolltime tween="cubic" easing="out">500</scrolltime>
-			<itemlayout height="370" width="264" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
+			<itemlayout height="370" width="264" condition="$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons]">
 				<control type="image">
 					<left>12</left>
 					<top>0</top>
@@ -1519,7 +1519,7 @@
 					</control>
 				</control>
 			</itemlayout>
-			<itemlayout height="370" width="440" condition="Container.Content(episodes) | Container.Content(musicvideos)">
+			<itemlayout height="370" width="440" condition="$EXP[isContentEpisodes] | $EXP[isContentMusicvideos]">
 				<control type="image">
 					<left>30</left>
 					<top>10</top>
@@ -1592,7 +1592,7 @@
 					<texture>$VAR[Overlay]</texture>
 				</control>
 			</itemlayout>
-			<itemlayout height="370" width="330" condition="Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(actors) | Container.Content(directors) | Container.Content(livetv)">
+			<itemlayout height="370" width="330" condition="$EXP[isContentArtists] | $EXP[isContentAlbums] | $EXP[isContentSongs] | Container.Content(actors) | Container.Content(directors) | Container.Content(livetv)">
 				<control type="image">
 					<left>15</left>
 					<top>10</top>
@@ -1617,7 +1617,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<label>$INFO[ListItem.Label]</label>
-					<visible>Container.Content(artists)</visible>
+					<visible>$EXP[isContentArtists]</visible>
 				</control>
 				<control type="label">
 					<left>30</left>
@@ -1628,7 +1628,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<label>$INFO[ListItem.Artist]</label>
-					<visible>Container.Content(albums) | Container.Content(songs)</visible>
+					<visible>$EXP[isContentAlbums] | $EXP[isContentSongs]</visible>
 				</control>
 				<control type="label">
 					<left>30</left>
@@ -1650,7 +1650,7 @@
 					<align>center</align>
 					<aligny>center</aligny>
 					<label>$INFO[ListItem.Label]</label>
-					<visible>!Container.Content(artists)</visible>
+					<visible>!$EXP[isContentArtists]</visible>
 				</control>
 				<control type="image">
 					<left>268</left>
@@ -1658,10 +1658,10 @@
 					<width>48</width>
 					<height>48</height>
 					<texture>$VAR[Overlay]</texture>
-					<visible>Container.Content(songs)</visible>
+					<visible>$EXP[isContentSongs]</visible>
 				</control>
 			</itemlayout>
-			<focusedlayout height="370" width="264" condition="Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)">
+			<focusedlayout height="370" width="264" condition="$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons]">
 				<control type="group">
 					<animation condition="true" effect="zoom" start="100" end="104" center="auto">Conditional</animation>
 					<control type="image">
@@ -1774,7 +1774,7 @@
 					</control>
 				</control>
 			</focusedlayout>
-			<focusedlayout height="370" width="330" condition="Container.Content(artists) | Container.Content(albums) | Container.Content(songs) | Container.Content(actors) | Container.Content(directors) | Container.Content(livetv)">
+			<focusedlayout height="370" width="330" condition="$EXP[isContentArtists] | $EXP[isContentAlbums] | $EXP[isContentSongs] | Container.Content(actors) | Container.Content(directors) | Container.Content(livetv)">
 				<control type="group">
 					<animation condition="true" effect="zoom" start="100" end="104" center="auto">Conditional</animation>
 					<control type="image">
@@ -1801,7 +1801,7 @@
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
-						<visible>Container.Content(artists)</visible>
+						<visible>$EXP[isContentArtists]</visible>
 					</control>
 					<control type="label">
 						<left>30</left>
@@ -1812,7 +1812,7 @@
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Artist]</label>
-						<visible>Container.Content(albums) | Container.Content(songs)</visible>
+						<visible>$EXP[isContentAlbums] | $EXP[isContentSongs]</visible>
 					</control>
 					<control type="label">
 						<left>30</left>
@@ -1834,7 +1834,7 @@
 						<align>center</align>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
-						<visible>!Container.Content(artists)</visible>
+						<visible>!$EXP[isContentArtists]</visible>
 					</control>
 					<control type="image">
 						<left>268</left>
@@ -1842,7 +1842,7 @@
 						<width>48</width>
 						<height>48</height>
 						<texture>$VAR[Overlay]</texture>
-						<visible>Container.Content(songs)</visible>
+						<visible>$EXP[isContentSongs]</visible>
 					</control>
 				</control>
 			</focusedlayout>

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
+	<include name="HorzHomeMenuHeading">
+		<left>0</left>
+		<top>26</top>
+		<width>315</width>
+		<height>48</height>
+		<font>apptv30</font>
+		<align>center</align>
+	</include>
 	<include name="HorzHomeMenuItem">
 		<control type="label">
 			<left>12</left>
@@ -225,7 +233,6 @@
 			<param name="controlid" value="9060" />
 			<param name="returnid" value="9560" />
 		</include>
-
 		<!-- Markers for control area items -->
 		<include content="page-offscreen-horizontal">
 			<param name="indicator1left" value="0"/>
@@ -235,7 +242,6 @@
 			<param name="indicatorsize" value="24"/>
 			<param name="indicatorcontainer" value="9000"/>
 		</include>
-
 		<control type="grouplist" id="9000">
 			<!-- Home Sub menus -->
 			<left>15</left>
@@ -273,30 +279,18 @@
 						<param name="indicatorcontainer" value="9100"/>
 					</include>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-text</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$INFO[Container(9100).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9100)</visible>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-hilite</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$INFO[Container(9100).ListItem.Label2]</label>
 					<animation condition="!Control.HasFocus(9100) + !Control.HasFocus(9130)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
@@ -389,30 +383,18 @@
 						<param name="indicatorcontainer" value="9150"/>
 					</include>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-text</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$INFO[Container(9150).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9150)</visible>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-hilite</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$INFO[Container(9150).ListItem.Label2]</label>
 					<animation condition="!Control.HasFocus(9150) + !Control.HasFocus(9160) + !Control.HasFocus(9180)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
@@ -517,30 +499,18 @@
 						<param name="indicatorcontainer" value="9200"/>
 					</include>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-text</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$INFO[Container(9200).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9200)</visible>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-hilite</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$INFO[Container(9200).ListItem.Label2]</label>
 					<animation condition="!Control.HasFocus(9200) + !Control.HasFocus(9210) + !Control.HasFocus(9230)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
@@ -644,30 +614,18 @@
 						<param name="indicatorcontainer" value="9500"/>
 					</include>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-text</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$INFO[Container(9500).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9500)</visible>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-hilite</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$INFO[Container(9500).ListItem.Label2]</label>
 					<animation condition="!Control.HasFocus(9500) + !Control.HasFocus(9510) + !Control.HasFocus(9530)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
@@ -807,30 +765,18 @@
 						<param name="indicatorcontainer" value="9550"/>
 					</include>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-text</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$VAR[CustomFavHeading]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9550)</visible>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-hilite</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$VAR[CustomFavHeading]</label>
 					<animation condition="!Control.HasFocus(9550) + !Control.HasFocus(9580)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
@@ -928,30 +874,18 @@
 						<param name="indicatorcontainer" value="9250"/>
 					</include>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-text</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$INFO[Container(9250).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9250)</visible>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-hilite</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$INFO[Container(9250).ListItem.Label2]</label>
 					<animation condition="!Control.HasFocus(9250) + !Control.HasFocus(9260) + !Control.HasFocus(9280)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
@@ -1051,30 +985,18 @@
 					<!-- Menu Heading Hilite-->
 					<include content="menu-hilite"/>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-text</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$INFO[Container(9300).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9300)</visible>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-hilite</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$INFO[Container(9300).ListItem.Label2]</label>
 					<animation condition="!Control.HasFocus(9300) + !Control.HasFocus(9330)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
@@ -1140,30 +1062,18 @@
 						<param name="indicatorcontainer" value="9350"/>
 					</include>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-text</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$INFO[Container(9350).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9350)</visible>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-hilite</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$INFO[Container(9350).ListItem.Label2]</label>
 					<animation condition="!Control.HasFocus(9350) + !Control.HasFocus(9360) + !Control.HasFocus(9380)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
@@ -1281,30 +1191,18 @@
 					<!-- Menu Heading Hilite-->
 					<include content="menu-hilite"/>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-text</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$INFO[Container(9600).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9600)</visible>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-hilite</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$INFO[Container(9600).ListItem.Label2]</label>
 					<animation condition="!Control.HasFocus(9600) + !Control.HasFocus(9630)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
@@ -1388,30 +1286,18 @@
 					<!-- Menu Heading Hilite-->
 					<include content="menu-hilite"/>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-text</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$INFO[Container(9400).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9400)</visible>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-hilite</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$INFO[Container(9400).ListItem.Label2]</label>
 					<animation condition="!Control.HasFocus(9400) + !Control.HasFocus(9430)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>
@@ -1471,30 +1357,18 @@
 						<param name="indicatorcontainer" value="9450"/>
 					</include>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-text</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$INFO[Container(9450).ListItem.Label2]</label>
 					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
 					<visible>!Control.HasFocus(9450)</visible>
 				</control>
-				<control type="label">
-					<!-- Menu Heading -->
-					<left>0</left>
-					<top>26</top>
-					<width>315</width>
-					<height>48</height>
-					<font>apptv30</font>
+				<control type="label"><!-- Menu Heading -->
+					<include>HorzHomeMenuHeading</include>
 					<textcolor>tab-hilite</textcolor>
 					<shadowcolor>tab-shadow</shadowcolor>
-					<align>center</align>
 					<label>$INFO[Container(9450).ListItem.Label2]</label>
 					<animation condition="!Control.HasFocus(9450) + !Control.HasFocus(9480)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 				</control>

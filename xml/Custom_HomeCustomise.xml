@@ -3,8 +3,7 @@
 	<defaultcontrol>9000</defaultcontrol>
 	<controls>
 		<include>background</include>
-		<control type="label">
-			<!-- Settings label line 1 -->
+		<control type="label"><!-- Settings label line 1 -->
 			<left>1419</left>
 			<top>38</top>
 			<width>464</width>
@@ -12,8 +11,7 @@
 			<label>$LOCALIZE[31803]</label>
 			<font>apptv25</font>
 		</control>
-		<control type="label">
-			<!-- Settings label line 2 -->
+		<control type="label"><!-- Settings label line 2 -->
 			<left>1419</left>
 			<top>93</top>
 			<width>464</width>
@@ -21,8 +19,7 @@
 			<label>$LOCALIZE[5]</label>
 			<font>apptv25</font>
 		</control>
-		<control type="button" id="402">
-			<!-- Home menu type -->
+		<control type="button" id="402"><!-- Home menu type -->
 			<left>75</left>
 			<top>60</top>
 			<width>525</width>
@@ -47,10 +44,8 @@
 			<onright condition="Skin.HasSetting(HomeMenuVertical)">9031</onright>
 			<animation effect="fade" start="100" end="60" condition="!Control.HasFocus(402)">Conditional</animation>
 		</control>
-		<!-- Show apropriate home menu -->
-		<control type="group" id="9000">
-			<control type="group" id="9001">
-				<!-- Horizontal Home Menu -->
+		<control type="group" id="9000"><!-- Show apropriate home menu -->
+			<control type="group" id="9001"><!-- Horizontal Home Menu -->
 				<visible>Skin.HasSetting(HomeMenuHorizontal)</visible>
 				<animation condition="true" effect="zoom" start="100" end="80" center="auto">Conditional</animation>
 				<control type="group">
@@ -87,8 +82,7 @@
 					<param name="indicatorsize" value="24"/>
 					<param name="indicatorcontainer" value="9002"/>
 				</include>
-				<control type="grouplist" id="9002">
-					<!-- Home Sub menus -->
+				<control type="grouplist" id="9002"><!-- Home Sub menus -->
 					<left>15</left>
 					<top>472</top>
 					<width>1890</width>
@@ -96,11 +90,9 @@
 					<itemgap>0</itemgap>
 					<orientation>horizontal</orientation>
 					<align>center</align>
-					<control type="group" id="9120">
-						<!-- Video sub menu -->
+					<control type="group" id="9120"><!-- Video sub menu -->
 						<width>315</width>
-						<control type="button" id="9130">
-							<!-- Dummy button for mouse control -->
+						<control type="button" id="9130"><!-- Dummy button for mouse control -->
 							<left>0</left>
 							<top>0</top>
 							<width>315</width>
@@ -114,8 +106,7 @@
 						</control>
 						<control type="group">
 							<visible>Control.HasFocus(9100) | Control.HasFocus(9130)</visible>
-							<control type="image">
-								<!-- Menu Heading Hilite-->
+							<control type="image"><!-- Menu Heading Hilite-->
 								<left>0</left>
 								<top>0</top>
 								<width>315</width>
@@ -133,14 +124,8 @@
 								<param name="indicatorcontainer" value="9100"/>
 							</include>
 						</control>
-						<control type="label">
-							<!-- Menu Heading -->
-							<left>0</left>
-							<top>26</top>
-							<width>315</width>
-							<height>48</height>
-							<font>apptv30</font>
-							<align>center</align>
+						<control type="label"><!-- Menu Heading -->
+							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9100).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-video)">Conditional</animation>
 						</control>
@@ -207,11 +192,9 @@
 							</content>
 						</control>
 					</control>
-					<control type="group" id="9170">
-						<!-- Movie sub menu -->
+					<control type="group" id="9170"><!-- Movie sub menu -->
 						<width>315</width>
-						<control type="button" id="9180">
-							<!-- Dummy button for mouse control -->
+						<control type="button" id="9180"><!-- Dummy button for mouse control -->
 							<left>0</left>
 							<top>0</top>
 							<width>315</width>
@@ -225,8 +208,7 @@
 						</control>
 						<control type="group">
 							<visible>Control.HasFocus(9150) | Control.HasFocus(9180)</visible>
-							<control type="image">
-								<!-- Menu Heading Hilite-->
+							<control type="image"><!-- Menu Heading Hilite-->
 								<left>0</left>
 								<top>0</top>
 								<width>315</width>
@@ -243,14 +225,8 @@
 								<param name="indicatorcontainer" value="9150"/>
 							</include>
 						</control>
-						<control type="label">
-							<!-- Menu Heading -->
-							<left>0</left>
-							<top>26</top>
-							<width>315</width>
-							<height>48</height>
-							<font>apptv30</font>
-							<align>center</align>
+						<control type="label"><!-- Menu Heading -->
+							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9150).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="35" condition="Skin.HasSetting(home-movie) + String.IsEmpty(Skin.String(CustomMovies.1.Path)) + String.IsEmpty(Skin.String(CustomMovies.2.Path)) + String.IsEmpty(Skin.String(CustomMovies.3.Path)) + String.IsEmpty(Skin.String(CustomMovies.4.Path)) + String.IsEmpty(Skin.String(CustomMovies.5.Path))">Conditional</animation>
 						</control>
@@ -359,14 +335,8 @@
 								<param name="indicatorcontainer" value="9200"/>
 							</include>
 						</control>
-						<control type="label">
-							<!-- Menu Heading -->
-							<left>0</left>
-							<top>26</top>
-							<width>315</width>
-							<height>48</height>
-							<font>apptv30</font>
-							<align>center</align>
+						<control type="label"><!-- Menu Heading -->
+							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9200).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-tvshows) + String.IsEmpty(Skin.String(CustomTVShow.1.Path)) + String.IsEmpty(Skin.String(CustomTVShow.2.Path)) + String.IsEmpty(Skin.String(CustomTVShow.3.Path)) + String.IsEmpty(Skin.String(CustomTVShow.4.Path)) + String.IsEmpty(Skin.String(CustomTVShow.5.Path))">Conditional</animation>
 						</control>
@@ -475,14 +445,8 @@
 								<param name="indicatorcontainer" value="9500"/>
 							</include>
 						</control>
-						<control type="label">
-							<!-- Menu Heading -->
-							<left>0</left>
-							<top>26</top>
-							<width>315</width>
-							<height>48</height>
-							<font>apptv30</font>
-							<align>center</align>
+						<control type="label"><!-- Menu Heading -->
+							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9500).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="!Pvr.HasTVChannels + !Pvr.HasRadioChannels + String.IsEmpty(Skin.String(CustomTV.1.Path)) + String.IsEmpty(Skin.String(CustomTV.2.Path)) + String.IsEmpty(Skin.String(CustomTV.3.Path)) + String.IsEmpty(Skin.String(CustomTV.4.Path)) + String.IsEmpty(Skin.String(CustomTV.5.Path)) + String.IsEmpty(Skin.String(CustomRadio.1.Path)) + String.IsEmpty(Skin.String(CustomRadio.2.Path)) + String.IsEmpty(Skin.String(CustomRadio.3.Path)) + String.IsEmpty(Skin.String(CustomRadio.4.Path)) + String.IsEmpty(Skin.String(CustomRadio.5.Path))">Conditional</animation>
 						</control>
@@ -624,14 +588,8 @@
 								<param name="indicatorcontainer" value="9550"/>
 							</include>
 						</control>
-						<control type="label">
-							<!-- Menu Heading -->
-							<left>0</left>
-							<top>26</top>
-							<width>315</width>
-							<height>48</height>
-							<font>apptv30</font>
-							<align>center</align>
+						<control type="label"><!-- Menu Heading -->
+							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$VAR[CustomFavHeading]</label>
 							<animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(home-favorites) + String.IsEmpty(Skin.String(CustomFav.1.Path)) + String.IsEmpty(Skin.String(CustomFav.2.Path)) + String.IsEmpty(Skin.String(CustomFav.3.Path)) + String.IsEmpty(Skin.String(CustomFav.4.Path)) + String.IsEmpty(Skin.String(CustomFav.5.Path))">Conditional</animation>
 						</control>
@@ -733,14 +691,8 @@
 								<param name="indicatorcontainer" value="9250"/>
 							</include>
 						</control>
-						<control type="label">
-							<!-- Menu Heading -->
-							<left>0</left>
-							<top>26</top>
-							<width>315</width>
-							<height>48</height>
-							<font>apptv30</font>
-							<align>center</align>
+						<control type="label"><!-- Menu Heading -->
+							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9250).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-music) + !Skin.HasSetting(home-musicvideo) + String.IsEmpty(Skin.String(CustomMusic.1.Path)) + String.IsEmpty(Skin.String(CustomMusic.2.Path)) + String.IsEmpty(Skin.String(CustomMusic.3.Path)) + String.IsEmpty(Skin.String(CustomMusic.4.Path)) + String.IsEmpty(Skin.String(CustomMusic.5.Path))">Conditional</animation>
 						</control>
@@ -845,14 +797,8 @@
 							<texture>menu-focus.png</texture>
 							<visible>Control.HasFocus(9300) | Control.HasFocus(9330)</visible>
 						</control>
-						<control type="label">
-							<!-- Menu Heading -->
-							<left>0</left>
-							<top>26</top>
-							<width>315</width>
-							<height>48</height>
-							<font>apptv30</font>
-							<align>center</align>
+						<control type="label"><!-- Menu Heading -->
+							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9300).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(home-photos)">Conditional</animation>
 						</control>
@@ -926,14 +872,8 @@
 								<param name="indicatorcontainer" value="9350"/>
 							</include>
 						</control>
-						<control type="label">
-							<!-- Menu Heading -->
-							<left>0</left>
-							<top>26</top>
-							<width>315</width>
-							<height>48</height>
-							<font>apptv30</font>
-							<align>center</align>
+						<control type="label"><!-- Menu Heading -->
+							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9350).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-programs) + String.IsEmpty(Skin.String(CustomAddon.1.Path)) + String.IsEmpty(Skin.String(CustomAddon.2.Path)) + String.IsEmpty(Skin.String(CustomAddon.3.Path)) + String.IsEmpty(Skin.String(CustomAddon.4.Path)) + String.IsEmpty(Skin.String(CustomAddon.5.Path))">Conditional</animation>
 						</control>
@@ -1054,14 +994,8 @@
 								<texture>menu-focus.png</texture>
 							</control>
 						</control>
-						<control type="label">
-							<!-- Menu Heading -->
-							<left>0</left>
-							<top>26</top>
-							<width>315</width>
-							<height>48</height>
-							<font>apptv30</font>
-							<align>center</align>
+						<control type="label"><!-- Menu Heading -->
+							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9600).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(home-games) + String.IsEmpty(Skin.String(CustomGame.1.Path)) + String.IsEmpty(Skin.String(CustomGame.2.Path)) + String.IsEmpty(Skin.String(CustomGame.3.Path)) + String.IsEmpty(Skin.String(CustomGame.4.Path)) + String.IsEmpty(Skin.String(CustomGame.5.Path))">Conditional</animation>
 						</control>
@@ -1152,14 +1086,8 @@
 							<texture>menu-focus.png</texture>
 							<visible>Control.HasFocus(9400) | Control.HasFocus(9430)</visible>
 						</control>
-						<control type="label">
-							<!-- Menu Heading -->
-							<left>0</left>
-							<top>26</top>
-							<width>315</width>
-							<height>48</height>
-							<font>apptv30</font>
-							<align>center</align>
+						<control type="label"><!-- Menu Heading -->
+							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9400).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(home-weather) + !Skin.HasSetting(home-currentweather)">Conditional</animation>
 						</control>
@@ -1226,14 +1154,8 @@
 								<param name="indicatorcontainer" value="9450"/>
 							</include>
 						</control>
-						<control type="label">
-							<!-- Menu Heading -->
-							<left>0</left>
-							<top>26</top>
-							<width>315</width>
-							<height>48</height>
-							<font>apptv30</font>
-							<align>center</align>
+						<control type="label"><!-- Menu Heading -->
+							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9450).ListItem.Property(menuHeading)]</label>
 							<animation condition="Control.HasFocus(402)" effect="fade" start="100" end="65">Conditional</animation>
 						</control>
