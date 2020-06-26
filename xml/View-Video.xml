@@ -227,7 +227,7 @@
 					<height>46</height>
 					<font>apptv22</font>
 					<label>$VAR[ListitemDuration]</label>
-					<visible>!String.IsEmpty(ListItem.Duration) + ![$EXP[isTvshow]] + ![$EXP[isSeason]]</visible>
+					<visible>![$EXP[isTvshow]] + ![$EXP[isSeason]]</visible>
 				</control>
 				<control type="label"><!-- Number of movies in the set -->
 					<left>36</left>
@@ -347,7 +347,7 @@
 			<onleft condition="!Skin.HasSetting(show-letterbar) | ![$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]">50</onleft>
 			<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			<animation condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]" effect="slide" end="15,0" reversible="true">Conditional</animation>
-			<visible>Control.IsVisible(50) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+			<visible>Control.IsVisible(50) + $EXP[isEnabledScrollbar]</visible>
 		</control>
 		<!-- Play bump sound if user tries to leave sets list by undefined direction -->
 		<include content="illegal-action">
@@ -1115,7 +1115,7 @@
 					<align>center</align>
 					<font>apptv25</font>
 					<label>$VAR[ListitemDuration]</label>
-					<visible>!String.IsEmpty(ListItem.Duration) + ![$EXP[isTvshow]] + ![$EXP[isSeason]]</visible>
+					<visible>![$EXP[isTvshow]] + ![$EXP[isSeason]]</visible>
 				</control>
 				<control type="image">
 					<!-- Classification Rating (quick way) -->
@@ -1611,7 +1611,7 @@
 					<align>right</align>
 					<font>apptv23</font>
 					<label>$VAR[ListitemDuration]</label>
-					<visible>!String.IsEmpty(ListItem.Duration) + ![$EXP[isTvshow]] + ![$EXP[isSeason]]</visible>
+					<visible>![$EXP[isTvshow]] + ![$EXP[isSeason]]</visible>
 				</control>
 				<control type="image">
 					<!-- Video special features available -->
@@ -1714,17 +1714,7 @@
 					<width>196</width>
 					<height>279</height>
 					<aspectratio>stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" background="true">$VAR[IconPoster]</texture>
-					<visible>String.IsEmpty(ListItem.Art(thumb))</visible>
-				</control>
-				<control type="image">
-					<left>1</left>
-					<top>1</top>
-					<width>196</width>
-					<height>279</height>
-					<aspectratio>stretch</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
-					<visible>!String.IsEmpty(ListItem.Art(thumb))</visible>
 				</control>
 				<control type="image">
 					<!-- Video special features available -->
@@ -1768,22 +1758,11 @@
 						<top>1</top>
 						<width>196</width>
 						<height>279</height>
-						<aspectratio>stretch</aspectratio>
-						<texture background="true">$VAR[IconPoster]</texture>
-						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
-						<visible>String.IsEmpty(ListItem.Art(thumb))</visible>
-					</control>
-					<control type="image">
-						<left>1</left>
-						<top>1</top>
-						<width>196</width>
-						<height>279</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
 						<bordertexture border="12">mask-hilite.png</bordertexture>
 						<bordersize>12</bordersize>
 						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
-						<visible>!String.IsEmpty(ListItem.Art(thumb))</visible>
 					</control>
 					<control type="image">
 						<!-- Video special features available -->
@@ -1880,7 +1859,7 @@
 					<height>38</height>
 					<font>apptv22</font>
 					<label>$VAR[ListitemDuration]</label>
-					<visible>!String.IsEmpty(ListItem.Duration) + ![$EXP[isTvshow]] + ![$EXP[isSeason]]</visible>
+					<visible>![$EXP[isTvshow]] + ![$EXP[isSeason]]</visible>
 				</control>
 				<control type="label">
 					<!-- Number of movies in the set -->

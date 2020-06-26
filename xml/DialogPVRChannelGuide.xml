@@ -56,8 +56,8 @@
 				<top>195</top>
 				<width>615</width>
 				<height>735</height>
-				<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
-				<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">60</onright>
+				<onright condition="![$EXP[isEnabledScrollbar]]">noop</onright>
+				<onright condition="$EXP[isEnabledScrollbar]">60</onright>
 				<onup>11</onup>
 				<ondown>11</ondown>
 				<viewtype label="535">list</viewtype>

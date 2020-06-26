@@ -298,8 +298,8 @@
 				<height>750</height>
 				<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
 				<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
-				<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
-				<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">27</onright>
+				<onright condition="![$EXP[isEnabledScrollbar]]">noop</onright>
+				<onright condition="$EXP[isEnabledScrollbar]">27</onright>
 				<onup>14</onup>
 				<ondown>14</ondown>
 				<viewtype label="536">list</viewtype>
@@ -439,8 +439,8 @@
 					<ondown>50</ondown>
 					<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
 					<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
-					<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
-					<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">27</onright>
+					<onright condition="![$EXP[isEnabledScrollbar]]">noop</onright>
+					<onright condition="$EXP[isEnabledScrollbar]">27</onright>
 					<preloaditems>4</preloaditems>
 					<pagecontrol>27</pagecontrol>
 					<itemlayout width="840" height="105">
@@ -667,8 +667,8 @@
 				<height>759</height>
 				<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
 				<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
-				<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
-				<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">27</onright>
+				<onright condition="![$EXP[isEnabledScrollbar]]">noop</onright>
+				<onright condition="$EXP[isEnabledScrollbar]">27</onright>
 				<onup>17</onup>
 				<ondown>17</ondown>
 				<viewtype label="536">list</viewtype>

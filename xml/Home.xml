@@ -181,9 +181,9 @@
 				<param name="grp1indicate" value="[ControlGroup(6100).HasFocus()|String.IsEqual(Window(home).Property(ShowScreenSettings),show)]" />
 				<param name="grp1visible" value="[!Skin.HasSetting(lock-screensettings)]" />
 				<param name="grp2indicate" value="[Skin.HasSetting(HomeMenuVertical)+Control.HasFocus(9000)]" />
-				<param name="grp2visible" value="[Skin.HasSetting(HomeMenuVertical)+[!Skin.HasSetting(lock-screensettings)|!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]]" />
+				<param name="grp2visible" value="[Skin.HasSetting(HomeMenuVertical)+[!Skin.HasSetting(lock-screensettings)|$EXP[isEnabledScrollbar]]]" />
 				<param name="grp3indicate" value="[Skin.HasSetting(HomeMenuVertical)+Control.HasFocus(23)]" />
-				<param name="grp3visible" value="[Skin.HasSetting(HomeMenuVertical)+!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
+				<param name="grp3visible" value="[Skin.HasSetting(HomeMenuVertical)+$EXP[isEnabledScrollbar]]" />
 				<param name="grp4indicate" value="[Skin.HasSetting(HomeMenuHorizontal)]+[ControlGroup(9000).HasFocus()|ControlGroup(9800).HasFocus()]" />
 				<param name="grp4visible" value="[Skin.HasSetting(HomeMenuHorizontal)+!Skin.HasSetting(lock-screensettings)]" />
 				<param name="grp5indicate" value="Skin.HasSetting(HomeMenuIcon)+[Control.HasFocus(9000)|ControlGroup(9800).HasFocus()]" />

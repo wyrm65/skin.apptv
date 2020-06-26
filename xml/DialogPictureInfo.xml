@@ -8,8 +8,8 @@
 			<top>168</top>
 			<width>1062</width>
 			<height>750</height>
-			<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
-			<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">23</onright>
+			<onright condition="![$EXP[isEnabledScrollbar]]">noop</onright>
+			<onright condition="$EXP[isEnabledScrollbar]">23</onright>
 			<onup>5</onup>
 			<ondown>5</ondown>
 			<pagecontrol>23</pagecontrol>

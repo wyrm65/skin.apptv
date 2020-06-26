@@ -76,8 +76,8 @@
 			<itemgap>0</itemgap>
 			<onup>4505</onup>
 			<ondown>4505</ondown>
-			<onleft condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">4505</onleft>
-			<onleft condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">23</onleft>
+			<onleft condition="![$EXP[isEnabledScrollbar]]">4505</onleft>
+			<onleft condition="$EXP[isEnabledScrollbar]">23</onleft>
 			<onright>3</onright>
 			<pagecontrol>23</pagecontrol>
 		</control>

@@ -23,8 +23,8 @@
 			<height>675</height>
 			<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
 			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
-			<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onright>
-			<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">23</onright>
+			<onright condition="![$EXP[isEnabledScrollbar]]">noop</onright>
+			<onright condition="$EXP[isEnabledScrollbar]">23</onright>
 			<onup>2</onup>
 			<ondown>2</ondown>
 			<pagecontrol>23</pagecontrol>
@@ -193,9 +193,9 @@
 				<param name="grp1indicate" value="[ControlGroup(9000).HasFocus()|String.IsEqual(Window(home).Property(ShowScreenSettings),show)]" />
 				<param name="grp1visible" value="[!Skin.HasSetting(lock-screensettings)]" />
 				<param name="grp2indicate" value="[Control.HasFocus(2)]" />
-				<param name="grp2visible" value="[Control.IsVisible(2)]+[!Skin.HasSetting(lock-screensettings)|!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
+				<param name="grp2visible" value="[Control.IsVisible(2)]+[!Skin.HasSetting(lock-screensettings)|$EXP[isEnabledScrollbar]]" />
 				<param name="grp3indicate" value="[Control.HasFocus(23)]" />
-				<param name="grp3visible" value="[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
+				<param name="grp3visible" value="[$EXP[isEnabledScrollbar]]" />
 			</include>
 		</control>
 	</controls>

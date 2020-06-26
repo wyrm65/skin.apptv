@@ -47,7 +47,6 @@
 	<expression name="isnotEmptyDBID">![String.IsEmpty(ListItem.DBID)]</expression>
 	<expression name="isDefaultIcon">String.StartsWith(ListItem.Icon,Default)</expression>
 	<expression name="isnotDefaultIcon">![String.StartsWith(ListItem.Icon,Default)]</expression>
-	<expression name="isInfoDialog">[Window.IsVisible(addoninformation) | Window.IsVisible(movieinformation) | Window.IsVisible(musicinformation) | Window.IsVisible(songinformation)]</expression>
 	<expression name="isEnabledTouch">Skin.HasSetting(show-touchcontrols)</expression>
 	<expression name="isEnabledParentDirectory">System.GetBool(filelists.showparentdiritems)</expression>
 	<expression name="isnotEnabledParentDirectory">!System.GetBool(filelists.showparentdiritems)</expression>
@@ -79,12 +78,12 @@
 			<texture>background-mask.png</texture>
 			<colordiffuse>mask-background</colordiffuse>
 			<aspectratio>stretch</aspectratio>
-			<visible>!Window.IsVisible(fullscreenvideo)</visible><!-- Don't fade background if on Fullscreen video screen -->
+			<visible>$EXP[isnotFullscreenVideo]</visible><!-- Don't fade background if on Fullscreen video screen -->
 		</control>
 	</include>
 	<include name="background">
 		<control type="group">
-			<visible>!Window.IsVisible(fullscreenvideo)</visible><!-- Don't try to show background if Video screen is showing -->
+			<visible>$EXP[isnotFullscreenVideo]</visible><!-- Don't try to show background if Video screen is showing -->
 			<control type="fadelabel" id="300000"><!-- Randomizer for plugin-free multiple fanart -->
 				<top>-1000</top> <!-- Don't need to see it, but can't change its visibility. Put it off screen -->
 				<width>1</width>
@@ -95,9 +94,6 @@
 				<info>ListItem.Art(fanart4)</info>
 				<info>ListItem.Art(fanart5)</info>
 				<info>ListItem.Art(fanart6)</info>
-				<info>ListItem.Art(fanart7)</info>
-				<info>ListItem.Art(fanart8)</info>
-				<info>ListItem.Art(fanart9)</info>
 				<!-- tvshow.fanart are filled with the series fanart when navigating season and episode lists -->
 				<info>ListItem.Art(tvshow.fanart1)</info>
 				<info>ListItem.Art(tvshow.fanart2)</info>
@@ -105,9 +101,6 @@
 				<info>ListItem.Art(tvshow.fanart4)</info>
 				<info>ListItem.Art(tvshow.fanart5)</info>
 				<info>ListItem.Art(tvshow.fanart6)</info>
-				<info>ListItem.Art(tvshow.fanart7)</info>
-				<info>ListItem.Art(tvshow.fanart8)</info>
-				<info>ListItem.Art(tvshow.fanart9)</info>
 				<randomize>true</randomize>
 				<pauseatend>6000</pauseatend> <!-- Time to show each image, in milliseconds -->
 				<!-- No scrolling so only the pauseatend above (plus a short fade-in) affects length of time each image is shown -->
@@ -722,8 +715,8 @@
 					<width>30</width>
 					<height>891</height>
 					<onleft>$PARAM[listitemid]</onleft>
-					<onright condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">$PARAM[scrollbarid]</onright>
-					<onright condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">$PARAM[illegalexitbar]</onright>
+					<onright condition="$EXP[isEnabledScrollbar]">$PARAM[scrollbarid]</onright>
+					<onright condition="![$EXP[isEnabledScrollbar]]">$PARAM[illegalexitbar]</onright>
 					<onup>$PARAM[searchid]</onup>
 					<ondown>$PARAM[illegalexitbar]</ondown>
 					<orientation>vertical</orientation>
@@ -808,8 +801,8 @@
 					<width>1848</width>
 					<height>33</height>
 					<onup>$PARAM[listitemid]</onup>
-					<ondown condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">$PARAM[scrollbarid]</ondown>
-					<ondown condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">$PARAM[illegalexitbar]</ondown>
+					<ondown condition="$EXP[isEnabledScrollbar]">$PARAM[scrollbarid]</ondown>
+					<ondown condition="![$EXP[isEnabledScrollbar]]">$PARAM[illegalexitbar]</ondown>
 					<onleft>$PARAM[searchid]</onleft>
 					<onright>$PARAM[illegalexitbar]</onright>
 					<orientation>horizontal</orientation>

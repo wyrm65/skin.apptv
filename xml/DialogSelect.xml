@@ -63,7 +63,7 @@
 				<height>720</height>
 				<onright>3</onright>
 				<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-				<visible>!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+				<visible>$EXP[isEnabledScrollbar]</visible>
 			</control>
 			<!-- Markers for control area items -->
 			<include content="page-offscreen-vertical">
@@ -212,8 +212,8 @@
 				<width>750</width>
 				<height>720</height>
 				<onup>noop</onup>
-				<onleft condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>
-				<onleft condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">23</onleft>
+				<onleft condition="![$EXP[isEnabledScrollbar]]">noop</onleft>
+				<onleft condition="$EXP[isEnabledScrollbar]">23</onleft>
 				<ondown condition="!Control.IsVisible(5)">7</ondown>
 				<ondown condition="Control.IsVisible(5)">5</ondown>
 				<pagecontrol>23</pagecontrol>
@@ -314,8 +314,8 @@
 				<top>186</top>
 				<width>1050</width>
 				<height>672</height>
-				<onleft condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>
-				<onleft condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">26</onleft>
+				<onleft condition="![$EXP[isEnabledScrollbar]]">noop</onleft>
+				<onleft condition="$EXP[isEnabledScrollbar]">26</onleft>
 				<onright condition="!Control.IsVisible(5)">7</onright>
 				<onright condition="Control.IsVisible(5)">5</onright>
 				<pagecontrol>26</pagecontrol>

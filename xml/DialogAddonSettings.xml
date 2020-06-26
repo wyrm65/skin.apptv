@@ -71,8 +71,8 @@
 			<pagecontrol>60</pagecontrol>
 			<onup>noop</onup>
 			<ondown>9001</ondown>
-			<onleft condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>
-			<onleft condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">60</onleft>
+			<onleft condition="![$EXP[isEnabledScrollbar]]">noop</onleft>
+			<onleft condition="$EXP[isEnabledScrollbar]">60</onleft>
 			<onright>3</onright>
 		</control>
 		<control type="textbox" id="6">

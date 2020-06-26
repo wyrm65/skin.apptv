@@ -162,7 +162,7 @@
 				<param name="grp1indicate" value="[ControlGroup(9000).HasFocus()|String.IsEqual(Window(home).Property(ShowScreenSettings),show)]" />
 				<param name="grp1visible" value="[!Skin.HasSetting(lock-screensettings)]" />
 				<param name="grp2indicate" value="[Control.HasFocus(10)]" />
-				<param name="grp2visible" value="[Control.IsVisible(10)]+[!Skin.HasSetting(lock-screensettings)|!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]" />
+				<param name="grp2visible" value="[Control.IsVisible(10)]+[!Skin.HasSetting(lock-screensettings)|$EXP[isEnabledScrollbar]]" />
 				<param name="grp3indicate" value="[Control.HasFocus(60)]" />
 				<param name="grp3visible" value="[Control.IsVisible(60)]" />
 			</include>

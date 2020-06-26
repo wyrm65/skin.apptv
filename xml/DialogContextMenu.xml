@@ -75,7 +75,7 @@
 				<onclick>SetProperty(ItemName,$ESCINFO[ListItem.Label],home)</onclick>
 				<onclick>SetProperty(ItemIcon,$ESCINFO[ListItem.Icon],home)</onclick>
 				<onclick>ActivateWindow(1152)</onclick>
-				<visible>[$EXP[isContentMovies] | $EXP[isContentEpisodes] | $EXP[isContentMusicvideos] | $EXP[isContentSongs] | $EXP[isContentPlaylists] | $EXP[isContentAddons] | Window.IsVisible(videos) | Window.IsVisible(music) | Window.IsVisible(programs)] + !ListItem.IsParentFolder</visible>
+				<visible>[$EXP[isContentMovies] | $EXP[isContentEpisodes] | $EXP[isContentMusicvideos] | $EXP[isContentSongs] | $EXP[isContentPlaylists] | $EXP[isContentAddons] | Window.IsVisible(videos) | Window.IsVisible(music) | Window.IsVisible(programs)] + $EXP[isParentFolder]</visible>
 			</control>
 			<control type="button" id="1000">
 				<!-- Button template -->

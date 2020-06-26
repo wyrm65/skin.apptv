@@ -57,8 +57,8 @@
 			<top>237</top>
 			<width>1028</width>
 			<height>608</height>
-			<onleft condition="String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">noop</onleft>
-			<onleft condition="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">23</onleft>
+			<onleft condition="![$EXP[isEnabledScrollbar]]">noop</onleft>
+			<onleft condition="$EXP[isEnabledScrollbar]">23</onleft>
 			<onright>460</onright>
 			<onup>450</onup>
 			<ondown>450</ondown>
@@ -160,7 +160,7 @@
 			<height>626</height>
 			<onright>450</onright>
 			<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-			<visible>Control.IsVisible(450) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])</visible>
+			<visible>Control.IsVisible(450) + $EXP[isEnabledScrollbar]</visible>
 		</control>
 	</controls>
 </window>
