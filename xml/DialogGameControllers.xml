@@ -60,7 +60,7 @@
 				<onleft>3</onleft>
 				<onright>5</onright>
 				<orientation>vertical</orientation>
-				<animation condition="!Control.HasFocus(60) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(60) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			</control>
 			<control type="gamecontroller" id="31">
 				<top>220</top>
@@ -121,7 +121,7 @@
 				<onleft>5</onleft>
 				<onright>3</onright>
 				<orientation>vertical</orientation>
-				<animation condition="!Control.HasFocus(61) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(61) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			</control>
 			<control type="image">
 				<left>15</left>

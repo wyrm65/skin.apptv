@@ -335,7 +335,7 @@
 				<onright>4503</onright>
 				<onleft condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentArtists] | $EXP[isContentAlbums] | $EXP[isContentMusicvideos]]">1260</onleft>
 				<onleft condition="!Skin.HasSetting(show-letterbar) | ![$EXP[isContentArtists] | $EXP[isContentAlbums] | $EXP[isContentMusicvideos]]">50</onleft>
-				<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<animation condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentArtists] | $EXP[isContentAlbums] | $EXP[isContentMusicvideos]]" effect="slide" end="24,0" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(50)</visible>
 			</control>
@@ -514,7 +514,7 @@
 				<onright>4523</onright>
 				<onleft condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentArtists] | $EXP[isContentAlbums] | $EXP[isContentMusicvideos]]">1262</onleft>
 				<onleft condition="!Skin.HasSetting(show-letterbar) | ![$EXP[isContentArtists] | $EXP[isContentAlbums] | $EXP[isContentMusicvideos]]">52</onleft>
-				<animation condition="!Control.HasFocus(1252) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(1252) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(52)</visible>
 			</control>
 			<!-- Play bump sound if user tries to leave item list by undefined direction -->
@@ -741,7 +741,7 @@
 				<ondown>4543</ondown>
 				<onup condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentArtists] | $EXP[isContentAlbums] | $EXP[isContentMusicvideos]]">1264</onup>
 				<onup condition="!Skin.HasSetting(show-letterbar) | ![$EXP[isContentArtists] | $EXP[isContentAlbums] | $EXP[isContentMusicvideos]]">54</onup>
-				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<animation condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentArtists] | $EXP[isContentAlbums] | $EXP[isContentMusicvideos]]" effect="slide" end="0,15" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(54)</visible>
 			</control>
@@ -1218,7 +1218,7 @@
 				<ondown>4573</ondown>
 				<onup condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentArtists] | $EXP[isContentAlbums] | $EXP[isContentMusicvideos]]">1267</onup>
 				<onup condition="!Skin.HasSetting(show-letterbar) | ![$EXP[isContentArtists] | $EXP[isContentAlbums] | $EXP[isContentMusicvideos]]">57</onup>
-				<animation condition="!Control.HasFocus(1257) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(1257) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<animation condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentArtists] | $EXP[isContentAlbums] | $EXP[isContentMusicvideos]]" effect="slide" end="0,18" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(57)</visible>
 			</control>
@@ -1532,7 +1532,7 @@
 				<onright>4583</onright>
 				<onleft condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentArtists] | $EXP[isContentAlbums] | $EXP[isContentMusicvideos]]">1268</onleft>
 				<onleft condition="!Skin.HasSetting(show-letterbar) | ![$EXP[isContentArtists] | $EXP[isContentAlbums] | $EXP[isContentMusicvideos]]">58</onleft>
-				<animation condition="!Control.HasFocus(1258) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(1258) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<animation condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentArtists] | $EXP[isContentAlbums] | $EXP[isContentMusicvideos]]" effect="slide" end="24,0" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(58)</visible>
 			</control>

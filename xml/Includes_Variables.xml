@@ -252,7 +252,7 @@
 		<value condition="Player.IsTempo">$INFO[Player.Playspeed,x,]</value>
 	</variable>
 	<variable name="ListitemDuration">
-		<value condition="Integer.IsLess(ListItem.Duration(mins),1)">( $LOCALIZE[19695] )</value>
+		<value condition="Integer.IsLess(ListItem.Duration(mins),1) + !String.IsEmpty(Listitem.Duration)">( $LOCALIZE[19695] )</value>
 		<value condition="Integer.IsEqual(ListItem.Duration(mins),1)">$INFO[ListItem.Duration,, $LOCALIZE[31813]]</value>
 		<value condition="Integer.IsLess(ListItem.Duration(mins),60)">$INFO[ListItem.Duration,, $LOCALIZE[31814]]</value>
 		<value condition="Integer.IsLess(ListItem.Duration(mins),120)">$INFO[ListItem.Duration,, $LOCALIZE[31817]]</value>

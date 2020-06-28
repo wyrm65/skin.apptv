@@ -192,7 +192,7 @@
 					<width>18</width>
 					<height>832</height>
 					<onleft>50</onleft>
-					<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 					<visible>$EXP[isEnabledScrollbar]</visible>
 				</control>
 			</control>
@@ -323,7 +323,7 @@
 			<width>18</width>
 			<height>790</height>
 			<onleft>52</onleft>
-			<animation condition="!Control.HasFocus(1252) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<animation condition="!Control.HasFocus(1252) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(52)</visible>
 		</control>
 	</include>
@@ -403,7 +403,7 @@
 				<height>18</height>
 				<onup>54</onup>
 				<orientation>horizontal</orientation>
-				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar]</visible>
 			</control>
 			<control type="label">
@@ -509,7 +509,7 @@
 				<height>27</height>
 				<onup>54</onup>
 				<orientation>horizontal</orientation>
-				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + String.StartsWith(Container.Viewmode,Wrap)</visible>
 			</control>
 			<control type="label">
@@ -900,7 +900,7 @@
 				<height>18</height>
 				<onup>57</onup>
 				<orientation>horizontal</orientation>
-				<animation condition="!Control.HasFocus(1257) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(1257) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + [[Integer.IsGreater(Container(57).NumItems,10) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,9) + $EXP[isEnabledParentDirectory]]]</visible>
 			</control>
 			<control type="label">
@@ -1004,7 +1004,7 @@
 				<width>18</width>
 				<height>735</height>
 				<onleft>58</onleft>
-				<animation condition="!Control.HasFocus(1258) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(1258) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar]</visible>
 			</control>
 		</control>
@@ -1114,7 +1114,7 @@
 				<width>18</width>
 				<height>790</height>
 				<onleft>58</onleft>
-				<animation condition="!Control.HasFocus(1258) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(1258) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar]</visible>
 			</control>
 		</control>
@@ -1467,7 +1467,7 @@
 			<height>400</height>
 			<onright>50</onright>
 			<onleft>SetFocus(7500,0,absolute)</onleft>
-			<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(50)</visible>
 		</control>
 	</include>
@@ -1889,7 +1889,7 @@
 			<height>740</height>
 			<onright>51</onright>
 			<onleft>SetFocus(7500,0,absolute)</onleft>
-			<animation condition="!Control.HasFocus(1251) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<animation condition="!Control.HasFocus(1251) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(51)</visible>
 		</control>
 	</include>

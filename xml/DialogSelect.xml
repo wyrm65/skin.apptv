@@ -62,7 +62,7 @@
 				<width>16</width>
 				<height>720</height>
 				<onright>3</onright>
-				<animation condition="!Control.HasFocus(23) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(23) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar]</visible>
 			</control>
 			<!-- Markers for control area items -->
@@ -153,7 +153,7 @@
 				<width>16</width>
 				<height>672</height>
 				<onright>6</onright>
-				<animation condition="!Control.HasFocus(26) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(26) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar]</visible>
 			</control>
 			<!-- Markers for control area items -->

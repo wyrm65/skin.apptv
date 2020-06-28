@@ -103,7 +103,7 @@
 			<onright>1123</onright>
 			<onleft>999</onleft>
 			<ondown>999</ondown>
-			<animation condition="!Control.HasFocus(1123) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<animation condition="!Control.HasFocus(1123) + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 		</control>
 		<control type="image">
 			<left>510</left>
@@ -720,9 +720,9 @@
 				<param name="indicatorheight" value="192" />
 				<param name="indicatororientation" value="vertical" />
 				<param name="grp1indicate" value="Control.HasFocus(1123)" />
-				<param name="grp1visible" value="!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])+Integer.IsGreater(Container(1122).NumPages,1)" />
+				<param name="grp1visible" value="$EXP[isnotAlwaysScrollbar]+Integer.IsGreater(Container(1122).NumPages,1)" />
 				<param name="grp2indicate" value="ControlGroup(999).HasFocus()|Control.HasFocus(3550)" />
-				<param name="grp2visible" value="Integer.IsGreater(Container(950).NumItems,0)|Integer.IsGreater(Container(952).NumItems,0)|[!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])+Integer.IsGreater(Container(1522).NumPages,1)]" />
+				<param name="grp2visible" value="Integer.IsGreater(Container(950).NumItems,0)|Integer.IsGreater(Container(952).NumItems,0)|[$EXP[isnotAlwaysScrollbar]+Integer.IsGreater(Container(1522).NumPages,1)]" />
 				<param name="grp3indicate" value="Control.HasFocus(950)" />
 				<param name="grp3visible" value="[Integer.IsGreater(Container(950).NumItems,0)+Control.IsVisible(950)]" />
 			</include>

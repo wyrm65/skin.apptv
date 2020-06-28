@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
 	<include name="PVRTimelineView">
-		<control type="group">
-			<!-- TV guide timeline -->
+		<control type="group"><!-- TV guide timeline -->
 			<visible>Control.IsVisible(10) + Integer.IsGreater(Container(10).NumItems,0)</visible>
-			<control type="label">
-				<!-- Current time -->
+			<control type="label"><!-- Current time -->
 				<left>810</left>
 				<top>32</top>
 				<width>300</width>
@@ -15,7 +13,6 @@
 				<label>$INFO[System.Time]</label>
 			</control>
 			<control type="epggrid" id="10">
-				<!-- EPG grid -->
 				<viewtype label="19032">list</viewtype>
 				<left>45</left>
 				<top>150</top>
@@ -202,7 +199,7 @@
 				<width>18</width>
 				<height>630</height>
 				<onleft>10</onleft>
-				<animation condition="!Control.HasFocus(60) + !Container.Scrolling + [!String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875]) | !$EXP[isEnabledTouch]]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(60) + !Container.Scrolling + [$EXP[isnotAlwaysScrollbar] | !$EXP[isEnabledTouch]]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] | $EXP[isEnabledTouch]</visible>
 			</control>
 			<control type="label">
@@ -213,8 +210,7 @@
 				<label>$INFO[ListItem.Title]$INFO[ListItem.EpisodeName, (,)]</label>
 				<font>apptv23</font>
 			</control>
-			<control type="label">
-				<!-- Start time -->
+			<control type="label"><!-- Start time -->
 				<visible>!String.IsEmpty(ListItem.StartTime)</visible>
 				<left>1375</left>
 				<top>852</top>
@@ -232,8 +228,7 @@
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
-			<control type="textbox">
-				<!-- Plot -->
+			<control type="textbox"><!-- Plot -->
 				<left>45</left>
 				<top>896</top>
 				<width>1830</width>
@@ -244,38 +239,33 @@
 		</control>
 	</include>
 	<include name="PVRTimerListView">
-		<control type="group">
-			<!-- Timers group -->
+		<control type="group"><!-- Timers group -->
 			<visible>Control.IsVisible(14)</visible>
 			<control type="group">
 				<left>30</left>
 				<top>90</top>
-				<control type="label">
-					<!-- Channel heading -->
+				<control type="label"><!-- Channel heading -->
 					<left>22</left>
 					<top>30</top>
 					<width>420</width>
 					<height>38</height>
 					<label>$LOCALIZE[19029]</label>
 				</control>
-				<control type="label">
-					<!-- Title heading -->
+				<control type="label"><!-- Title heading -->
 					<left>472</left>
 					<top>30</top>
 					<width>458</width>
 					<height>38</height>
 					<label>$LOCALIZE[369]</label>
 				</control>
-				<control type="label">
-					<!-- Schedule time heading -->
+				<control type="label"><!-- Schedule time heading -->
 					<left>960</left>
 					<top>30</top>
 					<width>450</width>
 					<height>38</height>
 					<label>$LOCALIZE[19225]</label>
 				</control>
-				<control type="label">
-					<!-- Status heading -->
+				<control type="label"><!-- Status heading -->
 					<left>1665</left>
 					<top>30</top>
 					<width>225</width>
@@ -421,7 +411,7 @@
 				<width>18</width>
 				<height>750</height>
 				<onleft>14</onleft>
-				<animation condition="!Control.HasFocus(27) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(27) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar]</visible>
 			</control>
 		</control>
@@ -600,7 +590,7 @@
 					<width>18</width>
 					<height>848</height>
 					<onleft>50</onleft>
-					<animation condition="!Control.HasFocus(27) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(27) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 					<visible>$EXP[isEnabledScrollbar]</visible>
 				</control>
 			</control>
@@ -763,7 +753,7 @@
 				<width>18</width>
 				<height>759</height>
 				<onleft>17</onleft>
-				<animation condition="!Control.HasFocus(27) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(27) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar]</visible>
 			</control>
 		</control>

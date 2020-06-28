@@ -256,7 +256,6 @@
 					<texture>$VAR[ListViewVideoLogo]</texture>
 					<aligny>bottom</aligny>
 					<aspectratio align="left">keep</aspectratio>
-					<visible>$EXP[isnotEmptyDBID]</visible>
 				</control>
 				<control type="textbox"><!-- Plot -->
 					<left>36</left>
@@ -345,7 +344,7 @@
 			<onright>4504</onright>
 			<onleft condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]">1260</onleft>
 			<onleft condition="!Skin.HasSetting(show-letterbar) | ![$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]">50</onleft>
-			<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<animation condition="!Control.HasFocus(1250) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			<animation condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]" effect="slide" end="15,0" reversible="true">Conditional</animation>
 			<visible>Control.IsVisible(50) + $EXP[isEnabledScrollbar]</visible>
 		</control>
@@ -407,8 +406,7 @@
 					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 					<visible>$EXP[isnotDefaultIcon] + [$EXP[isContentMovies] | $EXP[isContentTvshows]]</visible>
 				</control>
-				<control type="image">
-					<!-- Watched Overlay -->
+				<control type="image"><!-- Watched Overlay -->
 					<left>40</left>
 					<top>-3</top>
 					<width>48</width>
@@ -609,7 +607,7 @@
 			<onright>4523</onright>
 			<onleft condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]">1262</onleft>
 			<onleft condition="!Skin.HasSetting(show-letterbar) | ![$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]">52</onleft>
-			<animation condition="!Control.HasFocus(1252) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<animation condition="!Control.HasFocus(1252) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 			<animation condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]" effect="slide" end="15,0" reversible="true">Conditional</animation>
 			<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(52)</visible>
 		</control>
@@ -850,7 +848,7 @@
 					<onright>4533</onright>
 					<onleft condition="Skin.HasSetting(show-letterbar)">1263</onleft>
 					<onleft condition="!Skin.HasSetting(show-letterbar) | $EXP[isContentTvshows]">53</onleft>
-					<animation condition="!Control.HasFocus(1253) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+					<animation condition="!Control.HasFocus(1253) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 					<animation condition="Skin.HasSetting(show-letterbar)" effect="slide" end="15,0" reversible="true">Conditional</animation>
 					<visible>Control.IsVisible(53) + $EXP[isEnabledScrollbar]</visible>
 				</control>
@@ -1069,8 +1067,7 @@
 					<visible>$EXP[isContentMusicvideos]</visible>
 				</control>
 			</control>
-			<control type="image" id="7216">
-				<!-- Show logo -->
+			<control type="image" id="7216"><!-- Show logo -->
 				<left>408</left>
 				<top>572</top>
 				<width>388</width>
@@ -1080,8 +1077,7 @@
 				<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
 				<visible>$EXP[isnotParentFolder]</visible>
 			</control>
-			<control type="label">
-				<!-- Title -->
+			<control type="label"><!-- Title -->
 				<left>408</left>
 				<top>572</top>
 				<width>388</width>
@@ -1093,8 +1089,7 @@
 				<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
 				<visible>$EXP[isnotParentFolder] + String.IsEmpty(Control.GetLabel(7216))</visible>
 			</control>
-			<control type="label">
-				<!-- Go Back -->
+			<control type="label"><!-- Go Back -->
 				<left>408</left>
 				<top>572</top>
 				<width>388</width>
@@ -1106,8 +1101,7 @@
 			</control>
 			<control type="group">
 				<visible>$EXP[isnotEmptyDBID]</visible>
-				<control type="label">
-					<!-- Duration -->
+				<control type="label"><!-- Duration -->
 					<left>39</left>
 					<top>375</top>
 					<width>306</width>
@@ -1117,8 +1111,7 @@
 					<label>$VAR[ListitemDuration]</label>
 					<visible>![$EXP[isTvshow]] + ![$EXP[isSeason]]</visible>
 				</control>
-				<control type="image">
-					<!-- Classification Rating (quick way) -->
+				<control type="image"><!-- Classification Rating (quick way) -->
 					<left>408</left>
 					<top>460</top>
 					<width>64</width>
@@ -1127,8 +1120,7 @@
 					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$VAR[MPAARatingIcons]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
-				<control type="image">
-					<!-- Star Rating -->
+				<control type="image"><!-- Star Rating -->
 					<left>408</left>
 					<top>534</top>
 					<width>165</width>
@@ -1136,8 +1128,7 @@
 					<texture>$VAR[MediaRating]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
-				<control type="textbox">
-					<!-- Plot -->
+				<control type="textbox"><!-- Plot -->
 					<left>820</left>
 					<top>452</top>
 					<width>1050</width>
@@ -1171,7 +1162,7 @@
 				<ondown>4543</ondown>
 				<onup condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]">1264</onup>
 				<onup condition="!Skin.HasSetting(show-letterbar) | ![$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]">54</onup>
-				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<animation condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]" effect="slide" end="0,15" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(54)</visible>
 			</control>
@@ -1544,8 +1535,7 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(57)</visible>
-			<control type="image" id="7018">
-				<!-- Show logo -->
+			<control type="image" id="7018"><!-- Show logo -->
 				<left>836</left>
 				<top>918</top>
 				<width>248</width>
@@ -1557,8 +1547,7 @@
 				<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
 				<visible>$EXP[isnotParentFolder]</visible>
 			</control>
-			<control type="label">
-				<!-- Title -->
+			<control type="label"><!-- Title -->
 				<left>330</left>
 				<top>945</top>
 				<width>1260</width>
@@ -1569,8 +1558,7 @@
 				<label>$INFO[ListItem.Label]</label>
 				<visible>$EXP[isnotParentFolder] + String.IsEmpty(Control.GetLabel(7018))</visible>
 			</control>
-			<control type="label">
-				<!-- Go Back -->
+			<control type="label"><!-- Go Back -->
 				<left>330</left>
 				<top>945</top>
 				<width>1260</width>
@@ -1583,8 +1571,7 @@
 			</control>
 			<control type="group">
 				<visible>$EXP[isnotEmptyDBID]</visible>
-				<control type="image">
-					<!-- Classification Rating (quick way) -->
+				<control type="image"><!-- Classification Rating (quick way) -->
 					<left>46</left>
 					<top>950</top>
 					<width>64</width>
@@ -1593,8 +1580,7 @@
 					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$VAR[MPAARatingIcons]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
-				<control type="image">
-					<!-- Star Rating -->
+				<control type="image"><!-- Star Rating -->
 					<left>878</left>
 					<top>1022</top>
 					<width>165</width>
@@ -1602,8 +1588,7 @@
 					<texture>$VAR[MediaRating]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
-				<control type="label">
-					<!-- Duration -->
+				<control type="label"><!-- Duration -->
 					<left>1480</left>
 					<top>951</top>
 					<width>390</width>
@@ -1613,8 +1598,7 @@
 					<label>$VAR[ListitemDuration]</label>
 					<visible>![$EXP[isTvshow]] + ![$EXP[isSeason]]</visible>
 				</control>
-				<control type="image">
-					<!-- Video special features available -->
+				<control type="image"><!-- Video special features available -->
 					<left>1730</left>
 					<top>1018</top>
 					<width>24</width>
@@ -1622,16 +1606,14 @@
 					<texture>overlayvideoextras.png</texture>
 					<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
 				</control>
-				<control type="image">
-					<!-- Watched -->
+				<control type="image"><!-- Watched -->
 					<left>1764</left>
 					<top>1000</top>
 					<height>60</height>
 					<width>60</width>
 					<texture>$VAR[Overlay]</texture>
 				</control>
-				<control type="image">
-					<!-- Resolution/3D flag -->
+				<control type="image"><!-- Resolution/3D flag -->
 					<left>1824</left>
 					<top>1006</top>
 					<width>48</width>
@@ -1662,7 +1644,7 @@
 				<ondown>4573</ondown>
 				<onup condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]">1267</onup>
 				<onup condition="!Skin.HasSetting(show-letterbar) | ![$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]">57</onup>
-				<animation condition="!Control.HasFocus(1257) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(1257) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<animation condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]" effect="slide" end="0,15" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(57)</visible>
 			</control>
@@ -1690,7 +1672,7 @@
 	</include>
 	<include name="VideoWallView">
 		<control type="panel" id="58">
-			<visible>$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons] | $EXP[isContentMusicvideos] | $EXP[isContentAddons] </visible>
+			<visible>$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons] | $EXP[isContentMusicvideos] | $EXP[isContentAddons]</visible>
 			<left>802</left>
 			<top>180</top>
 			<width>990</width>
@@ -1716,8 +1698,7 @@
 					<aspectratio>stretch</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
 				</control>
-				<control type="image">
-					<!-- Video special features available -->
+				<control type="image"><!-- Video special features available -->
 					<left>2</left>
 					<top>4</top>
 					<width>24</width>
@@ -1725,8 +1706,7 @@
 					<texture>overlayvideoextras.png</texture>
 					<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
 				</control>
-				<control type="image">
-					<!-- Watched Overlay -->
+				<control type="image"><!-- Watched Overlay -->
 					<left>158</left>
 					<top>-8</top>
 					<width>48</width>
@@ -1764,8 +1744,7 @@
 						<bordersize>12</bordersize>
 						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 					</control>
-					<control type="image">
-						<!-- Video special features available -->
+					<control type="image"><!-- Video special features available -->
 						<left>16</left>
 						<top>16</top>
 						<width>24</width>
@@ -1773,8 +1752,7 @@
 						<texture>overlayvideoextras.png</texture>
 						<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
 					</control>
-					<control type="image">
-						<!-- Watched Overlay -->
+					<control type="image"><!-- Watched Overlay -->
 						<left>146</left>
 						<top>2</top>
 						<width>48</width>
@@ -1804,8 +1782,7 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(58)</visible>
-			<control type="image" id="7116">
-				<!-- Show logo -->
+			<control type="image" id="7116"><!-- Show logo -->
 				<left>36</left>
 				<top>168</top>
 				<width>377</width>
@@ -1815,8 +1792,7 @@
 				<animation effect="fade" delay="200" start="0" end="100" time="200">Visible</animation>
 				<visible>$EXP[isnotParentFolder]</visible>
 			</control>
-			<control type="label">
-				<!-- Title -->
+			<control type="label"><!-- Title -->
 				<left>36</left>
 				<top>168</top>
 				<width>740</width>
@@ -1827,8 +1803,7 @@
 				<wrapmultiline>true</wrapmultiline>
 				<visible>String.IsEmpty(Control.GetLabel(7116)) + $EXP[isnotParentFolder]</visible>
 			</control>
-			<control type="label">
-				<!-- Go Back -->
+			<control type="label"><!-- Go Back -->
 				<left>36</left>
 				<top>450</top>
 				<width>740</width>
@@ -1841,8 +1816,7 @@
 			</control>
 			<control type="group">
 				<visible>!String.IsEmpty(ListItem.Title) + $EXP[isnotParentFolder]</visible>
-				<control type="label">
-					<!-- Genre -->
+				<control type="label"><!-- Genre -->
 					<left>36</left>
 					<top>318</top>
 					<width>750</width>
@@ -1851,8 +1825,7 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Genre]</label>
 				</control>
-				<control type="label">
-					<!-- Duration -->
+				<control type="label"><!-- Duration -->
 					<left>36</left>
 					<top>375</top>
 					<width>300</width>
@@ -1861,8 +1834,7 @@
 					<label>$VAR[ListitemDuration]</label>
 					<visible>![$EXP[isTvshow]] + ![$EXP[isSeason]]</visible>
 				</control>
-				<control type="label">
-					<!-- Number of movies in the set -->
+				<control type="label"><!-- Number of movies in the set -->
 					<left>36</left>
 					<top>375</top>
 					<width>300</width>
@@ -1878,8 +1850,7 @@
 					<height>48</height>
 					<texture>$VAR[ListItemFlags]</texture>
 				</control>
-				<control type="image">
-					<!-- Classification Rating (quick way) -->
+				<control type="image"><!-- Classification Rating (quick way) -->
 					<left>36</left>
 					<top>420</top>
 					<width>64</width>
@@ -1889,8 +1860,7 @@
 					<aspectratio>keep</aspectratio>
 					<visible>$EXP[isnotEmptyDBID]</visible>
 				</control>
-				<control type="image">
-					<!-- Star Rating -->
+				<control type="image"><!-- Star Rating -->
 					<left>600</left>
 					<top>441</top>
 					<width>165</width>
@@ -1898,8 +1868,7 @@
 					<texture>$VAR[MediaRating]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
-				<control type="textbox">
-					<!-- Plot -->
+				<control type="textbox"><!-- Plot -->
 					<left>36</left>
 					<top>494</top>
 					<width>740</width>
@@ -1941,8 +1910,7 @@
 							</control>
 						</itemlayout>
 						<focusedlayout height="46" width="740">
-							<control type="image">
-								<!-- Button focus slider -->
+							<control type="image"><!-- Button focus slider -->
 								<left>0</left>
 								<top>0</top>
 								<width>740</width>
@@ -1985,7 +1953,7 @@
 				<onright>4583</onright>
 				<onleft condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]">1268</onleft>
 				<onleft condition="!Skin.HasSetting(show-letterbar) | ![$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]">58</onleft>
-				<animation condition="!Control.HasFocus(1258) + !Container.Scrolling + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<animation condition="!Control.HasFocus(1258) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<animation condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]" effect="slide" end="15,0" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(58)</visible>
 			</control>
