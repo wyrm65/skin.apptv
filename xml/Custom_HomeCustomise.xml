@@ -50,8 +50,7 @@
 				<animation condition="true" effect="zoom" start="100" end="80" center="auto">Conditional</animation>
 				<control type="group">
 					<!-- Main Horizontal menu bar -->
-					<control type="image">
-						<!-- Background image for menu area -->
+					<control type="image"><!-- Background image for menu area -->
 						<left>0</left>
 						<top>468</top>
 						<width>1920</width>
@@ -92,18 +91,11 @@
 					<align>center</align>
 					<control type="group" id="9120"><!-- Video sub menu -->
 						<width>315</width>
-						<control type="button" id="9130"><!-- Dummy button for mouse control -->
-							<left>0</left>
-							<top>0</top>
-							<width>315</width>
-							<height>528</height>
-							<texturefocus>blank.png</texturefocus>
-							<texturenofocus>blank.png</texturenofocus>
-							<onup>402</onup>
-							<ondown>9100</ondown>
-							<onleft>noop</onleft>
-							<onright>9150</onright>
-						</control>
+						<!-- Dummy button for mouse control -->
+						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+							<param name="dummyid" value="9130"/>
+							<param name="focusid" value="9100"/>
+						</include>
 						<control type="group">
 							<visible>Control.HasFocus(9100) | Control.HasFocus(9130)</visible>
 							<control type="image"><!-- Menu Heading Hilite-->
@@ -206,15 +198,15 @@
 							<onleft>9100</onleft>
 							<onright>9200</onright>
 						</control>
+						<!-- Dummy button for mouse control -->
+						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+							<param name="dummyid" value="9180"/>
+							<param name="focusid" value="9150"/>
+						</include>
 						<control type="group">
 							<visible>Control.HasFocus(9150) | Control.HasFocus(9180)</visible>
-							<control type="image"><!-- Menu Heading Hilite-->
-								<left>0</left>
-								<top>0</top>
-								<width>315</width>
-								<height>99</height>
-								<texture>menu-focus.png</texture>
-							</control>
+							<!-- Menu Heading Hilite-->
+							<include file="Includes_HorzHome.xml">menu-hilite</include>
 							<!-- Markers for control area items -->
 							<include content="page-offscreen-vertical">
 								<param name="indicator1left" value="144"/>
@@ -299,32 +291,17 @@
 							</content>
 						</control>
 					</control>
-					<control type="group" id="9220">
-						<!-- TV Shows sub menu -->
+					<control type="group" id="9220"><!-- TV Shows sub menu -->
 						<width>315</width>
-						<control type="button" id="9230">
-							<!-- Dummy button for mouse control -->
-							<left>0</left>
-							<top>0</top>
-							<width>315</width>
-							<height>518</height>
-							<texturefocus>blank.png</texturefocus>
-							<texturenofocus>blank.png</texturenofocus>
-							<onup>402</onup>
-							<ondown>9200</ondown>
-							<onleft>9150</onleft>
-							<onright>9500</onright>
-						</control>
+						<!-- Dummy button for mouse control -->
+						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+							<param name="dummyid" value="9230"/>
+							<param name="focusid" value="9200"/>
+						</include>
 						<control type="group">
 							<visible>Control.HasFocus(9200) | Control.HasFocus(9230)</visible>
-							<control type="image">
-								<!-- Menu Heading Hilite-->
-								<left>0</left>
-								<top>0</top>
-								<width>315</width>
-								<height>99</height>
-								<texture>menu-focus.png</texture>
-							</control>
+							<!-- Menu Heading Hilite-->
+							<include file="Includes_HorzHome.xml">menu-hilite</include>
 							<!-- Markers for control area items -->
 							<include content="page-offscreen-vertical">
 								<param name="indicator1left" value="144"/>
@@ -409,32 +386,17 @@
 							</content>
 						</control>
 					</control>
-					<control type="group" id="9520">
-						<!-- Broadcast sub menu -->
+					<control type="group" id="9520"><!-- Broadcast sub menu -->
 						<width>315</width>
-						<control type="button" id="9530">
-							<!-- Dummy button for mouse control -->
-							<left>0</left>
-							<top>0</top>
-							<width>315</width>
-							<height>518</height>
-							<texturefocus>blank.png</texturefocus>
-							<texturenofocus>blank.png</texturenofocus>
-							<onup>402</onup>
-							<ondown>9500</ondown>
-							<onleft>9200</onleft>
-							<onright>9250</onright>
-						</control>
+						<!-- Dummy button for mouse control -->
+						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+							<param name="dummyid" value="9530"/>
+							<param name="focusid" value="9500"/>
+						</include>
 						<control type="group">
 							<visible>Control.HasFocus(9500) | Control.HasFocus(9530)</visible>
-							<control type="image">
-								<!-- Menu Heading Hilite-->
-								<left>0</left>
-								<top>0</top>
-								<width>315</width>
-								<height>99</height>
-								<texture>menu-focus.png</texture>
-							</control>
+							<!-- Menu Heading Hilite-->
+							<include file="Includes_HorzHome.xml">menu-hilite</include>
 							<!-- Markers for control area items -->
 							<include content="page-offscreen-vertical">
 								<param name="indicator1left" value="144"/>
@@ -552,32 +514,17 @@
 							</content>
 						</control>
 					</control>
-					<control type="group" id="9570">
-						<!-- Favourites sub menu -->
+					<control type="group" id="9570"><!-- Favourites sub menu -->
 						<width>315</width>
-						<control type="button" id="9580">
-							<!-- Dummy button for mouse control -->
-							<left>0</left>
-							<top>0</top>
-							<width>315</width>
-							<height>518</height>
-							<texturefocus>blank.png</texturefocus>
-							<texturenofocus>blank.png</texturenofocus>
-							<onup>402</onup>
-							<ondown>9550</ondown>
-							<onleft>9500</onleft>
-							<onright>9250</onright>
-						</control>
+						<!-- Dummy button for mouse control -->
+						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+							<param name="dummyid" value="9580"/>
+							<param name="focusid" value="9550"/>
+						</include>
 						<control type="group">
 							<visible>Control.HasFocus(9550) | Control.HasFocus(9580)</visible>
-							<control type="image">
-								<!-- Menu Heading Hilite-->
-								<left>0</left>
-								<top>0</top>
-								<width>315</width>
-								<height>99</height>
-								<texture>menu-focus.png</texture>
-							</control>
+							<!-- Menu Heading Hilite-->
+							<include file="Includes_HorzHome.xml">menu-hilite</include>
 							<!-- Markers for control area items -->
 							<include content="page-offscreen-vertical">
 								<param name="indicator1left" value="144"/>
@@ -655,32 +602,17 @@
 							</content>
 						</control>
 					</control>
-					<control type="group" id="9270">
-						<!-- Music Sub menu -->
+					<control type="group" id="9270"><!-- Music Sub menu -->
 						<width>315</width>
-						<control type="button" id="9280">
-							<!-- Dummy button for mouse control -->
-							<left>0</left>
-							<top>0</top>
-							<width>315</width>
-							<height>518</height>
-							<texturefocus>blank.png</texturefocus>
-							<texturenofocus>blank.png</texturenofocus>
-							<onup>402</onup>
-							<ondown>9250</ondown>
-							<onleft>9550</onleft>
-							<onright>9300</onright>
-						</control>
+						<!-- Dummy button for mouse control -->
+						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+							<param name="dummyid" value="9280"/>
+							<param name="focusid" value="9250"/>
+						</include>
 						<control type="group">
 							<visible>Control.HasFocus(9250) | Control.HasFocus(9280)</visible>
-							<control type="image">
-								<!-- Menu Heading Hilite-->
-								<left>0</left>
-								<top>0</top>
-								<width>315</width>
-								<height>99</height>
-								<texture>menu-focus.png</texture>
-							</control>
+							<!-- Menu Heading Hilite-->
+							<include file="Includes_HorzHome.xml">menu-hilite</include>
 							<!-- Markers for control area items -->
 							<include content="page-offscreen-vertical">
 								<param name="indicator1left" value="144"/>
@@ -772,30 +704,17 @@
 							</content>
 						</control>
 					</control>
-					<control type="group" id="9320">
-						<!-- Pictures Sub menu -->
+					<control type="group" id="9320"><!-- Pictures Sub menu -->
 						<width>315</width>
-						<control type="button" id="9330">
-							<!-- Dummy button for mouse control -->
-							<left>0</left>
-							<top>0</top>
-							<width>315</width>
-							<height>518</height>
-							<texturefocus>blank.png</texturefocus>
-							<texturenofocus>blank.png</texturenofocus>
-							<onup>402</onup>
-							<ondown>9300</ondown>
-							<onleft>9250</onleft>
-							<onright>9350</onright>
-						</control>
-						<control type="image">
-							<!-- Menu Heading Hilite-->
-							<left>0</left>
-							<top>0</top>
-							<width>315</width>
-							<height>99</height>
-							<texture>menu-focus.png</texture>
+						<!-- Dummy button for mouse control -->
+						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+							<param name="dummyid" value="9330"/>
+							<param name="focusid" value="9300"/>
+						</include>
+						<control type="group">
 							<visible>Control.HasFocus(9300) | Control.HasFocus(9330)</visible>
+							<!-- Menu Heading Hilite-->
+							<include file="Includes_HorzHome.xml">menu-hilite</include>
 						</control>
 						<control type="label"><!-- Menu Heading -->
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
@@ -836,32 +755,17 @@
 							</content>
 						</control>
 					</control>
-					<control type="group" id="9370">
-						<!-- Addons Sub menu -->
+					<control type="group" id="9370"><!-- Addons Sub menu -->
 						<width>315</width>
-						<control type="button" id="9380">
-							<!-- Dummy button for mouse control -->
-							<left>0</left>
-							<top>0</top>
-							<width>315</width>
-							<height>518</height>
-							<texturefocus>blank.png</texturefocus>
-							<texturenofocus>blank.png</texturenofocus>
-							<onup>402</onup>
-							<ondown>9350</ondown>
-							<onleft>9300</onleft>
-							<onright>9600</onright>
-						</control>
+						<!-- Dummy button for mouse control -->
+						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+							<param name="dummyid" value="9380"/>
+							<param name="focusid" value="9350"/>
+						</include>
 						<control type="group">
 							<visible>Control.HasFocus(9350) | Control.HasFocus(9380)</visible>
-							<control type="image">
-								<!-- Menu Heading Hilite-->
-								<left>0</left>
-								<top>0</top>
-								<width>315</width>
-								<height>99</height>
-								<texture>menu-focus.png</texture>
-							</control>
+							<!-- Menu Heading Hilite-->
+							<include file="Includes_HorzHome.xml">menu-hilite</include>
 							<!-- Markers for control area items -->
 							<include content="page-offscreen-vertical">
 								<param name="indicator1left" value="144"/>
@@ -967,32 +871,17 @@
 							</content>
 						</control>
 					</control>
-					<control type="group" id="9620">
-						<!-- Games Sub menu -->
+					<control type="group" id="9620"><!-- Games Sub menu -->
 						<width>315</width>
-						<control type="button" id="9630">
-							<!-- Dummy button for mouse control -->
-							<left>0</left>
-							<top>0</top>
-							<width>315</width>
-							<height>518</height>
-							<texturefocus>blank.png</texturefocus>
-							<texturenofocus>blank.png</texturenofocus>
-							<onup>402</onup>
-							<ondown>9600</ondown>
-							<onleft>9350</onleft>
-							<onright>9400</onright>
-						</control>
+						<!-- Dummy button for mouse control -->
+						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+							<param name="dummyid" value="9630"/>
+							<param name="focusid" value="9600"/>
+						</include>
 						<control type="group">
 							<visible>Control.HasFocus(9600) | Control.HasFocus(9630)</visible>
-							<control type="image">
-								<!-- Menu Heading Hilite-->
-								<left>0</left>
-								<top>0</top>
-								<width>315</width>
-								<height>99</height>
-								<texture>menu-focus.png</texture>
-							</control>
+							<!-- Menu Heading Hilite-->
+							<include file="Includes_HorzHome.xml">menu-hilite</include>
 						</control>
 						<control type="label"><!-- Menu Heading -->
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
@@ -1061,30 +950,17 @@
 							</content>
 						</control>
 					</control>
-					<control type="group" id="9420">
-						<!-- Weather Sub menu -->
+					<control type="group" id="9420"><!-- Weather Sub menu -->
 						<width>315</width>
-						<control type="button" id="9430">
-							<!-- Dummy button for mouse control -->
-							<left>0</left>
-							<top>0</top>
-							<width>315</width>
-							<height>518</height>
-							<texturefocus>blank.png</texturefocus>
-							<texturenofocus>blank.png</texturenofocus>
-							<onup>402</onup>
-							<ondown>9400</ondown>
-							<onleft>9600</onleft>
-							<onright>9450</onright>
-						</control>
-						<control type="image">
-							<!-- Menu Heading Hilite-->
-							<left>0</left>
-							<top>0</top>
-							<width>315</width>
-							<height>99</height>
-							<texture>menu-focus.png</texture>
+						<!-- Dummy button for mouse control -->
+						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+							<param name="dummyid" value="9430"/>
+							<param name="focusid" value="9400"/>
+						</include>
+						<control type="group">
 							<visible>Control.HasFocus(9400) | Control.HasFocus(9430)</visible>
+							<!-- Menu Heading Hilite-->
+							<include file="Includes_HorzHome.xml">menu-hilite</include>
 						</control>
 						<control type="label"><!-- Menu Heading -->
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
@@ -1118,32 +994,17 @@
 							</content>
 						</control>
 					</control>
-					<control type="group" id="9470">
-						<!-- Settings Sub menu -->
+					<control type="group" id="9470"><!-- Settings Sub menu -->
 						<width>315</width>
-						<control type="button" id="9480">
-							<!-- Dummy button for mouse control -->
-							<left>0</left>
-							<top>0</top>
-							<width>315</width>
-							<height>518</height>
-							<texturefocus>blank.png</texturefocus>
-							<texturenofocus>blank.png</texturenofocus>
-							<onup>402</onup>
-							<ondown>9450</ondown>
-							<onleft>9400</onleft>
-							<onright>noop</onright>
-						</control>
+						<!-- Dummy button for mouse control -->
+						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+							<param name="dummyid" value="9480"/>
+							<param name="focusid" value="9450"/>
+						</include>
 						<control type="group">
 							<visible>Control.HasFocus(9450) | Control.HasFocus(9480)</visible>
-							<control type="image">
-								<!-- Menu Heading Hilite-->
-								<left>0</left>
-								<top>0</top>
-								<width>315</width>
-								<height>99</height>
-								<texture>menu-focus.png</texture>
-							</control>
+							<!-- Menu Heading Hilite-->
+							<include file="Includes_HorzHome.xml">menu-hilite</include>
 							<!-- Markers for control area items -->
 							<include content="page-offscreen-vertical">
 								<param name="indicator1left" value="144"/>
@@ -1215,8 +1076,7 @@
 					</control>
 				</control>
 			</control>
-			<control type="group" id="9020">
-				<!-- Icon Home Menu -->
+			<control type="group" id="9020"><!-- Icon Home Menu -->
 				<visible>Skin.HasSetting(HomeMenuIcon) | [!Skin.HasSetting(HomeMenuVertical) + !Skin.HasSetting(HomeMenuHorizontal) + !Skin.HasSetting(HomeMenuIcon)]</visible>
 				<!-- Markers for off screen menu items -->
 				<include content="page-offscreen-vertical">
@@ -1227,8 +1087,7 @@
 					<param name="indicatorsize" value="48"/>
 					<param name="indicatorcontainer" value="9021"/>
 				</include>
-				<control type="panel" id="9021">
-					<!-- Home menu icon panel -->
+				<control type="panel" id="9021"><!-- Home menu icon panel -->
 					<animation condition="true" effect="zoom" start="100" end="80" center="auto">Conditional</animation>
 					<width>1890</width>
 					<height>960</height>
@@ -1264,8 +1123,7 @@
 					<focusedlayout height="240" width="378">
 						<control type="group">
 							<visible>ListItem.Property(isActive) + !Control.HasFocus(402)</visible>
-							<control type="image">
-								<!-- Focused non settings icon image -->
+							<control type="image"><!-- Focused non settings icon image -->
 								<left>10</left>
 								<top>0</top>
 								<width>357</width>
@@ -1287,8 +1145,7 @@
 						</control>
 						<control type="group">
 							<visible>!ListItem.Property(isActive) | Control.HasFocus(402)</visible>
-							<control type="image">
-								<!-- Focused non settings icon image -->
+							<control type="image"><!-- Focused non settings icon image -->
 								<left>10</left>
 								<top>0</top>
 								<width>357</width>
@@ -1713,8 +1570,7 @@
 					</content>
 				</control>
 			</control>
-			<control type="group" id="9030">
-				<!-- Vertical Home Menu -->
+			<control type="group" id="9030"><!-- Vertical Home Menu -->
 				<visible>Skin.HasSetting(HomeMenuVertical)</visible>
 				<animation condition="true" effect="zoom" start="100" end="80" center="auto">Conditional</animation>
 				<!-- Markers for off screen menu items -->
@@ -1726,8 +1582,7 @@
 					<param name="indicatorsize" value="48"/>
 					<param name="indicatorcontainer" value="9031"/>
 				</include>
-				<control type="list" id="9031">
-					<!-- Home menu list -->
+				<control type="list" id="9031"><!-- Home menu list -->
 					<left>1074</left>
 					<top>177</top>
 					<height>756</height>
@@ -2200,8 +2055,7 @@
 				</control>
 			</control>
 		</control>
-		<control type="textbox">
-			<!-- Settings description area -->
+		<control type="textbox"><!-- Settings description area -->
 			<left>15</left>
 			<top>999</top>
 			<width>1890</width>

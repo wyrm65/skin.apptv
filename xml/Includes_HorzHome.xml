@@ -52,16 +52,29 @@
 			</control>
 		</definition>
 	</include>
+	<include name="horzhome-dummy">
+		<param name="dummyid"/>
+		<param name="focusid"/>
+		<definition>
+			<control type="button" id="$PARAM[dummyid]">
+				<left>0</left>
+				<top>0</top>
+				<width>315</width>
+				<height>528</height>
+				<texturefocus>blank.png</texturefocus>
+				<texturenofocus>blank.png</texturenofocus>
+				<onfocus>SetFocus($PARAM[focusid])</onfocus>
+			</control>
+		</definition>
+	</include>
 	<include name="HorzHomeMenu">
 		<include file="Includes_Shelf.xml">homeshelf-background</include>
 		<!-- Show time on home screen -->
 		<include condition="!Skin.HasSetting(home-time)" file="Includes_Shelf.xml">homeshelf-time</include>
 		<!-- Now Playing -->
 		<include condition="Skin.HasSetting(media-overlay)" file="Includes_Shelf.xml">shelf-nowplaying</include>
-		<!-- Shelf icons-->
-		<control type="group" id="9800">
-			<control type="group" id="9155">
-				<!-- Movie icons -->
+		<control type="group" id="9800"><!-- Shelf icons-->
+			<control type="group" id="9155"><!-- Movie icons -->
 				<visible>Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9165) | Control.HasFocus(9180)</visible>
 				<control type="group">
 					<visible>String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9160).NumItems,0)</visible>
@@ -74,8 +87,7 @@
 					<include file="Includes_Shelf.xml">movie-shelficons</include>
 				</control>
 			</control>
-			<control type="group" id="9205">
-				<!-- TV Shows icons -->
+			<control type="group" id="9205"><!-- TV Shows icons -->
 				<visible>Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9215) | Control.HasFocus(9230)</visible>
 				<control type="group">
 					<visible>String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31953]) | [!Integer.IsGreater(Container(9210).NumItems,0)
@@ -89,8 +101,7 @@
 					<include file="Includes_Shelf.xml">tvshow-shelficons</include>
 				</control>
 			</control>
-			<control type="group" id="9255">
-				<!-- Music icons -->
+			<control type="group" id="9255"><!-- Music icons -->
 				<visible>Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9265) | Control.HasFocus(9280)</visible>
 				<control type="group">
 					<visible>String.IsEqual(Skin.String(widget-music),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9260).NumItems,0)</visible>
@@ -103,8 +114,7 @@
 					<include file="Includes_Shelf.xml">music-shelficons</include>
 				</control>
 			</control>
-			<control type="group" id="9355">
-				<!-- Addon icons -->
+			<control type="group" id="9355"><!-- Addon icons -->
 				<visible>Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9365) | Control.HasFocus(9380)</visible>
 				<control type="group">
 					<visible>String.IsEqual(Skin.String(widget-addon),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9360).NumItems,0)</visible>
@@ -117,8 +127,7 @@
 					<include file="Includes_Shelf.xml">addons-shelficons</include>
 				</control>
 			</control>
-			<control type="group" id="9405">
-				<!-- Weather icons -->
+			<control type="group" id="9405"><!-- Weather icons -->
 				<visible>Control.HasFocus(9400) | Control.HasFocus(9430)</visible>
 				<control type="group">
 					<visible>!Weather.IsFetched | String.IsEmpty(Window(weather).Property(Current.Temperature))</visible>
@@ -131,8 +140,7 @@
 					<include condition="!String.IsEmpty(Weather.plugin) + [Skin.HasSetting(home-weather) | Skin.HasSetting(home-currentweather)]" file="Includes_Shelf.xml">ShelfWeather</include>
 				</control>
 			</control>
-			<control type="group" id="9505">
-				<!-- Broadcast icons -->
+			<control type="group" id="9505"><!-- Broadcast icons -->
 				<visible>Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9515) | Control.HasFocus(9530)</visible>
 				<control type="group">
 					<visible>String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9510).NumItems,0)</visible>
@@ -145,8 +153,7 @@
 					<include file="Includes_Shelf.xml">broadcast-shelficons</include>
 				</control>
 			</control>
-			<control type="group" id="9555">
-				<!-- Favourites icons -->
+			<control type="group" id="9555"><!-- Favourites icons -->
 				<visible>Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9565) | Control.HasFocus(9580)</visible>
 				<control type="group">
 					<visible>String.IsEqual(Skin.String(widget-favourite),$LOCALIZE[31953]) | !Integer.IsGreater(Container(9560).NumItems,0)</visible>
@@ -159,18 +166,15 @@
 					<include file="Includes_Shelf.xml">custom-shelficons</include>
 				</control>
 			</control>
-			<control type="group">
-				<!-- Default Shelf icons -->
+			<control type="group"><!-- Default Shelf icons -->
 				<visible>![Control.IsVisible(9155) | Control.IsVisible(9205) | Control.IsVisible(9255) | Control.IsVisible(9355) | Control.IsVisible(9405) | Control.IsVisible(9505) | Control.IsVisible(9555)]</visible>
 				<include content="shelf-defaulticon">
 					<param name="defaulticon" value="$VAR[HorzHomeShelfIcon]"/>
 				</include>
 			</control>
 		</control>
-		<control type="group">
-			<!-- Main Horizontal menu bar -->
-			<control type="image">
-				<!-- Background image for menu area -->
+		<control type="group"><!-- Main Horizontal menu bar -->
+			<control type="image"><!-- Background image for menu area -->
 				<left>0</left>
 				<top>468</top>
 				<width>1920</width>
@@ -192,7 +196,6 @@
 				<texture>separator.png</texture>
 			</control>
 		</control>
-
 		<!-- Play bump sound if user tries to leave menu by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="9005" />
@@ -242,8 +245,7 @@
 			<param name="indicatorsize" value="24"/>
 			<param name="indicatorcontainer" value="9000"/>
 		</include>
-		<control type="grouplist" id="9000">
-			<!-- Home Sub menus -->
+		<control type="grouplist" id="9000"><!-- Home Sub menus -->
 			<left>15</left>
 			<top>471</top>
 			<width>1890</width>
@@ -251,20 +253,14 @@
 			<itemgap>0</itemgap>
 			<orientation>horizontal</orientation>
 			<align>center</align>
-			<control type="group" id="9120">
-				<!-- Video sub menu -->
+			<control type="group" id="9120"><!-- Video sub menu -->
 				<visible>!Skin.HasSetting(home-video)</visible>
 				<width>315</width>
-				<control type="button" id="9130">
-					<!-- Dummy button for mouse control -->
-					<left>0</left>
-					<top>0</top>
-					<width>315</width>
-					<height>528</height>
-					<texturefocus>blank.png</texturefocus>
-					<texturenofocus>blank.png</texturenofocus>
-					<onfocus>SetFocus(9100)</onfocus>
-				</control>
+				<!-- Dummy button for mouse control -->
+				<include content="horzhome-dummy">
+					<param name="dummyid" value="9130"/>
+					<param name="focusid" value="9100"/>
+				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9100) | Control.HasFocus(9130)</visible>
 					<!-- Menu Heading Hilite-->
@@ -311,41 +307,35 @@
 						<include>HorzHomeFocusItem</include>
 					</focusedlayout>
 					<content>
-						<item>
-							<!-- Files -->
+						<item><!-- Files -->
 							<label>$LOCALIZE[744]</label>
 							<label2>$LOCALIZE[3]</label2>
 							<onclick>ActivateWindow(videos,Files,return)</onclick>
 						</item>
-						<item>
-							<!-- Library root -->
+						<item><!-- Library root -->
 							<label>$LOCALIZE[14022]</label>
 							<label2>$LOCALIZE[3]</label2>
 							<onclick>ActivateWindow(videos,Root,return)</onclick>
 						</item>
-						<item>
-							<!-- Movies -->
+						<item><!-- Movies -->
 							<visible>Library.HasContent(movies)</visible>
 							<label>$LOCALIZE[342]</label>
 							<label2>$LOCALIZE[3]</label2>
 							<onclick>ActivateWindow(videos,Movies,return)</onclick>
 						</item>
-						<item>
-							<!-- TV shows -->
+						<item><!-- TV shows -->
 							<visible>Library.HasContent(tvShows)</visible>
 							<label>$LOCALIZE[20343]</label>
 							<label2>$LOCALIZE[3]</label2>
 							<onclick>ActivateWindow(videos,TVShows,return)</onclick>
 						</item>
-						<item>
-							<!-- Music videos -->
+						<item><!-- Music videos -->
 							<visible>Library.HasContent(MusicVideos)</visible>
 							<label>$LOCALIZE[20389]</label>
 							<label2>$LOCALIZE[3]</label2>
 							<onclick>ActivateWindow(videos,MusicVideos,return)</onclick>
 						</item>
-						<item>
-							<!-- Addons -->
+						<item><!-- Addons -->
 							<label>$LOCALIZE[24001]</label>
 							<label2>$LOCALIZE[3]</label2>
 							<onclick>ActivateWindow(videos,Addons,return)</onclick>
@@ -353,20 +343,14 @@
 					</content>
 				</control>
 			</control>
-			<control type="group" id="9170">
-				<!-- Movie sub menu -->
+			<control type="group" id="9170"><!-- Movie sub menu -->
 				<visible>!Skin.HasSetting(home-movie) | !String.IsEmpty(Skin.String(CustomMovies.1.Path)) | !String.IsEmpty(Skin.String(CustomMovies.2.Path)) | !String.IsEmpty(Skin.String(CustomMovies.3.Path)) | !String.IsEmpty(Skin.String(CustomMovies.4.Path)) | !String.IsEmpty(Skin.String(CustomMovies.5.Path))</visible>
 				<width>315</width>
-				<control type="button" id="9180">
-					<!-- Dummy button for mouse control -->
-					<left>0</left>
-					<top>0</top>
-					<width>315</width>
-					<height>518</height>
-					<texturefocus>blank.png</texturefocus>
-					<texturenofocus>blank.png</texturenofocus>
-					<onfocus>SetFocus(9150)</onfocus>
-				</control>
+				<!-- Dummy button for mouse control -->
+				<include content="horzhome-dummy">
+					<param name="dummyid" value="9180"/>
+					<param name="focusid" value="9150"/>
+				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180)</visible>
 					<!-- Menu Heading Hilite-->
@@ -418,50 +402,43 @@
 						<include>HorzHomeFocusItem</include>
 					</focusedlayout>
 					<content>
-						<item>
-							<!-- Movies -->
+						<item><!-- Movies -->
 							<visible>!Skin.HasSetting(home-movie)</visible>
 							<label>$LOCALIZE[31026]</label>
 							<label2>$LOCALIZE[31026]</label2>
 							<onclick>$VAR[MovieLibEntry]</onclick>
 						</item>
-						<item>
-							<!-- Custom Movie 1 -->
+						<item><!-- Custom Movie 1 -->
 							<visible>!String.IsEmpty(Skin.String(CustomMovies.1.Path))</visible>
 							<label>$INFO[Skin.String(CustomMovies.1.Label)]</label>
 							<label2>$LOCALIZE[31026]</label2>
 							<onclick>$INFO[Skin.String(CustomMovies.1.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom Movie 2 -->
+						<item><!-- Custom Movie 2 -->
 							<visible>!String.IsEmpty(Skin.String(CustomMovies.2.Path))</visible>
 							<label>$INFO[Skin.String(CustomMovies.2.Label)]</label>
 							<label2>$LOCALIZE[31026]</label2>
 							<onclick>$INFO[Skin.String(CustomMovies.2.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom Movie 3 -->
+						<item><!-- Custom Movie 3 -->
 							<visible>!String.IsEmpty(Skin.String(CustomMovies.3.Path))</visible>
 							<label>$INFO[Skin.String(CustomMovies.3.Label)]</label>
 							<label2>$LOCALIZE[31026]</label2>
 							<onclick>$INFO[Skin.String(CustomMovies.3.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom Movie 4 -->
+						<item><!-- Custom Movie 4 -->
 							<visible>!String.IsEmpty(Skin.String(CustomMovies.4.Path))</visible>
 							<label>$INFO[Skin.String(CustomMovies.4.Label)]</label>
 							<label2>$LOCALIZE[31026]</label2>
 							<onclick>$INFO[Skin.String(CustomMovies.4.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom Movie 5 -->
+						<item><!-- Custom Movie 5 -->
 							<visible>!String.IsEmpty(Skin.String(CustomMovies.5.Path))</visible>
 							<label>$INFO[Skin.String(CustomMovies.5.Label)]</label>
 							<label2>$LOCALIZE[31026]</label2>
 							<onclick>$INFO[Skin.String(CustomMovies.5.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Video addons -->
+						<item><!-- Video addons -->
 							<label>$LOCALIZE[24001]</label>
 							<label2>$LOCALIZE[31026]</label2>
 							<onclick>ActivateWindow(videos,Addons,return)</onclick>
@@ -469,20 +446,14 @@
 					</content>
 				</control>
 			</control>
-			<control type="group" id="9220">
-				<!-- TV Shows sub menu -->
+			<control type="group" id="9220"><!-- TV Shows sub menu -->
 				<visible>!Skin.HasSetting(home-tvshows) | !String.IsEmpty(Skin.String(CustomTVShow.1.Path)) | !String.IsEmpty(Skin.String(CustomTVShow.2.Path)) | !String.IsEmpty(Skin.String(CustomTVShow.3.Path)) | !String.IsEmpty(Skin.String(CustomTVShow.4.Path)) | !String.IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
 				<width>315</width>
-				<control type="button" id="9230">
-					<!-- Dummy button for mouse control -->
-					<left>0</left>
-					<top>0</top>
-					<width>315</width>
-					<height>518</height>
-					<texturefocus>blank.png</texturefocus>
-					<texturenofocus>blank.png</texturenofocus>
-					<onfocus>SetFocus(9200)</onfocus>
-				</control>
+				<!-- Dummy button for mouse control -->
+				<include content="horzhome-dummy">
+					<param name="dummyid" value="9230"/>
+					<param name="focusid" value="9200"/>
+				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230)</visible>
 					<!-- Menu Heading Hilite-->
@@ -533,50 +504,43 @@
 						<include>HorzHomeFocusItem</include>
 					</focusedlayout>
 					<content>
-						<item>
-							<!-- TV shows library -->
+						<item><!-- TV shows library -->
 							<visible>!Skin.HasSetting(home-tvshows)</visible>
 							<label>$LOCALIZE[31027]</label>
 							<label2>$LOCALIZE[31027]</label2>
 							<onclick>$VAR[TVLibEntry]</onclick>
 						</item>
-						<item>
-							<!-- Custom TV Shows 1 -->
+						<item><!-- Custom TV Shows 1 -->
 							<visible>!String.IsEmpty(Skin.String(CustomTVShow.1.Path))</visible>
 							<label>$INFO[Skin.String(CustomTVShow.1.Label)]</label>
 							<label2>$LOCALIZE[31027]</label2>
 							<onclick>$INFO[Skin.String(CustomTVShow.1.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom TV Shows 2 -->
+						<item><!-- Custom TV Shows 2 -->
 							<visible>!String.IsEmpty(Skin.String(CustomTVShow.2.Path))</visible>
 							<label>$INFO[Skin.String(CustomTVShow.2.Label)]</label>
 							<label2>$LOCALIZE[31027]</label2>
 							<onclick>$INFO[Skin.String(CustomTVShow.2.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom TV Shows 3 -->
+						<item><!-- Custom TV Shows 3 -->
 							<visible>!String.IsEmpty(Skin.String(CustomTVShow.3.Path))</visible>
 							<label>$INFO[Skin.String(CustomTVShow.3.Label)]</label>
 							<label2>$LOCALIZE[31027]</label2>
 							<onclick>$INFO[Skin.String(CustomTVShow.3.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom TV Shows 4 -->
+						<item><!-- Custom TV Shows 4 -->
 							<visible>!String.IsEmpty(Skin.String(CustomTVShow.4.Path))</visible>
 							<label>$INFO[Skin.String(CustomTVShow.4.Label)]</label>
 							<label2>$LOCALIZE[31027]</label2>
 							<onclick>$INFO[Skin.String(CustomTVShow.4.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom TV Shows 5 -->
+						<item><!-- Custom TV Shows 5 -->
 							<visible>!String.IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
 							<label>$INFO[Skin.String(CustomTVShow.5.Label)]</label>
 							<label2>$LOCALIZE[31027]</label2>
 							<onclick>$INFO[Skin.String(CustomTVShow.5.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Video addons -->
+						<item><!-- Video addons -->
 							<label>$LOCALIZE[24001]</label>
 							<label2>$LOCALIZE[31027]</label2>
 							<onclick>ActivateWindow(videos,Addons,return)</onclick>
@@ -584,20 +548,14 @@
 					</content>
 				</control>
 			</control>
-			<control type="group" id="9520">
-				<!-- Broadcast sub menu -->
+			<control type="group" id="9520"><!-- Broadcast sub menu -->
 				<visible>[Pvr.HasTVChannels] | [Pvr.HasRadioChannels] | !String.IsEmpty(Skin.String(CustomTV.1.Path)) | !String.IsEmpty(Skin.String(CustomTV.2.Path)) | !String.IsEmpty(Skin.String(CustomTV.3.Path)) | !String.IsEmpty(Skin.String(CustomTV.4.Path)) | !String.IsEmpty(Skin.String(CustomTV.5.Path)) | !String.IsEmpty(Skin.String(CustomRadio.1.Path)) | !String.IsEmpty(Skin.String(CustomRadio.2.Path)) | !String.IsEmpty(Skin.String(CustomRadio.3.Path)) | !String.IsEmpty(Skin.String(CustomRadio.4.Path)) | !String.IsEmpty(Skin.String(CustomRadio.5.Path))</visible>
 				<width>315</width>
-				<control type="button" id="9530">
-					<!-- Dummy button for mouse control -->
-					<left>0</left>
-					<top>0</top>
-					<width>315</width>
-					<height>518</height>
-					<texturefocus>blank.png</texturefocus>
-					<texturenofocus>blank.png</texturenofocus>
-					<onfocus>SetFocus(9500)</onfocus>
-				</control>
+				<!-- Dummy button for mouse control -->
+				<include content="horzhome-dummy">
+					<param name="dummyid" value="9530"/>
+					<param name="focusid" value="9500"/>
+				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9515) | Control.HasFocus(9530)</visible>
 					<!-- Menu Heading Hilite-->
@@ -648,87 +606,75 @@
 						<include>HorzHomeFocusItem</include>
 					</focusedlayout>
 					<content>
-						<item>
-							<!-- Live TV -->
+						<item><!-- Live TV -->
 							<visible>Pvr.HasTVChannels</visible>
 							<label>$LOCALIZE[19020]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>SetProperty(PVRType,tv,home)</onclick>
 							<onclick>$VAR[TVEntry]</onclick>
 						</item>
-						<item>
-							<!-- Custom TV 1 -->
+						<item><!-- Custom TV 1 -->
 							<visible>!String.IsEmpty(Skin.String(CustomTV.1.Path))</visible>
 							<label>$INFO[Skin.String(CustomTV.1.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomTV.1.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom TV 2 -->
+						<item><!-- Custom TV 2 -->
 							<visible>!String.IsEmpty(Skin.String(CustomTV.2.Path))</visible>
 							<label>$INFO[Skin.String(CustomTV.2.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomTV.2.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom TV 3 -->
+						<item><!-- Custom TV 3 -->
 							<visible>!String.IsEmpty(Skin.String(CustomTV.3.Path))</visible>
 							<label>$INFO[Skin.String(CustomTV.3.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomTV.3.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom TV 4 -->
+						<item><!-- Custom TV 4 -->
 							<visible>!String.IsEmpty(Skin.String(CustomTV.4.Path))</visible>
 							<label>$INFO[Skin.String(CustomTV.4.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomTV.4.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom TV 5 -->
+						<item><!-- Custom TV 5 -->
 							<visible>!String.IsEmpty(Skin.String(CustomTV.5.Path))</visible>
 							<label>$INFO[Skin.String(CustomTV.5.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomTV.5.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Live Radio -->
+						<item><!-- Live Radio -->
 							<visible>Pvr.HasRadioChannels</visible>
 							<label>$LOCALIZE[19021]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>SetProperty(PVRType,radio,home)</onclick>
 							<onclick>$VAR[RadioEntry]</onclick>
 						</item>
-						<item>
-							<!-- Custom Radio 1 -->
+						<item><!-- Custom Radio 1 -->
 							<visible>!String.IsEmpty(Skin.String(CustomRadio.1.Path))</visible>
 							<label>$INFO[Skin.String(CustomRadio.1.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomRadio.1.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom Radio 2 -->
+						<item><!-- Custom Radio 2 -->
 							<visible>!String.IsEmpty(Skin.String(CustomRadio.2.Path))</visible>
 							<label>$INFO[Skin.String(CustomRadio.2.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomRadio.2.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom Radio 3 -->
+						<item><!-- Custom Radio 3 -->
 							<visible>!String.IsEmpty(Skin.String(CustomRadio.3.Path))</visible>
 							<label>$INFO[Skin.String(CustomRadio.3.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomRadio.3.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom Radio 4 -->
+						<item><!-- Custom Radio 4 -->
 							<visible>!String.IsEmpty(Skin.String(CustomRadio.4.Path))</visible>
 							<label>$INFO[Skin.String(CustomRadio.4.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomRadio.4.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom Radio 5 -->
+						<item><!-- Custom Radio 5 -->
 							<visible>!String.IsEmpty(Skin.String(CustomRadio.5.Path))</visible>
 							<label>$INFO[Skin.String(CustomRadio.5.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
@@ -737,20 +683,14 @@
 					</content>
 				</control>
 			</control>
-			<control type="group" id="9570">
-				<!-- Favourites sub menu -->
+			<control type="group" id="9570"><!-- Favourites sub menu -->
 				<visible>Skin.HasSetting(home-favorites) | !String.IsEmpty(Skin.String(CustomFav.1.Path)) | !String.IsEmpty(Skin.String(CustomFav.2.Path)) | !String.IsEmpty(Skin.String(CustomFav.3.Path)) | !String.IsEmpty(Skin.String(CustomFav.4.Path)) | !String.IsEmpty(Skin.String(CustomFav.5.Path))</visible>
 				<width>315</width>
-				<control type="button" id="9580">
-					<!-- Dummy button for mouse control -->
-					<left>0</left>
-					<top>0</top>
-					<width>315</width>
-					<height>518</height>
-					<texturefocus>blank.png</texturefocus>
-					<texturenofocus>blank.png</texturenofocus>
-					<onfocus>SetFocus(9550)</onfocus>
-				</control>
+				<!-- Dummy button for mouse control -->
+				<include content="horzhome-dummy">
+					<param name="dummyid" value="9580"/>
+					<param name="focusid" value="9550"/>
+				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9565) | Control.HasFocus(9580)</visible>
 					<!-- Menu Heading Hilite-->
@@ -799,43 +739,37 @@
 						<include>HorzHomeFocusItem</include>
 					</focusedlayout>
 					<content>
-						<item>
-							<!-- Favourites -->
+						<item><!-- Favourites -->
 							<visible>Skin.HasSetting(home-favorites)</visible>
 							<label>$LOCALIZE[1036]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>ActivateWindow(favourites)</onclick>
 						</item>
-						<item>
-							<!-- Custom Favourite 1 -->
+						<item><!-- Custom Favourite 1 -->
 							<visible>!String.IsEmpty(Skin.String(CustomFav.1.Path))</visible>
 							<label>$INFO[Skin.String(CustomFav.1.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomFav.1.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom Favourite 2 -->
+						<item><!-- Custom Favourite 2 -->
 							<visible>!String.IsEmpty(Skin.String(CustomFav.2.Path))</visible>
 							<label>$INFO[Skin.String(CustomFav.2.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomFav.2.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom Favourite 3 -->
+						<item><!-- Custom Favourite 3 -->
 							<visible>!String.IsEmpty(Skin.String(CustomFav.3.Path))</visible>
 							<label>$INFO[Skin.String(CustomFav.3.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomFav.3.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom Favourite 4 -->
+						<item><!-- Custom Favourite 4 -->
 							<visible>!String.IsEmpty(Skin.String(CustomFav.4.Path))</visible>
 							<label>$INFO[Skin.String(CustomFav.4.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
 							<onclick>$INFO[Skin.String(CustomFav.4.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom Favourite 5 -->
+						<item><!-- Custom Favourite 5 -->
 							<visible>!String.IsEmpty(Skin.String(CustomFav.5.Path))</visible>
 							<label>$INFO[Skin.String(CustomFav.5.Label)]</label>
 							<label2>$LOCALIZE[31031]</label2>
@@ -844,20 +778,14 @@
 					</content>
 				</control>
 			</control>
-			<control type="group" id="9270">
-				<!-- Music Sub menu -->
+			<control type="group" id="9270"><!-- Music Sub menu -->
 				<visible>!Skin.HasSetting(home-music) | Skin.HasSetting(home-musicvideo) | !String.IsEmpty(Skin.String(CustomMusic.1.Path)) | !String.IsEmpty(Skin.String(CustomMusic.2.Path)) | !String.IsEmpty(Skin.String(CustomMusic.3.Path)) | !String.IsEmpty(Skin.String(CustomMusic.4.Path)) | !String.IsEmpty(Skin.String(CustomMusic.5.Path))</visible>
 				<width>315</width>
-				<control type="button" id="9280">
-					<!-- Dummy button for mouse control -->
-					<left>0</left>
-					<top>0</top>
-					<width>315</width>
-					<height>518</height>
-					<texturefocus>blank.png</texturefocus>
-					<texturenofocus>blank.png</texturenofocus>
-					<onfocus>SetFocus(9250)</onfocus>
-				</control>
+				<!-- Dummy button for mouse control -->
+				<include content="horzhome-dummy">
+					<param name="dummyid" value="9280"/>
+					<param name="focusid" value="9250"/>
+				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280)</visible>
 					<!-- Menu Heading Hilite-->
@@ -908,57 +836,49 @@
 						<include>HorzHomeFocusItem</include>
 					</focusedlayout>
 					<content>
-						<item>
-							<!-- Music -->
+						<item><!-- Music -->
 							<visible>!Skin.HasSetting(home-music)</visible>
 							<label>$LOCALIZE[2]</label>
 							<label2>$LOCALIZE[2]</label2>
 							<onclick>$VAR[MusicLibEntry]</onclick>
 						</item>
-						<item>
-							<!-- Music videos -->
+						<item><!-- Music videos -->
 							<visible>Skin.HasSetting(home-musicvideo)</visible>
 							<label>$LOCALIZE[31028]</label>
 							<label2>$LOCALIZE[2]</label2>
 							<onclick>$VAR[MusicVideoLibEntry]</onclick>
 						</item>
-						<item>
-							<!-- Custom Music 1 -->
+						<item><!-- Custom Music 1 -->
 							<visible>!String.IsEmpty(Skin.String(CustomMusic.1.Path))</visible>
 							<label>$INFO[Skin.String(CustomMusic.1.Label)]</label>
 							<label2>$LOCALIZE[2]</label2>
 							<onclick>$INFO[Skin.String(CustomMusic.1.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom Music 2 -->
+						<item><!-- Custom Music 2 -->
 							<visible>!String.IsEmpty(Skin.String(CustomMusic.2.Path))</visible>
 							<label>$INFO[Skin.String(CustomMusic.2.Label)]</label>
 							<label2>$LOCALIZE[2]</label2>
 							<onclick>$INFO[Skin.String(CustomMusic.2.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom Music 3 -->
+						<item><!-- Custom Music 3 -->
 							<visible>!String.IsEmpty(Skin.String(CustomMusic.3.Path))</visible>
 							<label>$INFO[Skin.String(CustomMusic.3.Label)]</label>
 							<label2>$LOCALIZE[2]</label2>
 							<onclick>$INFO[Skin.String(CustomMusic.3.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom Music 4 -->
+						<item><!-- Custom Music 4 -->
 							<visible>!String.IsEmpty(Skin.String(CustomMusic.4.Path))</visible>
 							<label>$INFO[Skin.String(CustomMusic.4.Label)]</label>
 							<label2>$LOCALIZE[2]</label2>
 							<onclick>$INFO[Skin.String(CustomMusic.4.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom Music 5 -->
+						<item><!-- Custom Music 5 -->
 							<visible>!String.IsEmpty(Skin.String(CustomMusic.5.Path))</visible>
 							<label>$INFO[Skin.String(CustomMusic.5.Label)]</label>
 							<label2>$LOCALIZE[2]</label2>
 							<onclick>$INFO[Skin.String(CustomMusic.5.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Music addons -->
+						<item><!-- Music addons -->
 							<label>$LOCALIZE[24001]</label>
 							<label2>$LOCALIZE[2]</label2>
 							<onclick>ActivateWindow(music,addons://sources/audio/,return)</onclick>
@@ -966,20 +886,14 @@
 					</content>
 				</control>
 			</control>
-			<control type="group" id="9320">
-				<!-- Pictures Sub menu -->
+			<control type="group" id="9320"><!-- Pictures Sub menu -->
 				<visible>Skin.HasSetting(home-photos)</visible>
 				<width>315</width>
-				<control type="button" id="9330">
-					<!-- Dummy button for mouse control -->
-					<left>0</left>
-					<top>0</top>
-					<width>315</width>
-					<height>518</height>
-					<texturefocus>blank.png</texturefocus>
-					<texturenofocus>blank.png</texturenofocus>
-					<onfocus>SetFocus(9300)</onfocus>
-				</control>
+				<!-- Dummy button for mouse control -->
+				<include content="horzhome-dummy">
+					<param name="dummyid" value="9330"/>
+					<param name="focusid" value="9300"/>
+				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9300) | Control.HasFocus(9330)</visible>
 					<!-- Menu Heading Hilite-->
@@ -1017,14 +931,12 @@
 						<include>HorzHomeFocusItem</include>
 					</focusedlayout>
 					<content>
-						<item>
-							<!-- Pictures -->
+						<item><!-- Pictures -->
 							<label>$LOCALIZE[1]</label>
 							<label2>$LOCALIZE[1]</label2>
 							<onclick>ActivateWindow(pictures,,return)</onclick>
 						</item>
-						<item>
-							<!-- Picture addons -->
+						<item><!-- Picture addons -->
 							<label>$LOCALIZE[24001]</label>
 							<label2>$LOCALIZE[1]</label2>
 							<onclick>ActivateWindow(pictures,Addons,return)</onclick>
@@ -1032,20 +944,14 @@
 					</content>
 				</control>
 			</control>
-			<control type="group" id="9370">
-				<!-- Addons Sub menu -->
+			<control type="group" id="9370"><!-- Addons Sub menu -->
 				<visible>!Skin.HasSetting(home-programs) | !String.IsEmpty(Skin.String(CustomAddon.1.Path)) | !String.IsEmpty(Skin.String(CustomAddon.2.Path)) | !String.IsEmpty(Skin.String(CustomAddon.3.Path)) | !String.IsEmpty(Skin.String(CustomAddon.4.Path)) | !String.IsEmpty(Skin.String(CustomAddon.5.Path))</visible>
 				<width>315</width>
-				<control type="button" id="9380">
-					<!-- Dummy button for mouse control -->
-					<left>0</left>
-					<top>0</top>
-					<width>315</width>
-					<height>518</height>
-					<texturefocus>blank.png</texturefocus>
-					<texturenofocus>blank.png</texturenofocus>
-					<onfocus>SetFocus(9350)</onfocus>
-				</control>
+				<!-- Dummy button for mouse control -->
+				<include content="horzhome-dummy">
+					<param name="dummyid" value="9380"/>
+					<param name="focusid" value="9350"/>
+				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9380)</visible>
 					<!-- Menu Heading Hilite-->
@@ -1096,75 +1002,64 @@
 						<include>HorzHomeFocusItem</include>
 					</focusedlayout>
 					<content>
-						<item>
-							<!-- Custom addons 1 -->
+						<item><!-- Custom addons 1 -->
 							<visible>!String.IsEmpty(Skin.String(CustomAddon.1.Path))</visible>
 							<label>$INFO[Skin.String(CustomAddon.1.Label)]</label>
 							<label2>$LOCALIZE[24001]</label2>
 							<onclick>$INFO[Skin.String(CustomAddon.1.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom addons 2 -->
+						<item><!-- Custom addons 2 -->
 							<visible>!String.IsEmpty(Skin.String(CustomAddon.2.Path))</visible>
 							<label>$INFO[Skin.String(CustomAddon.2.Label)]</label>
 							<label2>$LOCALIZE[24001]</label2>
 							<onclick>$INFO[Skin.String(CustomAddon.2.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom addons 3 -->
+						<item><!-- Custom addons 3 -->
 							<visible>!String.IsEmpty(Skin.String(CustomAddon.3.Path))</visible>
 							<label>$INFO[Skin.String(CustomAddon.3.Label)]</label>
 							<label2>$LOCALIZE[24001]</label2>
 							<onclick>$INFO[Skin.String(CustomAddon.3.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom addons 4 -->
+						<item><!-- Custom addons 4 -->
 							<visible>!String.IsEmpty(Skin.String(CustomAddon.4.Path))</visible>
 							<label>$INFO[Skin.String(CustomAddon.4.Label)]</label>
 							<label2>$LOCALIZE[24001]</label2>
 							<onclick>$INFO[Skin.String(CustomAddon.4.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom addons 5 -->
+						<item><!-- Custom addons 5 -->
 							<visible>!String.IsEmpty(Skin.String(CustomAddon.5.Path))</visible>
 							<label>$INFO[Skin.String(CustomAddon.5.Label)]</label>
 							<label2>$LOCALIZE[24001]</label2>
 							<onclick>$INFO[Skin.String(CustomAddon.5.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Video addons -->
+						<item><!-- Video addons -->
 							<label>$LOCALIZE[157]</label>
 							<label2>$LOCALIZE[24001]</label2>
 							<onclick>ActivateWindow(videos,Addons,return)</onclick>
 						</item>
-						<item>
-							<!-- Music addons -->
+						<item><!-- Music addons -->
 							<label>$LOCALIZE[2]</label>
 							<label2>$LOCALIZE[24001]</label2>
 							<onclick>ActivateWindow(music,addons://sources/audio/,return)</onclick>
 						</item>
-						<item>
-							<!-- Picture addons -->
+						<item><!-- Picture addons -->
 							<label>$LOCALIZE[1]</label>
 							<label2>$LOCALIZE[24001]</label2>
 							<onclick>ActivateWindow(pictures,Addons,return)</onclick>
 						</item>
-						<item>
-							<!-- Program addons -->
+						<item><!-- Program addons -->
 							<label>$LOCALIZE[0]</label>
 							<label2>$LOCALIZE[24001]</label2>
 							<onclick>ActivateWindow(programs,Addons,return)</onclick>
 						</item>
-						<item>
-							<!-- Update addons -->
+						<item><!-- Update addons -->
 							<label>$LOCALIZE[24043]</label>
 							<label2>$LOCALIZE[24001]</label2>
 							<onclick>SetProperty(PendingUpdates,$INFO[Container(12345).NumItems],addonbrowser)</onclick>
 							<onclick>ActivateWindow(addonbrowser,addons://outdated/,return)</onclick>
 							<visible>Integer.IsGreater(Container(12345).NumItems,0)</visible>
 						</item>
-						<item>
-							<!-- Addon browser -->
+						<item><!-- Addon browser -->
 							<label>$LOCALIZE[21452]</label>
 							<label2>$LOCALIZE[24001]</label2>
 							<onclick>ActivateWindow(addonbrowser,,return)</onclick>
@@ -1176,16 +1071,11 @@
 				<!-- Games Sub menu -->
 				<visible>Skin.HasSetting(home-games) | !String.IsEmpty(Skin.String(CustomGame.1.Path)) | !String.IsEmpty(Skin.String(CustomGame.2.Path)) | !String.IsEmpty(Skin.String(CustomGame.3.Path)) | !String.IsEmpty(Skin.String(CustomGame.4.Path)) | !String.IsEmpty(Skin.String(CustomGame.5.Path))</visible>
 				<width>315</width>
-				<control type="button" id="9630">
-					<!-- Dummy button for mouse control -->
-					<left>0</left>
-					<top>0</top>
-					<width>315</width>
-					<height>518</height>
-					<texturefocus>blank.png</texturefocus>
-					<texturenofocus>blank.png</texturenofocus>
-					<onfocus>SetFocus(9600)</onfocus>
-				</control>
+				<!-- Dummy button for mouse control -->
+				<include content="horzhome-dummy">
+					<param name="dummyid" value="9630"/>
+					<param name="focusid" value="9600"/>
+				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9600) | Control.HasFocus(9630)</visible>
 					<!-- Menu Heading Hilite-->
@@ -1223,42 +1113,36 @@
 						<include>HorzHomeFocusItem</include>
 					</focusedlayout>
 					<content>
-						<item>
-							<!-- Games -->
+						<item><!-- Games -->
 							<label>$LOCALIZE[15016]</label>
 							<label2>$LOCALIZE[15016]</label2>
 							<onclick>ActivateWindow(games,,return)</onclick>
 						</item>
-						<item>
-							<!-- Custom Games 1 -->
+						<item><!-- Custom Games 1 -->
 							<visible>!String.IsEmpty(Skin.String(CustomGame.1.Path))</visible>
 							<label>$INFO[Skin.String(CustomGame.1.Label)]</label>
 							<label2>$LOCALIZE[15016]</label2>
 							<onclick>$INFO[Skin.String(CustomGame.1.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom Games 2 -->
+						<item><!-- Custom Games 2 -->
 							<visible>!String.IsEmpty(Skin.String(CustomGame.2.Path))</visible>
 							<label>$INFO[Skin.String(CustomGame.2.Label)]</label>
 							<label2>$LOCALIZE[15016]</label2>
 							<onclick>$INFO[Skin.String(CustomGame.2.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom Games 3 -->
+						<item><!-- Custom Games 3 -->
 							<visible>!String.IsEmpty(Skin.String(CustomGame.3.Path))</visible>
 							<label>$INFO[Skin.String(CustomGame.3.Label)]</label>
 							<label2>$LOCALIZE[15016]</label2>
 							<onclick>$INFO[Skin.String(CustomGame.3.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom Games 4 -->
+						<item><!-- Custom Games 4 -->
 							<visible>!String.IsEmpty(Skin.String(CustomGame.4.Path))</visible>
 							<label>$INFO[Skin.String(CustomGame.4.Label)]</label>
 							<label2>$LOCALIZE[15016]</label2>
 							<onclick>$INFO[Skin.String(CustomGame.4.Path)]</onclick>
 						</item>
-						<item>
-							<!-- Custom Games 5 -->
+						<item><!-- Custom Games 5 -->
 							<visible>!String.IsEmpty(Skin.String(CustomGame.5.Path))</visible>
 							<label>$INFO[Skin.String(CustomGame.5.Label)]</label>
 							<label2>$LOCALIZE[15016]</label2>
@@ -1267,20 +1151,14 @@
 					</content>
 				</control>
 			</control>
-			<control type="group" id="9420">
-				<!-- Weather Sub menu -->
+			<control type="group" id="9420"><!-- Weather Sub menu -->
 				<visible>!String.IsEmpty(Weather.plugin) + [Skin.HasSetting(home-weather) | Skin.HasSetting(home-currentweather)]</visible>
 				<width>315</width>
-				<control type="button" id="9430">
-					<!-- Dummy button for mouse control -->
-					<left>0</left>
-					<top>0</top>
-					<width>315</width>
-					<height>518</height>
-					<texturefocus>blank.png</texturefocus>
-					<texturenofocus>blank.png</texturenofocus>
-					<onfocus>SetFocus(9400)</onfocus>
-				</control>
+				<!-- Dummy button for mouse control -->
+				<include content="horzhome-dummy">
+					<param name="dummyid" value="9430"/>
+					<param name="focusid" value="9400"/>
+				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9400) | Control.HasFocus(9430)</visible>
 					<!-- Menu Heading Hilite-->
@@ -1318,8 +1196,7 @@
 						<include>HorzHomeFocusItem</include>
 					</focusedlayout>
 					<content>
-						<item>
-							<!-- Weather -->
+						<item><!-- Weather -->
 							<label>$LOCALIZE[8]</label>
 							<label2>$LOCALIZE[8]</label2>
 							<onclick>ActivateWindow(weather)</onclick>
@@ -1327,22 +1204,13 @@
 					</content>
 				</control>
 			</control>
-			<control type="group" id="9470">
-				<!-- Settings Sub menu -->
+			<control type="group" id="9470"><!-- Settings Sub menu -->
 				<width>315</width>
-				<control type="button" id="9480">
-					<!-- Dummy button for mouse control -->
-					<left>0</left>
-					<top>0</top>
-					<width>315</width>
-					<height>518</height>
-					<texturefocus>blank.png</texturefocus>
-					<texturenofocus>blank.png</texturenofocus>
-					<onup>9005</onup>
-					<ondown>9450</ondown>
-					<onleft>9400</onleft>
-					<onright>9005</onright>
-				</control>
+				<!-- Dummy button for mouse control -->
+				<include content="horzhome-dummy">
+					<param name="dummyid" value="9480"/>
+					<param name="focusid" value="9450"/>
+				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9450) | Control.HasFocus(9480)</visible>
 					<!-- Menu Heading Hilite-->
@@ -1389,43 +1257,37 @@
 						<include>HorzHomeFocusItem</include>
 					</focusedlayout>
 					<content>
-						<item>
-							<!-- Settings -->
+						<item><!-- Settings -->
 							<label>$LOCALIZE[5]</label>
 							<label2>$LOCALIZE[13000]</label2>
 							<onclick>ActivateWindow(settings)</onclick>
 						</item>
-						<item>
-							<!-- Profiles -->
+						<item><!-- Profiles -->
 							<visible>Skin.HasSetting(home-profile)</visible>
 							<label>$LOCALIZE[20092]</label>
 							<label2>$LOCALIZE[13000]</label2>
 							<onclick>System.LogOff</onclick>
 						</item>
-						<item>
-							<!-- Search -->
+						<item><!-- Search -->
 							<visible>Skin.HasSetting(home-search)</visible>
 							<label>$LOCALIZE[137]</label>
 							<label2>$LOCALIZE[13000]</label2>
 							<onclick condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
 							<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
 						</item>
-						<item>
-							<!-- Filemanager -->
+						<item><!-- Filemanager -->
 							<visible>Skin.HasSetting(home-filemanager)</visible>
 							<label>$LOCALIZE[10003]</label>
 							<label2>$LOCALIZE[13000]</label2>
 							<onclick>ActivateWindow(filemanager)</onclick>
 						</item>
-						<item>
-							<!-- Play DVD -->
+						<item><!-- Play DVD -->
 							<visible>System.HasMediadvd + Skin.HasSetting(home-playdisc)</visible>
 							<label>$LOCALIZE[31036]</label>
 							<label2>$LOCALIZE[13000]</label2>
 							<onclick>PlayDVD</onclick>
 						</item>
-						<item>
-							<!-- Quit -->
+						<item><!-- Quit -->
 							<visible>!Skin.HasSetting(home-shutdown)</visible>
 							<label>$LOCALIZE[13009]</label>
 							<label2>$LOCALIZE[13000]</label2>
@@ -1436,8 +1298,7 @@
 				</control>
 			</control>
 		</control>
-		<control type="group" id="9940">
-			<!-- RSS info -->
+		<control type="group" id="9940"><!-- RSS info -->
 			<include condition="System.GetBool(lookandfeel.enablerssfeeds)">page-info</include>
 		</control>
 	</include>

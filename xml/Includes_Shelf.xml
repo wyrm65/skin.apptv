@@ -78,12 +78,25 @@
 	<include name="AllFavourites">
 		<content target="programs" limit="12">favourites://</content>
 	</include>
-
+	<include name="shelf-dummy">
+		<param name="dummyid"/>
+		<param name="focusid"/>
+		<definition>
+			<control type="button" id="$PARAM[dummyid]">
+				<left>0</left>
+				<top>0</top>
+				<width>1920</width>
+				<height>468</height>
+				<texturefocus>blank.png</texturefocus>
+				<texturenofocus>blank.png</texturenofocus>
+				<onfocus>SetFocus($PARAM[focusid])</onfocus>
+			</control>
+		</definition>
+	</include>
 	<include name="movie-shelficons">
 		<animation effect="slide" end="315,0" condition="![Control.HasFocus(9160) + Container(9160).Position(5)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
-			<control type="label">
-				<!-- Movie shelf icons label -->
+			<control type="label"><!-- Movie shelf icons label -->
 				<left>52</left>
 				<top>18</top>
 				<height>33</height>
@@ -92,16 +105,11 @@
 				<font>apptv22</font>
 				<visible>Integer.IsGreater(Container(9160).NumItems,0)</visible>
 			</control>
-			<control type="button" id="9165">
-				<!-- Dummy button for mouse control -->
-				<left>0</left>
-				<top>0</top>
-				<width>1920</width>
-				<height>468</height>
-				<texturefocus>blank.png</texturefocus>
-				<texturenofocus>blank.png</texturenofocus>
-				<onfocus>SetFocus(9160)</onfocus>
-			</control>
+			<!-- Dummy button for mouse control -->
+			<include content="shelf-dummy">
+				<param name="dummyid" value="9165"/>
+				<param name="focusid" value="9160"/>
+			</include>
 			<!-- Markers for control area items -->
 			<include content="page-offscreen-horizontal">
 				<param name="indicator1left" value="0"/>
@@ -236,8 +244,7 @@
 	<include name="tvshow-shelficons">
 		<animation effect="slide" end="378,0" condition="![Control.HasFocus(9210) + Container(9210).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
-			<control type="label">
-				<!-- TV Episodes shelf icons label -->
+			<control type="label"><!-- TV Episodes shelf icons label -->
 				<left>82</left>
 				<top>18</top>
 				<height>33</height>
@@ -246,16 +253,11 @@
 				<font>apptv22</font>
 				<visible>Integer.IsGreater(Container(9210).NumItems,0)</visible>
 			</control>
-			<control type="button" id="9215">
-				<!-- Dummy button for mouse control -->
-				<left>0</left>
-				<top>0</top>
-				<width>1920</width>
-				<height>468</height>
-				<texturefocus>blank.png</texturefocus>
-				<texturenofocus>blank.png</texturenofocus>
-				<onfocus>SetFocus(9210)</onfocus>
-			</control>
+			<!-- Dummy button for mouse control -->
+			<include content="shelf-dummy">
+				<param name="dummyid" value="9215"/>
+				<param name="focusid" value="9210"/>
+			</include>
 			<!-- Markers for control area items -->
 			<include content="page-offscreen-horizontal">
 				<param name="indicator1left" value="0"/>
@@ -347,8 +349,7 @@
 	<include name="custom-shelficons">
 		<animation effect="slide" end="366,0" condition="![Control.HasFocus(9560) + Container(9560).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
-			<control type="label">
-				<!-- Custom/Favourites shelf icon label-->
+			<control type="label"><!-- Custom/Favourites shelf icon label-->
 				<left>45</left>
 				<top>15</top>
 				<height>30</height>
@@ -357,16 +358,11 @@
 				<font>apptv22</font>
 				<visible>Integer.IsGreater(Container(9560).NumItems,0)</visible>
 			</control>
-			<control type="button" id="9565">
-				<!-- Dummy button for mouse control -->
-				<left>0</left>
-				<top>0</top>
-				<width>1920</width>
-				<height>468</height>
-				<texturefocus>blank.png</texturefocus>
-				<texturenofocus>blank.png</texturenofocus>
-				<onfocus>SetFocus(9560)</onfocus>
-			</control>
+			<!-- Dummy button for mouse control -->
+			<include content="shelf-dummy">
+				<param name="dummyid" value="9565"/>
+				<param name="focusid" value="9560"/>
+			</include>
 			<!-- Markers for control area items -->
 			<include content="page-offscreen-horizontal">
 				<param name="indicator1left" value="0"/>
@@ -448,8 +444,7 @@
 	<include name="music-shelficons">
 		<animation effect="slide" end="366,0" condition="![Control.HasFocus(9260) + Container(9260).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
-			<control type="label">
-				<!-- Album shelf icon label-->
+			<control type="label"><!-- Album shelf icon label-->
 				<left>45</left>
 				<top>15</top>
 				<height>30</height>
@@ -458,16 +453,11 @@
 				<font>apptv22</font>
 				<visible>Integer.IsGreater(Container(9260).NumItems,0)</visible>
 			</control>
-			<control type="button" id="9265">
-				<!-- Dummy button for mouse control -->
-				<left>0</left>
-				<top>0</top>
-				<width>1920</width>
-				<height>468</height>
-				<texturefocus>blank.png</texturefocus>
-				<texturenofocus>blank.png</texturenofocus>
-				<onfocus>SetFocus(9260)</onfocus>
-			</control>
+			<!-- Dummy button for mouse control -->
+			<include content="shelf-dummy">
+				<param name="dummyid" value="9265"/>
+				<param name="focusid" value="9260"/>
+			</include>
 			<!-- Markers for control area items -->
 			<include content="page-offscreen-horizontal">
 				<param name="indicator1left" value="0"/>
@@ -556,8 +546,7 @@
 	<include name="addons-shelficons">
 		<animation effect="slide" end="366,0" condition="![Control.HasFocus(9360) + Container(9360).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
-			<control type="label">
-				<!-- Addon shelf icon label-->
+			<control type="label"><!-- Addon shelf icon label-->
 				<left>45</left>
 				<top>15</top>
 				<height>30</height>
@@ -566,16 +555,11 @@
 				<font>apptv22</font>
 				<visible>Integer.IsGreater(Container(9360).NumItems,0)</visible>
 			</control>
-			<control type="button" id="9365">
-				<!-- Dummy button for mouse control -->
-				<left>0</left>
-				<top>0</top>
-				<width>1920</width>
-				<height>468</height>
-				<texturefocus>blank.png</texturefocus>
-				<texturenofocus>blank.png</texturenofocus>
-				<onfocus>SetFocus(9360)</onfocus>
-			</control>
+			<!-- Dummy button for mouse control -->
+			<include content="shelf-dummy">
+				<param name="dummyid" value="9365"/>
+				<param name="focusid" value="9360"/>
+			</include>
 			<!-- Markers for control area items -->
 			<include content="page-offscreen-horizontal">
 				<param name="indicator1left" value="0"/>
@@ -658,8 +642,7 @@
 	<include name="broadcast-shelficons">
 		<animation effect="slide" end="378,0" condition="![Control.HasFocus(9510) + Container(9510).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
-			<control type="label">
-				<!-- Broadcast shelf icons label -->
+			<control type="label"><!-- Broadcast shelf icons label -->
 				<left>82</left>
 				<top>18</top>
 				<height>33</height>
@@ -668,17 +651,11 @@
 				<font>apptv22</font>
 				<visible>Integer.IsGreater(Container(9510).NumItems,0)</visible>
 			</control>
-			<control type="button" id="9515">
-				<!-- Dummy button for mouse control -->
-				<left>0</left>
-				<top>0</top>
-				<width>1920</width>
-				<height>468</height>
-				<texturefocus>blank.png</texturefocus>
-				<texturenofocus>blank.png</texturenofocus>
-				<onfocus>SetFocus(9510)</onfocus>
-			</control>
-
+			<!-- Dummy button for mouse control -->
+			<include content="shelf-dummy">
+				<param name="dummyid" value="9515"/>
+				<param name="focusid" value="9510"/>
+			</include>
 			<!-- Markers for control area items -->
 			<include content="page-offscreen-horizontal">
 				<param name="indicator1left" value="0"/>
@@ -688,7 +665,6 @@
 				<param name="indicatorsize" value="48"/>
 				<param name="indicatorcontainer" value="9510"/>
 			</include>
-
 			<control type="list" id="9510">
 				<left>15</left>
 				<top>69</top>
@@ -802,8 +778,7 @@
 					<visible>String.IsEmpty(Window(weather).Property(WeatherProviderLogo))</visible>
 				</control>
 				<control type="group">
-					<control type="image">
-						<!-- Weather provider logo shadow -->
+					<control type="image"><!-- Weather provider logo shadow -->
 						<left>32</left>
 						<top>66</top>
 						<width>270</width>
@@ -813,8 +788,7 @@
 						<aligny>top</aligny>
 						<texture>$INFO[Window(weather).Property(WeatherProviderLogo)]</texture>
 					</control>
-					<control type="image">
-						<!-- Weather provider logo -->
+					<control type="image"><!-- Weather provider logo -->
 						<left>30</left>
 						<top>64</top>
 						<width>270</width>
@@ -825,16 +799,11 @@
 					</control>
 				</control>
 			</control>
-			<control type="button" id="9415">
-				<!-- Dummy button for mouse control -->
-				<left>0</left>
-				<top>0</top>
-				<width>1920</width>
-				<height>468</height>
-				<texturefocus>blank.png</texturefocus>
-				<texturenofocus>blank.png</texturenofocus>
-				<onfocus>SetFocus(9410)</onfocus>
-			</control>
+			<!-- Dummy button for mouse control -->
+			<include content="shelf-dummy">
+				<param name="dummyid" value="9415"/>
+				<param name="focusid" value="9410"/>
+			</include>
 			<control type="list" id="9410">
 				<left>15</left>
 				<top>130</top>
@@ -842,8 +811,7 @@
 				<height>405</height>
 				<orientation>horizontal</orientation>
 				<itemlayout height="405" width="378">
-					<control type="image">
-						<!-- background masks -->
+					<control type="image"><!-- background masks -->
 						<left>14</left>
 						<top>0</top>
 						<width>350</width>
@@ -878,7 +846,7 @@
 						<top>194</top>
 						<height>57</height>
 						<width>350</width>
-						<shadowcolor>80000000</shadowcolor>
+						<shadowcolor>shadow-text</shadowcolor>
 						<label>$INFO[Listitem.Label]</label>
 						<align>center</align>
 						<font>apptv25</font>
@@ -896,8 +864,7 @@
 					</control>
 				</itemlayout>
 				<focusedlayout height="405" width="378">
-					<control type="image">
-						<!-- background masks -->
+					<control type="image"><!-- background masks -->
 						<left>14</left>
 						<top>0</top>
 						<width>350</width>
@@ -932,7 +899,7 @@
 						<top>194</top>
 						<height>57</height>
 						<width>350</width>
-						<shadowcolor>80000000</shadowcolor>
+						<shadowcolor>shadow-text</shadowcolor>
 						<label>$INFO[Listitem.Label]</label>
 						<align>center</align>
 						<font>apptv25</font>
@@ -985,8 +952,7 @@
 		</control>
 	</include>
 	<include name="homeshelf-background">
-		<control type="group">
-			<!-- Build up home menu shelf image -->
+		<control type="group"><!-- Build up home menu shelf image -->
 			<visible>![Window.IsActive(videos) | Window.IsActive(music)]</visible>
 			<control type="group">
 				<visible>String.IsEmpty(Control.GetLabel(9805)) | !String.IsEqual(Skin.String(shelf-backgroundtype),$LOCALIZE[20445])</visible>
@@ -1029,8 +995,7 @@
 		</control>
 	</include>
 	<include name="homeshelf-time">
-		<control type="label">
-			<!-- Time and date -->
+		<control type="label"><!-- Time and date -->
 			<left>1080</left>
 			<top>0</top>
 			<width>789</width>
@@ -1043,8 +1008,7 @@
 	<include name="shelf-nowplaying">
 		<control type="group">
 			<visible>!Container(9160).Position(5) + !Container(9210).Position(4) + !Container(9260).Position(4) + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
-			<control type="label">
-				<!-- Now playing -->
+			<control type="label"><!-- Now playing -->
 				<left>15</left>
 				<top>15</top>
 				<width>315</width>
@@ -1053,11 +1017,9 @@
 				<font>apptv22</font>
 				<align>center</align>
 			</control>
-			<control type="group">
-				<!-- Video Stuff -->
+			<control type="group"><!-- Video Stuff -->
 				<visible>Player.HasVideo</visible>
-				<control type="image">
-					<!-- Video cover image -->
+				<control type="image"><!-- Video cover image -->
 					<left>53</left>
 					<top>69</top>
 					<width>240</width>
@@ -1075,8 +1037,7 @@
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<visible>!Pvr.IsPlayingTv</visible>
 				</control>
-				<control type="image">
-					<!-- PVR station image -->
+				<control type="image"><!-- PVR station image -->
 					<left>38</left>
 					<top>84</top>
 					<width>270</width>
@@ -1096,8 +1057,7 @@
 					<texture diffuse="mask-fade.png" background="true" flipy="true" fallback="icon-livetv.png">$VAR[PVRPlayingIcon]</texture>
 					<visible>Pvr.IsPlayingTv</visible>
 				</control>
-				<control type="button">
-					<!-- Fake fullscreen button as a touch screen work around -->
+				<control type="button"><!-- Fake fullscreen button as a touch screen work around -->
 					<left>60</left>
 					<top>69</top>
 					<width>225</width>
@@ -1154,8 +1114,7 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>Pvr.IsPlayingTv</visible>
 				</control>
-				<control type="videowindow">
-					<!-- video preview window, hack to allow playercontrols to work -->
+				<control type="videowindow"><!-- video preview window, hack to allow playercontrols to work -->
 					<left>66</left>
 					<top>780</top>
 					<width>308</width>
@@ -1163,11 +1122,9 @@
 					<visible>false</visible>
 				</control>
 			</control>
-			<control type="group">
-				<!-- Audio Stuff -->
+			<control type="group"><!-- Audio Stuff -->
 				<visible>Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
-				<control type="group">
-					<!-- Playing Non Radio Audio -->
+				<control type="group"><!-- Playing Non Radio Audio -->
 					<visible>!Pvr.IsPlayingRadio</visible>
 					<control type="image">
 						<left>15</left>
@@ -1210,8 +1167,7 @@
 						<font>apptv18</font>
 					</control>
 				</control>
-				<control type="group">
-					<!-- Playing Radio Audio -->
+				<control type="group"><!-- Playing Radio Audio -->
 					<visible>Pvr.IsPlayingRadio</visible>
 					<control type="image">
 						<left>38</left>
@@ -1243,8 +1199,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 				</control>
-				<control type="button">
-					<!-- Fake fullscreen button as a touch screen work around -->
+				<control type="button"><!-- Fake fullscreen button as a touch screen work around -->
 					<left>38</left>
 					<top>84</top>
 					<width>270</width>

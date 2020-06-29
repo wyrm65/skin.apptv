@@ -2,11 +2,9 @@
 <includes>
 	<include name="VertHomeMenu">
 		<include>background</include>
-		<control type="group">
-			<!-- Show time on home screen -->
+		<control type="group"><!-- Show time on home screen -->
 			<visible>!Skin.HasSetting(home-time)</visible>
-			<control type="label">
-				<!-- Date -->
+			<control type="label"><!-- Date -->
 				<left>531</left>
 				<top>27</top>
 				<width>849</width>
@@ -14,8 +12,7 @@
 				<label>$INFO[System.Date]</label>
 				<align>center</align>
 			</control>
-			<control type="label">
-				<!-- Time -->
+			<control type="label"><!-- Time -->
 				<left>531</left>
 				<top>69</top>
 				<width>849</width>
@@ -25,11 +22,9 @@
 				<font>apptv30</font>
 			</control>
 		</control>
-		<control type="group">
-			<!-- Weather Condition -->
+		<control type="group"><!-- Weather Condition -->
 			<visible>Skin.HasSetting(home-currentweather) + !String.IsEmpty(Weather.plugin) + Weather.IsFetched</visible>
-			<control type="label">
-				<!-- Can't get current weather conditions -->
+			<control type="label"><!-- Can't get current weather conditions -->
 				<left>1778</left>
 				<top>46</top>
 				<width>318</width>
@@ -41,8 +36,7 @@
 			</control>
 			<control type="group">
 				<visible>!String.IsEmpty(Weather.Conditions)</visible>
-				<control type="label">
-					<!-- Current temperature -->
+				<control type="label"><!-- Current temperature -->
 					<left>1380</left>
 					<top>3</top>
 					<width>318</width>
@@ -52,8 +46,7 @@
 					<aligny>top</aligny>
 					<label>$INFO[Weather.Temperature]</label>
 				</control>
-				<control type="label">
-					<!-- Current conditions -->
+				<control type="label"><!-- Current conditions -->
 					<left>1380</left>
 					<top>66</top>
 					<width>318</width>
@@ -62,8 +55,7 @@
 					<label>$INFO[Weather.Conditions]</label>
 					<align>right</align>
 				</control>
-				<control type="multiimage">
-					<!-- Custom current weather condition icon -->
+				<control type="multiimage"><!-- Custom current weather condition icon -->
 					<left>1707</left>
 					<top>9</top>
 					<width>129</width>
@@ -75,8 +67,7 @@
 					<fadetime>0</fadetime>
 					<visible>Skin.String(custom-weathericons)</visible>
 				</control>
-				<control type="image">
-					<!-- Current weather condition icon -->
+				<control type="image"><!-- Current weather condition icon -->
 					<left>1707</left>
 					<top>9</top>
 					<width>129</width>
@@ -97,7 +88,6 @@
 			<param name="indicatorcontainer" value="9000"/>
 		</include>
 		<control type="list" id="9000">
-			<!-- Home menu list -->
 			<left>1074</left>
 			<top>177</top>
 			<height>756</height>
@@ -781,7 +771,6 @@
 			</control>
 		</control>
 		<control type="scrollbar" id="23">
-			<!-- Scroll Bar -->
 			<left>1872</left>
 			<top>170</top>
 			<width>18</width>
@@ -792,94 +781,10 @@
 		</control>
 		<!-- RSS info -->
 		<include condition="System.GetBool(lookandfeel.enablerssfeeds)">page-info</include>
-		<!-- media infos (music) -->
-		<control type="group" id="9950">
+		<control type="group" id="9950"><!-- Playing media info -->
+			<include>fake-overlay</include>
+			<animation effect="slide" end="10,840" condition="true">Conditional</animation>
 			<visible>Skin.HasSetting(media-overlay) + !Window.IsActive(playercontrols)</visible>
-			<control type="group" id="9960">
-				<visible>Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
-				<control type="image">
-					<left>30</left>
-					<top>804</top>
-					<width>195</width>
-					<height>195</height>
-					<texture>$INFO[MusicPlayer.Cover]</texture>
-					<aspectratio align="center">keep</aspectratio>
-				</control>
-				<control type="label">
-					<left>255</left>
-					<top>806</top>
-					<width>780</width>
-					<height>46</height>
-					<label>$INFO[MusicPlayer.Artist]</label>
-					<font>apptv23</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				</control>
-				<control type="label">
-					<left>255</left>
-					<top>852</top>
-					<width>780</width>
-					<height>46</height>
-					<label>$INFO[MusicPlayer.Album]</label>
-					<font>apptv23</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				</control>
-				<control type="label">
-					<left>255</left>
-					<top>900</top>
-					<width>780</width>
-					<height>46</height>
-					<label>$INFO[MusicPlayer.Title]</label>
-					<font>apptv23</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				</control>
-				<control type="label">
-					<left>255</left>
-					<top>946</top>
-					<width>780</width>
-					<height>46</height>
-					<label>$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ]</label>
-					<font>apptv23</font>
-				</control>
-			</control>
-			<!-- media infos (video) -->
-			<control type="group" id="9970">
-				<visible>Player.HasVideo</visible>
-				<control type="videowindow">
-					<!-- video preview window -->
-					<left>66</left>
-					<top>780</top>
-					<width>308</width>
-					<height>184</height>
-				</control>
-				<control type="label">
-					<!-- Now playing -->
-					<left>398</left>
-					<top>806</top>
-					<width>597</width>
-					<height>46</height>
-					<label>$LOCALIZE[31037]</label>
-					<font>apptv23</font>
-					<textcolor>listselected-text</textcolor>
-				</control>
-				<control type="label">
-					<left>398</left>
-					<top>852</top>
-					<width>597</width>
-					<height>46</height>
-					<label>$INFO[VideoPlayer.Title]</label>
-					<font>apptv23</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				</control>
-				<control type="label">
-					<left>398</left>
-					<top>900</top>
-					<width>597</width>
-					<height>46</height>
-					<label>$INFO[VideoPlayer.Time]$INFO[VideoPlayer.Duration, / ]</label>
-					<font>apptv23</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				</control>
-			</control>
 		</control>
 	</include>
 </includes>
