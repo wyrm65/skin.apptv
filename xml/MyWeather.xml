@@ -33,8 +33,7 @@
 				<visible>Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
 			</control>
 		</control>
-		<control type="button" id="6000">
-			<!-- Fake button to steal focus, don't show if Open weather map screen is showing -->
+		<control type="button" id="6000"><!-- Fake button to steal focus, don't show if Open weather map screen is showing -->
 			<onleft>9000</onleft>
 			<onright>noop</onright>
 			<texturefocus>blank.png</texturefocus>
@@ -169,8 +168,8 @@
 					<!-- View (types of forecasts) -->
 					<width>714</width>
 					<height>75</height>
-					<label>$LOCALIZE[31562] $INFO[Skin.String(weather-view)]</label>
-					<onclick>$VAR[WeatherView]</onclick>
+					<label>$LOCALIZE[31562] $VAR[WeatherView]</label>
+					<onclick>$VAR[WeatherViewAction]</onclick>
 				</control>
 				<control type="spincontrolex" id="3">
 					<!-- Change location button -->
