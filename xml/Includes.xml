@@ -131,12 +131,10 @@
 				<visible>Skin.HasSetting(background-playingmedia) + [[Skin.HasSetting(HomeMenuVertical) + Window.IsVisible(home)] | !Window.IsVisible(home)]</visible>
 				<control type="videowindow">
 					<include>fullscreenimage</include>
-					<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
 					<visible>Player.HasVideo</visible>
 				</control>
 				<control type="visualisation">
 					<include>fullscreenimage</include>
-					<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
 					<animation effect="fade" time="200">VisibleChange</animation>
 					<visible>Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
 				</control>
@@ -144,8 +142,7 @@
 		</control>
 	</include>
 	<include name="player-mediaicon">
-		<!-- Player Media Icon -->
-		<control type="image" id="1">
+		<control type="image" id="1"><!-- Player Media Icon -->
 			<left>12</left>
 			<top>746</top>
 			<width>320</width>
@@ -217,7 +214,6 @@
 		<control type="group">
 			<visible>Skin.HasSetting(media-overlay) + !Window.IsActive(playercontrols)</visible>
 			<control type="group">
-				<!-- Video Window -->
 				<control type="videowindow">
 					<left>30</left>
 					<top>12</top>
@@ -225,7 +221,6 @@
 					<height>144</height>
 					<visible>Player.HasVideo + !Skin.HasSetting(background-playingmedia)</visible>
 				</control>
-				<!-- Audio Icon -->
 				<control type="image">
 					<left>36</left>
 					<top>6</top>
