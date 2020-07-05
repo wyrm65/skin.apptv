@@ -21,20 +21,20 @@
 	<include name="EpisodeRecent">
 		<content target="video" sortby="random" limit="12">videodb://recentlyaddedepisodes/</content>
 	</include>
-	<include name="EpisodeRecommended">
-		<content target="video" limit="12">plugin://script.embuary.helper/?info=getsimilar&amp;type=tvshow&amp;pos=0</content>
+	<include name="TVShowRecommended">
+		<content target="video" sortby="random" limit="12">plugin://script.embuary.helper/?info=getsimilar&amp;type=tvshow&amp;pos=0</content>
 	</include>
 	<include name="EpisodeInProgress">
-		<content target="video" limit="12">plugin://script.embuary.helper/?info=getinprogress&amp;type=tvshow</content>
+		<content target="video" sortby="random" limit="12">plugin://script.embuary.helper/?info=getinprogress&amp;type=tvshow&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]</content>
 	</include>
 	<include name="EpisodeNextUp">
-		<content target="video" limit="12">plugin://script.embuary.helper/?info=getnextup</content>
+		<content target="video" sortby="random" limit="12">plugin://script.embuary.helper/?info=getnextup</content>
 	</include>
 	<include name="TVShowsNew">
-		<content target="video" limit="12">plugin://script.embuary.helper/?info=getnewshows</content>
+		<content target="video" sortby="random" limit="12">plugin://script.embuary.helper/?info=getnewshows&amp;showall=true</content>
 	</include>
 	<include name="TVShowCustom">
-		<content target="video" limit="12">$INFO[Skin.String(widget-tvshow.List)]</content>
+		<content target="video" sortby="random" limit="12">$INFO[Skin.String(widget-tvshow.List)]</content>
 	</include>
 	<include name="AlbumRecent">
 		<content target="music" limit="12">musicdb://recentlyaddedalbums/</content>
@@ -100,7 +100,7 @@
 				<left>52</left>
 				<top>18</top>
 				<height>33</height>
-				<width>600</width>
+				<width>750</width>
 				<label>$VAR[MovieShelfLabel]</label>
 				<font>apptv22</font>
 				<visible>Integer.IsGreater(Container(9160).NumItems,0)</visible>
@@ -248,7 +248,7 @@
 				<left>82</left>
 				<top>18</top>
 				<height>33</height>
-				<width>600</width>
+				<width>750</width>
 				<label>$VAR[TVShowShelfLabel]</label>
 				<font>apptv22</font>
 				<visible>Integer.IsGreater(Container(9210).NumItems,0)</visible>
@@ -276,6 +276,7 @@
 				<onright>9052</onright>
 				<onup>9052</onup>
 				<ondown>9000</ondown>
+				<onclick condition="![$EXP[isEpisode]]">ActivateWindow(videos,$INFO[Listitem.FolderPath],return)</onclick>
 				<orientation>horizontal</orientation>
 				<itemlayout height="405" width="378">
 					<include condition="[String.IsEmpty(Skin.String(widget-tvshowimgtyp)) | String.IsEqual(Skin.String(widget-tvshowimgtyp),$LOCALIZE[31950])]">tvshow-shelfposter</include>
@@ -298,46 +299,37 @@
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 							<font>apptv20</font>
 						</control>
-						<control type="label">
-							<left>0</left>
-							<top>361</top>
-							<height>33</height>
-							<width>378</width>
-							<label>$LOCALIZE[20373] $INFO[ListItem.Season] $LOCALIZE[20359] $INFO[ListItem.Episode]</label>
-							<align>center</align>
-							<selectedcolor>button-text</selectedcolor>
-							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-							<font>apptv20</font>
-							<visible>!String.IsEmpty(ListItem.Season) + !ListItem.Property(IsSpecial)</visible>
-						</control>
-						<control type="label">
-							<left>0</left>
-							<top>361</top>
-							<height>33</height>
-							<width>378</width>
-							<label>$LOCALIZE[20381] $LOCALIZE[20359] $INFO[ListItem.Episode]</label>
-							<align>center</align>
-							<selectedcolor>button-text</selectedcolor>
-							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-							<font>apptv20</font>
-							<visible>ListItem.Property(IsSpecial)</visible>
-						</control>
-						<control type="label">
-							<left>0</left>
-							<top>361</top>
-							<height>33</height>
-							<width>378</width>
-							<label>$LOCALIZE[20381] $INFO[ListItem.Episode]</label>
-							<align>center</align>
-							<selectedcolor>button-text</selectedcolor>
-							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-							<font>apptv20</font>
-							<visible>String.IsEmpty(ListItem.Season)</visible>
+						<control type="group">
+							<visible>$EXP[isEpisode]</visible>
+							<control type="label">
+								<left>0</left>
+								<top>361</top>
+								<height>33</height>
+								<width>378</width>
+								<label>$LOCALIZE[20373] $INFO[ListItem.Season] $LOCALIZE[20359] $INFO[ListItem.Episode]</label>
+								<align>center</align>
+								<selectedcolor>button-text</selectedcolor>
+								<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+								<font>apptv20</font>
+								<visible>!String.IsEmpty(ListItem.Season) + !ListItem.Property(IsSpecial)</visible>
+							</control>
+							<control type="label">
+								<left>0</left>
+								<top>361</top>
+								<height>33</height>
+								<width>378</width>
+								<label>$LOCALIZE[20381] $LOCALIZE[20359] $INFO[ListItem.Episode]</label>
+								<align>center</align>
+								<selectedcolor>button-text</selectedcolor>
+								<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+								<font>apptv20</font>
+								<visible>ListItem.Property(IsSpecial)</visible>
+							</control>
 						</control>
 					</control>
 				</focusedlayout>
 				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31954])">EpisodeRecent</include>
-				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31955])">EpisodeRecommended</include>
+				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31962])">TVShowRecommended</include>
 				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31975])">EpisodeInProgress</include>
 				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31976])">EpisodeNextUp</include>
 				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31977])">TVShowsNew</include>
@@ -353,7 +345,7 @@
 				<left>45</left>
 				<top>15</top>
 				<height>30</height>
-				<width>600</width>
+				<width>750</width>
 				<label>$VAR[FavouriteShelfLabel]</label>
 				<font>apptv22</font>
 				<visible>Integer.IsGreater(Container(9560).NumItems,0)</visible>
@@ -448,7 +440,7 @@
 				<left>45</left>
 				<top>15</top>
 				<height>30</height>
-				<width>600</width>
+				<width>750</width>
 				<label>$VAR[MusicShelfLabel]</label>
 				<font>apptv22</font>
 				<visible>Integer.IsGreater(Container(9260).NumItems,0)</visible>
@@ -550,7 +542,7 @@
 				<left>45</left>
 				<top>15</top>
 				<height>30</height>
-				<width>600</width>
+				<width>750</width>
 				<label>$VAR[AddonShelfLabel]</label>
 				<font>apptv22</font>
 				<visible>Integer.IsGreater(Container(9360).NumItems,0)</visible>
@@ -646,7 +638,7 @@
 				<left>82</left>
 				<top>18</top>
 				<height>33</height>
-				<width>600</width>
+				<width>750</width>
 				<label>$VAR[BroadcastShelfLabel]</label>
 				<font>apptv22</font>
 				<visible>Integer.IsGreater(Container(9510).NumItems,0)</visible>

@@ -37,20 +37,26 @@ To install this add-on you must do so from the Add-on manager from within Kodi b
 While I have tried very hard for the skin to be self contained, the following addons are required for the installation.  These addons will be installed if not already in the users system when the skin is installed via the offical Kodi repository.  The user will need to ensure these addons are available if installing via a zip file from this github page.
 
 resource.uisounds.apptv v1.0.4  
-script.skin.helper.service v1.1.3  
-script.skin.helper.widgets v1.0.22  
+resource.images.classificationicons.colour v0.0.2  
+script.embuary.helper v1.4.8
 
 ## OPTIONAL ADDONS
 The following addons will be made use of if installed by the user.  The skin will prompt the user to allow the installation of any necessary addons if the user selects an option requiring an addon.  In addition a number of the optional addons can be installed via the skins settings menus.
 
+script.artistslideshow
+service.tvtunes
+plugin.program.autocompletion
+script.cu.lrclyrics
+script.globalsearch
+script.image.resource.select
+service.upnext
+script.tv.show.next.aired
+script.extendedinfo
+script.artwork.beef
+script.metadata.editor
 script.libraryeditor  
-script.cdartmanager  
-script.favourites  
-script.tv.show.next.aired  
-plugin.video.specialfeatures  
-script globalsearch  
-script.artistslideshow  
-script.image.resource.select  
+script.favourites   
+plugin.video.specialfeatures   
 script.kodi.loguploader  
 
 ## SCRIPTS WITH SKINABLE ELEMENTS

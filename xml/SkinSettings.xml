@@ -425,8 +425,8 @@
 						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(widget-tvshow))</onclick>
 						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31954])</onclick>
 						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31954]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31955])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31955]))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31962])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31962]))</onclick>
 						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31975])</onclick>
 						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31975]))</onclick>
 						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[31976])</onclick>
@@ -1237,30 +1237,6 @@
 						<control type="label">
 							<include>settings-submenu-common</include>
 							<label>$LOCALIZE[31597]</label>
-							<textoffsetx>27</textoffsetx>
-						</control>
-					</control>
-					<control type="group" id="718">
-						<height>84</height>
-						<width>1328</width>
-						<control type="togglebutton" id="719">
-							<!-- Extended Info script install/config -->
-							<onup>717</onup>
-							<ondown>702</ondown>
-							<onright>999</onright>
-							<include>settings-submenu-common</include>
-							<textwidth>1178</textwidth>
-							<label>$LOCALIZE[24020]</label>
-							<altlabel>$LOCALIZE[24038]</altlabel>
-							<align>right</align>
-							<onclick>Addon.OpenSettings(script.extendedinfo)</onclick>
-							<altclick>RunScript(script.embuary.helper,action=toggleaddons,addonid=script.extendedinfo,enable=true)</altclick>
-							<altclick condition="!System.HasAddon(script.extendedinfo)">InstallAddon(script.extendedinfo)</altclick>
-							<usealttexture>!System.HasAddon(script.extendedinfo)</usealttexture>
-						</control>
-						<control type="label">
-							<include>settings-submenu-common</include>
-							<label>$LOCALIZE[31598]</label>
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
