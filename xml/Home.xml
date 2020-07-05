@@ -187,7 +187,7 @@
 				<param name="grp4indicate" value="[Skin.HasSetting(HomeMenuHorizontal)]+[ControlGroup(9000).HasFocus()|ControlGroup(9800).HasFocus()]" />
 				<param name="grp4visible" value="[Skin.HasSetting(HomeMenuHorizontal)+!Skin.HasSetting(lock-screensettings)]" />
 				<param name="grp5indicate" value="Skin.HasSetting(HomeMenuIcon)+[Control.HasFocus(9000)|ControlGroup(9800).HasFocus()]" />
-				<param name="grp5visible" value="[Skin.HasSetting(HomeMenuIcon)+!Skin.HasSetting(lock-screensettings)]" />
+				<param name="grp5visible" value="[Skin.HasSetting(HomeMenuIcon)+![Skin.HasSetting(lock-screensettings)]]" />
 			</include>
 		</control>
 	</controls>

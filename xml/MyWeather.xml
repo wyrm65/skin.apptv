@@ -23,12 +23,10 @@
 			<visible>Skin.HasSetting(background-playingmedia) + [[Skin.HasSetting(HomeMenuVertical) + Window.IsVisible(home)] | !Window.IsVisible(home)]</visible>
 			<control type="videowindow">
 				<include>fullscreenimage</include>
-				<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
 				<visible>Player.HasVideo</visible>
 			</control>
 			<control type="visualisation">
 				<include>fullscreenimage</include>
-				<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
 				<animation effect="fade" time="200">VisibleChange</animation>
 				<visible>Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
 			</control>
