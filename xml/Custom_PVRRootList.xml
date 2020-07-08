@@ -4,8 +4,7 @@
 	<controls>
 		<include>background</include>
 		<include>fake-overlay</include>
-		<control type="label">
-			<!-- TV Window Label -->
+		<control type="label"><!-- TV Window Label -->
 			<left>1170</left>
 			<top>30</top>
 			<width>465</width>
@@ -14,8 +13,7 @@
 			<font>apptv30</font>
 			<visible>String.IsEqual(Window(home).Property(PVRType),tv)</visible>
 		</control>
-		<control type="label">
-			<!-- Radio Window Label -->
+		<control type="label"><!-- Radio Window Label -->
 			<left>1170</left>
 			<top>30</top>
 			<width>465</width>
@@ -35,7 +33,7 @@
 			<onback>ReplaceWindow(home)</onback>
 			<preloaditems>4</preloaditems>
 			<pagecontrol></pagecontrol>
-			<itemlayout width="840" height="84">
+			<itemlayout height="84">
 				<control type="image">
 					<left>0</left>
 					<top>0</top>
@@ -55,7 +53,7 @@
 					<label>$INFO[ListItem.Label]</label>
 				</control>
 			</itemlayout>
-			<focusedlayout width="840" height="84">
+			<focusedlayout height="84">
 				<control type="image">
 					<left>0</left>
 					<top>0</top>
@@ -77,51 +75,44 @@
 			</focusedlayout>
 			<content>
 			<!-- todo - setup $VAR for icons to switch between TV and Radio icons -->
-				<item>
-					<!-- Return to Home -->
+				<item><!-- Return to Home -->
 					<icon>DefaultFolderBack.png</icon>
 					<label>..</label>
 					<onclick>ClearProperty(PVRType,home)</onclick>
 					<onclick>ReplaceWindow(home)</onclick>
 					<visible>$EXP[isEnabledParentDirectory]</visible>
 				</item>
-				<item>
-					<!-- PVR Play -->
+				<item><!-- PVR Play -->
 					<icon>icon-play.png</icon>
 					<label>$LOCALIZE[31703]</label>
 					<onclick condition="String.IsEqual(Window(home).Property(PVRType),tv)">PlayPvrTV</onclick>
 					<onclick condition="String.IsEqual(Window(home).Property(PVRType),radio)">PlayPvrRadio</onclick>
 				</item>
-				<item>
-					<!-- PVR Channels -->
+				<item><!-- PVR Channels -->
 					<icon>icon-remote.png</icon>
 					<label>$LOCALIZE[19019]</label>
 					<onclick condition="String.IsEqual(Window(home).Property(PVRType),tv)">ActivateWindow(tvchannels)</onclick>
 					<onclick condition="String.IsEqual(Window(home).Property(PVRType),radio)">ActivateWindow(radiochannels)</onclick>
 				</item>
-				<item>
-					<!-- PVR Guide -->
+				<item><!-- PVR Guide -->
 					<icon>icon-epg.png</icon>
 					<label>$LOCALIZE[22020]</label>
 					<onclick condition="String.IsEqual(Window(home).Property(PVRType),tv)">ActivateWindow(tvguide)</onclick>
 					<onclick condition="String.IsEqual(Window(home).Property(PVRType),radio)">ActivateWindow(radioguide)</onclick>
 				</item>
-				<item>
-					<!-- PVR Recordings -->
+				<item><!-- PVR Recordings -->
 					<icon>icon-record.png</icon>
 					<label>$LOCALIZE[19163]</label>
 					<onclick condition="String.IsEqual(Window(home).Property(PVRType),tv)">ActivateWindow(tvrecordings)</onclick>
 					<onclick condition="String.IsEqual(Window(home).Property(PVRType),radio)">ActivateWindow(radiorecordings)</onclick>
 				</item>
-				<item>
-					<!-- PVR Timers -->
+				<item><!-- PVR Timers -->
 					<icon>icon-timer.png</icon>
 					<label>$LOCALIZE[19040]</label>
 					<onclick condition="String.IsEqual(Window(home).Property(PVRType),tv)">ActivateWindow(tvtimers)</onclick>
 					<onclick condition="String.IsEqual(Window(home).Property(PVRType),radio)">ActivateWindow(radiotimers)</onclick>
 				</item>
-				<item>
-					<!-- PVR Search -->
+				<item><!-- PVR Search -->
 					<icon>icon-search.png</icon>
 					<label>$LOCALIZE[137]</label>
 					<onclick condition="String.IsEqual(Window(home).Property(PVRType),tv)">ActivateWindow(tvsearch)</onclick>
@@ -131,8 +122,7 @@
 		</control>
 		<control type="group">
 			<control type="group">
-				<control type="image">
-					<!-- list item icon -->
+				<control type="image"><!-- list item icon -->
 					<left>150</left>
 					<top>256</top>
 					<width>512</width>

@@ -5,8 +5,7 @@
 		<include>background</include>
 		<include>fullscreendummy</include>
 
-		<control type="image">
-			<!-- Artist Image -->
+		<control type="image"><!-- Artist Image -->
 			<left>63</left>
 			<top>120</top>
 			<width>384</width>
@@ -27,8 +26,7 @@
 				<aspectratio>keep</aspectratio>
 				<visible>$EXP[isnotDefaultIcon] + Skin.HasSetting(media-case)</visible>
 			</control>
-			<control type="image">
-				<!-- Cover image -->
+			<control type="image"><!-- Cover image -->
 				<left>73</left>
 				<top>120</top>
 				<width>392</width>
@@ -37,147 +35,133 @@
 				<aspectratio>stretch</aspectratio>
 			</control>
 		</control>
-		<control type="group">
+		<control type="group"><!-- Song info -->
 			<visible>$EXP[isSong]</visible>
-			<control type="group">
-				<!-- Song info -->
-				<control type="label">
-					<!-- Track number and name -->
-					<left>510</left>
-					<top>18</top>
-					<width>1380</width>
-					<height>93</height>
-					<font>apptv30</font>
-					<wrapmultiline>true</wrapmultiline>
-					<aligny>center</aligny>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<label>$INFO[ListItem.TrackNumber,, - ]$INFO[ListItem.Title]</label>
-				</control>
-				<control type="label">
-					<!-- Artist -->
-					<left>510</left>
-					<top>123</top>
-					<width>1380</width>
-					<height>33</height>
-					<font>apptv22</font>
-					<textcolor>disabled-text</textcolor>
-					<shadowcolor>shadow-text</shadowcolor>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<label>$INFO[ListItem.Artist]$INFO[ListItem.Album, : ,]</label>
-					<visible>!String.IsEmpty(ListItem.Artist)</visible>
-				</control>
-				<control type="image">
-					<left>510</left>
-					<top>162</top>
-					<width>900</width>
-					<height>6</height>
-					<texture>separator.png</texture>
-				</control>
-				<control type="textbox" id="1322">
-					<left>510</left>
-					<top>165</top>
-					<width>1350</width>
-					<height>180</height>
-					<label>$INFO[ListItem.Comment]</label>
-					<font>apptv20</font>
-					<align>justify</align>
-					<pagecontrol>1323</pagecontrol>
-				</control>
-				<control type="scrollbar" id="1323">
-					<left>1875</left>
-					<top>172</top>
-					<width>18</width>
-					<height>177</height>
-					<onleft>999</onleft>
-					<onright>1020</onright>
-					<onup>1020</onup>
-					<ondown>999</ondown>
-					<animation condition="!Control.HasFocus(1323) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-					<visible>$EXP[isEnabledScrollbar]</visible>
-				</control>
-				<control type="image">
-					<left>510</left>
-					<top>348</top>
-					<width>1350</width>
-					<height>6</height>
-					<texture>separator.png</texture>
-				</control>
-				<control type="label">
-					<!-- Details heading -->
-					<left>510</left>
-					<top>360</top>
-					<width>480</width>
-					<height>33</height>
-					<label>$LOCALIZE[31135]</label>
-					<font>apptv22</font>
-					<textcolor>disabled-text</textcolor>
-					<shadowcolor>shadow-text</shadowcolor>
-				</control>
-				<control type="label">
-					<!-- Genres -->
-					<left>510</left>
-					<top>399</top>
-					<width>900</width>
-					<height>30</height>
-					<font>apptv20</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<label>$INFO[ListItem.Genre,$LOCALIZE[135] : ]</label>
-				</control>
-				<control type="label">
-					<!-- Duration -->
-					<left>510</left>
-					<top>438</top>
-					<width>480</width>
-					<height>30</height>
-					<font>apptv20</font>
-					<label>$INFO[ListItem.Duration,$LOCALIZE[31133] ]</label>
-				</control>
-				<control type="label">
-					<!-- Release date -->
-					<left>510</left>
-					<top>477</top>
-					<width>900</width>
-					<height>30</height>
-					<font>apptv20</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<label>$INFO[ListItem.Year,$LOCALIZE[172] : ]</label>
-				</control>
-				<control type="label">
-					<!-- Playcount -->
-					<left>510</left>
-					<top>516</top>
-					<width>900</width>
-					<height>30</height>
-					<label>$INFO[ListItem.PlayCount,$LOCALIZE[567] : ]</label>
-					<font>apptv20</font>
-					<visible>!String.IsEmpty(ListItem.PlayCount)</visible>
-				</control>
-				<control type="image">
-					<!-- Star Rating Dropshadow-->
-					<left>512</left>
-					<top>556</top>
-					<width>135</width>
-					<height>27</height>
-					<texture>$VAR[MediaRating]</texture>
-					<colordiffuse>DropShadow</colordiffuse>
-					<aspectratio>keep</aspectratio>
-				</control>
-				<control type="image">
-					<!-- Star Rating -->
-					<left>510</left>
-					<top>555</top>
-					<width>135</width>
-					<height>27</height>
-					<texture>$VAR[MediaRating]</texture>
-					<aspectratio>keep</aspectratio>
-				</control>
+			<control type="label"><!-- Track number and name -->
+				<left>510</left>
+				<top>18</top>
+				<width>1380</width>
+				<height>93</height>
+				<font>apptv30</font>
+				<wrapmultiline>true</wrapmultiline>
+				<aligny>center</aligny>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				<label>$INFO[ListItem.TrackNumber,, - ]$INFO[ListItem.Title]</label>
+			</control>
+			<control type="label"><!-- Artist -->
+				<left>510</left>
+				<top>123</top>
+				<width>1380</width>
+				<height>33</height>
+				<font>apptv22</font>
+				<textcolor>disabled-text</textcolor>
+				<shadowcolor>shadow-text</shadowcolor>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				<label>$INFO[ListItem.Artist]$INFO[ListItem.Album, : ,]</label>
+				<visible>!String.IsEmpty(ListItem.Artist)</visible>
+			</control>
+			<control type="image">
+				<left>510</left>
+				<top>162</top>
+				<width>900</width>
+				<height>6</height>
+				<texture>separator.png</texture>
+			</control>
+			<control type="textbox" id="1322">
+				<left>510</left>
+				<top>165</top>
+				<width>1350</width>
+				<height>180</height>
+				<label>$INFO[ListItem.Comment]</label>
+				<font>apptv20</font>
+				<align>justify</align>
+				<pagecontrol>1323</pagecontrol>
+			</control>
+			<control type="scrollbar" id="1323">
+				<left>1875</left>
+				<top>172</top>
+				<width>18</width>
+				<height>177</height>
+				<onleft>999</onleft>
+				<onright>1020</onright>
+				<onup>1020</onup>
+				<ondown>999</ondown>
+				<animation condition="!Control.HasFocus(1323) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>$EXP[isEnabledScrollbar]</visible>
+			</control>
+			<control type="image">
+				<left>510</left>
+				<top>348</top>
+				<width>1350</width>
+				<height>6</height>
+				<texture>separator.png</texture>
+			</control>
+			<control type="label"><!-- Details heading -->
+				<left>510</left>
+				<top>360</top>
+				<width>480</width>
+				<height>33</height>
+				<label>$LOCALIZE[31135]</label>
+				<font>apptv22</font>
+				<textcolor>disabled-text</textcolor>
+				<shadowcolor>shadow-text</shadowcolor>
+			</control>
+			<control type="label"><!-- Genres -->
+				<left>510</left>
+				<top>399</top>
+				<width>900</width>
+				<height>30</height>
+				<font>apptv20</font>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				<label>$INFO[ListItem.Genre,$LOCALIZE[135] : ]</label>
+			</control>
+			<control type="label"><!-- Duration -->
+				<left>510</left>
+				<top>438</top>
+				<width>480</width>
+				<height>30</height>
+				<font>apptv20</font>
+				<label>$INFO[ListItem.Duration,$LOCALIZE[31133] ]</label>
+			</control>
+			<control type="label"><!-- Release date -->
+				<left>510</left>
+				<top>477</top>
+				<width>900</width>
+				<height>30</height>
+				<font>apptv20</font>
+				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				<label>$INFO[ListItem.Year,$LOCALIZE[172] : ]</label>
+			</control>
+			<control type="label"><!-- Playcount -->
+				<left>510</left>
+				<top>516</top>
+				<width>900</width>
+				<height>30</height>
+				<label>$INFO[ListItem.PlayCount,$LOCALIZE[567] : ]</label>
+				<font>apptv20</font>
+				<visible>!String.IsEmpty(ListItem.PlayCount)</visible>
+			</control>
+			<control type="image"><!-- Star Rating Dropshadow-->
+				<left>512</left>
+				<top>556</top>
+				<width>135</width>
+				<height>27</height>
+				<texture>$VAR[MediaRating]</texture>
+				<colordiffuse>DropShadow</colordiffuse>
+				<aspectratio>keep</aspectratio>
+			</control>
+			<control type="image"><!-- Star Rating -->
+				<left>510</left>
+				<top>555</top>
+				<width>135</width>
+				<height>27</height>
+				<texture>$VAR[MediaRating]</texture>
+				<aspectratio>keep</aspectratio>
 			</control>
 		</control>
-		<control type="group">
-			<!-- Artist info -->
+		<control type="group"><!-- Artist info -->
 			<visible>$EXP[isArtist]</visible>
-			<control type="label">
-				<!-- Artist Name -->
+			<control type="label"><!-- Artist Name -->
 				<left>510</left>
 				<top>18</top>
 				<width>1380</width>
@@ -188,8 +172,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Artist]</label>
 			</control>
-			<control type="label">
-				<!-- Artist born/died -->
+			<control type="label"><!-- Artist born/died -->
 				<left>510</left>
 				<top>123</top>
 				<width>1380</width>
@@ -201,8 +184,7 @@
 				<label>$INFO[ListItem.Property(Artist_Born)]$INFO[ListItem.Property(Artist_Died), - ,]</label>
 				<visible>!String.IsEmpty(ListItem.Property(Artist_Born))</visible>
 			</control>
-			<control type="label">
-				<!-- Artist formed/disbanded -->
+			<control type="label"><!-- Artist formed/disbanded -->
 				<left>510</left>
 				<top>123</top>
 				<width>1380</width>
@@ -221,8 +203,7 @@
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
-			<control type="textbox" id="1422">
-				<!-- Artist description -->
+			<control type="textbox" id="1422"><!-- Artist description -->
 				<left>510</left>
 				<top>165</top>
 				<width>1350</width>
@@ -251,8 +232,7 @@
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
-			<control type="label">
-				<!-- Details heading -->
+			<control type="label"><!-- Details heading -->
 				<left>510</left>
 				<top>360</top>
 				<width>480</width>
@@ -262,8 +242,7 @@
 				<textcolor>disabled-text</textcolor>
 				<shadowcolor>shadow-text</shadowcolor>
 			</control>
-			<control type="label">
-				<!-- Genres -->
+			<control type="label"><!-- Genres -->
 				<left>510</left>
 				<top>399</top>
 				<width>900</width>
@@ -272,8 +251,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Genre,$LOCALIZE[135] : ]</label>
 			</control>
-			<control type="label">
-				<!-- Moods -->
+			<control type="label"><!-- Moods -->
 				<left>510</left>
 				<top>438</top>
 				<width>900</width>
@@ -282,8 +260,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Property(Album_Mood),$LOCALIZE[175] : ]</label>
 			</control>
-			<control type="label">
-				<!-- Styles -->
+			<control type="label"><!-- Styles -->
 				<left>510</left>
 				<top>477</top>
 				<width>900</width>
@@ -292,8 +269,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Property(Album_Style),$LOCALIZE[176] : ]</label>
 			</control>
-			<control type="label">
-				<!-- Active -->
+			<control type="label"><!-- Active -->
 				<left>510</left>
 				<top>516</top>
 				<width>900</width>
@@ -303,11 +279,9 @@
 				<label>$INFO[ListItem.Property(Artist_YearsActive),$LOCALIZE[21898] : ]</label>
 			</control>
 		</control>
-		<control type="group">
-			<!-- Album info -->
+		<control type="group"><!-- Album info -->
 			<visible>$EXP[isAlbum]</visible>
-			<control type="label">
-				<!-- Album Name -->
+			<control type="label"><!-- Album Name -->
 				<left>510</left>
 				<top>18</top>
 				<width>1380</width>
@@ -316,8 +290,7 @@
 				<wrapmultiline>true</wrapmultiline>
 				<label>$INFO[ListItem.Album][COLOR=disabled-text]$INFO[ListItem.Artist, - ,][/COLOR]</label>
 			</control>
-			<control type="label">
-				<!-- Record Label value -->
+			<control type="label"><!-- Record Label value -->
 				<left>510</left>
 				<top>123</top>
 				<width>1380</width>
@@ -335,8 +308,7 @@
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
-			<control type="textbox" id="1522">
-				<!-- Album description -->
+			<control type="textbox" id="1522"><!-- Album description -->
 				<left>510</left>
 				<top>165</top>
 				<width>1350</width>
@@ -365,8 +337,7 @@
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
-			<control type="label">
-				<!-- Details heading -->
+			<control type="label"><!-- Details heading -->
 				<left>510</left>
 				<top>360</top>
 				<width>480</width>
@@ -376,8 +347,7 @@
 				<textcolor>disabled-text</textcolor>
 				<shadowcolor>shadow-text</shadowcolor>
 			</control>
-			<control type="label">
-				<!-- Genres -->
+			<control type="label"><!-- Genres -->
 				<left>510</left>
 				<top>399</top>
 				<width>900</width>
@@ -386,8 +356,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Genre,$LOCALIZE[135] : ]</label>
 			</control>
-			<control type="label">
-				<!-- Moods -->
+			<control type="label"><!-- Moods -->
 				<left>510</left>
 				<top>438</top>
 				<width>900</width>
@@ -396,8 +365,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Property(Album_Mood),$LOCALIZE[175] : ]</label>
 			</control>
-			<control type="label">
-				<!-- Style -->
+			<control type="label"><!-- Style -->
 				<left>510</left>
 				<top>477</top>
 				<width>900</width>
@@ -406,8 +374,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Property(Album_Style),$LOCALIZE[176] : ]</label>
 			</control>
-			<control type="label">
-				<!-- Release date -->
+			<control type="label"><!-- Release date -->
 				<left>510</left>
 				<top>516</top>
 				<width>900</width>
@@ -416,8 +383,7 @@
 				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Year,$LOCALIZE[172] : ]</label>
 			</control>
-			<control type="image">
-				<!-- Star Rating Dropshadow-->
+			<control type="image"><!-- Star Rating Dropshadow-->
 				<left>512</left>
 				<top>556</top>
 				<width>135</width>
@@ -426,8 +392,7 @@
 				<colordiffuse>DropShadow</colordiffuse>
 				<aspectratio>keep</aspectratio>
 			</control>
-			<control type="image">
-				<!-- Star Rating -->
+			<control type="image"><!-- Star Rating -->
 				<left>510</left>
 				<top>555</top>
 				<width>135</width>
@@ -436,8 +401,7 @@
 				<aspectratio>keep</aspectratio>
 			</control>
 		</control>
-		<control type="grouplist" id="999">
-			<!-- Option buttons -->
+		<control type="grouplist" id="999"><!-- Option buttons -->
 			<left>540</left>
 			<top>600</top>
 			<width>1320</width>
@@ -455,39 +419,34 @@
 			<ondown condition="[$EXP[isAlbum] | $EXP[isArtist]] + Integer.IsLess(Container(50).NumItems,1)">1005</ondown>
 			<ondown condition="$EXP[isSong] + Integer.IsGreaterOrEqual(Container(950).NumItems,1)">950</ondown>
 			<ondown condition="$EXP[isSong] + Integer.IsLess(Container(950).NumItems,1)">1005</ondown>
-			<control type="button" id="1114">
-				<!-- Play button -->
+			<control type="button" id="1114"><!-- Play button -->
 				<include>info-options-common</include>
 				<label>$LOCALIZE[208]</label>
 				<texturefocus>button-info-play-focus.png</texturefocus>
 				<texturenofocus>button-info-play.png</texturenofocus>
 				<onclick>PlayMedia($ESCINFO[ListItem.FileNameAndPath])</onclick>
 			</control>
-			<control type="button" id="12">
-				<!-- Album info button -->
+			<control type="button" id="12"><!-- Album info button -->
 				<include>info-options-common</include>
 				<label>$LOCALIZE[558]</label>
 				<texturefocus>button-info-disc-focus.png</texturefocus>
 				<texturenofocus>button-info-disc.png</texturenofocus>
 				<visible>$EXP[isSong]</visible>
 			</control>
-			<control type="button" id="6">
-				<!-- Refresh button -->
+			<control type="button" id="6"><!-- Refresh button -->
 				<include>info-options-common</include>
 				<label>$LOCALIZE[184]</label>
 				<texturefocus>button-info-refresh-focus.png</texturefocus>
 				<texturenofocus>button-info-refresh.png</texturenofocus>
 			</control>
-			<control type="button" id="1117">
-				<!-- Set Ratings button -->
+			<control type="button" id="1117"><!-- Set Ratings button -->
 				<include>info-options-common</include>
 				<label>$LOCALIZE[563]</label>
 				<texturefocus>button-info-plot-focus.png</texturefocus>
 				<texturenofocus>button-info-plot.png</texturenofocus>
 				<onclick>SendClick(musicinformation,7)</onclick>
 			</control>
-			<control type="button" id="1115">
-				<!-- More options button -->
+			<control type="button" id="1115"><!-- More options button -->
 				<include>info-options-common</include>
 				<label>$LOCALIZE[31693]</label>
 				<texturefocus>button-info-more-focus.png</texturefocus>
@@ -507,8 +466,7 @@
 				<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31693])</onclick>
 			</control>
 		</control>
-		<control type="group">
-			<!-- Discography / Track list -->
+		<control type="group"><!-- Discography / Track list -->
 			<visible>$EXP[isAlbum] | $EXP[isArtist] + Integer.IsGreater(Container(50).NumItems,0)</visible>
 			<control type="label">
 				<left>30</left>
@@ -537,8 +495,7 @@
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
-			<control type="list" id="50">
-				<!-- Discography -->
+			<control type="list" id="50"><!-- Discography -->
 				<visible>$EXP[isArtist]</visible>
 				<left>15</left>
 				<top>762</top>
@@ -549,7 +506,7 @@
 				<onup>999</onup>
 				<ondown>1010</ondown>
 				<orientation>horizontal</orientation>
-				<itemlayout height="312" width="315">
+				<itemlayout width="315">
 					<control type="image">
 						<left>45</left>
 						<top>12</top>
@@ -560,7 +517,7 @@
 						<animation condition="$EXP[isEmptyDBID]" effect="fade" start="100" end="60">Conditional</animation>
 					</control>
 				</itemlayout>
-				<focusedlayout height="312" width="315">
+				<focusedlayout width="315">
 					<control type="image">
 						<left>45</left>
 						<top>12</top>
@@ -585,8 +542,7 @@
 					</control>
 				</focusedlayout>
 			</control>
-			<control type="group">
-				<!-- Markers for control area items -->
+			<control type="group"><!-- Markers for control area items -->
 				<visible>$EXP[isArtist]</visible>
 				<include content="page-offscreen-horizontal">
 					<param name="indicator1left" value="30"/>
@@ -597,9 +553,7 @@
 					<param name="indicatorcontainer" value="50"/>
 				</include>
 			</control>
-
-			<control type="panel" id="50">
-				<!-- Track listing -->
+			<control type="panel" id="50"><!-- Track listing -->
 				<visible>$EXP[isAlbum]</visible>
 				<left>30</left>
 				<top>780</top>
@@ -686,8 +640,7 @@
 					</control>
 				</focusedlayout>
 			</control>
-			<control type="group">
-				<!-- Markers for control area items -->
+			<control type="group"><!-- Markers for control area items -->
 				<visible>$EXP[isAlbum]</visible>
 				<include content="page-offscreen-vertical">
 					<param name="indicator1left" value="948"/>
@@ -699,9 +652,7 @@
 				</include>
 			</control>
 		</control>
-
-		<control type="group">
-			<!-- Recommended songs list -->
+		<control type="group"><!-- Recommended songs list -->
 			<visible>$EXP[isSong]</visible>
 			<control type="label">
 				<left>30</left>
@@ -720,9 +671,8 @@
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
-			<control type="list" id="950">
+			<control type="list" id="950"><!-- User might enjoy -->
 				<visible>Integer.IsGreater(Container(950).NumItems,0)</visible>
-				<!-- User might enjoy -->
 				<left>15</left>
 				<top>762</top>
 				<width>1890</width>
@@ -732,7 +682,7 @@
 				<onup>999</onup>
 				<ondown>1015</ondown>
 				<orientation>horizontal</orientation>
-				<itemlayout height="312" width="315">
+				<itemlayout width="315">
 					<control type="image">
 						<left>45</left>
 						<top>12</top>
@@ -742,7 +692,7 @@
 						<texture diffuse="mask-squ.png" fallback="DefaultMusicSongs.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 					</control>
 				</itemlayout>
-				<focusedlayout height="312" width="315">
+				<focusedlayout width="315">
 					<control type="image">
 						<left>45</left>
 						<top>12</top>
@@ -779,37 +729,31 @@
 				</include>
 			</control>
 		</control>
-
 		<!-- Play bump sound if user tries to leave button bar by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="1005" />
 			<param name="returnid" value="999" />
 		</include>
-
 		<!-- Play bump sound if user tries to leave discography/track widget by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="1010" />
 			<param name="returnid" value="50" />
 		</include>
-
 		<!-- Play bump sound if user tries to leave suggestions widget by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="1015" />
 			<param name="returnid" value="950" />
 		</include>
-
 		<!-- Play bump sound if user tries to leave song description scrollbar by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="1020" />
 			<param name="returnid" value="1323" />
 		</include>
-
 		<!-- Play bump sound if user tries to leave artist description scrollbar by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="1025" />
 			<param name="returnid" value="1423" />
 		</include>
-
 		<!-- Play bump sound if user tries to leave album description scrollbar by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="1030" />

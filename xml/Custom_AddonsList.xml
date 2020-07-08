@@ -17,7 +17,7 @@
 			<ondown>999</ondown>
 			<preloaditems>4</preloaditems>
 			<pagecontrol>23</pagecontrol>
-			<itemlayout width="840" height="84">
+			<itemlayout height="84">
 				<control type="image">
 					<left>0</left>
 					<top>0</top>
@@ -37,7 +37,7 @@
 					<label>$INFO[ListItem.Label]</label>
 				</control>
 			</itemlayout>
-			<focusedlayout width="840" height="84">
+			<focusedlayout height="84">
 				<control type="image">
 					<left>0</left>
 					<top>0</top>
@@ -58,46 +58,39 @@
 				</control>
 			</focusedlayout>
 			<content>
-				<item>
-					<!-- Return to Home -->
+				<item><!-- Return to Home -->
 					<icon>DefaultFolderBack.png</icon>
 					<label>..</label>
 					<onclick>ReplaceWindow(home)</onclick>
 					<visible>$EXP[isEnabledParentDirectory]</visible>
 				</item>
-				<item>
-					<!-- Video Addons -->
+				<item><!-- Video Addons -->
 					<icon>DefaultAddon.png</icon>
 					<label>$LOCALIZE[1037]</label>
 					<onclick>ActivateWindow(videos,Addons,return)</onclick>
 				</item>
-				<item>
-					<!-- Music Addons -->
+				<item><!-- Music Addons -->
 					<icon>DefaultAddon.png</icon>
 					<label>$LOCALIZE[1038]</label>
 					<onclick>ActivateWindow(music,addons://sources/audio/,return)</onclick>
 				</item>
-				<item>
-					<!-- Picture Addons -->
+				<item><!-- Picture Addons -->
 					<icon>DefaultAddon.png</icon>
 					<label>$LOCALIZE[1039]</label>
 					<onclick>ActivateWindow(pictures,Addons,return)</onclick>
 				</item>
-				<item>
-					<!-- Program Addons -->
+				<item><!-- Program Addons -->
 					<icon>DefaultAddon.png</icon>
 					<label>$LOCALIZE[1043]</label>
 					<onclick>ActivateWindow(programs,Addons,return)</onclick>
 				</item>
-				<item>
-					<!-- Update Addons -->
+				<item><!-- Update Addons -->
 					<icon>DefaultAddon.png</icon>
 					<label>$LOCALIZE[24043]</label>
 					<onclick>ActivateWindow(addonbrowser,addons://outdated/,return)</onclick>
 					<visible>Integer.IsGreater(Window(addonbrowser).Property(PendingUpdates),0)</visible>
 				</item>
-				<item>
-					<!-- Get More Addons -->
+				<item><!-- Get More Addons -->
 					<icon>DefaultAddon.png</icon>
 					<label>$LOCALIZE[21452]</label>
 					<onclick>ActivateWindow(addonbrowser,,return)</onclick>
@@ -106,8 +99,7 @@
 		</control>
 		<control type="group">
 			<control type="group">
-				<control type="image">
-					<!-- list item icon -->
+				<control type="image"><!-- list item icon -->
 					<left>183</left>
 					<top>225</top>
 					<width>576</width>
