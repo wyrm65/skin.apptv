@@ -284,7 +284,8 @@
 						<font>apptv22</font>
 						<onup>5013</onup>
 						<ondown>5016</ondown>
-						<onclick>Skin.SetImage($INFO[Window(settings).Property(ListCustomBase),,.Icon])</onclick>
+						<onclick condition="Skin.HasSetting(HomeMenuIcon)">Skin.SetImage($INFO[Window(settings).Property(ListCustomBase),,.Icon],special://skin/extras/homeicons)</onclick>
+						<onclick condition="![Skin.HasSetting(HomeMenuIcon)]">Skin.SetImage($INFO[Window(settings).Property(ListCustomBase),,.Icon])</onclick>
 					</control>
 					<control type="label">
 						<left>150</left>
@@ -312,7 +313,7 @@
 						<font>apptv22</font>
 						<onup>5014</onup>
 						<ondown>5018</ondown>
-						<onclick>Skin.SetImage($INFO[Window(settings).Property(ListToggle),,.Icon])</onclick>
+						<onclick>Skin.SetImage($INFO[Window(settings).Property(ListToggle),,.Icon],special://skin/extras/homeicons)</onclick>
 					</control>
 					<control type="label">
 						<left>150</left>
