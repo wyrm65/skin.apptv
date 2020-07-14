@@ -30,23 +30,20 @@
 
 		<include>touch-controls</include>
 
-		<control type="group">
-			<!-- Screen Settings Menu -->
+		<control type="group"><!-- Screen Settings Menu -->
 			<left>0</left>
 			<top>1080</top>
 			<animation effect="slide" start="0,0" end="0,-1080">Visible</animation>
 			<visible allowhiddenfocus="true">[ControlGroup(6100).HasFocus() | String.IsEqual(Window(home).Property(ShowScreenSettings),show)] + !Skin.HasSetting(lock-screensettings)</visible>
 			<include>fadebackground</include>
-			<control type="image">
-				<!-- Button background -->
+			<control type="image"><!-- Button background -->
 				<left>622</left>
 				<top>274</top>
 				<width>669</width>
 				<height>542</height>
 				<texture border="14">button-menu-background.png</texture>
 			</control>
-			<control type="label">
-				<!-- Dialog heading -->
+			<control type="label"><!-- Dialog heading -->
 				<left>638</left>
 				<top>286</top>
 				<width>689</width>
@@ -55,8 +52,7 @@
 				<label>$LOCALIZE[31557]$INFO[Container(6100).NumItems, (,)]</label>
 				<align>center</align>
 			</control>
-			<control type="button">
-				<!-- Touch Close button -->
+			<control type="button"><!-- Touch Close button -->
 				<left>1260</left>
 				<top>258</top>
 				<width>48</width>
@@ -85,8 +81,7 @@
 				<onright>9000</onright>
 				<onleft>ClearProperty(ShowScreenSettings,home)</onleft>
 				<onleft>9000</onleft>
-				<control type="button" id="6101">
-					<!-- Home menu type -->
+				<control type="button" id="6101"><!-- Home menu type -->
 					<width>639</width>
 					<height>69</height>
 					<label>$LOCALIZE[31900] - $VAR[MenuType]</label>
@@ -99,8 +94,7 @@
 					<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetBool(HomeMenuVertical)||Skin.Reset(HomeMenuHorizontal)||Skin.Reset(HomeMenuIcon)||ReloadSkin())</onclick>
 					<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31900])</onclick>
 				</control>
-				<control type="button" id="6102">
-					<!-- Home menu Settings Menu -->
+				<control type="button" id="6102"><!-- Home menu Settings Menu -->
 					<width>639</width>
 					<height>69</height>
 					<label>$LOCALIZE[31803]</label>
@@ -112,8 +106,7 @@
 						<visible>!Skin.HasSetting(HomeMenuVertical)</visible>
 						<width>639</width>
 						<height>69</height>
-						<control type="togglebutton" id="6104">
-							<!-- TVShow Shelf image type -->
+						<control type="togglebutton" id="6104"><!-- TVShow Shelf image type -->
 							<onup>6102</onup>
 							<ondown>6106</ondown>
 							<onright>ClearProperty(ShowScreenSettings,home)</onright>
@@ -127,14 +120,13 @@
 							<onclick>Skin.SetString(shelf-backgroundtype,$LOCALIZE[20445])</onclick>
 							<altclick>Skin.SetString(shelf-backgroundtype,$LOCALIZE[31575])</altclick>
 						</control>
-						<control type="label" id="6105">
+						<control type="label">
 							<label>$LOCALIZE[31859]</label>
 							<font>apptv20</font>
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
-				<control type="radiobutton" id="6106">
-					<!-- Time On Home Screen toggle -->
+				<control type="radiobutton" id="6106"><!-- Time On Home Screen toggle -->
 					<width>639</width>
 					<height>69</height>
 					<label>$LOCALIZE[31888]</label>
@@ -145,8 +137,7 @@
 					<selected>!Skin.HasSetting(home-time)</selected>
 					<radioposx>1266</radioposx>
 				</control>
-				<control type="radiobutton" id="6107">
-					<!-- Current Weather On Home Screen toggle -->
+				<control type="radiobutton" id="6107"><!-- Current Weather On Home Screen toggle -->
 					<width>639</width>
 					<height>69</height>
 					<label>$LOCALIZE[31889]</label>
@@ -158,8 +149,7 @@
 					<enable>!String.IsEmpty(Weather.plugin)</enable>
 					<radioposx>1266</radioposx>
 				</control>
-				<control type="button" id="6108">
-					<!-- player controls button -->
+				<control type="button" id="6108"><!-- Player controls button -->
 					<width>639</width>
 					<height>69</height>
 					<label>$LOCALIZE[16003] $LOCALIZE[478]</label>

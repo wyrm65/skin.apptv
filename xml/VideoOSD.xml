@@ -6,8 +6,7 @@
 		<control type="group">
 			<animation effect="fade" start="100" end="0" time="200" condition="Window.IsVisible(sliderdialog) | Window.IsVisible(osdvideosettings) | Window.IsVisible(osdaudiosettings) | Window.IsVisible(videobookmarks)">conditional</animation>
 			<include>player-mediaicon</include>
-			<control type="group">
-				<!-- Player info labels -->
+			<control type="group"><!-- Player info labels -->
 				<control type="group" id="1">
 					<visible>!VideoPlayer.Content(LiveTV)</visible>
 					<control type="label" id="1">
@@ -68,7 +67,6 @@
 							<info>Player.Progress</info>
 						</control>
 						<control type="slider" id="690">
-							<!-- Seek Slider -->
 							<left>717</left>
 							<top>1040</top>
 							<width>870</width>
@@ -86,7 +84,6 @@
 						<visible>VideoPlayer.Content(LiveTV)</visible>
 					</control>
 					<control type="slider" id="691">
-						<!-- Seek Slider -->
 						<left>717</left>
 						<top>1040</top>
 						<width>870</width>
@@ -98,8 +95,7 @@
 					</control>
 				</control>
 			</control>
-			<control type="grouplist" id="620">
-				<!-- Play group OSD Buttons -->
+			<control type="grouplist" id="620"><!-- Play group OSD Buttons -->
 				<left>1076</left>
 				<top>902</top>
 				<width>138</width>
@@ -124,8 +120,7 @@
 					<param name="osdvisible" value="Player.TempoEnabled" />
 				</include>
 			</control>
-			<control type="grouplist" id="630">
-				<!-- Settings group OSD Buttons -->
+			<control type="grouplist" id="630"><!-- Settings group OSD Buttons -->
 				<left>730</left>
 				<top>902</top>
 				<width>420</width>
@@ -178,8 +173,7 @@
 					<param name="osdvisible" value="VideoPlayer.HasTeletext" />
 				</include>
 			</control>
-			<control type="grouplist" id="640">
-				<!-- Back group OSD buttons -->
+			<control type="grouplist" id="640"><!-- Back group OSD buttons -->
 				<left>1024</left>
 				<top>902</top>
 				<width>138</width>
@@ -196,8 +190,7 @@
 					<param name="osdaction" value="PlayerControl(Previous)" />
 				</include>
 			</control>
-			<control type="grouplist" id="650">
-				<!-- Default group OSD buttons -->
+			<control type="grouplist" id="650"><!-- Default group OSD buttons -->
 				<left>836</left>
 				<top>968</top>
 				<width>630</width>
@@ -287,8 +280,7 @@
 					<param name="osdup" value="670" />
 				</include>
 			</control>
-			<control type="grouplist" id="660">
-				<!-- Forward group OSD Button -->
+			<control type="grouplist" id="660"><!-- Forward group OSD Button -->
 				<left>1220</left>
 				<top>902</top>
 				<width>138</width>
@@ -305,8 +297,7 @@
 					<param name="osdaction" value="PlayerControl(Next)" />
 				</include>
 			</control>
-			<control type="grouplist" id="670">
-				<!-- More group OSD Buttons -->
+			<control type="grouplist" id="670"><!-- More group OSD Buttons -->
 				<left>1150</left>
 				<top>902</top>
 				<width>560</width>

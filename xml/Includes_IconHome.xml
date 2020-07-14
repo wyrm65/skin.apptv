@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
 	<include name="IconHomeMenu">
-		<control type="image">
-			<!-- Background image for main icon area -->
+		<control type="image"><!-- Background image for main icon area -->
 			<include>fullscreenimage</include>
 			<texture>background-iconhome.png</texture>
 		</control>
@@ -180,16 +179,14 @@
 				</control>
 			</focusedlayout>
 			<content>
-				<item>
-					<!-- Videos -->
+				<item><!-- Videos -->
 					<visible>!Skin.HasSetting(home-video)</visible>
 					<thumb>$VAR[HomeVideoIcon]</thumb>
 					<label>$LOCALIZE[3]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>ActivateWindow(videos,Root,return)</onclick>
 				</item>
-				<item>
-					<!-- Movies -->
+				<item><!-- Movies -->
 					<visible>!Skin.HasSetting(home-movie)</visible>
 					<thumb>$VAR[HomeMovieIcon]</thumb>
 					<label>$LOCALIZE[31026]</label>
@@ -197,8 +194,7 @@
 					<property name="count">$INFO[Window(home).Property(Movies.UnWatched)]</property>
 					<onclick>$VAR[MovieLibEntry]</onclick>
 				</item>
-				<item>
-					<!-- TV Shows -->
+				<item><!-- TV Shows -->
 					<visible>!Skin.HasSetting(home-tvshows)</visible>
 					<thumb>$VAR[HomeTVShowsIcon]</thumb>
 					<label>$LOCALIZE[20343]</label>
@@ -206,31 +202,27 @@
 					<property name="count">$INFO[Window(home).Property(TVShows.UnWatched)]</property>
 					<onclick>$VAR[TVLibEntry]</onclick>
 				</item>
-				<item>
-					<!-- Music -->
+				<item><!-- Music -->
 					<visible>!Skin.HasSetting(home-music)</visible>
 					<thumb>$VAR[HomeMusicIcon]</thumb>
 					<label>$LOCALIZE[2]</label>
 					<label2>$LOCALIZE[2]</label2>
 					<onclick>$VAR[MusicLibEntry]</onclick>
 				</item>
-				<item>
-					<!-- Weather -->
+				<item><!-- Weather -->
 					<visible>!String.IsEmpty(Weather.plugin) + [Skin.HasSetting(home-weather) | Skin.HasSetting(home-currentweather)]</visible>
 					<thumb>$VAR[HomeWeatherIcon]</thumb>
 					<label>$LOCALIZE[8]</label>
 					<label2>$LOCALIZE[8]</label2>
 					<onclick>ActivateWindow(weather)</onclick>
 				</item>
-				<item>
-					<!-- System menu -->
+				<item><!-- System menu -->
 					<thumb>special://skin/extras/homeicons/setting.png</thumb>
 					<label>$LOCALIZE[5]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>ActivateWindow(settings)</onclick>
 				</item>
-				<item>
-					<!-- Music Videos -->
+				<item><!-- Music Videos -->
 					<visible>Skin.HasSetting(home-musicvideo)</visible>
 					<thumb>$VAR[HomeMusicVideoIcon]</thumb>
 					<label>$LOCALIZE[31028]</label>
@@ -238,8 +230,7 @@
 					<property name="count">$INFO[Window(home).Property(MusicVideos.UnWatched)]</property>
 					<onclick>$VAR[MusicVideoLibEntry]</onclick>
 				</item>
-				<item>
-					<!-- Live TV -->
+				<item><!-- Live TV -->
 					<visible>Pvr.HasTVChannels</visible>
 					<thumb>$VAR[HomeTVIcon]</thumb>
 					<label>$LOCALIZE[19020]</label>
@@ -247,8 +238,7 @@
 					<onclick>SetProperty(PVRType,tv,home)</onclick>
 					<onclick>$VAR[TVEntry]</onclick>
 				</item>
-				<item>
-					<!-- Live Radio -->
+				<item><!-- Live Radio -->
 					<visible>Pvr.HasRadioChannels</visible>
 					<thumb>$VAR[HomeRadioIcon]</thumb>
 					<label>$LOCALIZE[19021]</label>
@@ -256,8 +246,7 @@
 					<onclick>SetProperty(PVRType,radio,home)</onclick>
 					<onclick>$VAR[RadioEntry]</onclick>
 				</item>
-				<item>
-					<!-- Addons menu -->
+				<item><!-- Addons menu -->
 					<visible>!Skin.HasSetting(home-programs)</visible>
 					<thumb>$VAR[HomeProgramsIcon]</thumb>
 					<label>$LOCALIZE[24001]</label>
@@ -266,24 +255,21 @@
 					<onclick>SetProperty(PendingUpdates,$INFO[Container(12345).NumItems],addonbrowser)</onclick>
 					<onclick>ActivateWindow(1155)</onclick>
 				</item>
-				<item>
-					<!-- Games menu -->
+				<item><!-- Games menu -->
 					<visible>Skin.HasSetting(home-games)</visible>
 					<thumb>$VAR[HomeGamesIcon]</thumb>
 					<label>$LOCALIZE[15016]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>ActivateWindow(games,,return)</onclick>
 				</item>
-				<item>
-					<!-- Pictures -->
+				<item><!-- Pictures -->
 					<visible>Skin.HasSetting(home-photos)</visible>
 					<thumb>$VAR[HomePhotosIcon]</thumb>
 					<label>$LOCALIZE[1]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>ActivateWindow(pictures,,return)</onclick>
 				</item>
-				<item>
-					<!-- Favourites -->
+				<item><!-- Favourites -->
 					<visible>Skin.HasSetting(home-favorites)</visible>
 					<thumb>$VAR[HomeFavoritesIcon]</thumb>
 					<label>$LOCALIZE[31652]</label>
@@ -361,7 +347,6 @@
 					<visible>!String.IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
 				</item>
 				<item>
-					<!-- Custom TV 1 -->
 					<thumb>$INFO[Skin.String(CustomTV.1.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomTV.1.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
@@ -369,7 +354,6 @@
 					<visible>!String.IsEmpty(Skin.String(CustomTV.1.Path))</visible>
 				</item>
 				<item>
-					<!-- Custom TV 2 -->
 					<thumb>$INFO[Skin.String(CustomTV.2.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomTV.2.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
@@ -377,7 +361,6 @@
 					<visible>!String.IsEmpty(Skin.String(CustomTV.2.Path))</visible>
 				</item>
 				<item>
-					<!-- Custom TV 3 -->
 					<thumb>$INFO[Skin.String(CustomTV.3.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomTV.3.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
@@ -385,7 +368,6 @@
 					<visible>!String.IsEmpty(Skin.String(CustomTV.3.Path))</visible>
 				</item>
 				<item>
-					<!-- Custom TV 4 -->
 					<thumb>$INFO[Skin.String(CustomTV.4.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomTV.4.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
@@ -393,7 +375,6 @@
 					<visible>!String.IsEmpty(Skin.String(CustomTV.4.Path))</visible>
 				</item>
 				<item>
-					<!-- Custom TV 5 -->
 					<thumb>$INFO[Skin.String(CustomTV.5.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomTV.5.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
@@ -401,7 +382,6 @@
 					<visible>!String.IsEmpty(Skin.String(CustomTV.5.Path))</visible>
 				</item>
 				<item>
-					<!-- Custom Radio 1 -->
 					<thumb>$INFO[Skin.String(CustomRadio.1.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomRadio.1.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
@@ -409,7 +389,6 @@
 					<visible>!String.IsEmpty(Skin.String(CustomRadio.1.Path))</visible>
 				</item>
 				<item>
-					<!-- Custom Radio 2 -->
 					<thumb>$INFO[Skin.String(CustomRadio.2.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomRadio.2.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
@@ -417,7 +396,6 @@
 					<visible>!String.IsEmpty(Skin.String(CustomRadio.2.Path))</visible>
 				</item>
 				<item>
-					<!-- Custom Radio 3 -->
 					<thumb>$INFO[Skin.String(CustomRadio.3.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomRadio.3.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
@@ -425,7 +403,6 @@
 					<visible>!String.IsEmpty(Skin.String(CustomRadio.3.Path))</visible>
 				</item>
 				<item>
-					<!-- Custom Radio 4 -->
 					<thumb>$INFO[Skin.String(CustomRadio.4.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomRadio.4.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
@@ -433,7 +410,6 @@
 					<visible>!String.IsEmpty(Skin.String(CustomRadio.4.Path))</visible>
 				</item>
 				<item>
-					<!-- Custom Radio 5 -->
 					<thumb>$INFO[Skin.String(CustomRadio.5.Icon)]</thumb>
 					<label>$INFO[Skin.String(CustomRadio.5.Label)]</label>
 					<label2>$LOCALIZE[571]</label2>
@@ -580,8 +556,7 @@
 					<onclick>$INFO[Skin.String(CustomGame.5.Path)]</onclick>
 					<visible>!String.IsEmpty(Skin.String(CustomGame.5.Path))</visible>
 				</item>
-				<item>
-					<!-- Search -->
+				<item><!-- Search -->
 					<visible>Skin.HasSetting(home-search)</visible>
 					<thumb>$VAR[HomeSearchIcon]</thumb>
 					<label>$LOCALIZE[137]</label>
@@ -589,24 +564,21 @@
 					<onclick condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
 					<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
 				</item>
-				<item>
-					<!-- Filemanager -->
+				<item><!-- Filemanager -->
 					<visible>Skin.HasSetting(home-filemanager)</visible>
 					<thumb>$VAR[HomeFileManagerIcon]</thumb>
 					<label>$LOCALIZE[10003]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>ActivateWindow(filemanager)</onclick>
 				</item>
-				<item>
-					<!-- Profiles -->
+				<item><!-- Profiles -->
 					<visible>Skin.HasSetting(home-profile)</visible>
 					<thumb>$VAR[HomeProfileIcon]</thumb>
 					<label>$LOCALIZE[20092]</label>
 					<label2>$LOCALIZE[571]</label2>
 					<onclick>System.LogOff</onclick>
 				</item>
-				<item>
-					<!-- Quit -->
+				<item><!-- Quit -->
 					<visible>!Skin.HasSetting(home-shutdown)</visible>
 					<thumb>$VAR[HomeShutdownIcon]</thumb>
 					<label>$LOCALIZE[13009]</label>

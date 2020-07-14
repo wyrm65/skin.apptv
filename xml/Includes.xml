@@ -935,10 +935,20 @@
 			<visible>!String.IsEmpty(PVR.ChannelNumberInput)</visible>
 		</control>
 	</include>
-	<include name="settings-submenu-common">
+	<include name="settings-submenu-size">
 		<width>1328</width>
 		<height>84</height>
+	</include>
+	<include name="settings-submenu-common">
+		<include>settings-submenu-size</include>
 		<font>apptv22</font>
+		<textwidth>1178</textwidth>
+	</include>
+	<include name="settings-submenu-radio">
+		<include>settings-submenu-size</include>
+		<font>apptv22</font>
+		<textwidth>1125</textwidth>
+		<radioposx>1266</radioposx>
 	</include>
 	<include name="skinsettings-list">
 		<left>80</left>

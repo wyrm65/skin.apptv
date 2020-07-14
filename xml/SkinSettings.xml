@@ -4,8 +4,7 @@
 	<controls>
 		<include>background</include>
 		<include>fake-overlay</include>
-		<control type="label">
-			<!-- Settings Label -->
+		<control type="label"><!-- Settings Label -->
 			<left>1419</left>
 			<top>38</top>
 			<width>465</width>
@@ -13,8 +12,7 @@
 			<label>$LOCALIZE[31556]</label>
 			<font>apptv30</font>
 		</control>
-		<control type="label">
-			<!-- Settings Label -->
+		<control type="label"><!-- Settings Label -->
 			<left>1419</left>
 			<top>93</top>
 			<width>465</width>
@@ -23,8 +21,7 @@
 			<font>apptv30</font>
 		</control>
 		<control type="group" id="999">
-			<control type="button" id="981">
-				<!-- Startup Settings Menu -->
+			<control type="button" id="981"><!-- Startup Settings Menu -->
 				<left>1410</left>
 				<top>168</top>
 				<width>480</width>
@@ -35,8 +32,7 @@
 				<ondown>982</ondown>
 				<onleft>100</onleft>
 			</control>
-			<control type="button" id="982">
-				<!-- General Settings Menu -->
+			<control type="button" id="982"><!-- General Settings Menu -->
 				<left>1410</left>
 				<top>249</top>
 				<width>480</width>
@@ -48,8 +44,7 @@
 				<ondown>983</ondown>
 				<onleft>200</onleft>
 			</control>
-			<control type="button" id="983">
-				<!-- Widget Settings Menu -->
+			<control type="button" id="983"><!-- Widget Settings Menu -->
 				<left>1410</left>
 				<top>330</top>
 				<width>480</width>
@@ -61,8 +56,7 @@
 				<ondown>984</ondown>
 				<onleft>300</onleft>
 			</control>
-			<control type="button" id="984">
-				<!-- Home menu Settings Menu -->
+			<control type="button" id="984"><!-- Home menu Settings Menu -->
 				<left>1410</left>
 				<top>411</top>
 				<width>480</width>
@@ -74,8 +68,7 @@
 				<onup>983</onup>
 				<ondown>985</ondown>
 			</control>
-			<control type="button" id="985">
-				<!-- Background Settings Menu -->
+			<control type="button" id="985"><!-- Background Settings Menu -->
 				<left>1410</left>
 				<top>492</top>
 				<width>480</width>
@@ -87,8 +80,7 @@
 				<ondown>986</ondown>
 				<onleft>500</onleft>
 			</control>
-			<control type="button" id="986">
-				<!-- Media sources Settings Menu -->
+			<control type="button" id="986"><!-- Media sources Settings Menu -->
 				<left>1410</left>
 				<top>573</top>
 				<width>480</width>
@@ -100,8 +92,7 @@
 				<ondown>987</ondown>
 				<onleft>600</onleft>
 			</control>
-			<control type="button" id="987">
-				<!-- Supported Addons Menu -->
+			<control type="button" id="987"><!-- Supported Addons Menu -->
 				<left>1410</left>
 				<top>654</top>
 				<width>480</width>
@@ -113,8 +104,7 @@
 				<ondown>988</ondown>
 				<onleft>700</onleft>
 			</control>
-			<control type="button" id="988">
-				<!-- Support Settings Menu -->
+			<control type="button" id="988"><!-- Support Settings Menu -->
 				<left>1410</left>
 				<top>735</top>
 				<width>480</width>
@@ -136,11 +126,9 @@
 			<visible>$EXP[isEnabledScrollbar] + !Skin.String(SkinSettingMenu,custom)</visible>
 		</control>
 		<control type="group" id="998">
-			<control type="group" id="100">
-				<!-- Startup Settings -->
+			<control type="group" id="100"><!-- Startup Settings -->
 				<visible>Skin.String(SkinSettingMenu,startup)</visible>
-				<control type="image">
-					<!-- Startup Settings Button Image -->
+				<control type="image"><!-- Startup Settings Button Image -->
 					<left>1410</left>
 					<top>168</top>
 					<width>480</width>
@@ -160,10 +148,8 @@
 				</include>
 				<control type="grouplist" id="101">
 					<include>skinsettings-list</include>
-					<control type="button" id="102">
-						<!-- Startup screen type -->
+					<control type="button" id="102"><!-- Startup screen type -->
 						<include>settings-submenu-common</include>
-						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31854]</label>
 						<label2>$INFO[Skin.String(startup-screentype)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31856])</onclick>
@@ -176,41 +162,32 @@
 						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(startup-screentype,$LOCALIZE[31855]))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31854])</onclick>
 					</control>
-					<control type="button" id="105">
-						<!-- Startup Screen Path -->
+					<control type="button" id="105"><!-- Startup Screen Path -->
 						<include>settings-submenu-common</include>
-						<textwidth>1178</textwidth>
 						<enable>String.IsEqual(Skin.String(startup-screentype),$LOCALIZE[31858]) | String.IsEqual(Skin.String(startup-screentype),$LOCALIZE[31857])</enable>
 						<label>- $LOCALIZE[31851] </label>
 						<label2>$INFO[Skin.String(startup-screenpath)]</label2>
 						<onclick condition="String.IsEqual(Skin.String(startup-screentype),$LOCALIZE[31857])">Skin.SetImage(startup-screenpath)</onclick>
 						<onclick condition="String.IsEqual(Skin.String(startup-screentype),$LOCALIZE[31858])">Skin.SetFile(startup-screenpath)</onclick>
 					</control>
-					<control type="radiobutton" id="106">
-						<!-- Startup Playlist toggle -->
-						<include>settings-submenu-common</include>
+					<control type="radiobutton" id="106"><!-- Startup Playlist toggle -->
+						<include>settings-submenu-radio</include>
 						<label>$LOCALIZE[31852]</label>
-						<textwidth>1125</textwidth>
 						<onclick>Skin.ToggleSetting(startup-playlist)</onclick>
 						<onclick condition="Skin.HasSetting(startup-playlist)">Skin.Reset(startup-playlistpath)</onclick>
 						<onclick condition="!Skin.HasSetting(startup-playlist)">Skin.SetFile(startup-playlistpath,,special://musicplaylists)</onclick>
 						<selected>Skin.HasSetting(startup-playlist)</selected>
-						<radioposx>1266</radioposx>
 					</control>
-					<control type="button" id="107">
-						<!-- Choose Playlist button -->
+					<control type="button" id="107"><!-- Choose Playlist button -->
 						<include>settings-submenu-common</include>
 						<label>- $LOCALIZE[559] </label>
 						<label2>$INFO[Skin.String(startup-playlistpath)]</label2>
-						<textwidth>1178</textwidth>
 						<enable>Skin.HasSetting(startup-playlist)</enable>
 						<onclick>Skin.SetFile(startup-playlistpath,,special://musicplaylists)</onclick>
 					</control>
-					<control type="button" id="108">
-						<!-- Reset Above Settings button -->
+					<control type="button" id="108"><!-- Reset Above Settings button -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[10041]</label>
-						<textwidth>1178</textwidth>
 						<onclick>Skin.Reset(startup-screentype)</onclick>
 						<onclick>Skin.Reset(startup-screenpath)</onclick>
 						<onclick>Skin.Reset(startup-playlist)</onclick>
@@ -218,11 +195,9 @@
 					</control>
 				</control>
 			</control>
-			<control type="group">
-				<!-- General Settings -->
+			<control type="group"><!-- General Settings -->
 				<visible>Skin.String(SkinSettingMenu,general)</visible>
-				<control type="image">
-					<!-- General Settings Button Image -->
+				<control type="image"><!-- General Settings Button Image -->
 					<left>1410</left>
 					<top>249</top>
 					<width>480</width>
@@ -242,28 +217,20 @@
 				</include>
 				<control type="grouplist" id="200">
 					<include>skinsettings-list</include>
-					<control type="radiobutton" id="201">
-						<!-- Lock Screen Settings Toggle -->
-						<include>settings-submenu-common</include>
+					<control type="radiobutton" id="201"><!-- Lock Screen Settings Toggle -->
+						<include>settings-submenu-radio</include>
 						<label>$LOCALIZE[31880]</label>
-						<textwidth>1125</textwidth>
 						<onclick>Skin.ToggleSetting(lock-screensettings)</onclick>
 						<selected>Skin.HasSetting(lock-screensettings)</selected>
-						<radioposx>1266</radioposx>
 					</control>
-					<control type="radiobutton" id="202">
-						<!-- LetterBar Toggle -->
-						<include>settings-submenu-common</include>
+					<control type="radiobutton" id="202"><!-- LetterBar Toggle -->
+						<include>settings-submenu-radio</include>
 						<label>$LOCALIZE[31884]</label>
-						<textwidth>1125</textwidth>
 						<onclick>Skin.ToggleSetting(show-letterbar)</onclick>
 						<selected>Skin.HasSetting(show-letterbar)</selected>
-						<radioposx>1266</radioposx>
 					</control>
-					<control type="button" id="203">
-						<!-- Show Scrollbar -->
+					<control type="button" id="203"><!-- Show Scrollbar -->
 						<include>settings-submenu-common</include>
-						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31881]</label>
 						<label2>$INFO[Skin.String(show-scrollbar)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31876])</onclick>
@@ -274,53 +241,38 @@
 						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(show-scrollbar,$LOCALIZE[31877]))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31881])</onclick>
 					</control>
-					<control type="radiobutton" id="205">
-						<!-- Autoscroll Toggle -->
-						<include>settings-submenu-common</include>
+					<control type="radiobutton" id="205"><!-- Autoscroll Toggle -->
+						<include>settings-submenu-radio</include>
 						<label>$LOCALIZE[31882]</label>
-						<textwidth>1125</textwidth>
 						<onclick>Skin.ToggleSetting(text-autoscroll)</onclick>
 						<selected>Skin.HasSetting(text-autoscroll)</selected>
-						<radioposx>1266</radioposx>
 					</control>
-					<control type="radiobutton" id="206">
-						<!-- Media Overlay Toggle -->
-						<include>settings-submenu-common</include>
-						<label>$LOCALIZE[31883] </label>
-						<textwidth>1125</textwidth>
+					<control type="radiobutton" id="206"><!-- Media Overlay Toggle -->
+						<include>settings-submenu-radio</include>
+						<label>$LOCALIZE[31883]</label>
 						<onclick>Skin.ToggleSetting(media-overlay)</onclick>
 						<selected>Skin.HasSetting(media-overlay)</selected>
-						<radioposx>1266</radioposx>
 					</control>
-					<control type="radiobutton" id="209">
-						<!-- Use Mouse/touch controls Toggle -->
-						<include>settings-submenu-common</include>
+					<control type="radiobutton" id="209"><!-- Use Mouse/touch controls Toggle -->
+						<include>settings-submenu-radio</include>
 						<label>$LOCALIZE[31890]</label>
-						<textwidth>1125</textwidth>
 						<onclick>Skin.ToggleSetting(show-touchcontrols)</onclick>
 						<selected>$EXP[isEnabledTouch]</selected>
-						<radioposx>1266</radioposx>
 						<enable>System.GetBool(input.enablemouse)</enable>
 					</control>
-					<control type="radiobutton" id="210">
-						<!-- Use Simple Lyrics -->
-						<include>settings-submenu-common</include>
+					<control type="radiobutton" id="210"><!-- Use Simple Lyrics -->
+						<include>settings-submenu-radio</include>
 						<label>$LOCALIZE[31898] </label>
-						<textwidth>1125</textwidth>
 						<onclick>Skin.ToggleSetting(lyrics-simple)</onclick>
 						<selected>Skin.HasSetting(lyrics-simple)</selected>
-						<radioposx>1266</radioposx>
 					</control>
-					<control type="group" id="211">
-						<height>84</height>
-						<width>1328</width>
+					<control type="group" id="211"><!-- Use default mpaa local toggle -->
+						<include>settings-submenu-size</include>
 						<control type="togglebutton" id="212">
-							<!-- Use default mpaa local toggle -->
 							<onup>209</onup>
 							<ondown>213</ondown>
 							<onright>999</onright>
 							<include>settings-submenu-common</include>
-							<textwidth>1178</textwidth>
 							<label>$LOCALIZE[571]</label>
 							<altlabel>$INFO[Window(home).property(locale.country)]</altlabel>
 							<align>right</align>
@@ -333,11 +285,9 @@
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
-					<control type="button" id="213">
-						<!-- Reset Above Settings button -->
+					<control type="button" id="213"><!-- Reset Above Settings button -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[10041]</label>
-						<textwidth>1178</textwidth>
 						<onclick>Skin.Reset(lock-screensettings)</onclick>
 						<onclick>Skin.Reset(show-letterbar)</onclick>
 						<onclick>Skin.Reset(show-scrollbar)</onclick>
@@ -349,11 +299,9 @@
 					</control>
 				</control>
 			</control>
-			<control type="group" id="300">
-				<!-- Widget Settings -->
+			<control type="group" id="300"><!-- Widget Settings -->
 				<visible>Skin.String(SkinSettingMenu,widget)</visible>
-				<control type="image">
-					<!-- Background Settings Button Image -->
+				<control type="image"><!-- Background Settings Button Image -->
 					<left>1410</left>
 					<top>330</top>
 					<width>480</width>
@@ -373,10 +321,8 @@
 				</include>
 				<control type="grouplist" id="301">
 					<include>skinsettings-list</include>
-					<control type="button" id="307">
-						<!-- Movie Widget type -->
+					<control type="button" id="307"><!-- Movie Widget type -->
 						<include>settings-submenu-common</include>
-						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31026]</label>
 						<label2>$INFO[Skin.String(widget-movie)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[231])</onclick>
@@ -415,10 +361,8 @@
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31026])</onclick>
 						<visible>!Skin.HasSetting(HomeMenuVertical)</visible>
 					</control>
-					<control type="button" id="308">
-						<!-- TVShow Widget type -->
+					<control type="button" id="308"><!-- TVShow Widget type -->
 						<include>settings-submenu-common</include>
-						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31027]</label>
 						<label2>$INFO[Skin.String(widget-tvshow)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[231])</onclick>
@@ -457,17 +401,14 @@
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31027])</onclick>
 						<visible>!Skin.HasSetting(HomeMenuVertical)</visible>
 					</control>
-					<control type="group" id="309">
+					<control type="group" id="309"><!-- TVShow Widget image type -->
 						<visible>!Skin.HasSetting(HomeMenuVertical)</visible>
-						<height>84</height>
-						<width>1328</width>
+						<include>settings-submenu-size</include>
 						<control type="togglebutton" id="310">
-							<!-- TVShow Widget image type -->
 							<onup>308</onup>
 							<ondown>312</ondown>
 							<onright>999</onright>
 							<include>settings-submenu-common</include>
-							<textwidth>1178</textwidth>
 							<label>$INFO[Skin.String(widget-tvshowimgtyp)]</label>
 							<align>right</align>
 							<onclick>Skin.SetString(widget-tvshowimgtyp,$LOCALIZE[31950])</onclick>
@@ -480,10 +421,8 @@
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
-					<control type="button" id="312">
-						<!-- Music Widget type -->
+					<control type="button" id="312"><!-- Music Widget type -->
 						<include>settings-submenu-common</include>
-						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[2]</label>
 						<label2>$INFO[Skin.String(widget-music)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[231])</onclick>
@@ -524,10 +463,8 @@
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[2])</onclick>
 						<visible>!Skin.HasSetting(HomeMenuVertical)</visible>
 					</control>
-					<control type="button" id="313">
-						<!-- Broadcast Widget type -->
+					<control type="button" id="313"><!-- Broadcast Widget type -->
 						<include>settings-submenu-common</include>
-						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31031]</label>
 						<label2>$INFO[Skin.String(widget-broadcast)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[231])</onclick>
@@ -551,10 +488,8 @@
 						<enable>System.HasPVRAddon</enable>
 						<visible>Skin.HasSetting(HomeMenuHorizontal)</visible>
 					</control>
-					<control type="button" id="314">
-						<!-- Addon Widget type -->
+					<control type="button" id="314"><!-- Addon Widget type -->
 						<include>settings-submenu-common</include>
-						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[24001]</label>
 						<label2>$INFO[Skin.String(widget-addon)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[231])</onclick>
@@ -575,10 +510,8 @@
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[24001])</onclick>
 						<visible>Skin.HasSetting(HomeMenuHorizontal)</visible>
 					</control>
-					<control type="button" id="315">
-						<!-- Favourites Widget type -->
+					<control type="button" id="315"><!-- Favourites Widget type -->
 						<include>settings-submenu-common</include>
-						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[1036]</label>
 						<label2>$INFO[Skin.String(widget-favourite)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[231])</onclick>
@@ -599,10 +532,8 @@
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[1036])</onclick>
 						<visible>Skin.HasSetting(HomeMenuHorizontal)</visible>
 					</control>
-					<control type="button" id="316">
-						<!-- VideoInfo Movie Widget type -->
+					<control type="button" id="316"><!-- VideoInfo Movie Widget type -->
 						<include>settings-submenu-common</include>
-						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31026] $LOCALIZE[31588]</label>
 						<label2>$INFO[Skin.String(widget-movie)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31953])</onclick>
@@ -641,10 +572,8 @@
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31026] $LOCALIZE[31588])</onclick>
 						<visible>!Skin.HasSetting(HomeMenuVertical)</visible>
 					</control>
-					<control type="button" id="317">
-						<!-- VideoInfo TVShow Widget type -->
+					<control type="button" id="317"><!-- VideoInfo TVShow Widget type -->
 						<include>settings-submenu-common</include>
-						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31027] $LOCALIZE[31588]</label>
 						<label2>$INFO[Skin.String(widget-infotvshow)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31953])</onclick>
@@ -683,11 +612,9 @@
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31027] $LOCALIZE[31588])</onclick>
 						<visible>!Skin.HasSetting(HomeMenuVertical)</visible>
 					</control>
-					<control type="button" id="325">
-						<!-- Reset Above Settings button -->
+					<control type="button" id="325"><!-- Reset Above Settings button -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[10041]</label>
-						<textwidth>1178</textwidth>
 						<onclick>Skin.Reset(widget-movie)</onclick>
 						<onclick>Skin.Reset(widget-tvshow)</onclick>
 						<onclick>Skin.Reset(widget-tvshowimgtyp)</onclick>
@@ -701,11 +628,9 @@
 					</control>
 				</control>
 			</control>
-			<control type="group" id="400">
-				<!-- Home Menu Settings -->
+			<control type="group" id="400"><!-- Home Menu Settings -->
 				<visible>Skin.String(SkinSettingMenu,custom)</visible>
-				<control type="image">
-					<!-- Skin Logo -->
+				<control type="image"><!-- Skin Logo -->
 					<left>225</left>
 					<top>225</top>
 					<width>768</width>
@@ -714,11 +639,9 @@
 					<texture>skin-logo-big.png</texture>
 				</control>
 			</control>
-			<control type="group" id="500">
-				<!-- Background Settings -->
+			<control type="group" id="500"><!-- Background Settings -->
 				<visible>Skin.String(SkinSettingMenu,background)</visible>
-				<control type="image">
-					<!-- Background Settings Button Image -->
+				<control type="image"><!-- Background Settings Button Image -->
 					<left>1410</left>
 					<top>492</top>
 					<width>480</width>
@@ -738,54 +661,39 @@
 				</include>
 				<control type="grouplist" id="501">
 					<include>skinsettings-list</include>
-					<control type="button" id="502">
-						<!-- Custom Background Button -->
+					<control type="button" id="502"><!-- Custom Background Button -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31860]</label>
-						<textwidth>1178</textwidth>
 						<onclick>Skin.SetImage(background-custom)</onclick>
 						<visible>!Skin.String(background-custom)</visible>
 					</control>
-					<control type="button" id="503">
-						<!-- Reset Custom Background Button -->
+					<control type="button" id="503"><!-- Reset Custom Background Button -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31861]</label>
-						<textwidth>1178</textwidth>
 						<onclick>Skin.Reset(background-custom)</onclick>
 						<visible>Skin.String(background-custom)</visible>
 					</control>
-					<control type="radiobutton" id="504">
-						<!-- Background Fanart Toggle -->
-						<include>settings-submenu-common</include>
+					<control type="radiobutton" id="504"><!-- Background Fanart Toggle -->
+						<include>settings-submenu-radio</include>
 						<label>$LOCALIZE[31863]</label>
-						<textwidth>1125</textwidth>
 						<onclick>Skin.ToggleSetting(background-fanarts)</onclick>
 						<selected>!Skin.HasSetting(background-fanarts)</selected>
-						<radioposx>1266</radioposx>
 					</control>
-					<control type="radiobutton" id="506">
-						<!-- Media In Background Toggle -->
-						<include>settings-submenu-common</include>
+					<control type="radiobutton" id="506"><!-- Media In Background Toggle -->
+						<include>settings-submenu-radio</include>
 						<label>$LOCALIZE[31862]</label>
-						<textwidth>1125</textwidth>
 						<onclick>Skin.ToggleSetting(background-playingmedia)</onclick>
 						<selected>Skin.HasSetting(background-playingmedia)</selected>
-						<radioposx>1266</radioposx>
 					</control>
-					<control type="radiobutton" id="507">
-						<!-- Background Artistslideshow Toggle -->
-						<include>settings-submenu-common</include>
+					<control type="radiobutton" id="507"><!-- Background Artistslideshow Toggle -->
+						<include>settings-submenu-radio</include>
 						<label>$LOCALIZE[31865]</label>
-						<textwidth>1125</textwidth>
 						<onclick>Skin.ToggleSetting(background-slideshow)</onclick>
 						<selected>Skin.HasSetting(background-slideshow)</selected>
 						<enable>System.HasAddon(script.artistslideshow)</enable>
-						<radioposx>1266</radioposx>
 					</control>
-					<control type="button" id="510">
-						<!-- Background Visibilty -->
+					<control type="button" id="510"><!-- Background Visibilty -->
 						<include>settings-submenu-common</include>
-						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31868]</label>
 						<label2>$VAR[BackgroundVisibilty]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[391])</onclick>
@@ -796,11 +704,9 @@
 						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetBool(background-visibiltyhigh)||Skin.Reset(background-visibiltymed))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31868])</onclick>
 					</control>
-					<control type="button" id="514">
-						<!-- Reset Above Settings button -->
+					<control type="button" id="514"><!-- Reset Above Settings button -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[10041]</label>
-						<textwidth>1178</textwidth>
 						<onclick>Skin.Reset(background-custom)</onclick>
 						<onclick>Skin.Reset(background-fanarts)</onclick>
 						<onclick>Skin.Reset(background-playingmedia)</onclick>
@@ -810,11 +716,9 @@
 					</control>
 				</control>
 			</control>
-			<control type="group" id="600">
-				<!-- Media Entry Points Settings -->
+			<control type="group" id="600"><!-- Media Entry Points Settings -->
 				<visible>Skin.String(SkinSettingMenu,sources)</visible>
-				<control type="image">
-					<!-- Media Entry Points Settings Button Image -->
+				<control type="image"><!-- Media Entry Points Settings Button Image -->
 					<left>1410</left>
 					<top>573</top>
 					<width>480</width>
@@ -834,10 +738,8 @@
 				</include>
 				<control type="grouplist" id="601">
 					<include>skinsettings-list</include>
-					<control type="button" id="602">
-						<!-- Set Movie library entry point -->
+					<control type="button" id="602"><!-- Set Movie library entry point -->
 						<include>settings-submenu-common</include>
-						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31920]</label>
 						<label2>$INFO[Skin.String(libraryentry-movie)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[369])</onclick>
@@ -868,10 +770,8 @@
 						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.13.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[31652])||RunScript(script.favourites,changetitle=false&amp;property=CustomMovieEntry))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31920])</onclick>
 					</control>
-					<control type="button" id="603">
-						<!-- Set TVShow library entry point -->
+					<control type="button" id="603"><!-- Set TVShow library entry point -->
 						<include>settings-submenu-common</include>
-						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31921]</label>
 						<label2>$INFO[Skin.String(libraryentry-tvshow)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[369])</onclick>
@@ -894,10 +794,8 @@
 						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.9.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[31652])||RunScript(script.favourites,changetitle=false&amp;property=CustomTVShowEntry))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31921])</onclick>
 					</control>
-					<control type="button" id="604">
-						<!-- Set Music Video library entry point -->
+					<control type="button" id="604"><!-- Set Music Video library entry point -->
 						<include>settings-submenu-common</include>
-						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31922]</label>
 						<label2>$INFO[Skin.String(libraryentry-musicvideo)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[369])</onclick>
@@ -924,10 +822,8 @@
 						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.11.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[31652])||RunScript(script.favourites,changetitle=false&amp;property=CustomMusicVideoEntry))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31922])</onclick>
 					</control>
-					<control type="button" id="605">
-						<!-- Set Music library entry point -->
+					<control type="button" id="605"><!-- Set Music library entry point -->
 						<include>settings-submenu-common</include>
-						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31923]</label>
 						<label2>$INFO[Skin.String(libraryentry-music)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[132])</onclick>
@@ -960,10 +856,8 @@
 						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.14.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[31652])||RunScript(script.favourites,changetitle=false&amp;property=CustomMusicEntry))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31923])</onclick>
 					</control>
-					<control type="button" id="606">
-						<!-- Set TV library entry point -->
+					<control type="button" id="606"><!-- Set TV library entry point -->
 						<include>settings-submenu-common</include>
-						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31924]</label>
 						<label2>$INFO[Skin.String(libraryentry-tv)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[20108])</onclick>
@@ -985,10 +879,8 @@
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31924])</onclick>
 						<enable>Pvr.HasTVChannels</enable>
 					</control>
-					<control type="button" id="607">
-						<!-- Set Radio library entry point -->
+					<control type="button" id="607"><!-- Set Radio library entry point -->
 						<include>settings-submenu-common</include>
-						<textwidth>1178</textwidth>
 						<label>$LOCALIZE[31925]</label>
 						<label2>$INFO[Skin.String(libraryentry-radio)]</label2>
 						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[20108])</onclick>
@@ -1010,11 +902,9 @@
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31925])</onclick>
 						<enable>Pvr.HasRadioChannels</enable>
 					</control>
-					<control type="button" id="608">
-						<!-- Reset Above Settings button -->
+					<control type="button" id="608"><!-- Reset Above Settings button -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[10041]</label>
-						<textwidth>1178</textwidth>
 						<onclick>Skin.Reset(libraryentry-movie)</onclick>
 						<onclick>Skin.Reset(libraryentry-tvshow)</onclick>
 						<onclick>Skin.Reset(libraryentry-musicvideo)</onclick>
@@ -1024,11 +914,9 @@
 					</control>
 				</control>
 			</control>
-			<control type="group" id="700">
-				<!-- Supported Addons Settings -->
+			<control type="group" id="700"><!-- Supported Addons Settings -->
 				<visible>Skin.String(SkinSettingMenu,addons)</visible>
-				<control type="image">
-					<!-- Media Entry Points Settings Button Image -->
+				<control type="image"><!-- Media Entry Points Settings Button Image -->
 					<left>1410</left>
 					<top>654</top>
 					<width>480</width>
@@ -1048,16 +936,13 @@
 				</include>
 				<control type="grouplist" id="701">
 					<include>skinsettings-list</include>
-					<control type="group" id="702">
-						<height>84</height>
-						<width>1328</width>
+					<control type="group" id="702"><!-- Artist slideshow script install/config -->
+						<include>settings-submenu-size</include>
 						<control type="togglebutton" id="703">
-							<!-- Artist slideshow script install/config -->
 							<onup>718</onup>
 							<ondown>705</ondown>
 							<onright>999</onright>
 							<include>settings-submenu-common</include>
-							<textwidth>1178</textwidth>
 							<label>$LOCALIZE[24020]</label>
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
@@ -1072,16 +957,13 @@
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
-					<control type="group" id="704">
-						<height>84</height>
-						<width>1328</width>
+					<control type="group" id="704"><!-- TV Tunes script install/config -->
+						<include>settings-submenu-size</include>
 						<control type="togglebutton" id="705">
-							<!-- TV Tunes script install/config -->
 							<onup>702</onup>
 							<ondown>707</ondown>
 							<onright>999</onright>
 							<include>settings-submenu-common</include>
-							<textwidth>1178</textwidth>
 							<label>$LOCALIZE[24020]</label>
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
@@ -1096,16 +978,13 @@
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
-					<control type="group" id="706">
-						<height>84</height>
-						<width>1328</width>
+					<control type="group" id="706"><!-- Autocompletion text script install/config -->
+						<include>settings-submenu-size</include>
 						<control type="togglebutton" id="707">
-							<!-- Autocompletion text script install/config -->
 							<onup>705</onup>
 							<ondown>709</ondown>
 							<onright>999</onright>
 							<include>settings-submenu-common</include>
-							<textwidth>1178</textwidth>
 							<label>$LOCALIZE[24020]</label>
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
@@ -1120,16 +999,13 @@
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
-					<control type="group" id="708">
-						<height>84</height>
-						<width>1328</width>
+					<control type="group" id="708"><!-- CU lrclyrics script install/config -->
+						<include>settings-submenu-size</include>
 						<control type="togglebutton" id="709">
-							<!-- CU lrclyrics script install/config -->
 							<onup>707</onup>
 							<ondown>711</ondown>
 							<onright>999</onright>
 							<include>settings-submenu-common</include>
-							<textwidth>1178</textwidth>
 							<label>$LOCALIZE[24020]</label>
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
@@ -1144,16 +1020,13 @@
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
-					<control type="group" id="710">
-						<height>84</height>
-						<width>1328</width>
+					<control type="group" id="710"><!-- Global search script install/config -->
+						<include>settings-submenu-size</include>
 						<control type="togglebutton" id="711">
-							<!-- Global search script install/config -->
 							<onup>709</onup>
 							<ondown>713</ondown>
 							<onright>999</onright>
 							<include>settings-submenu-common</include>
-							<textwidth>1178</textwidth>
 							<label>$LOCALIZE[24020]</label>
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
@@ -1168,16 +1041,13 @@
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
-					<control type="group" id="712">
-						<height>84</height>
-						<width>1328</width>
+					<control type="group" id="712"><!-- Resource downloader script install/config -->
+						<include>settings-submenu-size</include>
 						<control type="togglebutton" id="713">
-							<!-- Resource downloader script install/config -->
 							<onup>711</onup>
 							<ondown>715</ondown>
 							<onright>999</onright>
 							<include>settings-submenu-common</include>
-							<textwidth>1178</textwidth>
 							<label>$LOCALIZE[24084]</label>
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
@@ -1192,16 +1062,13 @@
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
-					<control type="group" id="714">
-						<height>84</height>
-						<width>1328</width>
+					<control type="group" id="714"><!-- Upnext service script install/config -->
+						<include>settings-submenu-size</include>
 						<control type="togglebutton" id="715">
-							<!-- Upnext service script install/config -->
 							<onup>713</onup>
 							<ondown>717</ondown>
 							<onright>999</onright>
 							<include>settings-submenu-common</include>
-							<textwidth>1178</textwidth>
 							<label>$LOCALIZE[24020]</label>
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
@@ -1216,16 +1083,13 @@
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
-					<control type="group" id="716">
-						<height>84</height>
-						<width>1328</width>
+					<control type="group" id="716"><!-- Next aired TVShows script install/config -->
+						<include>settings-submenu-size</include>
 						<control type="togglebutton" id="717">
-							<!-- Next aired TVShows script install/config -->
 							<onup>715</onup>
 							<ondown>718</ondown>
 							<onright>999</onright>
 							<include>settings-submenu-common</include>
-							<textwidth>1178</textwidth>
 							<label>$LOCALIZE[24020]</label>
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
@@ -1242,11 +1106,9 @@
 					</control>
 				</control>
 			</control>
-			<control type="group" id="800">
-				<!-- Support Settings -->
+			<control type="group" id="800"><!-- Support Settings -->
 				<visible>Skin.String(SkinSettingMenu,support)</visible>
-				<control type="image">
-					<!-- Support Settings Button Image -->
+				<control type="image"><!-- Support Settings Button Image -->
 					<left>1410</left>
 					<top>735</top>
 					<width>480</width>
@@ -1266,55 +1128,41 @@
 				</include>
 				<control type="grouplist" id="801">
 					<include>skinsettings-list</include>
-					<control type="radiobutton" id="802">
-						<!-- System Debug toggle -->
-						<include>settings-submenu-common</include>
+					<control type="radiobutton" id="802"><!-- System Debug toggle -->
+						<include>settings-submenu-radio</include>
 						<label>$LOCALIZE[20191]</label>
-						<textwidth>1125</textwidth>
 						<onclick>ToggleDebug</onclick>
 						<selected>System.GetBool(debug.showloginfo)</selected>
-						<radioposx>1266</radioposx>
 					</control>
-					<control type="button" id="803">
-						<!-- Kodi Log Uploader Script -->
+					<control type="button" id="803"><!-- Kodi Log Uploader Script -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31930]</label>
-						<textwidth>1125</textwidth>
 						<onclick condition="!System.HasAddon(script.kodi.loguploader)">InstallAddon(script.kodi.loguploader)</onclick>
 						<onclick condition="System.HasAddon(script.kodi.loguploader)">RunScript(script.kodi.loguploader)</onclick>
 						<enable>System.GetBool(debug.showloginfo)</enable>
 					</control>
-					<control type="radiobutton" id="805">
-						<!-- Show skin debug grid toggle -->
-						<include>settings-submenu-common</include>
+					<control type="radiobutton" id="805"><!-- Show skin debug grid toggle -->
+						<include>settings-submenu-radio</include>
 						<label>$LOCALIZE[31933]</label>
-						<textwidth>1125</textwidth>
 						<onclick>Skin.ToggleSetting(debug-grid)</onclick>
 						<selected>Skin.HasSetting(debug-grid)</selected>
-						<radioposx>1266</radioposx>
 					</control>
-					<control type="radiobutton" id="806">
-						<!-- Show Skin Debug Info toggle -->
-						<include>settings-submenu-common</include>
+					<control type="radiobutton" id="806"><!-- Show Skin Debug Info toggle -->
+						<include>settings-submenu-radio</include>
 						<label>$LOCALIZE[31934]</label>
-						<textwidth>1125</textwidth>
 						<onclick>Skin.ToggleSetting(debug-info)</onclick>
 						<selected>Skin.HasSetting(debug-info)</selected>
-						<radioposx>1266</radioposx>
 					</control>
-					<control type="button" id="810">
-						<!-- Reset skin settings to defaults -->
+					<control type="button" id="810"><!-- Reset skin settings to defaults -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31935]</label>
-						<textwidth>1178</textwidth>
 						<onclick>Skin.ResetSettings</onclick>
 						<onclick>ReplaceWindow(skinsettings)</onclick>
 					</control>
 				</control>
 			</control>
 		</control>
-		<control type="textbox">
-			<!-- Settings description area -->
+		<control type="textbox"><!-- Settings description area -->
 			<left>15</left>
 			<top>999</top>
 			<width>1890</width>
