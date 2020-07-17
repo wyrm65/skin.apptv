@@ -30,6 +30,11 @@
 		<value condition="Skin.HasSetting(background-visibiltymed)">MedBgnVisibity</value>
 		<value condition="Skin.HasSetting(background-visibiltyhigh)">HighBgnVisibity</value>
 	</variable>
+	<variable name="BackgndMaskVisibity">
+		<value condition="!Skin.HasSetting(background-visibiltymed) + !Skin.HasSetting(background-visibiltyhigh)">HighBgnVisibity</value>
+		<value condition="Skin.HasSetting(background-visibiltymed)">MedBgnVisibity</value>
+		<value condition="Skin.HasSetting(background-visibiltyhigh)">LowBgnVisibity</value>
+	</variable>
 	<variable name="MediaRating">
 		<value condition="String.Contains(ListItem.UserRating,10) | String.Contains(ListItem.Rating,10)">rating10.png</value>
 		<value condition="String.Contains(ListItem.UserRating,9) | String.Contains(ListItem.Rating,9)">rating9.png</value>

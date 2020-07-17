@@ -138,6 +138,12 @@
 					<animation effect="fade" time="200">VisibleChange</animation>
 					<visible>Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
 				</control>
+				<control type="image"><!-- Use mask background to fade video or visualisation -->
+					<include>fullscreenimage</include>
+					<texture>background-mask.png</texture>
+					<colordiffuse>$VAR[BackgndMaskVisibity]</colordiffuse>
+					<aspectratio>scale</aspectratio>
+				</control>
 			</control>
 		</control>
 	</include>
