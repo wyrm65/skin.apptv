@@ -121,6 +121,21 @@
 		<value condition="Player.HasVideo + !Skin.HasSetting(background-playingmedia)">$INFO[Player.Time]$INFO[Player.Duration, / ]</value>
 		<value condition="Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia)) + !Pvr.IsPlayingRadio">$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ]</value>
 	</variable>
+	<variable name="ListSearchDescription">
+		<value condition="Container.Content(livetv)">$INFO[ListItem.Property(Plot)]</value>
+		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Description)]</value>
+		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Description)]</value>
+		<value condition="Container.Content(songs)">$INFO[ListItem.Comment]</value>
+		<value>$INFO[ListItem.Plot]</value>
+	</variable>
+	<variable name="ListSearchSecondLine">
+		<value condition="Container.Content(movies) | Container.Content(tvshows)">$INFO[ListItem.Genre]</value>
+		<value condition="Container.Content(seasons) | Container.Content(episodes)">$INFO[ListItem.TVShowTitle]</value>
+		<value condition="Container.Content(artists)">$INFO[ListItem.Property(artist_genre)]</value>
+		<value condition="Container.Content(musicvideos) | Container.Content(albums) | Container.Content(songs)">$INFO[ListItem.Artist]</value>
+		<value condition="Container.Content(livetv)">$INFO[ListItem.Property(Starttime)]</value>
+		<value condition="Container.Content(actors) | Container.Content(directors)">$INFO[ListItem.Label2]</value>
+	</variable>
 	<variable name="ListItemFlags">
 		<value condition="ListItem.IsStereoscopic">listitem/3D.png</value>
 		<value condition="!String.IsEmpty(ListItem.VideoResolution) + Integer.IsGreater(ListItem.VideoResolution,2160)">listitem/8K.png</value>
@@ -1828,6 +1843,21 @@
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.3)">$INFO[Skin.String(CustomGame.3.Label)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.4)">$INFO[Skin.String(CustomGame.4.Label)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.5)">$INFO[Skin.String(CustomGame.5.Label)]</value>
+	</variable>
+	<variable name="LibreElecBluetoothIcon">
+		<value condition="String.IsEqual(ListItem.Property(Icon), default)">libre-elec/bt.png</value>
+		<value condition="String.IsEqual(ListItem.Property(Icon), modem)">libre-elec/bt-modem.png</value>
+		<value condition="String.IsEqual(ListItem.Property(Icon), audio-card)">libre-elec/bt-audio-card.png</value>
+		<value condition="String.IsEqual(ListItem.Property(Icon), camera-photo)">libre-elec/bt-camera-photo.png</value>
+		<value condition="String.IsEqual(ListItem.Property(Icon), phone)">libre-elec/bt-phone.png</value>
+		<value condition="String.IsEqual(ListItem.Property(Icon), camera-video)">libre-elec/bt-camera-video.png</value>
+		<value condition="String.IsEqual(ListItem.Property(Icon), input-mouse)">libre-elec/bt-input-mouse.png</value>
+		<value condition="String.IsEqual(ListItem.Property(Icon), input-gaming)">libre-elec/bt-input-gaming.png</value>
+		<value condition="String.IsEqual(ListItem.Property(Icon), input-keyboard)">libre-elec/bt-input-keyboard.png</value>
+		<value condition="String.IsEqual(ListItem.Property(Icon), input-tablet)">libre-elec/bt-input-tablet.png</value>
+		<value condition="String.IsEqual(ListItem.Property(Icon), printer)">libre-elec/bt-printer.png</value>
+		<value condition="String.IsEqual(ListItem.Property(Icon), computer)">libre-elec/bt-computer.png</value>
+		<value>libre-elec/bt.png</value>
 	</variable>
 	<variable name="SkinSettingHelp">
 		<!-- Help strings for skin settings -->

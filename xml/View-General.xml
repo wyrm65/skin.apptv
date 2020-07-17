@@ -1132,9 +1132,8 @@
 			<pagecontrol>1250</pagecontrol>
 			<scrolltime tween="cubic" easing="out">500</scrolltime>
 			<animation effect="fade" time="200">VisibleChange</animation>
-			<itemlayout height="100" width="1340">
+			<itemlayout height="100">
 				<control type="image">
-					<!-- Button unfocus -->
 					<left>0</left>
 					<top>0</top>
 					<width>1340</width>
@@ -1176,75 +1175,13 @@
 					<width>928</width>
 					<aligny>center</aligny>
 					<font>apptv18</font>
-					<label>$INFO[ListItem.Genre]</label>
+					<label>$VAR[ListSearchSecondLine]</label>
 					<textcolor>disabled-text</textcolor>
 					<shadowcolor>shadow-text</shadowcolor>
-					<visible>$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentArtists]</visible>
-				</control>
-				<control type="label">
-					<left>110</left>
-					<top>45</top>
-					<height>50</height>
-					<width>928</width>
-					<aligny>center</aligny>
-					<font>apptv18</font>
-					<label>$INFO[ListItem.TVShowTitle]</label>
-					<textcolor>disabled-text</textcolor>
-					<shadowcolor>shadow-text</shadowcolor>
-					<visible>$EXP[isContentSeasons] | $EXP[isContentEpisodes]</visible>
-				</control>
-				<control type="label">
-					<left>110</left>
-					<top>45</top>
-					<height>50</height>
-					<width>928</width>
-					<aligny>center</aligny>
-					<font>apptv18</font>
-					<label>$INFO[ListItem.Property(artist_genre)]</label>
-					<textcolor>disabled-text</textcolor>
-					<shadowcolor>shadow-text</shadowcolor>
-					<visible>$EXP[isContentArtists]</visible>
-				</control>
-				<control type="label">
-					<left>110</left>
-					<top>45</top>
-					<height>50</height>
-					<width>928</width>
-					<aligny>center</aligny>
-					<font>apptv18</font>
-					<label>$INFO[ListItem.Artist]</label>
-					<textcolor>disabled-text</textcolor>
-					<shadowcolor>shadow-text</shadowcolor>
-					<visible>$EXP[isContentMusicvideos] | $EXP[isContentAlbums] | $EXP[isContentSongs]</visible>
-				</control>
-				<control type="label">
-					<left>110</left>
-					<top>45</top>
-					<height>50</height>
-					<width>928</width>
-					<aligny>center</aligny>
-					<font>apptv18</font>
-					<label>$INFO[ListItem.Property(Starttime)]</label>
-					<textcolor>disabled-text</textcolor>
-					<shadowcolor>shadow-text</shadowcolor>
-					<visible>Container.Content(livetv)</visible>
-				</control>
-				<control type="label">
-					<left>110</left>
-					<top>45</top>
-					<height>50</height>
-					<width>928</width>
-					<aligny>center</aligny>
-					<font>apptv18</font>
-					<label>$INFO[ListItem.Label2]</label>
-					<textcolor>disabled-text</textcolor>
-					<shadowcolor>shadow-text</shadowcolor>
-					<visible>Container.Content(actors) | Container.Content(directors)</visible>
 				</control>
 			</itemlayout>
-			<focusedlayout height="100" width="1340">
+			<focusedlayout height="100">
 				<control type="image">
-					<!-- Button focus -->
 					<left>0</left>
 					<top>0</top>
 					<width>1340</width>
@@ -1287,73 +1224,21 @@
 					<width>928</width>
 					<aligny>center</aligny>
 					<font>apptv18</font>
-					<label>$INFO[ListItem.Genre]</label>
+					<label>$VAR[ListSearchSecondLine]</label>
 					<textcolor>disabled-text</textcolor>
 					<shadowcolor>shadow-text</shadowcolor>
-					<visible>$EXP[isContentMovies] | $EXP[isContentTvshows]</visible>
-				</control>
-				<control type="label">
-					<left>110</left>
-					<top>45</top>
-					<height>50</height>
-					<width>928</width>
-					<aligny>center</aligny>
-					<font>apptv18</font>
-					<label>$INFO[ListItem.TVShowTitle]</label>
-					<textcolor>disabled-text</textcolor>
-					<shadowcolor>shadow-text</shadowcolor>
-					<visible>$EXP[isContentSeasons] | $EXP[isContentEpisodes]</visible>
-				</control>
-				<control type="label">
-					<left>110</left>
-					<top>45</top>
-					<height>50</height>
-					<width>928</width>
-					<aligny>center</aligny>
-					<font>apptv18</font>
-					<label>$INFO[ListItem.Property(artist_genre)]</label>
-					<textcolor>disabled-text</textcolor>
-					<shadowcolor>shadow-text</shadowcolor>
-					<visible>$EXP[isContentArtists]</visible>
-				</control>
-				<control type="label">
-					<left>110</left>
-					<top>45</top>
-					<height>50</height>
-					<width>928</width>
-					<aligny>center</aligny>
-					<font>apptv18</font>
-					<label>$INFO[ListItem.Artist]</label>
-					<textcolor>disabled-text</textcolor>
-					<shadowcolor>shadow-text</shadowcolor>
-					<visible>$EXP[isContentMusicvideos] | $EXP[isContentAlbums] | $EXP[isContentSongs]</visible>
-				</control>
-				<control type="label">
-					<left>110</left>
-					<top>45</top>
-					<height>50</height>
-					<width>928</width>
-					<aligny>center</aligny>
-					<font>apptv18</font>
-					<label>$INFO[ListItem.Property(Starttime)]</label>
-					<textcolor>disabled-text</textcolor>
-					<shadowcolor>shadow-text</shadowcolor>
-					<visible>Container.Content(livetv)</visible>
-				</control>
-				<control type="label">
-					<left>110</left>
-					<top>45</top>
-					<height>50</height>
-					<width>928</width>
-					<aligny>center</aligny>
-					<font>apptv18</font>
-					<label>$INFO[ListItem.Label2]</label>
-					<textcolor>disabled-text</textcolor>
-					<shadowcolor>shadow-text</shadowcolor>
-					<visible>Container.Content(actors) | Container.Content(directors)</visible>
 				</control>
 			</focusedlayout>
 		</control>
+		<!-- Markers for control area items -->
+		<include content="page-offscreen-vertical">
+			<param name="indicator1left" value="718"/>
+			<param name="indicator1top" value="580"/>
+			<param name="indicator2left" value="718"/>
+			<param name="indicator2top" value="996"/>
+			<param name="indicatorsize" value="24"/>
+			<param name="indicatorcontainer" value="50"/>
+		</include>
 		<control type="group">
 			<left>60</left>
 			<top>66</top>
@@ -1383,58 +1268,16 @@
 				<width>780</width>
 				<align>justify</align>
 				<font>apptv18</font>
-				<label>$INFO[ListItem.Plot]</label>
-				<visible>$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons] | $EXP[isContentEpisodes] | $EXP[isContentMusicvideos]</visible>
-			</control>
-			<control type="textbox">
-				<left>420</left>
-				<top>92</top>
-				<height>394</height>
-				<width>780</width>
-				<align>justify</align>
-				<font>apptv18</font>
-				<label>$INFO[ListItem.Property(Plot)]</label>
-				<visible>Container.Content(livetv)</visible>
-			</control>
-			<control type="textbox">
-				<left>420</left>
-				<top>92</top>
-				<height>394</height>
-				<width>780</width>
-				<align>justify</align>
-				<font>apptv18</font>
-				<label>$INFO[ListItem.Property(Artist_Description)]</label>
-				<visible>$EXP[isContentArtists]</visible>
-			</control>
-			<control type="textbox">
-				<left>420</left>
-				<top>92</top>
-				<height>394</height>
-				<width>780</width>
-				<align>justify</align>
-				<font>apptv18</font>
-				<label>$INFO[ListItem.Property(Album_Description)]</label>
-				<visible>$EXP[isContentAlbums]</visible>
-			</control>
-			<control type="textbox">
-				<left>420</left>
-				<top>92</top>
-				<height>394</height>
-				<width>780</width>
-				<align>justify</align>
-				<font>apptv18</font>
-				<label>$INFO[ListItem.Comment]</label>
-				<visible>$EXP[isContentSongs]</visible>
+				<label>$VAR[ListSearchDescription]</label>
 			</control>
 		</control>
 		<control type="group">
-			<left>1280</left>
-			<top>166</top>
 			<visible>Control.IsVisible(50)</visible>
 			<animation effect="fade" time="200">VisibleChange</animation>
 			<control type="grouplist">
 				<orientation>vertical</orientation>
-				<left>0</left>
+				<left>1280</left>
+				<top>166</top>
 				<itemgap>6</itemgap>
 				<height>500</height>
 				<control type="image">

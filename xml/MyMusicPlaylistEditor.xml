@@ -8,8 +8,7 @@
 	<include>window-openclose</include>
 	<controls>
 		<include>background</include>
-		<control type="label">
-			<!-- Playlist editor title -->
+		<control type="label"><!-- Playlist editor title -->
 			<left>1419</left>
 			<top>75</top>
 			<width>465</width>
@@ -69,7 +68,7 @@
 			<onup>50</onup>
 			<ondown>50</ondown>
 			<onfocus>SetProperty(Focus,left)</onfocus>
-			<itemlayout width="900" height="68">
+			<itemlayout height="68">
 				<control type="label">
 					<left>10</left>
 					<top>16</top>
@@ -91,7 +90,7 @@
 					<label>$INFO[ListItem.Label2]</label>
 				</control>
 			</itemlayout>
-			<focusedlayout width="900" height="68">
+			<focusedlayout height="68">
 				<control type="image">
 					<left>0</left>
 					<top>0</top>
@@ -141,7 +140,7 @@
 			<onup>100</onup>
 			<ondown>100</ondown>
 			<onfocus>SetProperty(Focus,right)</onfocus>
-			<itemlayout width="900" height="68">
+			<itemlayout height="68">
 				<control type="label">
 					<left>10</left>
 					<top>16</top>
@@ -162,7 +161,7 @@
 					<label>$INFO[ListItem.Label2]</label>
 				</control>
 			</itemlayout>
-			<focusedlayout width="900" height="68">
+			<focusedlayout height="68">
 				<control type="image">
 					<left>0</left>
 					<top>0</top>
@@ -193,8 +192,7 @@
 				</control>
 			</focusedlayout>
 		</control>
-		<control type="label">
-			<!-- Music label -->
+		<control type="label"><!-- Music label -->
 			<left>40</left>
 			<top>150</top>
 			<width>900</width>
@@ -202,8 +200,7 @@
 			<font>apptv23</font>
 			<label>$LOCALIZE[31030] $INFO[Container(50).NumItems,(,)]</label>
 		</control>
-		<control type="label">
-			<!-- Playlist label -->
+		<control type="label"><!-- Playlist label -->
 			<left>1000</left>
 			<top>150</top>
 			<width>900</width>
@@ -212,22 +209,19 @@
 			<label>$LOCALIZE[31659] $INFO[Container(100).NumItems,(,)]</label>
 		</control>
 		<include>touch-controls</include>
-		<control type="group">
-			<!-- Screen Settings Menu -->
+		<control type="group"><!-- Screen Settings Menu -->
 			<left>0</left>
 			<top>1080</top>
 			<include>screen-settings</include>
 			<include>fadebackground</include>
-			<control type="image">
-				<!-- Button background -->
+			<control type="image"><!-- Button background -->
 				<left>690</left>
 				<top>262</top>
 				<width>597</width>
 				<height>350</height>
 				<texture border="14">button-menu-background.png</texture>
 			</control>
-			<control type="label">
-				<!-- Dialog heading -->
+			<control type="label"><!-- Dialog heading -->
 				<left>716</left>
 				<top>272</top>
 				<width>543</width>
@@ -236,8 +230,7 @@
 				<label>$LOCALIZE[31557]$INFO[Container(9000).NumItems, (,)]</label>
 				<align>center</align>
 			</control>
-			<control type="button">
-				<!-- Touch Close button -->
+			<control type="button"><!-- Touch Close button -->
 				<left>1258</left>
 				<top>246</top>
 				<width>48</width>
@@ -268,22 +261,19 @@
 				<onleft condition="String.IsEqual(Window(musicplaylisteditor).Property(Focus),left)">50</onleft>
 				<onleft condition="String.IsEqual(Window(musicplaylisteditor).Property(Focus),right)">100</onleft>
 				<onleft>ClearProperty(ShowScreenSettings,home)</onleft>
-				<control type="button" id="6">
-					<!-- Open button -->
+				<control type="button" id="6"><!-- Open button -->
 					<width>543</width>
 					<height>84</height>
 					<label>$LOCALIZE[502]</label>
 					<font>apptv23</font>
 				</control>
-				<control type="button" id="7">
-					<!-- Save button -->
+				<control type="button" id="7"><!-- Save button -->
 					<width>543</width>
 					<height>84</height>
 					<label>$LOCALIZE[190]</label>
 					<font>apptv23</font>
 				</control>
-				<control type="button" id="8">
-					<!-- Clear button -->
+				<control type="button" id="8"><!-- Clear button -->
 					<width>543</width>
 					<height>84</height>
 					<label>$LOCALIZE[192]</label>
