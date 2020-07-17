@@ -53,16 +53,15 @@
 			<control type="group" id="2000">
 				<left>26</left>
 				<top>90</top>
-				<height>400</height>
-				<width>730</width>
 				<animation effect="fade" time="200">VisibleChange</animation>
 				<control type="list" id="1103">
-					<height>320</height>
+					<width>730</width>
+					<height>400</height>
 					<orientation>vertical</orientation>
 					<pagecontrol>2200</pagecontrol>
 					<onright>Play</onright>
 					<onleft>Play</onleft>
-					<itemlayout width="730" height="80">
+					<itemlayout height="80">
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
@@ -97,7 +96,7 @@
 							<textcolor>grey</textcolor>
 						</control>
 					</itemlayout>
-					<focusedlayout width="730" height="80">
+					<focusedlayout height="80">
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
@@ -134,28 +133,24 @@
 						</control>
 					</focusedlayout>
 					<content>
-						<item id="2101">
-							<!-- Pause / Resume button -->
+						<item id="2101"><!-- Pause / Resume button -->
 							<label>$LOCALIZE[35224]</label>
-							<label2>Select + X</label2>
+							<label2>$LOCALIZE[31694]</label2>
 							<icon>game-play.png</icon>
 							<onclick>Play</onclick>
 						</item>
-						<item id="2102">
-							<!-- Reset button -->
+						<item id="2102"><!-- Reset button -->
 							<label>$LOCALIZE[13007]</label>
 							<icon>game-reset.png</icon>
 							<onclick>PlayerControl(Reset)</onclick>
 						</item>
-						<item id="2103">
-							<!-- Stop button -->
+						<item id="2103"><!-- Stop button -->
 							<label>$LOCALIZE[35222]</label>
-							<label2>Select + Start</label2>
+							<label2>$LOCALIZE[31695]</label2>
 							<icon>game-stop.png</icon>
 							<onclick>Stop</onclick>
 						</item>
-						<item id="2108">
-							<!-- Settings button -->
+						<item id="2108"><!-- Settings button -->
 							<label>$LOCALIZE[5]</label>
 							<icon>game-settings.png</icon>
 							<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[35225])</onclick>
