@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
 	<defaultcontrol>1000</defaultcontrol>
-	<coordinates>
-		<left>0</left>
-		<top>0</top>
-	</coordinates>
 	<controls>
 		<include>fadebackground</include>
-		<control type="label" id="1">
-			<!-- Dialog heading -->
+		<control type="label" id="1"><!-- Dialog heading -->
 			<left>0</left>
 			<top>-200</top>
 			<width>1350</width>
@@ -16,15 +11,14 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(3)</visible>
-			<control type="image">
-				<!-- Dialog background image -->
+			<control type="image"><!-- Dialog background image -->
 				<left>526</left>
 				<top>90</top>
 				<width>868</width>
 				<height>910</height>
 				<texture border="14">button-menu-background.png</texture>
 			</control>
-			<control type="grouplist">
+			<control type="grouplist"><!-- Dialog heading -->
 				<left>556</left>
 				<top>96</top>
 				<width>810</width>
@@ -32,7 +26,6 @@
 				<align>center</align>
 				<orientation>horizontal</orientation>
 				<control type="label">
-					<!-- Dialog heading -->
 					<width max="665">auto</width>
 					<height>50</height>
 					<label>$INFO[Control.GetLabel(1)]</label>
@@ -41,7 +34,6 @@
 					<font>apptv25</font>
 				</control>
 				<control type="label">
-					<!-- Number of files -->
 					<width max="144">auto</width>
 					<height>50</height>
 					<label>$VAR[SelectDialogNumObjects]</label>
@@ -82,8 +74,7 @@
 				<itemgap>0</itemgap>
 				<align>center</align>
 				<orientation>horizontal</orientation>
-				<control type="button" id="5">
-					<!-- Manual -->
+				<control type="button" id="5"><!-- Manual -->
 					<width>334</width>
 					<height>70</height>
 					<font>apptv23</font>
@@ -93,8 +84,7 @@
 					<onup>3</onup>
 					<visible>!String.IsEmpty(Control.GetLabel(5))</visible>
 				</control>
-				<control type="button" id="7">
-					<!-- Cancel -->
+				<control type="button" id="7"><!-- Cancel -->
 					<width>334</width>
 					<height>70</height>
 					<font>apptv23</font>
@@ -107,15 +97,14 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(6)</visible>
-			<control type="image">
-				<!-- Dialog background image -->
+			<control type="image"><!-- Dialog background image -->
 				<left>180</left>
 				<top>90</top>
 				<width>1560</width>
 				<height>798</height>
 				<texture border="14">button-menu-background.png</texture>
 			</control>
-			<control type="grouplist">
+			<control type="grouplist"><!-- Dialog heading -->
 				<left>210</left>
 				<top>104</top>
 				<width>1494</width>
@@ -123,7 +112,6 @@
 				<align>center</align>
 				<orientation>horizontal</orientation>
 				<control type="label">
-					<!-- Dialog heading -->
 					<width max="1350">auto</width>
 					<height>52</height>
 					<label>$INFO[Control.GetLabel(1)]</label>
@@ -132,7 +120,6 @@
 					<font>apptv25</font>
 				</control>
 				<control type="label">
-					<!-- Number of files -->
 					<width max="144">auto</width>
 					<height>52</height>
 					<label>$VAR[SelectDialogNumObjects]</label>
@@ -181,8 +168,7 @@
 				<width>384</width>
 				<itemgap>0</itemgap>
 				<orientation>vertical</orientation>
-				<control type="button" id="5">
-					<!-- Manual -->
+				<control type="button" id="5"><!-- Manual -->
 					<width>384</width>
 					<height>84</height>
 					<font>apptv23</font>
@@ -192,8 +178,7 @@
 					<onleft>6</onleft>
 					<visible>!String.IsEmpty(Control.GetLabel(5))</visible>
 				</control>
-				<control type="button" id="7">
-					<!-- Cancel -->
+				<control type="button" id="7"><!-- Cancel -->
 					<width>384</width>
 					<height>84</height>
 					<font>apptv23</font>
@@ -205,8 +190,7 @@
 			</control>
 		</control>
 		<control type="group" id="1000">
-			<control type="list" id="3">
-				<!-- Type 3 Select -->
+			<control type="list" id="3"><!-- Type 3 Select -->
 				<left>586</left>
 				<top>176</top>
 				<width>750</width>
@@ -217,7 +201,7 @@
 				<ondown condition="!Control.IsVisible(5)">7</ondown>
 				<ondown condition="Control.IsVisible(5)">5</ondown>
 				<pagecontrol>23</pagecontrol>
-				<itemlayout width="750" height="72">
+				<itemlayout height="72">
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
@@ -261,7 +245,7 @@
 						<visible>String.IsEmpty(ListItem.Label2)</visible>
 					</control>
 				</itemlayout>
-				<focusedlayout width="750" height="72">
+				<focusedlayout height="72">
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
@@ -308,8 +292,7 @@
 				</focusedlayout>
 			</control>
 
-			<control type="list" id="6">
-				<!-- Type 6 Select -->
+			<control type="list" id="6"><!-- Type 6 Select -->
 				<left>240</left>
 				<top>186</top>
 				<width>1050</width>
@@ -319,7 +302,7 @@
 				<onright condition="!Control.IsVisible(5)">7</onright>
 				<onright condition="Control.IsVisible(5)">5</onright>
 				<pagecontrol>26</pagecontrol>
-				<itemlayout width="1050" height="84">
+				<itemlayout height="84">
 					<control type="image">
 						<left>0</left>
 						<top>3</top>
@@ -346,7 +329,7 @@
 						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="1050" height="84">
+				<focusedlayout height="84">
 					<control type="image">
 						<left>0</left>
 						<top>3</top>
