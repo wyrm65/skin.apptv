@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<views>50,51</views>
-	
 	<menucontrol>7500</menucontrol>
 	<include>window-openclose</include>
 	<onload>Container.SetViewMode(Skin.String(globalsearch-viewmode))</onload>
@@ -9,8 +8,7 @@
 		<visible>!Window.IsVisible(movieinformation)</visible>
 		<include>background</include>
 		<include>fake-overlay</include>
-		<control type="label">
-			<!-- Search screen heading -->
+		<control type="label"><!-- Search screen heading -->
 			<left>1419</left>
 			<top>38</top>
 			<width>465</width>
@@ -18,8 +16,7 @@
 			<font>apptv30</font>
 			<label>$LOCALIZE[19140]</label>
 		</control>
-		<control type="label">
-			<!-- Search string -->
+		<control type="label"><!-- Search string -->
 			<left>1419</left>
 			<top>93</top>
 			<width>465</width>
@@ -27,14 +24,11 @@
 			<label>$INFO[Window.Property(GlobalSearch.SearchString)]</label>
 			<font>apptv30</font>
 		</control>
-
 		<include file="View-General.xml">ListViewSearch</include>
 		<include file="View-General.xml">IconViewSearch</include>
-
 		<control type="group">
 			<visible>![Window.IsVisible(DialogVideoInfo.xml) | Window.IsVisible(DialogMusicInfo.xml)]</visible>
-			<!-- Current search category being checked -->
-			<control type="grouplist">
+			<control type="grouplist"><!-- Current search category being checked -->
 				<left>20</left>
 				<top>30</top>
 				<width>442</width>
@@ -56,8 +50,7 @@
 					<font>apptv18</font>
 				</control>
 			</control>
-			<!-- No search items found -->
-			<control type="label" id="999">
+			<control type="label" id="999"><!-- No search items found -->
 				<left>436</left>
 				<top>0</top>
 				<width>1484</width>
@@ -67,8 +60,7 @@
 				<font>apptv30</font>
 				<label>$LOCALIZE[284]</label>
 			</control>
-			<!-- List of matched search categories -->
-			<control type="group">
+			<control type="group"><!-- List of matched search categories -->
 				<control type="fixedlist" id="9000">
 					<left>1410</left>
 					<top>166</top>
@@ -139,8 +131,7 @@
 					</focusedlayout>
 				</control>
 			</control>
-			<!-- New Search -->
-			<control type="button" id="990">
+			<control type="button" id="990"><!-- New Search -->
 				<left>1410</left>
 				<top>918</top>
 				<width>480</width>
@@ -153,25 +144,21 @@
 				<onleft>50</onleft>
 			</control>
 		</control>
-
 		<include>touch-controls</include>
-		<control type="group">
-			<!-- Screen Settings Menu -->
+		<control type="group"><!-- Screen Settings Menu -->
 			<left>0</left>
 			<top>1080</top>
 			<animation effect="slide" start="0,0" end="0,-1080">Visible</animation>
 			<visible allowhiddenfocus="true">[ControlGroup(7500).HasFocus() | String.IsEqual(Window(home).Property(ShowScreenSettings),show)] + !Skin.HasSetting(lock-screensettings)</visible>
 			<include>fadebackground</include>
-			<control type="image">
-				<!-- Button background -->
+			<control type="image"><!-- Dialog background -->
 				<left>622</left>
 				<top>364</top>
 				<width>669</width>
 				<height>352</height>
 				<texture border="14">button-menu-background.png</texture>
 			</control>
-			<control type="label">
-				<!-- Dialog heading -->
+			<control type="label"><!-- Dialog heading -->
 				<left>638</left>
 				<top>376</top>
 				<width>639</width>
@@ -180,8 +167,7 @@
 				<label>$LOCALIZE[31557]$INFO[Container(7500).NumItems, (,)]</label>
 				<align>center</align>
 			</control>
-			<control type="button">
-				<!-- Touch Close button -->
+			<control type="button"><!-- Touch Close button -->
 				<left>1260</left>
 				<top>348</top>
 				<width>48</width>
@@ -210,8 +196,7 @@
 				<onright>50</onright>
 				<onleft>ClearProperty(ShowScreenSettings,home)</onleft>
 				<onleft>50</onleft>
-				<control type="button" id="2">
-					<!-- View as button -->
+				<control type="button" id="2"><!-- View as button -->
 					<width>639</width>
 					<height>69</height>
 					<font>apptv22</font>
@@ -219,8 +204,7 @@
 					<onclick>Container.NextViewMode</onclick>
 					<onclick>Skin.SetString(globalsearch-viewmode,$INFO[Container.Viewmode])</onclick>
 				</control>
-				<control type="button" id="800">
-					<!-- now playing -->
+				<control type="button" id="800"><!-- Now playing -->
 					<width>639</width>
 					<height>69</height>
 					<font>apptv22</font>
