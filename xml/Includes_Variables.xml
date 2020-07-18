@@ -168,7 +168,6 @@
 		<value condition="Container.Content(tvshows) + [String.IsEqual(Skin.String(widget-listview-tvshow),$LOCALIZE[31661]) | String.IsEqual(Skin.String(widget-listview-tvshow),$LOCALIZE[31660]) | String.IsEqual(Skin.String(widget-listview-tvshow),$LOCALIZE[31652])]">$INFO[Skin.String(widget-listview-tvshow.List)]</value>
 		<value condition="Container.Content(tvshows)">videodb://recentlyaddedepisodes/</value>
 	</variable>
-
 	<variable name="ListScrollNavVideo">
 		<value condition="Control.IsVisible(50) + Skin.HasSetting(show-letterbar) + [Container.Content(sets) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(musicvideos)]">SetFocus(1260)</value>
 		<value condition="Control.IsVisible(50) + Control.IsVisible(1250) + !String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])">SetFocus(1250)</value>
