@@ -11,8 +11,7 @@
 				<texture>icon-weather.png</texture>
 				<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
 			</control>
-			<control type="label">
-				<!-- Current condition -->
+			<control type="label"><!-- Current condition -->
 				<left>576</left>
 				<top>645</top>
 				<width>768</width>
@@ -36,15 +35,13 @@
 		</control>
 		<control type="group">
 			<visible>Weather.IsFetched + !String.EndsWith(Window(weather).Property(Current.ConditionIcon),na.png)</visible>
-			<control type="group">
-				<!-- Standard Forecast -->
+			<control type="group"><!-- Standard Forecast -->
 				<visible>[String.IsEqual(Skin.String(weather-view),$LOCALIZE[10508]) | String.IsEmpty(Skin.String(weather-view))]</visible>
 				<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
 				<control type="group">
 					<left>36</left>
 					<top>0</top>
-					<control type="multiimage">
-						<!-- Todays weather condition icon -->
+					<control type="multiimage"><!-- Todays weather condition icon -->
 						<left>63</left>
 						<top>135</top>
 						<width>384</width>
@@ -55,8 +52,7 @@
 						<randomize>false</randomize>
 						<fadetime>1</fadetime>
 					</control>
-					<control type="label">
-						<!-- Current condition -->
+					<control type="label"><!-- Current condition -->
 						<left>22</left>
 						<top>525</top>
 						<width>465</width>
@@ -67,8 +63,7 @@
 						<align>center</align>
 						<aligny>bottom</aligny>
 					</control>
-					<control type="label">
-						<!-- Current long condition -->
+					<control type="label"><!-- Current long condition -->
 						<left>510</left>
 						<top>165</top>
 						<width>675</width>
@@ -78,8 +73,7 @@
 						<font>apptv22</font>
 						<visible>String.Contains(Weather.plugin,weather.ozweather)</visible>
 					</control>
-					<control type="label">
-						<!-- Current temp heading -->
+					<control type="label"><!-- Current temp heading -->
 						<left>1343</left>
 						<top>135</top>
 						<width>225</width>
@@ -90,8 +84,7 @@
 						<label>$INFO[Window.Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
 						<visible>!String.IsEmpty(Window.Property(Current.Temperature))</visible>
 					</control>
-					<control type="label">
-						<!-- Current temperature range -->
+					<control type="label"><!-- Current temperature range -->
 						<left>1343</left>
 						<top>255</top>
 						<width>225</width>
@@ -103,8 +96,7 @@
 						<aligny>bottom</aligny>
 						<visible>!String.IsEmpty(Window.Property(Day0.HighTemp))</visible>
 					</control>
-					<control type="label">
-						<!-- Current dew heading -->
+					<control type="label"><!-- Current dew heading -->
 						<left>1035</left>
 						<top>333</top>
 						<width>420</width>
@@ -113,8 +105,7 @@
 						<label>$LOCALIZE[405] :</label>
 						<font>apptv22</font>
 					</control>
-					<control type="label">
-						<!-- Current humidity heading -->
+					<control type="label"><!-- Current humidity heading -->
 						<left>1035</left>
 						<top>378</top>
 						<width>420</width>
@@ -123,8 +114,7 @@
 						<label>$LOCALIZE[406] :</label>
 						<font>apptv22</font>
 					</control>
-					<control type="label">
-						<!-- Current UV index heading -->
+					<control type="label"><!-- Current UV index heading -->
 						<left>1035</left>
 						<top>423</top>
 						<width>420</width>
@@ -133,8 +123,7 @@
 						<label>$LOCALIZE[403] :</label>
 						<font>apptv22</font>
 					</control>
-					<control type="label">
-						<!-- Current Wind heading -->
+					<control type="label"><!-- Current Wind heading -->
 						<left>1035</left>
 						<top>468</top>
 						<width>420</width>
@@ -143,8 +132,7 @@
 						<label>$LOCALIZE[404] :</label>
 						<font>apptv22</font>
 					</control>
-					<control type="label">
-						<!-- Sunrise heading -->
+					<control type="label"><!-- Sunrise heading -->
 						<left>1035</left>
 						<top>513</top>
 						<width>420</width>
@@ -153,8 +141,7 @@
 						<label>$LOCALIZE[33027] :</label>
 						<font>apptv22</font>
 					</control>
-					<control type="label">
-						<!-- Sunset heading -->
+					<control type="label"><!-- Sunset heading -->
 						<left>1035</left>
 						<top>558</top>
 						<width>420</width>
@@ -163,8 +150,7 @@
 						<label>$LOCALIZE[33028] :</label>
 						<font>apptv22</font>
 					</control>
-					<control type="label">
-						<!-- Current dew value -->
+					<control type="label"><!-- Current dew value -->
 						<left>1470</left>
 						<top>333</top>
 						<width>549</width>
@@ -173,8 +159,7 @@
 						<font>apptv22</font>
 						<visible>!String.IsEmpty(Window.Property(Current.DewPoint))</visible>
 					</control>
-					<control type="label">
-						<!-- Current humidity value -->
+					<control type="label"><!-- Current humidity value -->
 						<left>1470</left>
 						<top>378</top>
 						<width>549</width>
@@ -182,8 +167,7 @@
 						<label>$INFO[Window.Property(Current.Humidity)]</label>
 						<font>apptv22</font>
 					</control>
-					<control type="label">
-						<!-- Current UV index value -->
+					<control type="label"><!-- Current UV index value -->
 						<left>1470</left>
 						<top>423</top>
 						<width>549</width>
@@ -191,8 +175,7 @@
 						<label>$INFO[Window.Property(Current.UVIndex)]</label>
 						<font>apptv22</font>
 					</control>
-					<control type="label">
-						<!-- Current wind value -->
+					<control type="label"><!-- Current wind value -->
 						<left>1470</left>
 						<top>468</top>
 						<width>549</width>
@@ -200,8 +183,7 @@
 						<label>$INFO[Window.Property(Current.Wind)]</label>
 						<font>apptv22</font>
 					</control>
-					<control type="label">
-						<!-- Sunrise value -->
+					<control type="label"><!-- Sunrise value -->
 						<left>1470</left>
 						<top>513</top>
 						<width>420</width>
@@ -209,8 +191,7 @@
 						<label>$VAR[WeatherSunrise]</label>
 						<font>apptv22</font>
 					</control>
-					<control type="label">
-						<!-- Sunset value -->
+					<control type="label"><!-- Sunset value -->
 						<left>1470</left>
 						<top>558</top>
 						<width>420</width>
@@ -229,8 +210,7 @@
 				<control type="group">
 					<animation effect="slide" end="315,0" condition="String.EndsWith(Window(weather).Property(Day5.OutlookIcon),na.png)" reversible="true">Conditional</animation>
 					<animation effect="slide" end="158,0" condition="String.EndsWith(Window(weather).Property(Day6.OutlookIcon),na.png) + !String.EndsWith(Window(weather).Property(Day5.OutlookIcon),na.png)" reversible="true">Conditional</animation>
-					<control type="group">
-						<!-- Day 1 -->
+					<control type="group"><!-- Day 1 -->
 						<left>15</left>
 						<top>645</top>
 						<control type="label">
@@ -242,8 +222,7 @@
 							<align>center</align>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
-						<control type="multiimage">
-							<!-- Day 1 weather condition icon -->
+						<control type="multiimage"><!-- Day 1 weather condition icon -->
 							<left>98</left>
 							<top>102</top>
 							<width>120</width>
@@ -254,8 +233,7 @@
 							<randomize>false</randomize>
 							<fadetime>1</fadetime>
 						</control>
-						<control type="label">
-							<!-- Day 1 temperature range -->
+						<control type="label"><!-- Day 1 temperature range -->
 							<left>8</left>
 							<top>225</top>
 							<height>57</height>
@@ -277,8 +255,7 @@
 							<font>apptv20</font>
 						</control>
 					</control>
-					<control type="group">
-						<!-- Day 2 -->
+					<control type="group"><!-- Day 2 -->
 						<left>330</left>
 						<top>645</top>
 						<control type="label">
@@ -290,8 +267,7 @@
 							<align>center</align>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
-						<control type="multiimage">
-							<!-- Day 2 weather condition icon -->
+						<control type="multiimage"><!-- Day 2 weather condition icon -->
 							<left>98</left>
 							<top>102</top>
 							<width>120</width>
@@ -302,8 +278,7 @@
 							<randomize>false</randomize>
 							<fadetime>1</fadetime>
 						</control>
-						<control type="label">
-							<!-- Day 2 temperature range -->
+						<control type="label"><!-- Day 2 temperature range -->
 							<left>8</left>
 							<top>225</top>
 							<height>57</height>
@@ -325,8 +300,7 @@
 							<font>apptv20</font>
 						</control>
 					</control>
-					<control type="group">
-						<!-- Day 3 -->
+					<control type="group"><!-- Day 3 -->
 						<left>645</left>
 						<top>645</top>
 						<control type="label">
@@ -338,8 +312,7 @@
 							<align>center</align>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
-						<control type="multiimage">
-							<!-- Day 3 weather condition icon -->
+						<control type="multiimage"><!-- Day 3 weather condition icon -->
 							<left>98</left>
 							<top>102</top>
 							<width>120</width>
@@ -350,8 +323,7 @@
 							<randomize>false</randomize>
 							<fadetime>1</fadetime>
 						</control>
-						<control type="label">
-							<!-- Day 3 temperature range -->
+						<control type="label"><!-- Day 3 temperature range -->
 							<left>8</left>
 							<top>225</top>
 							<height>57</height>
@@ -373,8 +345,7 @@
 							<font>apptv20</font>
 						</control>
 					</control>
-					<control type="group">
-						<!-- Day 4 -->
+					<control type="group"><!-- Day 4 -->
 						<left>960</left>
 						<top>645</top>
 						<control type="label">
@@ -386,8 +357,7 @@
 							<align>center</align>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
-						<control type="multiimage">
-							<!-- Day 4 weather condition icon -->
+						<control type="multiimage"><!-- Day 4 weather condition icon -->
 							<left>98</left>
 							<top>102</top>
 							<width>120</width>
@@ -398,8 +368,7 @@
 							<randomize>false</randomize>
 							<fadetime>1</fadetime>
 						</control>
-						<control type="label">
-							<!-- Day 4 temperature range -->
+						<control type="label"><!-- Day 4 temperature range -->
 							<left>8</left>
 							<top>225</top>
 							<height>57</height>
@@ -421,8 +390,7 @@
 							<font>apptv20</font>
 						</control>
 					</control>
-					<control type="group">
-						<!-- Day 5 -->
+					<control type="group"><!-- Day 5 -->
 						<left>1275</left>
 						<top>645</top>
 						<visible>!String.EndsWith(Window(weather).Property(Day5.OutlookIcon),na.png)</visible>
@@ -435,8 +403,7 @@
 							<align>center</align>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
-						<control type="multiimage">
-							<!-- Day 5 weather condition icon -->
+						<control type="multiimage"><!-- Day 5 weather condition icon -->
 							<left>98</left>
 							<top>102</top>
 							<width>120</width>
@@ -447,8 +414,7 @@
 							<randomize>false</randomize>
 							<fadetime>1</fadetime>
 						</control>
-						<control type="label">
-							<!-- Day 5 temperature range -->
+						<control type="label"><!-- Day 5 temperature range -->
 							<left>8</left>
 							<top>225</top>
 							<height>57</height>
@@ -470,8 +436,7 @@
 							<font>apptv20</font>
 						</control>
 					</control>
-					<control type="group">
-						<!-- Day 6 -->
+					<control type="group"><!-- Day 6 -->
 						<left>1590</left>
 						<top>645</top>
 						<visible>!String.EndsWith(Window(weather).Property(Day6.OutlookIcon),na.png)</visible>
@@ -484,8 +449,7 @@
 							<align>center</align>
 							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						</control>
-						<control type="multiimage">
-							<!-- Day 6 weather condition icon -->
+						<control type="multiimage"><!-- Day 6 weather condition icon -->
 							<left>98</left>
 							<top>102</top>
 							<width>120</width>
@@ -496,8 +460,7 @@
 							<randomize>false</randomize>
 							<fadetime>1</fadetime>
 						</control>
-						<control type="label">
-							<!-- Day 6 temperature range -->
+						<control type="label"><!-- Day 6 temperature range -->
 							<left>8</left>
 							<top>225</top>
 							<height>57</height>
@@ -524,14 +487,11 @@
 		</control>
 	</include>
 	<include name="ozweather">
-		<control type="group">
+		<control type="group"><!-- Maps -->
 			<visible>String.IsEqual(Skin.String(weather-view),$LOCALIZE[33035]) + !String.IsEmpty(Window.Property(Current.Temperature))</visible>
-			<!-- Maps -->
 			<animation effect="fade" delay="100" start="0" end="100" time="100">Visible</animation>
-			<!-- Current forecast -->
-			<control type="group">
-				<control type="label">
-					<!-- Current temp heading -->
+			<control type="group"><!-- Current forecast -->
+				<control type="label"><!-- Current temp heading -->
 					<left>1338</left>
 					<top>135</top>
 					<width>225</width>
@@ -542,8 +502,7 @@
 					<label>$INFO[Window.Property(Current.Temperature)]$INFO[System.TemperatureUnits]</label>
 					<visible>!String.IsEmpty(Window(weather).Property(Current.Temperature))</visible>
 				</control>
-				<control type="label">
-					<!-- Current temperature range -->
+				<control type="label"><!-- Current temperature range -->
 					<left>1338</left>
 					<top>255</top>
 					<width>225</width>
@@ -725,8 +684,7 @@
 				<height>768</height>
 				<texture>special://profile/addon_data/weather.ozweather/radarbackgrounds/$INFO[Window(weather).Property(Radar)]/locations.png</texture>
 			</control>
-			<control type="multiimage">
-				<!-- Radar Overlay Images -->
+			<control type="multiimage"><!-- Radar Overlay Images -->
 				<left>126</left>
 				<top>170</top>
 				<width>768</width>
@@ -738,8 +696,7 @@
 				<randomize>false</randomize>
 				<loop>true</loop>
 			</control>
-			<control type="image">
-				<!-- Busy animation (Show if no map has been displayed yet) -->
+			<control type="image"><!-- Busy animation (Show if no map has been displayed yet) -->
 				<left>486</left>
 				<top>486</top>
 				<width>96</width>
@@ -2186,9 +2143,8 @@
 				</control>
 			</control>
 		</control>
-		<control type="group">
+		<control type="group"><!-- Alerts -->
 			<visible>Skin.HasSetting(weather-alerts) + !String.IsEmpty(Window(weather).Property(Alerts.RSS))</visible>
-			<!-- Alerts -->
 			<control type="group">
 				<control type="image">
 					<left>465</left>
