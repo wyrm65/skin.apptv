@@ -20,132 +20,91 @@
 			<label>$LOCALIZE[5]</label>
 			<font>apptv30</font>
 		</control>
-		<control type="group" id="999">
-			<control type="button" id="981"><!-- Startup Settings Menu -->
-				<left>1410</left>
-				<top>168</top>
-				<width>480</width>
-				<height>84</height>
-				<font>apptv23</font>
-				<label>$LOCALIZE[31801]</label>
-				<onfocus>Skin.SetString(SkinSettingMenu,startup)</onfocus>
-				<ondown>982</ondown>
-				<onleft>100</onleft>
-			</control>
-			<control type="button" id="982"><!-- General Settings Menu -->
-				<left>1410</left>
-				<top>249</top>
-				<width>480</width>
-				<height>84</height>
-				<font>apptv23</font>
-				<label>$LOCALIZE[31802]</label>
-				<onfocus>Skin.SetString(SkinSettingMenu,general)</onfocus>
-				<onup>981</onup>
-				<ondown>983</ondown>
-				<onleft>200</onleft>
-			</control>
-			<control type="button" id="983"><!-- Widget Settings Menu -->
-				<left>1410</left>
-				<top>330</top>
-				<width>480</width>
-				<height>84</height>
-				<font>apptv23</font>
-				<label>$LOCALIZE[31808]</label>
-				<onfocus>Skin.SetString(SkinSettingMenu,widget)</onfocus>
-				<onup>982</onup>
-				<ondown>984</ondown>
-				<onleft>300</onleft>
-			</control>
-			<control type="button" id="984"><!-- Home menu Settings Menu -->
-				<left>1410</left>
-				<top>411</top>
-				<width>480</width>
-				<height>84</height>
-				<font>apptv23</font>
-				<label>$LOCALIZE[31806]</label>
-				<onfocus>Skin.SetString(SkinSettingMenu,custom)</onfocus>
-				<onclick>ActivateWindow(1152)</onclick>
-				<onup>983</onup>
-				<ondown>985</ondown>
-			</control>
-			<control type="button" id="985"><!-- Background Settings Menu -->
-				<left>1410</left>
-				<top>492</top>
-				<width>480</width>
-				<height>84</height>
-				<font>apptv23</font>
-				<label>$LOCALIZE[31804]</label>
-				<onfocus>Skin.SetString(SkinSettingMenu,background)</onfocus>
-				<onup>984</onup>
-				<ondown>986</ondown>
-				<onleft>500</onleft>
-			</control>
-			<control type="button" id="986"><!-- Media sources Settings Menu -->
-				<left>1410</left>
-				<top>573</top>
-				<width>480</width>
-				<height>84</height>
-				<font>apptv23</font>
-				<label>$LOCALIZE[31805]</label>
-				<onfocus>Skin.SetString(SkinSettingMenu,sources)</onfocus>
-				<onup>985</onup>
-				<ondown>987</ondown>
-				<onleft>600</onleft>
-			</control>
-			<control type="button" id="987"><!-- Supported Addons Menu -->
-				<left>1410</left>
-				<top>654</top>
-				<width>480</width>
-				<height>84</height>
-				<font>apptv23</font>
-				<label>$LOCALIZE[31556] $LOCALIZE[24001]</label>
-				<onfocus>Skin.SetString(SkinSettingMenu,addons)</onfocus>
-				<onup>986</onup>
-				<ondown>988</ondown>
-				<onleft>700</onleft>
-			</control>
-			<control type="button" id="988"><!-- Support Settings Menu -->
-				<left>1410</left>
-				<top>735</top>
-				<width>480</width>
-				<height>84</height>
-				<font>apptv23</font>
-				<label>$LOCALIZE[31807]</label>
-				<onfocus>Skin.SetString(SkinSettingMenu,support)</onfocus>
-				<onup>987</onup>
-				<onleft>800</onleft>
-			</control>
-		</control>
-		<control type="scrollbar" id="1223">
-			<left>20</left>
+		<control type="list" id="999"><!-- Settings categories -->
+			<left>1410</left>
 			<top>168</top>
-			<width>18</width>
-			<height>813</height>
-			<onright>998</onright>
-			<animation condition="!Control.HasFocus(1223) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
-			<visible>$EXP[isEnabledScrollbar] + !Skin.String(SkinSettingMenu,custom)</visible>
-		</control>
-		<control type="group" id="998">
-			<control type="group" id="100"><!-- Startup Settings -->
-				<visible>Skin.String(SkinSettingMenu,startup)</visible>
-				<control type="image"><!-- Startup Settings Button Image -->
-					<left>1410</left>
-					<top>168</top>
+			<width>480</width>
+			<height>756</height>
+			<onleft>998</onleft>
+			<onup>noop</onup>
+			<ondown>noop</ondown>
+			<scrolltime tween="cubic" easing="out">500</scrolltime>
+			<itemlayout height="84">
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>480</width>
+					<height>84</height>
+					<texture border="9">button-default.png</texture>
+				</control>
+				<control type="label">
+					<left>27</left>
+					<top>0</top>
+					<width>426</width>
+					<height>84</height>
+					<aligny>center</aligny>
+					<font>apptv22</font>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout height="84">
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
 					<width>480</width>
 					<height>84</height>
 					<texture border="9">button-default-focus.png</texture>
-					<include>settingbutton-fade</include>
-					<visible>!ControlGroup(999).HasFocus()</visible>
+					<animation effect="fade" start="100" end="60" condition="!Control.HasFocus(999)">conditional</animation>
 				</control>
-				<!-- Markers for control area items -->
-				<include content="page-offscreen-vertical">
-					<param name="indicator1left" value="726"/>
-					<param name="indicator1top" value="144"/>
-					<param name="indicator2left" value="726"/>
-					<param name="indicator2top" value="978"/>
-					<param name="indicatorsize" value="24"/>
-					<param name="indicatorcontainer" value="101"/>
-				</include>
+				<control type="label">
+					<left>27</left>
+					<top>0</top>
+					<width>426</width>
+					<height>84</height>
+					<aligny>center</aligny>
+					<font>apptv22</font>
+					<label>$INFO[ListItem.Label]</label>
+				</control>
+			</focusedlayout>
+			<content>
+				<item><!-- Startup Settings -->
+					<label>$LOCALIZE[31801]</label>
+					<property name="SkinSettingMenu">startup</property>
+				</item>
+				<item><!-- General Settings -->
+					<label>$LOCALIZE[31802]</label>
+					<property name="SkinSettingMenu">general</property>
+				</item>
+				<item><!-- Widget Settings -->
+					<label>$LOCALIZE[31808]</label>
+					<property name="SkinSettingMenu">widget</property>
+				</item>
+				<item><!-- Home menu Settings -->
+					<label>$LOCALIZE[31806]</label>
+					<property name="SkinSettingMenu">custom</property>
+					<onclick>ActivateWindow(1152)</onclick>
+				</item>
+				<item><!-- Background Settings -->
+					<label>$LOCALIZE[31804]</label>
+					<property name="SkinSettingMenu">background</property>
+				</item>
+				<item><!-- Media sources settings -->
+					<label>$LOCALIZE[31805]</label>
+					<property name="SkinSettingMenu">sources</property>
+				</item>
+				<item><!-- Supported Addons Settings -->
+					<label>$LOCALIZE[31556] $LOCALIZE[24001]</label>
+					<property name="SkinSettingMenu">addons</property>
+				</item>
+				<item><!-- Support Settings -->
+					<label>$LOCALIZE[31807]</label>
+					<property name="SkinSettingMenu">support</property>
+				</item>
+			</content>
+		</control>
+		<control type="group" id="998">
+			<control type="group" id="100"><!-- Startup Settings -->
+				<visible>String.IsEqual(Container(999).ListItem.Property(SkinSettingMenu),startup)</visible>
 				<control type="grouplist" id="101">
 					<include>skinsettings-list</include>
 					<control type="button" id="102"><!-- Startup screen type -->
@@ -194,18 +153,6 @@
 						<onclick>Skin.Reset(startup-playlistpath)</onclick>
 					</control>
 				</control>
-			</control>
-			<control type="group"><!-- General Settings -->
-				<visible>Skin.String(SkinSettingMenu,general)</visible>
-				<control type="image"><!-- General Settings Button Image -->
-					<left>1410</left>
-					<top>249</top>
-					<width>480</width>
-					<height>84</height>
-					<texture border="9">button-default-focus.png</texture>
-					<include>settingbutton-fade</include>
-					<visible>!ControlGroup(999).HasFocus()</visible>
-				</control>
 				<!-- Markers for control area items -->
 				<include content="page-offscreen-vertical">
 					<param name="indicator1left" value="726"/>
@@ -213,8 +160,11 @@
 					<param name="indicator2left" value="726"/>
 					<param name="indicator2top" value="978"/>
 					<param name="indicatorsize" value="24"/>
-					<param name="indicatorcontainer" value="200"/>
+					<param name="indicatorcontainer" value="101"/>
 				</include>
+			</control>
+			<control type="group"><!-- General Settings -->
+				<visible>String.IsEqual(Container(999).ListItem.Property(SkinSettingMenu),general)</visible>
 				<control type="grouplist" id="200">
 					<include>skinsettings-list</include>
 					<control type="radiobutton" id="201"><!-- Lock Screen Settings Toggle -->
@@ -298,18 +248,6 @@
 						<onclick>Skin.Reset(defaultmpaa-locale)</onclick>
 					</control>
 				</control>
-			</control>
-			<control type="group" id="300"><!-- Widget Settings -->
-				<visible>Skin.String(SkinSettingMenu,widget)</visible>
-				<control type="image"><!-- Background Settings Button Image -->
-					<left>1410</left>
-					<top>330</top>
-					<width>480</width>
-					<height>84</height>
-					<texture border="9">button-default-focus.png</texture>
-					<include>settingbutton-fade</include>
-					<visible>!ControlGroup(999).HasFocus()</visible>
-				</control>
 				<!-- Markers for control area items -->
 				<include content="page-offscreen-vertical">
 					<param name="indicator1left" value="726"/>
@@ -317,8 +255,11 @@
 					<param name="indicator2left" value="726"/>
 					<param name="indicator2top" value="978"/>
 					<param name="indicatorsize" value="24"/>
-					<param name="indicatorcontainer" value="301"/>
+					<param name="indicatorcontainer" value="200"/>
 				</include>
+			</control>
+			<control type="group" id="300"><!-- Widget Settings -->
+				<visible>String.IsEqual(Container(999).ListItem.Property(SkinSettingMenu),widget)</visible>
 				<control type="grouplist" id="301">
 					<include>skinsettings-list</include>
 					<control type="button" id="307"><!-- Movie Widget type -->
@@ -627,9 +568,18 @@
 						<onclick>Skin.Reset(widget-infotvshow)</onclick>
 					</control>
 				</control>
+				<!-- Markers for control area items -->
+				<include content="page-offscreen-vertical">
+					<param name="indicator1left" value="726"/>
+					<param name="indicator1top" value="144"/>
+					<param name="indicator2left" value="726"/>
+					<param name="indicator2top" value="978"/>
+					<param name="indicatorsize" value="24"/>
+					<param name="indicatorcontainer" value="301"/>
+				</include>
 			</control>
 			<control type="group" id="400"><!-- Home Menu Settings -->
-				<visible>Skin.String(SkinSettingMenu,custom)</visible>
+				<visible>String.IsEqual(Container(999).ListItem.Property(SkinSettingMenu),custom)</visible>
 				<control type="image"><!-- Skin Logo -->
 					<left>225</left>
 					<top>225</top>
@@ -640,25 +590,7 @@
 				</control>
 			</control>
 			<control type="group" id="500"><!-- Background Settings -->
-				<visible>Skin.String(SkinSettingMenu,background)</visible>
-				<control type="image"><!-- Background Settings Button Image -->
-					<left>1410</left>
-					<top>492</top>
-					<width>480</width>
-					<height>84</height>
-					<texture border="10">button-default-focus.png</texture>
-					<include>settingbutton-fade</include>
-					<visible>!ControlGroup(999).HasFocus()</visible>
-				</control>
-				<!-- Markers for control area items -->
-				<include content="page-offscreen-vertical">
-					<param name="indicator1left" value="726"/>
-					<param name="indicator1top" value="144"/>
-					<param name="indicator2left" value="726"/>
-					<param name="indicator2top" value="978"/>
-					<param name="indicatorsize" value="24"/>
-					<param name="indicatorcontainer" value="501"/>
-				</include>
+				<visible>String.IsEqual(Container(999).ListItem.Property(SkinSettingMenu),background)</visible>
 				<control type="grouplist" id="501">
 					<include>skinsettings-list</include>
 					<control type="button" id="502"><!-- Custom Background Button -->
@@ -715,18 +647,6 @@
 						<onclick>Skin.Reset(background-visibiltyhigh)</onclick>
 					</control>
 				</control>
-			</control>
-			<control type="group" id="600"><!-- Media Entry Points Settings -->
-				<visible>Skin.String(SkinSettingMenu,sources)</visible>
-				<control type="image"><!-- Media Entry Points Settings Button Image -->
-					<left>1410</left>
-					<top>573</top>
-					<width>480</width>
-					<height>84</height>
-					<texture border="9">button-default-focus.png</texture>
-					<include>settingbutton-fade</include>
-					<visible>!ControlGroup(999).HasFocus()</visible>
-				</control>
 				<!-- Markers for control area items -->
 				<include content="page-offscreen-vertical">
 					<param name="indicator1left" value="726"/>
@@ -734,8 +654,11 @@
 					<param name="indicator2left" value="726"/>
 					<param name="indicator2top" value="978"/>
 					<param name="indicatorsize" value="24"/>
-					<param name="indicatorcontainer" value="601"/>
+					<param name="indicatorcontainer" value="501"/>
 				</include>
+			</control>
+			<control type="group" id="600"><!-- Media Entry Points Settings -->
+				<visible>String.IsEqual(Container(999).ListItem.Property(SkinSettingMenu),sources)</visible>
 				<control type="grouplist" id="601">
 					<include>skinsettings-list</include>
 					<control type="button" id="602"><!-- Set Movie library entry point -->
@@ -913,18 +836,6 @@
 						<onclick>Skin.Reset(libraryentry-radio)</onclick>
 					</control>
 				</control>
-			</control>
-			<control type="group" id="700"><!-- Supported Addons Settings -->
-				<visible>Skin.String(SkinSettingMenu,addons)</visible>
-				<control type="image"><!-- Media Entry Points Settings Button Image -->
-					<left>1410</left>
-					<top>654</top>
-					<width>480</width>
-					<height>84</height>
-					<texture border="9">button-default-focus.png</texture>
-					<include>settingbutton-fade</include>
-					<visible>!ControlGroup(999).HasFocus()</visible>
-				</control>
 				<!-- Markers for control area items -->
 				<include content="page-offscreen-vertical">
 					<param name="indicator1left" value="726"/>
@@ -932,8 +843,11 @@
 					<param name="indicator2left" value="726"/>
 					<param name="indicator2top" value="978"/>
 					<param name="indicatorsize" value="24"/>
-					<param name="indicatorcontainer" value="701"/>
+					<param name="indicatorcontainer" value="601"/>
 				</include>
+			</control>
+			<control type="group" id="700"><!-- Supported Addons Settings -->
+				<visible>String.IsEqual(Container(999).ListItem.Property(SkinSettingMenu),addons)</visible>
 				<control type="grouplist" id="701">
 					<include>skinsettings-list</include>
 					<control type="group" id="702"><!-- Artist slideshow script install/config -->
@@ -1105,18 +1019,6 @@
 						</control>
 					</control>
 				</control>
-			</control>
-			<control type="group" id="800"><!-- Support Settings -->
-				<visible>Skin.String(SkinSettingMenu,support)</visible>
-				<control type="image"><!-- Support Settings Button Image -->
-					<left>1410</left>
-					<top>735</top>
-					<width>480</width>
-					<height>84</height>
-					<texture border="9">button-default-focus.png</texture>
-					<include>settingbutton-fade</include>
-					<visible>!ControlGroup(999).HasFocus()</visible>
-				</control>
 				<!-- Markers for control area items -->
 				<include content="page-offscreen-vertical">
 					<param name="indicator1left" value="726"/>
@@ -1124,8 +1026,11 @@
 					<param name="indicator2left" value="726"/>
 					<param name="indicator2top" value="978"/>
 					<param name="indicatorsize" value="24"/>
-					<param name="indicatorcontainer" value="801"/>
+					<param name="indicatorcontainer" value="701"/>
 				</include>
+			</control>
+			<control type="group" id="800"><!-- Support Settings -->
+				<visible>String.IsEqual(Container(999).ListItem.Property(SkinSettingMenu),support)</visible>
 				<control type="grouplist" id="801">
 					<include>skinsettings-list</include>
 					<control type="radiobutton" id="802"><!-- System Debug toggle -->
@@ -1160,7 +1065,25 @@
 						<onclick>ReplaceWindow(skinsettings)</onclick>
 					</control>
 				</control>
+				<!-- Markers for control area items -->
+				<include content="page-offscreen-vertical">
+					<param name="indicator1left" value="726"/>
+					<param name="indicator1top" value="144"/>
+					<param name="indicator2left" value="726"/>
+					<param name="indicator2top" value="978"/>
+					<param name="indicatorsize" value="24"/>
+					<param name="indicatorcontainer" value="801"/>
+				</include>
 			</control>
+		</control>
+		<control type="scrollbar" id="1223">
+			<left>20</left>
+			<top>168</top>
+			<width>18</width>
+			<height>813</height>
+			<onright>998</onright>
+			<animation condition="!Control.HasFocus(1223) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<visible>$EXP[isEnabledScrollbar] + !String.IsEqual(Container(999).ListItem.Property(SkinSettingMenu),custom)</visible>
 		</control>
 		<control type="textbox"><!-- Settings description area -->
 			<left>15</left>

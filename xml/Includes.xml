@@ -59,8 +59,7 @@
 
 	<include file="Defaults.xml"/>
 
-	<include name="defaultskinsettings">
-		<!-- various default settings  -->
+	<include name="defaultskinsettings"><!-- various default settings  -->
 		<onload>RunScript(script.embuary.helper,action=getkodisetting,setting=locale.country,strip=timeformat)</onload>
 		<onload condition="!Skin.HasSetting(FontCheck)">RunScript(script.embuary.helper,action=fontchange,locales=ja+zh+ar+he+ko+vi+bn+my+hi+ks+km+ms,font="Kodi Default")</onload>
 		<onload condition="!Skin.HasSetting(FontCheck)">Skin.ToggleSetting(FontCheck)</onload>
@@ -328,8 +327,7 @@
 			</control>
 		</definition>
 	</include>
-	<!-- Dummy button for mouse control -->
-	<include name="fullscreendummy">
+	<include name="fullscreendummy"><!-- Dummy button for mouse control -->
 		<control type="button" id="3550">
 			<left>0</left>
 			<top>0</top>
@@ -853,6 +851,11 @@
 			</control>
 		</definition>
 	</include>
+	<include name="touch-controls-common">
+		<width>48</width>
+		<height>48</height>
+		<include>focus-zoom</include>
+	</include>
 	<include name="touch-controls">
 		<control type="grouplist" id="8000">
 			<visible>$EXP[isEnabledTouch]</visible>
@@ -862,70 +865,52 @@
 			<height>48</height>
 			<itemgap>18</itemgap>
 			<orientation>horizontal</orientation>
-			<control type="button">
-				<!-- Back -->
-				<width>48</width>
-				<height>48</height>
+			<control type="button"><!-- Back -->
+				<include>touch-controls-common</include>
 				<texturefocus>touch-back.png</texturefocus>
 				<texturenofocus>touch-back.png</texturenofocus>
 				<onclick>Back</onclick>
-				<include>focus-zoom</include>
 				<visible>!Window.IsVisible(home)</visible>
 			</control>
-			<control type="togglebutton">
-				<!-- OSD Play/Pause -->
-				<width>48</width>
-				<height>48</height>
+			<control type="togglebutton"><!-- OSD Play/Pause -->
+				<include>touch-controls-common</include>
 				<texturefocus>touch-play.png</texturefocus>
 				<texturenofocus>touch-play.png</texturenofocus>
 				<alttexturefocus>touch-pause.png</alttexturefocus>
 				<alttexturenofocus>touch-pause.png</alttexturenofocus>
 				<usealttexture>Player.Paused</usealttexture>
 				<onclick>ActivateWindow(playercontrols)</onclick>
-				<include>focus-zoom</include>
 				<visible>Player.HasAudio | Player.HasVideo</visible>
 			</control>
-			<control type="button">
-				<!-- Zoom -->
-				<width>48</width>
-				<height>48</height>
+			<control type="button"><!-- Zoom -->
+				<include>touch-controls-common</include>
 				<texturefocus>touch-zoom.png</texturefocus>
 				<texturenofocus>touch-zoom.png</texturenofocus>
 				<onclick>FullScreen</onclick>
-				<include>focus-zoom</include>
 				<visible>Player.HasAudio | Player.HasVideo</visible>
 			</control>
-			<control type="button">
-				<!-- Search -->
-				<width>48</width>
-				<height>48</height>
+			<control type="button"><!-- Search -->
+				<include>touch-controls-common</include>
 				<texturefocus>touch-search.png</texturefocus>
 				<texturenofocus>touch-search.png</texturenofocus>
 				<onclick condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
 				<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
-				<include>focus-zoom</include>
 				<visible>!Window.IsVisible(script-globalsearch.xml)</visible>
 			</control>
-			<control type="button">
-				<!-- Favourite -->
-				<width>48</width>
-				<height>48</height>
+			<control type="button"><!-- Favourite -->
+				<include>touch-controls-common</include>
 				<texturefocus>touch-fav.png</texturefocus>
 				<texturenofocus>touch-fav.png</texturenofocus>
 				<onclick>ActivateWindow(favourites)</onclick>
-				<include>focus-zoom</include>
 				<visible>!Window.IsVisible(home)</visible>
 			</control>
-			<control type="button">
-				<!-- Screen Settings -->
-				<width>48</width>
-				<height>48</height>
+			<control type="button"><!-- Screen Settings -->
+				<include>touch-controls-common</include>
 				<texturefocus>touch-settings.png</texturefocus>
 				<texturenofocus>touch-settings.png</texturenofocus>
 				<onclick condition="!String.IsEqual(Window(home).Property(ShowScreenSettings),show)">SetFocus(9000)</onclick>
 				<onclick condition="!String.IsEqual(Window(home).Property(ShowScreenSettings),show)">SetProperty(ShowScreenSettings,show,home)</onclick>
 				<onclick condition="String.IsEqual(Window(home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,home)</onclick>
-				<include>focus-zoom</include>
 				<visible>!Skin.HasSetting(lock-screensettings)</visible>
 			</control>
 		</control>
@@ -942,6 +927,11 @@
 			<aligny>top</aligny>
 			<visible>!String.IsEmpty(PVR.ChannelNumberInput)</visible>
 		</control>
+	</include>
+	<include name="settings-category-common">
+		<width>480</width>
+		<height>84</height>
+		<font>apptv23</font>
 	</include>
 	<include name="settings-submenu-size">
 		<width>1328</width>
@@ -963,7 +953,7 @@
 		<top>168</top>
 		<width>1328</width>
 		<height>813</height>
-		<itemgap>-3</itemgap>
+		<itemgap>0</itemgap>
 		<onleft>1223</onleft>
 		<onright>999</onright>
 		<pagecontrol>1223</pagecontrol>
