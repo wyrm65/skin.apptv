@@ -9,8 +9,7 @@
 	<onunload>SetFocus(9000)</onunload>
 	<include>zoom-openclose</include>
 	<controls>
-		<!-- Hack to get number of pending updates -->
-		<!-- Use $INFO[Container(12345).NumItems] for number of updates -->
+		<!-- Hack to get number of pending updates. Use $INFO[Container(12345).NumItems] for number of updates -->
 		<control type="list" id="12345">
 			<left>-100</left>
 			<top>-100</top>
@@ -99,7 +98,6 @@
 					<height>69</height>
 					<label>$LOCALIZE[31803]</label>
 					<font>apptv20</font>
-					<onfocus>Skin.SetString(SkinSettingMenu,custom)</onfocus>
 					<onclick>ActivateWindow(1152)</onclick>
 				</control>
 					<control type="group" id="6103">
