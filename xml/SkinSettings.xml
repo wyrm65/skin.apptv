@@ -24,46 +24,34 @@
 			<left>1410</left>
 			<top>168</top>
 			<width>480</width>
-			<height>756</height>
+			<height>750</height>
 			<onleft>998</onleft>
 			<onup>noop</onup>
 			<ondown>noop</ondown>
 			<scrolltime tween="cubic" easing="out">500</scrolltime>
-			<itemlayout height="84">
+			<itemlayout height="75">
 				<control type="image">
 					<left>0</left>
 					<top>0</top>
 					<width>480</width>
-					<height>84</height>
+					<height>75</height>
 					<texture border="9">button-default.png</texture>
 				</control>
 				<control type="label">
-					<left>27</left>
-					<top>0</top>
-					<width>426</width>
-					<height>84</height>
-					<aligny>center</aligny>
-					<font>apptv22</font>
-					<label>$INFO[ListItem.Label]</label>
+					<include>settings-category-common</include>
 				</control>
 			</itemlayout>
-			<focusedlayout height="84">
+			<focusedlayout height="75">
 				<control type="image">
 					<left>0</left>
 					<top>0</top>
 					<width>480</width>
-					<height>84</height>
+					<height>75</height>
 					<texture border="9">button-default-focus.png</texture>
 					<animation effect="fade" start="100" end="60" condition="!Control.HasFocus(999)">conditional</animation>
 				</control>
 				<control type="label">
-					<left>27</left>
-					<top>0</top>
-					<width>426</width>
-					<height>84</height>
-					<aligny>center</aligny>
-					<font>apptv22</font>
-					<label>$INFO[ListItem.Label]</label>
+					<include>settings-category-common</include>
 				</control>
 			</focusedlayout>
 			<content>
@@ -102,7 +90,7 @@
 				</item>
 			</content>
 		</control>
-		<control type="group" id="998">
+		<control type="group" id="998"><!-- Settings -->
 			<control type="group" id="100"><!-- Startup Settings -->
 				<visible>String.IsEqual(Container(999).ListItem.Property(SkinSettingMenu),startup)</visible>
 				<control type="grouplist" id="101">

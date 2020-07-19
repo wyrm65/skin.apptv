@@ -929,13 +929,17 @@
 		</control>
 	</include>
 	<include name="settings-category-common">
-		<width>480</width>
-		<height>84</height>
-		<font>apptv23</font>
+		<left>27</left>
+		<top>0</top>
+		<width>426</width>
+		<height>75</height>
+		<aligny>center</aligny>
+		<font>apptv22</font>
+		<label>$INFO[ListItem.Label]</label>
 	</include>
 	<include name="settings-submenu-size">
 		<width>1328</width>
-		<height>84</height>
+		<height>75</height>
 	</include>
 	<include name="settings-submenu-common">
 		<include>settings-submenu-size</include>
@@ -952,7 +956,7 @@
 		<left>80</left>
 		<top>168</top>
 		<width>1328</width>
-		<height>813</height>
+		<height>750</height>
 		<itemgap>0</itemgap>
 		<onleft>1223</onleft>
 		<onright>999</onright>
@@ -996,9 +1000,6 @@
 	</include>
 	<include name="focus-zoom">
 		<animation effect="zoom" start="100" end="116" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
-	</include>
-	<include name="settingbutton-fade">
-		<animation effect="fade" start="100" end="60">Visible</animation>
 	</include>
 	<include name="busy-spin">
 		<animation effect="rotate" start="360" end="0" center="auto" time="5400" loop="true" condition="true">conditional</animation>
