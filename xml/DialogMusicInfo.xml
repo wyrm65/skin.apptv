@@ -4,7 +4,6 @@
 	<controls>
 		<include>background</include>
 		<include>fullscreendummy</include>
-
 		<control type="image"><!-- Artist Image -->
 			<left>63</left>
 			<top>120</top>
@@ -45,7 +44,6 @@
 				<font>apptv30</font>
 				<wrapmultiline>true</wrapmultiline>
 				<aligny>center</aligny>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.TrackNumber,, - ]$INFO[ListItem.Title]</label>
 			</control>
 			<control type="label"><!-- Artist -->
@@ -56,7 +54,6 @@
 				<font>apptv22</font>
 				<textcolor>disabled-text</textcolor>
 				<shadowcolor>shadow-text</shadowcolor>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Artist]$INFO[ListItem.Album, : ,]</label>
 				<visible>!String.IsEmpty(ListItem.Artist)</visible>
 			</control>
@@ -112,7 +109,6 @@
 				<width>900</width>
 				<height>30</height>
 				<font>apptv20</font>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Genre,$LOCALIZE[135] : ]</label>
 			</control>
 			<control type="label"><!-- Duration -->
@@ -129,7 +125,6 @@
 				<width>900</width>
 				<height>30</height>
 				<font>apptv20</font>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Year,$LOCALIZE[172] : ]</label>
 			</control>
 			<control type="label"><!-- Playcount -->
@@ -169,7 +164,6 @@
 				<font>apptv30</font>
 				<wrapmultiline>true</wrapmultiline>
 				<aligny>center</aligny>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Artist]</label>
 			</control>
 			<control type="label"><!-- Artist born/died -->
@@ -180,7 +174,6 @@
 				<font>apptv22</font>
 				<textcolor>disabled-text</textcolor>
 				<shadowcolor>shadow-text</shadowcolor>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Property(Artist_Born)]$INFO[ListItem.Property(Artist_Died), - ,]</label>
 				<visible>!String.IsEmpty(ListItem.Property(Artist_Born))</visible>
 			</control>
@@ -192,7 +185,6 @@
 				<font>apptv22</font>
 				<textcolor>disabled-text</textcolor>
 				<shadowcolor>shadow-text</shadowcolor>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Property(Artist_Formed)]$INFO[ListItem.Property(Artist_Disbanded), - ,]</label>
 				<visible>!String.IsEmpty(ListItem.Property(Artist_Formed))</visible>
 			</control>
@@ -248,7 +240,6 @@
 				<width>900</width>
 				<height>30</height>
 				<font>apptv20</font>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Genre,$LOCALIZE[135] : ]</label>
 			</control>
 			<control type="label"><!-- Moods -->
@@ -257,7 +248,6 @@
 				<width>900</width>
 				<height>30</height>
 				<font>apptv20</font>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Property(Album_Mood),$LOCALIZE[175] : ]</label>
 			</control>
 			<control type="label"><!-- Styles -->
@@ -266,7 +256,6 @@
 				<width>900</width>
 				<height>30</height>
 				<font>apptv20</font>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Property(Album_Style),$LOCALIZE[176] : ]</label>
 			</control>
 			<control type="label"><!-- Active -->
@@ -275,7 +264,6 @@
 				<width>900</width>
 				<height>30</height>
 				<font>apptv20</font>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Property(Artist_YearsActive),$LOCALIZE[21898] : ]</label>
 			</control>
 		</control>
@@ -298,7 +286,6 @@
 				<font>apptv22</font>
 				<textcolor>disabled-text</textcolor>
 				<shadowcolor>shadow-text</shadowcolor>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Property(Album_Label)]</label>
 			</control>
 			<control type="image">
@@ -353,7 +340,6 @@
 				<width>900</width>
 				<height>30</height>
 				<font>apptv20</font>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Genre,$LOCALIZE[135] : ]</label>
 			</control>
 			<control type="label"><!-- Moods -->
@@ -362,7 +348,6 @@
 				<width>900</width>
 				<height>30</height>
 				<font>apptv20</font>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Property(Album_Mood),$LOCALIZE[175] : ]</label>
 			</control>
 			<control type="label"><!-- Style -->
@@ -371,7 +356,6 @@
 				<width>900</width>
 				<height>30</height>
 				<font>apptv20</font>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Property(Album_Style),$LOCALIZE[176] : ]</label>
 			</control>
 			<control type="label"><!-- Release date -->
@@ -380,7 +364,6 @@
 				<width>900</width>
 				<height>30</height>
 				<font>apptv20</font>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Year,$LOCALIZE[172] : ]</label>
 			</control>
 			<control type="image"><!-- Star Rating Dropshadow-->
@@ -716,8 +699,7 @@
 				</focusedlayout>
 				<content limit="12">special://skin/extras/playlists/music/UnplayedAlbums.xsp</content>
 			</control>
-			<control type="group">
-				<!-- Markers for control area items -->
+			<control type="group"><!-- Markers for control area items -->
 				<visible>$EXP[isSong]</visible>
 				<include content="page-offscreen-horizontal">
 					<param name="indicator1left" value="30"/>

@@ -5,30 +5,10 @@
 	<controls>
 		<include>background</include>
 		<include>fake-overlay</include>
-		<control type="grouplist">
-			<left>1170</left>
-			<top>52</top>
-			<width>auto</width>
-			<height>93</height>
-			<align>left</align>
-			<orientation>horizontal</orientation>
-			<control type="label">
-				<!-- Favorites heading -->
-				<width max="600">auto</width>
-				<height>108</height>
-				<label>$LOCALIZE[1036]</label>
-				<font>apptv30</font>
-				<wrapmultiline>true</wrapmultiline>
-				<aligny>top</aligny>
-			</control>
-			<control type="label">
-				<!-- Number of files -->
-				<top>20</top>
-				<width max="120">auto</width>
-				<height>57</height>
-				<label>$INFO[Container(450).NumItems,(,)]</label>
-			</control>
-		</control>
+		<include content="screen-name">
+			<param name="screenlabel" value="$LOCALIZE[1036]"/>
+			<param name="listitems" value="$INFO[Container(450).NumItems,(,)]"/>
+		</include>
 		<control type="list" id="450">
 			<left>1062</left>
 			<top>168</top>
@@ -73,7 +53,6 @@
 					<font>apptv23</font>
 					<selectedcolor>listselected-text</selectedcolor>
 					<label>$INFO[ListItem.Label]</label>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 			</focusedlayout>
 		</control>

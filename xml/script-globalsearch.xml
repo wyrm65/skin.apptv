@@ -154,21 +154,21 @@
 			<control type="image"><!-- Dialog background -->
 				<left>622</left>
 				<top>364</top>
-				<width>669</width>
+				<width>672</width>
 				<height>352</height>
 				<texture border="14">button-menu-background.png</texture>
 			</control>
 			<control type="label"><!-- Dialog heading -->
 				<left>638</left>
 				<top>376</top>
-				<width>639</width>
+				<width>640</width>
 				<height>51</height>
 				<font>apptv23</font>
 				<label>$LOCALIZE[31557]$INFO[Container(7500).NumItems, (,)]</label>
 				<align>center</align>
 			</control>
 			<control type="button"><!-- Touch Close button -->
-				<left>1260</left>
+				<left>1262</left>
 				<top>348</top>
 				<width>48</width>
 				<height>48</height>
@@ -188,26 +188,22 @@
 			<control type="grouplist" id="7500">
 				<defaultcontrol>2</defaultcontrol>
 				<left>638</left>
-				<top>442</top>
-				<width>639</width>
-				<height>276</height>
+				<top>440</top>
+				<width>640</width>
+				<height>280</height>
 				<itemgap>0</itemgap>
 				<onright>ClearProperty(ShowScreenSettings,home)</onright>
 				<onright>50</onright>
 				<onleft>ClearProperty(ShowScreenSettings,home)</onleft>
 				<onleft>50</onleft>
 				<control type="button" id="2"><!-- View as button -->
-					<width>639</width>
-					<height>69</height>
-					<font>apptv22</font>
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[100]</label>
 					<onclick>Container.NextViewMode</onclick>
 					<onclick>Skin.SetString(globalsearch-viewmode,$INFO[Container.Viewmode])</onclick>
 				</control>
 				<control type="button" id="800"><!-- Now playing -->
-					<width>639</width>
-					<height>69</height>
-					<font>apptv22</font>
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[13350]</label>
 					<onclick>ActivateWindow(videoplaylist)</onclick>
 					<visible>!String.IsEqual(Playlist.Length(video),0)</visible>

@@ -4,8 +4,7 @@
 	<defaultcontrol>8999</defaultcontrol>
 	<controls>
 		<include>background</include>
-		<control type="image">
-			<!-- skin logo image -->
+		<control type="image"><!-- Skin logo -->
 			<left>225</left>
 			<top>225</top>
 			<width>768</width>
@@ -14,8 +13,7 @@
 			<texture>skin-logo-big.png</texture>
 		</control>
 		<include>fake-overlay</include>
-		<control type="label">
-			<!-- Screen heading -->
+		<control type="label"><!-- Screen heading -->
 			<left>1419</left>
 			<top>75</top>
 			<width>465</width>
@@ -45,7 +43,7 @@
 				<onright>4999</onright>
 				<onup>4999</onup>
 				<ondown>4999</ondown>
-				<itemlayout width="720" height="75">
+				<itemlayout height="75">
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
@@ -59,11 +57,10 @@
 						<width>660</width>
 						<height>45</height>
 						<font>apptv22</font>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 				</itemlayout>
-				<focusedlayout width="720" height="75">
+				<focusedlayout height="75">
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
@@ -77,7 +74,6 @@
 						<width>660</width>
 						<height>45</height>
 						<font>apptv22</font>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 				</focusedlayout>

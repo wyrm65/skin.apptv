@@ -7,8 +7,7 @@
 	<controls>
 		<include>background</include>
 		<include>fake-overlay</include>
-		<control type="label">
-			<!-- Screen heading -->
+		<control type="label"><!-- Screen heading -->
 			<left>1419</left>
 			<top>75</top>
 			<width>464</width>
@@ -61,7 +60,6 @@
 					<height>84</height>
 					<font>apptv23</font>
 					<selectedcolor>listselected-text</selectedcolor>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Label]</label>
 				</control>
 			</focusedlayout>
@@ -83,8 +81,7 @@
 			<texture fallback="DefaultUser.png" diffuse="mask-rect.png">$INFO[Container(2).ListItem.Icon]</texture>
 			<aspectratio>keep</aspectratio>
 		</control>
-		<control type="fadelabel" id="3">
-			<!-- Last loaded profile -->
+		<control type="fadelabel" id="3"><!-- Last loaded profile -->
 			<left>15</left>
 			<top>675</top>
 			<width>1044</width>
@@ -93,8 +90,7 @@
 			<font>apptv23</font>
 			<align>center</align>
 		</control>
-		<control type="label">
-			<!-- Profile to auto login -->
+		<control type="label"><!-- Profile to auto login -->
 			<left>15</left>
 			<top>750</top>
 			<width>1044</width>
@@ -105,21 +101,18 @@
 			<visible>!System.HasLoginScreen + !String.IsEmpty(System.ProfileAutoLogin)</visible>
 		</control>
 		<include>touch-controls</include>
-		<control type="group">
-			<!-- Screen Settings Menu -->
+		<control type="group"><!-- Screen Settings Menu -->
 			<top>1080</top>
 			<include>screen-settings</include>
 			<include>fadebackground</include>
-			<control type="image">
-				<!-- Dialog background -->
+			<control type="image"><!-- Dialog background -->
 				<left>660</left>
 				<top>348</top>
 				<width>594</width>
 				<height>252</height>
 				<texture border="14">button-menu-background.png</texture>
 			</control>
-			<control type="label">
-				<!-- Dialog heading -->
+			<control type="label"><!-- Dialog heading -->
 				<left>675</left>
 				<top>360</top>
 				<width>564</width>
@@ -128,8 +121,7 @@
 				<label>$LOCALIZE[31557]</label>
 				<align>center</align>
 			</control>
-			<control type="button">
-				<!-- Touch Close button -->
+			<control type="button"><!-- Touch Close button -->
 				<left>1221</left>
 				<top>333</top>
 				<width>48</width>
@@ -158,8 +150,7 @@
 				<onright>ClearProperty(ShowScreenSettings,home)</onright>
 				<onright>2</onright>
 				<onback>SetFocus(2)</onback>
-				<control type="radiobutton" id="4">
-					<!-- Enable login screen -->
+				<control type="radiobutton" id="4"><!-- Enable login screen -->
 					<width>564</width>
 					<height>75</height>
 					<label>$LOCALIZE[20096]</label>
@@ -168,8 +159,7 @@
 					<textoffsety>12</textoffsety>
 					<radioposx>495</radioposx>
 				</control>
-				<control type="button" id="5">
-					<!-- Choose auto login user -->
+				<control type="button" id="5"><!-- Choose auto login user -->
 					<width>564</width>
 					<height>75</height>
 					<textoffsety>12</textoffsety>

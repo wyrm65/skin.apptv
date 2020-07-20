@@ -16,8 +16,7 @@
 			<param name="screenlabel" value="$VAR[VideoHeadings]"/>
 			<param name="listitems" value="$INFO[Container.NumItems,(,)]"/>
 		</include>
-		<control type="group">
-			<!-- Various Views of Video library node -->
+		<control type="group"><!-- Various Views of Video library node -->
 			<visible>![String.IsEmpty(ListItem.Label) + String.IsEmpty(ListItem(1).Label)]</visible>
 			<include file="View-Video.xml">VideoListView</include>
 			<include file="View-Video.xml" condition="!Skin.HasSetting(videoviewicon)">VideoIconView</include>
@@ -26,12 +25,10 @@
 			<include file="View-Video.xml" condition="!Skin.HasSetting(videoviewcoverflow)">VideoCoverflow</include>
 			<include file="View-Video.xml" condition="!Skin.HasSetting(videoviewwall)">VideoWallView</include>
 		</control>
-		<control type="group">
-			<!-- No Label tag means video addon is busy pulling in content, so show a busy animation -->
+		<control type="group"><!-- No Label tag means video addon is busy pulling in content, so show a busy animation -->
 			<visible>String.IsEmpty(ListItem.Label) + String.IsEmpty(ListItem(1).Label) + System.IdleTime(1) + !Window.IsVisible(busydialog)</visible>
 			<include>fadebackground</include>
-			<control type="image">
-				<!-- Busy animation -->
+			<control type="image"><!-- Busy animation -->
 				<left>864</left>
 				<top>435</top>
 				<width>192</width>
@@ -42,22 +39,19 @@
 			</control>
 		</control>
 		<include>touch-controls</include>
-		<control type="group">
-			<!-- Screen Settings Menu -->
+		<control type="group"><!-- Screen Settings Menu -->
 			<left>0</left>
 			<top>1080</top>
 			<include>screen-settings</include>
 			<include>fadebackground</include>
-			<control type="image">
-				<!-- Button background -->
+			<control type="image"><!-- Button background -->
 				<left>622</left>
 				<top>114</top>
-				<width>669</width>
-				<height>814</height>
+				<width>672</width>
+				<height>820</height>
 				<texture border="14">button-menu-background.png</texture>
 			</control>
-			<control type="label">
-				<!-- Dialog heading -->
+			<control type="label"><!-- Dialog heading -->
 				<left>638</left>
 				<top>126</top>
 				<width>639</width>
@@ -66,9 +60,8 @@
 				<label>$LOCALIZE[31557]$INFO[Container(9000).NumItems, (,)]</label>
 				<align>center</align>
 			</control>
-			<control type="button">
-				<!-- Touch Close button -->
-				<left>1260</left>
+			<control type="button"><!-- Touch Close button -->
+				<left>1262</left>
 				<top>98</top>
 				<width>48</width>
 				<height>48</height>
@@ -89,7 +82,7 @@
 				<param name="indicator1left" value="942"/>
 				<param name="indicator1top" value="180"/>
 				<param name="indicator2left" value="942"/>
-				<param name="indicator2top" value="892"/>
+				<param name="indicator2top" value="898"/>
 				<param name="indicatorsize" value="32"/>
 				<param name="indicatorcontainer" value="9000"/>
 			</include>
@@ -97,36 +90,27 @@
 				<defaultcontrol>2</defaultcontrol>
 				<left>638</left>
 				<top>206</top>
-				<width>639</width>
-				<height>690</height>
+				<width>640</width>
+				<height>700</height>
 				<itemgap>0</itemgap>
 				<onright>ClearProperty(ShowScreenSettings,home)</onright>
 				<onright>50</onright>
 				<onleft>ClearProperty(ShowScreenSettings,home)</onleft>
 				<onleft>50</onleft>
-				<control type="button" id="2">
-					<!-- View as button -->
-					<width>639</width>
-					<height>69</height>
-					<font>apptv22</font>
+				<control type="button" id="2"><!-- View as button -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[100]</label>
 				</control>
-				<control type="button" id="1193">
-					<!-- Remove unused views -->
-					<width>639</width>
-					<height>69</height>
+				<control type="button" id="1193"><!-- Remove unused views -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[31895]</label>
-					<font>apptv22</font>
 					<onclick>SetProperty(EditViews,Video,home)</onclick>
 					<onclick>ActivateWindow(1161)</onclick>
 				</control>
-				<control type="button" id="1194">
-					<!-- List View Movie Widget type -->
-					<width>639</width>
-					<height>69</height>
+				<control type="button" id="1194"><!-- List View Movie Widget type -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[31982]</label>
 					<label2>$INFO[Skin.String(widget-listview-movie)]</label2>
-					<font>apptv22</font>
 					<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31964])</onclick>
 					<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(widget-listview-movie,$LOCALIZE[31964]))</onclick>
 					<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31960])</onclick>
@@ -162,13 +146,10 @@
 					<enable>!String.IsEqual(Skin.String(listview-idleanim),$LOCALIZE[31815])</enable>
 					<visible>$EXP[isContentMovies]</visible>
 				</control>
-				<control type="button" id="1195">
-					<!-- List View TVShow Widget type -->
-					<width>639</width>
-					<height>69</height>
+				<control type="button" id="1195"><!-- List View TVShow Widget type -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[31982]</label>
 					<label2>$INFO[Skin.String(widget-listview-tvshow)]</label2>
-					<font>apptv22</font>
 					<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31954])</onclick>
 					<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(widget-listview-tvshow,$LOCALIZE[31954]))</onclick>
 					<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31955])</onclick>
@@ -204,13 +185,10 @@
 					<enable>!String.IsEqual(Skin.String(listview-idleanim),$LOCALIZE[31815])</enable>
 					<visible>$EXP[isContentTvshows]</visible>
 				</control>
-				<control type="button" id="1196">
-					<!-- List view idle widget delay -->
-					<width>639</width>
-					<height>69</height>
+				<control type="button" id="1196"><!-- List view idle widget delay -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[31885]</label>
 					<label2>$VAR[DelayListAnimation]</label2>
-					<font>apptv22</font>
 					<onclick>SetProperty(Dialog.1.Label,60 $LOCALIZE[31812])</onclick>
 					<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(listview-idleanim,60))</onclick>
 					<onclick>SetProperty(Dialog.2.Label,90 $LOCALIZE[31812])</onclick>
@@ -222,171 +200,117 @@
 					<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31885])</onclick>
 					<visible>String.EndsWith(Control.GetLabel(2),$LOCALIZE[31941])</visible>
 				</control>
-				<control type="radiobutton" id="1197">
-					<!-- Use animated Artwork  -->
-					<width>639</width>
-					<height>69</height>
+				<control type="radiobutton" id="1197"><!-- Use animated Artwork  -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[31867]</label>
-					<font>apptv22</font>
 					<onclick>Skin.ToggleSetting(animated-artwork)</onclick>
 					<selected>Skin.HasSetting(animated-artwork)</selected>
 					<radioposx>495</radioposx>
 					<visible>$EXP[isContentMovies]</visible>
 				</control>
-				<control type="radiobutton" id="1198">
-					<!-- Tilt wall view icons button -->
-					<width>639</width>
-					<height>69</height>
+				<control type="radiobutton" id="1198"><!-- Tilt wall view icons button -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[31886]</label>
-					<font>apptv22</font>
 					<onclick>Skin.ToggleSetting(tiltvideowallicon)</onclick>
 					<selected>Skin.HasSetting(tiltvideowallicon)</selected>
 					<radioposx>495</radioposx>
 					<visible>String.EndsWith(Control.GetLabel(2),$LOCALIZE[31944])</visible>
 				</control>
-				<control type="radiobutton" id="208">
-					<!-- Use Media case Toggle -->
-					<width>639</width>
-					<height>69</height>
+				<control type="radiobutton" id="208"><!-- Use Media case Toggle -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[31869]</label>
-					<font>apptv22</font>
 					<onclick>Skin.ToggleSetting(dvd-case)</onclick>
 					<selected>Skin.HasSetting(dvd-case)</selected>
 					<radioposx>495</radioposx>
 				</control>
-				<control type="button" id="3">
-					<!-- Sort by button -->
-					<width>639</width>
-					<height>69</height>
-					<font>apptv22</font>
+				<control type="button" id="3"><!-- Sort by button -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[103]</label>
 				</control>
-				<control type="togglebutton" id="4">
-					<!-- Sort direction button -->
-					<width>639</width>
-					<height>69</height>
+				<control type="togglebutton" id="4"><!-- Sort direction button -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[21429]: $LOCALIZE[21430]</label>
 					<altlabel>$LOCALIZE[21429]: $LOCALIZE[21431]</altlabel>
-					<font>apptv22</font>
 				</control>
-				<control type="button" id="10">
-					<!-- Watched toggle button -->
-					<width>639</width>
-					<height>69</height>
-					<font>apptv22</font>
+				<control type="button" id="10"><!-- Watched toggle button -->
+					<include>settings-screen-common</include>
 				</control>
-				<control type="button" id="210">
-					<!-- Custom Studio Icons Button -->
-					<width>639</width>
-					<height>69</height>
+				<control type="button" id="210"><!-- Custom Studio Icons Button -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[31878]</label>
-					<font>apptv22</font>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,type=resource.images.studios&amp;property=custom-moviestudioicons)</onclick>
 					<enable>String.Contains(Control.GetLabel(2),$LOCALIZE[31941]) | String.Contains(Control.GetLabel(2),$LOCALIZE[31945])</enable>
 					<visible>Container.Content(studios)</visible>
 				</control>
-				<control type="button" id="211">
-					<!-- Custom Genre Icons Button -->
-					<width>639</width>
-					<height>69</height>
+				<control type="button" id="211"><!-- Custom Genre Icons Button -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[31879]</label>
-					<font>apptv22</font>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,type=resource.images.moviegenreicons&amp;property=custom-moviegenresicons)</onclick>
 					<enable>[String.Contains(Control.GetLabel(2),$LOCALIZE[31941]) | String.Contains(Control.GetLabel(2),$LOCALIZE[31945])]</enable>
 					<visible>Container.Content(genres)</visible>
 				</control>
-				<control type="button" id="8">
-					<!-- Search button -->
-					<width>639</width>
-					<height>69</height>
+				<control type="button" id="8"><!-- Search button -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[137]</label>
-					<font>apptv22</font>
 				</control>
-				<control type="edit" id="19">
-					<!-- Filter button -->
-					<width>639</width>
-					<height>69</height>
-					<font>apptv22</font>
+				<control type="edit" id="19"><!-- Filter button -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[587]</label>
 					<textwidth>510</textwidth>
 					<visible>!Container.CanFilterAdvanced</visible>
 				</control>
-				<control type="radiobutton" id="98">
-					<!-- Advanced filter button -->
-					<width>639</width>
-					<height>69</height>
+				<control type="radiobutton" id="98"><!-- Advanced filter button -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[587]</label>
-					<font>apptv22</font>
 					<selected>Container.Filtered</selected>
 					<onclick>Filter</onclick>
 					<radioposx>495</radioposx>
 					<visible>Container.CanFilterAdvanced</visible>
 				</control>
-				<control type="button" id="16">
-					<!-- Party mode button -->
-					<width>639</width>
-					<height>69</height>
+				<control type="button" id="16"><!-- Party mode button -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[589]</label>
-					<font>apptv22</font>
 					<visible>$EXP[isContentMusicvideos]</visible>
 				</control>
-				<control type="radiobutton" id="11">
-					<!-- Unlock shares button -->
+				<control type="radiobutton" id="11"><!-- Unlock shares button -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[20336]</label>
-					<width>639</width>
-					<height>69</height>
-					<font>apptv22</font>
 					<onclick>Mastermode</onclick>
 					<selected>system.ismaster</selected>
 					<radioposx>495</radioposx>
 					<visible>system.haslocks</visible>
 				</control>
-				<control type="button" id="200">
-					<!-- Clean library button -->
-					<width>639</width>
-					<height>69</height>
-					<font>apptv22</font>
+				<control type="button" id="200"><!-- Clean library button -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[334]</label>
 					<onclick>CleanLibrary(video)</onclick>
 				</control>
-				<control type="togglebutton" id="20">
-					<!-- Update library button -->
-					<width>639</width>
-					<height>69</height>
-					<font>apptv22</font>
+				<control type="togglebutton" id="20"><!-- Update library button -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[653]</label>
 					<altlabel>$LOCALIZE[13353]</altlabel>
 					<usealttexture>library.isscanningvideo</usealttexture>
 				</control>
-				<control type="button" id="1200">
-					<!-- player controls button -->
-					<width>639</width>
-					<height>69</height>
-					<font>apptv22</font>
+				<control type="button" id="1200"><!-- Player controls button -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[16003] $LOCALIZE[478]</label>
 					<onclick>SetFocus(50)</onclick>
 					<onclick condition="String.IsEqual(Window(home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,home)</onclick>
 					<onclick>ActivateWindow(playercontrols)</onclick>
 					<visible>Player.HasAudio | Player.HasVideo</visible>
 				</control>
-				<control type="button" id="22">
-					<!-- now playing -->
-					<width>639</width>
-					<height>69</height>
-					<font>apptv22</font>
+				<control type="button" id="22"><!-- Now playing -->
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[13350]</label>
 					<onclick>ActivateWindow(videoplaylist)</onclick>
 					<visible>!String.IsEqual(Playlist.Length(video),0)</visible>
 				</control>
 			</control>
 		</control>
-		<!-- Show a iOS style page indicator to show which focus group has the current focus -->
-		<!-- Focus group can be hidden or shown but is potentially focusable, that is it has not be disabled -->
 		<control type="group">
 			<visible>![String.IsEmpty(Container().ListItem.Label) + String.IsEmpty(Container().ListItem(1).Label)]</visible>
-			<!-- Don't show markers until we have some content to show -->
 			<control type="group">
 				<visible>Control.IsVisible(50) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(58)</visible>
 				<include content="page-indicator">

@@ -180,7 +180,6 @@
 						<height>72</height>
 						<font>apptv18</font>
 						<selectedcolor>listselected-text</selectedcolor>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<wrapmultiline>true</wrapmultiline>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
@@ -433,9 +432,8 @@
 					<onright condition="$EXP[isEnabledScrollbar]">27</onright>
 					<preloaditems>4</preloaditems>
 					<pagecontrol>27</pagecontrol>
-					<itemlayout width="840" height="105">
-						<control type="image">
-							<!-- Button unfocus -->
+					<itemlayout height="105">
+						<control type="image"><!-- Button unfocus -->
 							<left>9</left>
 							<top>0</top>
 							<width>831</width>
@@ -469,9 +467,8 @@
 							<visible>$EXP[isnotDefaultIcon] + [Window.IsVisible(tvrecordings) | Window.IsVisible(radiorecordings)]</visible>
 						</control>
 					</itemlayout>
-					<focusedlayout width="840" height="105">
-						<control type="image">
-							<!-- Button focus -->
+					<focusedlayout height="105">
+						<control type="image"><!-- Button focus -->
 							<left>9</left>
 							<top>0</top>
 							<width>831</width>
@@ -506,8 +503,7 @@
 						</control>
 					</focusedlayout>
 				</control>
-				<control type="group">
-					<!-- Current Icon/Channel playing -->
+				<control type="group"><!-- Current Icon/Channel playing -->
 					<control type="grouplist">
 						<visible>Control.IsVisible(50)</visible>
 						<animation effect="fade" start="0" end="100" time="200" delay="100">Visible</animation>
@@ -559,8 +555,7 @@
 							<align>center</align>
 							<wrapmultiline>true</wrapmultiline>
 						</control>
-						<control type="label">
-							<!-- Start/End time -->
+						<control type="label"><!-- Start/End time -->
 							<width>942</width>
 							<height>45</height>
 							<font>apptv23</font>
@@ -574,8 +569,7 @@
 							<texture>separator.png</texture>
 							<visible>!String.IsEmpty(ListItem.Title)</visible>
 						</control>
-						<control type="textbox">
-							<!-- Plot -->
+						<control type="textbox"><!-- Plot -->
 							<width>942</width>
 							<height>322</height>
 							<font>apptv22</font>
@@ -597,14 +591,12 @@
 		</control>
 	</include>
 	<include name="PVRSearchListView">
-		<control type="group">
-			<!-- TV search group -->
+		<control type="group"><!-- TV search group -->
 			<visible>Control.IsVisible(17)</visible>
 			<control type="group">
 				<left>120</left>
 				<top>135</top>
-				<control type="label">
-					<!-- Channel -->
+				<control type="label"><!-- Channel -->
 					<left>30</left>
 					<top>30</top>
 					<width>360</width>
@@ -612,8 +604,7 @@
 					<label>$LOCALIZE[19148]</label>
 					<visible>Control.IsVisible(17)</visible>
 				</control>
-				<control type="label">
-					<!-- Title -->
+				<control type="label"><!-- Title -->
 					<left>525</left>
 					<top>30</top>
 					<width>525</width>
@@ -621,8 +612,7 @@
 					<label>$LOCALIZE[369]</label>
 					<visible>Control.IsVisible(17)</visible>
 				</control>
-				<control type="label">
-					<!-- Time -->
+				<control type="label"><!-- Time -->
 					<left>1080</left>
 					<top>30</top>
 					<width>390</width>
@@ -631,8 +621,7 @@
 					<label>$LOCALIZE[21820]</label>
 					<visible>Control.IsVisible(17)</visible>
 				</control>
-				<control type="label">
-					<!-- Status header -->
+				<control type="label"><!-- Status header -->
 					<left>1455</left>
 					<top>30</top>
 					<width>210</width>

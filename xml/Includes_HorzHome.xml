@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <includes>
+	<include name="HorzHomeMenuBar">
+		<control type="group">
+			<control type="image"><!-- Background image for menu area -->
+				<left>0</left>
+				<top>468</top>
+				<width>1920</width>
+				<height>612</height>
+				<texture>background-horzhome.png</texture>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>465</top>
+				<width>100%</width>
+				<height>6</height>
+				<texture>separator.png</texture>
+			</control>
+			<control type="image">
+				<left>0</left>
+				<top>570</top>
+				<width>100%</width>
+				<height>6</height>
+				<texture>separator.png</texture>
+			</control>
+		</control>
+	</include>
 	<include name="HorzHomeMenuHeading">
 		<left>0</left>
 		<top>26</top>
@@ -17,7 +42,6 @@
 			<font>apptv22</font>
 			<align>center</align>
 			<label>$INFO[ListItem.Label]</label>
-			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 		</control>
 	</include>
 	<include name="HorzHomeFocusItem">
@@ -36,7 +60,6 @@
 			<font>apptv22</font>
 			<align>center</align>
 			<label>$INFO[ListItem.Label]</label>
-			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 		</control>
 	</include>
 	<include name="menu-hilite">
@@ -173,69 +196,7 @@
 				</include>
 			</control>
 		</control>
-		<control type="group"><!-- Main Horizontal menu bar -->
-			<control type="image"><!-- Background image for menu area -->
-				<left>0</left>
-				<top>468</top>
-				<width>1920</width>
-				<height>612</height>
-				<texture>background-horzhome.png</texture>
-			</control>
-			<control type="image">
-				<left>0</left>
-				<top>465</top>
-				<width>100%</width>
-				<height>6</height>
-				<texture>separator.png</texture>
-			</control>
-			<control type="image">
-				<left>0</left>
-				<top>570</top>
-				<width>100%</width>
-				<height>6</height>
-				<texture>separator.png</texture>
-			</control>
-		</control>
-		<!-- Play bump sound if user tries to leave menu by undefined direction -->
-		<include content="illegal-action">
-			<param name="controlid" value="9005" />
-			<param name="returnid" value="9000" />
-		</include>
-		<!-- Play bump sound if user tries to leave Movie shelf by undefined direction -->
-		<include content="illegal-action">
-			<param name="controlid" value="9050" />
-			<param name="returnid" value="9160" />
-		</include>
-		<!-- Play bump sound if user tries to leave TV shelf by undefined direction -->
-		<include content="illegal-action">
-			<param name="controlid" value="9052" />
-			<param name="returnid" value="9210" />
-		</include>
-		<!-- Play bump sound if user tries to leave Music shelf by undefined direction -->
-		<include content="illegal-action">
-			<param name="controlid" value="9054" />
-			<param name="returnid" value="9260" />
-		</include>
-		<!-- Play bump sound if user tries to leave Addons shelf by undefined direction -->
-		<include content="illegal-action">
-			<param name="controlid" value="9056" />
-			<param name="returnid" value="9360" />
-		</include>
-		<!-- Play bump sound if user tries to leave Addons shelf by undefined direction -->
-		<include content="illegal-action">
-			<param name="controlid" value="9056" />
-			<param name="returnid" value="9360" />
-		</include>
-		<!-- Play bump sound if user tries to leave Broadcast shelf by undefined direction -->
-		<include content="illegal-action">
-			<param name="controlid" value="9058" />
-			<param name="returnid" value="9510" />
-		</include>
-		<!-- Play bump sound if user tries to leave Custom shelf by undefined direction -->
-		<include content="illegal-action">
-			<param name="controlid" value="9060" />
-			<param name="returnid" value="9560" />
-		</include>
+		<include>HorzHomeMenuBar</include><!-- Main Horizontal menu bar -->
 		<!-- Markers for control area items -->
 		<include content="page-offscreen-horizontal">
 			<param name="indicator1left" value="0"/>
@@ -1301,5 +1262,45 @@
 		<control type="group" id="9940"><!-- RSS info -->
 			<include condition="System.GetBool(lookandfeel.enablerssfeeds)">page-info</include>
 		</control>
+		<!-- Play bump sound if user tries to leave menu by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9005" />
+			<param name="returnid" value="9000" />
+		</include>
+		<!-- Play bump sound if user tries to leave Movie shelf by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9050" />
+			<param name="returnid" value="9160" />
+		</include>
+		<!-- Play bump sound if user tries to leave TV shelf by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9052" />
+			<param name="returnid" value="9210" />
+		</include>
+		<!-- Play bump sound if user tries to leave Music shelf by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9054" />
+			<param name="returnid" value="9260" />
+		</include>
+		<!-- Play bump sound if user tries to leave Addons shelf by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9056" />
+			<param name="returnid" value="9360" />
+		</include>
+		<!-- Play bump sound if user tries to leave Addons shelf by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9056" />
+			<param name="returnid" value="9360" />
+		</include>
+		<!-- Play bump sound if user tries to leave Broadcast shelf by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9058" />
+			<param name="returnid" value="9510" />
+		</include>
+		<!-- Play bump sound if user tries to leave Custom shelf by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9060" />
+			<param name="returnid" value="9560" />
+		</include>
 	</include>
 </includes>

@@ -36,7 +36,7 @@
 			<ondown>50</ondown>
 			<preloaditems>4</preloaditems>
 			<pagecontrol>1250</pagecontrol>
-			<itemlayout width="840" height="96">
+			<itemlayout height="96">
 				<control type="image">
 					<left>0</left>
 					<top>0</top>
@@ -60,7 +60,6 @@
 					<height>82</height>
 					<font>apptv22</font>
 					<label>$INFO[ListItem.Label] [COLOR=disabled-text]$VAR[VideoListViewLine2][/COLOR]</label>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<aligny>center</aligny>
 				</control>
 				<control type="image">
@@ -79,7 +78,7 @@
 					<texture>$VAR[ListItemFlags]</texture>
 				</control>
 			</itemlayout>
-			<focusedlayout width="840" height="96">
+			<focusedlayout height="96">
 				<control type="image">
 					<left>3</left>
 					<top>24</top>
@@ -94,7 +93,6 @@
 					<height>82</height>
 					<font>apptv22</font>
 					<label>$INFO[ListItem.Label] [COLOR=disabled-text]$VAR[VideoListViewLine2][/COLOR]</label>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<aligny>center</aligny>
 				</control>
 				<control type="image">
@@ -290,7 +288,7 @@
 						<onright>50</onright>
 						<onup>4501</onup>
 						<ondown>4501</ondown>
-						<itemlayout height="46" width="944">
+						<itemlayout height="46">
 							<control type="label">
 								<left>10</left>
 								<height>46</height>
@@ -300,7 +298,7 @@
 								<font>apptv20</font>
 							</control>
 						</itemlayout>
-						<focusedlayout height="46" width="944">
+						<focusedlayout height="46">
 							<control type="image"><!-- Button focus slider -->
 								<left>0</left>
 								<top>0</top>
@@ -495,7 +493,6 @@
 					<height>33</height>
 					<font>apptv20</font>
 					<align>center</align>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Label]</label>
 					<visible>!Container().Scrolling</visible>
 				</control>
@@ -649,7 +646,7 @@
 				<onleft condition="Skin.HasSetting(lock-screensettings)">4531</onleft>
 				<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
 				<onright>$VAR[ListScrollNavVideo]</onright>
-				<itemlayout width="813" height="150">
+				<itemlayout height="150">
 					<control type="image"><!-- Background shadow for unselected IconBanner image -->
 						<left>0</left>
 						<top>0</top>
@@ -683,7 +680,7 @@
 						<param name="size" value="85" />
 					</include>
 				</itemlayout>
-				<focusedlayout width="813" height="150">
+				<focusedlayout height="150">
 					<control type="group">
 						<animation condition="true" effect="zoom" start="100" end="119" center="auto">Conditional</animation>
 						<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(53)">Conditional</animation>
@@ -788,7 +785,6 @@
 							<font>apptv25</font>
 							<align>center</align>
 							<wrapmultiline>true</wrapmultiline>
-							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 							<visible>String.IsEmpty(Control.GetLabel(7316))</visible>
 						</control>
 					</control>
@@ -805,7 +801,6 @@
 						<label>$INFO[ListItem.Genre,[B]$LOCALIZE[515]:[/B] ]</label>
 						<font>apptv22</font>
 						<align>center</align>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="label"><!-- Rating -->
 						<width>900</width>
@@ -1085,7 +1080,6 @@
 				<width>388</width>
 				<height>144</height>
 				<font>apptv30</font>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<wrapmultiline>true</wrapmultiline>
 				<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
@@ -1097,7 +1091,6 @@
 				<width>388</width>
 				<height>144</height>
 				<font>apptv30</font>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<visible>$EXP[isParentFolder]</visible>
 			</control>
@@ -1557,7 +1550,6 @@
 				<height>45</height>
 				<font>apptv30</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>$EXP[isnotParentFolder] + String.IsEmpty(Control.GetLabel(7018))</visible>
 			</control>
@@ -1568,7 +1560,6 @@
 				<height>45</height>
 				<font>apptv30</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<visible>$EXP[isParentFolder]</visible>
 			</control>
@@ -1801,7 +1792,6 @@
 				<width>740</width>
 				<height>111</height>
 				<font>apptv30</font>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<wrapmultiline>true</wrapmultiline>
 				<visible>String.IsEmpty(Control.GetLabel(7116)) + $EXP[isnotParentFolder]</visible>
@@ -1813,7 +1803,6 @@
 				<height>57</height>
 				<font>apptv38</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<visible>$EXP[isParentFolder]</visible>
 			</control>
@@ -1825,7 +1814,6 @@
 					<width>750</width>
 					<height>56</height>
 					<font>apptv18</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Genre]</label>
 				</control>
 				<control type="label"><!-- Duration -->

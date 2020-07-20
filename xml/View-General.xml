@@ -17,9 +17,8 @@
 			<ondown>50</ondown>
 			<preloaditems>4</preloaditems>
 			<pagecontrol>1250</pagecontrol>
-			<itemlayout width="862" height="99">
-				<control type="image">
-					<!-- Button unfocus -->
+			<itemlayout height="99">
+				<control type="image"><!-- Button unfocus -->
 					<left>9</left>
 					<top>0</top>
 					<width>844</width>
@@ -66,9 +65,8 @@
 					<param name="fesize" value="32" />
 				</include>
 			</itemlayout>
-			<focusedlayout width="862" height="99">
-				<control type="image">
-					<!-- Button focus -->
+			<focusedlayout height="99">
+				<control type="image"><!-- Button focus -->
 					<left>9</left>
 					<top>0</top>
 					<width>844</width>
@@ -148,8 +146,7 @@
 							<texture background="true" fallback="DefaultAddon.png" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
 							<aspectratio>keep</aspectratio>
 						</control>
-						<control type="textbox">
-							<!-- Addon description -->
+						<control type="textbox"><!-- Addon description -->
 							<left>26</left>
 							<top>730</top>
 							<width>954</width>
@@ -159,8 +156,7 @@
 							<align>justify</align>
 							<visible>!String.IsEmpty(ListItem.AddonDescription)</visible>
 						</control>
-						<control type="textbox">
-							<!-- Addon summary (Show if no description available)-->
+						<control type="textbox"><!-- Addon summary (Show if no description available)-->
 							<left>26</left>
 							<top>730</top>
 							<width>954</width>
@@ -267,13 +263,11 @@
 					<font>apptv20</font>
 					<label>$INFO[ListItem.Label]</label>
 					<align>center</align>
-					<autoscroll time="2000" delay="3000" repeat="6000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
 					<visible>!Container().Scrolling</visible>
 				</control>
 			</focusedlayout>
 		</control>
-		<control type="group">
-			<!-- Show the bottom row of icons as long as another row exists -->
+		<control type="group"><!-- Show the bottom row of icons as long as another row exists -->
 			<visible>Control.IsVisible(52) + Container(52).HasNext + ![Container().OnScrollNext | Container().OnScrollPrevious]</visible>
 			<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
 			<control type="image">
@@ -372,8 +366,7 @@
 			</control>
 			<control type="group">
 				<visible>$EXP[isContentAddons]</visible>
-				<control type="textbox">
-					<!-- Addon description -->
+				<control type="textbox"><!-- Addon description -->
 					<left>476</left>
 					<top>456</top>
 					<width>1384</width>
@@ -383,8 +376,7 @@
 					<align>justify</align>
 					<visible>!String.IsEmpty(ListItem.AddonDescription)</visible>
 				</control>
-				<control type="textbox">
-					<!-- Addon summary (Show if no description available)-->
+				<control type="textbox"><!-- Addon summary (Show if no description available)-->
 					<left>476</left>
 					<top>456</top>
 					<width>1384</width>
@@ -414,19 +406,16 @@
 				<height>57</height>
 				<font>apptv38</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<visible>$EXP[isParentFolder]</visible>
 			</control>
 			<control type="label">
-				<!-- Label -->
 				<left>26</left>
 				<top>956</top>
 				<width>1858</width>
 				<height>57</height>
 				<font>apptv38</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>$EXP[isnotParentFolder]</visible>
 			</control>
@@ -512,38 +501,32 @@
 				<animation condition="!Control.HasFocus(1254) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + String.StartsWith(Container.Viewmode,Wrap)</visible>
 			</control>
-			<control type="label">
-				<!-- Go Back -->
+			<control type="label"><!-- Go Back -->
 				<left>26</left>
 				<top>950</top>
 				<width>1858</width>
 				<height>56</height>
 				<font>apptv38</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<visible>$EXP[isParentFolder]</visible>
 			</control>
 			<control type="label">
-				<!-- Label -->
 				<left>26</left>
 				<top>950</top>
 				<width>1858</width>
 				<height>56</height>
 				<font>apptv38</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>$EXP[isnotParentFolder]</visible>
 			</control>
-			<control type="label">
-				<!-- Resolution -->
+			<control type="label"><!-- Resolution -->
 				<left>424</left>
 				<top>1024</top>
 				<width>1062</width>
 				<height>56</height>
 				<align>center</align>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.PictureResolution]</label>
 			</control>
 		</control>
@@ -892,7 +875,6 @@
 		<control type="group">
 			<visible>Control.IsVisible(57)</visible>
 			<include>sortletternotification</include>
-			<!-- Scroll Bar -->
 			<control type="scrollbar" id="1257">
 				<left>32</left>
 				<top>885</top>
@@ -910,7 +892,6 @@
 				<height>57</height>
 				<font>apptv38</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<info>ListItem.Label</info>
 			</control>
 		</control>
@@ -973,27 +954,23 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(58)</visible>
-			<control type="label">
-				<!-- Title -->
+			<control type="label"><!-- Title -->
 				<left>300</left>
 				<top>938</top>
 				<width>1320</width>
 				<height>56</height>
 				<font>apptv38</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>$EXP[isnotParentFolder]</visible>
 			</control>
-			<control type="label">
-				<!-- Go Back -->
+			<control type="label"><!-- Go Back -->
 				<left>300</left>
 				<top>938</top>
 				<width>1320</width>
 				<height>56</height>
 				<font>apptv38</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<visible>$EXP[isParentFolder]</visible>
 			</control>
@@ -1073,7 +1050,6 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(58)</visible>
-			<!-- Label -->
 			<control type="label">
 				<left>30</left>
 				<top>948</top>
@@ -1081,30 +1057,25 @@
 				<height>56</height>
 				<font>apptv38</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>$EXP[isnotParentFolder]</visible>
 			</control>
-			<!-- Go Back -->
-			<control type="label">
+			<control type="label"><!-- Go Back -->
 				<left>360</left>
 				<top>948</top>
 				<width>1200</width>
 				<height>56</height>
 				<font>apptv38</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<visible>$EXP[isParentFolder]</visible>
 			</control>
-			<!-- Resolution -->
-			<control type="label">
+			<control type="label"><!-- Resolution -->
 				<left>360</left>
 				<top>1023</top>
 				<width>1200</width>
 				<height>56</height>
 				<align>center</align>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.PictureResolution]</label>
 			</control>
 			<control type="scrollbar" id="1258">

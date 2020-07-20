@@ -22,7 +22,6 @@
 				<height>45</height>
 				<font>apptv30</font>
 				<label>$INFO[ListItem.AddonName]</label>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			</control>
 			<control type="image">
 				<left>570</left>
@@ -76,7 +75,6 @@
 					<height>30</height>
 					<label>$INFO[ListItem.AddonType]</label>
 					<font>apptv20</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="label"><!-- Version heading -->
 					<left>708</left>
@@ -93,7 +91,6 @@
 					<height>30</height>
 					<label>$INFO[ListItem.AddonVersion]</label>
 					<font>apptv20</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="label"><!-- Author heading -->
 					<left>0</left>
@@ -110,7 +107,6 @@
 					<height>30</height>
 					<label>$INFO[ListItem.AddonCreator]</label>
 					<font>apptv20</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="group">
 					<visible>String.IsEmpty(Window.Property(showinfo)) + !String.IsEmpty(ListItem.AddonDisclaimer)</visible>

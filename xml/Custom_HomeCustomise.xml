@@ -48,30 +48,7 @@
 			<control type="group" id="9001"><!-- Horizontal Home Menu -->
 				<visible>Skin.HasSetting(HomeMenuHorizontal)</visible>
 				<animation condition="true" effect="zoom" start="100" end="80" center="auto">Conditional</animation>
-				<control type="group">
-					<!-- Main Horizontal menu bar -->
-					<control type="image"><!-- Background image for menu area -->
-						<left>0</left>
-						<top>468</top>
-						<width>1920</width>
-						<height>612</height>
-						<texture>background-horzhome.png</texture>
-					</control>
-					<control type="image">
-						<left>0</left>
-						<top>465</top>
-						<width>1920</width>
-						<height>6</height>
-						<texture>separator.png</texture>
-					</control>
-					<control type="image">
-						<left>0</left>
-						<top>570</top>
-						<width>1920</width>
-						<height>6</height>
-						<texture>separator.png</texture>
-					</control>
-				</control>
+				<include file="Includes_HozHome.xml">HorzHomeMenuBar</include><!-- Main Horizontal menu bar -->
 				<!-- Markers for off screen menu bar items -->
 				<include content="page-offscreen-horizontal">
 					<param name="indicator1left" value="0"/>

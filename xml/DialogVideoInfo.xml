@@ -32,7 +32,6 @@
 			<font>apptv30</font>
 			<wrapmultiline>true</wrapmultiline>
 			<aligny>center</aligny>
-			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			<label>$INFO[ListItem.Label]</label>
 			<visible>String.IsEmpty(Control.GetLabel(7018)) + String.IsEmpty(ListItem.TVShowTitle)</visible>
 		</control>
@@ -44,7 +43,6 @@
 			<font>apptv30</font>
 			<wrapmultiline>true</wrapmultiline>
 			<aligny>center</aligny>
-			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			<label>$INFO[ListItem.TVShowTitle]</label>
 			<visible>String.IsEmpty(Control.GetLabel(7018)) + !String.IsEmpty(ListItem.TVShowTitle)</visible>
 		</control>
@@ -66,7 +64,6 @@
 			<font>apptv22</font>
 			<textcolor>disabled-text</textcolor>
 			<shadowcolor>shadow-text</shadowcolor>
-			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			<label>$INFO[ListItem.Studio]</label>
 		</control>
 		<control type="image">
@@ -77,7 +74,6 @@
 			<texture>separator.png</texture>
 		</control>
 		<control type="textbox" id="1122"><!-- Plot -->
-			<!-- Plot -->
 			<left>510</left>
 			<top>165</top>
 			<width>1350</width>
@@ -158,7 +154,6 @@
 			<top>392</top>
 			<width>480</width>
 			<height>74</height>
-			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			<label>$INFO[ListItem.Genre]</label>
 			<font>apptv20</font>
 		</control>
@@ -176,7 +171,6 @@
 			<top>472</top>
 			<width>480</width>
 			<height>30</height>
-			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			<label>$LOCALIZE[20416] $INFO[ListItem.Premiered]</label>
 			<font>apptv20</font>
 			<visible>$EXP[isTvshow] | $EXP[isEpisode] | $EXP[isMusicvideo]</visible>
@@ -206,7 +200,6 @@
 				<top>510</top>
 				<width>480</width>
 				<height>30</height>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<font>apptv20</font>
 				<visible>String.IsEmpty(ListItem.Property(TotalSeasons))</visible>
@@ -216,7 +209,6 @@
 				<top>548</top>
 				<width>480</width>
 				<height>30</height>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[20360] $INFO[ListItem.Property(TotalEpisodes)] [COLOR=grey] ($INFO[ListItem.Property(UnWatchedEpisodes), , $LOCALIZE[16101]])[/COLOR]</label>
 				<font>apptv20</font>
 			</control>
@@ -232,26 +224,51 @@
 			<control type="image" id="171"><!-- Audio codec -->
 				<width>60</width>
 				<height>45</height>
-				<texture background="true" fallback="blank.png">$INFO[Listitem.AudioCodec,special://skin/extras/images/audio/,.png]</texture>
-				<visible>!String.IsEqual(Control.GetLabel(171),blank.png)</visible>
+				<texture background="true">$INFO[Listitem.AudioCodec,special://skin/extras/images/audio/,.png]</texture>
+				<visible>!String.IsEqual(Control.GetLabel(161),blank.png)</visible>
 			</control>
 			<control type="image" id="172"><!-- Video codec -->
 				<width>60</width>
 				<height>45</height>
-				<texture background="true" fallback="blank.png">$INFO[Listitem.VideoCodec,special://skin/extras/images/video/,.png]</texture>
-				<visible>!String.IsEqual(Control.GetLabel(172),blank.png)</visible>
+				<texture background="true">$INFO[Listitem.VideoCodec,special://skin/extras/images/video/,.png]</texture>
+				<visible>!String.IsEqual(Control.GetLabel(162),blank.png)</visible>
 			</control>
 			<control type="image" id="173"><!-- Video aspect ratio -->
 				<width>60</width>
 				<height>45</height>
-				<texture background="true" fallback="blank.png">$INFO[ListItem.VideoAspect,special://skin/extras/images/aspectratio/,.png]</texture>
-				<visible>!String.IsEqual(Control.GetLabel(173),blank.png)</visible>
+				<texture background="true">$INFO[ListItem.VideoAspect,special://skin/extras/images/aspectratio/,.png]</texture>
+				<visible>!String.IsEqual(Control.GetLabel(163),blank.png)</visible>
 			</control>
 			<control type="image" id="174"><!-- Video resolution -->
 				<width>60</width>
 				<height>45</height>
+				<texture background="true">$INFO[Listitem.VideoResolution,special://skin/extras/images/resolution/,.png]</texture>
+				<visible>!String.IsEqual(Control.GetLabel(164),blank.png)</visible>
+			</control>
+			<!-- Hack to check if media flag image is available -->
+			<control type="image" id="161">
+				<width>1</width>
+				<height>45</height>
+				<colordiffuse>HideControl</colordiffuse>
+				<texture background="true" fallback="blank.png">$INFO[Listitem.AudioCodec,special://skin/extras/images/audio/,.png]</texture>
+			</control>
+			<control type="image" id="162">
+				<width>1</width>
+				<height>45</height>
+				<colordiffuse>HideControl</colordiffuse>
+				<texture background="true" fallback="blank.png">$INFO[Listitem.VideoCodec,special://skin/extras/images/video/,.png]</texture>
+			</control>
+			<control type="image" id="163">
+				<width>1</width>
+				<height>45</height>
+				<texture background="true" fallback="blank.png">$INFO[ListItem.VideoAspect,special://skin/extras/images/aspectratio/,.png]</texture>
+				<colordiffuse>HideControl</colordiffuse>
+			</control>
+			<control type="image" id="164">
+				<width>1</width>
+				<height>45</height>
+				<colordiffuse>HideControl</colordiffuse>
 				<texture background="true" fallback="blank.png">$INFO[Listitem.VideoResolution,special://skin/extras/images/resolution/,.png]</texture>
-				<visible>!String.IsEqual(Control.GetLabel(174),blank.png)</visible>
 			</control>
 		</control>
 		<control type="group">
@@ -283,7 +300,6 @@
 				<top>398</top>
 				<width>428</width>
 				<height>30</height>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[Container(50).ListItemAbsolute(0).Label]</label>
 				<font>apptv20</font>
 			</control>
@@ -300,7 +316,6 @@
 				<top>472</top>
 				<width>428</width>
 				<height>30</height>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[Container(50).ListItemAbsolute(2).Label]</label>
 				<font>apptv20</font>
 			</control>
@@ -339,7 +354,6 @@
 				<top>398</top>
 				<width>408</width>
 				<height>63</height>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Director]</label>
 				<font>apptv20</font>
 				<wrapmultiline>true</wrapmultiline>
@@ -360,7 +374,6 @@
 				<top>507</top>
 				<width>408</width>
 				<height>63</height>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Writer]</label>
 				<font>apptv20</font>
 				<wrapmultiline>true</wrapmultiline>
@@ -526,7 +539,6 @@
 					<label>$INFO[ListItem.Label]</label>
 					<font>apptv20</font>
 					<align>center</align>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<animation effect="fade" time="100" delay="300">Focus</animation>
 					<visible>Control.HasFocus(50)</visible>
 				</control>
@@ -538,7 +550,6 @@
 					<label>$INFO[ListItem.Label2]</label>
 					<font>apptv20</font>
 					<align>center</align>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<animation effect="fade" time="100" delay="300">Focus</animation>
 					<visible>Control.HasFocus(50)</visible>
 				</control>

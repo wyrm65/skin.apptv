@@ -201,7 +201,7 @@
 				<top>0</top>
 				<width>123</width>
 				<height>105</height>
-				<texture border="12">button-menu-background.png</texture>
+				<texture border="14">button-menu-background.png</texture>
 				<visible>!String.IsEmpty(ListItem.SortLetter)</visible>
 			</control>
 			<control type="label">
@@ -251,7 +251,6 @@
 					<height>30</height>
 					<label>$VAR[FakeOverlayLine2]</label>
 					<font>apptv20</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="label">
 					<left>280</left>
@@ -260,7 +259,6 @@
 					<height>30</height>
 					<label>$VAR[FakeOverlayLine3]</label>
 					<font>apptv20</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="label">
 					<left>280</left>
@@ -269,7 +267,6 @@
 					<height>30</height>
 					<label>$VAR[FakeOverlayLine4]</label>
 					<font>apptv20</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 			</control>
 		</control>
@@ -283,7 +280,6 @@
 			<font>apptv22</font>
 			<align>center</align>
 			<label fallback="20333">$INFO[ListItem.Label]</label>
-			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
 		</control>
 	</include>
@@ -304,7 +300,6 @@
 			<font>apptv22</font>
 			<align>center</align>
 			<label fallback="20333">$INFO[ListItem.Label]</label>
-			<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 			<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
 		</control>
 	</include>
@@ -951,6 +946,11 @@
 		<font>apptv22</font>
 		<textwidth>1125</textwidth>
 		<radioposx>1266</radioposx>
+	</include>
+	<include name="settings-screen-common">
+		<width>640</width>
+		<height>70</height>
+		<font>apptv22</font>
 	</include>
 	<include name="skinsettings-list">
 		<left>80</left>

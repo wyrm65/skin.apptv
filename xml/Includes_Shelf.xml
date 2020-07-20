@@ -175,7 +175,6 @@
 						<align>center</align>
 						<aligny>top</aligny>
 						<label>$INFO[ListItem.Label]</label>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<animation effect="fade" time="100" delay="100">Focus</animation>
 						<visible>Control.HasFocus(9160) | Control.HasFocus(9165)</visible>
 					</control>
@@ -296,7 +295,6 @@
 							<label>$INFO[ListItem.Title]</label>
 							<align>center</align>
 							<selectedcolor>button-text</selectedcolor>
-							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 							<font>apptv20</font>
 						</control>
 						<control type="group">
@@ -309,7 +307,6 @@
 								<label>$LOCALIZE[20373] $INFO[ListItem.Season] $LOCALIZE[20359] $INFO[ListItem.Episode]</label>
 								<align>center</align>
 								<selectedcolor>button-text</selectedcolor>
-								<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 								<font>apptv20</font>
 								<visible>!String.IsEmpty(ListItem.Season) + !ListItem.Property(IsSpecial)</visible>
 							</control>
@@ -321,7 +318,6 @@
 								<label>$LOCALIZE[20381] $LOCALIZE[20359] $INFO[ListItem.Episode]</label>
 								<align>center</align>
 								<selectedcolor>button-text</selectedcolor>
-								<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 								<font>apptv20</font>
 								<visible>ListItem.Property(IsSpecial)</visible>
 							</control>
@@ -424,7 +420,6 @@
 						<align>center</align>
 						<aligny>top</aligny>
 						<label>$INFO[ListItem.Label]</label>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<animation effect="fade" time="100" delay="100">Focus</animation>
 						<visible>Control.HasFocus(9560) | Control.HasFocus(9565)</visible>
 					</control>
@@ -519,7 +514,6 @@
 						<align>center</align>
 						<aligny>top</aligny>
 						<label>$INFO[ListItem.Label]</label>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<animation effect="fade" time="100" delay="100">Focus</animation>
 						<visible>Control.HasFocus(9260) | Control.HasFocus(9265)</visible>
 					</control>
@@ -621,7 +615,6 @@
 						<align>center</align>
 						<aligny>top</aligny>
 						<label>$INFO[ListItem.Label]</label>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<animation effect="fade" time="100" delay="100">Focus</animation>
 						<visible>Control.HasFocus(9360)  | Control.HasFocus(9365)</visible>
 					</control>
@@ -719,7 +712,6 @@
 							<label>$VAR[BroadcastShelfLabel]</label>
 							<align>center</align>
 							<selectedcolor>button-text</selectedcolor>
-							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 							<font>apptv20</font>
 						</control>
 						<control type="label">
@@ -730,7 +722,6 @@
 							<label>$VAR[BroadcastShelfLabel2]</label>
 							<align>center</align>
 							<selectedcolor>button-text</selectedcolor>
-							<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 							<font>apptv18</font>
 						</control>
 					</control>
@@ -756,7 +747,6 @@
 					<height>69</height>
 					<width>750</width>
 					<label>$INFO[Window(weather).Property(Location)]</label>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<font>apptv22</font>
 				</control>
 				<control type="label">
@@ -766,7 +756,6 @@
 					<width>750</width>
 					<font>apptv22</font>
 					<label>$INFO[Window(weather).Property(WeatherProvider),$LOCALIZE[31536] - ]</label>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>String.IsEmpty(Window(weather).Property(WeatherProviderLogo))</visible>
 				</control>
 				<control type="group">
@@ -820,7 +809,6 @@
 						<label>$INFO[ListItem.Property(day)]</label>
 						<font>apptv22</font>
 						<align>center</align>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="multiimage">
 						<left>117</left>
@@ -851,7 +839,6 @@
 						<label>$INFO[Listitem.Label2]</label>
 						<align>center</align>
 						<wrapmultiline>true</wrapmultiline>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<font>apptv20</font>
 					</control>
 				</itemlayout>
@@ -873,7 +860,6 @@
 						<label>$INFO[ListItem.Property(day)]</label>
 						<font>apptv22</font>
 						<align>center</align>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="multiimage">
 						<left>117</left>
@@ -904,7 +890,6 @@
 						<label>$INFO[Listitem.Label2]</label>
 						<align>center</align>
 						<wrapmultiline>true</wrapmultiline>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<font>apptv20</font>
 					</control>
 				</focusedlayout>
@@ -1068,7 +1053,6 @@
 						<label>$INFO[VideoPlayer.Title]</label>
 						<font>apptv20</font>
 						<align>center</align>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<visible>!VideoPlayer.Content(episodes)</visible>
 					</control>
 					<control type="label">
@@ -1079,7 +1063,6 @@
 						<label>$INFO[VideoPlayer.TVShowTitle]</label>
 						<font>apptv20</font>
 						<align>center</align>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<visible>VideoPlayer.Content(episodes)</visible>
 					</control>
 					<control type="label">
@@ -1090,7 +1073,6 @@
 						<label>$INFO[VideoPlayer.Title]</label>
 						<font>apptv20</font>
 						<align>center</align>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<visible>VideoPlayer.Content(episodes)</visible>
 					</control>
 				</control>
@@ -1103,7 +1085,6 @@
 					<align>center</align>
 					<aligny>top</aligny>
 					<label>$INFO[VideoPlayer.ChannelName][CR]$INFO[VideoPlayer.Title]</label>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<visible>Pvr.IsPlayingTv</visible>
 				</control>
 				<control type="videowindow"><!-- video preview window, hack to allow playercontrols to work -->
@@ -1144,7 +1125,6 @@
 						<label>$VAR[PlayerMusicInfo1]</label>
 						<align>center</align>
 						<selectedcolor>button-text</selectedcolor>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<font>apptv18</font>
 					</control>
 					<control type="label">
@@ -1155,7 +1135,6 @@
 						<label>$VAR[PlayerMusicInfo2]</label>
 						<align>center</align>
 						<selectedcolor>button-text</selectedcolor>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<font>apptv18</font>
 					</control>
 				</control>
@@ -1188,7 +1167,6 @@
 						<align>center</align>
 						<aligny>top</aligny>
 						<label>$LOCALIZE[19021] - $INFO[MusicPlayer.ChannelName][CR]$INFO[MusicPlayer.Title]</label>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 				</control>
 				<control type="button"><!-- Fake fullscreen button as a touch screen work around -->

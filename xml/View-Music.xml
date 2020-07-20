@@ -16,7 +16,7 @@
 			<ondown>50</ondown>
 			<preloaditems>4</preloaditems>
 			<pagecontrol>1250</pagecontrol>
-			<itemlayout width="840" height="96">
+			<itemlayout height="96">
 				<control type="image">
 					<left>0</left>
 					<top>0</top>
@@ -79,7 +79,6 @@
 						<height>34</height>
 						<font>apptv22</font>
 						<label>$INFO[ListItem.Label]</label>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<animation condition="String.IsEmpty(ListItem.Duration)" effect="slide" start="0,0" end="0,16" time="0">Conditonal</animation>
 					</control>
 					<control type="label">
@@ -90,7 +89,6 @@
 						<font>apptv22</font>
 						<textcolor>disabled-text</textcolor>
 						<label>$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="image">
 						<left>771</left>
@@ -101,9 +99,8 @@
 					</control>
 				</control>
 			</itemlayout>
-			<focusedlayout width="840" height="96">
-				<control type="image">
-					<!-- Button focus -->
+			<focusedlayout height="96">
+				<control type="image"><!-- Button focus -->
 					<left>0</left>
 					<top>0</top>
 					<width>831</width>
@@ -165,7 +162,6 @@
 						<height>34</height>
 						<font>apptv22</font>
 						<label>$INFO[ListItem.Label]</label>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<animation condition="String.IsEmpty(ListItem.Duration)" effect="slide" start="0,0" end="0,16" time="0">Conditonal</animation>
 					</control>
 					<control type="label">
@@ -176,7 +172,6 @@
 						<font>apptv22</font>
 						<textcolor>disabled-text</textcolor>
 						<label>$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					</control>
 					<control type="image">
 						<left>771</left>
@@ -229,8 +224,7 @@
 			</control>
 			<control type="group">
 				<visible>[$EXP[isContentSongs] | $EXP[isContentAlbums]] + $EXP[isnotDefaultIcon]</visible>
-				<control type="image">
-					<!-- Music logo if available -->
+				<control type="image"><!-- Music logo if available -->
 					<left>44</left>
 					<top>225</top>
 					<width>300</width>
@@ -239,28 +233,23 @@
 					<aspectratio align="left" aligny="bottom">keep</aspectratio>
 					<colordiffuse>mask-background</colordiffuse>
 				</control>
-				<control type="label">
-					<!-- Artist -->
+				<control type="label"><!-- Artist -->
 					<left>30</left>
 					<top>288</top>
 					<width>420</width>
 					<height>38</height>
 					<label>$INFO[ListItem.Artist]</label>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<font>apptv20</font>
 				</control>
-				<control type="label">
-					<!-- Genre -->
+				<control type="label"><!-- Genre -->
 					<left>30</left>
 					<top>425</top>
 					<width>420</width>
 					<height>38</height>
 					<label>$INFO[ListItem.Genre]</label>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<font>apptv20</font>
 				</control>
-				<control type="label">
-					<!-- Year -->
+				<control type="label"><!-- Year -->
 					<left>30</left>
 					<top>463</top>
 					<width>420</width>
@@ -268,8 +257,7 @@
 					<label>$INFO[ListItem.Year]</label>
 					<font>apptv20</font>
 				</control>
-				<control type="image">
-					<!-- Rating -->
+				<control type="image"><!-- Rating -->
 					<left>30</left>
 					<top>505</top>
 					<width>165</width>
@@ -277,8 +265,7 @@
 					<texture>$VAR[MediaRating]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
-				<control type="textbox">
-					<!-- Music item Description -->
+				<control type="textbox"><!-- Music item Description -->
 					<left>30</left>
 					<top>650</top>
 					<width>954</width>
@@ -297,7 +284,6 @@
 					<width>726</width>
 					<height>30</height>
 					<label>$INFO[ListItem.Genre]</label>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<font>apptv20</font>
 				</control>
 				<control type="textbox"><!-- Music video Plot -->
@@ -431,13 +417,11 @@
 					<font>apptv18</font>
 					<label>$INFO[ListItem.Label]</label>
 					<align>center</align>
-					<autoscroll time="2000" delay="3000" repeat="6000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
 					<visible>!Container().Scrolling</visible>
 				</control>
 			</focusedlayout>
 		</control>
-		<control type="group">
-			<!-- Show the bottom row of icons as long as another row exists -->
+		<control type="group"><!-- Show the bottom row of icons as long as another row exists -->
 			<visible>Control.IsVisible(52) + Container(52).HasNext + ![Container().OnScrollNext | Container().OnScrollPrevious]</visible>
 			<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
 			<control type="image">
@@ -685,7 +669,6 @@
 				<height>56</height>
 				<font>apptv30</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<visible>$EXP[isParentFolder]</visible>
 			</control>
@@ -696,7 +679,6 @@
 				<height>56</height>
 				<font>apptv30</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Label]</label>
 				<visible>$EXP[isnotParentFolder]</visible>
 			</control>
@@ -715,7 +697,6 @@
 				<height>56</height>
 				<font>apptv25</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$INFO[ListItem.Genre]</label>
 			</control>
 			<include>sortletternotification</include>
@@ -1092,7 +1073,6 @@
 				<height>57</height>
 				<font>apptv38</font>
 				<align>center</align>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<visible>$EXP[isParentFolder]</visible>
 			</control>
@@ -1105,7 +1085,6 @@
 					<height>56</height>
 					<font>apptv30</font>
 					<align>center</align>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Artist,, - ]$INFO[ListItem.Label]</label>
 					<visible>ListItem.IsFolder + ![$EXP[isContentArtists]]</visible>
 				</control>
@@ -1126,7 +1105,6 @@
 						<height>56</height>
 						<font>apptv30</font>
 						<align>center</align>
-						<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 						<label>$INFO[ListItem.Label]</label>
 						<visible>String.IsEmpty(Listitem.Art(Artist.ClearLogo))</visible>
 					</control>
@@ -1138,7 +1116,6 @@
 					<height>56</height>
 					<font>apptv30</font>
 					<align>center</align>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Label]</label>
 					<visible>!ListItem.IsFolder + ![$EXP[isContentArtists]]</visible>
 				</control>
@@ -1377,7 +1354,6 @@
 				<width>735</width>
 				<height>56</height>
 				<font>apptv30</font>
-				<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				<label>$LOCALIZE[31688]</label>
 				<visible>$EXP[isParentFolder]</visible>
 			</control>
@@ -1391,7 +1367,6 @@
 					<width>705</width>
 					<height>66</height>
 					<font>apptv22</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Artist]</label>
 					<wrapmultiline>true</wrapmultiline>
 				</control>
@@ -1399,7 +1374,6 @@
 					<width>705</width>
 					<height>66</height>
 					<font>apptv22</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Album]</label>
 					<wrapmultiline>true</wrapmultiline>
 					<visible>$EXP[isContentAlbums]</visible>
@@ -1408,17 +1382,14 @@
 					<width>705</width>
 					<height>66</height>
 					<font>apptv22</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Label]</label>
 					<wrapmultiline>true</wrapmultiline>
 					<visible>![$EXP[isContentAlbums]] + ![$EXP[isContentArtists]]</visible>
 				</control>
-				<control type="label">
-					<!-- Genre -->
+				<control type="label"><!-- Genre -->
 					<width>705</width>
 					<height>66</height>
 					<font>apptv20</font>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 					<label>$INFO[ListItem.Genre]</label>
 					<visible>!Container.Content(genres)</visible>
 				</control>
@@ -1466,7 +1437,6 @@
 					<width>705</width>
 					<height>22</height>
 					<control type="image">
-						<!-- blank line -->
 						<left>0</left>
 						<top>0</top>
 						<width>16</width>
@@ -1474,7 +1444,6 @@
 						<texture>blank.png</texture>
 					</control>
 					<control type="image">
-						<!-- Seperator -->
 						<left>0</left>
 						<top>17</top>
 						<width>705</width>
@@ -1482,24 +1451,20 @@
 						<texture>separator.png</texture>
 					</control>
 				</control>
-				<control type="textbox">
-					<!-- Album description -->
+				<control type="textbox"><!-- Album description -->
 					<width>705</width>
 					<height>564</height>
 					<font>apptv20</font>
 					<label>$INFO[ListItem.Property(Album_Description)]</label>
 					<align>justify</align>
-					<autoscroll time="2000" delay="3000" repeat="6000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
 					<visible>$EXP[isContentAlbums]</visible>
 				</control>
-				<control type="textbox">
-					<!-- Artist description -->
+				<control type="textbox"><!-- Artist description -->
 					<width>705</width>
 					<height>564</height>
 					<font>apptv20</font>
 					<label>$INFO[ListItem.Property(Artist_Description)]</label>
 					<align>justify</align>
-					<autoscroll time="2000" delay="3000" repeat="6000">Skin.HasSetting(text-autoscroll) + !System.ScreenSaverActive</autoscroll>
 					<visible>$EXP[isContentArtists]</visible>
 				</control>
 				<control type="textbox"><!-- Music video Plot -->
