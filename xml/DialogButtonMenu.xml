@@ -8,26 +8,22 @@
 	</coordinates>
 	<controls>
 		<include>fadebackground</include>
-		<control type="image">
-			<!-- Dialog background image -->
+		<control type="image"><!-- Dialog background image -->
 			<left>660</left>
 			<top>153</top>
 			<width>570</width>
 			<height>768</height>
 			<texture border="14">button-menu-background.png</texture>
 		</control>
-		<control type="label">
-			<!-- Dialog heading -->
+		<control type="label"><!-- Dialog heading -->
 			<left>675</left>
 			<top>168</top>
 			<width>540</width>
 			<height>45</height>
 			<label>$LOCALIZE[31558]$INFO[Container(9000).NumItems,(,)]</label>
-			<font>apptv25</font>
 			<align>center</align>
 		</control>
-		<control type="button">
-			<!-- Touch mouse close button -->
+		<control type="button"><!-- Close button -->
 			<left>1200</left>
 			<top>135</top>
 			<width>48</width>
@@ -44,8 +40,7 @@
 			<height>6</height>
 			<texture>separator.png</texture>
 		</control>
-		<control type="button" id="999">
-			<!-- Dummy hidden button to close dialog -->
+		<control type="button" id="999"><!-- Dummy hidden button to close dialog -->
 			<left>-15</left>
 			<top>-15</top>
 			<width>1</width>
@@ -58,10 +53,10 @@
 			<top>231</top>
 			<width>540</width>
 			<height>675</height>
-			<onleft>SetFocus(999)</onleft>
-			<onright>SetFocus(999)</onright>
-			<onup>SetFocus(999)</onup>
-			<ondown>SetFocus(999)</ondown>
+			<onleft>999</onleft>
+			<onright>999</onright>
+			<onup>999</onup>
+			<ondown>999</ondown>
 			<itemlayout width="540" height="75">
 				<control type="image">
 					<left>0</left>
