@@ -78,7 +78,7 @@
 	<include name="AllFavourites">
 		<content target="programs" limit="12">favourites://</content>
 	</include>
-	<include name="shelf-dummy">
+	<include name="ShelfDummy">
 		<param name="dummyid"/>
 		<param name="focusid"/>
 		<definition>
@@ -106,7 +106,7 @@
 				<visible>Integer.IsGreater(Container(9160).NumItems,0)</visible>
 			</control>
 			<!-- Dummy button for mouse control -->
-			<include content="shelf-dummy">
+			<include content="ShelfDummy">
 				<param name="dummyid" value="9165"/>
 				<param name="focusid" value="9160"/>
 			</include>
@@ -253,7 +253,7 @@
 				<visible>Integer.IsGreater(Container(9210).NumItems,0)</visible>
 			</control>
 			<!-- Dummy button for mouse control -->
-			<include content="shelf-dummy">
+			<include content="ShelfDummy">
 				<param name="dummyid" value="9215"/>
 				<param name="focusid" value="9210"/>
 			</include>
@@ -347,7 +347,7 @@
 				<visible>Integer.IsGreater(Container(9560).NumItems,0)</visible>
 			</control>
 			<!-- Dummy button for mouse control -->
-			<include content="shelf-dummy">
+			<include content="ShelfDummy">
 				<param name="dummyid" value="9565"/>
 				<param name="focusid" value="9560"/>
 			</include>
@@ -441,7 +441,7 @@
 				<visible>Integer.IsGreater(Container(9260).NumItems,0)</visible>
 			</control>
 			<!-- Dummy button for mouse control -->
-			<include content="shelf-dummy">
+			<include content="ShelfDummy">
 				<param name="dummyid" value="9265"/>
 				<param name="focusid" value="9260"/>
 			</include>
@@ -542,7 +542,7 @@
 				<visible>Integer.IsGreater(Container(9360).NumItems,0)</visible>
 			</control>
 			<!-- Dummy button for mouse control -->
-			<include content="shelf-dummy">
+			<include content="ShelfDummy">
 				<param name="dummyid" value="9365"/>
 				<param name="focusid" value="9360"/>
 			</include>
@@ -627,7 +627,7 @@
 	<include name="broadcast-shelficons">
 		<animation effect="slide" end="378,0" condition="![Control.HasFocus(9510) + Container(9510).Position(4)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">
-			<control type="label"><!-- Broadcast shelf icons label -->
+			<control type="label"><!-- Broadcast shelf label -->
 				<left>82</left>
 				<top>18</top>
 				<height>33</height>
@@ -637,7 +637,7 @@
 				<visible>Integer.IsGreater(Container(9510).NumItems,0)</visible>
 			</control>
 			<!-- Dummy button for mouse control -->
-			<include content="shelf-dummy">
+			<include content="ShelfDummy">
 				<param name="dummyid" value="9515"/>
 				<param name="focusid" value="9510"/>
 			</include>
@@ -781,7 +781,7 @@
 				</control>
 			</control>
 			<!-- Dummy button for mouse control -->
-			<include content="shelf-dummy">
+			<include content="ShelfDummy">
 				<param name="dummyid" value="9415"/>
 				<param name="focusid" value="9410"/>
 			</include>
@@ -926,7 +926,7 @@
 			</control>
 		</control>
 	</include>
-	<include name="homeshelf-background">
+	<include name="ShelfBackground">
 		<control type="group"><!-- Build up home menu shelf image -->
 			<visible>![Window.IsActive(videos) | Window.IsActive(music)]</visible>
 			<control type="group">
@@ -969,7 +969,7 @@
 			</control>
 		</control>
 	</include>
-	<include name="homeshelf-time">
+	<include name="ShelfTime">
 		<control type="label"><!-- Time and date -->
 			<left>1080</left>
 			<top>0</top>
@@ -980,7 +980,7 @@
 			<font>apptv22</font>
 		</control>
 	</include>
-	<include name="shelf-nowplaying">
+	<include name="ShelfNowPlaying">
 		<control type="group">
 			<visible>!Container(9160).Position(5) + !Container(9210).Position(4) + !Container(9260).Position(4) + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]</visible>
 			<control type="label"><!-- Now playing -->

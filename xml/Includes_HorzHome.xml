@@ -25,12 +25,19 @@
 			</control>
 		</control>
 	</include>
+	<include name="HorzHomeMenuList">
+		<left>0</left>
+		<top>126</top>
+		<width>315</width>
+		<height>378</height>
+	</include>
 	<include name="HorzHomeMenuHeading">
 		<left>0</left>
 		<top>26</top>
 		<width>315</width>
 		<height>48</height>
 		<font>apptv30</font>
+		<shadowcolor>tab-shadow</shadowcolor>
 		<align>center</align>
 	</include>
 	<include name="HorzHomeMenuItem">
@@ -62,7 +69,7 @@
 			<label>$INFO[ListItem.Label]</label>
 		</control>
 	</include>
-	<include name="menu-hilite">
+	<include name="HorzHomeHilite">
 		<param name="fadecondition" default="false"/>
 		<definition>
 			<control type="image">
@@ -75,7 +82,7 @@
 			</control>
 		</definition>
 	</include>
-	<include name="horzhome-dummy">
+	<include name="HorzHomeDummy">
 		<param name="dummyid"/>
 		<param name="focusid"/>
 		<definition>
@@ -91,11 +98,11 @@
 		</definition>
 	</include>
 	<include name="HorzHomeMenu">
-		<include file="Includes_Shelf.xml">homeshelf-background</include>
+		<include file="Includes_Shelf.xml">ShelfBackground</include>
 		<!-- Show time on home screen -->
-		<include condition="!Skin.HasSetting(home-time)" file="Includes_Shelf.xml">homeshelf-time</include>
+		<include condition="!Skin.HasSetting(home-time)" file="Includes_Shelf.xml">ShelfTime</include>
 		<!-- Now Playing -->
-		<include condition="Skin.HasSetting(media-overlay)" file="Includes_Shelf.xml">shelf-nowplaying</include>
+		<include condition="Skin.HasSetting(media-overlay)" file="Includes_Shelf.xml">ShelfNowPlaying</include>
 		<control type="group" id="9800"><!-- Shelf icons-->
 			<control type="group" id="9155"><!-- Movie icons -->
 				<visible>Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9165) | Control.HasFocus(9180)</visible>
@@ -194,9 +201,14 @@
 				<include content="shelf-defaulticon">
 					<param name="defaulticon" value="$VAR[HorzHomeShelfIcon]"/>
 				</include>
+				<!-- Dummy button for mouse control -->
+				<include file="Includes_Shelf.xml" content="ShelfDummy">
+					<param name="dummyid" value="9015"/>
+					<param name="focusid" value="$INFO[Window(home).Property(horzhomesubmenu)]"/>
+				</include>
 			</control>
 		</control>
-		<include>HorzHomeMenuBar</include><!-- Main Horizontal menu bar -->
+		<include>HorzHomeMenuBar</include>
 		<!-- Markers for control area items -->
 		<include content="page-offscreen-horizontal">
 			<param name="indicator1left" value="0"/>
@@ -218,14 +230,13 @@
 				<visible>!Skin.HasSetting(home-video)</visible>
 				<width>315</width>
 				<!-- Dummy button for mouse control -->
-				<include content="horzhome-dummy">
+				<include content="HorzHomeDummy">
 					<param name="dummyid" value="9130"/>
 					<param name="focusid" value="9100"/>
 				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9100) | Control.HasFocus(9130)</visible>
-					<!-- Menu Heading Hilite-->
-					<include content="menu-hilite"/>
+					<include content="HorzHomeHilite"/>
 					<!-- Markers for off screen menu items -->
 					<include content="page-offscreen-vertical">
 						<param name="indicator1left" value="144"/>
@@ -238,29 +249,18 @@
 				</control>
 				<control type="label"><!-- Menu Heading -->
 					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-text</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
 					<label>$INFO[Container(9100).ListItem.Label2]</label>
-					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
-					<visible>!Control.HasFocus(9100)</visible>
-				</control>
-				<control type="label"><!-- Menu Heading -->
-					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-hilite</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
-					<label>$INFO[Container(9100).ListItem.Label2]</label>
-					<animation condition="!Control.HasFocus(9100) + !Control.HasFocus(9130)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<textcolor>$VAR[HorzHomeSubmenu1]</textcolor>
+					<animation condition="!Control.HasFocus(9100) + [Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)]" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
 				<control type="list" id="9100">
-					<animation condition="!Control.HasFocus(9100) + !Control.HasFocus(9130)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-					<left>0</left>
-					<top>126</top>
-					<width>315</width>
-					<height>378</height>
+					<include>HorzHomeMenuList</include>
 					<onup>9005</onup>
 					<ondown>9005</ondown>
 					<onleft>6100</onleft>
 					<onright>9150</onright>
+					<onfocus>SetProperty(horzhomesubmenu,9100,home)</onfocus>
+					<animation condition="!Control.HasFocus(9100) + !Control.HasFocus(9130)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 					<itemlayout height="63">
 						<include>HorzHomeMenuItem</include>
 					</itemlayout>
@@ -308,14 +308,13 @@
 				<visible>!Skin.HasSetting(home-movie) | !String.IsEmpty(Skin.String(CustomMovies.1.Path)) | !String.IsEmpty(Skin.String(CustomMovies.2.Path)) | !String.IsEmpty(Skin.String(CustomMovies.3.Path)) | !String.IsEmpty(Skin.String(CustomMovies.4.Path)) | !String.IsEmpty(Skin.String(CustomMovies.5.Path))</visible>
 				<width>315</width>
 				<!-- Dummy button for mouse control -->
-				<include content="horzhome-dummy">
+				<include content="HorzHomeDummy">
 					<param name="dummyid" value="9180"/>
 					<param name="focusid" value="9150"/>
 				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180)</visible>
-					<!-- Menu Heading Hilite-->
-					<include content="menu-hilite">
+					<include content="HorzHomeHilite">
 						<parm name="fadecondition" value="Control.HasFocus(9160)"/>
 					</include>
 					<!-- Markers for control area items -->
@@ -328,34 +327,23 @@
 						<param name="indicatorcontainer" value="9150"/>
 					</include>
 				</control>
-				<control type="label"><!-- Menu Heading -->
+				<control type="label">
 					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-text</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
 					<label>$INFO[Container(9150).ListItem.Label2]</label>
-					<animation condition="Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
-					<visible>!Control.HasFocus(9150)</visible>
-				</control>
-				<control type="label"><!-- Menu Heading -->
-					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-hilite</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
-					<label>$INFO[Container(9150).ListItem.Label2]</label>
-					<animation condition="!Control.HasFocus(9150) + !Control.HasFocus(9160) + !Control.HasFocus(9180)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<textcolor>$VAR[HorzHomeSubmenu2]</textcolor>
+					<animation condition="!Control.HasFocus(9150) + [Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)]" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
 				<control type="list" id="9150">
-					<animation condition="!Control.HasFocus(9150) + !Control.HasFocus(9160) + !Control.HasFocus(9180)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-					<animation condition="Control.HasFocus(9160)" effect="fade" start="100" end="65" reversible="true">Conditional</animation>
-					<left>0</left>
-					<top>126</top>
-					<width>315</width>
-					<height>378</height>
+					<include>HorzHomeMenuList</include>
+					<onfocus>SetProperty(horzhomesubmenu,9150,home)</onfocus>
 					<onup condition="Integer.IsGreater(Container(9160).NumItems,0)">9155</onup>
 					<onup condition="Integer.IsLessOrEqual(Container(9160).NumItems,0)">9005</onup>
 					<onup>9155</onup>
 					<ondown>9005</ondown>
 					<onleft>9100</onleft>
 					<onright>9200</onright>
+					<animation condition="!Control.HasFocus(9150) + !Control.HasFocus(9160) + !Control.HasFocus(9180)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<animation condition="Control.HasFocus(9160)" effect="fade" start="100" end="65" reversible="true">Conditional</animation>
 					<itemlayout height="63">
 						<include>HorzHomeMenuItem</include>
 					</itemlayout>
@@ -411,14 +399,13 @@
 				<visible>!Skin.HasSetting(home-tvshows) | !String.IsEmpty(Skin.String(CustomTVShow.1.Path)) | !String.IsEmpty(Skin.String(CustomTVShow.2.Path)) | !String.IsEmpty(Skin.String(CustomTVShow.3.Path)) | !String.IsEmpty(Skin.String(CustomTVShow.4.Path)) | !String.IsEmpty(Skin.String(CustomTVShow.5.Path))</visible>
 				<width>315</width>
 				<!-- Dummy button for mouse control -->
-				<include content="horzhome-dummy">
+				<include content="HorzHomeDummy">
 					<param name="dummyid" value="9230"/>
 					<param name="focusid" value="9200"/>
 				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230)</visible>
-					<!-- Menu Heading Hilite-->
-					<include content="menu-hilite">
+					<include content="HorzHomeHilite">
 						<parm name="fadecondition" value="Control.HasFocus(9210)"/>
 					</include>
 					<!-- Markers for control area items -->
@@ -431,33 +418,22 @@
 						<param name="indicatorcontainer" value="9200"/>
 					</include>
 				</control>
-				<control type="label"><!-- Menu Heading -->
+				<control type="label">
 					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-text</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
 					<label>$INFO[Container(9200).ListItem.Label2]</label>
-					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
-					<visible>!Control.HasFocus(9200)</visible>
-				</control>
-				<control type="label"><!-- Menu Heading -->
-					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-hilite</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
-					<label>$INFO[Container(9200).ListItem.Label2]</label>
-					<animation condition="!Control.HasFocus(9200) + !Control.HasFocus(9210) + !Control.HasFocus(9230)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<textcolor>$VAR[HorzHomeSubmenu3]</textcolor>
+					<animation condition="!Control.HasFocus(9200) + [Control.HasFocus(9160) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)]" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
 				<control type="list" id="9200">
-					<animation condition="!Control.HasFocus(9200) + !Control.HasFocus(9210) + !Control.HasFocus(9230)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-					<animation condition="Control.HasFocus(9210)" effect="fade" start="100" end="65" reversible="true">Conditional</animation>
-					<left>0</left>
-					<top>126</top>
-					<width>315</width>
-					<height>378</height>
+					<include>HorzHomeMenuList</include>
+					<onfocus>SetProperty(horzhomesubmenu,9200,home)</onfocus>
 					<onup condition="Integer.IsGreater(Container(9210).NumItems,0)">9205</onup>
 					<onup condition="Integer.IsLessOrEqual(Container(9210).NumItems,0)">9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9150</onleft>
 					<onright>9500</onright>
+					<animation condition="!Control.HasFocus(9200) + !Control.HasFocus(9210) + !Control.HasFocus(9230)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<animation condition="Control.HasFocus(9210)" effect="fade" start="100" end="65" reversible="true">Conditional</animation>
 					<itemlayout height="63">
 						<include>HorzHomeMenuItem</include>
 					</itemlayout>
@@ -513,14 +489,13 @@
 				<visible>[Pvr.HasTVChannels] | [Pvr.HasRadioChannels] | !String.IsEmpty(Skin.String(CustomTV.1.Path)) | !String.IsEmpty(Skin.String(CustomTV.2.Path)) | !String.IsEmpty(Skin.String(CustomTV.3.Path)) | !String.IsEmpty(Skin.String(CustomTV.4.Path)) | !String.IsEmpty(Skin.String(CustomTV.5.Path)) | !String.IsEmpty(Skin.String(CustomRadio.1.Path)) | !String.IsEmpty(Skin.String(CustomRadio.2.Path)) | !String.IsEmpty(Skin.String(CustomRadio.3.Path)) | !String.IsEmpty(Skin.String(CustomRadio.4.Path)) | !String.IsEmpty(Skin.String(CustomRadio.5.Path))</visible>
 				<width>315</width>
 				<!-- Dummy button for mouse control -->
-				<include content="horzhome-dummy">
+				<include content="HorzHomeDummy">
 					<param name="dummyid" value="9530"/>
 					<param name="focusid" value="9500"/>
 				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9515) | Control.HasFocus(9530)</visible>
-					<!-- Menu Heading Hilite-->
-					<include content="menu-hilite">
+					<include content="HorzHomeHilite">
 						<parm name="fadecondition" value="Control.HasFocus(9510)"/>
 					</include>
 					<!-- Markers for control area items -->
@@ -533,33 +508,22 @@
 						<param name="indicatorcontainer" value="9500"/>
 					</include>
 				</control>
-				<control type="label"><!-- Menu Heading -->
+				<control type="label">
 					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-text</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
 					<label>$INFO[Container(9500).ListItem.Label2]</label>
-					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
-					<visible>!Control.HasFocus(9500)</visible>
-				</control>
-				<control type="label"><!-- Menu Heading -->
-					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-hilite</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
-					<label>$INFO[Container(9500).ListItem.Label2]</label>
-					<animation condition="!Control.HasFocus(9500) + !Control.HasFocus(9510) + !Control.HasFocus(9530)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<textcolor>$VAR[HorzHomeSubmenu4]</textcolor>
+					<animation condition="!Control.HasFocus(9500) + [Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9560)]" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
 				<control type="list" id="9500">
-					<animation condition="!Control.HasFocus(9500) + !Control.HasFocus(9510) + !Control.HasFocus(9530)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-					<animation condition="Control.HasFocus(9510)" effect="fade" start="100" end="65" reversible="true">Conditional</animation>
-					<left>0</left>
-					<top>126</top>
-					<width>315</width>
-					<height>378</height>
+					<include>HorzHomeMenuList</include>
+					<onfocus>SetProperty(horzhomesubmenu,9500,home)</onfocus>
 					<onup condition="Integer.IsGreater(Container(9510).NumItems,0)">9505</onup>
 					<onup condition="Integer.IsLessOrEqual(Container(9510).NumItems,0)">9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9200</onleft>
 					<onright>9550</onright>
+					<animation condition="!Control.HasFocus(9500) + !Control.HasFocus(9510) + !Control.HasFocus(9530)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<animation condition="Control.HasFocus(9510)" effect="fade" start="100" end="65" reversible="true">Conditional</animation>
 					<itemlayout height="63">
 						<include>HorzHomeMenuItem</include>
 					</itemlayout>
@@ -648,14 +612,13 @@
 				<visible>Skin.HasSetting(home-favorites) | !String.IsEmpty(Skin.String(CustomFav.1.Path)) | !String.IsEmpty(Skin.String(CustomFav.2.Path)) | !String.IsEmpty(Skin.String(CustomFav.3.Path)) | !String.IsEmpty(Skin.String(CustomFav.4.Path)) | !String.IsEmpty(Skin.String(CustomFav.5.Path))</visible>
 				<width>315</width>
 				<!-- Dummy button for mouse control -->
-				<include content="horzhome-dummy">
+				<include content="HorzHomeDummy">
 					<param name="dummyid" value="9580"/>
 					<param name="focusid" value="9550"/>
 				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9550) | Control.HasFocus(9560) | Control.HasFocus(9565) | Control.HasFocus(9580)</visible>
-					<!-- Menu Heading Hilite-->
-					<include content="menu-hilite"/>
+					<include content="HorzHomeHilite"/>
 					<!-- Markers for control area items -->
 					<include content="page-offscreen-vertical">
 						<param name="indicator1left" value="144"/>
@@ -666,33 +629,22 @@
 						<param name="indicatorcontainer" value="9550"/>
 					</include>
 				</control>
-				<control type="label"><!-- Menu Heading -->
+				<control type="label">
 					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-text</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
 					<label>$VAR[CustomFavHeading]</label>
-					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510)" effect="fade" start="100" end="65">Conditional</animation>
-					<visible>!Control.HasFocus(9550)</visible>
-				</control>
-				<control type="label"><!-- Menu Heading -->
-					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-hilite</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
-					<label>$VAR[CustomFavHeading]</label>
-					<animation condition="!Control.HasFocus(9550) + !Control.HasFocus(9580)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<textcolor>$VAR[HorzHomeSubmenu5]</textcolor>
+					<animation condition="!Control.HasFocus(9550) + [Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510)]" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
 				<control type="list" id="9550">
-					<animation condition="!Control.HasFocus(9550) + !Control.HasFocus(9560) + !Control.HasFocus(9580)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-					<animation condition="Control.HasFocus(9560)" effect="fade" start="100" end="65" reversible="true">Conditional</animation>
-					<left>0</left>
-					<top>126</top>
-					<width>315</width>
-					<height>378</height>
+					<include>HorzHomeMenuList</include>
+					<onfocus>SetProperty(horzhomesubmenu,9550,home)</onfocus>
 					<onup condition="Integer.IsGreater(Container(9560).NumItems,0)">9555</onup>
 					<onup condition="Integer.IsLessOrEqual(Container(9560).NumItems,0)">9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9500</onleft>
 					<onright>9250</onright>
+					<animation condition="!Control.HasFocus(9550) + !Control.HasFocus(9560) + !Control.HasFocus(9580)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<animation condition="Control.HasFocus(9560)" effect="fade" start="100" end="65" reversible="true">Conditional</animation>
 					<itemlayout height="63">
 						<include>HorzHomeMenuItem</include>
 					</itemlayout>
@@ -743,14 +695,13 @@
 				<visible>!Skin.HasSetting(home-music) | Skin.HasSetting(home-musicvideo) | !String.IsEmpty(Skin.String(CustomMusic.1.Path)) | !String.IsEmpty(Skin.String(CustomMusic.2.Path)) | !String.IsEmpty(Skin.String(CustomMusic.3.Path)) | !String.IsEmpty(Skin.String(CustomMusic.4.Path)) | !String.IsEmpty(Skin.String(CustomMusic.5.Path))</visible>
 				<width>315</width>
 				<!-- Dummy button for mouse control -->
-				<include content="horzhome-dummy">
+				<include content="HorzHomeDummy">
 					<param name="dummyid" value="9280"/>
 					<param name="focusid" value="9250"/>
 				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280)</visible>
-					<!-- Menu Heading Hilite-->
-					<include content="menu-hilite">
+					<include content="HorzHomeHilite">
 						<parm name="fadecondition" value="Control.HasFocus(9260)"/>
 					</include>
 					<!-- Markers for control area items -->
@@ -763,33 +714,22 @@
 						<param name="indicatorcontainer" value="9250"/>
 					</include>
 				</control>
-				<control type="label"><!-- Menu Heading -->
+				<control type="label">
 					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-text</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
 					<label>$INFO[Container(9250).ListItem.Label2]</label>
-					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
-					<visible>!Control.HasFocus(9250)</visible>
-				</control>
-				<control type="label"><!-- Menu Heading -->
-					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-hilite</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
-					<label>$INFO[Container(9250).ListItem.Label2]</label>
-					<animation condition="!Control.HasFocus(9250) + !Control.HasFocus(9260) + !Control.HasFocus(9280)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<textcolor>$VAR[HorzHomeSubmenu6]</textcolor>
+					<animation condition="!Control.HasFocus(9250) + [Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)]" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
 				<control type="list" id="9250">
-					<animation condition="!Control.HasFocus(9250) + !Control.HasFocus(9260) + !Control.HasFocus(9280)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-					<animation condition="Control.HasFocus(9260)" effect="fade" start="100" end="65" reversible="true">Conditional</animation>
-					<left>0</left>
-					<top>126</top>
-					<width>315</width>
-					<height>378</height>
+					<include>HorzHomeMenuList</include>
+					<onfocus>SetProperty(horzhomesubmenu,9250,home)</onfocus>
 					<onup condition="Integer.IsGreater(Container(9260).NumItems,0)">9255</onup>
 					<onup condition="Integer.IsLessOrEqual(Container(9260).NumItems,0)">9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9550</onleft>
 					<onright>9300</onright>
+					<animation condition="!Control.HasFocus(9250) + !Control.HasFocus(9260) + !Control.HasFocus(9280)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<animation condition="Control.HasFocus(9260)" effect="fade" start="100" end="65" reversible="true">Conditional</animation>
 					<itemlayout height="63">
 						<include>HorzHomeMenuItem</include>
 					</itemlayout>
@@ -851,40 +791,28 @@
 				<visible>Skin.HasSetting(home-photos)</visible>
 				<width>315</width>
 				<!-- Dummy button for mouse control -->
-				<include content="horzhome-dummy">
+				<include content="HorzHomeDummy">
 					<param name="dummyid" value="9330"/>
 					<param name="focusid" value="9300"/>
 				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9300) | Control.HasFocus(9330)</visible>
-					<!-- Menu Heading Hilite-->
-					<include content="menu-hilite"/>
+					<include content="HorzHomeHilite"/>
 				</control>
-				<control type="label"><!-- Menu Heading -->
+				<control type="label">
 					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-text</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
 					<label>$INFO[Container(9300).ListItem.Label2]</label>
-					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
-					<visible>!Control.HasFocus(9300)</visible>
-				</control>
-				<control type="label"><!-- Menu Heading -->
-					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-hilite</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
-					<label>$INFO[Container(9300).ListItem.Label2]</label>
-					<animation condition="!Control.HasFocus(9300) + !Control.HasFocus(9330)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<textcolor>$VAR[HorzHomeSubmenu7]</textcolor>
+					<animation condition="!Control.HasFocus(9300) + [Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)]" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
 				<control type="list" id="9300">
-					<animation condition="!Control.HasFocus(9300) + !Control.HasFocus(9330)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-					<left>0</left>
-					<top>126</top>
-					<width>315</width>
-					<height>378</height>
+					<include>HorzHomeMenuList</include>
+					<onfocus>SetProperty(horzhomesubmenu,9300,home)</onfocus>
 					<onup>9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9250</onleft>
 					<onright>9350</onright>
+					<animation condition="!Control.HasFocus(9300) + !Control.HasFocus(9330)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 					<itemlayout height="63">
 						<include>HorzHomeMenuItem</include>
 					</itemlayout>
@@ -909,14 +837,13 @@
 				<visible>!Skin.HasSetting(home-programs) | !String.IsEmpty(Skin.String(CustomAddon.1.Path)) | !String.IsEmpty(Skin.String(CustomAddon.2.Path)) | !String.IsEmpty(Skin.String(CustomAddon.3.Path)) | !String.IsEmpty(Skin.String(CustomAddon.4.Path)) | !String.IsEmpty(Skin.String(CustomAddon.5.Path))</visible>
 				<width>315</width>
 				<!-- Dummy button for mouse control -->
-				<include content="horzhome-dummy">
+				<include content="HorzHomeDummy">
 					<param name="dummyid" value="9380"/>
 					<param name="focusid" value="9350"/>
 				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9350) | Control.HasFocus(9360) | Control.HasFocus(9380)</visible>
-					<!-- Menu Heading Hilite-->
-					<include content="menu-hilite">
+					<include content="HorzHomeHilite">
 						<parm name="fadecondition" value="Control.HasFocus(9360)"/>
 					</include>
 					<!-- Markers for control area items -->
@@ -929,33 +856,22 @@
 						<param name="indicatorcontainer" value="9350"/>
 					</include>
 				</control>
-				<control type="label"><!-- Menu Heading -->
+				<control type="label">
 					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-text</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
 					<label>$INFO[Container(9350).ListItem.Label2]</label>
-					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
-					<visible>!Control.HasFocus(9350)</visible>
-				</control>
-				<control type="label"><!-- Menu Heading -->
-					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-hilite</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
-					<label>$INFO[Container(9350).ListItem.Label2]</label>
-					<animation condition="!Control.HasFocus(9350) + !Control.HasFocus(9360) + !Control.HasFocus(9380)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<textcolor>$VAR[HorzHomeSubmenu8]</textcolor>
+					<animation condition="!Control.HasFocus(9350) + [Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)]" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
 				<control type="list" id="9350">
-					<animation condition="!Control.HasFocus(9350) + !Control.HasFocus(9360) + !Control.HasFocus(9380)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-					<animation condition="Control.HasFocus(9360)" effect="fade" start="100" end="65" reversible="true">Conditional</animation>
-					<left>0</left>
-					<top>126</top>
-					<width>315</width>
-					<height>378</height>
+					<include>HorzHomeMenuList</include>
+					<onfocus>SetProperty(horzhomesubmenu,9350,home)</onfocus>
 					<onup condition="Integer.IsGreater(Container(9360).NumItems,0)">9355</onup>
 					<onup condition="Integer.IsLessOrEqual(Container(9360).NumItems,0)">9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9300</onleft>
 					<onright>9600</onright>
+					<animation condition="!Control.HasFocus(9350) + !Control.HasFocus(9360) + !Control.HasFocus(9380)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<animation condition="Control.HasFocus(9360)" effect="fade" start="100" end="65" reversible="true">Conditional</animation>
 					<itemlayout height="63">
 						<include>HorzHomeMenuItem</include>
 					</itemlayout>
@@ -1028,45 +944,32 @@
 					</content>
 				</control>
 			</control>
-			<control type="group" id="9620">
-				<!-- Games Sub menu -->
+			<control type="group" id="9620"><!-- Games Sub menu -->
 				<visible>Skin.HasSetting(home-games) | !String.IsEmpty(Skin.String(CustomGame.1.Path)) | !String.IsEmpty(Skin.String(CustomGame.2.Path)) | !String.IsEmpty(Skin.String(CustomGame.3.Path)) | !String.IsEmpty(Skin.String(CustomGame.4.Path)) | !String.IsEmpty(Skin.String(CustomGame.5.Path))</visible>
 				<width>315</width>
 				<!-- Dummy button for mouse control -->
-				<include content="horzhome-dummy">
+				<include content="HorzHomeDummy">
 					<param name="dummyid" value="9630"/>
 					<param name="focusid" value="9600"/>
 				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9600) | Control.HasFocus(9630)</visible>
-					<!-- Menu Heading Hilite-->
-					<include content="menu-hilite"/>
+					<include content="HorzHomeHilite"/>
 				</control>
-				<control type="label"><!-- Menu Heading -->
+				<control type="label">
 					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-text</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
 					<label>$INFO[Container(9600).ListItem.Label2]</label>
-					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
-					<visible>!Control.HasFocus(9600)</visible>
-				</control>
-				<control type="label"><!-- Menu Heading -->
-					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-hilite</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
-					<label>$INFO[Container(9600).ListItem.Label2]</label>
-					<animation condition="!Control.HasFocus(9600) + !Control.HasFocus(9630)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<textcolor>$VAR[HorzHomeSubmenu9]</textcolor>
+					<animation condition="!Control.HasFocus(9600) + [Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)]" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
 				<control type="list" id="9600">
-					<animation condition="!Control.HasFocus(9600) + !Control.HasFocus(9630)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-					<left>0</left>
-					<top>126</top>
-					<width>315</width>
-					<height>378</height>
+					<include>HorzHomeMenuList</include>
+					<onfocus>SetProperty(horzhomesubmenu,9600,home)</onfocus>
 					<onup>9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9350</onleft>
 					<onright>9400</onright>
+					<animation condition="!Control.HasFocus(9600) + !Control.HasFocus(9630)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 					<itemlayout height="63">
 						<include>HorzHomeMenuItem</include>
 					</itemlayout>
@@ -1116,40 +1019,28 @@
 				<visible>!String.IsEmpty(Weather.plugin) + [Skin.HasSetting(home-weather) | Skin.HasSetting(home-currentweather)]</visible>
 				<width>315</width>
 				<!-- Dummy button for mouse control -->
-				<include content="horzhome-dummy">
+				<include content="HorzHomeDummy">
 					<param name="dummyid" value="9430"/>
 					<param name="focusid" value="9400"/>
 				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9400) | Control.HasFocus(9430)</visible>
-					<!-- Menu Heading Hilite-->
-					<include content="menu-hilite"/>
+					<include content="HorzHomeHilite"/>
 				</control>
-				<control type="label"><!-- Menu Heading -->
+				<control type="label">
 					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-text</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
 					<label>$INFO[Container(9400).ListItem.Label2]</label>
-					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
-					<visible>!Control.HasFocus(9400)</visible>
-				</control>
-				<control type="label"><!-- Menu Heading -->
-					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-hilite</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
-					<label>$INFO[Container(9400).ListItem.Label2]</label>
-					<animation condition="!Control.HasFocus(9400) + !Control.HasFocus(9430)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<textcolor>$VAR[HorzHomeSubmenu10]</textcolor>
+					<animation condition="!Control.HasFocus(9400) + [Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)]" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
 				<control type="list" id="9400">
-					<animation condition="!Control.HasFocus(9400) + !Control.HasFocus(9430)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-					<left>0</left>
-					<top>126</top>
-					<width>315</width>
-					<height>378</height>
+					<include>HorzHomeMenuList</include>
+					<onfocus>SetProperty(horzhomesubmenu,9400,home)</onfocus>
 					<onup>9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9600</onleft>
 					<onright>9450</onright>
+					<animation condition="!Control.HasFocus(9400) + !Control.HasFocus(9430)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 					<itemlayout height="63">
 						<include>HorzHomeMenuItem</include>
 					</itemlayout>
@@ -1168,14 +1059,13 @@
 			<control type="group" id="9470"><!-- Settings Sub menu -->
 				<width>315</width>
 				<!-- Dummy button for mouse control -->
-				<include content="horzhome-dummy">
+				<include content="HorzHomeDummy">
 					<param name="dummyid" value="9480"/>
 					<param name="focusid" value="9450"/>
 				</include>
 				<control type="group">
 					<visible>Control.HasFocus(9450) | Control.HasFocus(9480)</visible>
-					<!-- Menu Heading Hilite-->
-					<include content="menu-hilite"/>
+					<include content="HorzHomeHilite"/>
 					<!-- Markers for control area items -->
 					<include content="page-offscreen-vertical">
 						<param name="indicator1left" value="144"/>
@@ -1186,31 +1076,20 @@
 						<param name="indicatorcontainer" value="9450"/>
 					</include>
 				</control>
-				<control type="label"><!-- Menu Heading -->
+				<control type="label">
 					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-text</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
 					<label>$INFO[Container(9450).ListItem.Label2]</label>
-					<animation condition="Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)" effect="fade" start="100" end="65">Conditional</animation>
-					<visible>!Control.HasFocus(9450)</visible>
-				</control>
-				<control type="label"><!-- Menu Heading -->
-					<include>HorzHomeMenuHeading</include>
-					<textcolor>tab-hilite</textcolor>
-					<shadowcolor>tab-shadow</shadowcolor>
-					<label>$INFO[Container(9450).ListItem.Label2]</label>
-					<animation condition="!Control.HasFocus(9450) + !Control.HasFocus(9480)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+					<textcolor>$VAR[HorzHomeSubmenu11]</textcolor>
+					<animation condition="!Control.HasFocus(9450) + [Control.HasFocus(9160) | Control.HasFocus(9210) | Control.HasFocus(9260) | Control.HasFocus(9360) | Control.HasFocus(9510) | Control.HasFocus(9560)]" effect="fade" start="100" end="65">Conditional</animation>
 				</control>
 				<control type="list" id="9450">
-					<animation condition="!Control.HasFocus(9450) + !Control.HasFocus(9480)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-					<left>0</left>
-					<top>126</top>
-					<width>315</width>
-					<height>378</height>
+					<include>HorzHomeMenuList</include>
+					<onfocus>SetProperty(horzhomesubmenu,9450,home)</onfocus>
 					<onup>9005</onup>
 					<ondown>9005</ondown>
 					<onleft>9400</onleft>
 					<onright>9005</onright>
+					<animation condition="!Control.HasFocus(9450) + !Control.HasFocus(9480)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 					<itemlayout height="63">
 						<include>HorzHomeMenuItem</include>
 					</itemlayout>
