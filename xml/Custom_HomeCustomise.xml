@@ -67,20 +67,13 @@
 					<control type="group" id="9120"><!-- Video sub menu -->
 						<width>315</width>
 						<!-- Dummy button for mouse control -->
-						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+						<include file="Includes_HorzHome.xml" content="HorzHomeDummy">
 							<param name="dummyid" value="9130"/>
 							<param name="focusid" value="9100"/>
 						</include>
 						<control type="group">
 							<visible>Control.HasFocus(9100) | Control.HasFocus(9130)</visible>
-							<control type="image"><!-- Menu Heading Hilite-->
-								<left>0</left>
-								<top>0</top>
-								<width>315</width>
-								<height>99</height>
-								<texture>menu-focus.png</texture>
-								<animation effect="fade" start="100" end="35" condition="Skin.HasSetting(home-video)">Conditional</animation>
-							</control>
+							<include file="Includes_HorzHome.xml">HorzHomeHilite</include>
 							<!-- Markers for off screen menu items -->
 							<include content="page-offscreen-vertical">
 								<param name="indicator1left" value="144"/>
@@ -91,27 +84,24 @@
 								<param name="indicatorcontainer" value="9100"/>
 							</include>
 						</control>
-						<control type="label"><!-- Menu Heading -->
+						<control type="label">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9100).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-video)">Conditional</animation>
 						</control>
 						<control type="list" id="9100">
-							<animation condition="!Control.HasFocus(9100) + !Control.HasFocus(9130)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-video)">Conditional</animation>
-							<left>0</left>
-							<top>126</top>
-							<width>315</width>
-							<height>378</height>
+							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>noop</onleft>
 							<onright>9150</onright>
+							<animation condition="!Control.HasFocus(9100) + !Control.HasFocus(9130)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-video)">Conditional</animation>
 							<itemlayout height="63">
-								<include>horzhomelistitem</include>
+								<include>CustomHorzListitem</include>
 							</itemlayout>
 							<focusedlayout height="63">
-								<include>horzhomefocusitem</include>
+								<include>CustomHorzFocusitem</include>
 							</focusedlayout>
 							<content>
 								<include content="listpanelitems">
@@ -161,27 +151,14 @@
 					</control>
 					<control type="group" id="9170"><!-- Movie sub menu -->
 						<width>315</width>
-						<control type="button" id="9180"><!-- Dummy button for mouse control -->
-							<left>0</left>
-							<top>0</top>
-							<width>315</width>
-							<height>518</height>
-							<texturefocus>blank.png</texturefocus>
-							<texturenofocus>blank.png</texturenofocus>
-							<onup>402</onup>
-							<ondown>9150</ondown>
-							<onleft>9100</onleft>
-							<onright>9200</onright>
-						</control>
 						<!-- Dummy button for mouse control -->
-						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+						<include file="Includes_HorzHome.xml" content="HorzHomeDummy">
 							<param name="dummyid" value="9180"/>
 							<param name="focusid" value="9150"/>
 						</include>
 						<control type="group">
 							<visible>Control.HasFocus(9150) | Control.HasFocus(9180)</visible>
-							<!-- Menu Heading Hilite-->
-							<include file="Includes_HorzHome.xml">menu-hilite</include>
+							<include file="Includes_HorzHome.xml">HorzHomeHilite</include>
 							<!-- Markers for control area items -->
 							<include content="page-offscreen-vertical">
 								<param name="indicator1left" value="144"/>
@@ -198,20 +175,17 @@
 							<animation effect="fade" start="100" end="35" condition="Skin.HasSetting(home-movie) + String.IsEmpty(Skin.String(CustomMovies.1.Path)) + String.IsEmpty(Skin.String(CustomMovies.2.Path)) + String.IsEmpty(Skin.String(CustomMovies.3.Path)) + String.IsEmpty(Skin.String(CustomMovies.4.Path)) + String.IsEmpty(Skin.String(CustomMovies.5.Path))">Conditional</animation>
 						</control>
 						<control type="list" id="9150">
-							<animation condition="!Control.HasFocus(9150) + !Control.HasFocus(9180)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-							<left>0</left>
-							<top>126</top>
-							<width>315</width>
-							<height>378</height>
+							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9100</onleft>
 							<onright>9200</onright>
+							<animation condition="!Control.HasFocus(9150) + !Control.HasFocus(9180)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 							<itemlayout height="63">
-								<include>horzhomelistitem</include>
+								<include>CustomHorzListitem</include>
 							</itemlayout>
 							<focusedlayout height="63">
-								<include>horzhomefocusitem</include>
+								<include>CustomHorzFocusitem</include>
 							</focusedlayout>
 							<content>
 								<include content="listpanelitems">
@@ -269,14 +243,13 @@
 					<control type="group" id="9220"><!-- TV Shows sub menu -->
 						<width>315</width>
 						<!-- Dummy button for mouse control -->
-						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+						<include file="Includes_HorzHome.xml" content="HorzHomeDummy">
 							<param name="dummyid" value="9230"/>
 							<param name="focusid" value="9200"/>
 						</include>
 						<control type="group">
 							<visible>Control.HasFocus(9200) | Control.HasFocus(9230)</visible>
-							<!-- Menu Heading Hilite-->
-							<include file="Includes_HorzHome.xml">menu-hilite</include>
+							<include file="Includes_HorzHome.xml">HorzHomeHilite</include>
 							<!-- Markers for control area items -->
 							<include content="page-offscreen-vertical">
 								<param name="indicator1left" value="144"/>
@@ -287,26 +260,23 @@
 								<param name="indicatorcontainer" value="9200"/>
 							</include>
 						</control>
-						<control type="label"><!-- Menu Heading -->
+						<control type="label">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9200).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-tvshows) + String.IsEmpty(Skin.String(CustomTVShow.1.Path)) + String.IsEmpty(Skin.String(CustomTVShow.2.Path)) + String.IsEmpty(Skin.String(CustomTVShow.3.Path)) + String.IsEmpty(Skin.String(CustomTVShow.4.Path)) + String.IsEmpty(Skin.String(CustomTVShow.5.Path))">Conditional</animation>
 						</control>
 						<control type="list" id="9200">
-							<animation condition="!Control.HasFocus(9200) + !Control.HasFocus(9230)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-							<left>0</left>
-							<top>126</top>
-							<width>315</width>
-							<height>378</height>
+							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9150</onleft>
 							<onright>9500</onright>
+							<animation condition="!Control.HasFocus(9200) + !Control.HasFocus(9230)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 							<itemlayout height="63">
-								<include>horzhomelistitem</include>
+								<include>CustomHorzListitem</include>
 							</itemlayout>
 							<focusedlayout height="63">
-								<include>horzhomefocusitem</include>
+								<include>CustomHorzFocusitem</include>
 							</focusedlayout>
 							<content>
 								<include content="listpanelitems">
@@ -364,14 +334,13 @@
 					<control type="group" id="9520"><!-- Broadcast sub menu -->
 						<width>315</width>
 						<!-- Dummy button for mouse control -->
-						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+						<include file="Includes_HorzHome.xml" content="HorzHomeDummy">
 							<param name="dummyid" value="9530"/>
 							<param name="focusid" value="9500"/>
 						</include>
 						<control type="group">
 							<visible>Control.HasFocus(9500) | Control.HasFocus(9530)</visible>
-							<!-- Menu Heading Hilite-->
-							<include file="Includes_HorzHome.xml">menu-hilite</include>
+							<include file="Includes_HorzHome.xml">HorzHomeHilite</include>
 							<!-- Markers for control area items -->
 							<include content="page-offscreen-vertical">
 								<param name="indicator1left" value="144"/>
@@ -382,26 +351,23 @@
 								<param name="indicatorcontainer" value="9500"/>
 							</include>
 						</control>
-						<control type="label"><!-- Menu Heading -->
+						<control type="label">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9500).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="!Pvr.HasTVChannels + !Pvr.HasRadioChannels + String.IsEmpty(Skin.String(CustomTV.1.Path)) + String.IsEmpty(Skin.String(CustomTV.2.Path)) + String.IsEmpty(Skin.String(CustomTV.3.Path)) + String.IsEmpty(Skin.String(CustomTV.4.Path)) + String.IsEmpty(Skin.String(CustomTV.5.Path)) + String.IsEmpty(Skin.String(CustomRadio.1.Path)) + String.IsEmpty(Skin.String(CustomRadio.2.Path)) + String.IsEmpty(Skin.String(CustomRadio.3.Path)) + String.IsEmpty(Skin.String(CustomRadio.4.Path)) + String.IsEmpty(Skin.String(CustomRadio.5.Path))">Conditional</animation>
 						</control>
 						<control type="list" id="9500">
-							<animation condition="!Control.HasFocus(9500) + !Control.HasFocus(9530)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-							<left>0</left>
-							<top>126</top>
-							<width>315</width>
-							<height>378</height>
+							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9200</onleft>
 							<onright>9550</onright>
+							<animation condition="!Control.HasFocus(9500) + !Control.HasFocus(9530)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 							<itemlayout height="63">
-								<include>horzhomelistitem</include>
+								<include>CustomHorzListitem</include>
 							</itemlayout>
 							<focusedlayout height="63">
-								<include>horzhomefocusitem</include>
+								<include>CustomHorzFocusitem</include>
 							</focusedlayout>
 							<content>
 								<include content="listpanelitems">
@@ -492,14 +458,13 @@
 					<control type="group" id="9570"><!-- Favourites sub menu -->
 						<width>315</width>
 						<!-- Dummy button for mouse control -->
-						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+						<include file="Includes_HorzHome.xml" content="HorzHomeDummy">
 							<param name="dummyid" value="9580"/>
 							<param name="focusid" value="9550"/>
 						</include>
 						<control type="group">
 							<visible>Control.HasFocus(9550) | Control.HasFocus(9580)</visible>
-							<!-- Menu Heading Hilite-->
-							<include file="Includes_HorzHome.xml">menu-hilite</include>
+							<include file="Includes_HorzHome.xml">HorzHomeHilite</include>
 							<!-- Markers for control area items -->
 							<include content="page-offscreen-vertical">
 								<param name="indicator1left" value="144"/>
@@ -510,26 +475,23 @@
 								<param name="indicatorcontainer" value="9550"/>
 							</include>
 						</control>
-						<control type="label"><!-- Menu Heading -->
+						<control type="label">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$VAR[CustomFavHeading]</label>
 							<animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(home-favorites) + String.IsEmpty(Skin.String(CustomFav.1.Path)) + String.IsEmpty(Skin.String(CustomFav.2.Path)) + String.IsEmpty(Skin.String(CustomFav.3.Path)) + String.IsEmpty(Skin.String(CustomFav.4.Path)) + String.IsEmpty(Skin.String(CustomFav.5.Path))">Conditional</animation>
 						</control>
 						<control type="list" id="9550">
-							<animation condition="!Control.HasFocus(9550) + !Control.HasFocus(9580)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-							<left>0</left>
-							<top>126</top>
-							<width>315</width>
-							<height>378</height>
+							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9500</onleft>
 							<onright>9250</onright>
+							<animation condition="!Control.HasFocus(9550) + !Control.HasFocus(9580)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 							<itemlayout height="63">
-								<include>horzhomelistitem</include>
+								<include>CustomHorzListitem</include>
 							</itemlayout>
 							<focusedlayout height="63">
-								<include>horzhomefocusitem</include>
+								<include>CustomHorzFocusitem</include>
 							</focusedlayout>
 							<content>
 								<include content="listpanelitems">
@@ -580,14 +542,13 @@
 					<control type="group" id="9270"><!-- Music Sub menu -->
 						<width>315</width>
 						<!-- Dummy button for mouse control -->
-						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+						<include file="Includes_HorzHome.xml" content="HorzHomeDummy">
 							<param name="dummyid" value="9280"/>
 							<param name="focusid" value="9250"/>
 						</include>
 						<control type="group">
 							<visible>Control.HasFocus(9250) | Control.HasFocus(9280)</visible>
-							<!-- Menu Heading Hilite-->
-							<include file="Includes_HorzHome.xml">menu-hilite</include>
+							<include file="Includes_HorzHome.xml">HorzHomeHilite</include>
 							<!-- Markers for control area items -->
 							<include content="page-offscreen-vertical">
 								<param name="indicator1left" value="144"/>
@@ -598,26 +559,23 @@
 								<param name="indicatorcontainer" value="9250"/>
 							</include>
 						</control>
-						<control type="label"><!-- Menu Heading -->
+						<control type="label">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9250).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-music) + !Skin.HasSetting(home-musicvideo) + String.IsEmpty(Skin.String(CustomMusic.1.Path)) + String.IsEmpty(Skin.String(CustomMusic.2.Path)) + String.IsEmpty(Skin.String(CustomMusic.3.Path)) + String.IsEmpty(Skin.String(CustomMusic.4.Path)) + String.IsEmpty(Skin.String(CustomMusic.5.Path))">Conditional</animation>
 						</control>
 						<control type="list" id="9250">
-							<animation condition="!Control.HasFocus(9250) + !Control.HasFocus(9280)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-							<left>0</left>
-							<top>126</top>
-							<width>315</width>
-							<height>378</height>
+							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9550</onleft>
 							<onright>9300</onright>
+							<animation condition="!Control.HasFocus(9250) + !Control.HasFocus(9280)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 							<itemlayout height="63">
-								<include>horzhomelistitem</include>
+								<include>CustomHorzListitem</include>
 							</itemlayout>
 							<focusedlayout height="63">
-								<include>horzhomefocusitem</include>
+								<include>CustomHorzFocusitem</include>
 							</focusedlayout>
 							<content>
 								<include content="listpanelitems">
@@ -682,35 +640,31 @@
 					<control type="group" id="9320"><!-- Pictures Sub menu -->
 						<width>315</width>
 						<!-- Dummy button for mouse control -->
-						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+						<include file="Includes_HorzHome.xml" content="HorzHomeDummy">
 							<param name="dummyid" value="9330"/>
 							<param name="focusid" value="9300"/>
 						</include>
 						<control type="group">
 							<visible>Control.HasFocus(9300) | Control.HasFocus(9330)</visible>
-							<!-- Menu Heading Hilite-->
-							<include file="Includes_HorzHome.xml">menu-hilite</include>
+							<include file="Includes_HorzHome.xml">HorzHomeHilite</include>
 						</control>
-						<control type="label"><!-- Menu Heading -->
+						<control type="label">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9300).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(home-photos)">Conditional</animation>
 						</control>
 						<control type="list" id="9300">
-							<animation condition="!Control.HasFocus(9300) + !Control.HasFocus(9330)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-							<left>0</left>
-							<top>126</top>
-							<width>315</width>
-							<height>378</height>
+							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9250</onleft>
 							<onright>9350</onright>
+							<animation condition="!Control.HasFocus(9300) + !Control.HasFocus(9330)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 							<itemlayout height="63">
-								<include>horzhomelistitem</include>
+								<include>CustomHorzListitem</include>
 							</itemlayout>
 							<focusedlayout height="63">
-								<include>horzhomefocusitem</include>
+								<include>CustomHorzFocusitem</include>
 							</focusedlayout>
 							<content>
 								<include content="listpanelitems">
@@ -733,14 +687,13 @@
 					<control type="group" id="9370"><!-- Addons Sub menu -->
 						<width>315</width>
 						<!-- Dummy button for mouse control -->
-						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+						<include file="Includes_HorzHome.xml" content="HorzHomeDummy">
 							<param name="dummyid" value="9380"/>
 							<param name="focusid" value="9350"/>
 						</include>
 						<control type="group">
 							<visible>Control.HasFocus(9350) | Control.HasFocus(9380)</visible>
-							<!-- Menu Heading Hilite-->
-							<include file="Includes_HorzHome.xml">menu-hilite</include>
+							<include file="Includes_HorzHome.xml">HorzHomeHilite</include>
 							<!-- Markers for control area items -->
 							<include content="page-offscreen-vertical">
 								<param name="indicator1left" value="144"/>
@@ -751,26 +704,23 @@
 								<param name="indicatorcontainer" value="9350"/>
 							</include>
 						</control>
-						<control type="label"><!-- Menu Heading -->
+						<control type="label">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9350).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-programs) + String.IsEmpty(Skin.String(CustomAddon.1.Path)) + String.IsEmpty(Skin.String(CustomAddon.2.Path)) + String.IsEmpty(Skin.String(CustomAddon.3.Path)) + String.IsEmpty(Skin.String(CustomAddon.4.Path)) + String.IsEmpty(Skin.String(CustomAddon.5.Path))">Conditional</animation>
 						</control>
 						<control type="list" id="9350">
-							<animation condition="!Control.HasFocus(9350) + !Control.HasFocus(9380)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-							<left>0</left>
-							<top>126</top>
-							<width>315</width>
-							<height>378</height>
+							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9300</onleft>
 							<onright>9600</onright>
+							<animation condition="!Control.HasFocus(9350) + !Control.HasFocus(9380)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 							<itemlayout height="63">
-								<include>horzhomelistitem</include>
+								<include>CustomHorzListitem</include>
 							</itemlayout>
 							<focusedlayout height="63">
-								<include>horzhomefocusitem</include>
+								<include>CustomHorzFocusitem</include>
 							</focusedlayout>
 							<content>
 								<include content="listpanelitems">
@@ -849,35 +799,31 @@
 					<control type="group" id="9620"><!-- Games Sub menu -->
 						<width>315</width>
 						<!-- Dummy button for mouse control -->
-						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+						<include file="Includes_HorzHome.xml" content="HorzHomeDummy">
 							<param name="dummyid" value="9630"/>
 							<param name="focusid" value="9600"/>
 						</include>
 						<control type="group">
 							<visible>Control.HasFocus(9600) | Control.HasFocus(9630)</visible>
-							<!-- Menu Heading Hilite-->
-							<include file="Includes_HorzHome.xml">menu-hilite</include>
+							<include file="Includes_HorzHome.xml">HorzHomeHilite</include>
 						</control>
-						<control type="label"><!-- Menu Heading -->
+						<control type="label">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9600).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(home-games) + String.IsEmpty(Skin.String(CustomGame.1.Path)) + String.IsEmpty(Skin.String(CustomGame.2.Path)) + String.IsEmpty(Skin.String(CustomGame.3.Path)) + String.IsEmpty(Skin.String(CustomGame.4.Path)) + String.IsEmpty(Skin.String(CustomGame.5.Path))">Conditional</animation>
 						</control>
 						<control type="list" id="9600">
-							<animation condition="!Control.HasFocus(9600) + !Control.HasFocus(9630)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-							<left>0</left>
-							<top>126</top>
-							<width>315</width>
-							<height>378</height>
+							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9350</onleft>
 							<onright>9400</onright>
+							<animation condition="!Control.HasFocus(9600) + !Control.HasFocus(9630)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 							<itemlayout height="63">
-								<include>horzhomelistitem</include>
+								<include>CustomHorzListitem</include>
 							</itemlayout>
 							<focusedlayout height="63">
-								<include>horzhomefocusitem</include>
+								<include>CustomHorzFocusitem</include>
 							</focusedlayout>
 							<content>
 								<include content="listpanelitems">
@@ -928,35 +874,31 @@
 					<control type="group" id="9420"><!-- Weather Sub menu -->
 						<width>315</width>
 						<!-- Dummy button for mouse control -->
-						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+						<include file="Includes_HorzHome.xml" content="HorzHomeDummy">
 							<param name="dummyid" value="9430"/>
 							<param name="focusid" value="9400"/>
 						</include>
 						<control type="group">
 							<visible>Control.HasFocus(9400) | Control.HasFocus(9430)</visible>
-							<!-- Menu Heading Hilite-->
-							<include file="Includes_HorzHome.xml">menu-hilite</include>
+							<include file="Includes_HorzHome.xml">HorzHomeHilite</include>
 						</control>
-						<control type="label"><!-- Menu Heading -->
+						<control type="label">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9400).ListItem.Property(menuHeading)]</label>
 							<animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(home-weather) + !Skin.HasSetting(home-currentweather)">Conditional</animation>
 						</control>
 						<control type="list" id="9400">
-							<animation condition="!Control.HasFocus(9400) + !Control.HasFocus(9430)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-							<left>0</left>
-							<top>126</top>
-							<width>315</width>
-							<height>378</height>
+							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9600</onleft>
 							<onright>9450</onright>
+							<animation condition="!Control.HasFocus(9400) + !Control.HasFocus(9430)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 							<itemlayout height="63">
-								<include>horzhomelistitem</include>
+								<include>CustomHorzListitem</include>
 							</itemlayout>
 							<focusedlayout height="63">
-								<include>horzhomefocusitem</include>
+								<include>CustomHorzFocusitem</include>
 							</focusedlayout>
 							<content>
 								<include content="listpanelitems">
@@ -972,14 +914,13 @@
 					<control type="group" id="9470"><!-- Settings Sub menu -->
 						<width>315</width>
 						<!-- Dummy button for mouse control -->
-						<include file="Includes_HorzHome.xml" content="horzhome-dummy">
+						<include file="Includes_HorzHome.xml" content="HorzHomeDummy">
 							<param name="dummyid" value="9480"/>
 							<param name="focusid" value="9450"/>
 						</include>
 						<control type="group">
 							<visible>Control.HasFocus(9450) | Control.HasFocus(9480)</visible>
-							<!-- Menu Heading Hilite-->
-							<include file="Includes_HorzHome.xml">menu-hilite</include>
+							<include file="Includes_HorzHome.xml">HorzHomeHilite</include>
 							<!-- Markers for control area items -->
 							<include content="page-offscreen-vertical">
 								<param name="indicator1left" value="144"/>
@@ -990,27 +931,24 @@
 								<param name="indicatorcontainer" value="9450"/>
 							</include>
 						</control>
-						<control type="label"><!-- Menu Heading -->
+						<control type="label">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9450).ListItem.Property(menuHeading)]</label>
 							<animation condition="Control.HasFocus(402)" effect="fade" start="100" end="65">Conditional</animation>
 						</control>
 						<control type="list" id="9450">
-							<animation condition="!Control.HasFocus(9450) + !Control.HasFocus(9480)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-							<animation condition="Control.HasFocus(402)" effect="fade" start="100" end="65">Conditional</animation>
-							<left>0</left>
-							<top>126</top>
-							<width>315</width>
-							<height>378</height>
+							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9400</onleft>
 							<onright>noop</onright>
+							<animation condition="!Control.HasFocus(9450) + !Control.HasFocus(9480)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+							<animation condition="Control.HasFocus(402)" effect="fade" start="100" end="65">Conditional</animation>
 							<itemlayout height="63">
-								<include>horzhomelistitem</include>
+								<include>CustomHorzListitem</include>
 							</itemlayout>
 							<focusedlayout height="63">
-								<include>horzhomefocusitem</include>
+								<include>CustomHorzFocusitem</include>
 							</focusedlayout>
 							<content>
 								<item>
@@ -1074,7 +1012,6 @@
 					<ondown>noop</ondown>
 					<itemlayout height="240" width="378">
 						<control type="image">
-							<!-- Icon image -->
 							<left>39</left>
 							<top>15</top>
 							<width>300</width>
@@ -1084,7 +1021,6 @@
 							<visible>ListItem.Property(isActive) + !Control.HasFocus(402)</visible>
 						</control>
 						<control type="image">
-							<!-- Icon image -->
 							<left>39</left>
 							<top>15</top>
 							<width>300</width>
