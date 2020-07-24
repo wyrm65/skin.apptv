@@ -458,13 +458,13 @@
 				<left>$PARAM[left]</left>
 				<top>$PARAM[top]</top>
 				<control type="image">
-					<left>22</left>
+					<left>10</left>
 					<top>0</top>
-					<width>40</width>
+					<width>64</width>
 					<height>40</height>
 					<texture border="14,0,14,0">overlaynumberitems.png</texture>
-					<animation condition="Integer.IsGreater($PARAM[count],9)+!Integer.IsGreater($PARAM[count],99)" effect="zoom" end="160,100" center="auto">Conditional</animation>
-					<animation condition="Integer.IsGreater($PARAM[count],99)" effect="zoom" end="210,100" center="auto">Conditional</animation>
+					<animation condition="Integer.IsLess($PARAM[count],10)" effect="zoom" end="66,100" center="auto">Conditional</animation>
+					<animation condition="Integer.IsGreater($PARAM[count],99)" effect="zoom" end="140,100" center="auto">Conditional</animation>
 				</control>
 				<control type="label">
 					<left>14</left>
@@ -502,7 +502,7 @@
 				<onclick>SetProperty(ListID,$PARAM[itemmenuid],settings)</onclick>
 				<onclick>SetProperty(ListToggle,$PARAM[itemtoggle],settings)</onclick>
 				<onclick>SetProperty(ListCustomBase,$PARAM[itemcustombase],settings)</onclick>
-				<onclick>SetProperty(CurrentType,$INFO[Skin.String($PARAM[itemcustombase].Type)],settings)</onclick>
+				<onclick>SetProperty(CurrentType,$INFO[Skin.String($PARAM[itemcustombase],,.Type)],settings)</onclick>
 				<onclick>SetProperty(CurrentAction,$PARAM[itemcustombase].Path,settings)</onclick>
 				<onclick>SetProperty(CurrentLabel,$PARAM[itemcustombase].Label,settings)</onclick>
 				<onclick>SetProperty(CurrentIcon,$PARAM[itemcustombase].Icon,settings)</onclick>
@@ -522,7 +522,7 @@
 				<onclick>SetProperty(ListID,$PARAM[itemmenuid],settings)</onclick>
 				<onclick>SetProperty(ListToggle,$PARAM[itemtoggle],settings)</onclick>
 				<onclick>SetProperty(ListCustomBase,$PARAM[itemcustombase],settings)</onclick>
-				<onclick>SetProperty(CurrentType,$INFO[Skin.String($PARAM[itemcustombase].Type)],settings)</onclick>
+				<onclick>SetProperty(CurrentType,$INFO[Skin.String($PARAM[itemcustombase],,.Type)],settings)</onclick>
 				<onclick>SetProperty(CurrentAction,$PARAM[itemcustombase].Path,settings)</onclick>
 				<onclick>SetProperty(CurrentLabel,$PARAM[itemcustombase].Label,settings)</onclick>
 				<onclick>SetProperty(CurrentIcon,$PARAM[itemcustombase].Icon,settings)</onclick>
