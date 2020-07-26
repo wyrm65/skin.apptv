@@ -3,19 +3,13 @@
 	<defaultcontrol>9000</defaultcontrol>
 	<controls>
 		<include>background</include>
-		<control type="label"><!-- Settings line 1 -->
+		<control type="label"><!-- Heading -->
 			<left>1419</left>
 			<top>38</top>
 			<width>464</width>
-			<height>46</height>
-			<label>$LOCALIZE[31803]</label>
-		</control>
-		<control type="label"><!-- Settings line 2 -->
-			<left>1419</left>
-			<top>93</top>
-			<width>464</width>
-			<height>46</height>
-			<label>$LOCALIZE[5]</label>
+			<height>100</height>
+			<wrapmultiline>true</wrapmultiline>
+			<label>$LOCALIZE[31803][CR]$LOCALIZE[5]</label>
 		</control>
 		<control type="button" id="402"><!-- Home menu type -->
 			<left>75</left>
@@ -46,7 +40,7 @@
 			<control type="group" id="9001"><!-- Horizontal Home Menu -->
 				<visible>Skin.HasSetting(HomeMenuHorizontal)</visible>
 				<animation condition="true" effect="zoom" start="100" end="80" center="auto">Conditional</animation>
-				<include file="Includes_HozHome.xml">HorzHomeMenuBar</include><!-- Main Horizontal menu bar -->
+				<include file="Includes_HorzHome.xml">HorzHomeMenuBar</include>
 				<!-- Markers for off screen menu bar items -->
 				<include content="page-offscreen-horizontal">
 					<param name="indicator1left" value="0"/>
@@ -87,16 +81,18 @@
 						<control type="label">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9100).ListItem.Property(menuHeading)]</label>
-							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-video)">Conditional</animation>
+							<textcolor>$VAR[HorzHomeSubmenu1]</textcolor>
+							<animation effect="fade" start="100" end="65" condition="Skin.HasSetting(home-video)">Conditional</animation>
 						</control>
 						<control type="list" id="9100">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
+							<onfocus>SetProperty(horzhomesubmenu,9100,home)</onfocus>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>noop</onleft>
 							<onright>9150</onright>
 							<animation condition="!Control.HasFocus(9100) + !Control.HasFocus(9130)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
-							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-video)">Conditional</animation>
+							<animation effect="fade" start="100" end="65" condition="Skin.HasSetting(home-video)">Conditional</animation>
 							<itemlayout height="63">
 								<include>CustomHorzListitem</include>
 							</itemlayout>
@@ -172,10 +168,12 @@
 						<control type="label"><!-- Menu Heading -->
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9150).ListItem.Property(menuHeading)]</label>
-							<animation effect="fade" start="100" end="35" condition="Skin.HasSetting(home-movie) + String.IsEmpty(Skin.String(CustomMovies.1.Path)) + String.IsEmpty(Skin.String(CustomMovies.2.Path)) + String.IsEmpty(Skin.String(CustomMovies.3.Path)) + String.IsEmpty(Skin.String(CustomMovies.4.Path)) + String.IsEmpty(Skin.String(CustomMovies.5.Path))">Conditional</animation>
+							<textcolor>$VAR[HorzHomeSubmenu2]</textcolor>
+							<animation effect="fade" start="100" end="65" condition="Skin.HasSetting(home-movie) + String.IsEmpty(Skin.String(CustomMovies.1.Path)) + String.IsEmpty(Skin.String(CustomMovies.2.Path)) + String.IsEmpty(Skin.String(CustomMovies.3.Path)) + String.IsEmpty(Skin.String(CustomMovies.4.Path)) + String.IsEmpty(Skin.String(CustomMovies.5.Path))">Conditional</animation>
 						</control>
 						<control type="list" id="9150">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
+							<onfocus>SetProperty(horzhomesubmenu,9150,home)</onfocus>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9100</onleft>
@@ -263,10 +261,12 @@
 						<control type="label">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9200).ListItem.Property(menuHeading)]</label>
-							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-tvshows) + String.IsEmpty(Skin.String(CustomTVShow.1.Path)) + String.IsEmpty(Skin.String(CustomTVShow.2.Path)) + String.IsEmpty(Skin.String(CustomTVShow.3.Path)) + String.IsEmpty(Skin.String(CustomTVShow.4.Path)) + String.IsEmpty(Skin.String(CustomTVShow.5.Path))">Conditional</animation>
+							<textcolor>$VAR[HorzHomeSubmenu3]</textcolor>
+							<animation effect="fade" start="100" end="65" condition="Skin.HasSetting(home-tvshows) + String.IsEmpty(Skin.String(CustomTVShow.1.Path)) + String.IsEmpty(Skin.String(CustomTVShow.2.Path)) + String.IsEmpty(Skin.String(CustomTVShow.3.Path)) + String.IsEmpty(Skin.String(CustomTVShow.4.Path)) + String.IsEmpty(Skin.String(CustomTVShow.5.Path))">Conditional</animation>
 						</control>
 						<control type="list" id="9200">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
+							<onfocus>SetProperty(horzhomesubmenu,9200,home)</onfocus>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9150</onleft>
@@ -354,10 +354,12 @@
 						<control type="label">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9500).ListItem.Property(menuHeading)]</label>
-							<animation effect="fade" start="100" end="40" condition="!Pvr.HasTVChannels + !Pvr.HasRadioChannels + String.IsEmpty(Skin.String(CustomTV.1.Path)) + String.IsEmpty(Skin.String(CustomTV.2.Path)) + String.IsEmpty(Skin.String(CustomTV.3.Path)) + String.IsEmpty(Skin.String(CustomTV.4.Path)) + String.IsEmpty(Skin.String(CustomTV.5.Path)) + String.IsEmpty(Skin.String(CustomRadio.1.Path)) + String.IsEmpty(Skin.String(CustomRadio.2.Path)) + String.IsEmpty(Skin.String(CustomRadio.3.Path)) + String.IsEmpty(Skin.String(CustomRadio.4.Path)) + String.IsEmpty(Skin.String(CustomRadio.5.Path))">Conditional</animation>
+							<textcolor>$VAR[HorzHomeSubmenu4]</textcolor>
+							<animation effect="fade" start="100" end="65" condition="!Pvr.HasTVChannels + !Pvr.HasRadioChannels + String.IsEmpty(Skin.String(CustomTV.1.Path)) + String.IsEmpty(Skin.String(CustomTV.2.Path)) + String.IsEmpty(Skin.String(CustomTV.3.Path)) + String.IsEmpty(Skin.String(CustomTV.4.Path)) + String.IsEmpty(Skin.String(CustomTV.5.Path)) + String.IsEmpty(Skin.String(CustomRadio.1.Path)) + String.IsEmpty(Skin.String(CustomRadio.2.Path)) + String.IsEmpty(Skin.String(CustomRadio.3.Path)) + String.IsEmpty(Skin.String(CustomRadio.4.Path)) + String.IsEmpty(Skin.String(CustomRadio.5.Path))">Conditional</animation>
 						</control>
 						<control type="list" id="9500">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
+							<onfocus>SetProperty(horzhomesubmenu,9500,home)</onfocus>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9200</onleft>
@@ -478,10 +480,12 @@
 						<control type="label">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$VAR[CustomFavHeading]</label>
-							<animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(home-favorites) + String.IsEmpty(Skin.String(CustomFav.1.Path)) + String.IsEmpty(Skin.String(CustomFav.2.Path)) + String.IsEmpty(Skin.String(CustomFav.3.Path)) + String.IsEmpty(Skin.String(CustomFav.4.Path)) + String.IsEmpty(Skin.String(CustomFav.5.Path))">Conditional</animation>
+							<textcolor>$VAR[HorzHomeSubmenu5]</textcolor>
+							<animation effect="fade" start="100" end="65" condition="!Skin.HasSetting(home-favorites) + String.IsEmpty(Skin.String(CustomFav.1.Path)) + String.IsEmpty(Skin.String(CustomFav.2.Path)) + String.IsEmpty(Skin.String(CustomFav.3.Path)) + String.IsEmpty(Skin.String(CustomFav.4.Path)) + String.IsEmpty(Skin.String(CustomFav.5.Path))">Conditional</animation>
 						</control>
 						<control type="list" id="9550">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
+							<onfocus>SetProperty(horzhomesubmenu,9550,home)</onfocus>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9500</onleft>
@@ -562,10 +566,12 @@
 						<control type="label">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9250).ListItem.Property(menuHeading)]</label>
-							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-music) + !Skin.HasSetting(home-musicvideo) + String.IsEmpty(Skin.String(CustomMusic.1.Path)) + String.IsEmpty(Skin.String(CustomMusic.2.Path)) + String.IsEmpty(Skin.String(CustomMusic.3.Path)) + String.IsEmpty(Skin.String(CustomMusic.4.Path)) + String.IsEmpty(Skin.String(CustomMusic.5.Path))">Conditional</animation>
+							<textcolor>$VAR[HorzHomeSubmenu6]</textcolor>
+							<animation effect="fade" start="100" end="65" condition="Skin.HasSetting(home-music) + !Skin.HasSetting(home-musicvideo) + String.IsEmpty(Skin.String(CustomMusic.1.Path)) + String.IsEmpty(Skin.String(CustomMusic.2.Path)) + String.IsEmpty(Skin.String(CustomMusic.3.Path)) + String.IsEmpty(Skin.String(CustomMusic.4.Path)) + String.IsEmpty(Skin.String(CustomMusic.5.Path))">Conditional</animation>
 						</control>
 						<control type="list" id="9250">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
+							<onfocus>SetProperty(horzhomesubmenu,9250,home)</onfocus>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9550</onleft>
@@ -651,10 +657,12 @@
 						<control type="label">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9300).ListItem.Property(menuHeading)]</label>
-							<animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(home-photos)">Conditional</animation>
+							<textcolor>$VAR[HorzHomeSubmenu7]</textcolor>
+							<animation effect="fade" start="100" end="65" condition="!Skin.HasSetting(home-photos)">Conditional</animation>
 						</control>
 						<control type="list" id="9300">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
+							<onfocus>SetProperty(horzhomesubmenu,9300,home)</onfocus>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9250</onleft>
@@ -707,10 +715,12 @@
 						<control type="label">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9350).ListItem.Property(menuHeading)]</label>
-							<animation effect="fade" start="100" end="40" condition="Skin.HasSetting(home-programs) + String.IsEmpty(Skin.String(CustomAddon.1.Path)) + String.IsEmpty(Skin.String(CustomAddon.2.Path)) + String.IsEmpty(Skin.String(CustomAddon.3.Path)) + String.IsEmpty(Skin.String(CustomAddon.4.Path)) + String.IsEmpty(Skin.String(CustomAddon.5.Path))">Conditional</animation>
+							<textcolor>$VAR[HorzHomeSubmenu8]</textcolor>
+							<animation effect="fade" start="100" end="65" condition="Skin.HasSetting(home-programs) + String.IsEmpty(Skin.String(CustomAddon.1.Path)) + String.IsEmpty(Skin.String(CustomAddon.2.Path)) + String.IsEmpty(Skin.String(CustomAddon.3.Path)) + String.IsEmpty(Skin.String(CustomAddon.4.Path)) + String.IsEmpty(Skin.String(CustomAddon.5.Path))">Conditional</animation>
 						</control>
 						<control type="list" id="9350">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
+							<onfocus>SetProperty(horzhomesubmenu,9350,home)</onfocus>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9300</onleft>
@@ -810,10 +820,12 @@
 						<control type="label">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9600).ListItem.Property(menuHeading)]</label>
-							<animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(home-games) + String.IsEmpty(Skin.String(CustomGame.1.Path)) + String.IsEmpty(Skin.String(CustomGame.2.Path)) + String.IsEmpty(Skin.String(CustomGame.3.Path)) + String.IsEmpty(Skin.String(CustomGame.4.Path)) + String.IsEmpty(Skin.String(CustomGame.5.Path))">Conditional</animation>
+							<textcolor>$VAR[HorzHomeSubmenu9]</textcolor>
+							<animation effect="fade" start="100" end="65" condition="!Skin.HasSetting(home-games) + String.IsEmpty(Skin.String(CustomGame.1.Path)) + String.IsEmpty(Skin.String(CustomGame.2.Path)) + String.IsEmpty(Skin.String(CustomGame.3.Path)) + String.IsEmpty(Skin.String(CustomGame.4.Path)) + String.IsEmpty(Skin.String(CustomGame.5.Path))">Conditional</animation>
 						</control>
 						<control type="list" id="9600">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
+							<onfocus>SetProperty(horzhomesubmenu,9600,home)</onfocus>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9350</onleft>
@@ -885,10 +897,12 @@
 						<control type="label">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9400).ListItem.Property(menuHeading)]</label>
-							<animation effect="fade" start="100" end="40" condition="!Skin.HasSetting(home-weather) + !Skin.HasSetting(home-currentweather)">Conditional</animation>
+							<textcolor>$VAR[HorzHomeSubmenu10]</textcolor>
+							<animation effect="fade" start="100" end="65" condition="!Skin.HasSetting(home-weather) + !Skin.HasSetting(home-currentweather)">Conditional</animation>
 						</control>
 						<control type="list" id="9400">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
+							<onfocus>SetProperty(horzhomesubmenu,9400,home)</onfocus>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9600</onleft>
@@ -934,10 +948,12 @@
 						<control type="label">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuHeading</include>
 							<label>$INFO[Container(9450).ListItem.Property(menuHeading)]</label>
+							<textcolor>$VAR[HorzHomeSubmenu11]</textcolor>
 							<animation condition="Control.HasFocus(402)" effect="fade" start="100" end="65">Conditional</animation>
 						</control>
 						<control type="list" id="9450">
 							<include file="Includes_HorzHome.xml">HorzHomeMenuList</include>
+							<onfocus>SetProperty(horzhomesubmenu,9450,home)</onfocus>
 							<onup>402</onup>
 							<ondown>noop</ondown>
 							<onleft>9400</onleft>
@@ -1001,7 +1017,6 @@
 					<param name="indicatorcontainer" value="9021"/>
 				</include>
 				<control type="panel" id="9021"><!-- Home menu icon panel -->
-					<animation condition="true" effect="zoom" start="100" end="80" center="auto">Conditional</animation>
 					<width>1890</width>
 					<height>960</height>
 					<top>105</top>
@@ -1010,6 +1025,7 @@
 					<onright>noop</onright>
 					<onup>402</onup>
 					<ondown>noop</ondown>
+					<animation condition="true" effect="zoom" start="100" end="80" center="auto">Conditional</animation>
 					<itemlayout height="240" width="378">
 						<control type="image">
 							<left>39</left>
@@ -1018,31 +1034,19 @@
 							<height>180</height>
 							<aspectratio>keep</aspectratio>
 							<texture diffuse="homeiconmask.png" fallback="special://skin/extras/homeicons/fallback.png">$INFO[ListItem.Art(thumb)]</texture>
-							<visible>ListItem.Property(isActive) + !Control.HasFocus(402)</visible>
-						</control>
-						<control type="image">
-							<left>39</left>
-							<top>15</top>
-							<width>300</width>
-							<height>180</height>
-							<aspectratio>keep</aspectratio>
-							<texture diffuse="homeiconmask.png" fallback="special://skin/extras/homeicons/fallback.png">$INFO[ListItem.Art(thumb)]</texture>
-							<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
-							<visible>!ListItem.Property(isActive) | Control.HasFocus(402)</visible>
+							<animation effect="fade" start="100" end="60" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
 						</control>
 					</itemlayout>
 					<focusedlayout height="240" width="378">
 						<control type="group">
-							<visible>ListItem.Property(isActive) + !Control.HasFocus(402)</visible>
-							<control type="image"><!-- Focused non settings icon image -->
+							<animation effect="fade" start="100" end="60" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
+							<control type="image">
 								<left>10</left>
 								<top>0</top>
 								<width>357</width>
 								<height>213</height>
 								<aspectratio>keep</aspectratio>
 								<texture diffuse="homeiconmask.png" fallback="special://skin/extras/homeicons/fallback.png">$INFO[ListItem.Art(thumb)]</texture>
-								<bordertexture border="6">homeiconhilite.png</bordertexture>
-								<bordersize>6</bordersize>
 							</control>
 							<control type="label">
 								<left>0</left>
@@ -1052,28 +1056,6 @@
 								<align>center</align>
 								<label fallback="20333">$INFO[ListItem.Label]</label>
 								<font>apptv22</font>
-							</control>
-						</control>
-						<control type="group">
-							<visible>!ListItem.Property(isActive) | Control.HasFocus(402)</visible>
-							<control type="image"><!-- Focused non settings icon image -->
-								<left>10</left>
-								<top>0</top>
-								<width>357</width>
-								<height>213</height>
-								<aspectratio>keep</aspectratio>
-								<texture diffuse="homeiconmask.png" fallback="special://skin/extras/homeicons/fallback.png">$INFO[ListItem.Art(thumb)]</texture>
-								<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
-							</control>
-							<control type="label">
-								<left>0</left>
-								<top>206</top>
-								<width>375</width>
-								<height>33</height>
-								<align>center</align>
-								<label fallback="20333">$INFO[ListItem.Label]</label>
-								<font>apptv22</font>
-								<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
 							</control>
 						</control>
 					</focusedlayout>
@@ -1509,25 +1491,26 @@
 							<width>645</width>
 							<height>36</height>
 							<label fallback="20333">$INFO[ListItem.Label]</label>
-							<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
+							<animation effect="fade" start="100" end="60" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
 						</control>
 					</itemlayout>
 					<focusedlayout height="84">
-						<control type="image">
-							<left>0</left>
-							<top>0</top>
-							<width>771</width>
-							<height>84</height>
-							<texture border="9">button-default-focus.png</texture>
+						<control type="group">
 							<animation effect="fade" start="100" end="60" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
-						</control>
-						<control type="label">
-							<left>39</left>
-							<top>24</top>
-							<width>645</width>
-							<height>36</height>
-							<label fallback="20333">$INFO[ListItem.Label]</label>
-							<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
+							<control type="image">
+								<left>0</left>
+								<top>0</top>
+								<width>771</width>
+								<height>84</height>
+								<texture border="9">button-default-focus.png</texture>
+							</control>
+							<control type="label">
+								<left>39</left>
+								<top>24</top>
+								<width>645</width>
+								<height>36</height>
+								<label fallback="20333">$INFO[ListItem.Label]</label>
+							</control>
 						</control>
 					</focusedlayout>
 					<content>
