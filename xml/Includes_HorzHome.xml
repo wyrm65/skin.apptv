@@ -255,11 +255,11 @@
 				</control>
 				<control type="list" id="9100">
 					<include>HorzHomeMenuList</include>
+					<onfocus>SetProperty(horzhomesubmenu,9100,home)</onfocus>
 					<onup>9005</onup>
 					<ondown>9005</ondown>
 					<onleft>6100</onleft>
 					<onright>9150</onright>
-					<onfocus>SetProperty(horzhomesubmenu,9100,home)</onfocus>
 					<animation condition="!Control.HasFocus(9100) + !Control.HasFocus(9130)" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 					<itemlayout height="63">
 						<include>HorzHomeMenuItem</include>

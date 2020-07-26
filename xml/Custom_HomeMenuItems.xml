@@ -56,8 +56,8 @@
 				<width>1431</width>
 				<height>360</height>
 				<itemgap>0</itemgap>
-				<onright>Dialog.Close(1153)</onright>
-				<onleft>Dialog.Close(1153)</onleft>
+				<onright>Close</onright>
+				<onleft>Close</onleft>
 				<onup>1005</onup>
 				<ondown>999</ondown>
 				<control type="group" id="5001"><!-- Menuitem Default type -->
@@ -119,8 +119,8 @@
 						<onclick>SetFocus(6020)</onclick>
 						<onup>5002</onup>
 						<ondown>5005</ondown>
-						<onright>Dialog.Close(1153)</onright>
-						<onleft>Dialog.Close(1153)</onleft>
+						<onright>Close</onright>
+						<onleft>Close</onleft>
 						<font>apptv22</font>
 					</control>
 					<control type="label">
@@ -156,8 +156,8 @@
 						<altlabel>$LOCALIZE[24022]</altlabel>
 						<onup>5005</onup>
 						<ondown>5008</ondown>
-						<onright>Dialog.Close(1153)</onright>
-						<onleft>Dialog.Close(1153)</onleft>
+						<onright>Close</onright>
+						<onleft>Close</onleft>
 						<font>apptv22</font>
 						<align>right</align>
 						<include content="use-alttexture">
@@ -199,8 +199,8 @@
 						<label>$VAR[CustomPlaylistAction]</label>
 						<onup>5008</onup>
 						<ondown>5011</ondown>
-						<onright>Dialog.Close(1153)</onright>
-						<onleft>Dialog.Close(1153)</onleft>
+						<onright>Close</onright>
+						<onleft>Close</onleft>
 						<font>apptv22</font>
 						<align>right</align>
 						<onclick>Skin.ToggleSetting($INFO[Window(settings).Property(ListCustomBase),,.Show])</onclick>
@@ -340,7 +340,7 @@
 				<font>apptv22</font>
 				<onright>901</onright>
 				<onup>5000</onup>
-				<onclick>Dialog.Close(1153)</onclick>
+				<onclick>Close</onclick>
 			</control>
 			<control type="button" id="901"><!-- Clear button -->
 				<left>654</left>
@@ -359,7 +359,7 @@
 				<onclick>Skin.Reset($INFO[Window(settings).Property(ListCustomBase),,.Label])</onclick>
 				<onclick>Skin.Reset($INFO[Window(settings).Property(ListCustomBase),,.Show])</onclick>
 				<onclick>Skin.Reset($INFO[Window(settings).Property(ListToggle),,.Icon])</onclick>
-				<onclick>Dialog.Close(1153)</onclick>
+				<onclick>Close</onclick>
 			</control>
 		</control>
 		<control type="button" id="6005"><!-- Reset focus to main window -->

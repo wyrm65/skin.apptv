@@ -280,27 +280,28 @@
 			<font>apptv22</font>
 			<align>center</align>
 			<label fallback="20333">$INFO[ListItem.Label]</label>
-			<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
+			<animation effect="fade" start="100" end="60" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
 		</control>
 	</include>
 	<include name="CustomHorzFocusitem">
-		<control type="image">
-			<left>0</left>
-			<top>0</top>
-			<width>315</width>
-			<height>63</height>
-			<texture border="9">button-default-focus.png</texture>
+		<control type="group">
 			<animation effect="fade" start="100" end="60" condition="String.IsEmpty(ListItem.Property(isActive))">Conditional</animation>
-		</control>
-		<control type="label">
-			<left>12</left>
-			<top>12</top>
-			<width>291</width>
-			<height>33</height>
-			<font>apptv22</font>
-			<align>center</align>
-			<label fallback="20333">$INFO[ListItem.Label]</label>
-			<animation effect="fade" start="100" end="35" condition="!ListItem.Property(isActive) | Control.HasFocus(402)">Conditional</animation>
+			<control type="image">
+				<left>0</left>
+				<top>0</top>
+				<width>315</width>
+				<height>63</height>
+				<texture border="9">button-default-focus.png</texture>
+			</control>
+			<control type="label">
+				<left>12</left>
+				<top>12</top>
+				<width>291</width>
+				<height>33</height>
+				<font>apptv22</font>
+				<align>center</align>
+				<label fallback="20333">$INFO[ListItem.Label]</label>
+			</control>
 		</control>
 	</include>
 	<include name="shelf-defaulticon">
@@ -440,12 +441,6 @@
 			</control>
 		</definition>
 	</include>
-	<include name="use-alttexture">
-		<param name="visiblecondition"/>
-		<definition>
-			<usealttexture>$PARAM[visiblecondition]</usealttexture>
-		</definition>
-	</include>
 	<include name="listitem-count">
 		<param name="left" default="0"/>
 		<param name="top" default="0"/>
@@ -462,8 +457,8 @@
 					<top>0</top>
 					<width>64</width>
 					<height>40</height>
-					<texture border="14,0,14,0">overlaynumberitems.png</texture>
-					<animation condition="Integer.IsLess($PARAM[count],10)" effect="zoom" end="66,100" center="auto">Conditional</animation>
+					<texture border="16,0,16,0">overlaynumberitems.png</texture>
+					<animation condition="Integer.IsLess($PARAM[count],10)" effect="zoom" end="64,100" center="auto">Conditional</animation>
 					<animation condition="Integer.IsGreater($PARAM[count],99)" effect="zoom" end="140,100" center="auto">Conditional</animation>
 				</control>
 				<control type="label">
@@ -478,6 +473,12 @@
 					<align>center</align>
 				</control>
 			</control>
+		</definition>
+	</include>
+	<include name="use-alttexture">
+		<param name="visiblecondition"/>
+		<definition>
+			<usealttexture>$PARAM[visiblecondition]</usealttexture>
 		</definition>
 	</include>
 	<include name="listpanelitems">
@@ -531,6 +532,15 @@
 			</item>
 		</definition>
 	</include>
+	<include name="page-toggle">
+		<width>48</width>
+		<height>48</height>
+		<texturefocus>groupunfocused.png</texturefocus>
+		<texturenofocus>groupunfocused.png</texturenofocus>
+		<alttexturefocus>groupfocused.png</alttexturefocus>
+		<alttexturenofocus>groupfocused.png</alttexturenofocus>
+		<onclick>noop</onclick>
+	</include>
 	<include name="page-indicator">
 		<param name="indicatorleft" default="0"/>
 		<param name="indicatortop" default="0"/>
@@ -557,58 +567,28 @@
 				<itemgap>-12</itemgap>
 				<align>center</align>
 				<control type="togglebutton">
-					<width>48</width>
-					<height>48</height>
-					<texturefocus>groupunfocused.png</texturefocus>
-					<texturenofocus>groupunfocused.png</texturenofocus>
-					<alttexturefocus>groupfocused.png</alttexturefocus>
-					<alttexturenofocus>groupfocused.png</alttexturenofocus>
+					<include>page-toggle</include>
 					<usealttexture>$PARAM[grp1indicate]</usealttexture>
-					<onclick>noop</onclick>
 					<visible>$PARAM[grp1visible]</visible>
 				</control>
 				<control type="togglebutton">
-					<width>48</width>
-					<height>48</height>
-					<texturefocus>groupunfocused.png</texturefocus>
-					<texturenofocus>groupunfocused.png</texturenofocus>
-					<alttexturefocus>groupfocused.png</alttexturefocus>
-					<alttexturenofocus>groupfocused.png</alttexturenofocus>
+					<include>page-toggle</include>
 					<usealttexture>$PARAM[grp2indicate]</usealttexture>
-					<onclick>noop</onclick>
 					<visible>$PARAM[grp2visible]</visible>
 				</control>
 				<control type="togglebutton">
-					<width>48</width>
-					<height>48</height>
-					<texturefocus>groupunfocused.png</texturefocus>
-					<texturenofocus>groupunfocused.png</texturenofocus>
-					<alttexturefocus>groupfocused.png</alttexturefocus>
-					<alttexturenofocus>groupfocused.png</alttexturenofocus>
+					<include>page-toggle</include>
 					<usealttexture>$PARAM[grp3indicate]</usealttexture>
-					<onclick>noop</onclick>
 					<visible>$PARAM[grp3visible]</visible>
 				</control>
 				<control type="togglebutton">
-					<width>48</width>
-					<height>48</height>
-					<texturefocus>groupunfocused.png</texturefocus>
-					<texturenofocus>groupunfocused.png</texturenofocus>
-					<alttexturefocus>groupfocused.png</alttexturefocus>
-					<alttexturenofocus>groupfocused.png</alttexturenofocus>
+					<include>page-toggle</include>
 					<usealttexture>$PARAM[grp4indicate]</usealttexture>
-					<onclick>noop</onclick>
 					<visible>$PARAM[grp4visible]</visible>
 				</control>
 				<control type="togglebutton">
-					<width>48</width>
-					<height>48</height>
-					<texturefocus>groupunfocused.png</texturefocus>
-					<texturenofocus>groupunfocused.png</texturenofocus>
-					<alttexturefocus>groupfocused.png</alttexturefocus>
-					<alttexturenofocus>groupfocused.png</alttexturenofocus>
+					<include>page-toggle</include>
 					<usealttexture>$PARAM[grp5indicate]</usealttexture>
-					<onclick>noop</onclick>
 					<visible>$PARAM[grp5visible]</visible>
 				</control>
 			</control>
@@ -739,8 +719,7 @@
 							<label>$INFO[ListItem.Label]</label>
 							<font>apptv20</font>
 							<align>center</align>
-							<textcolor>button-text</textcolor>
-							<animation effect="zoom" start="100" end="155" center="auto">focus</animation>
+							<animation effect="zoom" start="100" end="154" center="auto">focus</animation>
 							<animation effect="fade" start="100" end="40" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 						<control type="label">
@@ -749,7 +728,7 @@
 							<font>apptv20</font>
 							<align>center</align>
 							<textcolor>listselected-text</textcolor>
-							<animation effect="zoom" start="100" end="155" center="auto">focus</animation>
+							<animation effect="zoom" start="100" end="154" center="auto">focus</animation>
 							<animation effect="fade" start="100" end="40" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter) | String.IsEqual(ListItem.Property(IsNumber),Container.ListItem.SortLetter)</visible>
 						</control>
@@ -788,7 +767,7 @@
 					<onclick condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
 					<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
 					<animation effect="zoom" start="100" end="160" center="auto">focus</animation>
-					<animation effect="fade" start="100" end="50" condition="!Control.HasFocus($PARAM[searchid])">Conditional</animation>
+					<animation effect="fade" start="100" end="40" condition="!Control.HasFocus($PARAM[searchid])">Conditional</animation>
 					<visible>!Container($PARAM[letterbarid]).IsUpdating</visible>
 				</control>
 				<control type="panel" id="$PARAM[letterbarid]">
@@ -809,7 +788,7 @@
 							<font>apptv20</font>
 							<textcolor>disabled-text</textcolor>
 							<align>center</align>
-							<animation effect="fade" start="100" end="50" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="fade" start="100" end="40" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 						<control type="label">
 							<height>30</height>
@@ -826,8 +805,8 @@
 							<label>$INFO[ListItem.Label]</label>
 							<font>apptv20</font>
 							<align>center</align>
-							<animation effect="zoom" end="160" center="auto">focus</animation>
-							<animation effect="fade" start="100" end="50" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="zoom" end="158" center="auto">focus</animation>
+							<animation effect="fade" start="100" end="40" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 						</control>
 						<control type="label">
 							<height>30</height>
@@ -835,8 +814,8 @@
 							<font>apptv20</font>
 							<align>center</align>
 							<textcolor>listselected-text</textcolor>
-							<animation effect="zoom" end="160" center="auto">focus</animation>
-							<animation effect="fade" start="100" end="50" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
+							<animation effect="zoom" end="158" center="auto">focus</animation>
+							<animation effect="fade" start="100" end="40" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
 							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter) | String.IsEqual(ListItem.Property(IsNumber),Container.ListItem.SortLetter)</visible>
 						</control>
 					</focusedlayout>
