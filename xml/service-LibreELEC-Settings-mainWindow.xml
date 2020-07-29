@@ -79,21 +79,21 @@
 					<onright>1000</onright>
 					<onleft>1123</onleft>
 					<ondown>1500</ondown>
+					<onup>1100</onup>
+					<onfocus condition="String.IsEqual(Container(1100).ListItem.Property(Typ), separator)">SetFocus(1100,1)</onfocus>
 					<pagecontrol>1123</pagecontrol>
 					<scrolltime>200</scrolltime>
 					<visible>String.IsEqual(Container(1000).ListItem.Property(listTyp), 1100)</visible>
 					<itemlayout height="75">
-						<control type="image">
-							<left>0</left>
-							<top>0</top>
-							<width>1328</width>
-							<height>75</height>
-							<texture border="9">button-default.png</texture>
-							<aspectratio>stretch</aspectratio>
-							<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1100)">Conditional</animation>
-						</control>
 						<control type="group"><!-- entry name and text value -->
 							<visible>!String.IsEqual(ListItem.Property(Typ), separator)</visible>
+							<control type="image">
+								<width>1328</width>
+								<height>75</height>
+								<texture border="9">button-default.png</texture>
+								<aspectratio>stretch</aspectratio>
+								<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1100)">Conditional</animation>
+							</control>
 							<control type="label">
 								<aligny>center</aligny>
 								<textoffsetx>40</textoffsetx>
@@ -115,6 +115,13 @@
 						</control>
 						<control type="group"><!-- section name / seperator -->
 							<visible>String.IsEqual(ListItem.Property(Typ), separator)</visible>
+							<control type="image">
+								<width>1328</width>
+								<height>75</height>
+								<texture border="9">button-default.png</texture>
+								<aspectratio>stretch</aspectratio>
+								<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1100)">Conditional</animation>
+							</control>
 							<control type="label">
 								<aligny>center</aligny>
 								<textoffsetx>40</textoffsetx>
@@ -165,18 +172,16 @@
 							</control>
 						</control>
 					</itemlayout>
-					<focusedlayout width="1328" height="75">
-						<control type="image"><!-- Button focus slider -->
-							<left>0</left>
-							<top>0</top>
-							<width>1328</width>
-							<height>75</height>
-							<texture border="9">button-default-focus.png</texture>
-							<aspectratio>stretch</aspectratio>
-							<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1100)">Conditional</animation>
-						</control>
+					<focusedlayout height="75">
 						<control type="group"><!-- entry name and text value -->
 							<visible>!String.IsEqual(ListItem.Property(Typ), separator)</visible>
+							<control type="image"><!-- Button focus slider -->
+								<width>1328</width>
+								<height>75</height>
+								<texture border="9">button-default-focus.png</texture>
+								<aspectratio>stretch</aspectratio>
+								<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1100)">Conditional</animation>
+							</control>
 							<control type="label">
 								<aligny>center</aligny>
 								<textoffsetx>40</textoffsetx>
@@ -198,6 +203,13 @@
 						</control>
 						<control type="group"><!-- section name / seperator -->
 							<visible>String.IsEqual(ListItem.Property(Typ), separator)</visible>
+							<control type="image">
+								<width>1328</width>
+								<height>75</height>
+								<texture border="9">button-default.png</texture>
+								<aspectratio>stretch</aspectratio>
+								<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(1100)">Conditional</animation>
+							</control>
 							<control type="label">
 								<aligny>center</aligny>
 								<textoffsetx>40</textoffsetx>
@@ -767,6 +779,7 @@
 			<font>apptv22</font>
 			<align>center</align>
 			<onup>1100</onup>
+			<ondown>1100</ondown>
 			<onleft>1500</onleft>
 			<visible>!String.IsEmpty(Control.GetLabel(1501))</visible>
 		</control>
