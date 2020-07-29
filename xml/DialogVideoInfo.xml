@@ -121,7 +121,6 @@
 				<visible>$EXP[isEpisode] | $EXP[isMusicvideo]</visible>
 			</control>
 			<control type="image"><!-- Star Rating Dropshadow-->
-				<!-- Star Rating Dropshadow-->
 				<left>174</left>
 				<top>662</top>
 				<width>135</width>
@@ -456,10 +455,9 @@
 				<onclick condition="![System.HasAddon(script.artwork.beef) + $EXP[isnotEmptyDBID]]">SetProperty(Dialog.3.Label,[COLOR=disabled-text]$LOCALIZE[31681][/COLOR])</onclick>
 				<onclick condition="System.HasAddon(script.artwork.beef) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.3.BuiltIn,RunScript(script.artwork.beef, mode=gui, mediatype=$INFO[ListItem.DBTYPE], DBID=$INFO[ListItem.DBID]))</onclick>
 				<onclick condition="System.HasAddon(script.metadata.editor) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.4.Label,$LOCALIZE[31689])</onclick>
-				<onclick condition="![System.HasAddon(script.metadata.editor) + $EXP[isnotEmptyDBID]]">SetProperty(Dialog.4.Label,[COLOR=disabled-text]$LOCALIZE[31689][/COLOR])</onclick>
 				<onclick condition="System.HasAddon(script.metadata.editor) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.4.BuiltIn,RunScript(script.metadata.editor,dbid=$INFO[ListItem.DBID],type=$INFO[ListItem.DBType]))</onclick>
-				<onclick condition="System.HasAddon(script.libraryeditor) + !System.HasAddon(script.metadata.editor) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.5.Label,$LOCALIZE[31689])</onclick>
-				<onclick>SetProperty(Dialog.5.BuiltIn,RunScript(script.libraryeditor,DBID=$INFO[ListItem.DBID]))</onclick>
+				<onclick condition="System.HasAddon(script.libraryeditor) + !System.HasAddon(script.metadata.editor) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.4.Label,$LOCALIZE[31689])</onclick>
+				<onclick condition="System.HasAddon(script.libraryeditor) + !System.HasAddon(script.metadata.editor) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.4.BuiltIn,RunScript(script.libraryeditor,DBID=$INFO[ListItem.DBID]))</onclick>
 				<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31693])</onclick>
 			</control>
 		</control>
