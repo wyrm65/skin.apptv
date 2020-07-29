@@ -12,8 +12,7 @@
 			<param name="screenlabel" value="$LOCALIZE[24001]"/>
 			<param name="listitems" value="$INFO[Container.NumItems,(,)]"/>
 		</include>
-		<control type="group">
-			<!-- Various Views of Addons Browser -->
+		<control type="group"><!-- Various Views of Addons Browser -->
 			<include file="View-General.xml">ListView</include>
 			<include file="View-General.xml">IconView</include>
 			<include file="View-General.xml">WrapView</include>
@@ -21,22 +20,19 @@
 			<include file="View-General.xml">Coverflow</include>
 		</control>
 		<include>touch-controls</include>
-		<control type="group">
-			<!-- Screen Settings Menu -->
+		<control type="group"><!-- Screen Settings Menu -->
 			<left>0</left>
 			<top>1080</top>
 			<include>screen-settings</include>
 			<include>fadebackground</include>
-			<control type="image">
-				<!-- Dialog background -->
+			<control type="image"><!-- Dialog background -->
 				<left>657</left>
 				<top>141</top>
 				<width>600</width>
 				<height>741</height>
 				<texture border="14">button-menu-background.png</texture>
 			</control>
-			<control type="label">
-				<!-- Dialog heading -->
+			<control type="label"><!-- Dialog heading -->
 				<left>675</left>
 				<top>153</top>
 				<width>564</width>
@@ -45,8 +41,7 @@
 				<label>$LOCALIZE[31557]</label>
 				<align>center</align>
 			</control>
-			<control type="button">
-				<!-- Touch Close button -->
+			<control type="button"><!-- Touch Close button -->
 				<left>1221</left>
 				<top>129</top>
 				<width>48</width>
@@ -72,16 +67,14 @@
 				<itemgap>0</itemgap>
 				<onright>50</onright>
 				<onleft>50</onleft>
-				<control type="button" id="2">
-					<!-- View as button -->
+				<control type="button" id="2"><!-- View as button -->
 					<width>564</width>
 					<height>72</height>
 					<font>apptv22</font>
 					<label>$LOCALIZE[100]</label>
 					<textoffsetx>15</textoffsetx>
 				</control>
-				<control type="radiobutton" id="1198">
-					<!-- Tilt list view icons button  -->
+				<control type="radiobutton" id="1198"><!-- Tilt list view icons button  -->
 					<width>564</width>
 					<height>72</height>
 					<label>$LOCALIZE[31886]</label>
@@ -92,8 +85,7 @@
 					<radioposx>510</radioposx>
 					<visible>String.EndsWith(Control.GetLabel(2),$LOCALIZE[31941])</visible>
 				</control>
-				<control type="radiobutton" id="1197">
-					<!-- Tilt wall view icons button -->
+				<control type="radiobutton" id="1197"><!-- Tilt wall view icons button -->
 					<width>564</width>
 					<height>72</height>
 					<label>$LOCALIZE[31886]</label>
@@ -104,16 +96,14 @@
 					<radioposx>510</radioposx>
 					<visible>String.EndsWith(Control.GetLabel(2),$LOCALIZE[31944])</visible>
 				</control>
-				<control type="button" id="3">
-					<!-- Sort by button -->
+				<control type="button" id="3"><!-- Sort by button -->
 					<width>564</width>
 					<height>72</height>
 					<font>apptv22</font>
 					<label>$LOCALIZE[103]</label>
 					<textoffsetx>15</textoffsetx>
 				</control>
-				<control type="togglebutton" id="4">
-					<!-- Sort direction button -->
+				<control type="togglebutton" id="4"><!-- Sort direction button -->
 					<width>564</width>
 					<height>72</height>
 					<label>$LOCALIZE[21429]: $LOCALIZE[21430]</label>
@@ -121,16 +111,14 @@
 					<font>apptv22</font>
 					<textoffsetx>15</textoffsetx>
 				</control>
-				<control type="button" id="5">
-					<!-- Addon settings button -->
+				<control type="button" id="5"><!-- Addon settings button -->
 					<width>564</width>
 					<height>72</height>
 					<font>apptv22</font>
 					<textoffsetx>15</textoffsetx>
 					<label>$LOCALIZE[10004]</label>
 				</control>
-				<control type="radiobutton" id="7">
-					<!-- Hide foreign button -->
+				<control type="radiobutton" id="7"><!-- Hide foreign button -->
 					<width>564</width>
 					<height>72</height>
 					<font>apptv22</font>
@@ -138,8 +126,7 @@
 					<label>$LOCALIZE[25001]</label>
 					<radioposx>510</radioposx>
 				</control>
-				<control type="radiobutton" id="8">
-					<!-- Hide broken button -->
+				<control type="radiobutton" id="8"><!-- Hide broken button -->
 					<width>564</width>
 					<height>72</height>
 					<font>apptv22</font>
@@ -147,8 +134,7 @@
 					<label>$LOCALIZE[24999]</label>
 					<radioposx>510</radioposx>
 				</control>
-				<control type="button" id="9">
-					<!-- Check for updates -->
+				<control type="button" id="9"><!-- Check for updates -->
 					<width>564</width>
 					<height>72</height>
 					<font>apptv22</font>
