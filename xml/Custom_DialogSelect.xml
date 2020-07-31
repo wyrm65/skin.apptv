@@ -14,48 +14,22 @@
 		</control>
 		<control type="group">
 			<visible>String.IsEqual(Window(home).Property(SelectDialogType),selectskinplaylist) | String.IsEqual(Window(home).Property(SelectDialogType),selectuserplaylist)</visible>
-			<control type="image">
-				<!-- Dialog background image -->
+			<control type="image"><!-- Dialog background image -->
 				<left>135</left>
 				<top>144</top>
 				<width>1656</width>
 				<height>795</height>
 				<texture border="14">button-menu-background.png</texture>
 			</control>
-			<control type="grouplist">
+			<control type="label"><!-- Dialog heading -->
 				<left>153</left>
 				<top>162</top>
-				<width>1620</width>
+				<width>1476</width>
 				<height>56</height>
+				<label>$LOCALIZE[1033]</label>
 				<align>center</align>
-				<orientation>horizontal</orientation>
-				<control type="label">
-					<!-- Dialog heading -->
-					<width max="1476">auto</width>
-					<height>56</height>
-					<label>$LOCALIZE[1033]</label>
-					<wrapmultiline>true</wrapmultiline>
-					<aligny>top</aligny>
-					<font>apptv25</font>
-				</control>
-				<control type="label">
-					<!-- Number of Kodi playlist types -->
-					<width max="144">auto</width>
-					<height>56</height>
-					<label>(3)</label>
-					<aligny>top</aligny>
-					<font>apptv25</font>
-					<visible>String.IsEqual(Window(home).Property(SelectDialogType),selectuserplaylist)</visible>
-				</control>
-				<control type="label">
-					<!-- Number of skin playlist types -->
-					<width max="144">auto</width>
-					<height>56</height>
-					<label>(2)</label>
-					<aligny>top</aligny>
-					<font>apptv25</font>
-					<visible>String.IsEqual(Window(home).Property(SelectDialogType),selectskinplaylist)</visible>
-				</control>
+				<aligny>top</aligny>
+				<font>apptv25</font>
 			</control>
 			<control type="image">
 				<left>153</left>
@@ -64,8 +38,7 @@
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
-			<control type="button" id="999">
-				<!-- Fake back listitem -->
+			<control type="button" id="999"><!-- Fake back listitem -->
 				<left>204</left>
 				<top>237</top>
 				<width>1026</width>
@@ -79,8 +52,7 @@
 				<ondown condition="String.IsEqual(Window(home).Property(SelectDialogType),selectuserplaylist)">996</ondown>
 				<onclick>Close</onclick>
 			</control>
-			<control type="button" id="998">
-				<!-- Fake skin music listitem -->
+			<control type="button" id="998"><!-- Fake skin music listitem -->
 				<left>204</left>
 				<top>306</top>
 				<width>1026</width>
@@ -96,8 +68,7 @@
 				<onclick>Close</onclick>
 				<visible>String.IsEqual(Window(home).Property(SelectDialogType),selectskinplaylist)</visible>
 			</control>
-			<control type="button" id="997">
-				<!-- Fake skin video listitem -->
+			<control type="button" id="997"><!-- Fake skin video listitem -->
 				<left>204</left>
 				<top>372</top>
 				<width>1026</width>
@@ -113,8 +84,7 @@
 				<onclick>Close</onclick>
 				<visible>String.IsEqual(Window(home).Property(SelectDialogType),selectskinplaylist)</visible>
 			</control>
-			<control type="button" id="996">
-				<!-- Fake User mixed listitem -->
+			<control type="button" id="996"><!-- Fake User mixed listitem -->
 				<left>204</left>
 				<top>306</top>
 				<width>1026</width>
@@ -130,8 +100,7 @@
 				<onclick>Close</onclick>
 				<visible>String.IsEqual(Window(home).Property(SelectDialogType),selectuserplaylist)</visible>
 			</control>
-			<control type="button" id="995">
-				<!-- Fake User music listitem -->
+			<control type="button" id="995"><!-- Fake User music listitem -->
 				<left>204</left>
 				<top>372</top>
 				<width>1026</width>
@@ -147,8 +116,7 @@
 				<onclick>Close</onclick>
 				<visible>String.IsEqual(Window(home).Property(SelectDialogType),selectuserplaylist)</visible>
 			</control>
-			<control type="button" id="994">
-				<!-- Fake User video listitem -->
+			<control type="button" id="994"><!-- Fake User video listitem -->
 				<left>204</left>
 				<top>441</top>
 				<width>1026</width>
@@ -164,8 +132,7 @@
 				<onclick>Close</onclick>
 				<visible>String.IsEqual(Window(home).Property(SelectDialogType),selectuserplaylist)</visible>
 			</control>
-			<control type="label">
-				<!-- Fake OK button -->
+			<control type="label"><!-- Fake OK button -->
 				<left>1314</left>
 				<top>228</top>
 				<width>384</width>
@@ -175,8 +142,7 @@
 				<textcolor>disabled-text</textcolor>
 				<align>center</align>
 			</control>
-			<control type="button" id="993">
-				<!-- Fake Cancel button -->
+			<control type="button" id="993"><!-- Fake Cancel button -->
 				<left>1314</left>
 				<top>312</top>
 				<width>384</width>
