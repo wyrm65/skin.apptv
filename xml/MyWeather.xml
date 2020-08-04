@@ -20,7 +20,7 @@
 			<visible>!System.ScreenSaverActive + ![Skin.HasSetting(background-playingmedia) + Player.HasVideo]</visible>
 		</control>
 		<control type="group">
-			<visible>Skin.HasSetting(background-playingmedia) + [[Skin.HasSetting(HomeMenuVertical) + Window.IsVisible(home)] | !Window.IsVisible(home)]</visible>
+			<visible>Skin.HasSetting(background-playingmedia)</visible>
 			<control type="videowindow">
 				<include>fullscreenimage</include>
 				<visible>Player.HasVideo</visible>
@@ -45,7 +45,7 @@
 			<onclick>noop</onclick>
 			<visible>![String.IsEqual(Skin.String(weather-view),$LOCALIZE[33035]) + [String.Contains(Weather.plugin,weather.openweathermap.extended) | String.Contains(Weather.plugin,weather.gismeteo)]]</visible>
 		</control>
-		<control type="label"><!-- Weather heading label -->
+		<control type="label"><!-- Weather heading -->
 			<left>1419</left>
 			<top>75</top>
 			<width>471</width>
@@ -75,7 +75,7 @@
 					<texture>$INFO[Window(weather).Property(WeatherProviderLogo)]</texture>
 				</control>
 			</control>
-			<control type="label"><!-- Weather provider label -->
+			<control type="label"><!-- Weather provider -->
 				<left>26</left>
 				<top>3</top>
 				<width>954</width>
@@ -84,7 +84,7 @@
 				<label>$INFO[Window(weather).Property(WeatherProvider),$LOCALIZE[31536] - ]</label>
 				<visible>String.IsEmpty(Window(weather).Property(WeatherProviderLogo))</visible>
 			</control>
-			<control type="label"><!-- Weather location label -->
+			<control type="label"><!-- Weather location -->
 				<left>26</left>
 				<top>75</top>
 				<width>954</width>
@@ -96,7 +96,7 @@
 		<include file="Includes_Weather.xml">standardweather</include>
 		<include condition="String.Contains(Weather.plugin,weather.ozweather)" file="Includes_Weather.xml">ozweather</include>
 		<include condition="String.Contains(Weather.plugin,weather.openweathermap.extended) | String.Contains(Weather.plugin,weather.gismeteo)" file="Includes_Weather.xml">openweatherextended</include>
-		<control type="label"><!-- Update label -->
+		<control type="label"><!-- Updated -->
 			<left>1350</left>
 			<top>1028</top>
 			<width>555</width>
@@ -163,16 +163,16 @@
 					<label>$LOCALIZE[31562] $VAR[WeatherView]</label>
 					<onclick>$VAR[WeatherViewAction]</onclick>
 				</control>
-				<control type="spincontrolex" id="3"><!-- Change location button -->
+				<control type="spincontrolex" id="3"><!-- Change location -->
 					<width>714</width>
 					<height>75</height>
 					<label>$LOCALIZE[21873] - </label>
 				</control>
-				<control type="button" id="2"><!-- Refresh button -->
+				<control type="button" id="2"><!-- Refresh -->
 					<width>714</width>
 					<height>75</height>
 				</control>
-				<control type="button" id="208"><!-- Custom Weather Backgrounds Button -->
+				<control type="button" id="208"><!-- Custom Weather Backgrounds -->
 					<width>714</width>
 					<height>75</height>
 					<label>$LOCALIZE[31866]</label>
@@ -181,7 +181,7 @@
 					<onclick condition="System.HasAddon(script.image.resource.select)">
 						RunScript(script.image.resource.select,type=resource.images.weatherfanart&amp;property=background-customweather)</onclick>
 				</control>
-				<control type="button" id="209"><!-- Custom Weather Icons Button -->
+				<control type="button" id="209"><!-- Custom Weather Icons -->
 					<width>714</width>
 					<height>75</height>
 					<label>$LOCALIZE[31873]</label>
@@ -199,7 +199,7 @@
 					<radioposx>660</radioposx>
 					<enable>String.Contains(Weather.plugin,weather.openweathermap.extended)</enable>
 				</control>
-				<control type="button" id="4"><!-- Settings button -->
+				<control type="button" id="4"><!-- Settings -->
 					<width>714</width>
 					<height>75</height>
 					<label>$LOCALIZE[1390]</label>
