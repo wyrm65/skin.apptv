@@ -9,7 +9,7 @@
 				<top>158</top>
 				<width>384</width>
 				<height>384</height>
-				<texture fallback="icon-radio.png">$VAR[PVRIcon]</texture>
+				<texture fallback="icon-radio.png">$INFO[ListItem.Icon]</texture>
 				<aspectratio>keep</aspectratio>
 				<visible>!String.IsEmpty(Window.Property(IsRadio))</visible>
 			</control>
@@ -18,7 +18,7 @@
 				<top>158</top>
 				<width>384</width>
 				<height>384</height>
-				<texture fallback="icon-livetv.png">$VAR[PVRIcon]</texture>
+				<texture fallback="icon-livetv.png">$INFO[ListItem.Icon]</texture>
 				<aspectratio>keep</aspectratio>
 				<visible>String.IsEmpty(Window.Property(IsRadio))</visible>
 			</control>
