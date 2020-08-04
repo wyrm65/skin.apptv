@@ -9,8 +9,8 @@
 	<onunload>SetFocus(9000)</onunload>
 	<include>zoom-openclose</include>
 	<controls>
-		<!-- Hack to get number of pending updates. Use $INFO[Container(12345).NumItems] for number of updates -->
-		<control type="list" id="12345">
+
+		<control type="list" id="12345"><!-- Hack to get number of pending updates. Use $INFO[Container(12345).NumItems] for number of updates -->
 			<left>-100</left>
 			<top>-100</top>
 			<width>1</width>
@@ -19,12 +19,10 @@
 			<focusedlayout/>
 			<include file="Includes_Shelf.xml">AddonUpdated</include>
 		</control>
-		<!-- Use Vertical Home menu-->
-		<include condition="Skin.HasSetting(HomeMenuVertical)" file="Includes_VertHome.xml">VertHomeMenu</include>
-		<!-- Use Horizontal Home menu-->
-		<include condition="Skin.HasSetting(HomeMenuHorizontal)" file="Includes_HorzHome.xml">HorzHomeMenu</include>
-		<!-- Use Icon Home menu-->
-		<include condition="Skin.HasSetting(HomeMenuIcon) | [!Skin.HasSetting(HomeMenuIcon) + !Skin.HasSetting(HomeMenuHorizontal) + !Skin.HasSetting(HomeMenuVertical)]" file="Includes_IconHome.xml">IconHomeMenu</include>
+
+		<include condition="$EXP[isVerticalHome]" file="Includes_VertHome.xml">VertHomeMenu</include>
+		<include condition="$EXP[isHorizontalHome]" file="Includes_HorzHome.xml">HorzHomeMenu</include>
+		<include condition="$EXP[isIconHome]" file="Includes_IconHome.xml">IconHomeMenu</include>
 
 		<include>touch-controls</include>
 
@@ -100,7 +98,7 @@
 					<onclick>ActivateWindow(1152)</onclick>
 				</control>
 					<control type="group" id="6103">
-						<visible>!Skin.HasSetting(HomeMenuVertical)</visible>
+						<visible>!$EXP[isVerticalHome]</visible>
 						<width>639</width>
 						<height>69</height>
 						<control type="togglebutton" id="6104"><!-- TVShow Shelf image type -->
@@ -123,7 +121,7 @@
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
-				<control type="radiobutton" id="6106"><!-- Time On Home Screen toggle -->
+				<control type="radiobutton" id="6106"><!-- Time On Home Screen -->
 					<width>639</width>
 					<height>69</height>
 					<label>$LOCALIZE[31888]</label>
@@ -134,7 +132,7 @@
 					<selected>!Skin.HasSetting(home-time)</selected>
 					<radioposx>1266</radioposx>
 				</control>
-				<control type="radiobutton" id="6107"><!-- Current Weather On Home Screen toggle -->
+				<control type="radiobutton" id="6107"><!-- Current Weather On Home Screen -->
 					<width>639</width>
 					<height>69</height>
 					<label>$LOCALIZE[31889]</label>
@@ -146,7 +144,7 @@
 					<enable>!String.IsEmpty(Weather.plugin)</enable>
 					<radioposx>1266</radioposx>
 				</control>
-				<control type="button" id="6108"><!-- Player controls button -->
+				<control type="button" id="6108"><!-- Player controls -->
 					<width>639</width>
 					<height>69</height>
 					<label>$LOCALIZE[16003] $LOCALIZE[478]</label>
@@ -167,14 +165,14 @@
 				<param name="indicatororientation" value="horizontal" />
 				<param name="grp1indicate" value="[ControlGroup(6100).HasFocus()|String.IsEqual(Window(home).Property(ShowScreenSettings),show)]" />
 				<param name="grp1visible" value="[!Skin.HasSetting(lock-screensettings)]" />
-				<param name="grp2indicate" value="[Skin.HasSetting(HomeMenuVertical)+Control.HasFocus(9000)]" />
-				<param name="grp2visible" value="[Skin.HasSetting(HomeMenuVertical)+[!Skin.HasSetting(lock-screensettings)|$EXP[isEnabledScrollbar]]]" />
-				<param name="grp3indicate" value="[Skin.HasSetting(HomeMenuVertical)+Control.HasFocus(23)]" />
-				<param name="grp3visible" value="[Skin.HasSetting(HomeMenuVertical)+$EXP[isEnabledScrollbar]]" />
-				<param name="grp4indicate" value="[Skin.HasSetting(HomeMenuHorizontal)]+[ControlGroup(9000).HasFocus()|ControlGroup(9800).HasFocus()]" />
-				<param name="grp4visible" value="[Skin.HasSetting(HomeMenuHorizontal)+!Skin.HasSetting(lock-screensettings)]" />
-				<param name="grp5indicate" value="Skin.HasSetting(HomeMenuIcon)+[Control.HasFocus(9000)|ControlGroup(9800).HasFocus()]" />
-				<param name="grp5visible" value="[Skin.HasSetting(HomeMenuIcon)+![Skin.HasSetting(lock-screensettings)]]" />
+				<param name="grp2indicate" value="[$EXP[isVerticalHome]+Control.HasFocus(9000)]" />
+				<param name="grp2visible" value="[$EXP[isVerticalHome]+[!Skin.HasSetting(lock-screensettings)|$EXP[isEnabledScrollbar]]]" />
+				<param name="grp3indicate" value="[$EXP[isVerticalHome]+Control.HasFocus(23)]" />
+				<param name="grp3visible" value="[$EXP[isVerticalHome]+$EXP[isEnabledScrollbar]]" />
+				<param name="grp4indicate" value="[$EXP[isHorizontalHome]+[ControlGroup(9000).HasFocus()|ControlGroup(9800).HasFocus()]]" />
+				<param name="grp4visible" value="[$EXP[isHorizontalHome]+!Skin.HasSetting(lock-screensettings)]" />
+				<param name="grp5indicate" value="[$EXP[isIconHome]+[Control.HasFocus(9000)|ControlGroup(9800).HasFocus()]]" />
+				<param name="grp5visible" value="[$EXP[isIconHome]+![Skin.HasSetting(lock-screensettings)]]" />
 			</include>
 		</control>
 	</controls>

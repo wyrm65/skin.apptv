@@ -15,6 +15,9 @@
 	<!-- Expressions section -->
 	<expression name="isFullscreenVideo">Window.IsActive(fullscreenvideo)</expression>
 	<expression name="isnotFullscreenVideo">![Window.IsActive(fullscreenvideo)]</expression>
+	<expression name="isVerticalHome">Skin.HasSetting(HomeMenuVertical)</expression>
+	<expression name="isHorizontalHome">Skin.HasSetting(HomeMenuHorizontal)</expression>
+	<expression name="isIconHome">Skin.HasSetting(HomeMenuIcon) | [!Skin.HasSetting(HomeMenuHorizontal) + !Skin.HasSetting(HomeMenuVertical)]</expression>
 	<expression name="isVideoAddon">String.Contains(Container.FolderPath,plugin://plugin.video)</expression>
 	<expression name="isMovie">String.IsEqual(ListItem.DBTYPE,movie)</expression>
 	<expression name="isContentMovies">Container.Content(movies)</expression>
@@ -41,8 +44,8 @@
 	<expression name="isContentPlaylists">Container.Content(playlists)</expression>
 	<expression name="isEmptyIcon">String.IsEmpty(ListItem.Icon)</expression>
 	<expression name="isnotEmptyIcon">![String.IsEmpty(ListItem.Icon)]</expression>
-	<expression name="isEmptyPVRIcon">String.IsEmpty(ListItem.Icon) + String.IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))</expression>
-	<expression name="isnotEmptyPVRIcon">![String.IsEmpty(ListItem.Icon)] | ![String.IsEmpty(Window(home).Property(SkinHelper.ListItem.ChannelLogo))]</expression>
+	<expression name="isEmptyPVRIcon">String.IsEmpty(ListItem.Icon)</expression>
+	<expression name="isnotEmptyPVRIcon">![String.IsEmpty(ListItem.Icon)]</expression>
 	<expression name="isEmptyDBID">String.IsEmpty(ListItem.DBID)</expression>
 	<expression name="isnotEmptyDBID">![String.IsEmpty(ListItem.DBID)]</expression>
 	<expression name="isDefaultIcon">String.StartsWith(ListItem.Icon,Default)</expression>
@@ -127,7 +130,7 @@
 				<visible>!Container().Scrolling + !System.ScreenSaverActive + ![Skin.HasSetting(background-playingmedia) + Player.HasVideo]</visible>
 			</control>
 			<control type="group">
-				<visible>Skin.HasSetting(background-playingmedia) + [[Skin.HasSetting(HomeMenuVertical) + Window.IsVisible(home)] | !Window.IsVisible(home)]</visible>
+				<visible>Skin.HasSetting(background-playingmedia) + [[$EXP[isVerticalHome] + Window.IsVisible(home)] | !Window.IsVisible(home)]</visible>
 				<control type="videowindow">
 					<include>fullscreenimage</include>
 					<visible>Player.HasVideo</visible>

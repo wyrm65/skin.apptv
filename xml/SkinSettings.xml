@@ -288,7 +288,7 @@
 						||Skin.Reset(widget-movie.Icon)||Skin.Reset(widget-movie.Label)||Skin.Reset(widget-movie.Type)
 						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-movie))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31026])</onclick>
-						<visible>!Skin.HasSetting(HomeMenuVertical)</visible>
+						<visible>!$EXP[isVerticalHome]</visible>
 					</control>
 					<control type="button" id="308"><!-- TVShow Widget type -->
 						<include>settings-submenu-common</include>
@@ -328,10 +328,10 @@
 						||Skin.Reset(widget-tvshow.Icon)||Skin.Reset(widget-tvshow.Label)||Skin.Reset(widget-tvshow.Type)
 						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-tvshow))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31027])</onclick>
-						<visible>!Skin.HasSetting(HomeMenuVertical)</visible>
+						<visible>!$EXP[isVerticalHome]</visible>
 					</control>
 					<control type="group" id="309"><!-- TVShow Widget image type -->
-						<visible>!Skin.HasSetting(HomeMenuVertical)</visible>
+						<visible>!$EXP[isVerticalHome]</visible>
 						<include>settings-submenu-size</include>
 						<control type="togglebutton" id="310">
 							<onup>308</onup>
@@ -390,7 +390,7 @@
 						||Skin.Reset(widget-music.Icon)||Skin.Reset(widget-music.Label)||Skin.Reset(widget-music.Type)
 						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-music))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[2])</onclick>
-						<visible>!Skin.HasSetting(HomeMenuVertical)</visible>
+						<visible>!$EXP[isVerticalHome]</visible>
 					</control>
 					<control type="button" id="313"><!-- Broadcast Widget type -->
 						<include>settings-submenu-common</include>
@@ -415,7 +415,7 @@
 						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-broadcast))</onclick>	
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31031])</onclick>
 						<enable>System.HasPVRAddon</enable>
-						<visible>Skin.HasSetting(HomeMenuHorizontal)</visible>
+						<visible>$EXP[isHorizontalHome]</visible>
 					</control>
 					<control type="button" id="314"><!-- Addon Widget type -->
 						<include>settings-submenu-common</include>
@@ -437,7 +437,7 @@
 						||Skin.Reset(widget-addon.Icon)||Skin.Reset(widget-addon.Label)||Skin.Reset(widget-addon.Type)
 						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-addon))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[24001])</onclick>
-						<visible>Skin.HasSetting(HomeMenuHorizontal)</visible>
+						<visible>$EXP[isHorizontalHome]</visible>
 					</control>
 					<control type="button" id="315"><!-- Favourites Widget type -->
 						<include>settings-submenu-common</include>
@@ -459,7 +459,7 @@
 						||Skin.Reset(widget-favourite.Icon)||Skin.Reset(widget-favourite.Label)||Skin.Reset(widget-favourite.Type)
 						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-favourite))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[1036])</onclick>
-						<visible>Skin.HasSetting(HomeMenuHorizontal)</visible>
+						<visible>$EXP[isHorizontalHome]</visible>
 					</control>
 					<control type="button" id="316"><!-- VideoInfo Movie Widget type -->
 						<include>settings-submenu-common</include>
@@ -499,7 +499,7 @@
 						||Skin.Reset(widget-infomovie.Icon)||Skin.Reset(widget-infomovie.Label)||Skin.Reset(widget-infomovie.Type)
 						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-infomovie))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31026] $LOCALIZE[31588])</onclick>
-						<visible>!Skin.HasSetting(HomeMenuVertical)</visible>
+						<visible>!$EXP[isVerticalHome]</visible>
 					</control>
 					<control type="button" id="317"><!-- VideoInfo TVShow Widget type -->
 						<include>settings-submenu-common</include>
@@ -539,7 +539,7 @@
 						||Skin.Reset(widget-infotvshow.Icon)||Skin.Reset(widget-infotvshow.Label)||Skin.Reset(widget-infotvshow.Type)
 						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-infotvshow))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31027] $LOCALIZE[31588])</onclick>
-						<visible>!Skin.HasSetting(HomeMenuVertical)</visible>
+						<visible>!$EXP[isVerticalHome]</visible>
 					</control>
 					<control type="button" id="325"><!-- Reset Above Settings button -->
 						<include>settings-submenu-common</include>

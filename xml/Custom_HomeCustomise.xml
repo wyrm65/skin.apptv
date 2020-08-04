@@ -28,17 +28,17 @@
 			<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31951])</onclick>
 			<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetBool(HomeMenuVertical)||Skin.Reset(HomeMenuHorizontal)||Skin.Reset(HomeMenuIcon)||ReloadSkin())</onclick>
 			<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31900])</onclick>
-			<ondown condition="Skin.HasSetting(HomeMenuHorizontal)">9001</ondown>
-			<ondown condition="Skin.HasSetting(HomeMenuIcon)">9021</ondown>
-			<ondown condition="Skin.HasSetting(HomeMenuVertical)">9031</ondown>
-			<onright condition="Skin.HasSetting(HomeMenuHorizontal)">9001</onright>
-			<onright condition="Skin.HasSetting(HomeMenuIcon)">9021</onright>
-			<onright condition="Skin.HasSetting(HomeMenuVertical)">9031</onright>
+			<ondown condition="$EXP[isHorizontalHome]">9001</ondown>
+			<ondown condition="$EXP[isIconHome]">9021</ondown>
+			<ondown condition="$EXP[isVerticalHome]">9031</ondown>
+			<onright condition="$EXP[isHorizontalHome]">9001</onright>
+			<onright condition="$EXP[isIconHome]">9021</onright>
+			<onright condition="$EXP[isVerticalHome]">9031</onright>
 			<animation effect="fade" start="100" end="60" condition="!Control.HasFocus(402)">Conditional</animation>
 		</control>
 		<control type="group" id="9000"><!-- Show apropriate home menu -->
 			<control type="group" id="9001"><!-- Horizontal Home Menu -->
-				<visible>Skin.HasSetting(HomeMenuHorizontal)</visible>
+				<visible>$EXP[isHorizontalHome]</visible>
 				<animation condition="true" effect="zoom" start="100" end="80" center="auto">Conditional</animation>
 				<include file="Includes_HorzHome.xml">HorzHomeMenuBar</include>
 				<!-- Markers for off screen menu bar items -->
@@ -1006,7 +1006,7 @@
 				</control>
 			</control>
 			<control type="group" id="9020"><!-- Icon Home Menu -->
-				<visible>Skin.HasSetting(HomeMenuIcon) | [!Skin.HasSetting(HomeMenuVertical) + !Skin.HasSetting(HomeMenuHorizontal) + !Skin.HasSetting(HomeMenuIcon)]</visible>
+				<visible>$EXP[isIconHome]</visible>
 				<!-- Markers for off screen menu items -->
 				<include content="page-offscreen-vertical">
 					<param name="indicator1left" value="936"/>
@@ -1464,7 +1464,7 @@
 				</control>
 			</control>
 			<control type="group" id="9030"><!-- Vertical Home Menu -->
-				<visible>Skin.HasSetting(HomeMenuVertical)</visible>
+				<visible>$EXP[isVerticalHome]</visible>
 				<animation condition="true" effect="zoom" start="100" end="80" center="auto">Conditional</animation>
 				<!-- Markers for off screen menu items -->
 				<include content="page-offscreen-vertical">
