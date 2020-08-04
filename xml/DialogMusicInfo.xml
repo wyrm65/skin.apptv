@@ -397,7 +397,7 @@
 			<onup condition="$EXP[isSong] + Integer.IsGreater(Container(1322).NumPages,1)">1323</onup>
 			<onup condition="$EXP[isArtist] + Integer.IsGreater(Container(1422).NumPages,1)">1423</onup>
 			<onup condition="$EXP[isAlbum] + Integer.IsGreater(Container(1522).NumPages,1)">1523</onup>
-			<onup condition="[$EXP[isSong] + [Integer.IsLessOrEqual(Container(1322).NumPages,1)] | [$EXP[isArtist]+Integer.IsLessOrEqual(Container(1422).NumPages,1)] | [$EXP[isAlbum]+Integer.IsLessOrEqual(Container(1522).NumPages,1)]]">1005</onup>
+			<onup condition="[$EXP[isSong]+[Integer.IsLessOrEqual(Container(1322).NumPages,1)]] | [$EXP[isArtist]+Integer.IsLessOrEqual(Container(1422).NumPages,1)] | [$EXP[isAlbum]+Integer.IsLessOrEqual(Container(1522).NumPages,1)]">1005</onup>
 			<ondown condition="[$EXP[isAlbum] | $EXP[isArtist]] + Integer.IsGreater(Container(50).NumItems,0)">50</ondown>
 			<ondown condition="[$EXP[isAlbum] | $EXP[isArtist]] + Integer.IsLess(Container(50).NumItems,1)">1005</ondown>
 			<ondown condition="$EXP[isSong] + Integer.IsGreaterOrEqual(Container(950).NumItems,1)">950</ondown>
