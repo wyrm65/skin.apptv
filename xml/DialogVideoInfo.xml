@@ -44,7 +44,7 @@
 			<wrapmultiline>true</wrapmultiline>
 			<aligny>center</aligny>
 			<label>$INFO[ListItem.TVShowTitle]</label>
-			<visible>String.IsEmpty(Control.GetLabel(7018)) + !String.IsEmpty(ListItem.TVShowTitle)</visible>
+			<visible>String.IsEmpty(Control.GetLabel(7018))</visible>
 		</control>
 		<control type="image"><!-- Classification Rating (quick way) -->
 			<left>1796</left>
@@ -117,7 +117,7 @@
 				<width>345</width>
 				<height>345</height>
 				<aspectratio scalediffuse="true">keep</aspectratio>
-				<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+				<texture background="true" diffuse="mask-squ.png">$VAR[IconPoster]</texture>
 				<visible>$EXP[isEpisode] | $EXP[isMusicvideo]</visible>
 			</control>
 			<control type="image"><!-- Star Rating Dropshadow-->
@@ -181,7 +181,7 @@
 			<height>30</height>
 			<font>apptv20</font>
 			<label>$LOCALIZE[31133] $VAR[ListitemDuration]</label>
-			<visible>[$EXP[isMovie] | $EXP[isEpisode] | $EXP[isMusicvideo]] + !String.IsEmpty(Listitem.Duration)</visible>
+			<visible>[$EXP[isMovie] | $EXP[isEpisode] | $EXP[isMusicvideo]]</visible>
 		</control>
 		<control type="group">
 			<visible>$EXP[isTvshow] | $EXP[isSeason]</visible>
@@ -192,7 +192,6 @@
 				<height>30</height>
 				<label>$LOCALIZE[33054] $INFO[ListItem.Property(TotalSeasons)]</label>
 				<font>apptv20</font>
-				<visible>!String.IsEmpty(ListItem.Property(TotalSeasons))</visible>
 			</control>
 			<control type="label"><!-- Current TVShow Name -->
 				<left>510</left>
@@ -271,7 +270,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>$EXP[isMovie] | $EXP[isEpisode] | $EXP[isMusicvideo]</visible>
+			<visible>$EXP[isMovie] | $EXP[isEpisode] | $EXP[isMusicvideo] + Integer.IsGreater(Container(50).Numitems,0)</visible>
 			<control type="label">
 				<left>1012</left>
 				<top>360</top>
@@ -281,7 +280,7 @@
 				<font>apptv22</font>
 				<textcolor>disabled-text</textcolor>
 				<shadowcolor>shadow-text</shadowcolor>
-				<visible>[$EXP[isMovie] | $EXP[isEpisode]] + Integer.IsGreater(Container(50).Numitems,0)</visible>
+				<visible>[$EXP[isMovie] | $EXP[isEpisode]]</visible>
 			</control>
 			<control type="label">
 				<left>1012</left>
@@ -292,7 +291,7 @@
 				<font>apptv22</font>
 				<textcolor>disabled-text</textcolor>
 				<shadowcolor>shadow-text</shadowcolor>
-				<visible>$EXP[isMusicvideo] + Integer.IsGreater(Container(50).Numitems,0)</visible>
+				<visible>$EXP[isMusicvideo]</visible>
 			</control>
 			<control type="label"><!-- Actor 1 -->
 				<left>1012</left>
@@ -466,30 +465,9 @@
 			<top>732</top>
 			<height>30</height>
 			<width>450</width>
-			<label>$LOCALIZE[206]</label>
+			<label>$VAR[VideoInfoWidgetTitle]</label>
 			<font>apptv22</font>
 			<align>right</align>
-			<visible>String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
-		</control>
-		<control type="label">
-			<left>30</left>
-			<top>732</top>
-			<height>30</height>
-			<width>450</width>
-			<label>$LOCALIZE[31691]</label>
-			<font>apptv20</font>
-			<align>right</align>
-			<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + ![String.IsEmpty(Container(950).ListItem.Label)] + !String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)</visible><!-- Not showing Cast and recommended video list has something to show -->
-		</control>
-		<control type="label">
-			<left>30</left>
-			<top>732</top>
-			<height>30</height>
-			<width>450</width>
-			<label>$LOCALIZE[31891]</label>
-			<font>apptv20</font>
-			<align>right</align>
-			<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + ![String.IsEmpty(Container(950).ListItem.Label)] + String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)</visible><!-- Not showing Cast and Special features are available -->
 		</control>
 		<control type="image">
 			<left>510</left>
@@ -576,14 +554,14 @@
 			<onup>999</onup>
 			<orientation>horizontal</orientation>
 			<itemlayout width="315">
-			<control type="image">
-				<left>72</left>
-				<top>0</top>
-				<width>171</width>
-				<height>222</height>
-				<aspectratio scalediffuse="true">keep</aspectratio>
-				<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
-			</control>
+				<control type="image">
+					<left>72</left>
+					<top>0</top>
+					<width>171</width>
+					<height>222</height>
+					<aspectratio scalediffuse="true">keep</aspectratio>
+					<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+				</control>
 			</itemlayout>
 			<focusedlayout width="315">
 				<control type="image">
@@ -593,17 +571,7 @@
 					<height>222</height>
 					<aspectratio scalediffuse="true">keep</aspectratio>
 					<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
-					<visible>!Control.HasFocus(950)</visible>
-				</control>
-				<control type="image">
-					<left>72</left>
-					<top>0</top>
-					<width>171</width>
-					<height>222</height>
-					<aspectratio scalediffuse="true">keep</aspectratio>
-					<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
 					<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
-					<visible>Control.HasFocus(950)</visible>
 				</control>
 				<control type="textbox">
 					<left>0</left>

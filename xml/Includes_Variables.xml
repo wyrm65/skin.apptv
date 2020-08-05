@@ -128,6 +128,11 @@
 		| String.IsEqual(Skin.String(widget-infotvshow),$LOCALIZE[31652])]">$INFO[Skin.String(widget-infotvshow.List)]</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)">videodb://recentlyaddedepisodes/</value>
 	</variable>
+	<variable name="VideoInfoWidgetTitle">
+		<value condition="!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + !String.IsEmpty(Container(950).ListItem.Label) + !String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)">$LOCALIZE[31691]</value>
+		<value condition="!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + !String.IsEmpty(Container(950).ListItem.Label) + String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)">$LOCALIZE[31891]</value>
+		<value>$LOCALIZE[206]</value>
+	</variable>
 	<variable name="MPAARatingIcons">
 		<value condition="Skin.HasSetting(defaultmpaa-locale)">$INFO[Listitem.MPAA,resource://resource.images.classificationicons.colour/,.png]</value>
 		<value>$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</value>
