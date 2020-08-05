@@ -45,7 +45,6 @@
 	<expression name="isEmptyIcon">String.IsEmpty(ListItem.Icon)</expression>
 	<expression name="isnotEmptyIcon">![String.IsEmpty(ListItem.Icon)]</expression>
 	<expression name="isEmptyPVRIcon">String.IsEmpty(ListItem.Icon)</expression>
-	<expression name="isnotEmptyPVRIcon">![String.IsEmpty(ListItem.Icon)]</expression>
 	<expression name="isEmptyDBID">String.IsEmpty(ListItem.DBID)</expression>
 	<expression name="isnotEmptyDBID">![String.IsEmpty(ListItem.DBID)]</expression>
 	<expression name="isDefaultIcon">String.StartsWith(ListItem.Icon,Default)</expression>
@@ -855,14 +854,14 @@
 				<alttexturenofocus>touch-pause.png</alttexturenofocus>
 				<usealttexture>Player.Paused</usealttexture>
 				<onclick>ActivateWindow(playercontrols)</onclick>
-				<visible>Player.HasAudio | Player.HasVideo</visible>
+				<visible>Player.HasMedia</visible>
 			</control>
 			<control type="button"><!-- Zoom -->
 				<include>touch-controls-common</include>
 				<texturefocus>touch-zoom.png</texturefocus>
 				<texturenofocus>touch-zoom.png</texturenofocus>
 				<onclick>FullScreen</onclick>
-				<visible>Player.HasAudio | Player.HasVideo</visible>
+				<visible>Player.HasMedia</visible>
 			</control>
 			<control type="button"><!-- Search -->
 				<include>touch-controls-common</include>
