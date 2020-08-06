@@ -196,8 +196,8 @@
 			<width>348</width>
 			<height>195</height>
 			<aligny>bottom</aligny>
-			<aspectratio>stretch</aspectratio>
-			<texture background="true">$VAR[TVShowThumb]</texture>
+			<aspectratio scalediffuse="false">stretch</aspectratio>
+			<texture diffuse="mask-squ.png" background="true">$VAR[TVShowThumb]</texture>
 			<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 		</control>
 		<control type="image">
@@ -206,7 +206,7 @@
 			<width>348</width>
 			<height>63</height>
 			<aligny>bottom</aligny>
-			<aspectratio>stretch</aspectratio>
+			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<texture diffuse="mask-squ.png" background="true">$VAR[TVShowBanner]</texture>
 			<animation effect="zoom" start="100" end="104" center="188,156" time="200" tween="back" easing="out" reversible="false">focus</animation>
 		</control>
@@ -215,10 +215,20 @@
 			<top>300</top>
 			<width>348</width>
 			<height>63</height>
-			<aspectratio>stretch</aspectratio>
-			<texture flipy="true" diffuse="mask-fade.png" background="true">$VAR[TVShowBanner]</texture>
+			<aspectratio scalediffuse="false">stretch</aspectratio>
+			<texture flipy="true" diffuse="mask-fadesqu.png" background="true">$VAR[TVShowBanner]</texture>
 			<animation effect="zoom" start="100" end="104" center="188,156" time="200" tween="back" easing="out" reversible="false">focus</animation>
 		</control>
+		<control type="textbox"><!-- TVShow name for if banner not available -->
+			<left>25</left>
+			<top>234</top>
+			<width>328</width>
+			<height>64</height>
+			<label>$VAR[TVShowBannerShowName]</label>
+			<font>apptv16</font>
+			<align>center</align>
+			<animation effect="zoom" start="100" end="104" center="188,156" time="200" tween="back" easing="out" reversible="false">focus</animation>
+		</control>		
 	</include>
 	<include name="tvshow-shelfposter">
 		<control type="image">
@@ -259,9 +269,9 @@
 			</include>
 			<!-- Markers for control area items -->
 			<include content="page-offscreen-horizontal">
-				<param name="indicator1left" value="0"/>
+				<param name="indicator1left" value="-5"/>
 				<param name="indicator1top" value="195"/>
-				<param name="indicator2left" value="1872"/>
+				<param name="indicator2left" value="1877"/>
 				<param name="indicator2top" value="195"/>
 				<param name="indicatorsize" value="48"/>
 				<param name="indicatorcontainer" value="9210"/>
@@ -470,7 +480,7 @@
 						<top>8</top>
 						<width>315</width>
 						<height>315</height>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<aspectratio scalediffuse="true">stretch</aspectratio>
 						<aligny>top</aligny>
 						<texture diffuse="mask-squ.png" fallback="DefaultAudio.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 					</control>
@@ -479,7 +489,7 @@
 						<top>324</top>
 						<width>315</width>
 						<height>315</height>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<aspectratio scalediffuse="true">stretch</aspectratio>
 						<aligny>top</aligny>
 						<texture fallback="DefaultAudio.png" flipy="true" diffuse="mask-fadesqu.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 					</control>
@@ -490,7 +500,7 @@
 						<top>8</top>
 						<width>315</width>
 						<height>315</height>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<aspectratio scalediffuse="true">stretch</aspectratio>
 						<aligny>top</aligny>
 						<texture diffuse="mask-squ.png" fallback="DefaultAudio.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
@@ -500,7 +510,7 @@
 						<top>324</top>
 						<width>315</width>
 						<height>315</height>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<aspectratio scalediffuse="true">stretch</aspectratio>
 						<aligny>top</aligny>
 						<texture fallback="DefaultAudio.png" flipy="true" diffuse="mask-fadesqu.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 						<animation effect="zoom" start="100" end="104" center="188,156" time="200" tween="back" easing="out" reversible="false">focus</animation>
@@ -798,8 +808,8 @@
 						<width>350</width>
 						<height>330</height>
 						<aligny>top</aligny>
-						<texture colordiffuse="LowBgnVisibity">mask-rectbkgrnd.png</texture>
-						<aspectratio scalediffuse="true">stretch</aspectratio>
+						<texture diffuse="mask-squ.png" colordiffuse="LowBgnVisibity">mask-rectbkgrnd.png</texture>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
 					</control>
 					<control type="label">
 						<left>14</left>
@@ -848,8 +858,8 @@
 						<width>350</width>
 						<height>330</height>
 						<aligny>top</aligny>
-						<texture colordiffuse="LowBgnVisibity">mask-rectbkgrnd.png</texture>
-						<aspectratio scalediffuse="true">stretch</aspectratio>
+						<texture diffuse="mask-squ.png" colordiffuse="LowBgnVisibity">mask-rectbkgrnd.png</texture>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
 					</control>
 					<control type="label">
 						<left>14</left>

@@ -1103,6 +1103,13 @@
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
 		<value>background-mask.png</value>
 	</variable>
+	<variable name="TVShowBannerShowName">
+		<value condition="!String.IsEmpty(ListItem.Art(tvshow.banner))"></value>
+		<value condition="!String.IsEmpty(ListItem.Art(banner))"></value>
+		<value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo))"></value>
+		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))"></value>
+		<value>$INFO[ListItem.TvShowTitle]</value>
+	</variable>
 	<variable name="BroadcastShelfLabel">
 		<value condition="String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31956])">$INFO[ListItem.Label]</value>
 		<value>$INFO[ListItem.Title]</value>
