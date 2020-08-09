@@ -8,8 +8,8 @@
 	<onunload>ClearProperty(EditViews,home)</onunload>
 	<menucontrol>9000</menucontrol>
 	<include>window-openclose</include>
+	<visible>!System.ScreenSaverActive | !Window.IsVisible(movieinformation)</visible>
 	<controls>
-		<visible>!Window.IsVisible(movieinformation)</visible>
 		<include>background</include>
 		<include>fake-overlay</include>
 		<include content="screen-name">

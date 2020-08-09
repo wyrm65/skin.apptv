@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
 	<defaultcontrol always="true">450</defaultcontrol>
+	<visible>!System.ScreenSaverActive</visible>
 	<coordinates>
 		<left>0</left>
 		<top>0</top>
 	</coordinates>
 	<controls>
 		<include>fadebackground</include>
-		<control type="image" id="1">
-			<!-- Background image -->
+		<control type="image" id="1"><!-- Background image -->
 			<left>135</left>
 			<top>144</top>
 			<width>1656</width>
 			<height>795</height>
 			<texture border="14">button-menu-background.png</texture>
 		</control>
-		<control type="label" id="411">
-			<!-- Heading label -->
+		<control type="label" id="411"><!-- Heading -->
 			<left>0</left>
 			<top>-300</top>
 			<width>1620</width>
@@ -32,14 +31,12 @@
 			<height>45</height>
 			<align>center</align>
 			<orientation>horizontal</orientation>
-			<control type="label">
-				<!-- Heading label -->
+			<control type="label"><!-- Heading -->
 				<width max="1500">auto</width>
 				<height>45</height>
 				<label>$INFO[Control.GetLabel(411)]</label>
 			</control>
-			<control type="label">
-				<!-- Number of files -->
+			<control type="label"><!-- Number of files -->
 				<width max="120">auto</width>
 				<height>45</height>
 				<label>$INFO[Container(450).NumItems,(,)]</label>
@@ -105,8 +102,7 @@
 		<control type="group" id="460">
 			<left>1268</left>
 			<top>237</top>
-			<control type="button" id="413">
-				<!-- OK button -->
+			<control type="button" id="413"><!-- OK -->
 				<left>0</left>
 				<top>0</top>
 				<width>477</width>
@@ -117,8 +113,7 @@
 				<onleft>450</onleft>
 				<ondown>414</ondown>
 			</control>
-			<control type="button" id="414">
-				<!-- Cancel button -->
+			<control type="button" id="414"><!-- Cancel -->
 				<left>0</left>
 				<top>69</top>
 				<width>477</width>
@@ -130,8 +125,7 @@
 				<onup>413</onup>
 				<ondown>415</ondown>
 			</control>
-			<control type="button" id="415">
-				<!-- Create folder button -->
+			<control type="button" id="415"><!-- Create folder -->
 				<left>0</left>
 				<top>138</top>
 				<width>477</width>
@@ -143,8 +137,7 @@
 				<onup>414</onup>
 			</control>
 		</control>
-		<control type="label" id="412">
-			<!-- Path label -->
+		<control type="label" id="412"><!-- Path -->
 			<left>153</left>
 			<top>862</top>
 			<width>1590</width>

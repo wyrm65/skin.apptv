@@ -8,6 +8,7 @@
 	<onunload>ClearProperty(ShutdownKodi,home)</onunload>
 	<onunload>SetFocus(9000)</onunload>
 	<include>zoom-openclose</include>
+	<visible>!System.ScreenSaverActive</visible>
 	<controls>
 
 		<control type="list" id="12345"><!-- Hack to get number of pending updates. Use $INFO[Container(12345).NumItems] for number of updates -->
