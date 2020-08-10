@@ -20,28 +20,10 @@
 			<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
 			<visible>!String.IsEmpty(Window(home).Property(TVGuide.BackgroundFanart)) + !Skin.HasSetting(background-fanarts)</visible>
 		</control>
-		<control type="grouplist"><!-- Screen heading -->
-			<left>1419</left>
-			<top>52</top>
-			<width>548</width>
-			<height>108</height>
-			<align>left</align>
-			<orientation>horizontal</orientation>
-			<control type="label">
-				<width max="384">auto</width>
-				<height>108</height>
-				<label>$LOCALIZE[31956]</label>
-				<font>apptv30</font>
-				<wrapmultiline>true</wrapmultiline>
-				<aligny>bottom</aligny>
-			</control>
-			<control type="label">
-				<width max="120">auto</width>
-				<height>69</height>
-				<label>$INFO[Window(home).Property(NextAired.Total),(,)]</label>
-				<aligny>top</aligny>
-			</control>
-		</control>
+		<include content="screen-name">
+			<param name="screenlabel" value="$LOCALIZE[31956]"/>
+			<param name="listitems" value="$INFO[Window(home).Property(NextAired.Total),(,)]"/>
+		</include>
 		<control type="group"><!-- Monday -->
 			<left>30</left>
 			<top>105</top>

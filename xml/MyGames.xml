@@ -13,8 +13,7 @@
 			<param name="screenlabel" value="$LOCALIZE[15016]"/>
 			<param name="listitems" value="$INFO[Container.NumItems,(,)]"/>
 		</include>
-		<control type="group">
-			<!-- Various Views of Games library -->
+		<control type="group"><!-- Various Views of Games library -->
 			<include file="View-General.xml">ListView</include>
 			<include file="View-General.xml">IconView</include>
 			<include file="View-General.xml">WrapView</include>
@@ -22,22 +21,19 @@
 			<include file="View-General.xml">Coverflow</include>
 		</control>
 		<include>touch-controls</include>
-		<control type="group">
-			<!-- Screen Settings Menu -->
+		<control type="group"><!-- Screen Settings Menu -->
 			<left>0</left>
 			<top>1080</top>
 			<include>screen-settings</include>
 			<include>fadebackground</include>
 			<control type="image">
-				<!-- Dialog background -->
 				<left>657</left>
 				<top>141</top>
 				<width>600</width>
 				<height>741</height>
 				<texture border="14">button-menu-background.png</texture>
 			</control>
-			<control type="label">
-				<!-- Dialog heading -->
+			<control type="label"><!-- Dialog heading -->
 				<left>675</left>
 				<top>153</top>
 				<width>564</width>
@@ -46,8 +42,7 @@
 				<label>$LOCALIZE[15016]</label>
 				<align>center</align>
 			</control>
-			<control type="button">
-				<!-- Touch Close button -->
+			<control type="button"><!-- Touch Close button -->
 				<left>1221</left>
 				<top>129</top>
 				<width>48</width>
@@ -73,8 +68,7 @@
 				<itemgap>0</itemgap>
 				<onright>50</onright>
 				<onleft>50</onleft>
-				<control type="button" id="601">
-					<!-- View as button -->
+				<control type="button" id="601"><!-- View as button -->
 					<width>564</width>
 					<height>72</height>
 					<font>apptv22</font>
@@ -89,8 +83,7 @@
 					<onclick>Addon.OpenSettings($INFO[Container.PluginName])</onclick>
 					<visible>!String.IsEmpty(Container.PluginName)</visible>
 				</control>
-				<control type="button" id="604">
-					<!-- Get more -->
+				<control type="button" id="604"><!-- Get more -->
 					<width>564</width>
 					<height>72</height>
 					<font>apptv22</font>
@@ -98,8 +91,7 @@
 					<onclick>ActivateWindow(addonbrowser,addons://more/game/,return)</onclick>
 					<visible>$EXP[isContentAddons]</visible>
 				</control>
-				<control type="button" id="610">
-					<!-- player controls button -->
+				<control type="button" id="610"><!-- player controls button -->
 					<width>639</width>
 					<height>69</height>
 					<font>apptv22</font>

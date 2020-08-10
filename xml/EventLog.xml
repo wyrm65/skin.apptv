@@ -8,28 +8,10 @@
 	<visible>!System.ScreenSaverActive</visible>
 	<controls>
 		<include>background</include>
-		<control type="grouplist">
-			<left>1419</left>
-			<top>52</top>
-			<width>auto</width>
-			<height>108</height>
-			<align>left</align>
-			<orientation>horizontal</orientation>
-			<control type="label"><!-- Screen heading -->
-				<width max="384">auto</width>
-				<height>108</height>
-				<label>$LOCALIZE[14111]</label>
-				<font>apptv30</font>
-				<wrapmultiline>true</wrapmultiline>
-				<aligny>top</aligny>
-			</control>
-			<control type="label"><!-- Number of files -->
-				<width max="120">auto</width>
-				<height>108</height>
-				<label>$INFO[Container.NumItems,(,)]</label>
-				<aligny>top</aligny>
-			</control>
-		</control>
+		<include content="screen-name">
+			<param name="screenlabel" value="$LOCALIZE[14111]"/>
+			<param name="listitems" value="$INFO[Container.NumItems,(,)]"/>
+		</include>
 		<control type="group">
 			<control type="list" id="570">
 				<left>60</left>
