@@ -10,8 +10,8 @@
 				<height>96</height>
 				<texture border="9">button-default-focus.png</texture>
 				<aspectratio>stretch</aspectratio>
-				<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 			</control>
+			<animation condition="!Control.HasFocus(50)" effect="fade" start="100" end="60" reversible="true">Conditional</animation>
 			<animation condition="Container.Position(0)" effect="slide" start="0,0" end="0,-288" time="200" tween="cubic" easing="inout" reversible="true">Conditional</animation>
 			<animation condition="Container.Position(1)" effect="slide" start="0,0" end="0,-192" time="200" tween="cubic" easing="inout" reversible="true">Conditional</animation>
 			<animation condition="Container.Position(2)" effect="slide" start="0,0" end="0,-96" time="200" tween="cubic" easing="inout" reversible="true">Conditional</animation>
@@ -1678,11 +1678,6 @@
 			<viewtype label="31944">bigicon</viewtype>
 			<pagecontrol>1258</pagecontrol>
 			<preloaditems>4</preloaditems>
-			<animation type="TYPE" condition="Skin.HasSetting(tiltvideowallicon)" reversible="false">
-				<effect type="rotatey" end="-15" />
-				<effect type="slide" end="105,0" />
-				<effect type="zoom" end="120" center="auto" />
-			</animation>
 			<itemlayout height="280" width="198" condition="$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons]">
 				<control type="image">
 					<left>1</left>

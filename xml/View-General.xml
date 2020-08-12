@@ -118,21 +118,14 @@
 			<visible>Control.IsVisible(50)</visible>
 			<control type="group">
 				<visible>![Window.IsVisible(videoplaylist) | Window.IsVisible(musicplaylist)]</visible>
-				<animation type="TYPE" condition="Skin.HasSetting(tiltmisclisticon)" reversible="false">
-					<effect type="rotatey" start="-25" end="-25" />
-					<effect type="slide" end="22,0" />
-					<effect type="zoom" start="100" end="114" center="auto" tween="back" easing="out" />
-				</animation>
-				<control type="group">
+				<control type="image">
+					<left>212</left>
+					<top>175</top>
+					<width>512</width>
+					<height>512</height>
+					<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
+					<aspectratio scalediffuse="false">keep</aspectratio>
 					<visible>![$EXP[isContentAddons]]</visible>
-					<control type="image">
-						<left>212</left>
-						<top>175</top>
-						<width>512</width>
-						<height>512</height>
-						<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
-						<aspectratio scalediffuse="false">keep</aspectratio>
-					</control>
 				</control>
 				<control type="group">
 					<visible>$EXP[isContentAddons]</visible>
@@ -911,11 +904,6 @@
 			<viewtype label="31944">bigicon</viewtype>
 			<pagecontrol>1258</pagecontrol>
 			<preloaditems>4</preloaditems>
-			<animation type="TYPE" condition="Skin.HasSetting(tiltmiscwallicon)" reversible="false">
-				<effect type="rotatey" start="-15" end="-15" />
-				<effect type="slide" end="98,0" />
-				<effect type="zoom" start="100" end="115" center="auto" tween="back" easing="out" />
-			</animation>
 			<itemlayout height="216" width="216">
 				<control type="image">
 					<left>12</left>
@@ -998,7 +986,6 @@
 			<onup>58</onup>
 			<ondown>58</ondown>
 			<viewtype label="31944">bigicon</viewtype>
-			<animation effect="rotatey" start="-15" end="-15" condition="Skin.HasSetting(tiltmiscwallicon)">Conditional</animation>
 			<preloaditems>4</preloaditems>
 			<pagecontrol>1258</pagecontrol>
 			<itemlayout height="216" width="216">

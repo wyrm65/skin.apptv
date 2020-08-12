@@ -186,41 +186,34 @@
 		<control type="group">
 			<visible>Control.IsVisible(50)</visible>
 			<control type="group">
-				<animation type="TYPE" condition="Skin.HasSetting(tiltmusiclisticon)" reversible="false">
-					<effect type="rotatey" start="-15" end="-15"/>
-					<effect type="slide" end="15,0"/>
-					<effect type="zoom" start="100" end="112" center="auto" tween="back" easing="out"/>
-				</animation>
-				<control type="group">
-					<visible>$EXP[isContentAlbums] | $EXP[isContentSongs]</visible>
-					<control type="image">
-						<left>524</left>
-						<top>150</top>
-						<height>444</height>
-						<width>444</width>
-						<texture>case-cd.png</texture>
-						<aspectratio>keep</aspectratio>
-						<visible>$EXP[isnotDefaultIcon] + $EXP[isnotEmptyIcon] + Skin.HasSetting(media-case)</visible>
-					</control>
-					<control type="image">
-						<!-- Cover image -->
-						<left>570</left>
-						<top>179</top>
-						<width>392</width>
-						<height>384</height>
-						<texture diffuse="mask-squ.png">$VAR[IconCover]</texture>
-						<aspectratio>stretch</aspectratio>
-					</control>
+				<visible>$EXP[isContentAlbums] | $EXP[isContentSongs]</visible>
+				<control type="image">
+					<left>524</left>
+					<top>150</top>
+					<height>444</height>
+					<width>444</width>
+					<texture>case-cd.png</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>$EXP[isnotDefaultIcon] + $EXP[isnotEmptyIcon] + Skin.HasSetting(media-case)</visible>
 				</control>
 				<control type="image">
-					<left>460</left>
-					<top>154</top>
-					<width>504</width>
-					<height>504</height>
-					<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
-					<aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
-					<visible>![$EXP[isContentAlbums]] + ![$EXP[isContentSongs]]</visible>
+					<!-- Cover image -->
+					<left>570</left>
+					<top>179</top>
+					<width>392</width>
+					<height>384</height>
+					<texture diffuse="mask-squ.png">$VAR[IconCover]</texture>
+					<aspectratio>stretch</aspectratio>
 				</control>
+			</control>
+			<control type="image">
+				<left>460</left>
+				<top>154</top>
+				<width>504</width>
+				<height>504</height>
+				<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
+				<aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
+				<visible>![$EXP[isContentAlbums]] + ![$EXP[isContentSongs]]</visible>
 			</control>
 			<control type="group">
 				<visible>[$EXP[isContentSongs] | $EXP[isContentAlbums]] + $EXP[isnotDefaultIcon]</visible>
@@ -1234,11 +1227,6 @@
 			<viewtype label="31944">bigicon</viewtype>
 			<pagecontrol>1258</pagecontrol>
 			<preloaditems>4</preloaditems>
-			<animation type="TYPE" condition="Skin.HasSetting(tiltmusicwallicon)" reversible="false">
-				<effect type="rotatey" start="-15" end="-15" />
-				<effect type="slide" end="82,0" />
-				<effect type="zoom" start="100" end="115" center="auto" tween="back" easing="out" />
-			</animation>
 			<itemlayout height="202" width="202">
 				<control type="image">
 					<left>1</left>
