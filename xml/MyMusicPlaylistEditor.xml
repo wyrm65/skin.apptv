@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <window>
 	<defaultcontrol always="true">50</defaultcontrol>
+	<views>50</views>
 	<onload>ClearProperty(ShowScreenSettings,home)</onload>
 	<onunload>ClearProperty(ShowScreenSettings,home)</onunload>
-	<onunload>ClearProperty(Focus)</onunload>
 	<menucontrol>9000</menucontrol>
 	<include>window-openclose</include>
 	<controls>
 		<include>background</include>
 		<control type="label"><!-- Playlist editor title -->
-			<left>1419</left>
-			<top>75</top>
+			<left>1400</left>
+			<top>30</top>
 			<width>465</width>
 			<height>48</height>
 			<label>$LOCALIZE[31227]</label>
@@ -67,8 +67,14 @@
 			<onright>100</onright>
 			<onup>50</onup>
 			<ondown>50</ondown>
-			<onfocus>SetProperty(Focus,left)</onfocus>
 			<itemlayout height="68">
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>900</width>
+					<height>68</height>
+					<texture border="9">button-default.png</texture>
+				</control>
 				<control type="label">
 					<left>10</left>
 					<top>16</top>
@@ -96,7 +102,7 @@
 					<width>900</width>
 					<height>68</height>
 					<texture border="9">button-default-focus.png</texture>
-					<visible>Control.HasFocus(50)</visible>
+					<animation effect="fade" start="100" end="60" time="0" condition="!Control.HasFocus(50)">Conditional</animation>
 				</control>
 				<control type="label">
 					<left>10</left>
@@ -137,8 +143,14 @@
 			<onright>9000</onright>
 			<onup>100</onup>
 			<ondown>100</ondown>
-			<onfocus>SetProperty(Focus,right)</onfocus>
 			<itemlayout height="68">
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>900</width>
+					<height>68</height>
+					<texture border="9">button-default.png</texture>
+				</control>
 				<control type="label">
 					<left>10</left>
 					<top>16</top>
@@ -166,7 +178,7 @@
 					<width>900</width>
 					<height>68</height>
 					<texture border="9">button-default-focus.png</texture>
-					<visible>Control.HasFocus(100)</visible>
+					<animation effect="fade" start="100" end="60" time="0" condition="!Control.HasFocus(100)">Conditional</animation>
 				</control>
 				<control type="label">
 					<left>10</left>
@@ -246,18 +258,15 @@
 				<texture>separator.png</texture>
 			</control>
 			<control type="grouplist" id="9000">
-				<defaultcontrol>6</defaultcontrol>
 				<left>716</left>
 				<top>339</top>
 				<width>543</width>
 				<height>255</height>
 				<itemgap>0</itemgap>
-				<onright condition="String.IsEqual(Window(musicplaylisteditor).Property(Focus),left)">50</onright>
-				<onright condition="String.IsEqual(Window(musicplaylisteditor).Property(Focus),right)">100</onright>
 				<onright>ClearProperty(ShowScreenSettings,home)</onright>
-				<onleft condition="String.IsEqual(Window(musicplaylisteditor).Property(Focus),left)">50</onleft>
-				<onleft condition="String.IsEqual(Window(musicplaylisteditor).Property(Focus),right)">100</onleft>
+				<onright>100</onright>
 				<onleft>ClearProperty(ShowScreenSettings,home)</onleft>
+				<onleft>50</onleft>
 				<control type="button" id="6"><!-- Open button -->
 					<width>543</width>
 					<height>84</height>
@@ -287,14 +296,12 @@
 				<param name="indicatorwidth" value="192" />
 				<param name="indicatorheight" value="48" />
 				<param name="indicatororientation" value="horizontal" />
-				<param name="grp1indicate" value="[ControlGroup(9000).HasFocus()+String.IsEqual(Window(musicplaylisteditor).Property(Focus),left)]" />
+				<param name="grp1indicate" value="[ControlGroup(9000).HasFocus()]" />
 				<param name="grp1visible" value="[!Skin.HasSetting(lock-screensettings)]" />
 				<param name="grp2indicate" value="[Control.HasFocus(50)]" />
 				<param name="grp2visible" value="[Control.IsVisible(50)]" />
 				<param name="grp3indicate" value="[Control.HasFocus(100)]" />
 				<param name="grp3visible" value="[Control.IsVisible(100)]" />
-				<param name="grp4indicate" value="[ControlGroup(9000).HasFocus()+String.IsEqual(Window(musicplaylisteditor).Property(Focus),right)]" />
-				<param name="grp4visible" value="[!Skin.HasSetting(lock-screensettings)]" />
 			</include>
 		</control>
 	</controls>
