@@ -33,6 +33,7 @@
 					<top>0</top>
 					<width>756</width>
 					<height>84</height>
+					<texture border="9">button-default.png</texture>
 				</control>
 				<control type="label">
 					<left>32</left>
@@ -51,7 +52,7 @@
 					<width>756</width>
 					<height>84</height>
 					<texture border="9">button-default-focus.png</texture>
-					<visible>!Control.HasFocus(4)</visible>
+					<animation condition="ControlGroup(9000).HasFocus()" effect="fade" start="100" end="60">Conditional</animation>
 				</control>
 				<control type="label">
 					<left>32</left>
@@ -106,23 +107,23 @@
 			<include>screen-settings</include>
 			<include>fadebackground</include>
 			<control type="image">
-				<left>660</left>
+				<left>585</left>
 				<top>348</top>
-				<width>594</width>
-				<height>252</height>
+				<width>744</width>
+				<height>328</height>
 				<texture border="14">button-menu-background.png</texture>
 			</control>
 			<control type="label"><!-- Dialog heading -->
-				<left>675</left>
+				<left>600</left>
 				<top>360</top>
-				<width>564</width>
+				<width>714</width>
 				<height>51</height>
 				<font>apptv23</font>
 				<label>$LOCALIZE[31557]</label>
 				<align>center</align>
 			</control>
 			<control type="button"><!-- Touch Close button -->
-				<left>1221</left>
+				<left>1296</left>
 				<top>333</top>
 				<width>48</width>
 				<height>48</height>
@@ -133,40 +134,43 @@
 				<visible>$EXP[isEnabledTouch]</visible>
 			</control>
 			<control type="image">
-				<left>675</left>
+				<left>600</left>
 				<top>411</top>
-				<width>564</width>
+				<width>714</width>
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
 			<control type="grouplist" id="9000">
 				<defaultcontrol>4</defaultcontrol>
-				<left>675</left>
+				<left>600</left>
 				<top>428</top>
-				<width>564</width>
+				<width>714</width>
 				<height>225</height>
+				<itemgap>0</itemgap>
 				<onleft>ClearProperty(ShowScreenSettings,home)</onleft>
 				<onleft>2</onleft>
 				<onright>ClearProperty(ShowScreenSettings,home)</onright>
 				<onright>2</onright>
 				<onback>SetFocus(2)</onback>
 				<control type="radiobutton" id="4"><!-- Enable login screen -->
-					<width>564</width>
+					<width>714</width>
 					<height>75</height>
 					<label>$LOCALIZE[20096]</label>
-					<font>apptv23</font>
+					<font>apptv20</font>
 					<aligny>top</aligny>
 					<textoffsety>12</textoffsety>
-					<radioposx>495</radioposx>
+					<textoffsetx>18</textoffsetx>
+					<radioposx>620</radioposx>
 				</control>
 				<control type="button" id="5"><!-- Choose auto login user -->
-					<width>564</width>
+					<width>714</width>
 					<height>75</height>
-					<textoffsety>12</textoffsety>
 					<label>$LOCALIZE[31897]</label>
 					<label2>$INFO[System.ProfileAutoLogin]</label2>
-					<font>apptv23</font>
+					<font>apptv20</font>
 					<aligny>top</aligny>
+					<textoffsety>12</textoffsety>
+					<textoffsetx>18</textoffsetx>
 					<enable>!System.HasLoginScreen</enable>
 				</control>
 			</control>

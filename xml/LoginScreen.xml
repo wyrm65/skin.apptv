@@ -4,26 +4,10 @@
 	<visible>!System.ScreenSaverActive | !Window.IsActive(startup)</visible>
 	<controls>
 		<include>background</include>
-		<control type="grouplist">
-			<left>1419</left>
-			<top>75</top>
-			<width>auto</width>
-			<height>48</height>
-			<align>left</align>
-			<orientation>horizontal</orientation>
-			<control type="label"><!-- Load profile heading -->
-				<width max="384">auto</width>
-				<height>48</height>
-				<label>$LOCALIZE[20092]</label>
-				<font>apptv30</font>
-			</control>
-			<control type="label">
-				<top>20</top>
-				<width max="120">auto</width>
-				<height>48</height>
-				<label>$INFO[Container(52).NumItems,(,)]</label>
-			</control>
-		</control>
+		<include content="screen-name">
+			<param name="screenlabel" value="$LOCALIZE[20092]"/>
+			<param name="listitems" value="$INFO[Container(52).NumItems,(,)]"/>
+		</include>
 		<control type="fixedlist" id="52">
 			<left>360</left>
 			<top>174</top>
