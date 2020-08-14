@@ -3,7 +3,7 @@
 	<defaultcontrol>999</defaultcontrol>
 	<visible>!System.ScreenSaverActive</visible>
 	<controls>
-		<include>background</include>
+		<include>backgroundsimple</include>
 		<include>fake-overlay</include>
 		<include content="screen-name">
 			<param name="screenlabel" value="$LOCALIZE[24001]"/>
@@ -89,7 +89,7 @@
 					<icon>DefaultAddon.png</icon>
 					<label>$LOCALIZE[24043]</label>
 					<onclick>ActivateWindow(addonbrowser,addons://outdated/,return)</onclick>
-					<visible>Integer.IsGreater(Window(addonbrowser).Property(PendingUpdates),0)</visible>
+					<visible>Integer.IsGreater(Window(home).Property(PendingUpdates),0)</visible>
 				</item>
 				<item><!-- Get More Addons -->
 					<icon>DefaultAddon.png</icon>

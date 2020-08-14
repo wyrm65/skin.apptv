@@ -4,14 +4,14 @@
 	<menucontrol>6100</menucontrol>
 	<onload>ClearProperty(ShowScreenSettings,home)</onload>
 	<onload>SetFocus(9000)</onload>
+	<onload>RunScript(script.embuary.helper,action=calc,do='"$INFO[Container(12345).NumItems] - 1"',prop=PendingUpdates)</onload>
 	<onunload>ClearProperty(ShowScreenSettings,home)</onunload>
 	<onunload>ClearProperty(ShutdownKodi,home)</onunload>
 	<onunload>SetFocus(9000)</onunload>
 	<include>zoom-openclose</include>
 	<visible>!System.ScreenSaverActive</visible>
 	<controls>
-
-		<control type="list" id="12345"><!-- Hack to get number of pending updates. Use $INFO[Container(12345).NumItems] for number of updates -->
+		<control type="list" id="12345"><!-- Hack to get count of pending updates -->
 			<left>-100</left>
 			<top>-100</top>
 			<width>1</width>
@@ -20,13 +20,10 @@
 			<focusedlayout/>
 			<include file="Includes_Shelf.xml">AddonUpdated</include>
 		</control>
-
 		<include condition="$EXP[isVerticalHome]" file="Includes_VertHome.xml">VertHomeMenu</include>
 		<include condition="$EXP[isHorizontalHome]" file="Includes_HorzHome.xml">HorzHomeMenu</include>
 		<include condition="$EXP[isIconHome]" file="Includes_IconHome.xml">IconHomeMenu</include>
-
 		<include>touch-controls</include>
-
 		<control type="group"><!-- Screen Settings Menu -->
 			<left>0</left>
 			<top>1080</top>
@@ -91,7 +88,7 @@
 					<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetBool(HomeMenuVertical)||Skin.Reset(HomeMenuHorizontal)||Skin.Reset(HomeMenuIcon)||ReloadSkin())</onclick>
 					<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31900])</onclick>
 				</control>
-				<control type="button" id="6102"><!-- Home menu Settings Menu -->
+				<control type="button" id="6102"><!-- Home Settings Menu -->
 					<width>639</width>
 					<height>69</height>
 					<label>$LOCALIZE[31803]</label>
@@ -102,7 +99,7 @@
 						<visible>!$EXP[isVerticalHome]</visible>
 						<width>639</width>
 						<height>69</height>
-						<control type="togglebutton" id="6104"><!-- TVShow Shelf image type -->
+						<control type="togglebutton" id="6104"><!-- Shelf image type -->
 							<onup>6102</onup>
 							<ondown>6106</ondown>
 							<onright>ClearProperty(ShowScreenSettings,home)</onright>
@@ -122,28 +119,26 @@
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
-				<control type="radiobutton" id="6106"><!-- Time On Home Screen -->
+				<control type="radiobutton" id="6106"><!-- Home Screen Time -->
 					<width>639</width>
 					<height>69</height>
 					<label>$LOCALIZE[31888]</label>
 					<font>apptv20</font>
-					<textwidth>1125</textwidth>
+					<textwidth>585</textwidth>
 					<onclick>Skin.ToggleSetting(home-time)</onclick>
 					<onclick>AlarmClock(changehome,ReloadSkin(),00:5,silent)</onclick>
 					<selected>!Skin.HasSetting(home-time)</selected>
-					<radioposx>1266</radioposx>
 				</control>
-				<control type="radiobutton" id="6107"><!-- Current Weather On Home Screen -->
+				<control type="radiobutton" id="6107"><!-- Home Screen Current Weather -->
 					<width>639</width>
 					<height>69</height>
 					<label>$LOCALIZE[31889]</label>
 					<font>apptv20</font>
-					<textwidth>1125</textwidth>
+					<textwidth>585</textwidth>
 					<onclick>Skin.ToggleSetting(home-currentweather)</onclick>
 					<onclick>AlarmClock(changehome,ReloadSkin(),00:5,silent)</onclick>
 					<selected>Skin.HasSetting(home-currentweather)</selected>
 					<enable>!String.IsEmpty(Weather.plugin)</enable>
-					<radioposx>1266</radioposx>
 				</control>
 				<control type="button" id="6108"><!-- Player controls -->
 					<width>639</width>

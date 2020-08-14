@@ -388,7 +388,7 @@
 					<!-- Update addons -->
 					<thumb>DefaultAddon.png</thumb>
 					<label>$LOCALIZE[24043]</label>
-					<onclick>SetProperty(PendingUpdates,$INFO[Container(12345).NumItems],addonbrowser)</onclick>
+					<onclick>RunScript(script.embuary.helper,action=calc,do='"$INFO[Container(12345).NumItems] - 1"',prop=PendingUpdates)</onclick>
 					<onclick>ActivateWindow(addonbrowser,addons://outdated/,return)</onclick>
 					<visible>Integer.IsGreater(Container(12345).NumItems,0)</visible>
 				</item>

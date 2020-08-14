@@ -80,12 +80,12 @@
 			<texture>background-mask.png</texture>
 			<colordiffuse>mask-background</colordiffuse>
 			<aspectratio>stretch</aspectratio>
-			<visible>$EXP[isnotFullscreenVideo]</visible><!-- Don't fade background if on Fullscreen video screen -->
+			<visible>$EXP[isnotFullscreenVideo]</visible>
 		</control>
 	</include>
 	<include name="background">
 		<control type="group">
-			<visible>$EXP[isnotFullscreenVideo]</visible><!-- Don't try to show background if Video screen is showing -->
+			<visible>!System.ScreenSaverActive</visible>
 			<control type="fadelabel" id="300000"><!-- Randomizer for plugin-free multiple fanart -->
 				<top>-1000</top> <!-- Don't need to see it, but can't change its visibility. Put it off screen -->
 				<width>1</width>
@@ -104,29 +104,60 @@
 				<info>ListItem.Art(tvshow.fanart5)</info>
 				<info>ListItem.Art(tvshow.fanart6)</info>
 				<randomize>true</randomize>
-				<pauseatend>6000</pauseatend> <!-- Time to show each image, in milliseconds -->
-				<!-- No scrolling so only the pauseatend above (plus a short fade-in) affects length of time each image is shown -->
+				<pauseatend>6600</pauseatend> <!-- Time to show each image -->
+				<!-- No scrolling so only the pauseatend above (plus a short fade-in) affects length of time each image shown -->
 				<scroll>false</scroll>
 				<scrollout>false</scrollout>
 				<!-- Resets the timer when navigating to a new item, so each item's first visible fanart will
 					show for the full amount of time -->
 				<resetonlabelchange>true</resetonlabelchange>
 			</control>
-			<control type="image"><!-- Use Skin default background as a base layer for backdrops -->
+			<control type="image"><!-- Use Skin default background as a base layer -->
 				<include>fullscreenimage</include>
 				<texture>background.png</texture>
 				<aspectratio>scale</aspectratio>
 			</control>
-			<control type="multiimage">
+			<control type="image">
 				<include>fullscreenimage</include>
-				<randomize>true</randomize>
-				<timeperimage>6000</timeperimage>
-				<fadetime>400</fadetime>
-				<imagepath background="false">$VAR[BackgndImage]</imagepath>
-				<aspectratio>stretch</aspectratio>
+				<texture background="false">$VAR[BackgndImage]</texture>
 				<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
-				<animation effect="fade" start="0" end="100" time="200" delay="300">Visible</animation>
-				<visible>!Container().Scrolling + !System.ScreenSaverActive + ![Skin.HasSetting(background-playingmedia) + Player.HasVideo]</visible>
+				<aspectratio>stretch</aspectratio>
+				<fadetime>400</fadetime>
+				<visible>!Container().Scrolling + ![Skin.HasSetting(background-playingmedia) + Player.HasVideo]</visible>
+			</control>
+			<control type="group">
+				<visible>Skin.HasSetting(background-playingmedia) + [[$EXP[isVerticalHome] + Window.IsVisible(home)] | !Window.IsVisible(home)]</visible>
+				<control type="videowindow">
+					<include>fullscreenimage</include>
+					<visible>Player.HasVideo</visible>
+				</control>
+				<control type="visualisation">
+					<include>fullscreenimage</include>
+					<animation effect="fade" time="200">VisibleChange</animation>
+					<visible>Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
+				</control>
+				<control type="image"><!-- Use mask background to fade video or visualisation -->
+					<include>fullscreenimage</include>
+					<texture>background-mask.png</texture>
+					<colordiffuse>$VAR[BackgndMaskVisibity]</colordiffuse>
+					<aspectratio>scale</aspectratio>
+				</control>
+			</control>
+		</control>
+	</include>
+<include name="backgroundsimple">
+		<control type="group">
+			<visible>!System.ScreenSaverActive</visible>
+			<control type="image"><!-- Use Skin default background as a base layer -->
+				<include>fullscreenimage</include>
+				<texture>background.png</texture>
+				<aspectratio>scale</aspectratio>
+			</control>
+			<control type="image">
+				<include>fullscreenimage</include>
+				<texture background="false">$VAR[BackgndSimpleImage]</texture>
+				<aspectratio>scale</aspectratio>
+				<fadetime>400</fadetime>
 			</control>
 			<control type="group">
 				<visible>Skin.HasSetting(background-playingmedia) + [[$EXP[isVerticalHome] + Window.IsVisible(home)] | !Window.IsVisible(home)]</visible>
@@ -454,16 +485,24 @@
 				<left>$PARAM[left]</left>
 				<top>$PARAM[top]</top>
 				<control type="image">
+					<left>22</left>
+					<top>0</top>
+					<width>40</width>
+					<height>40</height>
+					<texture border="16,0,16,0">overlaynumberitems.png</texture>
+					<visible>Integer.IsLess($PARAM[count],10)</visible>
+				</control>
+				<control type="image">
 					<left>10</left>
 					<top>0</top>
 					<width>64</width>
 					<height>40</height>
 					<texture border="16,0,16,0">overlaynumberitems.png</texture>
-					<animation condition="Integer.IsLess($PARAM[count],10)" effect="zoom" end="64,100" center="auto">Conditional</animation>
 					<animation condition="Integer.IsGreater($PARAM[count],99)" effect="zoom" end="140,100" center="auto">Conditional</animation>
+					<visible>Integer.IsGreater($PARAM[count],9)</visible>
 				</control>
 				<control type="label">
-					<left>14</left>
+					<left>15</left>
 					<top>4</top>
 					<width>54</width>
 					<height>30</height>
