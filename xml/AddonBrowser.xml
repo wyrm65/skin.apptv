@@ -5,7 +5,7 @@
 	<views>50,52,54,57,58</views>
 	<onload>ClearProperty(ShowScreenSettings,home)</onload>
 	<onunload>ClearProperty(ShowScreenSettings,home)</onunload>
-	<visible>!System.ScreenSaverActive</visible>
+	<visible>!System.ScreenSaverActive + Window.IsTopMost(addonbrowser)</visible>
 	<controls>
 		<include>backgroundsimple</include>
 		<include>fake-overlay</include>

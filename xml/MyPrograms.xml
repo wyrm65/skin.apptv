@@ -3,7 +3,7 @@
 	<defaultcontrol always="true">50</defaultcontrol>
 	<menucontrol>9000</menucontrol>
 	<views>50,52,54,57,58</views>
-	<visible>!System.ScreenSaverActive</visible>
+	<visible>!System.ScreenSaverActive + Window.IsTopMost(programs)</visible>
 	<controls>
 		<include>backgroundsimple</include>
 		<include>fake-overlay</include>
