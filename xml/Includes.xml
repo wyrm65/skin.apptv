@@ -114,9 +114,16 @@
 			</control>
 			<control type="image">
 				<include>fullscreenimage</include>
+				<texture>background.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<include>fullscreenimage</include>
 				<texture background="false">$VAR[BackgndImage]</texture>
 				<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
 				<aspectratio>stretch</aspectratio>
+				<fadetime>400</fadetime>
+				<visible>!Container().Scrolling + ![Skin.HasSetting(background-playingmedia) + Player.HasVideo]</visible>
 			</control>
 			<control type="group">
 				<visible>Skin.HasSetting(background-playingmedia) + [[$EXP[isVerticalHome] + Window.IsVisible(home)] | !Window.IsVisible(home)]</visible>
@@ -133,7 +140,7 @@
 					<include>fullscreenimage</include>
 					<texture>background-mask.png</texture>
 					<colordiffuse>$VAR[BackgndMaskVisibity]</colordiffuse>
-					<aspectratio>scale</aspectratio>
+					<aspectratio>stretch</aspectratio>
 				</control>
 			</control>
 		</control>
@@ -143,8 +150,16 @@
 			<visible>!System.ScreenSaverActive</visible>
 			<control type="image">
 				<include>fullscreenimage</include>
+				<texture>background.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<include>fullscreenimage</include>
 				<texture background="false">$VAR[BackgndSimpleImage]</texture>
-				<aspectratio>scale</aspectratio>
+				<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
+				<aspectratio>stretch</aspectratio>
+				<fadetime>400</fadetime>
+				<visible>!Container().Scrolling + ![Skin.HasSetting(background-playingmedia) + Player.HasVideo]</visible>
 			</control>
 			<control type="group">
 				<visible>Skin.HasSetting(background-playingmedia) + [[$EXP[isVerticalHome] + Window.IsVisible(home)] | !Window.IsVisible(home)]</visible>
@@ -161,7 +176,7 @@
 					<include>fullscreenimage</include>
 					<texture>background-mask.png</texture>
 					<colordiffuse>$VAR[BackgndMaskVisibity]</colordiffuse>
-					<aspectratio>scale</aspectratio>
+					<aspectratio>stretch</aspectratio>
 				</control>
 			</control>
 		</control>
