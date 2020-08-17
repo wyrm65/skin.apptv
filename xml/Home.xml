@@ -9,7 +9,7 @@
 	<onunload>ClearProperty(ShutdownKodi,home)</onunload>
 	<onunload>SetFocus(9000)</onunload>
 	<include>zoom-openclose</include>
-	<visible>!System.ScreenSaverActive</visible>
+	<visible>!System.ScreenSaverActive + Window.IsTopMost(home)</visible>
 	<controls>
 		<control type="list" id="12345"><!-- Hack to get count of pending updates -->
 			<left>-100</left>
@@ -95,30 +95,30 @@
 					<font>apptv20</font>
 					<onclick>ActivateWindow(1152)</onclick>
 				</control>
-					<control type="group" id="6103">
-						<visible>!$EXP[isVerticalHome]</visible>
-						<width>639</width>
-						<height>69</height>
-						<control type="togglebutton" id="6104"><!-- Shelf image type -->
-							<onup>6102</onup>
-							<ondown>6106</ondown>
-							<onright>ClearProperty(ShowScreenSettings,home)</onright>
-							<onright>9000</onright>
-							<onleft>ClearProperty(ShowScreenSettings,home)</onleft>
-							<onleft>9000</onleft>
-							<textwidth>585</textwidth>
-							<label fallback="31575">$INFO[Skin.String(shelf-backgroundtype)]</label>
-							<font>apptv20</font>
-							<align>right</align>
-							<onclick>Skin.SetString(shelf-backgroundtype,$LOCALIZE[20445])</onclick>
-							<altclick>Skin.SetString(shelf-backgroundtype,$LOCALIZE[31575])</altclick>
-						</control>
-						<control type="label">
-							<label>$LOCALIZE[31859]</label>
-							<font>apptv20</font>
-							<textoffsetx>27</textoffsetx>
-						</control>
+				<control type="group" id="6103">
+					<visible>!$EXP[isVerticalHome]</visible>
+					<width>639</width>
+					<height>69</height>
+					<control type="togglebutton" id="6104"><!-- Shelf image type -->
+						<onup>6102</onup>
+						<ondown>6106</ondown>
+						<onright>ClearProperty(ShowScreenSettings,home)</onright>
+						<onright>9000</onright>
+						<onleft>ClearProperty(ShowScreenSettings,home)</onleft>
+						<onleft>9000</onleft>
+						<textwidth>585</textwidth>
+						<label fallback="31575">$INFO[Skin.String(shelf-backgroundtype)]</label>
+						<font>apptv20</font>
+						<align>right</align>
+						<onclick>Skin.SetString(shelf-backgroundtype,$LOCALIZE[20445])</onclick>
+						<altclick>Skin.SetString(shelf-backgroundtype,$LOCALIZE[31575])</altclick>
 					</control>
+					<control type="label">
+						<label>$LOCALIZE[31859]</label>
+						<font>apptv20</font>
+						<textoffsetx>27</textoffsetx>
+					</control>
+				</control>
 				<control type="radiobutton" id="6106"><!-- Home Screen Time -->
 					<width>639</width>
 					<height>69</height>
