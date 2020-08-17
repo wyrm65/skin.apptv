@@ -91,31 +91,6 @@
 				</control>
 			</control>
 		</control>
-		<!-- Play bump sound if user tries to leave menu by undefined direction -->
-		<include content="illegal-action">
-			<param name="controlid" value="9005" />
-			<param name="returnid" value="9000" />
-		</include>
-		<!-- Play bump sound if user tries to leave Movie shelf by undefined direction -->
-		<include content="illegal-action">
-			<param name="controlid" value="9050" />
-			<param name="returnid" value="9160" />
-		</include>
-		<!-- Play bump sound if user tries to leave TV shelf by undefined direction -->
-		<include content="illegal-action">
-			<param name="controlid" value="9052" />
-			<param name="returnid" value="9210" />
-		</include>
-		<!-- Play bump sound if user tries to leave Music shelf by undefined direction -->
-		<include content="illegal-action">
-			<param name="controlid" value="9054" />
-			<param name="returnid" value="9260" />
-		</include>
-		<!-- Play bump sound if user tries to leave Addons shelf by undefined direction -->
-		<include content="illegal-action">
-			<param name="controlid" value="9056" />
-			<param name="returnid" value="9360" />
-		</include>
 		<control type="image"><!-- Mask the front face of shelf to hide shelf icon reflections -->
 			<left>0</left>
 			<top>471</top>
@@ -602,5 +577,30 @@
 		<control type="group" id="9940"><!-- RSS info -->
 			<include condition="System.GetBool(lookandfeel.enablerssfeeds)">page-info</include>
 		</control>
+		<!-- Play bump sound if user tries to leave menu by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9005" />
+			<param name="returnid" value="9000" />
+		</include>
+		<!-- Play bump sound if user tries to leave Movie shelf by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9050" />
+			<param name="returnid" value="9160" />
+		</include>
+		<!-- Play bump sound if user tries to leave TV shelf by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9052" />
+			<param name="returnid" value="9210" />
+		</include>
+		<!-- Play bump sound if user tries to leave Music shelf by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9054" />
+			<param name="returnid" value="9260" />
+		</include>
+		<!-- Play bump sound if user tries to leave Addons shelf by undefined direction -->
+		<include content="illegal-action">
+			<param name="controlid" value="9056" />
+			<param name="returnid" value="9360" />
+		</include>
 	</include>
 </includes>
