@@ -138,14 +138,6 @@
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture diffuse="mask-rect.png" fallback="DefaultVideo.png" background="true">$VAR[IconPoster]</texture>
 					</control>
-					<control type="image">
-						<left>38</left>
-						<top>322</top>
-						<width>240</width>
-						<height>321</height>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture flipy="true" diffuse="mask-fade.png" fallback="DefaultVideo.png" background="true">$VAR[IconPoster]</texture>
-					</control>
 				</itemlayout>
 				<focusedlayout width="315">
 					<control type="image">
@@ -156,15 +148,6 @@
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
 						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
-					</control>
-					<control type="image">
-						<left>38</left>
-						<top>322</top>
-						<width>240</width>
-						<height>321</height>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture fallback="DefaultVideo.png" flipy="true" diffuse="mask-fade.png" background="true">$VAR[IconPoster]</texture>
-						<animation effect="zoom" start="100" end="104" center="188,156" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					</control>
 					<control type="textbox">
 						<left>0</left>
@@ -210,15 +193,6 @@
 			<texture diffuse="mask-squ.png" background="true">$VAR[TVShowBanner]</texture>
 			<animation effect="zoom" start="100" end="104" center="188,156" time="200" tween="back" easing="out" reversible="false">focus</animation>
 		</control>
-		<control type="image">
-			<left>15</left>
-			<top>300</top>
-			<width>348</width>
-			<height>63</height>
-			<aspectratio scalediffuse="false">stretch</aspectratio>
-			<texture flipy="true" diffuse="mask-fadesqu.png" background="true">$VAR[TVShowBanner]</texture>
-			<animation effect="zoom" start="100" end="104" center="188,156" time="200" tween="back" easing="out" reversible="false">focus</animation>
-		</control>
 		<control type="textbox"><!-- TVShow name for if banner not available -->
 			<left>25</left>
 			<top>234</top>
@@ -239,15 +213,6 @@
 			<aspectratio scalediffuse="false">stretch</aspectratio>
 			<texture diffuse="mask-rect.png" fallback="DefaultTvshows.png" background="true">$VAR[TVShowPoster]</texture>
 			<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
-		</control>
-		<control type="image">
-			<left>69</left>
-			<top>322</top>
-			<width>240</width>
-			<height>321</height>
-			<aspectratio scalediffuse="false">stretch</aspectratio>
-			<texture flipy="true" diffuse="mask-fade.png" fallback="DefaultTvshows.png" background="true">$VAR[TVShowPoster]</texture>
-			<animation effect="zoom" start="100" end="104" center="188,156" time="200" tween="back" easing="out" reversible="false">focus</animation>
 		</control>
 	</include>
 	<include name="tvshow-shelficons">
@@ -390,15 +355,6 @@
 						<aligny>top</aligny>
 						<texture diffuse="mask-squ.png" fallback="icon-fav.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 					</control>
-					<control type="image">
-						<left>32</left>
-						<top>324</top>
-						<width>315</width>
-						<height>315</height>
-						<aspectratio scalediffuse="false">keep</aspectratio>
-						<aligny>top</aligny>
-						<texture fallback="icon-fav.png" flipy="true" diffuse="mask-fadesqu.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-					</control>
 				</itemlayout>
 				<focusedlayout width="378">
 					<control type="image">
@@ -410,16 +366,6 @@
 						<aligny>top</aligny>
 						<texture diffuse="mask-squ.png" fallback="icon-fav.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
-					</control>
-					<control type="image">
-						<left>32</left>
-						<top>324</top>
-						<width>315</width>
-						<height>315</height>
-						<aspectratio scalediffuse="false">keep</aspectratio>
-						<aligny>top</aligny>
-						<texture fallback="icon-fav.png" flipy="true" diffuse="mask-fadesqu.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-						<animation effect="zoom" start="100" end="104" center="188,156" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					</control>
 					<control type="textbox">
 						<left>0</left>
@@ -484,15 +430,6 @@
 						<aligny>top</aligny>
 						<texture diffuse="mask-squ.png" fallback="DefaultAudio.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 					</control>
-					<control type="image">
-						<left>32</left>
-						<top>324</top>
-						<width>315</width>
-						<height>315</height>
-						<aspectratio scalediffuse="true">stretch</aspectratio>
-						<aligny>top</aligny>
-						<texture fallback="DefaultAudio.png" flipy="true" diffuse="mask-fadesqu.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-					</control>
 				</itemlayout>
 				<focusedlayout width="378">
 					<control type="image">
@@ -504,16 +441,6 @@
 						<aligny>top</aligny>
 						<texture diffuse="mask-squ.png" fallback="DefaultAudio.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
-					</control>
-					<control type="image">
-						<left>32</left>
-						<top>324</top>
-						<width>315</width>
-						<height>315</height>
-						<aspectratio scalediffuse="true">stretch</aspectratio>
-						<aligny>top</aligny>
-						<texture fallback="DefaultAudio.png" flipy="true" diffuse="mask-fadesqu.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-						<animation effect="zoom" start="100" end="104" center="188,156" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					</control>
 					<control type="textbox">
 						<left>0</left>
@@ -585,15 +512,6 @@
 						<aligny>top</aligny>
 						<texture diffuse="mask-squ.png" fallback="DefaultAddon.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 					</control>
-					<control type="image">
-						<left>32</left>
-						<top>324</top>
-						<width>315</width>
-						<height>315</height>
-						<aspectratio scalediffuse="false">keep</aspectratio>
-						<aligny>top</aligny>
-						<texture fallback="DefaultAddon.png" flipy="true" diffuse="mask-fadesqu.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-					</control>
 				</itemlayout>
 				<focusedlayout width="378">
 					<control type="image">
@@ -605,16 +523,6 @@
 						<aligny>top</aligny>
 						<texture diffuse="mask-squ.png" fallback="DefaultAddon.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
 						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
-					</control>
-					<control type="image">
-						<left>32</left>
-						<top>324</top>
-						<width>315</width>
-						<height>315</height>
-						<aspectratio scalediffuse="false">keep</aspectratio>
-						<aligny>top</aligny>
-						<texture fallback="DefaultAddon.png" flipy="true" diffuse="mask-fadesqu.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-						<animation effect="zoom" start="100" end="104" center="188,156" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					</control>
 					<control type="textbox">
 						<left>0</left>
@@ -680,15 +588,6 @@
 						<aligny>bottom</aligny>
 						<texture diffuse="mask-rect.png" fallback="icon-broadcast.png" background="true">$VAR[PVRThumb]</texture>
 					</control>
-					<control type="image">
-						<left>32</left>
-						<top>322</top>
-						<width>315</width>
-						<height>315</height>
-						<aspectratio scalediffuse="false">keep</aspectratio>
-						<aligny>top</aligny>
-						<texture flipy="true" diffuse="mask-fade.png" fallback="icon-broadcast.png" background="true">$VAR[PVRThumb]</texture>
-					</control>
 				</itemlayout>
 				<focusedlayout width="378">
 					<control type="image">
@@ -700,16 +599,6 @@
 						<aligny>bottom</aligny>
 						<texture diffuse="mask-rect.png" fallback="icon-broadcast.png" background="true">$VAR[PVRThumb]</texture>
 						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
-					</control>
-					<control type="image">
-						<left>32</left>
-						<top>322</top>
-						<width>315</width>
-						<height>315</height>
-						<aspectratio scalediffuse="false">keep</aspectratio>
-						<aligny>top</aligny>
-						<texture flipy="true" diffuse="mask-fade.png" fallback="icon-broadcast.png" background="true">$VAR[PVRThumb]</texture>
-						<animation effect="zoom" start="100" end="104" center="188,156" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					</control>
 					<control type="group">
 						<animation effect="fade" time="100" delay="100">Focus</animation>
@@ -1013,15 +902,6 @@
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<visible>!Pvr.IsPlayingTv</visible>
 				</control>
-				<control type="image">
-					<left>53</left>
-					<top>391</top>
-					<width>240</width>
-					<height>321</height>
-					<texture diffuse="mask-fade.png" background="true" fallback="DefaultVideo.png" flipy="true">$VAR[PlayerVideoCover]</texture>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<visible>!Pvr.IsPlayingTv</visible>
-				</control>
 				<control type="image"><!-- PVR station image -->
 					<left>38</left>
 					<top>84</top>
@@ -1030,16 +910,6 @@
 					<texture diffuse="mask-rect.png" background="true" fallback="icon-livetv.png">$VAR[PVRPlayingIcon]</texture>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 					<aligny>top</aligny>
-					<visible>Pvr.IsPlayingTv</visible>
-				</control>
-				<control type="image">
-					<left>38</left>
-					<top>354</top>
-					<width>270</width>
-					<height>270</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<aligny>top</aligny>
-					<texture diffuse="mask-fade.png" background="true" flipy="true" fallback="icon-livetv.png">$VAR[PVRPlayingIcon]</texture>
 					<visible>Pvr.IsPlayingTv</visible>
 				</control>
 				<control type="button"><!-- Fake fullscreen button as a touch screen work around -->
@@ -1116,15 +986,6 @@
 						<aligny>top</aligny>
 						<texture diffuse="mask-squ.png" background="true">$VAR[PlayerMusicCover]</texture>
 					</control>
-					<control type="image">
-						<left>15</left>
-						<top>389</top>
-						<width>315</width>
-						<height>315</height>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<aligny>top</aligny>
-						<texture diffuse="mask-fade.png" background="true" flipy="true">$VAR[PlayerMusicCover]</texture>
-					</control>
 					<control type="label">
 						<left>15</left>
 						<top>392</top>
@@ -1156,15 +1017,6 @@
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<aligny>top</aligny>
 						<texture diffuse="mask-squ.png" background="true" fallback="icon-radio.png">$VAR[PVRPlayingIcon]</texture>
-					</control>
-					<control type="image">
-						<left>38</left>
-						<top>354</top>
-						<width>270</width>
-						<height>270</height>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<aligny>top</aligny>
-						<texture diffuse="mask-fade.png" background="true" flipy="true" fallback="icon-radio.png">$VAR[PVRPlayingIcon]</texture>
 					</control>
 					<control type="textbox">
 						<left>15</left>

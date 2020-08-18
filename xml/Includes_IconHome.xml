@@ -79,25 +79,9 @@
 							<aspectratio>keep</aspectratio>
 							<texture background="true">skin-logo-big.png</texture>
 						</control>
-						<control type="image">
-							<left>696</left>
-							<top>350</top>
-							<width>528</width>
-							<height>264</height>
-							<aspectratio scalediffuse="true">keep</aspectratio>
-							<texture flipy="true" diffuse="mask-fade.png">skin-logo-big.png</texture>
-						</control>
 					</control>
 				</control>
 			</control>
-		</control>
-		<control type="image"><!-- Mask the front face of shelf to hide shelf icon reflections -->
-			<left>0</left>
-			<top>471</top>
-			<width>1920</width>
-			<height>609</height>
-			<texture>background-iconhome.png</texture>
-			<visible>[Container(9000).Row(0) | Container(9000).Row(1)] + !Container(9000).HasPrevious()</visible>
 		</control>
 		<control type="panel" id="9000"><!-- Home menu icon panel -->
 			<top>520</top>
