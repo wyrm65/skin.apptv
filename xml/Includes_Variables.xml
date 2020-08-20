@@ -183,6 +183,11 @@
 		<value condition="Player.HasVideo + !Skin.HasSetting(background-playingmedia)">$INFO[Player.Time]$INFO[Player.Duration, / ]</value>
 		<value condition="Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia)) + !Pvr.IsPlayingRadio">$INFO[MusicPlayer.Time]$INFO[MusicPlayer.Duration, / ]</value>
 	</variable>
+	<variable name="FakeNodeHeading">
+		<value condition="String.IsEqual(Window(home).Property(NodeType),tv)">$LOCALIZE[19020]</value>
+		<value condition="String.IsEqual(Window(home).Property(NodeType),radio)">$LOCALIZE[19021]</value>
+		<value condition="String.IsEqual(Window(home).Property(NodeType),addon)">$LOCALIZE[24001]</value>
+	</variable>	
 	<variable name="ListSearchDescription">
 		<value condition="Container.Content(livetv)">$INFO[ListItem.Property(Plot)]</value>
 		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Description)]</value>
@@ -372,7 +377,7 @@
 		<value>ActivateWindow(videos,TvShowTitles,return)</value>
 	</variable>
 	<variable name="TVEntry">
-		<value condition="String.IsEqual(Skin.String(libraryentry-tv),$LOCALIZE[20108])">ActivateWindow(1156)</value>
+		<value condition="String.IsEqual(Skin.String(libraryentry-tv),$LOCALIZE[20108])">ActivateWindow(1155)</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-tv),$LOCALIZE[31703])">PlayPvrTV</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-tv),$LOCALIZE[19023])">ActivateWindow(tvchannels,return)</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-tv),$LOCALIZE[19069])">ActivateWindow(tvguide,return)</value>
@@ -382,7 +387,7 @@
 		<value>ActivateWindow(tvguide,return)</value>
 	</variable>
 	<variable name="RadioEntry">
-		<value condition="String.IsEqual(Skin.String(libraryentry-radio),$LOCALIZE[20108])">ActivateWindow(1156)</value>
+		<value condition="String.IsEqual(Skin.String(libraryentry-radio),$LOCALIZE[20108])">ActivateWindow(1155)</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-radio),$LOCALIZE[31703])">PlayPvrRadio</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-radio),$LOCALIZE[19024])">ActivateWindow(radiochannels,return)</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-radio),$LOCALIZE[19069])">ActivateWindow(radioguide,return)</value>
@@ -1045,6 +1050,7 @@
 		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Description)]</value>
 		<value condition="Container.Content(songs)">$INFO[ListItem.Comment]</value>
 		<value condition="Container.Content(artist)">$INFO[ListItem.Property(Artist_Description)]</value>
+		<value condition="Container.Content(musicvideos)">$VAR[VideoInfoPlot]</value>
 	</variable>
 	<variable name="PlayerMusicInfo1">
 		<value condition="Player.IsInternetStream + !String.IsEmpty(Window(home).Property(plugin.audio.streaming-radio.Title))">$INFO[Window(home).Property(plugin.audio.streaming-radio.Title)]</value>

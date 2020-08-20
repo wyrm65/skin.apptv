@@ -194,7 +194,7 @@
 					<thumb>$VAR[HomeTVIcon]</thumb>
 					<label>$LOCALIZE[19020]</label>
 					<label2>$LOCALIZE[571]</label2>
-					<onclick>SetProperty(PVRType,tv,home)</onclick>
+					<onclick>SetProperty(NodeType,tv,home)</onclick>
 					<onclick>$VAR[TVEntry]</onclick>
 				</item>
 				<item><!-- Live Radio -->
@@ -202,7 +202,7 @@
 					<thumb>$VAR[HomeRadioIcon]</thumb>
 					<label>$LOCALIZE[19021]</label>
 					<label2>$LOCALIZE[571]</label2>
-					<onclick>SetProperty(PVRType,radio,home)</onclick>
+					<onclick>SetProperty(NodeType,radio,home)</onclick>
 					<onclick>$VAR[RadioEntry]</onclick>
 				</item>
 				<item><!-- Addons menu -->
@@ -212,6 +212,7 @@
 					<label2>$LOCALIZE[571]</label2>
 					<property name="count">$INFO[Window(home).Property(PendingUpdates)]</property>
 					<onclick>RunScript(script.embuary.helper,action=calc,do='"$INFO[Container(12345).NumItems] - 1"',prop=PendingUpdates)</onclick>
+					<onclick>SetProperty(NodeType,addon,home)</onclick>
 					<onclick>ActivateWindow(1155)</onclick>
 				</item>
 				<item><!-- Games menu -->
