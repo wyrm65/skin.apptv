@@ -177,7 +177,7 @@
 				</control>
 			</control>
 		</control>
-		<control type="group"><!-- Listitem icons -->
+		<control type="group">
 			<visible>Control.IsVisible(50) + !Control.IsVisible(945)</visible>
 			<control type="image">
 				<left>471</left>
@@ -198,7 +198,7 @@
 					<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 					<aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
 				</control>
-				<control type="group"><!-- TV Shows, Seasons -->
+				<control type="group">
 					<visible>[$EXP[isContentTvshows] | $EXP[isContentSeasons]]</visible>
 					<include content="listitem-count">
 						<param name="left" value="888" />
@@ -210,7 +210,7 @@
 			</control>
 			<control type="group">
 				<visible>$EXP[isnotParentFolder]</visible>
-				<control type="image"><!-- Star Rating -->
+				<control type="image">
 					<left>36</left>
 					<top>305</top>
 					<width>165</width>
@@ -218,7 +218,7 @@
 					<texture>$VAR[MediaRating]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
-				<control type="label"><!-- Duration -->
+				<control type="label">
 					<left>36</left>
 					<top>353</top>
 					<width>300</width>
@@ -246,7 +246,7 @@
 					<aspectratio>keep</aspectratio>
 					<visible>$EXP[isnotEmptyDBID]</visible>
 				</control>
-				<control type="image"><!-- Logo -->
+				<control type="image">
 					<left>36</left>
 					<top>528</top>
 					<width>387</width>
@@ -255,7 +255,7 @@
 					<aligny>bottom</aligny>
 					<aspectratio align="left">keep</aspectratio>
 				</control>
-				<control type="textbox"><!-- Plot -->
+				<control type="textbox">
 					<left>36</left>
 					<top>684</top>
 					<width>944</width>
@@ -299,7 +299,7 @@
 							</control>
 						</itemlayout>
 						<focusedlayout height="46">
-							<control type="image"><!-- Button focus slider -->
+							<control type="image">
 								<left>0</left>
 								<top>0</top>
 								<width>944</width>
@@ -406,7 +406,7 @@
 					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 					<visible>$EXP[isnotDefaultIcon] + [$EXP[isContentMovies] | $EXP[isContentTvshows]]</visible>
 				</control>
-				<control type="image"><!-- Watched Overlay -->
+				<control type="image">
 					<left>40</left>
 					<top>-3</top>
 					<width>48</width>
@@ -465,7 +465,7 @@
 						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 						<visible>$EXP[isnotDefaultIcon] + [$EXP[isContentMovies] | $EXP[isContentTvshows]]</visible>
 					</control>
-					<control type="image"><!-- Watched Overlay -->
+					<control type="image">
 						<left>40</left>
 						<top>6</top>
 						<width>48</width>
@@ -657,7 +657,7 @@
 						<texture colordiffuse="UnFocusedPosters">background-mask.png</texture>
 						<aspectratio>stretch</aspectratio>
 					</control>
-					<control type="image"><!-- Banner image -->
+					<control type="image">
 						<left>0</left>
 						<top>0</top>
 						<width>813</width>
@@ -666,7 +666,7 @@
 						<aspectratio>keep</aspectratio>
 						<visible>$EXP[isnotParentFolder]</visible>
 					</control>
-					<control type="image"><!-- Go Back image -->
+					<control type="image">
 						<left>0</left>
 						<top>0</top>
 						<width>813</width>
@@ -686,7 +686,7 @@
 					<control type="group">
 						<animation condition="true" effect="zoom" start="100" end="119" center="auto">Conditional</animation>
 						<animation effect="fade" start="100" end="50" condition="!Control.HasFocus(53)">Conditional</animation>
-						<control type="image"><!-- Go Back image -->
+						<control type="image">
 							<left>0</left>
 							<top>0</top>
 							<width>813</width>
@@ -696,7 +696,7 @@
 							<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 							<visible>$EXP[isParentFolder]</visible>
 						</control>
-						<control type="image"><!-- Banner image -->
+						<control type="image">
 							<left>0</left>
 							<top>0</top>
 							<width>813</width>
@@ -770,7 +770,7 @@
 					<control type="group">
 						<width>900</width>
 						<height>75</height>
-						<control type="image" id="7316"><!-- Show logo -->
+						<control type="image" id="7316">
 							<left>352</left>
 							<top>0</top>
 							<width>194</width>
@@ -789,21 +789,21 @@
 							<visible>String.IsEmpty(Control.GetLabel(7316))</visible>
 						</control>
 					</control>
-					<control type="label"><!-- First Aired -->
+					<control type="label">
 						<width>900</width>
 						<height>39</height>
 						<label>$INFO[ListItem.Premiered,[B]$LOCALIZE[20416]:[/B] ]</label>
 						<font>apptv22</font>
 						<align>center</align>
 					</control>
-					<control type="label"><!-- Genre -->
+					<control type="label">
 						<width>900</width>
 						<height>39</height>
 						<label>$INFO[ListItem.Genre,[B]$LOCALIZE[515]:[/B] ]</label>
 						<font>apptv22</font>
 						<align>center</align>
 					</control>
-					<control type="label"><!-- Rating -->
+					<control type="label">
 						<width>900</width>
 						<height>39</height>
 						<label>$INFO[ListItem.Rating,[B]$LOCALIZE[563]:[/B] ]</label>
@@ -815,7 +815,7 @@
 						<height>6</height>
 						<texture>separator.png</texture>
 					</control>
-					<control type="textbox"><!-- Plot -->
+					<control type="textbox">
 						<width>900</width>
 						<height>248</height>
 						<label>$VAR[VideoPlot]</label>
@@ -1065,7 +1065,7 @@
 					<visible>$EXP[isContentMusicvideos]</visible>
 				</control>
 			</control>
-			<control type="image" id="7216"><!-- Show logo -->
+			<control type="image" id="7216">
 				<left>408</left>
 				<top>572</top>
 				<width>388</width>
@@ -1097,7 +1097,7 @@
 			</control>
 			<control type="group">
 				<visible>$EXP[isnotEmptyDBID]</visible>
-				<control type="label"><!-- Duration -->
+				<control type="label">
 					<left>39</left>
 					<top>375</top>
 					<width>306</width>
@@ -1115,7 +1115,7 @@
 					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$VAR[MPAARatingIcons]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
-				<control type="image"><!-- Star Rating -->
+				<control type="image">
 					<left>408</left>
 					<top>534</top>
 					<width>165</width>
@@ -1123,7 +1123,7 @@
 					<texture>$VAR[MediaRating]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
-				<control type="textbox"><!-- Plot -->
+				<control type="textbox">
 					<left>820</left>
 					<top>452</top>
 					<width>1050</width>
@@ -1531,7 +1531,7 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(57)</visible>
-			<control type="image" id="7018"><!-- Show logo -->
+			<control type="image" id="7018">
 				<left>836</left>
 				<top>918</top>
 				<width>248</width>
@@ -1574,7 +1574,7 @@
 					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$VAR[MPAARatingIcons]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
-				<control type="image"><!-- Star Rating -->
+				<control type="image">
 					<left>878</left>
 					<top>1022</top>
 					<width>165</width>
@@ -1582,7 +1582,7 @@
 					<texture>$VAR[MediaRating]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
-				<control type="label"><!-- Duration -->
+				<control type="label">
 					<left>1480</left>
 					<top>951</top>
 					<width>390</width>
@@ -1600,7 +1600,7 @@
 					<texture>overlayvideoextras.png</texture>
 					<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
 				</control>
-				<control type="image"><!-- Watched -->
+				<control type="image">
 					<left>1764</left>
 					<top>1000</top>
 					<height>60</height>
@@ -1695,7 +1695,7 @@
 					<texture>overlayvideoextras.png</texture>
 					<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
 				</control>
-				<control type="image"><!-- Watched Overlay -->
+				<control type="image">
 					<left>158</left>
 					<top>-8</top>
 					<width>48</width>
@@ -1741,7 +1741,7 @@
 						<texture>overlayvideoextras.png</texture>
 						<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
 					</control>
-					<control type="image"><!-- Watched Overlay -->
+					<control type="image">
 						<left>146</left>
 						<top>2</top>
 						<width>48</width>
@@ -1771,7 +1771,7 @@
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(58)</visible>
-			<control type="image" id="7116"><!-- Show logo -->
+			<control type="image" id="7116">
 				<left>36</left>
 				<top>168</top>
 				<width>377</width>
@@ -1803,7 +1803,7 @@
 			</control>
 			<control type="group">
 				<visible>!String.IsEmpty(ListItem.Title) + $EXP[isnotParentFolder]</visible>
-				<control type="label"><!-- Genre -->
+				<control type="label">
 					<left>36</left>
 					<top>318</top>
 					<width>750</width>
@@ -1811,7 +1811,7 @@
 					<font>apptv18</font>
 					<label>$INFO[ListItem.Genre]</label>
 				</control>
-				<control type="label"><!-- Duration -->
+				<control type="label">
 					<left>36</left>
 					<top>375</top>
 					<width>300</width>
@@ -1846,7 +1846,7 @@
 					<aspectratio>keep</aspectratio>
 					<visible>$EXP[isnotEmptyDBID]</visible>
 				</control>
-				<control type="image"><!-- Star Rating -->
+				<control type="image">
 					<left>600</left>
 					<top>441</top>
 					<width>165</width>
@@ -1854,7 +1854,7 @@
 					<texture>$VAR[MediaRating]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
-				<control type="textbox"><!-- Plot -->
+				<control type="textbox">
 					<left>36</left>
 					<top>494</top>
 					<width>740</width>
@@ -1874,8 +1874,7 @@
 						<param name="indicatorsize" value="24"/>
 						<param name="indicatorcontainer" value="5058"/>
 					</include>
-					<!-- Show list of movies in Set if in Set node of library -->
-					<control type="panel" id="5058">
+					<control type="panel" id="5058"><!-- Show list of movies in Set if in Set node of library -->
 						<left>36</left>
 						<top>518</top>
 						<width>740</width>
@@ -1886,7 +1885,7 @@
 						<onright>50</onright>
 						<onup>noop</onup>
 						<ondown>noop</ondown>
-						<itemlayout height="46" width="740">
+						<itemlayout height="46">
 							<control type="label">
 								<left>10</left>
 								<height>46</height>
@@ -1896,8 +1895,8 @@
 								<font>apptv20</font>
 							</control>
 						</itemlayout>
-						<focusedlayout height="46" width="740">
-							<control type="image"><!-- Button focus slider -->
+						<focusedlayout height="46">
+							<control type="image">
 								<left>0</left>
 								<top>0</top>
 								<width>740</width>

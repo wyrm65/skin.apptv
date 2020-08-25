@@ -4,14 +4,14 @@
 	<visible>[System.HasMediaDVD | Player.HasMedia] + Window.IsActive(playercontrols) + $EXP[isnotFullscreenVideo] + !Window.IsActive(visualisation)</visible>
 	<controls>
 		<include>fadebackground</include>
-		<control type="image"><!-- Dialog background image -->
+		<control type="image">
 			<left>184</left>
 			<top>188</top>
 			<height>262</height>
 			<width>1539</width>
 			<texture border="14">button-menu-background.png</texture>
 		</control>
-		<control type="button"><!-- Touch Close button -->
+		<control type="button">
 			<left>1692</left>
 			<top>174</top>
 			<width>48</width>
@@ -43,7 +43,7 @@
 				<aspectratio>keep</aspectratio>
 				<visible>Skin.HasSetting(background-playingmedia)</visible>
 			</control>
-			<control type="button"><!-- Touch button for Fullscreen -->
+			<control type="button">
 				<left>225</left>
 				<top>206</top>
 				<width>318</width>
@@ -92,7 +92,7 @@
 				<label>$INFO[VideoPlayer.Time]</label>
 				<align>right</align>
 			</control>
-			<control type="progress"><!-- Cache -->
+			<control type="progress">
 				<left>825</left>
 				<top>410</top>
 				<width>570</width>
@@ -138,7 +138,7 @@
 				<aspectratio>keep</aspectratio>
 				<visible>!Window.IsActive(visualisation)</visible>
 			</control>
-			<control type="button"><!-- Touch button for Fullscreen -->
+			<control type="button">
 				<left>246</left>
 				<top>206</top>
 				<width>225</width>

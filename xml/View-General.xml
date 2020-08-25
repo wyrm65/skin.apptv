@@ -18,7 +18,7 @@
 			<preloaditems>4</preloaditems>
 			<pagecontrol>1250</pagecontrol>
 			<itemlayout height="99">
-				<control type="image"><!-- Button unfocus -->
+				<control type="image">
 					<left>9</left>
 					<top>0</top>
 					<width>844</width>
@@ -34,29 +34,17 @@
 					<font>apptv23</font>
 					<selectedcolor>button-text</selectedcolor>
 					<label>$INFO[ListItem.Label]</label>
-					<visible>String.IsEmpty(ListItem.Label2)</visible>
+					<animation condition="String.IsEmpty(ListItem.Label2)" effect="slide" start="0,0" end="0,18" time="0">Conditonal</animation>
 				</control>
-				<control type="group">
-					<visible>!String.IsEmpty(ListItem.Label2)</visible>
-					<control type="label">
-						<left>69</left>
-						<top>12</top>
-						<width>759</width>
-						<height>34</height>
-						<font>apptv22</font>
-						<selectedcolor>button-text</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>69</left>
-						<top>48</top>
-						<width>759</width>
-						<height>34</height>
-						<font>apptv22</font>
-						<textcolor>disabled-text</textcolor>
-						<selectedcolor>disabled-text</selectedcolor>
-						<label>$INFO[ListItem.Label2]</label>
-					</control>
+				<control type="label">
+					<left>69</left>
+					<top>48</top>
+					<width>759</width>
+					<height>34</height>
+					<font>apptv22</font>
+					<textcolor>disabled-text</textcolor>
+					<selectedcolor>disabled-text</selectedcolor>
+					<label>$INFO[ListItem.Label2]</label>
 				</control>
 				<!-- Equaliser (listitem is being played) -->
 				<include content="fake-equaliser">
@@ -66,7 +54,7 @@
 				</include>
 			</itemlayout>
 			<focusedlayout height="99">
-				<control type="image"><!-- Button focus -->
+				<control type="image">
 					<left>9</left>
 					<top>0</top>
 					<width>844</width>
@@ -82,29 +70,17 @@
 					<font>apptv23</font>
 					<selectedcolor>button-text</selectedcolor>
 					<label>$INFO[ListItem.Label]</label>
-					<visible>String.IsEmpty(ListItem.Label2)</visible>
+					<animation condition="String.IsEmpty(ListItem.Label2)" effect="slide" start="0,0" end="0,18" time="0">Conditonal</animation>
 				</control>
-				<control type="group">
-					<visible>!String.IsEmpty(ListItem.Label2)</visible>
-					<control type="label">
-						<left>69</left>
-						<top>12</top>
-						<width>759</width>
-						<height>34</height>
-						<font>apptv22</font>
-						<selectedcolor>button-text</selectedcolor>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-					<control type="label">
-						<left>69</left>
-						<top>48</top>
-						<width>759</width>
-						<height>34</height>
-						<font>apptv22</font>
-						<textcolor>disabled-text</textcolor>
-						<selectedcolor>disabled-text</selectedcolor>
-						<label>$INFO[ListItem.Label2]</label>
-					</control>
+				<control type="label">
+					<left>69</left>
+					<top>48</top>
+					<width>759</width>
+					<height>34</height>
+					<font>apptv22</font>
+					<textcolor>disabled-text</textcolor>
+					<selectedcolor>disabled-text</selectedcolor>
+					<label>$INFO[ListItem.Label2]</label>
 				</control>
 				<!-- Equaliser (listitem is being played) -->
 				<include content="fake-equaliser">
@@ -1057,7 +1033,7 @@
 				<label>$LOCALIZE[31688]</label>
 				<visible>$EXP[isParentFolder]</visible>
 			</control>
-			<control type="label"><!-- Resolution -->
+			<control type="label">
 				<left>360</left>
 				<top>1023</top>
 				<width>1200</width>
