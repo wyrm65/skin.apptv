@@ -244,7 +244,7 @@
 					<aligny>bottom</aligny>
 					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$VAR[MPAARatingIcons]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>$EXP[isnotEmptyDBID]</visible>
+					<visible>$EXP[isnotEmptyDBID] + [$EXP[isSet] | $EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode] | $EXP[isMusicvideo]]</visible>
 				</control>
 				<control type="image">
 					<left>36</left>
@@ -758,7 +758,7 @@
 					<aligny>bottom</aligny>
 					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$VAR[MPAARatingIcons]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>$EXP[isnotEmptyDBID]</visible>
+					<visible>$EXP[isnotEmptyDBID] + [$EXP[isSet] | $EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode] | $EXP[isMusicvideo]]</visible>
 				</control>
 				<control type="grouplist">
 					<left>45</left>
@@ -1114,6 +1114,7 @@
 					<aligny>bottom</aligny>
 					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$VAR[MPAARatingIcons]</texture>
 					<aspectratio>keep</aspectratio>
+					<visible>$EXP[isnotEmptyDBID] + [$EXP[isSet] | $EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode] | $EXP[isMusicvideo]]</visible>
 				</control>
 				<control type="image">
 					<left>408</left>
@@ -1573,6 +1574,7 @@
 					<aligny>bottom</aligny>
 					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$VAR[MPAARatingIcons]</texture>
 					<aspectratio>keep</aspectratio>
+					<visible>$EXP[isnotEmptyDBID] + [$EXP[isSet] | $EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode] | $EXP[isMusicvideo]]</visible>
 				</control>
 				<control type="image">
 					<left>878</left>
@@ -1844,7 +1846,7 @@
 					<aligny>bottom</aligny>
 					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$VAR[MPAARatingIcons]</texture>
 					<aspectratio>keep</aspectratio>
-					<visible>$EXP[isnotEmptyDBID]</visible>
+					<visible>$EXP[isnotEmptyDBID] + [$EXP[isSet] | $EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isEpisode] | $EXP[isMusicvideo]]</visible>
 				</control>
 				<control type="image">
 					<left>600</left>
