@@ -195,7 +195,7 @@
 					<top>166</top>
 					<width>512</width>
 					<height>512</height>
-					<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 					<aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
 				</control>
 				<control type="group">
@@ -1668,7 +1668,6 @@
 	</include>
 	<include name="VideoWallView">
 		<control type="panel" id="58">
-			<visible>$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons] | $EXP[isContentMusicvideos] | $EXP[isContentAddons]</visible>
 			<left>802</left>
 			<top>180</top>
 			<width>990</width>
@@ -1687,7 +1686,7 @@
 					<width>196</width>
 					<height>279</height>
 					<aspectratio>stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+					<texture fallback="DefaultVideo.png" colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
 				</control>
 				<control type="image"><!-- Video special features available -->
 					<left>2</left>
@@ -1711,14 +1710,14 @@
 					<param name="size" value="70" />
 				</include>
 			</itemlayout>
-			<itemlayout height="210" width="210" condition="$EXP[isContentAddons] | $EXP[isContentMusicvideos]">
+			<itemlayout height="210" width="210" condition="![$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons]]">
 				<control type="image">
 					<left>6</left>
 					<top>6</top>
 					<width>198</width>
 					<height>198</height>
 					<aspectratio>keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
+					<texture fallback="DefaultVideo.png" colordiffuse="UnFocusedPosters" diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
 				</control>
 			</itemlayout>
 			<focusedlayout height="280" width="198" condition="$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons]">
@@ -1730,7 +1729,7 @@
 						<width>196</width>
 						<height>279</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+						<texture fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
 						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 						<visible>$EXP[isDefaultIcon]</visible>
 					</control>
@@ -1740,7 +1739,7 @@
 						<width>196</width>
 						<height>279</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+						<texture fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
 						<bordertexture border="12">mask-hilite.png</bordertexture>
 						<bordersize>12</bordersize>
 						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
@@ -1769,14 +1768,14 @@
 					</include>
 				</control>
 			</focusedlayout>
-			<focusedlayout height="210" width="210" condition="$EXP[isContentAddons] | $EXP[isContentMusicvideos]">
+			<focusedlayout height="210" width="210" condition="![$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons]]">
 				<control type="image">
 					<left>6</left>
 					<top>6</top>
 					<width>198</width>
 					<height>198</height>
 					<aspectratio>keep</aspectratio>
-					<texture diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
+					<texture fallback="DefaultVideo.png" diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
 					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 					<animation effect="zoom" start="90" end="112" center="auto" time="400" tween="back" easing="out" reversible="false">focus</animation>
 					<visible>$EXP[isDefaultIcon]</visible>
@@ -1787,7 +1786,7 @@
 					<width>198</width>
 					<height>198</height>
 					<aspectratio>keep</aspectratio>
-					<texture diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
+					<texture fallback="DefaultVideo.png" diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
 					<bordertexture border="12">mask-hilite.png</bordertexture>
 					<bordersize>12</bordersize>
 					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>

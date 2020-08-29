@@ -218,6 +218,7 @@
 				<control type="button" id="3"><!-- Sort by button -->
 					<include>settings-screen-common</include>
 					<label>$LOCALIZE[103]</label>
+					<visible>Control.IsEnabled(3)</visible>
 				</control>
 				<control type="togglebutton" id="4"><!-- Sort direction button -->
 					<include>settings-screen-common</include>
@@ -232,16 +233,14 @@
 					<label>$LOCALIZE[31878]</label>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,type=resource.images.studios&amp;property=custom-moviestudioicons)</onclick>
-					<enable>String.Contains(Control.GetLabel(2),$LOCALIZE[31941]) | String.Contains(Control.GetLabel(2),$LOCALIZE[31945])</enable>
-					<visible>Container.Content(studios)</visible>
+					<visible>Container.Content(studios) + [!String.Contains(Control.GetLabel(2),$LOCALIZE[31943]) | !String.Contains(Control.GetLabel(2),$LOCALIZE[31945]) | !String.Contains(Control.GetLabel(2),$LOCALIZE[31946])]</visible>
 				</control>
 				<control type="button" id="211"><!-- Custom Genre Icons Button -->
 					<include>settings-screen-common</include>
 					<label>$LOCALIZE[31879]</label>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,type=resource.images.moviegenreicons&amp;property=custom-moviegenresicons)</onclick>
-					<enable>[String.Contains(Control.GetLabel(2),$LOCALIZE[31941]) | String.Contains(Control.GetLabel(2),$LOCALIZE[31945])]</enable>
-					<visible>Container.Content(genres)</visible>
+					<visible>Container.Content(genres) + [!String.Contains(Control.GetLabel(2),$LOCALIZE[31943]) | !String.Contains(Control.GetLabel(2),$LOCALIZE[31945]) | !String.Contains(Control.GetLabel(2),$LOCALIZE[31946])]</visible>
 				</control>
 				<control type="button" id="8"><!-- Search button -->
 					<include>settings-screen-common</include>
