@@ -705,7 +705,7 @@
 		<value condition="!String.IsEmpty(ListItem.Icon) + !String.Contains(ListItem.Icon,Default)">$INFO[ListItem.Icon]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
 		<value condition="!String.IsEmpty(ListItem.Icon) + ListItem.IsParentFolder">$INFO[ListItem.Icon]</value>
-		<value condition="Container.Content(genres)">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem.Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
+		<value condition="Container.Content(genres) + !String.IsEmpty(Skin.String(custom-musicgenresicons.path))">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem.Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
 		<value condition="Container.Content(musicvideos)">DefaultMusicVideos.png</value>
 		<value condition="Container.Content(artists)">DefaultUser.png</value>
 		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
@@ -1049,7 +1049,7 @@
 	<variable name="MusicInfo">
 		<value condition="Container.Content(albums)">$INFO[ListItem.Property(Album_Description)]</value>
 		<value condition="Container.Content(songs)">$INFO[ListItem.Comment]</value>
-		<value condition="Container.Content(artist)">$INFO[ListItem.Property(Artist_Description)]</value>
+		<value condition="Container.Content(artists)">$INFO[ListItem.Property(Artist_Description)]</value>
 		<value condition="Container.Content(musicvideos)">$VAR[VideoInfoPlot]</value>
 	</variable>
 	<variable name="PlayerMusicInfo1">
