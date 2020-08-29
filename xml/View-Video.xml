@@ -1731,9 +1731,20 @@
 						<height>279</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
 						<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
+						<visible>$EXP[isDefaultIcon]</visible>
+					</control>
+					<control type="image">
+						<left>1</left>
+						<top>1</top>
+						<width>196</width>
+						<height>279</height>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
 						<bordertexture border="12">mask-hilite.png</bordertexture>
 						<bordersize>12</bordersize>
 						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
+						<visible>$EXP[isnotDefaultIcon]</visible>
 					</control>
 					<control type="image"><!-- Video special features available -->
 						<left>16</left>
@@ -1768,6 +1779,20 @@
 					<texture diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
 					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 					<animation effect="zoom" start="90" end="112" center="auto" time="400" tween="back" easing="out" reversible="false">focus</animation>
+					<visible>$EXP[isDefaultIcon]</visible>
+				</control>
+				<control type="image">
+					<left>6</left>
+					<top>6</top>
+					<width>198</width>
+					<height>198</height>
+					<aspectratio>keep</aspectratio>
+					<texture diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
+					<bordertexture border="12">mask-hilite.png</bordertexture>
+					<bordersize>12</bordersize>
+					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
+					<animation effect="zoom" start="90" end="112" center="auto" time="400" tween="back" easing="out" reversible="false">focus</animation>
+					<visible>$EXP[isnotDefaultIcon]</visible>
 				</control>
 			</focusedlayout>
 		</control>
