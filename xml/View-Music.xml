@@ -185,7 +185,7 @@
 					<top>179</top>
 					<width>392</width>
 					<height>384</height>
-					<texture diffuse="mask-squ.png">$VAR[IconCover]</texture>
+					<texture fallback="DefaultAudio.png" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 					<aspectratio>stretch</aspectratio>
 				</control>
 			</control>
@@ -194,7 +194,7 @@
 				<top>154</top>
 				<width>504</width>
 				<height>504</height>
-				<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 				<aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
 				<visible>![$EXP[isContentAlbums]] + ![$EXP[isContentSongs]]</visible>
 			</control>
@@ -338,7 +338,7 @@
 					<top>11</top>
 					<width>240</width>
 					<height>240</height>
-					<texture colordiffuse="UnFocusedPosters" diffuse="mask-squ.png" background="true">$VAR[IconCover]</texture>
+					<texture fallback="DefaultAudio.png" colordiffuse="UnFocusedPosters" diffuse="mask-squ.png" background="true">$VAR[IconCover]</texture>
 					<aspectratio aligny="bottom">stretch</aspectratio>
 				</control>
 				<control type="image">
@@ -357,7 +357,7 @@
 						<top>11</top>
 						<width>240</width>
 						<height>240</height>
-						<texture diffuse="mask-squ.png" background="true">$VAR[IconCover]</texture>
+						<texture fallback="DefaultAudio.png" diffuse="mask-squ.png" background="true">$VAR[IconCover]</texture>
 						<aspectratio aligny="bottom">keep</aspectratio>
 						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 						<visible>$EXP[isDefaultIcon]</visible>
@@ -367,7 +367,7 @@
 						<top>0</top>
 						<width>258</width>
 						<height>258</height>
-						<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
+						<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 						<bordertexture border="10">mask-hilitesqu.png</bordertexture>
 						<bordersize>10</bordersize>
 						<aspectratio aligny="bottom" scalediffuse="false">stretch</aspectratio>
@@ -403,7 +403,7 @@
 				<width>240</width>
 				<height>240</height>
 				<aspectratio aligny="bottom">stretch</aspectratio>
-				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(10)Thumb]</texture>
+				<texture fallback="DefaultAudio.png" colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(10)Thumb]</texture>
 			</control>
 			<control type="image">
 				<left>450</left>
@@ -411,7 +411,7 @@
 				<width>240</width>
 				<height>240</height>
 				<aspectratio aligny="bottom">stretch</aspectratio>
-				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(11)Thumb]</texture>
+				<texture fallback="DefaultAudio.png" colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(11)Thumb]</texture>
 			</control>
 			<control type="image">
 				<left>810</left>
@@ -419,7 +419,7 @@
 				<width>240</width>
 				<height>240</height>
 				<aspectratio aligny="bottom">stretch</aspectratio>
-				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(12)Thumb]</texture>
+				<texture fallback="DefaultAudio.png" colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(12)Thumb]</texture>
 			</control>
 			<control type="image">
 				<left>1170</left>
@@ -427,7 +427,7 @@
 				<width>240</width>
 				<height>240</height>
 				<aspectratio aligny="bottom">stretch</aspectratio>
-				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(13)Thumb]</texture>
+				<texture fallback="DefaultAudio.png" colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(13)Thumb]</texture>
 			</control>
 			<control type="image">
 				<left>1530</left>
@@ -435,7 +435,7 @@
 				<width>240</width>
 				<height>240</height>
 				<aspectratio aligny="bottom">stretch</aspectratio>
-				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(14)Thumb]</texture>
+				<texture fallback="DefaultAudio.png" colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetopsqu.png">$VAR[Icon(14)Thumb]</texture>
 			</control>
 		</control>
 		<control type="group">
@@ -523,7 +523,7 @@
 						<height>180</height>
 						<width>194</width>
 						<colordiffuse>UnFocusedCovers</colordiffuse>
-						<texture background="true">$VAR[IconCover]</texture>
+						<texture fallback="DefaultAudio.png" background="true">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
 						<bordertexture border="28,18,4,19">case-cd.png</bordertexture>
 						<bordersize>28,18,4,19</bordersize>
@@ -535,7 +535,7 @@
 						<height>160</height>
 						<width>160</width>
 						<colordiffuse>UnFocusedCovers</colordiffuse>
-						<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
+						<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
 						<visible>!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | $EXP[isEmptyIcon]</visible>
 					</control>
@@ -548,7 +548,7 @@
 						<height>160</height>
 						<width>160</width>
 						<colordiffuse>UnFocusedCovers</colordiffuse>
-						<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
+						<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 						<aspectratio aligny="bottom">keep</aspectratio>
 					</control>
 				</control>
@@ -576,7 +576,7 @@
 					<top>240</top>
 					<height>216</height>
 					<width>232</width>
-					<texture background="true">$VAR[IconCover]</texture>
+					<texture fallback="DefaultAudio.png" background="true">$VAR[IconCover]</texture>
 					<aspectratio>stretch</aspectratio>
 					<bordertexture border="28,18,4,19">case-cd.png</bordertexture>
 					<bordersize>28,18,4,19</bordersize>
@@ -588,7 +588,7 @@
 					<top>228</top>
 					<height>232</height>
 					<width>232</width>
-					<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
+					<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 					<aspectratio aligny="bottom">stretch</aspectratio>
 					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 					<animation effect="zoom" start="100" end="160" center="-62,496" time="0" tween="back" easing="out" reversible="false" condition="true">Conditional</animation>
@@ -604,7 +604,7 @@
 					<top>228</top>
 					<height>232</height>
 					<width>232</width>
-					<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
+					<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 					<aspectratio aligny="bottom">keep</aspectratio>
 					<animation effect="zoom" start="100" end="160" center="-62,496" time="0" tween="back" easing="out" reversible="false" condition="true">Conditional</animation>
 					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
@@ -750,7 +750,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-5)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(-5)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="-60" end="-60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,10) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,9) + $EXP[isEnabledParentDirectory]]</visible>
@@ -760,7 +760,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-4)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(-4)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="15" end="-60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,8) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,7) + $EXP[isEnabledParentDirectory]]</visible>
@@ -770,7 +770,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-3)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(-3)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="90" end="-60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,6) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,5) + $EXP[isEnabledParentDirectory]]</visible>
@@ -780,7 +780,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-2)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(-2)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="165" end="-60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,4) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,3) + $EXP[isEnabledParentDirectory]]</visible>
@@ -790,7 +790,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(3)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(3)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="1980" end="60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,5) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,4) + $EXP[isEnabledParentDirectory]]</visible>
@@ -800,7 +800,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(2)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(2)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="1905" end="60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,3) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,2) + $EXP[isEnabledParentDirectory]]</visible>
@@ -810,7 +810,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(1)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(1)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="1830" end="60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,1) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,0) + $EXP[isEnabledParentDirectory]]</visible>
@@ -823,7 +823,7 @@
 					<top>0</top>
 					<width>432</width>
 					<height>432</height>
-					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-1)Cover]</texture>
+					<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(-1)Cover]</texture>
 					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 					<animation effect="rotatey" center="330" start="0" end="-60" time="200" reversible="false">Hidden</animation>
 					<visible>[Integer.IsGreater(Container(57).NumItems,2) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,1) + $EXP[isEnabledParentDirectory]]</visible>
@@ -833,7 +833,7 @@
 					<top>24</top>
 					<width>432</width>
 					<height>432</height>
-					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(0)Cover]</texture>
+					<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(0)Cover]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<animation effect="rotatey" center="1755" start="0" end="-60" time="200" reversible="false">Hidden</animation>
 					<animation effect="rotatey" center="1755" end="60" time="200" condition="true">Conditional</animation>
@@ -851,7 +851,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-3)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(-3)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="-60" end="-60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,6) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,5) + $EXP[isEnabledParentDirectory]]</visible>
@@ -861,7 +861,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-2)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(-2)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="15" end="-60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,4) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,3) + $EXP[isEnabledParentDirectory]]</visible>
@@ -871,7 +871,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-1)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(-1)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="90" end="-60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,2) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,1) + $EXP[isEnabledParentDirectory]]</visible>
@@ -881,7 +881,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(5)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(5)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="1980" end="60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,9) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,8) + $EXP[isEnabledParentDirectory]]</visible>
@@ -891,7 +891,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(4)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(4)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="1905" end="60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,7) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,6) + $EXP[isEnabledParentDirectory]]</visible>
@@ -901,7 +901,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(3)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(3)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="1830" end="60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,5) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,4) + $EXP[isEnabledParentDirectory]]</visible>
@@ -911,7 +911,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(2)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(2)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="1755" end="60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,3) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,2) + $EXP[isEnabledParentDirectory]]</visible>
@@ -924,7 +924,7 @@
 					<top>0</top>
 					<width>432</width>
 					<height>432</height>
-					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(1)Cover]</texture>
+					<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(1)Cover]</texture>
 					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 					<animation effect="rotatey" center="960" start="0" end="60" time="200" reversible="false">Hidden</animation>
 					<visible>[Integer.IsGreater(Container(57).NumItems,1) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,0) + $EXP[isEnabledParentDirectory]]</visible>
@@ -934,7 +934,7 @@
 					<top>24</top>
 					<width>432</width>
 					<height>432</height>
-					<texture background="true" diffuse="mask-rect.png">$VAR[Icon(0)Cover]</texture>
+					<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(0)Cover]</texture>
 					<colordiffuse>SecondaryCovers</colordiffuse>
 					<animation effect="rotatey" center="165" start="0" end="60" time="200" reversible="false">Hidden</animation>
 					<animation effect="rotatey" center="165" end="-60" condition="true">Conditional</animation>
@@ -951,7 +951,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-4)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(-4)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="-60" end="-60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,8) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,7) + $EXP[isEnabledParentDirectory]]</visible>
@@ -961,7 +961,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-3)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(-3)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="15" end="-60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,6) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,5) + $EXP[isEnabledParentDirectory]]</visible>
@@ -971,7 +971,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-2)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(-2)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="90" end="-60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,4) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,3) + $EXP[isEnabledParentDirectory]]</visible>
@@ -981,7 +981,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(-1)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(-1)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="165" end="-60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,2) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,1) + $EXP[isEnabledParentDirectory]]</visible>
@@ -991,7 +991,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(4)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(4)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="1920" end="60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,7) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,6) + $EXP[isEnabledParentDirectory]]</visible>
@@ -1001,7 +1001,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(3)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(3)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="1845" end="60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,5) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,4) + $EXP[isEnabledParentDirectory]]</visible>
@@ -1011,7 +1011,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(2)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(2)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="1770" end="60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,3) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,2) + $EXP[isEnabledParentDirectory]]</visible>
@@ -1021,7 +1021,7 @@
 				<top>24</top>
 				<width>432</width>
 				<height>432</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(1)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(1)Cover]</texture>
 				<colordiffuse>SecondaryCovers</colordiffuse>
 				<animation effect="rotatey" center="1695" end="60" condition="true">Conditional</animation>
 				<visible>[Integer.IsGreater(Container(57).NumItems,1) + $EXP[isnotEnabledParentDirectory]] | [Integer.IsGreater(Container(57).NumItems,0) + $EXP[isEnabledParentDirectory]]</visible>
@@ -1032,7 +1032,7 @@
 				<width>432</width>
 				<height>432</height>
 				<aspectratio>stretch</aspectratio>
-				<texture background="true" diffuse="mask-rect.png">$VAR[Icon(0)Cover]</texture>
+				<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[Icon(0)Cover]</texture>
 				<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 			</control>
 		</control>
@@ -1222,7 +1222,7 @@
 					<height>200</height>
 					<aspectratio>stretch</aspectratio>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
-					<texture diffuse="mask-squ.png" background="true">$VAR[IconCover]</texture>
+					<texture fallback="DefaultAudio.png" diffuse="mask-squ.png" background="true">$VAR[IconCover]</texture>
 				</control>
 				<control type="image">
 					<left>170</left>
@@ -1241,7 +1241,7 @@
 						<top>1</top>
 						<width>200</width>
 						<height>200</height>
-						<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
+						<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
 						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 						<visible>$EXP[isDefaultIcon]</visible>
@@ -1251,7 +1251,7 @@
 						<top>1</top>
 						<width>200</width>
 						<height>200</height>
-						<texture background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
+						<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
 						<bordertexture border="12">mask-hilite.png</bordertexture>
 						<bordersize>12</bordersize>

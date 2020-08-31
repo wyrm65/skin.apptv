@@ -394,7 +394,7 @@
 					<width>270</width>
 					<height>270</height>
 					<aspectratio>keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" background="true">$VAR[IconPoster]</texture>
+					<texture fallback="DefaultVideo.png" colordiffuse="UnFocusedPosters" background="true">$VAR[IconPoster]</texture>
 					<visible>$EXP[isDefaultIcon] | ![$EXP[isContentMovies] | $EXP[isContentTvshows]]</visible>
 				</control>
 				<control type="image">
@@ -403,7 +403,7 @@
 					<width>192</width>
 					<height>270</height>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+					<texture fallback="DefaultVideo.png" colordiffuse="UnFocusedPosters" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 					<visible>$EXP[isnotDefaultIcon] + [$EXP[isContentMovies] | $EXP[isContentTvshows]]</visible>
 				</control>
 				<control type="image">
@@ -437,7 +437,7 @@
 						<width>270</width>
 						<height>270</height>
 						<aspectratio scalediffuse="false">keep</aspectratio>
-						<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+						<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 						<visible>$EXP[isDefaultIcon]</visible>
 					</control>
@@ -446,7 +446,7 @@
 						<top>8</top>
 						<width>270</width>
 						<height>270</height>
-						<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+						<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 						<bordertexture border="10">mask-hilite.png</bordertexture>
 						<bordersize>10</bordersize>
 						<aspectratio scalediffuse="false">keep</aspectratio>
@@ -458,7 +458,7 @@
 						<top>8</top>
 						<width>192</width>
 						<height>270</height>
-						<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+						<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 						<bordertexture border="10">mask-hilite.png</bordertexture>
 						<bordersize>10</bordersize>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
@@ -511,7 +511,7 @@
 					<width>192</width>
 					<height>270</height>
 					<aspectratio>stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(8)Poster]</texture>
+					<texture fallback="DefaultVideo.png" colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(8)Poster]</texture>
 				</control>
 				<control type="image">
 					<left>579</left>
@@ -519,7 +519,7 @@
 					<width>192</width>
 					<height>270</height>
 					<aspectratio>stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(9)Poster]</texture>
+					<texture fallback="DefaultVideo.png" colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(9)Poster]</texture>
 				</control>
 				<control type="image">
 					<left>1029</left>
@@ -527,7 +527,7 @@
 					<width>192</width>
 					<height>270</height>
 					<aspectratio>stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(10)Poster]</texture>
+					<texture fallback="DefaultVideo.png" colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(10)Poster]</texture>
 				</control>
 				<control type="image">
 					<left>1479</left>
@@ -535,7 +535,7 @@
 					<width>192</width>
 					<height>270</height>
 					<aspectratio>stretch</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(11)Poster]</texture>
+					<texture fallback="DefaultVideo.png" colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(11)Poster]</texture>
 				</control>
 			</control>
 			<control type="group"><!-- Show the bottom row of icons as long as another row exists -->
@@ -547,7 +547,7 @@
 					<width>270</width>
 					<height>270</height>
 					<aspectratio scalediffuse="false">keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(8)VideoIcon]</texture>
+					<texture fallback="DefaultVideo.png" colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(8)VideoIcon]</texture>
 				</control>
 				<control type="image">
 					<left>570</left>
@@ -555,7 +555,7 @@
 					<width>270</width>
 					<height>270</height>
 					<aspectratio scalediffuse="false">keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(9)VideoIcon]</texture>
+					<texture fallback="DefaultVideo.png" colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(9)VideoIcon]</texture>
 				</control>
 				<control type="image">
 					<left>1020</left>
@@ -563,7 +563,7 @@
 					<width>270</width>
 					<height>270</height>
 					<aspectratio scalediffuse="false">keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(10)VideoIcon]</texture>
+					<texture fallback="DefaultVideo.png" colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(10)VideoIcon]</texture>
 				</control>
 				<control type="image">
 					<left>1470</left>
@@ -571,7 +571,7 @@
 					<width>270</width>
 					<height>270</height>
 					<aspectratio scalediffuse="false">keep</aspectratio>
-					<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(11)VideoIcon]</texture>
+					<texture fallback="DefaultVideo.png" colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(11)VideoIcon]</texture>
 				</control>
 			</control>
 			<control type="button"><!-- Onfocus, move to next row of icon panel -->

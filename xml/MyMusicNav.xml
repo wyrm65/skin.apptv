@@ -114,11 +114,13 @@
 					<selected>Skin.HasSetting(media-case)</selected>
 					<radioposx>495</radioposx>
 					<textoffsetx>15</textoffsetx>
+					<visible>Container.Content(albums) | Container.Content(songs)</visible>
 				</control>
 				<control type="button" id="3"><!-- Sort by -->
 					<include>settings-screen-common</include>
 					<label>$LOCALIZE[103]</label>
 					<textoffsetx>15</textoffsetx>
+					<visible>Control.IsEnabled(3)</visible>
 				</control>
 				<control type="togglebutton" id="4"><!-- Sort direction -->
 					<include>settings-screen-common</include>
@@ -132,8 +134,7 @@
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select)">RunScript(script.image.resource.select,type=resource.images.musicgenreicons&amp;property=custom-musicgenresicons)</onclick>
 					<textoffsetx>15</textoffsetx>
-					<enable>[String.Contains(Control.GetLabel(2),$LOCALIZE[31941]) | String.Contains(Control.GetLabel(2),$LOCALIZE[31945])]</enable>
-					<visible>Container.Content(genres)</visible>
+					<visible>Container.Content(genres) + [String.Contains(Control.GetLabel(2),$LOCALIZE[31941]) | String.Contains(Control.GetLabel(2),$LOCALIZE[31945])]</visible>
 				</control>
 				<control type="button" id="8"><!-- Search -->
 					<include>settings-screen-common</include>
