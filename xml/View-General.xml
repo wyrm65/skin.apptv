@@ -168,7 +168,7 @@
 			<left>30</left>
 			<top>195</top>
 			<width>1800</width>
-			<height>675</height>
+			<height>885</height>
 			<onleft condition="Skin.HasSetting(lock-screensettings)">noop</onleft>
 			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
 			<onright condition="![$EXP[isEnabledScrollbar]]">noop</onright>
@@ -235,50 +235,6 @@
 					<visible>!Container().Scrolling</visible>
 				</control>
 			</focusedlayout>
-		</control>
-		<control type="group"><!-- Show the bottom row of icons as long as another row exists -->
-			<visible>Control.IsVisible(52) + Container(52).HasNext + ![Container().OnScrollNext | Container().OnScrollPrevious]</visible>
-			<animation effect="fade" delay="100" start="0" end="100" time="200">Visible</animation>
-			<control type="image">
-				<left>90</left>
-				<top>861</top>
-				<width>240</width>
-				<height>240</height>
-				<aspectratio>keep</aspectratio>
-				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(10)Thumb]</texture>
-			</control>
-			<control type="image">
-				<left>450</left>
-				<top>861</top>
-				<width>240</width>
-				<height>240</height>
-				<aspectratio>keep</aspectratio>
-				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(11)Thumb]</texture>
-			</control>
-			<control type="image">
-				<left>810</left>
-				<top>861</top>
-				<width>240</width>
-				<height>240</height>
-				<aspectratio>keep</aspectratio>
-				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(12)Thumb]</texture>
-			</control>
-			<control type="image">
-				<left>1170</left>
-				<top>861</top>
-				<width>240</width>
-				<height>240</height>
-				<aspectratio>keep</aspectratio>
-				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(13)Thumb]</texture>
-			</control>
-			<control type="image">
-				<left>1530</left>
-				<top>861</top>
-				<width>240</width>
-				<height>240</height>
-				<aspectratio>keep</aspectratio>
-				<texture colordiffuse="UnFocusedPosters" background="true" diffuse="mask-fadetop.png">$VAR[Icon(14)Thumb]</texture>
-			</control>
 		</control>
 		<control type="scrollbar" id="1252">
 			<left>1872</left>
