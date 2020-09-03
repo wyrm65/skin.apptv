@@ -170,7 +170,7 @@
 			<top>472</top>
 			<width>480</width>
 			<height>30</height>
-			<label>$LOCALIZE[20416] $INFO[ListItem.Premiered]</label>
+			<label>$INFO[ListItem.Premiered,$LOCALIZE[20416] ,]</label>
 			<font>apptv20</font>
 			<visible>$EXP[isTvshow] | $EXP[isEpisode] | $EXP[isMusicvideo]</visible>
 		</control>
@@ -190,8 +190,9 @@
 				<top>510</top>
 				<width>480</width>
 				<height>30</height>
-				<label>$LOCALIZE[33054] $INFO[ListItem.Property(TotalSeasons)]</label>
+				<label>$INFO[ListItem.Property(TotalSeasons),$LOCALIZE[33054] ,]</label>
 				<font>apptv20</font>
+				<visible>$EXP[isTvshow]</visible>
 			</control>
 			<control type="label"><!-- Current TVShow Name -->
 				<left>510</left>
@@ -200,14 +201,14 @@
 				<height>30</height>
 				<label>$INFO[ListItem.Label]</label>
 				<font>apptv20</font>
-				<visible>String.IsEmpty(ListItem.Property(TotalSeasons))</visible>
+				<visible>$EXP[isSeason]</visible>
 			</control>
 			<control type="label">
 				<left>510</left>
 				<top>548</top>
 				<width>480</width>
 				<height>30</height>
-				<label>$LOCALIZE[20360] $INFO[ListItem.Property(TotalEpisodes)] [COLOR=grey] ($INFO[ListItem.Property(UnWatchedEpisodes), , $LOCALIZE[16101]])[/COLOR]</label>
+				<label>$INFO[ListItem.Property(TotalEpisodes),$LOCALIZE[20360] ][COLOR=grey]$INFO[ListItem.Property(UnWatchedEpisodes), (, $LOCALIZE[16101])][/COLOR]</label>
 				<font>apptv20</font>
 			</control>
 		</control>
@@ -219,6 +220,7 @@
 			<align>left</align>
 			<orientation>horizontal</orientation>
 			<itemgap>-6</itemgap>
+			<visible>[$EXP[isMovie] | $EXP[isEpisode] | $EXP[isMusicvideo]]</visible>
 			<control type="image" id="171"><!-- Audio codec -->
 				<width>60</width>
 				<height>45</height>
