@@ -13,7 +13,7 @@
 		<include>fake-overlay</include>
 		<include content="screen-name">
 			<param name="screenlabel" value="$VAR[MusicHeadings]"/>
-			<param name="listitems" value="$INFO[Container.NumItems,(,)]"/>
+			<param name="listitems" value="Container.NumItems"/>
 		</include>
 		<control type="group"><!-- Various Views of Music library node -->
 			<visible>![String.IsEmpty(ListItem.Label) + String.IsEmpty(ListItem(1).Label)]</visible>

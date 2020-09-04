@@ -382,7 +382,8 @@
 				<control type="label">
 					<width max="120">auto</width>
 					<height>64</height>
-					<label>$PARAM[listitems]</label>
+					<label>$INFO[$PARAM[listitems],(,)]</label>
+					<visible>Integer.IsGreater($PARAM[listitems],0)</visible>
 				</control>
 			</control>
 		</definition>
