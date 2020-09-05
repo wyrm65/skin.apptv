@@ -497,7 +497,8 @@
 	</variable>
 	<variable name="IconPoster">
 		<value condition="!Container.Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem.Art(animatedposter)) + Skin.HasSetting(animated-artwork)">$INFO[ListItem.Art(animatedposter)]</value>
-		<value condition="Control.IsVisible(50) + !String.IsEmpty(ListItem(1).Art(tvshow.poster)) + Container.Content(seasons) + String.Contains(ListItem.Label,$LOCALIZE[20366])">$INFO[ListItem(1).Art(tvshow.poster)]</value>
+		<value condition="!String.IsEmpty(ListItem(1).Art(tvshow.poster)) + Container.Content(seasons) + String.Contains(ListItem.Label,$LOCALIZE[20366])">$INFO[ListItem(1).Art(tvshow.poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
 		<value condition="!String.IsEmpty(ListItem.Icon) + ListItem.IsParentFolder">DefaultFolderBack.png</value>
@@ -1779,7 +1780,8 @@
 		<value condition="Control.HasFocus(315)">$LOCALIZE[31322]</value>
 		<value condition="Control.HasFocus(316)">$LOCALIZE[31325]</value>
 		<value condition="Control.HasFocus(317)">$LOCALIZE[31326]</value>
-		<value condition="Control.HasFocus(502) | Control.HasFocus(503)">$LOCALIZE[31340]</value>
+		<value condition="Control.HasFocus(502)">$LOCALIZE[31340]</value>
+		<value condition="Control.HasFocus(503)">$LOCALIZE[31340]</value>
 		<value condition="Control.HasFocus(504)">$LOCALIZE[31341]</value>
 		<value condition="Control.HasFocus(506)">$LOCALIZE[31343]</value>
 		<value condition="Control.HasFocus(507)">$LOCALIZE[31344]</value>
