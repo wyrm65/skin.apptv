@@ -1128,12 +1128,6 @@
 		<value condition="Skin.HasSetting(HomeMenuIcon)">$LOCALIZE[31953]</value>
 		<value>$LOCALIZE[31953]</value>
 	</variable>
-	<variable name="HomeItemType">
-		<value condition="String.IsEqual(Window(settings).Property(CurrentType),$LOCALIZE[31660])">$LOCALIZE[31660]</value>
-		<value condition="String.IsEqual(Window(settings).Property(CurrentType),$LOCALIZE[31661])">$LOCALIZE[31661]</value>
-		<value condition="String.IsEqual(Window(settings).Property(CurrentType),$LOCALIZE[31653])">$LOCALIZE[31653]</value>
-		<value>$LOCALIZE[31652]</value>
-	</variable>
 	<variable name="BackgroundVisibilty">
 		<value condition="!Skin.HasSetting(background-visibiltymed) + !Skin.HasSetting(background-visibiltyhigh)">$LOCALIZE[391]</value>
 		<value condition="Skin.HasSetting(background-visibiltymed)">$LOCALIZE[392]</value>
@@ -1743,6 +1737,53 @@
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.4)">$INFO[Skin.String(CustomGame.4.Label)]</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.5)">$INFO[Skin.String(CustomGame.5.Label)]</value>
 	</variable>
+	<variable name="CustomSkinType">
+		<!-- Show custom skin item type in customisation dialog -->
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomMovies.1)+!String.IsEmpty(Skin.String(CustomMovies.1.Type))">$INFO[Skin.String(CustomMovies.1.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomMovies.2)+!String.IsEmpty(Skin.String(CustomMovies.2.Type))">$INFO[Skin.String(CustomMovies.2.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomMovies.3)+!String.IsEmpty(Skin.String(CustomMovies.3.Type))">$INFO[Skin.String(CustomMovies.3.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomMovies.4)+!String.IsEmpty(Skin.String(CustomMovies.4.Type))">$INFO[Skin.String(CustomMovies.4.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomMovies.5)+!String.IsEmpty(Skin.String(CustomMovies.5.Type))">$INFO[Skin.String(CustomMovies.5.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomTVShow.1)+!String.IsEmpty(Skin.String(CustomTVShow.1.Type))">$INFO[Skin.String(CustomTVShow.1.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomTVShow.2)+!String.IsEmpty(Skin.String(CustomTVShow.2.Type))">$INFO[Skin.String(CustomTVShow.2.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomTVShow.3)+!String.IsEmpty(Skin.String(CustomTVShow.3.Type))">$INFO[Skin.String(CustomTVShow.3.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomTVShow.4)+!String.IsEmpty(Skin.String(CustomTVShow.4.Type))">$INFO[Skin.String(CustomTVShow.4.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomTVShow.5)+!String.IsEmpty(Skin.String(CustomTVShow.5.Type))">$INFO[Skin.String(CustomTVShow.5.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomTV.1)+!String.IsEmpty(Skin.String(CustomTV.1.Type))">$INFO[Skin.String(CustomTV.1.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomTV.2)+!String.IsEmpty(Skin.String(CustomTV.2.Type))">$INFO[Skin.String(CustomTV.2.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomTV.3)+!String.IsEmpty(Skin.String(CustomTV.3.Type))">$INFO[Skin.String(CustomTV.3.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomTV.4)+!String.IsEmpty(Skin.String(CustomTV.4.Type))">$INFO[Skin.String(CustomTV.4.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomTV.5)+!String.IsEmpty(Skin.String(CustomTV.5.Type))">$INFO[Skin.String(CustomTV.5.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomRadio.1)+!String.IsEmpty(Skin.String(CustomRadio.1.Type))">$INFO[Skin.String(CustomRadio.1.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomRadio.2)+!String.IsEmpty(Skin.String(CustomRadio.2.Type))">$INFO[Skin.String(CustomRadio.2.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomRadio.3)+!String.IsEmpty(Skin.String(CustomRadio.3.Type))">$INFO[Skin.String(CustomRadio.3.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomRadio.4)+!String.IsEmpty(Skin.String(CustomRadio.4.Type))">$INFO[Skin.String(CustomRadio.4.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomRadio.5)+!String.IsEmpty(Skin.String(CustomRadio.5.Type))">$INFO[Skin.String(CustomRadio.5.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomFav.1)+!String.IsEmpty(Skin.String(CustomFav.1.Type))">$INFO[Skin.String(CustomFav.1.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomFav.2)+!String.IsEmpty(Skin.String(CustomFav.2.Type))">$INFO[Skin.String(CustomFav.2.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomFav.3)+!String.IsEmpty(Skin.String(CustomFav.3.Type))">$INFO[Skin.String(CustomFav.3.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomFav.4)+!String.IsEmpty(Skin.String(CustomFav.4.Type))">$INFO[Skin.String(CustomFav.4.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomFav.5)+!String.IsEmpty(Skin.String(CustomFav.5.Type))">$INFO[Skin.String(CustomFav.5.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomMusic.1)+!String.IsEmpty(Skin.String(CustomMusic.1.Type))">$INFO[Skin.String(CustomMusic.1.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomMusic.2)+!String.IsEmpty(Skin.String(CustomMusic.2.Type))">$INFO[Skin.String(CustomMusic.2.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomMusic.3)+!String.IsEmpty(Skin.String(CustomMusic.3.Type))">$INFO[Skin.String(CustomMusic.3.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomMusic.4)+!String.IsEmpty(Skin.String(CustomMusic.4.Type))">$INFO[Skin.String(CustomMusic.4.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomMusic.5)+!String.IsEmpty(Skin.String(CustomMusic.5.Type))">$INFO[Skin.String(CustomMusic.5.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.1)+!String.IsEmpty(Skin.String(CustomAddon.1.Type))">$INFO[Skin.String(CustomAddon.1.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.2)+!String.IsEmpty(Skin.String(CustomAddon.2.Type))">$INFO[Skin.String(CustomAddon.2.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.3)+!String.IsEmpty(Skin.String(CustomAddon.3.Type))">$INFO[Skin.String(CustomAddon.3.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.4)+!String.IsEmpty(Skin.String(CustomAddon.4.Type))">$INFO[Skin.String(CustomAddon.4.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomAddon.5)+!String.IsEmpty(Skin.String(CustomAddon.5.Type))">$INFO[Skin.String(CustomAddon.5.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.1)+!String.IsEmpty(Skin.String(CustomGame.1.Type))">$INFO[Skin.String(CustomGame.1.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.2)+!String.IsEmpty(Skin.String(CustomGame.2.Type))">$INFO[Skin.String(CustomGame.2.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.3)+!String.IsEmpty(Skin.String(CustomGame.3.Type))">$INFO[Skin.String(CustomGame.3.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.4)+!String.IsEmpty(Skin.String(CustomGame.4.Type))">$INFO[Skin.String(CustomGame.4.Type)]</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.5)+!String.IsEmpty(Skin.String(CustomGame.5.Type))">$INFO[Skin.String(CustomGame.5.Type)]</value>
+		<value condition="String.IsEqual(Window(settings).Property(CurrentType),$LOCALIZE[31660])">$LOCALIZE[31660]</value>
+		<value condition="String.IsEqual(Window(settings).Property(CurrentType),$LOCALIZE[31661])">$LOCALIZE[31661]</value>
+		<value condition="String.IsEqual(Window(settings).Property(CurrentType),$LOCALIZE[31653])">$LOCALIZE[31653]</value>
+		<value>$LOCALIZE[31652]</value>
+	</variable>	
 	<variable name="LibreElecBluetoothIcon">
 		<value condition="String.IsEqual(ListItem.Property(Icon), default)">libre-elec/bt.png</value>
 		<value condition="String.IsEqual(ListItem.Property(Icon), modem)">libre-elec/bt-modem.png</value>

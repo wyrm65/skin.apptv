@@ -112,7 +112,7 @@
 						<label>- [I]$LOCALIZE[31938][/I]</label>
 						<label2>$INFO[Skin.String(home-quitaction)]</label2>
 						<onclick>SetProperty(ShowQuit,true,settings)</onclick>
-						<onclick>SetFocus(6020)</onclick>
+						<onclick>SetFocus(6021)</onclick>
 						<onup>5002</onup>
 						<ondown>5005</ondown>
 						<onright>Close</onright>
@@ -133,9 +133,9 @@
 					<width>1431</width>
 					<height>72</height>
 					<label>$LOCALIZE[31927]</label>
-					<label2>$VAR[HomeItemType]</label2>
+					<label2>$VAR[CustomSkinType]</label2>
 					<onclick>SetProperty(ShowAction,true,settings)</onclick>
-					<onclick>SetFocus(6000)</onclick>
+					<onclick>SetFocus(6001)</onclick>
 					<font>apptv22</font>
 					<visible>!String.IsEmpty(Window(settings).Property(ListCustomBase))</visible>
 				</control>
@@ -246,7 +246,7 @@
 					<label>- [I]$LOCALIZE[31938][/I]</label>
 					<label2>$VAR[CustomSkinAction]</label2>
 					<onclick>SetProperty(ShowCommands,true,settings)</onclick>
-					<onclick>SetFocus(6010)</onclick>
+					<onclick>SetFocus(6011)</onclick>
 					<font>apptv22</font>
 					<visible>!String.IsEmpty(Window(settings).Property(ListCustomBase)) + String.Contains(Window(settings).Property(CurrentType),$LOCALIZE[31653])</visible>
 				</control>
