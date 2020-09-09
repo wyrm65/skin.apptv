@@ -125,7 +125,7 @@
 				<width>714</width>
 				<height>51</height>
 				<font>apptv23</font>
-				<label>$LOCALIZE[31557]</label>
+				<label>$LOCALIZE[31557]$INFO[Container(9000).NumItems, (,)]</label>
 				<align>center</align>
 			</control>
 			<control type="button"><!-- Touch Close button -->
@@ -161,21 +161,25 @@
 					<width>714</width>
 					<height>75</height>
 					<label>$LOCALIZE[31562] $VAR[WeatherView]</label>
+					<font>apptv22</font>
 					<onclick>$VAR[WeatherViewAction]</onclick>
 				</control>
 				<control type="spincontrolex" id="3"><!-- Change location -->
 					<width>714</width>
 					<height>75</height>
 					<label>$LOCALIZE[21873] - </label>
+					<font>apptv22</font>
 				</control>
 				<control type="button" id="2"><!-- Refresh -->
 					<width>714</width>
 					<height>75</height>
+					<font>apptv22</font>
 				</control>
 				<control type="button" id="208"><!-- Custom Weather Backgrounds -->
 					<width>714</width>
 					<height>75</height>
 					<label>$LOCALIZE[31866]</label>
+					<font>apptv22</font>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select)">SetFocus(6000)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select)">
@@ -185,6 +189,7 @@
 					<width>714</width>
 					<height>75</height>
 					<label>$LOCALIZE[31873]</label>
+					<font>apptv22</font>
 					<onclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select)">SetFocus(6000)</onclick>
 					<onclick condition="System.HasAddon(script.image.resource.select)">
@@ -194,6 +199,7 @@
 					<width>714</width>
 					<height>75</height>
 					<label>$LOCALIZE[33050]</label>
+					<font>apptv22</font>
 					<onclick>Skin.ToggleSetting(weather-alerts)</onclick>
 					<selected>Skin.HasSetting(weather-alerts)</selected>
 					<radioposx>660</radioposx>
@@ -203,6 +209,7 @@
 					<width>714</width>
 					<height>75</height>
 					<label>$LOCALIZE[1390]</label>
+					<font>apptv22</font>
 					<onclick>ActivateWindow(servicesettings,weather)</onclick>
 					<onclick>Skin.SetString(weather-view,$LOCALIZE[10508])</onclick><!-- Reset to standard weather view just in case provider changes -->
 				</control>
