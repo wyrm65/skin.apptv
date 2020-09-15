@@ -138,8 +138,8 @@
 		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)">videodb://recentlyaddedepisodes/</value>
 	</variable>
 	<variable name="VideoInfoWidgetTitle">
-		<value condition="!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + !String.IsEmpty(Container(950).ListItem.Label) + !String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)">$LOCALIZE[31691]</value>
-		<value condition="!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + !String.IsEmpty(Container(950).ListItem.Label) + String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)">$LOCALIZE[31891]</value>
+		<value condition="!Control.IsVisible(50) + !String.IsEmpty(Container(950).ListItem.Label) + String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)">$LOCALIZE[31891]</value>
+		<value condition="!Control.IsVisible(50) + !String.IsEmpty(Container(950).ListItem.Label) + !String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)">$LOCALIZE[31691]</value>
 		<value>$LOCALIZE[206]</value>
 	</variable>
 	<variable name="MPAARatingIcons">
@@ -928,7 +928,12 @@
 	</variable>
 	<variable name="TVShowThumb">
 		<value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+		<value>$INFO[ListItem.Icon]</value>
+	</variable>
+	<variable name="TVShowLandscape">
+		<value condition="!String.IsEmpty(ListItem.Art(tvshow.landscape))">$INFO[ListItem.Art(tvshow.landscape)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(landscape))">$INFO[ListItem.Art(landscape)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
 		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="TVShowBanner">

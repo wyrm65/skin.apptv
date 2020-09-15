@@ -204,6 +204,18 @@
 			<animation effect="zoom" start="100" end="104" center="188,156" time="200" tween="back" easing="out" reversible="false">focus</animation>
 		</control>		
 	</include>
+	<include name="tvshow-shelflandscape">
+		<control type="image">
+			<left>10</left>
+			<top>70</top>
+			<width>358</width>
+			<height>202</height>
+			<aligny>bottom</aligny>
+			<aspectratio>stretch</aspectratio>
+			<texture background="true">$VAR[TVShowLandscape]</texture>
+			<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+		</control>
+	</include>
 	<include name="tvshow-shelfposter">
 		<control type="image">
 			<left>69</left>
@@ -234,9 +246,9 @@
 			</include>
 			<!-- Markers for control area items -->
 			<include content="page-offscreen-horizontal">
-				<param name="indicator1left" value="-5"/>
+				<param name="indicator1left" value="-10"/>
 				<param name="indicator1top" value="195"/>
-				<param name="indicator2left" value="1877"/>
+				<param name="indicator2left" value="1882"/>
 				<param name="indicator2top" value="195"/>
 				<param name="indicatorsize" value="48"/>
 				<param name="indicatorcontainer" value="9210"/>
@@ -255,10 +267,12 @@
 				<itemlayout width="378">
 					<include condition="[String.IsEmpty(Skin.String(widget-tvshowimgtyp)) | String.IsEqual(Skin.String(widget-tvshowimgtyp),$LOCALIZE[31950])]">tvshow-shelfposter</include>
 					<include condition="String.IsEqual(Skin.String(widget-tvshowimgtyp),$LOCALIZE[31949])">tvshow-shelfbanner</include>
+					<include condition="String.IsEqual(Skin.String(widget-tvshowimgtyp),$LOCALIZE[31670])">tvshow-shelflandscape</include>
 				</itemlayout>
 				<focusedlayout width="378">
 					<include condition="[String.IsEmpty(Skin.String(widget-tvshowimgtyp)) | String.IsEqual(Skin.String(widget-tvshowimgtyp),$LOCALIZE[31950])]">tvshow-shelfposter</include>
 					<include condition="String.IsEqual(Skin.String(widget-tvshowimgtyp),$LOCALIZE[31949])">tvshow-shelfbanner</include>
+					<include condition="String.IsEqual(Skin.String(widget-tvshowimgtyp),$LOCALIZE[31670])">tvshow-shelflandscape</include>
 					<control type="group">
 						<animation effect="fade" time="100" delay="100">Focus</animation>
 						<visible>Control.HasFocus(9210) | Control.HasFocus(9215)</visible>

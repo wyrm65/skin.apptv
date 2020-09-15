@@ -331,25 +331,19 @@
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31027])</onclick>
 						<visible>!$EXP[isVerticalHome]</visible>
 					</control>
-					<control type="group" id="309"><!-- TVShow Widget image type -->
+
+					<control type="button" id="309"><!-- TVShow Widget image type -->
+						<include>settings-submenu-common</include>
+						<label> - $LOCALIZE[31940]</label>
+						<label2>$INFO[Skin.String(widget-tvshowimgtyp)]</label2>
+						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31950])</onclick>
+						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(widget-tvshowimgtyp,$LOCALIZE[31950]))</onclick>
+						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31949])</onclick>
+						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget-tvshowimgtyp,$LOCALIZE[31949]))</onclick>
+						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31670])</onclick>
+						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget-tvshowimgtyp,$LOCALIZE[31670]))</onclick>
+						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31027] $LOCALIZE[31940])</onclick>
 						<visible>!$EXP[isVerticalHome]</visible>
-						<include>settings-submenu-size</include>
-						<control type="togglebutton" id="310">
-							<onup>308</onup>
-							<ondown>312</ondown>
-							<onright>999</onright>
-							<include>settings-submenu-common</include>
-							<label>$INFO[Skin.String(widget-tvshowimgtyp)]</label>
-							<align>right</align>
-							<onclick>Skin.SetString(widget-tvshowimgtyp,$LOCALIZE[31950])</onclick>
-							<altclick>Skin.SetString(widget-tvshowimgtyp,$LOCALIZE[31949])</altclick>
-							<enable>String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31955]) | String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31954])</enable>
-						</control>
-						<control type="label">
-							<include>settings-submenu-common</include>
-							<label> - $LOCALIZE[31940]</label>
-							<textoffsetx>27</textoffsetx>
-						</control>
 					</control>
 					<control type="button" id="312"><!-- Music Widget type -->
 						<include>settings-submenu-common</include>
