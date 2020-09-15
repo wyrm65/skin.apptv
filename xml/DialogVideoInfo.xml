@@ -55,6 +55,7 @@
 			<aligny>bottom</aligny>
 			<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$VAR[MPAARatingIcons]</texture>
 			<aspectratio>keep</aspectratio>
+			<visible>!$EXP[isMusicvideo]</visible>
 		</control>
 		<control type="label"><!-- Studio -->
 			<left>510</left>
@@ -433,7 +434,7 @@
 				<texturenofocus>button-info-video.png</texturenofocus>
 				<alttexturefocus>button-info-cast-focus.png</alttexturefocus>
 				<alttexturenofocus>button-info-cast.png</alttexturenofocus>
-				<usealttexture>String.IsEqual(Control.GetLabel(5),$LOCALIZE[206])</usealttexture>
+				<usealttexture>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</usealttexture>
 				<onclick>SendClick(5)</onclick>
 				<altclick>SendClick(5)</altclick>
 			</control>
@@ -478,60 +479,63 @@
 			<height>6</height>
 			<texture>separator.png</texture>
 		</control>
-		<control type="list" id="50"><!-- Cast -->
-			<visible>String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
-			<left>15</left>
-			<top>772</top>
-			<width>1890</width>
-			<height>300</height>
-			<onleft>1010</onleft>
-			<onright>1010</onright>
-			<ondown>1010</ondown>
-			<onup>999</onup>
-			<orientation>horizontal</orientation>
-			<itemlayout width="315">
-				<control type="image">
-					<left>72</left>
-					<top>0</top>
-					<width>171</width>
-					<height>222</height>
-					<aspectratio scalediffuse="true">keep</aspectratio>
-					<texture diffuse="mask-rect.png" fallback="DefaultUser.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-				</control>
-			</itemlayout>
-			<focusedlayout width="315">
-				<control type="image">
-					<left>72</left>
-					<top>0</top>
-					<width>171</width>
-					<height>222</height>
-					<aspectratio scalediffuse="true">keep</aspectratio>
-					<texture fallback="DefaultUser.png" diffuse="mask-rect.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-					<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<top>231</top>
-					<height>30</height>
-					<width>315</width>
-					<label>$INFO[ListItem.Label]</label>
-					<font>apptv20</font>
-					<align>center</align>
-					<animation effect="fade" time="100" delay="300">Focus</animation>
-					<visible>Control.HasFocus(50)</visible>
-				</control>
-				<control type="label">
-					<left>0</left>
-					<top>267</top>
-					<height>30</height>
-					<width>315</width>
-					<label>$INFO[ListItem.Label2]</label>
-					<font>apptv20</font>
-					<align>center</align>
-					<animation effect="fade" time="100" delay="300">Focus</animation>
-					<visible>Control.HasFocus(50)</visible>
-				</control>
-			</focusedlayout>
+		<control type="group">
+			<visible>!Control.IsVisible(950)</visible>
+			<control type="list" id="50"><!-- Cast -->
+				<visible>[String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])]</visible>
+				<left>15</left>
+				<top>772</top>
+				<width>1890</width>
+				<height>300</height>
+				<onleft>1010</onleft>
+				<onright>1010</onright>
+				<ondown>1010</ondown>
+				<onup>999</onup>
+				<orientation>horizontal</orientation>
+				<itemlayout width="315">
+					<control type="image">
+						<left>72</left>
+						<top>0</top>
+						<width>171</width>
+						<height>222</height>
+						<aspectratio scalediffuse="true">keep</aspectratio>
+						<texture diffuse="mask-rect.png" fallback="DefaultUser.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+					</control>
+				</itemlayout>
+				<focusedlayout width="315">
+					<control type="image">
+						<left>72</left>
+						<top>0</top>
+						<width>171</width>
+						<height>222</height>
+						<aspectratio scalediffuse="true">keep</aspectratio>
+						<texture fallback="DefaultUser.png" diffuse="mask-rect.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>231</top>
+						<height>30</height>
+						<width>315</width>
+						<label>$INFO[ListItem.Label]</label>
+						<font>apptv20</font>
+						<align>center</align>
+						<animation effect="fade" time="100" delay="300">Focus</animation>
+						<visible>Control.HasFocus(50)</visible>
+					</control>
+					<control type="label">
+						<left>0</left>
+						<top>267</top>
+						<height>30</height>
+						<width>315</width>
+						<label>$INFO[ListItem.Label2]</label>
+						<font>apptv20</font>
+						<align>center</align>
+						<animation effect="fade" time="100" delay="300">Focus</animation>
+						<visible>Control.HasFocus(50)</visible>
+					</control>
+				</focusedlayout>
+			</control>
 		</control>
 		<control type="group">
 			<!-- Markers for control area items -->
@@ -544,50 +548,53 @@
 				<param name="indicatorcontainer" value="50"/>
 			</include>
 		</control>
-		<control type="list" id="950"><!-- Interesting media -->
-			<visible>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</visible>
-			<left>15</left>
-			<top>776</top>
-			<width>1890</width>
-			<height>312</height>
-			<onleft>1015</onleft>
-			<onright>1015</onright>
-			<ondown>1015</ondown>
-			<onup>999</onup>
-			<orientation>horizontal</orientation>
-			<itemlayout width="315">
-				<control type="image">
-					<left>72</left>
-					<top>0</top>
-					<width>171</width>
-					<height>222</height>
-					<aspectratio scalediffuse="true">keep</aspectratio>
-					<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
-				</control>
-			</itemlayout>
-			<focusedlayout width="315">
-				<control type="image">
-					<left>72</left>
-					<top>0</top>
-					<width>171</width>
-					<height>222</height>
-					<aspectratio scalediffuse="true">keep</aspectratio>
-					<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
-					<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
-				</control>
-				<control type="textbox">
-					<left>0</left>
-					<top>222</top>
-					<width>315</width>
-					<height>74</height>
-					<label>$INFO[ListItem.Label]</label>
-					<font>apptv20</font>
-					<align>center</align>
-					<animation effect="fade" time="100" delay="300">Focus</animation>
-					<visible>Control.HasFocus(950)</visible>
-				</control>
-			</focusedlayout>
-			<content target="video" limit="30">$VAR[VideoInfoWidget]</content>
+		<control type="group">
+			<visible>!$EXP[isMusicvideo]</visible>
+			<control type="list" id="950"><!-- Interesting media -->
+				<visible>!Control.IsVisible(50)</visible>
+				<left>15</left>
+				<top>776</top>
+				<width>1890</width>
+				<height>312</height>
+				<onleft>1015</onleft>
+				<onright>1015</onright>
+				<ondown>1015</ondown>
+				<onup>999</onup>
+				<orientation>horizontal</orientation>
+				<itemlayout width="315">
+					<control type="image">
+						<left>72</left>
+						<top>0</top>
+						<width>171</width>
+						<height>222</height>
+						<aspectratio scalediffuse="true">keep</aspectratio>
+						<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+					</control>
+				</itemlayout>
+				<focusedlayout width="315">
+					<control type="image">
+						<left>72</left>
+						<top>0</top>
+						<width>171</width>
+						<height>222</height>
+						<aspectratio scalediffuse="true">keep</aspectratio>
+						<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+					</control>
+					<control type="textbox">
+						<left>0</left>
+						<top>222</top>
+						<width>315</width>
+						<height>74</height>
+						<label>$INFO[ListItem.Label]</label>
+						<font>apptv20</font>
+						<align>center</align>
+						<animation effect="fade" time="100" delay="300">Focus</animation>
+						<visible>Control.HasFocus(950)</visible>
+					</control>
+				</focusedlayout>
+				<content target="video" limit="30">$VAR[VideoInfoWidget]</content>
+			</control>
 		</control>
 		<control type="group">
 			<!-- Markers for control area items -->
