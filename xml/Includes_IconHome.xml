@@ -548,19 +548,19 @@
 				</item>
 			</content>
 		</control>
+		<control type="group" id="9940"><!-- RSS info -->
+			<include condition="System.GetBool(lookandfeel.enablerssfeeds)">page-info</include>
+		</control>
 		<control type="button"><!-- Onfocus, move to next row of icon panel -->
 			<left>0</left>
-			<top>995</top>
+			<top>1060</top>
 			<width>1920</width>
-			<height>85</height>
+			<height>20</height>
 			<texturefocus>blank.png</texturefocus>
 			<texturenofocus>blank.png</texturenofocus>
 			<onfocus>Control.Message(9000,moveup)</onfocus>
 			<onclick>Control.Message(9000,moveup)</onclick>
 			<visible>[Container(9000).Row(0) | Container(9000).Row(1)] + !Container(9000).HasPrevious()</visible>
-		</control>
-		<control type="group" id="9940"><!-- RSS info -->
-			<include condition="System.GetBool(lookandfeel.enablerssfeeds)">page-info</include>
 		</control>
 		<!-- Play bump sound if user tries to leave menu by undefined direction -->
 		<include content="illegal-action">
