@@ -36,34 +36,34 @@ To install this add-on you must do so from the Add-on manager from within Kodi b
 ## DEPENDANT ADDONS
 While I have tried very hard for the skin to be self contained, the following addons are required for the installation.  These addons will be installed if not already in the users system when the skin is installed via the offical Kodi repository.  The user will need to ensure these addons are available if installing via a zip file from this github page.
 
-resource.uisounds.apptv v1.0.4
-resource.images.classificationicons.colour v0.0.3
-script.embuary.helper v1.4.8
+ - resource.uisounds.apptv v1.0.4
+ - resource.images.classificationicons.colour v0.0.3
+ - script.embuary.helper v1.4.8
 
 ## OPTIONAL ADDONS
 The following addons will be made use of if installed by the user.  The skin will prompt the user to allow the installation of any necessary addons if the user selects an option requiring an addon.  In addition a number of the optional addons can be installed via the skins settings menus.
 
-script.artistslideshow
-service.tvtunes
-plugin.program.autocompletion
-script.cu.lrclyrics
-script.globalsearch
-script.image.resource.select
-service.upnext
-script.tv.show.next.aired
-script.artwork.beef
-script.metadata.editor
-script.libraryeditor
-script.favourites
-plugin.video.specialfeatures
-script.kodi.loguploader
+ - script.artistslideshow
+ - service.tvtunes
+ - plugin.program.autocompletion
+ - script.cu.lrclyrics
+ - script.globalsearch
+ - script.image.resource.select
+ - service.upnext
+ - script.tv.show.next.aired
+ - script.artwork.beef
+ - script.metadata.editor
+ - script.libraryeditor
+ - script.favourites
+ - plugin.video.specialfeatures
+ - script.kodi.loguploader
 
 ## SCRIPTS WITH SKINABLE ELEMENTS
 The following scripts are supported with custom skin files to match the script to the rest of the skin
 
-script.cu.lrclyrics
-script.globalsearch
-script.tv.show.next.aired
-service.upnext
-plugin.video.specialfeatures
-service.libreelec.settings
+ - script.cu.lrclyrics
+ - script.globalsearch
+ - script.tv.show.next.aired
+ - service.upnext
+ - plugin.video.specialfeatures
+ - service.libreelec.settings
