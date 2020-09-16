@@ -3,7 +3,7 @@
 	<include name="VideoListView">
 		<control type="group"><!-- Listview focus image -->
 			<visible>Control.IsVisible(50)</visible>
-			<control type="image"><!-- Button focus slider -->
+			<control type="image">
 				<left>996</left>
 				<top>438</top>
 				<width>840</width>
@@ -229,7 +229,7 @@
 					<label>$VAR[ListitemDuration]</label>
 					<visible>![$EXP[isTvshow]] + ![$EXP[isSeason]] + !Container.Scrolling</visible>
 				</control>
-				<control type="label"><!-- Number of movies in the set -->
+				<control type="label"><!-- Number of movies in set -->
 					<left>36</left>
 					<top>353</top>
 					<width>300</width>
@@ -279,7 +279,7 @@
 						<param name="indicatorsize" value="24"/>
 						<param name="indicatorcontainer" value="5050"/>
 					</include>
-					<control type="panel" id="5050"><!-- Show list of movies in Set if in Set node of library -->
+					<control type="panel" id="5050"><!-- Show list of movies in Set if in Set node -->
 						<left>36</left>
 						<top>722</top>
 						<width>944</width>
@@ -349,27 +349,27 @@
 			<animation condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]" effect="slide" end="15,0" reversible="true">Conditional</animation>
 			<visible>Control.IsVisible(50) + $EXP[isEnabledScrollbar]</visible>
 		</control>
-		<!-- Play bump sound if user tries to leave sets list by undefined direction -->
+		<!-- Play bump sound if user tries leaving sets list by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="4501" />
 			<param name="returnid" value="5050" />
 		</include>
-		<!-- Play bump sound if user tries to leave item list by undefined direction -->
+		<!-- Play bump sound if user tries leaving item list by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="4502" />
 			<param name="returnid" value="50" />
 		</include>
-		<!-- Play bump sound if user tries to leave search button by undefined direction -->
+		<!-- Play bump sound if user tries leaving search button by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="4503" />
 			<param name="returnid" value="1240" />
 		</include>
-		<!-- Play bump sound if user tries to leave scrollbar by undefined direction -->
+		<!-- Play bump sound if user tries leaving scrollbar by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="4504" />
 			<param name="returnid" value="1250" />
 		</include>
-		<!-- Play bump sound if user tries to leave letterbar by undefined direction -->
+		<!-- Play bump sound if user tries leaving letterbar by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="4505" />
 			<param name="returnid" value="1260" />
@@ -529,22 +529,22 @@
 			<animation condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]" effect="slide" end="15,0" reversible="true">Conditional</animation>
 			<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(52)</visible>
 		</control>
-		<!-- Play bump sound if user tries to leave item list by undefined direction -->
+		<!-- Play bump sound if user tries leaving item list by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="4521" />
 			<param name="returnid" value="52" />
 		</include>
-		<!-- Play bump sound if user tries to leave search button by undefined direction -->
+		<!-- Play bump sound if user tries leaving search button by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="4522" />
 			<param name="returnid" value="1242" />
 		</include>
-		<!-- Play bump sound if user tries to leave scrollbar by undefined direction -->
+		<!-- Play bump sound if user tries leaving scrollbar by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="4523" />
 			<param name="returnid" value="1252" />
 		</include>
-		<!-- Play bump sound if user tries to leave letterbar by undefined direction -->
+		<!-- Play bump sound if user tries leaving letterbar by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="4524" />
 			<param name="returnid" value="1262" />
@@ -650,7 +650,7 @@
 				</control>
 				<control type="group">
 					<visible>$EXP[isnotParentFolder]</visible>
-					<control type="image"><!-- Mini Fanart -->
+					<control type="image">
 						<left>201</left>
 						<top>171</top>
 						<width>588</width>
@@ -770,22 +770,22 @@
 					<visible>Control.IsVisible(53) + $EXP[isEnabledScrollbar]</visible>
 				</control>
 			</control>
-			<!-- Play bump sound if user tries to leave item list by undefined direction -->
+			<!-- Play bump sound if user tries leaving item list by undefined direction -->
 			<include content="illegal-action">
 				<param name="controlid" value="4531" />
 				<param name="returnid" value="53" />
 			</include>
-			<!-- Play bump sound if user tries to leave search button by undefined direction -->
+			<!-- Play bump sound if user tries leaving search button by undefined direction -->
 			<include content="illegal-action">
 				<param name="controlid" value="4532" />
 				<param name="returnid" value="1243" />
 			</include>
-			<!-- Play bump sound if user tries to leave scrollbar by undefined direction -->
+			<!-- Play bump sound if user tries leaving scrollbar by undefined direction -->
 			<include content="illegal-action">
 				<param name="controlid" value="4533" />
 				<param name="returnid" value="1253" />
 			</include>
-			<!-- Play bump sound if user tries to leave letterbar by undefined direction -->
+			<!-- Play bump sound if user tries leaving letterbar by undefined direction -->
 			<include content="illegal-action">
 				<param name="controlid" value="4534" />
 				<param name="returnid" value="1263" />
@@ -1082,22 +1082,22 @@
 				<animation condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]" effect="slide" end="0,15" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(54)</visible>
 			</control>
-			<!-- Play bump sound if user tries to leave item list by undefined direction -->
+			<!-- Play bump sound if user tries leaving item list by undefined direction -->
 			<include content="illegal-action">
 				<param name="controlid" value="4541" />
 				<param name="returnid" value="54" />
 			</include>
-			<!-- Play bump sound if user tries to leave search button by undefined direction -->
+			<!-- Play bump sound if user tries leaving search button by undefined direction -->
 			<include content="illegal-action">
 				<param name="controlid" value="4542" />
 				<param name="returnid" value="1244" />
 			</include>
-			<!-- Play bump sound if user tries to leave scrollbar by undefined direction -->
+			<!-- Play bump sound if user tries leaving scrollbar by undefined direction -->
 			<include content="illegal-action">
 				<param name="controlid" value="4543" />
 				<param name="returnid" value="1254" />
 			</include>
-			<!-- Play bump sound if user tries to leave letterbar by undefined direction -->
+			<!-- Play bump sound if user tries leaving letterbar by undefined direction -->
 			<include content="illegal-action">
 				<param name="controlid" value="4544" />
 				<param name="returnid" value="1264" />
@@ -1563,22 +1563,22 @@
 				<animation condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]" effect="slide" end="0,15" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(57)</visible>
 			</control>
-			<!-- Play bump sound if user tries to leave item list by undefined direction -->
+			<!-- Play bump sound if user tries leaving item list by undefined direction -->
 			<include content="illegal-action">
 				<param name="controlid" value="4571" />
 				<param name="returnid" value="57" />
 			</include>
-			<!-- Play bump sound if user tries to leave search button by undefined direction -->
+			<!-- Play bump sound if user tries leaving search button by undefined direction -->
 			<include content="illegal-action">
 				<param name="controlid" value="4572" />
 				<param name="returnid" value="1247" />
 			</include>
-			<!-- Play bump sound if user tries to leave scrollbar by undefined direction -->
+			<!-- Play bump sound if user tries leaving scrollbar by undefined direction -->
 			<include content="illegal-action">
 				<param name="controlid" value="4573" />
 				<param name="returnid" value="1257" />
 			</include>
-			<!-- Play bump sound if user tries to leave letterbar by undefined direction -->
+			<!-- Play bump sound if user tries leaving letterbar by undefined direction -->
 			<include content="illegal-action">
 				<param name="controlid" value="4574" />
 				<param name="returnid" value="1267" />
@@ -1819,7 +1819,7 @@
 						<param name="indicatorsize" value="24"/>
 						<param name="indicatorcontainer" value="5058"/>
 					</include>
-					<control type="panel" id="5058"><!-- Show list of movies in Set if in Set node of library -->
+					<control type="panel" id="5058"><!-- Show list of movies in Set if in Set node -->
 						<left>36</left>
 						<top>518</top>
 						<width>740</width>
@@ -1888,22 +1888,22 @@
 				<animation condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]" effect="slide" end="15,0" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] + Control.IsVisible(58)</visible>
 			</control>
-			<!-- Play bump sound if user tries to leave item list by undefined direction -->
+			<!-- Play bump sound if user tries leaving item list by undefined direction -->
 			<include content="illegal-action">
 				<param name="controlid" value="4581" />
 				<param name="returnid" value="58" />
 			</include>
-			<!-- Play bump sound if user tries to leave search button by undefined direction -->
+			<!-- Play bump sound if user tries leaving search button by undefined direction -->
 			<include content="illegal-action">
 				<param name="controlid" value="4582" />
 				<param name="returnid" value="1248" />
 			</include>
-			<!-- Play bump sound if user tries to leave scrollbar by undefined direction -->
+			<!-- Play bump sound if user tries leaving scrollbar by undefined direction -->
 			<include content="illegal-action">
 				<param name="controlid" value="4583" />
 				<param name="returnid" value="1258" />
 			</include>
-			<!-- Play bump sound if user tries to leave letterbar by undefined direction -->
+			<!-- Play bump sound if user tries leaving letterbar by undefined direction -->
 			<include content="illegal-action">
 				<param name="controlid" value="4584" />
 				<param name="returnid" value="1268" />
