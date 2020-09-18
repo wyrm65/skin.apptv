@@ -197,8 +197,7 @@
 		<control type="group">
 			<visible>!System.ScreenSaverActive</visible>
 			<animation effect="slide" end="282,0" condition="$EXP[isEnabledTouch]">Conditional</animation>
-			<control type="image">
-				<!-- RSS Logo -->
+			<control type="image"><!-- RSS Logo -->
 				<left>8</left>
 				<top>1026</top>
 				<width>32</width>
@@ -878,6 +877,14 @@
 				<texturenofocus>touch-back.png</texturenofocus>
 				<onclick>Back</onclick>
 				<visible>!Window.IsVisible(home)</visible>
+			</control>
+			<control type="button"><!-- Context -->
+				<include>touch-controls-common</include>
+				<texturefocus>touch-context.png</texturefocus>
+				<texturenofocus>touch-context.png</texturenofocus>
+				<onclick>$VAR[FocusToView]</onclick>
+				<onclick>Action(ContextMenu)</onclick>
+				<visible>[Window.IsVisible(videos) | Window.IsVisible(music) | Window.IsVisible(games) | Window.IsVisible(pictures) | Window.IsVisible(addonbrowser)] + $EXP[isnotParentFolder]</visible>
 			</control>
 			<control type="togglebutton"><!-- OSD Play/Pause -->
 				<include>touch-controls-common</include>

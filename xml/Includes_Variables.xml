@@ -142,6 +142,14 @@
 		<value condition="!Control.IsVisible(50) + !String.IsEmpty(Container(950).ListItem.Label) + !String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)">$LOCALIZE[31691]</value>
 		<value>$LOCALIZE[206]</value>
 	</variable>
+	<variable name="FocusToView">
+		<value condition="Control.IsVisible(50)">SetFocus(50)</value>
+		<value condition="Control.IsVisible(52)">SetFocus(52)</value>
+		<value condition="Control.IsVisible(53)">SetFocus(53)</value>
+		<value condition="Control.IsVisible(54)">SetFocus(54)</value>
+		<value condition="Control.IsVisible(57)">SetFocus(57)</value>
+		<value condition="Control.IsVisible(58)">SetFocus(58)</value>
+	</variable>
 	<variable name="MPAARatingIcons">
 		<value condition="Skin.HasSetting(defaultmpaa-locale)">$INFO[Listitem.MPAA,resource://resource.images.classificationicons.colour/,.png]</value>
 		<value>$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</value>
