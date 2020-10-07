@@ -12,6 +12,8 @@
 			<include file="Includes_Shelf.xml">ShelfBackground</include>
 			<!-- Show time on home screen -->
 			<include condition="!Skin.HasSetting(home-time)" file="Includes_Shelf.xml">ShelfTime</include>
+			<!-- Show Profile name and icon on home screen -->
+			<include>ShelfProfileDetails</include>
 			<!-- Now Playing -->
 			<include condition="Skin.HasSetting(media-overlay)" file="Includes_Shelf.xml">ShelfNowPlaying</include>
 			<control type="group" id="9800"><!-- Shelf icons -->
@@ -73,7 +75,7 @@
 					<control type="group">
 						<control type="image">
 							<left>696</left>
-							<top>86</top>
+							<top>116</top>
 							<width>528</width>
 							<height>264</height>
 							<aspectratio>keep</aspectratio>

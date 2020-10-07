@@ -93,6 +93,30 @@
 			</control>
 		</definition>
 	</include>
+	<include name="ShelfProfileDetails">
+		<control type="grouplist">
+			<left>870</left>
+			<top>20</top>
+			<width>auto</width>
+			<height>40</height>
+			<align>center</align>
+			<orientation>horizontal</orientation>
+			<visible>Skin.HasSetting(home-profilename)</visible>
+			<control type="image">
+				<width>40</width>
+				<height>40</height>
+				<texture>$INFO[System.ProfileThumb]</texture>
+				<aspectratio>scale</aspectratio>
+			</control>
+			<control type="label">
+				<height>40</height>
+				<width max="600">auto</width>
+				<label>$INFO[System.ProfileName]</label>
+				<font>apptv18</font>
+				<aligny>center</aligny>
+			</control>
+		</control>
+	</include>
 	<include name="movie-shelficons">
 		<animation effect="slide" end="315,0" condition="![Control.HasFocus(9160) + Container(9160).Position(5)] + Skin.HasSetting(media-overlay) + [Player.HasVideo | [Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))]]">Conditional</animation>
 		<control type="group">

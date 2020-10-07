@@ -22,6 +22,27 @@
 				<font>apptv30</font>
 			</control>
 		</control>
+		<control type="group">
+			<visible>Skin.HasSetting(home-profilename)</visible>
+			<control type="image">
+				<top>25</top>
+				<left>1845</left>
+				<width>48</width>
+				<height>48</height>
+				<texture>$INFO[System.ProfileThumb]</texture>
+				<aspectratio>scale</aspectratio>
+			</control>
+			<control type="label">
+				<top>25</top>
+				<left>1235</left>
+				<height>48</height>
+				<width max="600">auto</width>
+				<label>$INFO[System.ProfileName]</label>
+				<font>apptv20</font>
+				<align>right</align>
+				<aligny>center</aligny>
+			</control>
+		</control>
 		<control type="group"><!-- Weather Condition -->
 			<visible>Skin.HasSetting(home-currentweather) + !String.IsEmpty(Weather.plugin) + Weather.IsFetched</visible>
 			<control type="label"><!-- Can't get current weather conditions -->
