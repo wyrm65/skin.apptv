@@ -349,6 +349,7 @@
 		<value>$INFO[ListItem.Duration]</value>
 	</variable>
 	<variable name="VideoListViewLine2">
+		<value condition="[Container.Content(files) + !ListItem.IsFolder]">$INFO[ListItem.Size]</value>
 		<value condition="Container.Content(addons)">$INFO[ListItem.AddonDescription]</value>
 		<value condition="[Container.Content(tvshows) | Container.Content(seasons)]">$INFO[ListItem.PlotOutline]</value>
 		<value condition="[Container.Content(movies) | Container.Content(musicvideos) | Container.Content(episodes)] + !String.IsEmpty(ListItem.Duration)">$VAR[ListitemDuration]</value>
