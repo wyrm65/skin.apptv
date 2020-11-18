@@ -250,56 +250,54 @@
 	<include name="fake-overlay">
 		<control type="group">
 			<visible>Skin.HasSetting(media-overlay) + !Window.IsActive(playercontrols)</visible>
-			<control type="group">
-				<control type="videowindow">
-					<left>30</left>
-					<top>12</top>
-					<width>240</width>
-					<height>144</height>
-					<visible>Player.HasVideo + !Skin.HasSetting(background-playingmedia)</visible>
-				</control>
-				<control type="image">
-					<left>36</left>
-					<top>6</top>
-					<width>144</width>
-					<height>144</height>
-					<texture background="true">$VAR[FakeOverlayIcon]</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
-				</control>
-				<control type="label">
-					<left>280</left>
-					<top>3</top>
-					<width>520</width>
-					<height>38</height>
-					<label>$VAR[FakeOverlayLine1]</label>
-					<font>apptv22</font>
-					<textcolor>listselected-text</textcolor>
-				</control>
-				<control type="label">
-					<left>280</left>
-					<top>45</top>
-					<width>520</width>
-					<height>30</height>
-					<label>$VAR[FakeOverlayLine2]</label>
-					<font>apptv20</font>
-				</control>
-				<control type="label">
-					<left>280</left>
-					<top>80</top>
-					<width>520</width>
-					<height>30</height>
-					<label>$VAR[FakeOverlayLine3]</label>
-					<font>apptv20</font>
-				</control>
-				<control type="label">
-					<left>280</left>
-					<top>115</top>
-					<width>520</width>
-					<height>30</height>
-					<label>$VAR[FakeOverlayLine4]</label>
-					<font>apptv20</font>
-				</control>
+			<control type="videowindow">
+				<left>30</left>
+				<top>12</top>
+				<width>240</width>
+				<height>144</height>
+				<visible>Player.HasVideo + !Skin.HasSetting(background-playingmedia)</visible>
+			</control>
+			<control type="image">
+				<left>36</left>
+				<top>6</top>
+				<width>144</width>
+				<height>144</height>
+				<texture background="true">$VAR[FakeOverlayIcon]</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
+			</control>
+			<control type="label">
+				<left>280</left>
+				<top>3</top>
+				<width>520</width>
+				<height>38</height>
+				<label>$VAR[FakeOverlayLine1]</label>
+				<font>apptv22</font>
+				<textcolor>listselected-text</textcolor>
+			</control>
+			<control type="label">
+				<left>280</left>
+				<top>45</top>
+				<width>520</width>
+				<height>30</height>
+				<label>$VAR[FakeOverlayLine2]</label>
+				<font>apptv20</font>
+			</control>
+			<control type="label">
+				<left>280</left>
+				<top>80</top>
+				<width>520</width>
+				<height>30</height>
+				<label>$VAR[FakeOverlayLine3]</label>
+				<font>apptv20</font>
+			</control>
+			<control type="label">
+				<left>280</left>
+				<top>115</top>
+				<width>520</width>
+				<height>30</height>
+				<label>$VAR[FakeOverlayLine4]</label>
+				<font>apptv20</font>
 			</control>
 		</control>
 	</include>
@@ -473,7 +471,7 @@
 		<param name="size" default="100"/>
 		<definition>
 			<control type="group">
-				<visible>Integer.IsGreater($PARAM[count],0)</visible>
+				<visible>Integer.IsGreater($PARAM[count],0) + !System.ScreenSaverActive</visible>
 				<animation condition="true" effect="zoom" start="100" end="$PARAM[size]" center="auto">Conditional</animation>
 				<left>$PARAM[left]</left>
 				<top>$PARAM[top]</top>
