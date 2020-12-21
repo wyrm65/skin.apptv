@@ -83,7 +83,6 @@
 	</include>
 	<include name="background">
 		<control type="group">
-			<visible>!System.ScreenSaverActive</visible>
 			<control type="fadelabel" id="300000"><!-- Randomizer for plugin-free multiple fanart -->
 				<top>-1000</top> <!-- Don't need to see it, but can't change its visibility. Put it off screen -->
 				<width>1</width>
@@ -145,7 +144,6 @@
 	</include>
 	<include name="backgroundsimple">
 		<control type="group">
-			<visible>!System.ScreenSaverActive</visible>
 			<control type="image">
 				<include>fullscreenimage</include>
 				<texture>background.png</texture>
@@ -471,7 +469,7 @@
 		<param name="size" default="100"/>
 		<definition>
 			<control type="group">
-				<visible>Integer.IsGreater($PARAM[count],0) + !System.ScreenSaverActive</visible>
+				<visible>Integer.IsGreater($PARAM[count],0)</visible>
 				<animation condition="true" effect="zoom" start="100" end="$PARAM[size]" center="auto">Conditional</animation>
 				<left>$PARAM[left]</left>
 				<top>$PARAM[top]</top>
@@ -1012,7 +1010,6 @@
 	</include>
 	<include name="scrolltext">
 		<scroll>true</scroll>
-		<visible>![System.ScreenSaverActive]</visible>
 	</include>
 	<include name="focus-zoom">
 		<animation effect="zoom" start="100" end="116" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
