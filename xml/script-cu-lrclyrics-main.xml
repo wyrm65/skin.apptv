@@ -22,65 +22,6 @@
 				<showonepage>true</showonepage>
 				<visible>false</visible>
 			</control>
-			<control type="label" id="2">
-				<!-- Pick -->
-				<left>30</left>
-				<top>195</top>
-				<width>1860</width>
-				<height>45</height>
-				<align>center</align>
-				<selectedcolor>listselected-text</selectedcolor>
-				<label>$LOCALIZE[179]?</label>
-				<visible>Control.IsVisible(120) + ![Control.IsVisible(100) | Control.IsVisible(110)]</visible>
-			</control>
-			<!-- ** Required ** Do not change <id> or <type> (Song Chooser if it gets it wrong) -->
-			<control type="list" id="120">
-				<left>30</left>
-				<top>210</top>
-				<width>1860</width>
-				<height>615</height>
-				<onleft>121</onleft>
-				<onright>121</onright>
-				<onup>120</onup>
-				<ondown>120</ondown>
-				<pagecontrol>121</pagecontrol>
-				<animation effect="slide" start="0,0" end="30,0" condition="!Control.IsVisible(121)">Conditional</animation>
-				<itemlayout height="60">
-					<control type="label">
-						<left>15</left>
-						<top>0</top>
-						<width>1860</width>
-						<height>60</height>
-						<selectedcolor>listselected-text</selectedcolor>
-						<align>center</align>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-				</itemlayout>
-				<focusedlayout height="60">
-					<control type="label">
-						<left>15</left>
-						<top>0</top>
-						<width>1860</width>
-						<height>60</height>
-						<textcolor>listselected-text</textcolor>
-						<align>center</align>
-						<label>$INFO[ListItem.Label]</label>
-					</control>
-				</focusedlayout>
-			</control>
-			<control type="spincontrol" id="121">
-				<!-- Next page button -->
-				<left>1792</left>
-				<top>870</top>
-				<subtype>page</subtype>
-				<font>apptv23</font>
-				<onleft>120</onleft>
-				<onright>120</onright>
-				<ondown>120</ondown>
-				<onup>120</onup>
-				<showonepage>true</showonepage>
-				<visible>Control.IsVisible(120)</visible>
-			</control>
 		</control>
 	</controls>
 </window>
