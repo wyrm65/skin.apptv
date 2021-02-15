@@ -176,12 +176,32 @@
 						<info>Player.Progress</info>
 						<visible>!Pvr.IsPlayingTv</visible>
 					</control>
+					<control type="ranges" id="1">
+						<left>717</left>
+						<top>1040</top>
+						<width>870</width>
+						<height>18</height>
+						<texturebg colordiffuse="00FFFFFF" border="8,0,8,0">progress-background.png</texturebg>
+						<midtexture colordiffuse="FFFF0000" border="8,0,8,0">progress-bar-focus.png</midtexture>
+						<info>Player.Cutlist</info>
+					</control>
+					<control type="ranges" id="1">
+						<left>717</left>
+						<top>1032</top>
+						<width>870</width>
+						<height>14</height>
+						<righttexture border="2">progress-chapter.png</righttexture>
+						<info>Player.Chapters</info>
+					</control>
 					<control type="slider" id="1">
 						<left>717</left>
 						<top>1040</top>
 						<width>870</width>
 						<height>18</height>
 						<info>Player.Progress</info>
+						<onleft>StepBack</onleft>
+						<onright condition="!Player.Paused">StepForward</onright>
+						<onright condition="Player.Paused">PlayerControl(FrameAdvance(1))</onright>
 						<visible>!Pvr.IsPlayingTv</visible>
 					</control>
 					<control type="progress" id="1">

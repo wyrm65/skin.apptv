@@ -100,6 +100,23 @@
 						<height>18</height>
 						<info>Player.Progress</info>
 					</control>
+					<control type="ranges">
+						<left>717</left>
+						<top>1040</top>
+						<width>870</width>
+						<height>18</height>
+						<texturebg colordiffuse="00FFFFFF" border="8,0,8,0">progress-background.png</texturebg>
+						<midtexture colordiffuse="FFFF0000" border="8,0,8,0">progress-bar-focus.png</midtexture>
+						<info>Player.Cutlist</info>
+					</control>
+					<control type="ranges">
+						<left>717</left>
+						<top>1032</top>
+						<width>870</width>
+						<height>14</height>
+						<righttexture border="2">progress-chapter.png</righttexture>
+						<info>Player.Chapters</info>
+					</control>
 					<control type="slider" id="401"><!-- Seek Slider -->
 						<left>717</left>
 						<top>1040</top>
@@ -108,6 +125,9 @@
 						<textureslidernib>progress-marker-focus.png</textureslidernib>
 						<textureslidernibfocus>progress-marker-focus.png</textureslidernibfocus>
 						<action>seek</action>
+						<onleft>StepBack</onleft>
+						<onright condition="!Player.Paused">StepForward</onright>
+						<onright condition="Player.Paused">PlayerControl(FrameAdvance(1))</onright>
 						<animation effect="fade" start="100" end="60" condition="!Control.HasFocus(401) + !Player.DisplayAfterSeek">Conditional</animation>
 					</control>
 				</control>
