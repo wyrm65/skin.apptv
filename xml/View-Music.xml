@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="AlbumListView">
+		<control type="group"><!-- Listview focus image -->
+			<visible>Control.IsVisible(50)</visible>
+			<control type="image">
+				<left>996</left>
+				<top>438</top>
+				<width>840</width>
+				<height>96</height>
+				<texture border="9">button-default-focus.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<animation condition="!Control.HasFocus(50)" effect="fade" start="100" end="60" reversible="true">Conditional</animation>
+			<animation condition="Container.Position(0)" effect="slide" start="0,0" end="0,-288" time="200" tween="cubic" easing="inout" reversible="true">Conditional</animation>
+			<animation condition="Container.Position(1)" effect="slide" start="0,0" end="0,-192" time="200" tween="cubic" easing="inout" reversible="true">Conditional</animation>
+			<animation condition="Container.Position(2)" effect="slide" start="0,0" end="0,-96" time="200" tween="cubic" easing="inout" reversible="true">Conditional</animation>
+			<animation condition="Container.Position(3)" effect="slide" start="0,0" end="0,0" time="200" tween="cubic" easing="inout" reversible="true">Conditional</animation>
+			<animation condition="Container.Position(4)" effect="slide" start="0,0" end="0,96" time="200" tween="cubic" easing="inout" reversible="true">Conditional</animation>
+			<animation condition="Container.Position(6)" effect="slide" start="0,0" end="0,192" time="200" tween="cubic" easing="inout" reversible="true">Conditional</animation>
+			<animation condition="Container.Position(7)" effect="slide" start="0,0" end="0,288" time="200" tween="cubic" easing="inout" reversible="true">Conditional</animation>
+			<animation condition="Container.Position(8)" effect="slide" start="0,0" end="0,384" time="200" tween="cubic" easing="inout" reversible="true">Conditional</animation>
+		</control>
 		<control type="fixedlist" id="50">
 			<viewtype label="31941">list</viewtype>
 			<left>996</left>
 			<top>150</top>
 			<width>840</width>
 			<height>864</height>
+			<scrolltime>0</scrolltime>
 			<focusposition>2</focusposition>
-			<movement>4</movement>
+			<movement>2</movement>
 			<onleft condition="Skin.HasSetting(lock-screensettings)">4501</onleft>
 			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
 			<onright>$VAR[ListScrollNavMusic]</onright>
@@ -92,15 +113,6 @@
 				</control>
 			</itemlayout>
 			<focusedlayout height="96">
-				<control type="image">
-					<left>0</left>
-					<top>0</top>
-					<width>831</width>
-					<height>96</height>
-					<texture border="9">button-default-focus.png</texture>
-					<aspectratio>stretch</aspectratio>
-					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
-				</control>
 				<control type="image">
 					<left>4</left>
 					<top>10</top>
