@@ -200,39 +200,42 @@
 				<animation condition="!Control.HasFocus(60) + !Container.Scrolling + [$EXP[isnotAlwaysScrollbar] | !$EXP[isEnabledTouch]]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar] | $EXP[isEnabledTouch]</visible>
 			</control>
-			<control type="label">
-				<left>45</left>
-				<top>844</top>
-				<width>1300</width>
-				<height>44</height>
-				<label>$INFO[ListItem.Title]$INFO[ListItem.EpisodeName, (,)]</label>
-				<font>apptv23</font>
-			</control>
-			<control type="label"><!-- Start time -->
-				<visible>!String.IsEmpty(ListItem.StartTime)</visible>
-				<left>1375</left>
-				<top>852</top>
-				<width>500</width>
-				<height>30</height>
-				<align>right</align>
-				<font>apptv20</font>
-				<label>$LOCALIZE[19126] $INFO[ListItem.StartTime] • $VAR[ListitemDuration]</label>
-			</control>
-			<control type="image">
-				<visible>!String.IsEmpty(ListItem.Title)</visible>
-				<left>45</left>
-				<top>888</top>
-				<width>1830</width>
-				<height>6</height>
-				<texture>separator.png</texture>
-			</control>
-			<control type="textbox"><!-- Plot -->
-				<left>45</left>
-				<top>896</top>
-				<width>1830</width>
-				<height>122</height>
-				<font>apptv20</font>
-				<label>$INFO[ListItem.Plot]</label>
+			<control type="group">
+				<visible>!Window.IsVisible(DialogPVRGuideControls.xml)</visible>
+				<control type="label">
+					<left>45</left>
+					<top>844</top>
+					<width>1300</width>
+					<height>44</height>
+					<label>$INFO[ListItem.Title]$INFO[ListItem.EpisodeName, (,)]</label>
+					<font>apptv23</font>
+				</control>
+				<control type="label"><!-- Start time -->
+					<visible>!String.IsEmpty(ListItem.StartTime)</visible>
+					<left>1375</left>
+					<top>852</top>
+					<width>500</width>
+					<height>30</height>
+					<align>right</align>
+					<font>apptv20</font>
+					<label>$LOCALIZE[19126] $INFO[ListItem.StartTime] • $VAR[ListitemDuration]</label>
+				</control>
+				<control type="image">
+					<visible>!String.IsEmpty(ListItem.Title)</visible>
+					<left>45</left>
+					<top>888</top>
+					<width>1830</width>
+					<height>6</height>
+					<texture>separator.png</texture>
+				</control>
+				<control type="textbox"><!-- Plot -->
+					<left>45</left>
+					<top>896</top>
+					<width>1830</width>
+					<height>122</height>
+					<font>apptv20</font>
+					<label>$INFO[ListItem.Plot]</label>
+				</control>
 			</control>
 		</control>
 	</include>
