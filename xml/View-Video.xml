@@ -109,7 +109,7 @@
 					<font>apptv22</font>
 					<label>$INFO[ListItem.Label]</label>
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-					<animation condition="![[Container.Content(files) + !ListItem.IsFolder] |Container.Content(addons) | Container.Content(movies) 
+					<animation condition="![[Container.Content(files) + !ListItem.IsFolder] | Container.Content(addons) | Container.Content(movies) 
 							| Container.Content(musicvideos) | [[Container.Content(tvshows) | Container.Content(seasons)] + !String.IsEmpty(ListItem.PlotOutline)] 
 							| Container.Content(episodes) | !String.IsEmpty(ListItem.Label2)]" effect="slide" start="0,0" end="0,16" time="0">Conditonal</animation>
 				</control>
@@ -262,7 +262,7 @@
 					<height>46</height>
 					<font>apptv22</font>
 					<label>$INFO[Container(5050).NumItems,, $LOCALIZE[342]]</label>
-					<visible>ListItem.IsCollection</visible>
+					<visible>ListItem.IsCollection + String.IsEmpty(ListItem.PlotOutline) + String.IsEmpty(ListItem.Plot)</visible>
 				</control>
 				<control type="image"><!-- Classification Rating (quick way) -->
 					<left>36</left>
@@ -295,7 +295,7 @@
 					<visible>!Container.Scrolling</visible>
 				</control>
 				<control type="group">
-					<visible>ListItem.IsCollection</visible>
+					<visible>ListItem.IsCollection + String.IsEmpty(ListItem.PlotOutline) + String.IsEmpty(ListItem.Plot)</visible>
 					<!-- Markers for off screen menu items -->
 					<include content="page-offscreen-vertical">
 						<param name="indicator1left" value="491"/>
@@ -1798,7 +1798,7 @@
 					<height>38</height>
 					<font>apptv22</font>
 					<label>$INFO[Container(5058).NumItems,, $LOCALIZE[342]]</label>
-					<visible>ListItem.IsCollection</visible>
+					<visible>ListItem.IsCollection + String.IsEmpty(ListItem.PlotOutline) + String.IsEmpty(ListItem.Plot)</visible>
 				</control>
 				<control type="image">
 					<left>362</left>
@@ -1835,7 +1835,7 @@
 					<visible>!Container.Scrolling</visible>
 				</control>
 				<control type="group">
-					<visible>ListItem.IsCollection</visible>
+					<visible>ListItem.IsCollection + String.IsEmpty(ListItem.PlotOutline) + String.IsEmpty(ListItem.Plot)</visible>
 					<!-- Markers for off screen menu items -->
 					<include content="page-offscreen-vertical">
 						<param name="indicator1left" value="389"/>

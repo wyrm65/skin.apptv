@@ -278,10 +278,12 @@
 		<value condition="Control.IsVisible(58)">SetFocus(4581)</value>
 	</variable>
 	<variable name="ListScrollNavSets">
-		<value condition="Control.IsVisible(50) + Container(50).Content(sets) + !Skin.HasSetting(lock-screensettings) + !ListItem.IsParentFolder">SetFocus(5050)</value>
+		<value condition="Control.IsVisible(50) + Container(50).Content(sets) + !Skin.HasSetting(lock-screensettings) 
+						+ String.IsEmpty(ListItem.PlotOutline) + String.IsEmpty(ListItem.Plot) + !ListItem.IsParentFolder">SetFocus(5050)</value>
 		<value condition="Control.IsVisible(50) + !Skin.HasSetting(lock-screensettings)">SetFocus(9000)</value>
 		<value condition="Control.IsVisible(50)">SetFocus(4501)</value>
-		<value condition="Control.IsVisible(58) + Container(50).Content(sets) + !Skin.HasSetting(lock-screensettings) + !ListItem.IsParentFolder">SetFocus(5058)</value>
+		<value condition="Control.IsVisible(58) + Container(58).Content(sets) + !Skin.HasSetting(lock-screensettings)
+						+ String.IsEmpty(ListItem.PlotOutline) + String.IsEmpty(ListItem.Plot) + !ListItem.IsParentFolder">SetFocus(5058)</value>
 		<value condition="Control.IsVisible(58) + !Skin.HasSetting(lock-screensettings)">SetFocus(9000)</value>
 		<value condition="Control.IsVisible(58)">SetFocus(4581)</value>
 		<value condition="[Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(54) | Control.IsVisible(57)] + !Skin.HasSetting(lock-screensettings)">SetFocus(9000)</value>
@@ -846,13 +848,14 @@
 		<value>DefaultAudio.png</value>
 	</variable>
 	<variable name="VideoLogo">
-		<value condition="!String.IsEmpty(ListItem.Art(clearlogo)) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,movie)]">$INFO[ListItem.Art(clearlogo)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(clearlogo)) + [String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,movie)
+							| String.IsEqual(ListItem.DBTYPE,set)]">$INFO[ListItem.Art(clearlogo)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + String.IsEqual(ListItem.DBTYPE,tvshow)">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
 	</variable>
 	<variable name="ListViewVideoLogo">
 		<value condition="!String.IsEmpty(ListItem(1).Art(tvshow.clearlogo)) + Container.Content(seasons) + String.Contains(ListItem.Label,$LOCALIZE[20366])">$INFO[ListItem(1).Art(tvshow.clearlogo)]</value>
 		<value condition="!String.IsEmpty(ListItem(1).Art(clearlogo)) + Container.Content(seasons) + String.Contains(ListItem.Label,$LOCALIZE[20366])">$INFO[ListItem(1).Art(clearlogo)]</value>
-		<value condition="!String.IsEmpty(ListItem.Art(clearlogo)) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies)]">$INFO[ListItem.Art(clearlogo)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(clearlogo)) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(sets)]">$INFO[ListItem.Art(clearlogo)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.clearlogo)) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]">$INFO[ListItem.Art(tvshow.clearlogo)]</value>
 	</variable>
 	<variable name="PlayerVideoArt">
