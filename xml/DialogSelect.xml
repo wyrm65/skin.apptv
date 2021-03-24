@@ -65,22 +65,32 @@
 				<param name="indicatorcontainer" value="3"/>
 			</include>
 			<control type="grouplist">
-				<left>626</left>
+				<left>459</left>
 				<top>916</top>
 				<height>70</height>
-				<width>668</width>
+				<width>1002</width>
 				<itemgap>0</itemgap>
 				<align>center</align>
 				<orientation>horizontal</orientation>
-				<control type="button" id="5"><!-- Manual -->
+				<control type="button" id="5">
 					<width>334</width>
 					<height>70</height>
 					<font>apptv23</font>
 					<label>$LOCALIZE[186]</label>
 					<align>center</align>
-					<onright>7</onright>
+					<onright>8</onright>
 					<onup>3</onup>
 					<visible>!String.IsEmpty(Control.GetLabel(5))</visible>
+				</control>
+				<control type="button" id="8">
+					<width>334</width>
+					<height>70</height>
+					<font>apptv23</font>
+					<label></label>
+					<align>center</align>
+					<onup>3</onup>
+					<onleft>5</onleft>
+					<onright>7</onright>
 				</control>
 				<control type="button" id="7"><!-- Cancel -->
 					<width>334</width>
@@ -88,7 +98,7 @@
 					<font>apptv23</font>
 					<label>$LOCALIZE[222]</label>
 					<align>center</align>
-					<onleft>5</onleft>
+					<onleft>8</onleft>
 					<onup>3</onup>
 				</control>
 			</control>
@@ -160,19 +170,28 @@
 			<control type="grouplist">
 				<left>1326</left>
 				<top>186</top>
-				<height>168</height>
+				<height>252</height>
 				<width>384</width>
 				<itemgap>0</itemgap>
 				<orientation>vertical</orientation>
-				<control type="button" id="5"><!-- Manual -->
+				<onleft>6</onleft>
+				<control type="button" id="5">
 					<width>384</width>
 					<height>84</height>
 					<font>apptv23</font>
-					<label>$LOCALIZE[186]</label>
+					<label></label>
 					<align>center</align>
-					<ondown>7</ondown>
-					<onleft>6</onleft>
+					<ondown>8</ondown>
 					<visible>!String.IsEmpty(Control.GetLabel(5))</visible>
+				</control>
+				<control type="button" id="8">
+					<width>384</width>
+					<height>84</height>
+					<font>apptv23</font>
+					<label></label>
+					<align>center</align>
+					<onup>5</onup>
+					<ondown>7</ondown>
 				</control>
 				<control type="button" id="7"><!-- Cancel -->
 					<width>384</width>
@@ -180,8 +199,7 @@
 					<font>apptv23</font>
 					<label>$LOCALIZE[222]</label>
 					<align>center</align>
-					<onup>5</onup>
-					<onleft>6</onleft>
+					<onup>8</onup>
 				</control>
 			</control>
 		</control>
