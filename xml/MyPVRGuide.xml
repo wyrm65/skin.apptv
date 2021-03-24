@@ -13,7 +13,10 @@
 			<param name="listitems" value="Container.NumItems"/>
 		</include>
 		<include file="View-PVR.xml">PVRTimelineView</include>
-		<include>touch-controls</include>
+		<control type="group">
+			<visible>!Window.IsVisible(DialogPVRGuideControls.xml)</visible>
+			<include>touch-controls</include>
+		</control>	
 		<include>PVRChannelNumberInput</include>
 		<control type="group"><!-- Screen Settings Menu -->
 			<left>0</left>
