@@ -137,7 +137,7 @@
 					<icon>DefaultAddon.png</icon>
 					<label>$LOCALIZE[24043]</label>
 					<onclick>ActivateWindow(addonbrowser,addons://outdated/,return)</onclick>
-					<visible>String.IsEqual(Window(home).Property(NodeType),addon) + Integer.IsGreater(Window(home).Property(PendingUpdates),0)</visible>
+					<visible>String.IsEqual(Window(home).Property(NodeType),addon) + Integer.IsGreater(System.AddonUpdateCount,0)</visible>
 				</item>
 				<item><!-- Get More Addons -->
 					<icon>DefaultAddon.png</icon>

@@ -213,8 +213,7 @@
 					<thumb>$VAR[HomeProgramsIcon]</thumb>
 					<label>$LOCALIZE[24001]</label>
 					<label2>$LOCALIZE[571]</label2>
-					<property name="count">$INFO[Window(home).Property(PendingUpdates)]</property>
-					<onclick>RunScript(script.embuary.helper,action=calc,do='"$INFO[Container(12345).NumItems] - 1"',prop=PendingUpdates)</onclick>
+					<property name="count">$INFO[System.AddonUpdateCount]</property>
 					<onclick>SetProperty(NodeType,addon,home)</onclick>
 					<onclick>ActivateWindow(1155)</onclick>
 				</item>
