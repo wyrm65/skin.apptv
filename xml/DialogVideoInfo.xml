@@ -55,7 +55,7 @@
 			<aligny>bottom</aligny>
 			<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$VAR[MPAARatingIcons]</texture>
 			<aspectratio>keep</aspectratio>
-			<visible>!$EXP[isMusicvideo]</visible>
+			<visible>!$EXP[isMusicvideo] + !$EXP[isSet]</visible>
 		</control>
 		<control type="label"><!-- Studio -->
 			<left>510</left>
@@ -110,7 +110,7 @@
 				<height>534</height>
 				<aspectratio scalediffuse="true">keep</aspectratio>
 				<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-				<visible>$EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason]</visible>
+				<visible>$EXP[isMovie] | $EXP[isTvshow] | $EXP[isSeason] | $EXP[isSet]</visible>
 			</control>
 			<control type="image">
 				<left>82</left>
@@ -164,7 +164,7 @@
 			<height>30</height>
 			<font>apptv20</font>
 			<label>$LOCALIZE[172] $INFO[ListItem.Year]</label>
-			<visible>$EXP[isMovie]</visible>
+			<visible>$EXP[isMovie] | $EXP[isSet]</visible>
 		</control>
 		<control type="label"><!-- Premiered -->
 			<left>510</left>
@@ -338,7 +338,7 @@
 			</control>
 		</control>
 		<control type="group">
-			<visible>$EXP[isMovie] | $EXP[isEpisode] | $EXP[isMusicvideo]</visible>
+			<visible>$EXP[isMovie] | $EXP[isEpisode] | $EXP[isMusicvideo] | $EXP[isSet]</visible>
 			<control type="label"><!-- Director heading-->
 				<left>1455</left>
 				<top>360</top>
@@ -381,6 +381,7 @@
 			</control>
 		</control>
 		<control type="grouplist" id="999"><!-- Option buttons -->
+			<defaultcontrol always="true">8</defaultcontrol>
 			<left>540</left>
 			<top>600</top>
 			<width>1320</width>
@@ -407,7 +408,7 @@
 				<alttexturefocus>button-info-browse-focus.png</alttexturefocus>
 				<alttexturenofocus>button-info-browse.png</alttexturenofocus>
 				<usealttexture>$EXP[isTvshow] | $EXP[isSeason]</usealttexture>
-				<visible>[$EXP[isMovie] | $EXP[isEpisode] | $EXP[isTvshow] | $EXP[isMusicvideo]]</visible>
+				<visible>[$EXP[isMovie] | $EXP[isEpisode] | $EXP[isTvshow] | $EXP[isMusicvideo] | $EXP[isSet]]</visible>
 			</control>
 			<control type="button" id="11"><!-- Trailer button -->
 				<include>info-options-common</include>
@@ -437,12 +438,14 @@
 				<usealttexture>!String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])</usealttexture>
 				<onclick>SendClick(5)</onclick>
 				<altclick>SendClick(5)</altclick>
+				<visible>!$EXP[isSet]</visible>
 			</control>
 			<control type="button" id="6"><!-- Refresh button -->
 				<include>info-options-common</include>
 				<label>$LOCALIZE[184]</label>
 				<texturefocus>button-info-refresh-focus.png</texturefocus>
 				<texturenofocus>button-info-refresh.png</texturenofocus>
+				<visible>!$EXP[isSet]</visible>
 			</control>
 			<control type="button" id="1115"><!-- More options button -->
 				<include>info-options-common</include>
@@ -453,13 +456,10 @@
 				<onclick>SetProperty(Dialog.1.BuiltIn,SendClick(movieinformation,10))</onclick>
 				<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[38023])</onclick>
 				<onclick>SetProperty(Dialog.2.BuiltIn,SendClick(movieinformation,7))</onclick>
-				<onclick condition="System.HasAddon(script.artwork.beef) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.3.Label,$LOCALIZE[31681])</onclick>
-				<onclick condition="![System.HasAddon(script.artwork.beef) + $EXP[isnotEmptyDBID]]">SetProperty(Dialog.3.Label,[COLOR=disabled-text]$LOCALIZE[31681][/COLOR])</onclick>
-				<onclick condition="System.HasAddon(script.artwork.beef) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.3.BuiltIn,RunScript(script.artwork.beef, mode=gui, mediatype=$INFO[ListItem.DBTYPE], DBID=$INFO[ListItem.DBID]))</onclick>
-				<onclick condition="System.HasAddon(script.metadata.editor) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.4.Label,$LOCALIZE[31689])</onclick>
-				<onclick condition="System.HasAddon(script.metadata.editor) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.4.BuiltIn,RunScript(script.metadata.editor,dbid=$INFO[ListItem.DBID],type=$INFO[ListItem.DBType]))</onclick>
-				<onclick condition="System.HasAddon(script.libraryeditor) + !System.HasAddon(script.metadata.editor) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.4.Label,$LOCALIZE[31689])</onclick>
-				<onclick condition="System.HasAddon(script.libraryeditor) + !System.HasAddon(script.metadata.editor) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.4.BuiltIn,RunScript(script.libraryeditor,DBID=$INFO[ListItem.DBID]))</onclick>
+				<onclick condition="System.HasAddon(script.metadata.editor) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.3.Label,$LOCALIZE[31689])</onclick>
+				<onclick condition="System.HasAddon(script.metadata.editor) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.3.BuiltIn,RunScript(script.metadata.editor,dbid=$INFO[ListItem.DBID],type=$INFO[ListItem.DBType]))</onclick>
+				<onclick condition="System.HasAddon(script.libraryeditor) + !System.HasAddon(script.metadata.editor) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.3.Label,$LOCALIZE[31689])</onclick>
+				<onclick condition="System.HasAddon(script.libraryeditor) + !System.HasAddon(script.metadata.editor) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.3.BuiltIn,RunScript(script.libraryeditor,DBID=$INFO[ListItem.DBID]))</onclick>
 				<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31693])</onclick>
 			</control>
 		</control>
@@ -482,7 +482,7 @@
 		<control type="group">
 			<visible>!Control.IsVisible(950)</visible>
 			<control type="list" id="50"><!-- Cast -->
-				<visible>[String.IsEqual(Control.GetLabel(5),$LOCALIZE[207])]</visible>
+				<visible>[String.IsEqual(Control.GetLabel(5),$LOCALIZE[207]) + !$EXP[isSet]]</visible>
 				<left>15</left>
 				<top>772</top>
 				<width>1890</width>
@@ -551,7 +551,7 @@
 		<control type="group">
 			<visible>!$EXP[isMusicvideo]</visible>
 			<control type="list" id="950"><!-- Interesting media -->
-				<visible>!Control.IsVisible(50)</visible>
+				<visible>!Control.IsVisible(50) | $EXP[isSet]</visible>
 				<left>15</left>
 				<top>776</top>
 				<width>1890</width>

@@ -117,6 +117,7 @@
 		<value>$LOCALIZE[31815]</value>
 	</variable>
 	<variable name="VideoInfoWidget">
+		<value condition="String.IsEqual(ListItem.DBTYPE,set)">$INFO[ListItem.FolderPath]</value>
 		<value condition="String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)">$INFO[Window(home).Property(SpecialFeatures.Widget)]</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,movie) + String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31960])">plugin://script.embuary.helper/?info=getsimilar&amp;dbid=$INFO[ListItem.DBID]&amp;type=movie</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,movie) + String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31971])">plugin://script.embuary.helper/?info=getinprogress&amp;type=movie&amp;pos=0</value>
@@ -139,6 +140,7 @@
 		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)">videodb://recentlyaddedepisodes/</value>
 	</variable>
 	<variable name="VideoInfoWidgetTitle">
+		<value condition="!Control.IsVisible(50) + !String.IsEmpty(Container(950).ListItem.Label) + String.IsEqual(ListItem.DBTYPE,set)">$LOCALIZE[31687]</value>
 		<value condition="!Control.IsVisible(50) + !String.IsEmpty(Container(950).ListItem.Label) + String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)">$LOCALIZE[31891]</value>
 		<value condition="!Control.IsVisible(50) + !String.IsEmpty(Container(950).ListItem.Label) + !String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)">$LOCALIZE[31691]</value>
 		<value>$LOCALIZE[206]</value>
