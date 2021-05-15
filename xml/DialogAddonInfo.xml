@@ -21,7 +21,7 @@
 				<width>1290</width>
 				<height>45</height>
 				<font>apptv30</font>
-				<label>$INFO[ListItem.AddonName]</label>
+				<label>$INFO[ListItem.AddonName] [COLOR=disabled-text]$INFO[ListItem.Property(Addon.Status),(,)][/COLOR]</label>
 			</control>
 			<control type="image">
 				<left>570</left>
@@ -63,46 +63,46 @@
 				<control type="label"><!-- Addon type heading -->
 					<left>0</left>
 					<top>0</top>
-					<width>238</width>
-					<height>33</height>
+					<width>200</width>
+					<height>30</height>
 					<label>$LOCALIZE[146]</label>
-					<font>apptv22</font>
+					<font>apptv20</font>
 				</control>
 				<control type="label">
-					<left>252</left>
-					<top>3</top>
+					<left>216</left>
+					<top>0</top>
 					<width>450</width>
 					<height>30</height>
-					<label>$INFO[ListItem.AddonType]</label>
+					<label>$INFO[ListItem.AddonType] [COLOR=disabled-text]$INFO[ListItem.AddonOrigin,(,)][/COLOR]</label>
 					<font>apptv20</font>
 				</control>
 				<control type="label"><!-- Version heading -->
 					<left>708</left>
 					<top>0</top>
-					<width>238</width>
-					<height>33</height>
+					<width>200</width>
+					<height>30</height>
 					<label>$LOCALIZE[24051]</label>
-					<font>apptv22</font>
+					<font>apptv20</font>
 				</control>
 				<control type="label">
-					<left>952</left>
-					<top>3</top>
+					<left>922</left>
+					<top>0</top>
 					<width>300</width>
 					<height>30</height>
-					<label>$INFO[ListItem.AddonVersion]</label>
+					<label>$INFO[ListItem.AddonVersion] [COLOR=disabled-text]$INFO[ListItem.Property(Addon.ValidUpdateVersion),(,)][/COLOR]</label>
 					<font>apptv20</font>
 				</control>
 				<control type="label"><!-- Author heading -->
 					<left>0</left>
 					<top>39</top>
-					<width>238</width>
-					<height>33</height>
+					<width>200</width>
+					<height>30</height>
 					<label>$LOCALIZE[21863]:</label>
-					<font>apptv22</font>
+					<font>apptv20</font>
 				</control>
 				<control type="label">
-					<left>252</left>
-					<top>42</top>
+					<left>216</left>
+					<top>39</top>
 					<width>900</width>
 					<height>30</height>
 					<label>$INFO[ListItem.AddonCreator]</label>
@@ -113,14 +113,14 @@
 					<control type="label"><!-- Disclaimer heading -->
 						<left>0</left>
 						<top>78</top>
-						<width>240</width>
-						<height>33</height>
-						<label>$LOCALIZE[24052]</label>
-						<font>apptv22</font>
+						<width>200</width>
+						<height>30</height>
+						<label>$LOCALIZE[24052]:</label>
+						<font>apptv20</font>
 					</control>
 					<control type="textbox">
-						<left>252</left>
-						<top>81</top>
+						<left>216</left>
+						<top>78</top>
 						<width>1038</width>
 						<height>144</height>
 						<font>apptv20</font>
@@ -133,15 +133,15 @@
 					<control type="label"><!-- Addon news heading -->
 						<left>0</left>
 						<top>78</top>
-						<width>240</width>
-						<height>33</height>
-						<label>$LOCALIZE[29916]</label>
-						<font>apptv22</font>
+						<width>200</width>
+						<height>30</height>
+						<label>$LOCALIZE[29916]:</label>
+						<font>apptv20</font>
 					</control>
 					<control type="textbox">
-						<left>252</left>
-						<top>81</top>
-						<width>1038</width>
+						<left>216</left>
+						<top>78</top>
+						<width>1072</width>
 						<height>144</height>
 						<font>apptv20</font>
 						<label>$INFO[ListItem.AddonNews]</label>
@@ -217,6 +217,13 @@
 					<texturefocus>button-info-plot-focus.png</texturefocus>
 					<texturenofocus>button-info-plot.png</texturenofocus>
 					<visible>Control.IsEnabled(10)</visible>
+				</control>
+				<control type="button" id="14"><!-- Addon version button -->
+					<include>info-options-common</include>
+					<label>$LOCALIZE[24069]</label>
+					<texturefocus>button-info-version-focus.png</texturefocus>
+					<texturenofocus>button-info-version.png</texturenofocus>
+					<visible>Control.IsEnabled(14)</visible>
 				</control>
 				<control type="button" id="12"><!-- Launch Addon Button -->
 					<include>info-options-common</include>
