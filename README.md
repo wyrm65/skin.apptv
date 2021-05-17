@@ -38,7 +38,7 @@ While I have tried very hard for the skin to be self contained, the following ad
 
  - resource.uisounds.apptv v1.0.4
  - resource.images.classificationicons.colour v0.0.3
- - script.embuary.helper v1.4.8
+ - script.embuary.helper v2.0.8
 
 ## OPTIONAL ADDONS
 The following addons will be made use of if installed by the user.  The skin will prompt the user to allow the installation of any necessary addons if the user selects an option requiring an addon.  In addition a number of the optional addons can be installed via the skins settings menus.
@@ -51,7 +51,6 @@ The following addons will be made use of if installed by the user.  The skin wil
  - script.image.resource.select
  - service.upnext
  - script.tv.show.next.aired
- - script.artwork.beef
  - script.metadata.editor
  - script.libraryeditor
  - script.favourites
