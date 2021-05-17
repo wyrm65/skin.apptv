@@ -166,7 +166,8 @@
 	</variable>
 	<variable name="PVROverlay">
 		<value condition="ListItem.IsRecording">overlayisrecording.png</value>
-		<value condition="ListItem.HasTimer + !ListItem.IsRecording">overlayhastimer.png</value>
+		<value condition="ListItem.HasReminder">overlayisreminder.png</value>
+		<value condition="ListItem.HasTimer">overlayhastimer.png</value>
 	</variable>
 	<variable name="FakeOverlayIcon">
 		<value condition="!Pvr.IsPlayingRadio">$VAR[PlayerMusicCover]</value>

@@ -179,17 +179,18 @@
 					<texturenofocus>button-info-play.png</texturenofocus>
 					<visible>Window.IsActive(PVRRecordingInfo)</visible>
 				</control>
-				<control type="button" id="7"><!-- OK button -->
-					<include>info-options-common</include>
-					<label>$LOCALIZE[186]</label>
-					<texturefocus>button-info-ok-focus.png</texturefocus>
-					<texturenofocus>button-info-ok.png</texturenofocus>
-				</control>
 				<control type="button" id="6"><!-- Record button -->
 					<include>info-options-common</include>
 					<label>$LOCALIZE[24022]</label>
 					<texturefocus>button-info-record-focus.png</texturefocus>
 					<texturenofocus>button-info-record.png</texturenofocus>
+					<visible>Window.IsActive(PVRGuideInfo)</visible>
+				</control>
+				<control type="button" id="11"><!-- Reminder button -->
+					<include>info-options-common</include>
+					<label>$LOCALIZE[826]</label>
+					<texturefocus>button-info-reminder-focus.png</texturefocus>
+					<texturenofocus>button-info-reminder.png</texturenofocus>
 					<visible>Window.IsActive(PVRGuideInfo)</visible>
 				</control>
 				<control type="button" id="9"><!-- Timer button -->
