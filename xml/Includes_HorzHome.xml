@@ -934,9 +934,8 @@
 						<item><!-- Update addons -->
 							<label>$LOCALIZE[24043]</label>
 							<label2>$LOCALIZE[24001]</label2>
-							<onclick>RunScript(script.embuary.helper,action=calc,do='"$INFO[Container(12345).NumItems] - 1"',prop=PendingUpdates)</onclick>
 							<onclick>ActivateWindow(addonbrowser,addons://outdated/,return)</onclick>
-							<visible>Integer.IsGreater(Container(12345).NumItems,0)</visible>
+							<visible>Integer.IsGreater(System.AddonUpdateCount,0)</visible>
 						</item>
 						<item><!-- Addon browser -->
 							<label>$LOCALIZE[21452]</label>
