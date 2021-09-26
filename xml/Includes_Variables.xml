@@ -1870,6 +1870,9 @@
 		<value condition="Control.HasFocus(806)">$LOCALIZE[31373]</value>
 		<value condition="Control.HasFocus(984)">$LOCALIZE[31360]</value>
 		<value condition="Control.HasFocus(987)">$LOCALIZE[31359]</value>
+		<value condition="Window.IsVisible(Custom_HomeCustomise.xml) + !Pvr.HasTVChannels + !Control.HasFocus(402) + String.StartsWith(Container.ListItem.Label,$LOCALIZE[19020]) + !String.StartsWith(Container.ListItem.Label,$LOCALIZE[31027])">$LOCALIZE[31375]</value>
+		<value condition="Window.IsVisible(Custom_HomeCustomise.xml) + !Pvr.HasRadioChannels + !Control.HasFocus(402) + String.StartsWith(Container.ListItem.Label,$LOCALIZE[19021])">$LOCALIZE[31375]</value>
+		<value condition="Window.IsVisible(Custom_HomeCustomise.xml) + !Control.HasFocus(402) + String.IsEmpty(Weather.plugin) + String.StartsWith(Container.ListItem.Label,$LOCALIZE[8])">$LOCALIZE[31376]</value>
 		<value condition="Window.IsVisible(Custom_HomeCustomise.xml) + !Control.HasFocus(402)">$LOCALIZE[31374]</value>
 	</variable>
 </includes>
