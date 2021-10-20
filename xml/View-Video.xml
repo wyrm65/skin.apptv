@@ -223,7 +223,7 @@
 					<top>166</top>
 					<width>512</width>
 					<height>512</height>
-					<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+					<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
 					<aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
 				</control>
 				<control type="group">
@@ -401,6 +401,247 @@
 			<param name="returnid" value="1260" />
 		</include>
 	</include>
+	<!--<include name="VideoLowListView">
+			<control type="label">
+				<left>20</left>
+				<top>5</top>
+				<width>600</width>
+				<height>30</height>
+				<align>center</align>
+				<font>apptv18</font>
+				<label>$INFO[Container(5150).ListItem.FolderPath]</label>
+				<visible>Control.IsVisible(51) + $EXP[isContentSeasons]</visible>
+			</control>		
+		<control type="list" id="51">
+			<visible>$EXP[isContentSeasons]</visible>
+			<viewtype label="31931">list</viewtype>
+			<left>-3000</left>
+			<top>-3000</top>
+			<width>10</width>
+			<height>10</height>
+			<onback>SetFocus(50)</onback>
+			<onfocus>SetFocus(5150)</onfocus>
+			<itemlayout  height="10" width="10"/>
+			<focusedlayout height="10" width="10"/>
+		</control>
+		<control type="list" id="5150">
+			<visible>Control.IsVisible(51) + $EXP[isContentSeasons]</visible>
+			<viewtype label="31931">list</viewtype>
+			<left>30</left>
+			<top>630</top>
+			<width>280</width>
+			<height>45</height>
+			<scrolltime>0</scrolltime>
+			<onfocus>SetFocus(5150)</onfocus>
+			<onleft>9000</onleft>
+			<ondown>5151</ondown>
+			<orientation>horizontal</orientation>
+			<preloaditems>2</preloaditems>
+			<itemlayout height="45">
+				<control type="label">
+					<left>20</left>
+					<top>5</top>
+					<width>240</width>
+					<height>30</height>
+					<align>center</align>
+					<font>apptv20</font>
+					<label>$INFO[Listitem.Label]</label>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
+				<control type="image">
+					<left>250</left>
+					<top>6</top>
+					<width>32</width>
+					<height>32</height>
+					<texture>scroll-right-focus.png</texture>
+				</control>
+			</itemlayout>
+			<focusedlayout height="45">
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>280</width>
+					<height>45</height>
+					<texture border="9">button-default-focus.png</texture>
+					<aspectratio>stretch</aspectratio>
+					<animation condition="!Control.HasFocus(51)" effect="fade" start="100" end="60" reversible="true">Conditional</animation>
+				</control>
+				<control type="label">
+					<left>20</left>
+					<top>5</top>
+					<width>240</width>
+					<height>30</height>
+					<align>center</align>
+					<font>apptv20</font>
+					<label>$INFO[Listitem.Label]</label>
+					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
+				</control>
+				<control type="image">
+					<left>250</left>
+					<top>6</top>
+					<width>32</width>
+					<height>32</height>
+					<texture>scroll-right-focus.png</texture>
+				</control>
+			</focusedlayout>
+			<content>videodb://tvshows/titles/?xsp=%7B%22limit%22%3A0%2C%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22method%22%3A%22%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22label%22%2C%22operator%22%3A%22isnot%22%2C%22value%22%3A%5B%22$LOCALIZE[20366]%22%5D%7D%2C%7B%22field%22%3A%22label%22%2C%22operator%22%3A%22isnot%22%2C%22value%22%3A%5B%22..%22%5D%7D%2C%7B%22field%22%3A%22tvshow%22%2C%22operator%22%3A%22is%22%2C%22value%22%3A%5B%22tvshowtitle%22%5D%7D%5D%7D%2C%22type%22%3A%22seasons%22%7D</content>
+		</control>
+		<control type="panel" id="5151">
+			<left>30</left>
+			<top>710</top>
+			<width>1800</width>
+			<height>288</height>
+			<orientation>vertical</orientation>
+			<onleft condition="Skin.HasSetting(lock-screensettings)">4501</onleft>
+			<onleft condition="!Skin.HasSetting(lock-screensettings)">9000</onleft>
+			<onup>51</onup>
+			<ondown>5150</ondown>
+			<visible>$EXP[isnotParentFolder] + Control.IsVisible(51)</visible>
+			<itemlayout height="96">
+				<control type="image">
+					<left>14</left>
+					<top>10</top>
+					<width>114</width>
+					<height>64</height>
+					<texture>$INFO[ListItem.Art(thumb)]</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="textbox">
+					<left>140</left>
+					<top>2</top>
+					<height>64</height>
+					<width>1640</width>
+					<align>justify</align>
+					<aligny>top</aligny>
+					<label>$VAR[VideoPlot]</label>
+					<font>apptv18</font>
+				</control>
+				<control type="image">
+					<left>130</left>
+					<top>60</top>
+					<width>32</width>
+					<height>32</height>
+					<texture>$VAR[Overlay]</texture>
+				</control>
+			</itemlayout>
+			<focusedlayout height="96">
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>1800</width>
+					<height>96</height>
+					<texture border="9">button-default-focus.png</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="image">
+					<left>14</left>
+					<top>10</top>
+					<width>114</width>
+					<height>64</height>
+					<texture>$INFO[ListItem.Art(thumb)]</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="textbox">
+					<left>140</left>
+					<top>2</top>
+					<height>64</height>
+					<width>1640</width>
+					<align>justify</align>
+					<aligny>top</aligny>
+					<label>$VAR[VideoPlot]</label>
+					<font>apptv18</font>
+				</control>
+				<control type="image">
+					<left>130</left>
+					<top>60</top>
+					<width>32</width>
+					<height>32</height>
+					<texture>$VAR[Overlay]</texture>
+				</control>
+			</focusedlayout>
+			<content>$INFO[Container(5150).ListItem.FolderPath]</content>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(51)</visible>
+			<control type="group">
+				<control type="image">
+					<left>36</left>
+					<top>428</top>
+					<width>387</width>
+					<height>150</height>
+					<texture>$VAR[ListViewVideoLogo]</texture>
+					<aligny>bottom</aligny>
+					<aspectratio align="left">keep</aspectratio>
+				</control>
+				<control type="image">
+					<left>36</left>
+					<top>579</top>
+					<width>165</width>
+					<height>33</height>
+					<texture>$VAR[MediaRating]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+					<left>202</left>
+					<top>580</top>
+					<width>300</width>
+					<height>30</height>
+					<font>apptv20</font>
+					<label>$VAR[ListitemDuration]</label>
+					<visible>![$EXP[isTvshow]] + ![$EXP[isSeason]] + !Container.Scrolling</visible>
+				</control>
+				<control type="image">
+					<left>504</left>
+					<top>580</top>
+					<width>32</width>
+					<height>32</height>
+					<texture>$VAR[ListItemFlags]</texture>
+				</control>-->
+				<!--<control type="image">--><!-- Classification Rating (quick way) -->
+					<!--<left>536</left>
+					<top>580</top>
+					<width>32</width>
+					<height>32</height>
+					<aligny>bottom</aligny>
+					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$VAR[MPAARatingIcons]</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>$EXP[isnotEmptyDBID] + $EXP[isSeason]</visible>
+				</control>
+			</control>
+		</control>
+		<control type="scrollbar" id="1251">
+			<left>1872</left>
+			<top>165</top>
+			<width>18</width>
+			<height>864</height>
+			<onright>4504</onright>
+			<onleft condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]">1260</onleft>
+			<onleft condition="!Skin.HasSetting(show-letterbar) | ![$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]">50</onleft>
+			<animation condition="!Control.HasFocus(1251) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<animation condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentMusicvideos]]" effect="slide" end="15,0" reversible="true">Conditional</animation>
+			<visible>Control.IsVisible(51) + $EXP[isEnabledScrollbar]</visible>
+		</control>-->
+		<!-- Play bump sound if user tries leaving item list by undefined direction -->
+		<!--<include content="illegal-action">
+			<param name="controlid" value="4512" />
+			<param name="returnid" value="51" />
+		</include>-->
+		<!-- Play bump sound if user tries leaving search button by undefined direction -->
+		<!--<include content="illegal-action">
+			<param name="controlid" value="4513" />
+			<param name="returnid" value="1241" />
+		</include>-->
+		<!-- Play bump sound if user tries leaving scrollbar by undefined direction -->
+		<!--<include content="illegal-action">
+			<param name="controlid" value="4504" />
+			<param name="returnid" value="1251" />
+		</include>-->
+		<!-- Play bump sound if user tries leaving letterbar by undefined direction -->
+		<!--<include content="illegal-action">
+			<param name="controlid" value="4515" />
+			<param name="returnid" value="1261" />
+		</include>
+	</include>-->
 	<include name="VideoIconView">
 		<control type="panel" id="52">
 			<left>30</left>
@@ -422,17 +663,7 @@
 					<width>270</width>
 					<height>270</height>
 					<aspectratio>keep</aspectratio>
-					<texture fallback="DefaultVideo.png" colordiffuse="UnFocusedPosters" background="true">$VAR[IconPoster]</texture>
-					<visible>$EXP[isDefaultIcon] | ![$EXP[isContentMovies] | $EXP[isContentTvshows]]</visible>
-				</control>
-				<control type="image">
-					<left>129</left>
-					<top>8</top>
-					<width>192</width>
-					<height>270</height>
-					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture fallback="DefaultVideo.png" colordiffuse="UnFocusedPosters" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-					<visible>$EXP[isnotDefaultIcon] + [$EXP[isContentMovies] | $EXP[isContentTvshows]]</visible>
+					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
 				</control>
 				<control type="image">
 					<left>40</left>
@@ -465,34 +696,19 @@
 						<top>8</top>
 						<width>270</width>
 						<height>270</height>
-						<aspectratio scalediffuse="false">keep</aspectratio>
-						<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+						<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+						<aspectratio>keep</aspectratio>
 						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
-						<visible>$EXP[isDefaultIcon]</visible>
+						<visible>Control.HasFocus(52)</visible>
 					</control>
 					<control type="image">
 						<left>90</left>
 						<top>8</top>
 						<width>270</width>
 						<height>270</height>
-						<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-						<bordertexture border="10">mask-hilite.png</bordertexture>
-						<bordersize>10</bordersize>
-						<aspectratio scalediffuse="false">keep</aspectratio>
-						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
-						<visible>$EXP[isnotDefaultIcon] + ![$EXP[isContentMovies] | $EXP[isContentTvshows]]</visible>
-					</control>
-					<control type="image">
-						<left>129</left>
-						<top>8</top>
-						<width>192</width>
-						<height>270</height>
-						<texture fallback="DefaultVideo.png" background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-						<bordertexture border="10">mask-hilite.png</bordertexture>
-						<bordersize>10</bordersize>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
-						<visible>$EXP[isnotDefaultIcon] + [$EXP[isContentMovies] | $EXP[isContentTvshows]]</visible>
+						<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+						<aspectratio>keep</aspectratio>
+						<visible>!Control.HasFocus(52)</visible>
 					</control>
 					<control type="image">
 						<left>40</left>
@@ -853,7 +1069,7 @@
 					<top>510</top>
 					<height>180</height>
 					<width>116</width>
-					<texture diffuse="mask-rect.png" background="true" fallback="DefaultVideo.png">$VAR[IconPoster]</texture>
+					<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
 				</control>
@@ -886,7 +1102,7 @@
 					<top>588</top>
 					<height>114</height>
 					<width>114</width>
-					<texture diffuse="mask-squ.png" background="true" fallback="DefaultVideo.png">$VAR[IconPoster]</texture>
+					<texture diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 					<aspectratio scalediffuse="true">keep</aspectratio>
 					<visible>![$EXP[isContentMusicvideos]]</visible>
@@ -896,7 +1112,7 @@
 					<top>588</top>
 					<height>114</height>
 					<width>114</width>
-					<texture diffuse="mask-squ.png" background="true" fallback="DefaultMusicVideos.png">$VAR[IconPoster]</texture>
+					<texture diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 					<aspectratio aligny="bottom" scalediffuse="true">keep</aspectratio>
 					<visible>$EXP[isContentMusicvideos]</visible>
@@ -947,7 +1163,7 @@
 					<height>468</height>
 					<width>304</width>
 					<aspectratio scalediffuse="false">stretch</aspectratio>
-					<texture diffuse="mask-rect.png" background="true" fallback="DefaultVideo.png">$VAR[IconPoster]</texture>
+					<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
 					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 				</control>
 				<control type="image">
@@ -988,7 +1204,7 @@
 					<height>304</height>
 					<width>304</width>
 					<aspectratio aligny="bottom" scalediffuse="true">keep</aspectratio>
-					<texture diffuse="mask-squ.png" background="true" fallback="DefaultVideo.png">$VAR[IconPoster]</texture>
+					<texture diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
 					<visible>Control.HasFocus(54)</visible>
 				</control>
 				<control type="image">
@@ -997,7 +1213,7 @@
 					<height>304</height>
 					<width>304</width>
 					<aspectratio aligny="bottom" scalediffuse="true">keep</aspectratio>
-					<texture diffuse="mask-squ.png" background="true" fallback="DefaultMusicVideos.png">$VAR[IconPoster]</texture>
+					<texture diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 					<visible>!Control.HasFocus(54)</visible>
 				</control>
@@ -1631,7 +1847,7 @@
 					<width>196</width>
 					<height>279</height>
 					<aspectratio>stretch</aspectratio>
-					<texture fallback="DefaultVideo.png" colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
 				</control>
 				<control type="image"><!-- Video special features available -->
 					<left>2</left>
@@ -1655,28 +1871,28 @@
 					<param name="size" value="70" />
 				</include>
 			</itemlayout>
-			<itemlayout height="210" width="210" condition="![$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons]]">
+			<itemlayout height="208" width="208" condition="![$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons]]">
 				<control type="image">
-					<left>6</left>
-					<top>6</top>
+					<left>5</left>
+					<top>5</top>
 					<width>198</width>
 					<height>198</height>
 					<aspectratio>keep</aspectratio>
-					<texture fallback="DefaultVideo.png" colordiffuse="UnFocusedPosters" diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
+					<texture colordiffuse="UnFocusedPosters" diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
 				</control>
 			</itemlayout>
 			<focusedlayout height="280" width="198" condition="$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons]">
 				<control type="group">
-					<animation effect="zoom" start="90" end="114" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+					<animation effect="zoom" start="90" end="110" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					<control type="image">
 						<left>1</left>
 						<top>1</top>
 						<width>196</width>
 						<height>279</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+						<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
 						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
-						<visible>$EXP[isDefaultIcon]</visible>
+						<visible>$EXP[isDefaultIcon] + Control.HasFocus(58)</visible>
 					</control>
 					<control type="image">
 						<left>1</left>
@@ -1684,11 +1900,29 @@
 						<width>196</width>
 						<height>279</height>
 						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture fallback="DefaultVideo.png" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
-						<bordertexture border="12">mask-hilite.png</bordertexture>
-						<bordersize>12</bordersize>
+						<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
 						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
-						<visible>$EXP[isnotDefaultIcon]</visible>
+						<visible>$EXP[isnotDefaultIcon] + Control.HasFocus(58)</visible>
+					</control>
+					<control type="image">
+						<left>1</left>
+						<top>1</top>
+						<width>196</width>
+						<height>279</height>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
+						<visible>$EXP[isDefaultIcon] + !Control.HasFocus(58)</visible>
+					</control>
+					<control type="image">
+						<left>1</left>
+						<top>1</top>
+						<width>196</width>
+						<height>279</height>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
+						<visible>$EXP[isnotDefaultIcon] + !Control.HasFocus(58)</visible>
 					</control>
 					<control type="image"><!-- Video special features available -->
 						<left>16</left>
@@ -1699,8 +1933,8 @@
 						<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
 					</control>
 					<control type="image">
-						<left>146</left>
-						<top>2</top>
+						<left>158</left>
+						<top>-8</top>
 						<width>48</width>
 						<height>48</height>
 						<texture>$VAR[Overlay]</texture>
@@ -1713,30 +1947,29 @@
 					</include>
 				</control>
 			</focusedlayout>
-			<focusedlayout height="210" width="210" condition="![$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons]]">
-				<control type="image">
-					<left>6</left>
-					<top>6</top>
-					<width>198</width>
-					<height>198</height>
-					<aspectratio>keep</aspectratio>
-					<texture fallback="DefaultVideo.png" diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
-					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
-					<animation effect="zoom" start="90" end="112" center="auto" time="400" tween="back" easing="out" reversible="false">focus</animation>
-					<visible>$EXP[isDefaultIcon]</visible>
-				</control>
-				<control type="image">
-					<left>6</left>
-					<top>6</top>
-					<width>198</width>
-					<height>198</height>
-					<aspectratio>keep</aspectratio>
-					<texture fallback="DefaultVideo.png" diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
-					<bordertexture border="12">mask-hilite.png</bordertexture>
-					<bordersize>12</bordersize>
-					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
-					<animation effect="zoom" start="90" end="112" center="auto" time="400" tween="back" easing="out" reversible="false">focus</animation>
-					<visible>$EXP[isnotDefaultIcon]</visible>
+			<focusedlayout height="198" width="198" condition="![$EXP[isContentSets] | $EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentSeasons]]">
+				<control type="group">
+					<animation effect="zoom" start="90" end="110" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>198</width>
+						<height>198</height>
+						<aspectratio>keep</aspectratio>
+						<texture diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
+						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
+						<visible>Control.HasFocus(58)</visible>
+					</control>
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>198</width>
+						<height>198</height>
+						<aspectratio>keep</aspectratio>
+						<texture diffuse="mask-squ.png" background="true">$VAR[IconPoster]</texture>
+						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
+						<visible>![Control.HasFocus(58)]</visible>
+					</control>
 				</control>
 			</focusedlayout>
 		</control>
