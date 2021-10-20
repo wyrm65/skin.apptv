@@ -376,6 +376,8 @@
 		<value condition="String.IsEqual(Skin.String(libraryentry-movie),$LOCALIZE[20451])">ActivateWindow(videos,MovieCountries,return)</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-movie),$LOCALIZE[20459])">ActivateWindow(videos,MovieTags,return)</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-movie),$LOCALIZE[744])">ActivateWindow(videos,Files,return)</value>
+		<value condition="String.IsEqual(Skin.String(libraryentry-movie),$LOCALIZE[31661])">$INFO[Skin.String(libraryentry-movie.Path)]</value>
+		<value condition="String.IsEqual(Skin.String(libraryentry-movie),$LOCALIZE[31660])">$INFO[Skin.String(libraryentry-movie.Path)]</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-movie),$LOCALIZE[31652])">$INFO[Skin.String(CustomMovieEntry.Path)]</value>
 		<value>ActivateWindow(videos,MovieTitles,return)</value>
 	</variable>
@@ -389,6 +391,8 @@
 		<value condition="String.IsEqual(Skin.String(libraryentry-tvshow),$LOCALIZE[344])">ActivateWindow(videos,TvShowActors,return)</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-tvshow),$LOCALIZE[20388])">ActivateWindow(videos,TvShowStudios,return)</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-tvshow),$LOCALIZE[744])">ActivateWindow(videos,Files,return)</value>
+		<value condition="String.IsEqual(Skin.String(libraryentry-tvshow),$LOCALIZE[31661])">$INFO[Skin.String(libraryentry-tvshow.Path)]</value>
+		<value condition="String.IsEqual(Skin.String(libraryentry-tvshow),$LOCALIZE[31660])">$INFO[Skin.String(libraryentry-tvshow.Path)]</value>	
 		<value condition="String.IsEqual(Skin.String(libraryentry-tvshow),$LOCALIZE[31652])">$INFO[Skin.String(CustomTVShowEntry.Path)]</value>
 		<value>ActivateWindow(videos,TvShowTitles,return)</value>
 	</variable>
@@ -427,6 +431,8 @@
 		<value condition="String.IsEqual(Skin.String(libraryentry-music),$LOCALIZE[652])">ActivateWindow(music,Years,return)</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-music),$LOCALIZE[1050])">ActivateWindow(music,Singles,return)</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-music),$LOCALIZE[744])">ActivateWindow(music,Files,return)</value>
+		<value condition="String.IsEqual(Skin.String(libraryentry-music),$LOCALIZE[31661])">$INFO[Skin.String(libraryentry-music.Path)]</value>
+		<value condition="String.IsEqual(Skin.String(libraryentry-music),$LOCALIZE[31660])">$INFO[Skin.String(libraryentry-music.Path)]</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-music),$LOCALIZE[31652])">$INFO[Skin.String(CustomMusicEntry.Path)]</value>
 		<value>ActivateWindow(music,Albums,return)</value>
 	</variable>
@@ -442,6 +448,8 @@
 		<value condition="String.IsEqual(Skin.String(libraryentry-musicvideo),$LOCALIZE[20348])">ActivateWindow(music,videodb://musicvideos/directors/,return)</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-musicvideo),$LOCALIZE[20388])">ActivateWindow(music,videodb://musicvideos/studios/,return)</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-musicvideo),$LOCALIZE[744])">ActivateWindow(videos,Files,return)</value>
+		<value condition="String.IsEqual(Skin.String(libraryentry-musicvideo),$LOCALIZE[31661])">$INFO[Skin.String(libraryentry-musicvideo.Path)]</value>
+		<value condition="String.IsEqual(Skin.String(libraryentry-musicvideo),$LOCALIZE[31660])">$INFO[Skin.String(libraryentry-musicvideo.Path)]</value>
 		<value condition="String.IsEqual(Skin.String(libraryentry-musicvideo),$LOCALIZE[31652])">$INFO[Skin.String(CustomMusicVideoEntry.Path)]</value>
 		<value>ActivateWindow(music,videodb://musicvideos/titles/,return)</value>
 	</variable>
@@ -1587,6 +1595,8 @@
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.3)">ActivateWindow(music,$INFO[Skin.String(CustomGame.3.List)],return)</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.4)">ActivateWindow(music,$INFO[Skin.String(CustomGame.4.List)],return)</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.5)">ActivateWindow(music,$INFO[Skin.String(CustomGame.5.List)],return)</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),libraryentry-musicvideo)">ActivateWindow(music,$INFO[Skin.String(libraryentry-musicvideo.List)],return)</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),libraryentry-music)">ActivateWindow(music,$INFO[Skin.String(libraryentry-music.List)],return)</value>
 	</variable>
 	<variable name="CustomPlaylistVideo">
 		<!-- Custom skin item playlist action (List Video) in customisation dialog -->
@@ -1630,6 +1640,8 @@
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.3)">ActivateWindow(videos,$INFO[Skin.String(CustomGame.3.List)],return)</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.4)">ActivateWindow(videos,$INFO[Skin.String(CustomGame.4.List)],return)</value>
 		<value condition="String.Contains(Window(settings).Property(ListCustomBase),CustomGame.5)">ActivateWindow(videos,$INFO[Skin.String(CustomGame.5.List)],return)</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),libraryentry-movie)">ActivateWindow(videos,$INFO[Skin.String(libraryentry-movie.List)],return)</value>
+		<value condition="String.Contains(Window(settings).Property(ListCustomBase),libraryentry-tvshow)">ActivateWindow(videos,$INFO[Skin.String(libraryentry-tvshow.List)],return)</value>
 	</variable>
 	<variable name="CustomPlaylistPlay">
 		<!-- Custom skin item playlist action (Play playlist) in customisation dialog -->
