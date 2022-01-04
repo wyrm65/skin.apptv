@@ -289,7 +289,7 @@
 						+ String.IsEmpty(ListItem.PlotOutline) + String.IsEmpty(ListItem.Plot) + !ListItem.IsParentFolder">SetFocus(5058)</value>
 		<value condition="Control.IsVisible(58) + !Skin.HasSetting(lock-screensettings)">SetFocus(9000)</value>
 		<value condition="Control.IsVisible(58)">SetFocus(4581)</value>
-		<value condition="[Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(54) | Control.IsVisible(57)] + !Skin.HasSetting(lock-screensettings)">SetFocus(9000)</value>
+		<value condition="[Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(54) | Control.IsVisible(57) | Control.IsVisible(59)] + !Skin.HasSetting(lock-screensettings)">SetFocus(9000)</value>
 	</variable>
 	<variable name="ListScrollDiffuse">
 		<value condition="Control.IsVisible(50) + Control.HasFocus(50)">white</value>
@@ -1101,6 +1101,22 @@
 		<value condition="System.Platform.Linux">$LOCALIZE[31566] $LOCALIZE[31567]</value>
 		<value condition="System.Platform.UWP">$LOCALIZE[31566] $LOCALIZE[31574]</value>
 		<value>$LOCALIZE[13205]</value>
+	</variable>
+	<variable name="WidgetViewList0">
+		<value condition="![String.IsEqual(Container(59).Listitem(0).Label,..)]">$INFO[Container(59).Listitem(0).FolderPath]</value>
+		<value></value>
+	</variable>
+	<variable name="WidgetViewList1">
+		<value condition="![String.IsEqual(Container(59).Listitem(1).Label,..)]">$INFO[Container(59).Listitem(1).FolderPath]</value>
+		<value></value>
+	</variable>
+	<variable name="WidgetViewList2">
+		<value condition="![String.IsEqual(Container(59).Listitem(2).Label,..)]">$INFO[Container(59).Listitem(2).FolderPath]</value>
+		<value></value>
+	</variable>
+	<variable name="WidgetViewList3">
+		<value condition="![String.IsEqual(Container(59).Listitem(3).Label,..)]">$INFO[Container(59).Listitem(3).FolderPath]</value>
+		<value></value>
 	</variable>
 	<variable name="MovieShelfLabel">
 		<value condition="[Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31026])] + String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31964])">$LOCALIZE[31964]</value>

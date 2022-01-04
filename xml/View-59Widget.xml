@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="CategoryLabel">
+		<definition>
+			<control type="label" id="$PARAM[list_id]2">
+				<left>0</left>
+				<top>5</top>
+				<width>689</width>
+				<height>50</height>
+				<font>apptv20</font>
+				<align>left</align>
+				<label>$PARAM[label]</label>
+				<visible>$PARAM[list_visible]</visible>
+				<visible>Container(59).IsUpdating | Integer.IsGreater(Container(59).NumItems,1) | Container($PARAM[list_id]).IsUpdating | Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)</visible>
+			</control>
+		</definition>
+	</include>
+	<include name="WidgetListPoster">
+		<param name="content_path"></param>
+		<param name="widget_header"></param>
+		<param name="list_id"></param>
+		<param name="list_visible"></param>
+		<definition>
+			<include content="CategoryLabel">
+				<param name="label" value="$PARAM[widget_header]"/>
+				<param name="list_id" value="$PARAM[list_id]"/>
+				<param name="list_visible" value="$PARAM[list_visible]"/>
+			</include>
+			<include content="page-offscreen-horizontal">
+				<param name="indicator1left" value="0"/>
+				<param name="indicator1top" value="-185"/>
+				<param name="indicator2left" value="1872"/>
+				<param name="indicator2top" value="-185"/>
+				<param name="indicatorsize" value="32"/>
+				<param name="indicatorcontainer" value="$PARAM[list_id]"/>
+			</include>
+			<control type="panel" id="$PARAM[list_id]">
+				<left>0</left>
+				<top>55</top>
+				<width>1800</width>
+				<height>260</height>
+				<scrolltime tween="cubic" easing="out">200</scrolltime>
+				<orientation>horizontal</orientation>
+				<onleft>9000</onleft>
+				<onright>9000</onright>
+				<visible>$PARAM[list_visible]</visible>
+				<visible>Container(59).IsUpdating | Integer.IsGreater(Container(59).NumItems,1) | Container($PARAM[list_id]).IsUpdating | Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)</visible>
+				<itemlayout width="200">
+					<control type="image">
+						<left>40</left>
+						<top>10</top>
+						<width>120</width>
+						<height>158</height>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+					</control>
+				</itemlayout>
+				<focusedlayout width="200">
+					<control type="image">
+						<left>40</left>
+						<top>10</top>
+						<width>120</width>
+						<height>158</height>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+						<animation effect="zoom" start="100" end="106" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+					</control>
+					<control type="textbox">
+						<left>0</left>
+						<top>170</top>
+						<height>62</height>
+						<width>200</width>
+						<font>apptv18</font>
+						<align>center</align>
+						<aligny>top</aligny>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="fade" time="100" delay="100">Focus</animation>
+						<visible>Control.HasFocus($PARAM[list_id])</visible>
+					</control>
+				</focusedlayout>
+				<content target="$PARAM[widget_target]" limit="12">$PARAM[content_path]</content>
+			</control>
+		</definition>
+	</include>
+	<include name="WidgetView">
+		<control type="fixedlist" id="59">
+			<viewtype label="31973">list</viewtype>
+			<left>-10</left>
+			<top>-10</top>
+			<width>1</width>
+			<height>1</height>
+			<onleft>9000</onleft>
+			<onright>9000</onright>
+			<onfocus>SetFocus(5900)</onfocus>
+			<onfocus>SetFocus(5900)</onfocus>
+			<onback>SetFocus(59)</onback>
+			<itemlayout/>
+			<focusedlayout/>
+		</control>
+		<control type="grouplist" id="5900">
+			<left>75</left>
+			<top>110</top>
+			<height>930</height>
+			<width>1890</width>
+			<itemgap>0</itemgap>
+			<align>left</align>
+			<scrolltime tween="quadratic" easing="out">200</scrolltime>
+			<onup>Control.Move(59,-1)</onup>
+			<ondown>Control.Move(59,1)</ondown>
+			<onback>SetFocus(59)</onback>
+			<orientation>vertical</orientation>
+			<visible>Control.IsVisible(59)</visible>
+			<include content="WidgetListPoster">
+				<param name="content_path" value="$VAR[WidgetViewList0]"/>
+				<param name="widget_header" value="$INFO[Container(59).Listitem(0).Label]"/>
+				<param name="widget_target" value="videos"/>
+				<param name="list_id" value="5905"/>
+				<param name="list_visible" value="![String.IsEqual(Container(59).Listitem(0).Label,..)]"/>
+			</include>
+			<include content="WidgetListPoster">
+				<param name="content_path" value="$VAR[WidgetViewList1]"/>
+				<param name="widget_header" value="$INFO[Container(59).Listitem(1).Label]"/>
+				<param name="widget_target" value="videos"/>
+				<param name="list_id" value="5910"/>
+				<param name="list_visible" value="![String.IsEqual(Container(59).Listitem(1).Label,..)]"/>
+			</include>
+			<include content="WidgetListPoster">
+				<param name="content_path" value="$VAR[WidgetViewList2]"/>
+				<param name="widget_header" value="$INFO[Container(59).Listitem(2).Label]"/>
+				<param name="widget_target" value="videos"/>
+				<param name="list_id" value="5915"/>
+				<param name="list_visible" value="![String.IsEqual(Container(59).Listitem(2).Label,..)]"/>
+			</include>
+			<include content="WidgetListPoster">
+				<param name="content_path" value="$VAR[WidgetViewList3]"/>
+				<param name="widget_header" value="$INFO[Container(59).Listitem(3).Label]"/>
+				<param name="widget_target" value="videos"/>
+				<param name="list_id" value="5920"/>
+				<param name="list_visible" value="![String.IsEqual(Container(59).Listitem(3).Label,..)]"/>
+			</include>
+		</control>
+	</include>
+</includes>	

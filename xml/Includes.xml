@@ -631,24 +631,21 @@
 		<param name="indicatorsize" default="0"/>
 		<param name="indicatorcontainer"/>
 		<definition>
-			<control type="group">
-				<visible>Integer.IsGreater(Container($PARAM[indicatorcontainer]).NumItems,0) + Control.IsVisible($PARAM[indicatorcontainer])</visible>
-				<control type="image">
-					<left>$PARAM[indicator1left]</left>
-					<top>$PARAM[indicator1top]</top>
-					<height>$PARAM[indicatorsize]</height>
-					<width>$PARAM[indicatorsize]</width>
-					<texture>scroll-up.png</texture>
-					<visible>Container($PARAM[indicatorcontainer]).HasPrevious</visible>
-				</control>
-				<control type="image">
-					<left>$PARAM[indicator2left]</left>
-					<top>$PARAM[indicator2top]</top>
-					<height>$PARAM[indicatorsize]</height>
-					<width>$PARAM[indicatorsize]</width>
-					<texture>scroll-down.png</texture>
-					<visible>Container($PARAM[indicatorcontainer]).HasNext</visible>
-				</control>
+			<control type="image" id="$PARAM[indicatorcontainer]551">
+				<left>$PARAM[indicator1left]</left>
+				<top>$PARAM[indicator1top]</top>
+				<height>$PARAM[indicatorsize]</height>
+				<width>$PARAM[indicatorsize]</width>
+				<texture>scroll-up.png</texture>
+				<visible>Container($PARAM[indicatorcontainer]).HasPrevious + Integer.IsGreater(Container($PARAM[indicatorcontainer]).NumItems,0) + Control.IsVisible($PARAM[indicatorcontainer])</visible>
+			</control>
+			<control type="image" id="$PARAM[indicatorcontainer]552">
+				<left>$PARAM[indicator2left]</left>
+				<top>$PARAM[indicator2top]</top>
+				<height>$PARAM[indicatorsize]</height>
+				<width>$PARAM[indicatorsize]</width>
+				<texture>scroll-down.png</texture>
+				<visible>Container($PARAM[indicatorcontainer]).HasNext + Integer.IsGreater(Container($PARAM[indicatorcontainer]).NumItems,0) + Control.IsVisible($PARAM[indicatorcontainer])</visible>
 			</control>
 		</definition>
 	</include>
@@ -660,24 +657,21 @@
 		<param name="indicatorsize" default="0"/>
 		<param name="indicatorcontainer"/>
 		<definition>
-			<control type="group">
-				<visible>Integer.IsGreater(Container($PARAM[indicatorcontainer]).NumItems,0) + Control.IsVisible($PARAM[indicatorcontainer])</visible>
-				<control type="image">
-					<left>$PARAM[indicator1left]</left>
-					<top>$PARAM[indicator1top]</top>
-					<height>$PARAM[indicatorsize]</height>
-					<width>$PARAM[indicatorsize]</width>
-					<texture>scroll-left.png</texture>
-					<visible>Container($PARAM[indicatorcontainer]).HasPrevious</visible>
-				</control>
-				<control type="image">
-					<left>$PARAM[indicator2left]</left>
-					<top>$PARAM[indicator2top]</top>
-					<height>$PARAM[indicatorsize]</height>
-					<width>$PARAM[indicatorsize]</width>
-					<texture>scroll-right.png</texture>
-					<visible>Container($PARAM[indicatorcontainer]).HasNext</visible>
-				</control>
+			<control type="image" id="$PARAM[indicatorcontainer]551">
+				<left>$PARAM[indicator1left]</left>
+				<top>$PARAM[indicator1top]</top>
+				<height>$PARAM[indicatorsize]</height>
+				<width>$PARAM[indicatorsize]</width>
+				<texture>scroll-left.png</texture>
+				<visible>Container($PARAM[indicatorcontainer]).HasPrevious + Integer.IsGreater(Container($PARAM[indicatorcontainer]).NumItems,0) + Control.IsVisible($PARAM[indicatorcontainer])</visible>
+			</control>
+			<control type="image" id="$PARAM[indicatorcontainer]552">
+				<left>$PARAM[indicator2left]</left>
+				<top>$PARAM[indicator2top]</top>
+				<height>$PARAM[indicatorsize]</height>
+				<width>$PARAM[indicatorsize]</width>
+				<texture>scroll-right.png</texture>
+				<visible>Container($PARAM[indicatorcontainer]).HasNext + Integer.IsGreater(Container($PARAM[indicatorcontainer]).NumItems,0) + Control.IsVisible($PARAM[indicatorcontainer])</visible>
 			</control>
 		</definition>
 	</include>
