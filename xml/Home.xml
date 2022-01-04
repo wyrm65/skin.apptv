@@ -10,15 +10,6 @@
 	<include>zoom-openclose</include>
 	<visible>!System.ScreenSaverActive + Window.IsTopMost(home)</visible>
 	<controls>
-		<control type="list" id="12345"><!-- Hack to get count of pending updates -->
-			<left>-100</left>
-			<top>-100</top>
-			<width>1</width>
-			<height>1</height>
-			<itemlayout/>
-			<focusedlayout/>
-			<include file="Includes_Shelf.xml">AddonUpdated</include>
-		</control>
 		<include condition="$EXP[isVerticalHome]" file="Includes_VertHome.xml">VertHomeMenu</include>
 		<include condition="$EXP[isHorizontalHome]" file="Includes_HorzHome.xml">HorzHomeMenu</include>
 		<include condition="$EXP[isIconHome]" file="Includes_IconHome.xml">IconHomeMenu</include>
