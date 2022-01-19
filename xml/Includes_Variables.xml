@@ -1102,20 +1102,14 @@
 		<value condition="System.Platform.UWP">$LOCALIZE[31566] $LOCALIZE[31574]</value>
 		<value>$LOCALIZE[13205]</value>
 	</variable>
-	<variable name="WidgetViewList0">
-		<value condition="![String.IsEqual(Container(59).Listitem(0).Label,..)]">$INFO[Container(59).Listitem(0).FolderPath]</value>
+	<variable name="WidgetViewList">
+		<value condition="Container(59).ListItem(0).IsParentFolder">$INFO[Container(59).ListItem(1).FolderPath]</value>
+		<value condition="![Container(59).ListItem(0).IsParentFolder]">$INFO[Container(59).ListItem(0).FolderPath]</value>
 		<value></value>
 	</variable>
-	<variable name="WidgetViewList1">
-		<value condition="![String.IsEqual(Container(59).Listitem(1).Label,..)]">$INFO[Container(59).Listitem(1).FolderPath]</value>
-		<value></value>
-	</variable>
-	<variable name="WidgetViewList2">
-		<value condition="![String.IsEqual(Container(59).Listitem(2).Label,..)]">$INFO[Container(59).Listitem(2).FolderPath]</value>
-		<value></value>
-	</variable>
-	<variable name="WidgetViewList3">
-		<value condition="![String.IsEqual(Container(59).Listitem(3).Label,..)]">$INFO[Container(59).Listitem(3).FolderPath]</value>
+	<variable name="WidgetViewHeading">
+		<value condition="Container(59).ListItem(0).IsParentFolder">$INFO[Container(59).ListItem(1).Label]</value>
+		<value condition="![Container(59).ListItem(0).IsParentFolder]">$INFO[Container(59).ListItem(0).Label]</value>
 		<value></value>
 	</variable>
 	<variable name="MovieShelfLabel">
