@@ -102,6 +102,55 @@
 			<focusedlayout/>
 		</control>
 		<control type="group">
+			<visible>Control.IsVisible(59)</visible>
+			<control type="image"><!-- Classification Rating (quick way) -->
+				<left>50</left>
+				<top>150</top>
+				<width>48</width>
+				<height>48</height>
+				<aligny>bottom</aligny>
+				<texture>$VAR[MPAARatingIcons]</texture>
+				<aspectratio>keep</aspectratio>
+			</control>
+			<control type="image">
+				<left>110</left>
+				<top>150</top>
+				<width>174</width>
+				<height>268</height>
+				<aspectratio scalediffuse="false">stretch</aspectratio>
+				<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+				<aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
+			</control>
+			<control type="image">
+				<left>114</left>
+				<top>430</top>
+				<width>165</width>
+				<height>33</height>
+				<texture>$VAR[MediaRating]</texture>
+				<aspectratio>keep</aspectratio>
+			</control>
+			<control type="image">
+				<left>320</left>
+				<top>150</top>
+				<width>194</width>
+				<height>75</height>
+				<texture>$VAR[ListViewVideoLogo]</texture>
+				<aligny>bottom</aligny>
+				<aspectratio align="left">keep</aspectratio>
+			</control>
+			<control type="textbox">
+				<left>320</left>
+				<top>240</top>
+				<width>950</width>
+				<height>318</height>
+				<font>apptv16</font>
+				<label>$VAR[VideoPlot]</label>
+				<align>justify</align>
+				<aligny>top</aligny>
+				<visible>!Container.Scrolling</visible>
+			</control>
+		</control>
+		<control type="group">
 			<left>75</left>
 			<top>620</top>
 			<height>250</height>
