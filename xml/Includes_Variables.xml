@@ -337,9 +337,13 @@
 		<value condition="Player.IsTempo">osd-btn-play-focus.png</value>
 	</variable>
 	<variable name="PlayStateTxt">
+		<value condition="!String.IsEmpty(Player.SeekNumeric)">$INFO[Player.SeekNumeric(hh:mm:ss)]</value>
+		<value condition="!String.IsEmpty(Player.SeekStepSize)">$INFO[Player.SeekStepSize]</value>
+		<value condition="Player.Seeking + VideoPlayer.HasEPG">$INFO[PVR.EpgEventSeekTime]$INFO[PVR.EpgEventDuration, / ]</value>
+		<value condition="Player.Seeking">$INFO[Player.SeekTime]$INFO[Player.Duration, / ]</value>
+		<value condition="VideoPlayer.HasEpg">$INFO[PVR.EpgEventElapsedTime]$INFO[PVR.EpgEventDuration, / ]</value>
 		<value condition="Player.Caching"> $LOCALIZE[15107] $INFO[Player.CacheLevel]%</value>
 		<value condition="Player.Paused">$LOCALIZE[112]</value>
-		<value condition="!String.IsEmpty(Player.SeekStepSize)">$INFO[Player.SeekStepSize]</value>
 		<value condition="[Player.Rewinding2x | Player.Forwarding2x]">x2</value>
 		<value condition="[Player.Rewinding4x | Player.Forwarding4x]">x4</value>
 		<value condition="[Player.Rewinding8x | Player.Forwarding8x]">x8</value>
@@ -1108,6 +1112,16 @@
 		<value></value>
 	</variable>
 	<variable name="WidgetViewHeading">
+		<value condition="Container(59).ListItem(0).IsParentFolder">$INFO[Container(59).ListItem(1).Label]</value>
+		<value condition="![Container(59).ListItem(0).IsParentFolder]">$INFO[Container(59).ListItem(0).Label]</value>
+		<value></value>
+	</variable>
+	<variable name="WidgetViewPlot">
+		<value condition="Container(59).ListItem(0).IsParentFolder">$INFO[Container(59).ListItem(1).FolderPath]</value>
+		<value condition="![Container(59).ListItem(0).IsParentFolder]">$INFO[Container(59).ListItem(0).FolderPath]</value>
+		<value></value>
+	</variable>
+	<variable name="WidgetViewLogo">
 		<value condition="Container(59).ListItem(0).IsParentFolder">$INFO[Container(59).ListItem(1).Label]</value>
 		<value condition="![Container(59).ListItem(0).IsParentFolder]">$INFO[Container(59).ListItem(0).Label]</value>
 		<value></value>
