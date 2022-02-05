@@ -334,7 +334,7 @@
 		<value condition="Player.Rewinding">osd-btn-rewind-focus.png</value>
 		<value condition="[Player.Rewinding2x | Player.Rewinding4x | Player.Rewinding8x | Player.Rewinding16x | Player.Rewinding32x]">osd-btn-rewind-focus.png</value>
 		<value condition="[Player.Forwarding2x | Player.Forwarding4x | Player.Forwarding8x | Player.Forwarding16x | Player.Forwarding32x]">osd-btn-fastfwd-focus.png</value>
-		<value condition="Player.IsTempo">osd-btn-play-focus.png</value>
+		<value condition="Player.IsTempo | !String.IsEmpty(Player.SeekStepSize) | !String.IsEmpty(Player.SeekNumeric)">osd-btn-play-focus.png</value>
 	</variable>
 	<variable name="PlayStateTxt">
 		<value condition="!String.IsEmpty(Player.SeekNumeric)">$INFO[Player.SeekNumeric(hh:mm:ss)]</value>
