@@ -106,6 +106,18 @@
 					<aspectratio>keep</aspectratio>
 					<texture diffuse="homeiconmask.png">$INFO[ListItem.Art(thumb)]</texture>
 				</control>
+				<control type="multiimage">
+					<left>109</left>
+					<top>18</top>
+					<width>160</width>
+					<height>160</height>
+					<imagepath>$VAR[WeatherIconCurrent]</imagepath>
+					<aspectratio>keep</aspectratio>
+					<timeperimage>100</timeperimage>
+					<randomize>false</randomize>
+					<fadetime>1</fadetime>
+					<visible>String.IsEqual(ListItem.Label,$LOCALIZE[8]) + String.IsEmpty(Skin.String(home-weather.Icon))</visible>
+				</control>
 				<include content="listitem-count">
 					<param name="left" value="255" />
 					<param name="top" value="136" />
@@ -123,6 +135,18 @@
 					<texture diffuse="homeiconmask.png">$INFO[ListItem.Art(thumb)]</texture>
 					<bordertexture border="6">homeiconhilite.png</bordertexture>
 					<bordersize>6</bordersize>
+				</control>
+				<control type="multiimage">
+					<left>96</left>
+					<top>16</top>
+					<width>186</width>
+					<height>186</height>
+					<imagepath>$VAR[WeatherIconCurrent]</imagepath>
+					<aspectratio>keep</aspectratio>
+					<timeperimage>100</timeperimage>
+					<randomize>false</randomize>
+					<fadetime>1</fadetime>
+					<visible>String.IsEqual(ListItem.Label,$LOCALIZE[8]) + String.IsEmpty(Skin.String(home-weather.Icon))</visible>
 				</control>
 				<include content="listitem-count">
 					<param name="left" value="267" />

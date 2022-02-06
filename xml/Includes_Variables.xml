@@ -1344,13 +1344,12 @@
 	</variable>
 	<variable name="HomeWeatherIcon">
 		<value condition="!String.IsEmpty(Skin.String(home-weather.Icon))">$INFO[Skin.String(home-weather.Icon)]</value>
-		<value condition="String.IsEqual(Window(weather).Property(Current.FanartCode),27)">special://skin/extras/homeicons/nightweather.png</value>
-		<value condition="String.IsEqual(Window(weather).Property(Current.FanartCode),29)">special://skin/extras/homeicons/nightweather.png</value>
-		<value condition="String.IsEqual(Window(weather).Property(Current.FanartCode),31)">special://skin/extras/homeicons/nightweather.png</value>
-		<value condition="String.IsEqual(Window(weather).Property(Current.FanartCode),45)">special://skin/extras/homeicons/nightweather.png</value>
-		<value condition="String.IsEqual(Window(weather).Property(Current.FanartCode),46)">special://skin/extras/homeicons/nightweather.png</value>
-		<value condition="String.IsEqual(Window(weather).Property(Current.FanartCode),47)">special://skin/extras/homeicons/nightweather.png</value>
-		<value>special://skin/extras/homeicons/dayweather.png</value>
+		<value condition="!Weather.IsFetched">special://skin/extras/homeicons/dayweather.png</value>
+		<value condition="String.IsEqual(Window(weather).Property(Current.FanartCode),27) | String.IsEqual(Window(weather).Property(Current.FanartCode),29)
+						| String.IsEqual(Window(weather).Property(Current.FanartCode),31) | String.IsEqual(Window(weather).Property(Current.FanartCode),45)
+						| String.IsEqual(Window(weather).Property(Current.FanartCode),46) | String.IsEqual(Window(weather).Property(Current.FanartCode),47)"
+						>special://skin/extras/homeicons/eveningweather.png</value>
+		<value>special://skin/extras/homeicons/daytimeweather.png</value>
 	</variable>
 	<variable name="HomeVideoIcon">
 		<value condition="!String.IsEmpty(Skin.String(home-video.Icon))">$INFO[Skin.String(home-video.Icon)]</value>
