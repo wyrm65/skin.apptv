@@ -217,8 +217,8 @@
 	</variable>
 	<variable name="ListItemFlags">
 		<value condition="ListItem.IsStereoscopic">listitem/3D.png</value>
-		<value condition="!String.IsEmpty(ListItem.VideoResolution) + Integer.IsGreater(ListItem.VideoResolution,2160)">listitem/8K.png</value>
-		<value condition="!String.IsEmpty(ListItem.VideoResolution) + Integer.IsGreater(ListItem.VideoResolution,1080)">listitem/4K.png</value>
+		<value condition="!String.IsEmpty(ListItem.VideoResolution) + String.IsEqual(ListItem.VideoResolution,8K)">listitem/8K.png</value>
+		<value condition="!String.IsEmpty(ListItem.VideoResolution) + String.IsEqual(ListItem.VideoResolution,4K)">listitem/4K.png</value>
 		<value condition="!String.IsEmpty(ListItem.VideoResolution) + Integer.IsGreater(ListItem.VideoResolution,720)">listitem/FHD.png</value>
 		<value condition="!String.IsEmpty(ListItem.VideoResolution) + Integer.IsGreater(ListItem.VideoResolution,625)">listitem/HD.png</value>
 		<value condition="!String.IsEmpty(ListItem.VideoResolution)">listitem/SD.png</value>
