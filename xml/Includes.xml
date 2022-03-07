@@ -55,9 +55,9 @@
 	<expression name="isParentFolder">ListItem.IsParentFolder</expression>
 	<expression name="isnotParentFolder">!ListItem.IsParentFolder</expression>
 
-	<include file="Includes_Variables.xml"/>
-
 	<include file="Defaults.xml"/>
+
+	<include file="Includes_Variables.xml"/>
 
 	<include name="defaultskinsettings"><!-- various default settings  -->
 		<onload>RunScript(script.embuary.helper,action=getkodisetting,setting=locale.country,strip=timeformat)</onload>
@@ -559,6 +559,88 @@
 				<onclick>ActivateWindow(1153)</onclick>
 				<visible>!$PARAM[itemcondition]</visible>
 			</item>
+		</definition>
+	</include>
+	<include name="WidgetLabel">
+		<param name="widget_id"/>
+		<param name="widget_parentid"/>
+		<param name="widget_left"/>
+		<param name="widget_top"/>
+		<param name="widget_label"/>
+		<definition>
+			<control type="label" id="$PARAM[widget_id]2">
+				<left>$PARAM[widget_left]</left>
+				<top>$PARAM[widget_top]</top>
+				<width>689</width>
+				<height>50</height>
+				<font>apptv20</font>
+				<align>left</align>
+				<label>$PARAM[widget_label] $INFO[Container($PARAM[widget_id]).NumItems,(,)]</label>
+				<visible>Container($PARAM[widget_parentid]).IsUpdating | Integer.IsGreater(Container($PARAM[widget_parentid]).NumItems,1) | Container($PARAM[widget_id]).IsUpdating | 
+						Integer.IsGreater(Container($PARAM[widget_id]).NumItems,0)</visible>
+			</control>
+		</definition>
+	</include>
+	<include name="WidgetListPoster">
+		<param name="widget_id"/>
+		<param name="widget_parentid"/>
+		<param name="widget_left"/>
+		<param name="widget_top"/>
+		<param name="widget_path"/>
+		<param name="widget_target"/>
+		<definition>
+			<visible>[Container($PARAM[widget_parentid]).IsUpdating | Integer.IsGreater(Container($PARAM[widget_parentid]).NumItems,1) | Container($PARAM[widget_id]).IsUpdating | 
+						Integer.IsGreater(Container($PARAM[widget_id]).NumItems,0)]</visible>
+			<control type="panel" id="$PARAM[widget_id]">
+				<left>$PARAM[widget_left]</left>
+				<top>$PARAM[widget_top]</top>
+				<width>1750</width>
+				<height>350</height>
+				<scrolltime tween="cubic" easing="out">200</scrolltime>
+				<orientation>horizontal</orientation>
+				<onleft>9000</onleft>
+				<onright>9000</onright>
+				<onup>Control.Move($PARAM[widget_parentid],-1)</onup>
+				<ondown>Control.Move($PARAM[widget_parentid],1)</ondown>
+				<onback>SetFocus($PARAM[widget_parentid])</onback>
+				<oninfo>Action(Info)</oninfo>
+				<visible>[Container($PARAM[widget_parentid]).IsUpdating | Integer.IsGreater(Container($PARAM[widget_parentid]).NumItems,1) | Container($PARAM[widget_id]).IsUpdating | 
+						Integer.IsGreater(Container($PARAM[widget_id]).NumItems,0)]</visible>
+				<itemlayout width="250">
+					<control type="image">
+						<left>38</left>
+						<top>8</top>
+						<width>174</width>
+						<height>268</height>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+					</control>
+				</itemlayout>
+				<focusedlayout width="250">
+					<control type="image">
+						<left>38</left>
+						<top>8</top>
+						<width>174</width>
+						<height>268</height>
+						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+						<animation effect="zoom" start="100" end="106" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
+					</control>
+					<control type="textbox">
+						<left>0</left>
+						<top>278</top>
+						<height>64</height>
+						<width>250</width>
+						<font>apptv18</font>
+						<align>center</align>
+						<aligny>top</aligny>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="fade" time="100" delay="100">Focus</animation>
+						<visible>Control.HasFocus($PARAM[widget_id])</visible>
+					</control>
+				</focusedlayout>
+				<content target="$PARAM[widget_target]">$PARAM[widget_path]</content>
+			</control>
 		</definition>
 	</include>
 	<include name="page-toggle">

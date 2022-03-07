@@ -1,84 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<include name="WidgetLabel">
-		<param name="list_id"></param>
-		<param name="parent_id"></param>
-		<param name="widget_label"></param>
-		<definition>
-			<control type="label" id="$PARAM[list_id]2">
-				<left>75</left>
-				<top>630</top>
-				<width>689</width>
-				<height>50</height>
-				<font>apptv20</font>
-				<align>left</align>
-				<label>$PARAM[widget_label] $INFO[Container($PARAM[list_id]).NumItems,(,)]</label>
-				<visible>Container($PARAM[parent_id]).IsUpdating | Integer.IsGreater(Container($PARAM[parent_id]).NumItems,1) | Container($PARAM[list_id]).IsUpdating | 
-						Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)</visible>
-			</control>
-		</definition>
-	</include>
-	<include name="WidgetListPoster">
-		<param name="list_id"></param>
-		<param name="parent_id"></param>
-		<param name="widget_path"></param>
-		<param name="widget_target"></param>
-		<definition>
-			<visible>[Container($PARAM[parent_id]).IsUpdating | Integer.IsGreater(Container($PARAM[parent_id]).NumItems,1) | Container($PARAM[list_id]).IsUpdating | 
-						Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)]</visible>
-			<control type="panel" id="$PARAM[list_id]">
-				<left>0</left>
-				<top>6</top>
-				<width>1750</width>
-				<height>350</height>
-				<scrolltime tween="cubic" easing="out">200</scrolltime>
-				<orientation>horizontal</orientation>
-				<onleft>9000</onleft>
-				<onright>9000</onright>
-				<onup>Control.Move($PARAM[parent_id],-1)</onup>
-				<ondown>Control.Move($PARAM[parent_id],1)</ondown>
-				<onback>SetFocus($PARAM[parent_id])</onback>
-				<oninfo>Action(Info)</oninfo>
-				<visible>[Container($PARAM[parent_id]).IsUpdating | Integer.IsGreater(Container($PARAM[parent_id]).NumItems,1) | Container($PARAM[list_id]).IsUpdating | 
-						Integer.IsGreater(Container($PARAM[list_id]).NumItems,0)]</visible>
-				<itemlayout width="250">
-					<control type="image">
-						<left>38</left>
-						<top>8</top>
-						<width>174</width>
-						<height>268</height>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
-					</control>
-				</itemlayout>
-				<focusedlayout width="250">
-					<control type="image">
-						<left>38</left>
-						<top>8</top>
-						<width>174</width>
-						<height>268</height>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
-						<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
-						<animation effect="zoom" start="100" end="106" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
-					</control>
-					<control type="textbox">
-						<left>0</left>
-						<top>278</top>
-						<height>64</height>
-						<width>250</width>
-						<font>apptv18</font>
-						<align>center</align>
-						<aligny>top</aligny>
-						<label>$INFO[ListItem.Label]</label>
-						<animation effect="fade" time="100" delay="100">Focus</animation>
-						<visible>Control.HasFocus($PARAM[list_id])</visible>
-					</control>
-				</focusedlayout>
-				<content target="$PARAM[widget_target]">$PARAM[widget_path]</content>
-			</control>
-		</definition>
-	</include>
-	<include name="WidgetView">
+	<include name="VideoWidgetView">
 		<control type="fixedlist" id="59">
 			<viewtype label="31973">list</viewtype>
 			<left>-10</left>
@@ -143,8 +65,10 @@
 				<visible>!Container.Scrolling</visible>
 			</control>
 			<include content="WidgetLabel">
-				<param name="list_id" value="5900"/>
-				<param name="parent_id" value="59"/>
+				<param name="widget_id" value="5900"/>
+				<param name="widget_parentid" value="59"/>
+				<param name="widget_left" value="75"/>
+				<param name="widget_top" value="630"/>
 				<param name="widget_label" value="$VAR[WidgetViewHeading]"/>
 			</include>
 			<include content="page-offscreen-horizontal">
@@ -171,8 +95,10 @@
 			<width>1890</width>
 			<visible>Control.IsVisible(59)</visible>
 			<include content="WidgetListPoster">
-				<param name="list_id" value="5900"/>
-				<param name="parent_id" value="59"/>
+				<param name="widget_id" value="5900"/>
+				<param name="widget_parentid" value="59"/>
+				<param name="widget_left" value="0"/>
+				<param name="widget_top" value="6"/>
 				<param name="widget_path" value="$VAR[WidgetViewList]"/>
 				<param name="widget_target" value="Videos"/>
 			</include>

@@ -44,8 +44,8 @@
 				<font>apptv22</font>
 				<label>$LOCALIZE[31931]</label>
 				<radioposx>495</radioposx>
-				<onclick>Skin.ToggleSetting(videoviewlowlist)</onclick>
-				<selected>!Skin.HasSetting(videoviewlowlist)</selected>
+				<onclick>Skin.ToggleSetting(videoviewseasonwidget)</onclick>
+				<selected>!Skin.HasSetting(videoviewseasonwidget)</selected>
 				<visible>String.IsEqual(Window(home).Property(EditViews),Video)</visible>
 			</control>
 			<control type="radiobutton" id="502">
@@ -98,6 +98,17 @@
 				<textoffsetx>45</textoffsetx>
 				<font>apptv22</font>
 				<label>$LOCALIZE[31944]</label>
+				<radioposx>495</radioposx>
+				<onclick>Skin.ToggleSetting(videoviewwall)</onclick>
+				<selected>!Skin.HasSetting(videoviewwall)</selected>
+				<visible>String.IsEqual(Window(home).Property(EditViews),Video)</visible>
+			</control>
+			<control type="radiobutton" id="507">
+				<height>75</height>
+				<width>564</width>
+				<textoffsetx>45</textoffsetx>
+				<font>apptv22</font>
+				<label>$LOCALIZE[31973]</label>
 				<radioposx>495</radioposx>
 				<onclick>Skin.ToggleSetting(videoviewwall)</onclick>
 				<selected>!Skin.HasSetting(videoviewwall)</selected>

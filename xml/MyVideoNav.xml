@@ -19,12 +19,13 @@
 		<control type="group"><!-- Various Views of Video library node -->
 			<visible>![String.IsEmpty(ListItem.Label) + String.IsEmpty(ListItem(1).Label)]</visible>
 			<include file="View-Video.xml">VideoListView</include>
+			<include file="View-51SeasonWidget.xml" condition="!Skin.HasSetting(videoviewseasonwidget)">VideoSeasonWidgetView</include>
 			<include file="View-Video.xml" condition="!Skin.HasSetting(videoviewicon)">VideoIconView</include>
 			<include file="View-Video.xml" condition="!Skin.HasSetting(videoviewbanner)">BannerView</include>
 			<include file="View-Video.xml" condition="!Skin.HasSetting(videoviewwrap)">VideoWrapView</include>
 			<include file="View-Video.xml" condition="!Skin.HasSetting(videoviewcoverflow)">VideoCoverflow</include>
 			<include file="View-Video.xml" condition="!Skin.HasSetting(videoviewwall)">VideoWallView</include>
-			<include file="View-59Widget.xml" condition="!Skin.HasSetting(videoviewwidget)">WidgetView</include>
+			<include file="View-59Widget.xml" condition="!Skin.HasSetting(videoviewwidget)">VideoWidgetView</include>
 		</control>
 		<control type="group"><!-- No Label tag means video addon is busy pulling in content, so show a busy animation -->
 			<visible>String.IsEmpty(ListItem.Label) + String.IsEmpty(ListItem(1).Label) + System.IdleTime(1) + !Window.IsVisible(busydialog)</visible>

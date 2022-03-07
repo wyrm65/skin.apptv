@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="VideoSeasonWidgetView">
+		<control type="list" id="51">
+			<viewtype label="31931">list</viewtype>
+			<left>-10</left>
+			<top>-10</top>
+			<width>1</width>
+			<height>1</height>
+			<onleft>9000</onleft>
+			<onright>9000</onright>
+			<onback>SetFocus(50)</onback>
+			<onfocus>SetFocus(5100)</onfocus>
+			<visible>$EXP[isContentSeasons]</visible>
+			<itemlayout/>
+			<focusedlayout/>
+		</control>
+		<control type="group">
+			<left>75</left>
+			<top>670</top>
+			<height>350</height>
+			<width>1890</width>
+			<visible>Control.IsVisible(51)</visible>
+			<include content="WidgetListPoster">
+				<param name="widget_id" value="5100"/>
+				<param name="widget_parentid" value="51"/>
+				<param name="widget_left" value="0"/>
+				<param name="widget_top" value="6"/>
+				<param name="widget_path" value="$VAR[WidgetViewList]"/>
+				<param name="widget_target" value="Videos"/>
+			</include>
+			<control type="button" id="5101">
+				<left>0</left>
+				<top>6</top>
+				<width>174</width>
+				<height>268</height>
+				<texturefocus>blank.png</texturefocus>
+				<texturenofocus>blank.png</texturenofocus>
+				<onleft>9000</onleft>
+				<onright>9000</onright>
+				<onup>Control.Move(51,-1)</onup>
+				<ondown>Control.Move(51,1)</ondown>
+				<onclick>Control.Move(51,1)</onclick>
+				<visible>Integer.IsLessOrEqual(Container(5100).NumItems,0) | [Container(5100).IsUpdating]</visible>
+			</control>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(51)</visible>
+			<control type="group">
+				<control type="image">
+					<left>36</left>
+					<top>428</top>
+					<width>387</width>
+					<height>150</height>
+					<texture>$VAR[ListViewVideoLogo]</texture>
+					<aligny>bottom</aligny>
+					<aspectratio align="left">keep</aspectratio>
+				</control>
+				<control type="image">
+					<left>36</left>
+					<top>579</top>
+					<width>165</width>
+					<height>33</height>
+					<texture>$VAR[MediaRating]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+					<left>202</left>
+					<top>580</top>
+					<width>300</width>
+					<height>30</height>
+					<font>apptv20</font>
+					<label>$VAR[ListitemDuration]</label>
+					<visible>![$EXP[isTvshow]] + ![$EXP[isSeason]] + !Container.Scrolling</visible>
+				</control>
+				<control type="image">
+					<left>504</left>
+					<top>580</top>
+					<width>32</width>
+					<height>32</height>
+					<texture>$VAR[ListItemFlags]</texture>
+				</control>
+				<control type="image">--><!-- Classification Rating (quick way) -->
+					<left>536</left>
+					<top>580</top>
+					<width>32</width>
+					<height>32</height>
+					<aligny>bottom</aligny>
+					<texture fallback="resource://resource.images.classificationicons.colour/Check Classification.png">$VAR[MPAARatingIcons]</texture>
+					<aspectratio>keep</aspectratio>
+					<visible>$EXP[isnotEmptyDBID] + $EXP[isSeason]</visible>
+				</control>
+				<control type="button" id="510">
+					<left>75</left>
+					<top>630</top>
+					<width>auto</width>
+					<height>50</height>
+					<label>$VAR[WidgetViewHeading]</label>
+					<align>center</align>
+					<font>apptv20</font>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<onclick>Control.Move(51,1)</onclick>
+				</control>
+				<include content="page-offscreen-horizontal">
+					<param name="indicator1left" value="20"/>
+					<param name="indicator1top" value="790"/>
+					<param name="indicator2left" value="1852"/>
+					<param name="indicator2top" value="790"/>
+					<param name="indicatorsize" value="32"/>
+					<param name="indicatorcontainer" value="5100"/>
+				</include>
+				<include content="page-offscreen-vertical">
+					<param name="indicator1left" value="936"/>
+					<param name="indicator1top" value="630"/>
+					<param name="indicator2left" value="936"/>
+					<param name="indicator2top" value="1020"/>
+					<param name="indicatorsize" value="48"/>
+					<param name="indicatorcontainer" value="51"/>
+				</include>
+			</control>
+		</control>
+	</include>
+</includes>

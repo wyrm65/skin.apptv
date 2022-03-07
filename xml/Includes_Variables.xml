@@ -1107,13 +1107,17 @@
 		<value>$LOCALIZE[13205]</value>
 	</variable>
 	<variable name="WidgetViewList">
-		<value condition="Container(59).ListItem(0).IsParentFolder">$INFO[Container(59).ListItem(1).FolderPath]</value>
-		<value condition="![Container(59).ListItem(0).IsParentFolder]">$INFO[Container(59).ListItem(0).FolderPath]</value>
+		<value condition="Control.IsVisible(51) + Container(51).ListItem(0).IsParentFolder">$INFO[Container(51).ListItem(1).FolderPath]</value>
+		<value condition="Control.IsVisible(51) + !Container(51).ListItem(0).IsParentFolder">$INFO[Container(51).ListItem(0).FolderPath]</value>
+		<value condition="Control.IsVisible(59) + Container(59).ListItem(0).IsParentFolder">$INFO[Container(59).ListItem(1).FolderPath]</value>
+		<value condition="Control.IsVisible(59) + !Container(59).ListItem(0).IsParentFolder">$INFO[Container(59).ListItem(0).FolderPath]</value>
 		<value></value>
 	</variable>
 	<variable name="WidgetViewHeading">
-		<value condition="Container(59).ListItem(0).IsParentFolder">$INFO[Container(59).ListItem(1).Label]</value>
-		<value condition="![Container(59).ListItem(0).IsParentFolder]">$INFO[Container(59).ListItem(0).Label]</value>
+		<value condition="Control.IsVisible(51) + Container(51).ListItem(0).IsParentFolder">$INFO[Container(51).ListItem(1).Label]</value>
+		<value condition="Control.IsVisible(51) + !Container(51).ListItem(0).IsParentFolder">$INFO[Container(51).ListItem(0).Label]</value>
+		<value condition="Control.IsVisible(59) + Container(59).ListItem(0).IsParentFolder">$INFO[Container(59).ListItem(1).Label]</value>
+		<value condition="Control.IsVisible(59) + !Container(59).ListItem(0).IsParentFolder">$INFO[Container(59).ListItem(0).Label]</value>
 		<value></value>
 	</variable>
 	<variable name="WidgetViewPlot">
