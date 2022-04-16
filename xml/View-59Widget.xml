@@ -10,8 +10,6 @@
 			<onleft>9000</onleft>
 			<onright>9000</onright>
 			<onfocus>SetFocus(591)</onfocus>
-			<onfocus>SetFocus(591)</onfocus>
-			<onback>SetFocus(59)</onback>
 			<visible>!Container.Content(movies) + !Container.Content(episodes) + !Container.Content(musicvideos)</visible>
 			<itemlayout/>
 			<focusedlayout/>
@@ -99,13 +97,15 @@
 				<param name="widget_parentid" value="59"/>
 				<param name="widget_left" value="0"/>
 				<param name="widget_top" value="6"/>
-				<param name="widget_path" value="$VAR[WidgetViewList]"/>
+				<param name="widget_onup" value="Control.Move(59,-1)"/>
+				<param name="widget_ondown" value="Control.Move(59,1)"/>
+				<param name="widget_path" value="$VAR[WidgetViewPath]"/>
 				<param name="widget_target" value="Videos"/>
 			</include>
 			<control type="button" id="5901">
 				<left>0</left>
 				<top>6</top>
-				<width>174</width>
+				<width>1750</width>
 				<height>268</height>
 				<texturefocus>blank.png</texturefocus>
 				<texturenofocus>blank.png</texturenofocus>

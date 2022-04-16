@@ -586,6 +586,8 @@
 		<param name="widget_parentid"/>
 		<param name="widget_left"/>
 		<param name="widget_top"/>
+		<param name="widget_onup"/>
+		<param name="widget_ondown"/>
 		<param name="widget_path"/>
 		<param name="widget_target"/>
 		<definition>
@@ -600,30 +602,31 @@
 				<orientation>horizontal</orientation>
 				<onleft>9000</onleft>
 				<onright>9000</onright>
-				<onup>Control.Move($PARAM[widget_parentid],-1)</onup>
-				<ondown>Control.Move($PARAM[widget_parentid],1)</ondown>
+				<onup>$PARAM[widget_onup]</onup>
+				<ondown>$PARAM[widget_ondown]</ondown>
 				<onback>SetFocus($PARAM[widget_parentid])</onback>
-				<oninfo>Action(Info)</oninfo>
-				<visible>[Container($PARAM[widget_parentid]).IsUpdating | Integer.IsGreater(Container($PARAM[widget_parentid]).NumItems,1) | Container($PARAM[widget_id]).IsUpdating | 
-						Integer.IsGreater(Container($PARAM[widget_id]).NumItems,0)]</visible>
 				<itemlayout width="250">
 					<control type="image">
-						<left>38</left>
+						<left>10</left>
 						<top>8</top>
-						<width>174</width>
+						<width>230</width>
 						<height>268</height>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<aspectratio scalediffuse="false">keep</aspectratio>
 						<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+						<align>center</align>
+						<aligny>center</aligny>
 					</control>
 				</itemlayout>
 				<focusedlayout width="250">
 					<control type="image">
-						<left>38</left>
+						<left>10</left>
 						<top>8</top>
-						<width>174</width>
+						<width>230</width>
 						<height>268</height>
-						<aspectratio scalediffuse="false">stretch</aspectratio>
+						<aspectratio scalediffuse="false">keep</aspectratio>
 						<texture diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
+						<align>center</align>
+						<aligny>center</aligny>
 						<animation effect="zoom" start="100" end="106" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					</control>
 					<control type="textbox">
