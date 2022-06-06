@@ -18,13 +18,13 @@
 		</include>
 		<control type="group"><!-- Various Views of Video library node -->
 			<visible>![String.IsEmpty(ListItem.Label) + String.IsEmpty(ListItem(1).Label)]</visible>
-			<include file="View-Video.xml">VideoListView</include>
+			<include file="View-50List.xml">VideoListView</include>
 			<include file="View-51SeasonWidget.xml" condition="!Skin.HasSetting(videoviewseasonwidget)">VideoSeasonWidgetView</include>
-			<include file="View-Video.xml" condition="!Skin.HasSetting(videoviewicon)">VideoIconView</include>
-			<include file="View-Video.xml" condition="!Skin.HasSetting(videoviewbanner)">BannerView</include>
-			<include file="View-Video.xml" condition="!Skin.HasSetting(videoviewwrap)">VideoWrapView</include>
-			<include file="View-Video.xml" condition="!Skin.HasSetting(videoviewcoverflow)">VideoCoverflow</include>
-			<include file="View-Video.xml" condition="!Skin.HasSetting(videoviewwall)">VideoWallView</include>
+			<include file="View-52Icon.xml" condition="!Skin.HasSetting(videoviewicon)">VideoIconView</include>
+			<include file="View-53Banner.xml" condition="!Skin.HasSetting(videoviewbanner)">BannerView</include>
+			<include file="View-54Wrap.xml" condition="!Skin.HasSetting(videoviewwrap)">VideoWrapView</include>
+			<include file="View-57Coverflow.xml" condition="!Skin.HasSetting(videoviewcoverflow)">VideoCoverflow</include>
+			<include file="View-58Wall.xml" condition="!Skin.HasSetting(videoviewwall)">VideoWallView</include>
 			<include file="View-59Widget.xml" condition="!Skin.HasSetting(videoviewwidget)">VideoWidgetView</include>
 		</control>
 		<control type="group"><!-- No Label tag means video addon is busy pulling in content, so show a busy animation -->
@@ -305,7 +305,7 @@
 		<control type="group">
 			<visible>![String.IsEmpty(Container().ListItem.Label) + String.IsEmpty(Container().ListItem(1).Label)]</visible>
 			<control type="group">
-				<visible>Control.IsVisible(50) | Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(58)</visible>
+				<visible>Control.IsVisible(50) | Control.IsVisible(51) |Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(58) | Control.IsVisible(59)</visible>
 				<include content="page-indicator">
 					<param name="indicatorleft" value="864" />
 					<param name="indicatortop" value="0" />
@@ -316,10 +316,10 @@
 					<param name="grp1visible" value="[!Skin.HasSetting(lock-screensettings)]" />
 					<param name="grp2indicate" value="[Control.HasFocus(5050)|Control.HasFocus(5058)]" />
 					<param name="grp2visible" value="[[Control.IsVisible(50)|Control.IsVisible(58)]+$EXP[isContentSets]+$EXP[isnotParentFolder]]" />
-					<param name="grp3indicate" value="[Control.HasFocus(50)|Control.HasFocus(52)|Control.HasFocus(53)|Control.HasFocus(58)]" />
-					<param name="grp3visible" value="[Control.IsVisible(50)|Control.IsVisible(52)|Control.IsVisible(53)|Control.IsVisible(58)]+[!Skin.HasSetting(lock-screensettings)|$EXP[isEnabledScrollbar]]" />
+					<param name="grp3indicate" value="[Control.HasFocus(50)|Control.HasFocus(510)|Control.HasFocus(5101)|Control.HasFocus(52)|Control.HasFocus(53)|Control.HasFocus(58)|Control.HasFocus(5900)]" />
+					<param name="grp3visible" value="[Control.IsVisible(50)|Control.IsVisible(51)|Control.IsVisible(52)|Control.IsVisible(53)|Control.IsVisible(58)|Control.IsVisible(59)]+[!Skin.HasSetting(lock-screensettings)|$EXP[isEnabledScrollbar]]" />
 					<param name="grp4indicate" value="[Control.HasFocus(1240)|Control.HasFocus(1242)|Control.HasFocus(1243)|Control.HasFocus(1248)|Control.HasFocus(1260)|Control.HasFocus(1262)|Control.HasFocus(1263)|Control.HasFocus(1268)]" />
-					<param name="grp4visible" value="[Skin.HasSetting(show-letterbar)+[$EXP[isContentSets]|$EXP[isContentMovies]|$EXP[isContentTvshows]|$EXP[isContentMusicvideos]]]" />
+					<param name="grp4visible" value="[Skin.HasSetting(show-letterbar)+[$EXP[isContentSets]|$EXP[isContentMovies]|$EXP[isContentTvshows]|$EXP[isContentMusicvideos]]+!Control.IsVisible(59)]" />
 					<param name="grp5indicate" value="[Control.HasFocus(1250)|Control.HasFocus(1252)|Control.HasFocus(1253)|Control.HasFocus(1258)]" />
 					<param name="grp5visible" value="[Control.IsVisible(1250)|Control.IsVisible(1252)|Control.IsVisible(1253)|Control.IsVisible(1258)]+[$EXP[isEnabledScrollbar]]" />
 				</include>

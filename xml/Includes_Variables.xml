@@ -1108,54 +1108,59 @@
 		<value>$LOCALIZE[13205]</value>
 	</variable>
 	<variable name="WidgetViewPath">
-		<value condition="Control.IsVisible(51) + String.Contains(Container(51).Path,plugin://) + Container(51).ListItem(0).IsParentFolder">-</value>
-		<value condition="Control.IsVisible(51) + String.Contains(Container(51).Path,plugin://) + !Container(51).ListItem(0).IsParentFolder">$INFO[Container(51).ListItem(0).Path]</value>
-		<value condition="Control.IsVisible(51) + Container(51).ListItem(0).IsParentFolder">-</value>
-		<value condition="Control.IsVisible(51) + !Container(51).ListItem(0).IsParentFolder">$INFO[Container(51).ListItem(0).FolderPath]</value>
-		<value condition="Control.IsVisible(59) + Container(59).ListItem(0).IsParentFolder">$INFO[Container(59).ListItem(1).FolderPath]</value>
-		<value condition="Control.IsVisible(59) + !Container(59).ListItem(0).IsParentFolder">$INFO[Container(59).ListItem(0).FolderPath]</value>
+		<value condition="Control.IsVisible(51) + String.Contains(Container(51).Path,plugin://) + Container(51).ListItem.IsParentFolder">$INFO[Container(51).ListItem(1).Path]</value>
+		<value condition="Control.IsVisible(51) + String.Contains(Container(51).Path,plugin://)">$INFO[Container(51).ListItem(0).Path]</value>
+		<value condition="Control.IsVisible(51) + Container(51).ListItem.IsParentFolder">$INFO[Container(51).ListItem(1).FolderPath]</value>
+		<value condition="Control.IsVisible(51)">$INFO[Container(51).ListItem(0).FolderPath]</value>
+		<value condition="Control.IsVisible(59) + Container(59).ListItem.IsParentFolder">$INFO[Container(59).ListItem(1).FolderPath]</value>
+		<value condition="Control.IsVisible(59)">$INFO[Container(59).ListItem(0).FolderPath]</value>
 	</variable>
 	<variable name="WidgetViewHeading">
-		<value condition="Control.IsVisible(51) + Container(51).ListItem(0).IsParentFolder">$INFO[Container(51).ListItem(1).Label]</value>
-		<value condition="Control.IsVisible(51) + !Container(51).ListItem(0).IsParentFolder">$INFO[Container(51).ListItem(0).Label]</value>
-		<value condition="Control.IsVisible(59) + Container(59).ListItem(0).IsParentFolder">$INFO[Container(59).ListItem(1).Label]</value>
-		<value condition="Control.IsVisible(59) + !Container(59).ListItem(0).IsParentFolder">$INFO[Container(59).ListItem(0).Label]</value>
+		<value condition="Control.IsVisible(51) + Container(51).ListItem.IsParentFolder">$INFO[Container(51).ListItem(1).Label]</value>
+		<value condition="Control.IsVisible(51)">$INFO[Container(51).ListItem(0).Label]</value>
+		<value condition="Control.IsVisible(59) + Container(59).ListItem.IsParentFolder">$INFO[Container(59).ListItem(1).Label]</value>
+		<value condition="Control.IsVisible(59)">$INFO[Container(59).ListItem(0).Label]</value>
 	</variable>
 	<variable name="WidgetLogo">
-		<value condition="!String.IsEmpty(Container(5100).ListItem(1).Art(tvshow.clearlogo)) + String.Contains(Container(5100).ListItem.Label,$LOCALIZE[20366])">$INFO[Container(5100).ListItem(1).Art(tvshow.clearlogo)]</value>
-		<value condition="!String.IsEmpty(Container(5100).ListItem(1).Art(clearlogo)) + String.Contains(Container(5100).ListItem.Label,$LOCALIZE[20366])">$INFO[Container(5100).ListItem(1).Art(clearlogo)]</value>
-		<value condition="!String.IsEmpty(Container(5100).ListItem.Art(clearlogo))">$INFO[Container(5100).ListItem.Art(clearlogo)]</value>
-		<value condition="!String.IsEmpty(Container(5100).ListItem.Art(tvshow.clearlogo))">$INFO[Container(5100).ListItem.Art(tvshow.clearlogo)]</value>
+		<value condition="!String.IsEmpty(Container(5101).ListItem(1).Art(tvshow.clearlogo)) + String.Contains(Container(5101).ListItem.Label,$LOCALIZE[20366])">$INFO[Container(5101).ListItem(1).Art(tvshow.clearlogo)]</value>
+		<value condition="!String.IsEmpty(Container(5101).ListItem(1).Art(clearlogo)) + String.Contains(Container(5101).ListItem.Label,$LOCALIZE[20366])">$INFO[Container(5101).ListItem(1).Art(clearlogo)]</value>
+		<value condition="!String.IsEmpty(Container(5101).ListItem.Art(clearlogo))">$INFO[Container(5101).ListItem.Art(clearlogo)]</value>
+		<value condition="!String.IsEmpty(Container(5101).ListItem.Art(tvshow.clearlogo))">$INFO[Container(5101).ListItem.Art(tvshow.clearlogo)]</value>
 		<value condition="!String.IsEmpty(Container(51).ListItem(1).Art(clearlogo))">$INFO[Container(51).ListItem(1).Art(clearlogo)]</value>
 		<value condition="!String.IsEmpty(Container(51).ListItem(1).Art(tvshow.clearlogo))">$INFO[Container(51).ListItem(1).Art(tvshow.clearlogo)]</value>
 	</variable>
 	<variable name="WidgetViewPlot">
-		<value condition="!String.IsEmpty(Container(5100).ListItem.Plot)">$INFO[Container(5100).ListItem.Plot]</value>
-		<value condition="!String.IsEmpty(Container(5100).ListItem.PlotOutline)">$INFO[Container(5100).ListItem.PlotOutline]</value>
+		<value condition="Control.HasFocus(5101) + !String.IsEmpty(Container(5101).ListItem.Plot)">$INFO[Container(5101).ListItem.Plot]</value>
+		<value condition="Control.HasFocus(5101) + !String.IsEmpty(Container(5101).ListItem.PlotOutline)">$INFO[Container(5101).ListItem.PlotOutline]</value>
 		<value condition="!String.IsEmpty(Container(51).ListItem(1).Plot)">$INFO[Container(51).ListItem(1).Plot]</value>
 		<value condition="!String.IsEmpty(Container(51).ListItem(1).PlotOutline)">$INFO[Container(51).ListItem(1).PlotOutline]</value>
 	</variable>
 	<variable name="WidgetItemFlags">
-		<value condition="Control.IsVisible(51) + Container(5100).ListItem.IsStereoscopic">listitem/3D.png</value>
-		<value condition="Control.IsVisible(51) + !String.IsEmpty(Container(5100).ListItem.VideoResolution) + String.IsEqual(Container(5100).ListItem.VideoResolution,8K)">listitem/8K.png</value>
-		<value condition="Control.IsVisible(51) + !String.IsEmpty(Container(5100).ListItem.VideoResolution) + String.IsEqual(Container(5100).ListItem.VideoResolution,4K)">listitem/4K.png</value>
-		<value condition="Control.IsVisible(51) + !String.IsEmpty(Container(5100).ListItem.VideoResolution) + Integer.IsGreater(Container(5100).ListItem.VideoResolution,720)">listitem/FHD.png</value>
-		<value condition="Control.IsVisible(51) + !String.IsEmpty(Container(5100).ListItem.VideoResolution) + Integer.IsGreater(Container(5100).ListItem.VideoResolution,625)">listitem/HD.png</value>
-		<value condition="Control.IsVisible(51) + !String.IsEmpty(Container(5100).ListItem.VideoResolution)">listitem/SD.png</value>
+		<value condition="Control.IsVisible(51) + Container(5101).ListItem.IsStereoscopic">listitem/3D.png</value>
+		<value condition="Control.IsVisible(51) + !String.IsEmpty(Container(5101).ListItem.VideoResolution) + String.IsEqual(Container(5101).ListItem.VideoResolution,8K)">listitem/8K.png</value>
+		<value condition="Control.IsVisible(51) + !String.IsEmpty(Container(5101).ListItem.VideoResolution) + String.IsEqual(Container(5101).ListItem.VideoResolution,4K)">listitem/4K.png</value>
+		<value condition="Control.IsVisible(51) + !String.IsEmpty(Container(5101).ListItem.VideoResolution) + Integer.IsGreater(Container(5101).ListItem.VideoResolution,720)">listitem/FHD.png</value>
+		<value condition="Control.IsVisible(51) + !String.IsEmpty(Container(5101).ListItem.VideoResolution) + Integer.IsGreater(Container(5101).ListItem.VideoResolution,625)">listitem/HD.png</value>
+		<value condition="Control.IsVisible(51) + !String.IsEmpty(Container(5101).ListItem.VideoResolution)">listitem/SD.png</value>
 	</variable>
 	<variable name="WidgetMPAARatingIcons">
-		<value condition="Control.HasFocus(5100) + Skin.HasSetting(defaultmpaa-locale)">$INFO[Container(5100).Listitem.MPAA,resource://resource.images.classificationicons.colour/,.png]</value>
-		<value condition="Control.HasFocus(5100)">$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Container(5100).Listitem.MPAA,,.png]</value>
+		<value condition="Control.HasFocus(5101) + Skin.HasSetting(defaultmpaa-locale)">$INFO[Container(5101).Listitem.MPAA,resource://resource.images.classificationicons.colour/,.png]</value>
+		<value condition="Control.HasFocus(5101)">$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Container(5101).Listitem.MPAA,,.png]</value>
 		<value condition="Skin.HasSetting(defaultmpaa-locale)">$INFO[Listitem.MPAA,resource://resource.images.classificationicons.colour/,.png]</value>
 		<value>$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</value>
 	</variable>
 	<variable name="WidgetItemDuration">
-		<value condition="Integer.IsLess(Container(5100).ListItem.Duration(mins),1) + !String.IsEmpty(Container(5100).Listitem.Duration)">( $LOCALIZE[19695] )</value>
-		<value condition="Integer.IsEqual(Container(5100).ListItem.Duration(mins),1)">$INFO[Container(5100).ListItem.Duration,, $LOCALIZE[31813]]</value>
-		<value condition="Integer.IsLess(Container(5100).ListItem.Duration(mins),60)">$INFO[Container(5100).ListItem.Duration,, $LOCALIZE[31814]]</value>
-		<value condition="Integer.IsLess(Container(5100).ListItem.Duration(mins),120)">$INFO[Container(5100).ListItem.Duration,, $LOCALIZE[31817]]</value>
-		<value condition="Integer.IsGreater(Container(5100).ListItem.Duration(hours),1)">$INFO[Container(5100).ListItem.Duration,, $LOCALIZE[31816]]</value>
-		<value>$INFO[Container(5100).ListItem.Duration]</value>
+		<value condition="Integer.IsLess(Container(5101).ListItem.Duration(mins),1) + !String.IsEmpty(Container(5101).Listitem.Duration)">( $LOCALIZE[19695] )</value>
+		<value condition="Integer.IsEqual(Container(5101).ListItem.Duration(mins),1)">$INFO[Container(5101).ListItem.Duration,, $LOCALIZE[31813]]</value>
+		<value condition="Integer.IsLess(Container(5101).ListItem.Duration(mins),60)">$INFO[Container(5101).ListItem.Duration,, $LOCALIZE[31814]]</value>
+		<value condition="Integer.IsLess(Container(5101).ListItem.Duration(mins),120)">$INFO[Container(5101).ListItem.Duration,, $LOCALIZE[31817]]</value>
+		<value condition="Integer.IsGreater(Container(5101).ListItem.Duration(hours),1)">$INFO[Container(5101).ListItem.Duration,, $LOCALIZE[31816]]</value>
+		<value>$INFO[Container(5101).ListItem.Duration]</value>
+	</variable>
+	<variable name="VolumeIcon">
+		<value condition="Integer.IsGreater(Player.Volume,0) + Integer.IsLess(Player.Volume,11)">volume-low.png</value>
+		<value condition="Integer.IsGreater(Player.Volume,10) + Integer.IsLess(Player.Volume,81)">volume-medium.png</value>
+		<value>volume-high.png</value>
 	</variable>
 	<variable name="MovieShelfLabel">
 		<value condition="[Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31026])] + String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31964])">$LOCALIZE[31964]</value>
@@ -1887,6 +1892,43 @@
 		<value condition="String.IsEqual(ListItem.Property(Icon), printer)">libre-elec/bt-printer.png</value>
 		<value condition="String.IsEqual(ListItem.Property(Icon), computer)">libre-elec/bt-computer.png</value>
 		<value>libre-elec/bt.png</value>
+	</variable>
+	<!-- Search -->
+	<variable name="Local.SearchMovies">
+		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(movies)">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</value>
+	</variable>
+	<variable name="Local.SearchActorMovies">
+		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(movies)">videodb://movies/titles/?xsp=%7b%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22actor%22%2c%22operator%22%3a%22is%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22movies%22%7d</value>
+	</variable>
+	<variable name="Local.SearchDirectorMovies">
+		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(movies)">videodb://movies/titles/?xsp=%7b%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22director%22%2c%22operator%22%3a%22is%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22movies%22%7d</value>
+	</variable>
+	<variable name="Local.SearchShows">
+		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(tvshows)">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</value>
+	</variable>
+	<variable name="Local.SearchActorShows">
+		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(tvshows)">videodb://tvshows/titles/?xsp=%7b%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22actor%22%2c%22operator%22%3a%22is%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22tvshows%22%7d</value>
+	</variable>
+	<variable name="Local.SearchEpisodes">
+		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(tvshows)">videodb://tvshows/titles/-1/-1/-1/-1/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22episodes%22%7D</value>
+	</variable>
+	<variable name="Local.SearchActorEpisodes">
+		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(tvshows)">videodb://tvshows/titles/-1/-1/-1/-1/?xsp=%7b%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22actor%22%2c%22operator%22%3a%22is%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22episodes%22%7d</value>
+	</variable>
+	<variable name="Local.SearchMusicVideos">
+		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(musicvideos)">videodb://musicvideos/titles/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22sorttitle%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22title%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22musicvideos%22%7d</value>
+	</variable>
+	<variable name="Local.SearchArtists">
+		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(music)">musicdb://artists/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22artist%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22artist%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22artists%22%7D</value>
+	</variable>
+	<variable name="Local.SearchAlbums">
+		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(music)">musicdb://albums/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22album%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22album%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22albums%22%7d</value>
+	</variable>
+	<variable name="Local.SearchSongs">
+		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(music)">musicdb://songs/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22artist%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22title%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22songs%22%7d</value>
+	</variable>
+	<variable name="YouTube.Search">
+		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + System.HasAddon(plugin.video.youtube)">plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[Skin.String(CustomSearchTerm)]&amp;search_type=videos</value>
 	</variable>
 	<variable name="SkinSettingHelp">
 		<value condition="Control.HasFocus(102)">$LOCALIZE[31300]</value>

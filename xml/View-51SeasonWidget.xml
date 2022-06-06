@@ -1,99 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="VideoSeasonWidgetView">
-		<control type="list" id="51">
+		<control type="wraplist" id="51">
 			<viewtype label="31931">list</viewtype>
-			<left>75</left>
-			<top>620</top>
-			<width>280</width>
-			<height>50</height>
+			<left>10</left>
+			<top>10</top>
+			<width>0</width>
+			<height>0</height>
 			<scrolltime>0</scrolltime>
 			<orientation>horizontal</orientation>
 			<onleft>9000</onleft>
 			<onright>9000</onright>
-			<ondown>SetFocus(5100)</ondown>
-			<onback>SetFocus(50)</onback>
+			<onfocus>SetFocus(510)</onfocus>
 			<visible>$EXP[isContentSeasons]</visible>
 			<animation effect="fade" start="100" end="60" reversible="true">Unfocus</animation>
-			<itemlayout width="280">
-				<control type="image">
-					<left>0</left>
-					<top>0</top>
-					<width>280</width>
-					<height>50</height>
-					<texture border="9">button-default-focus.png</texture>
-					<aspectratio>stretch</aspectratio>
-				</control>
-				<control type="label">
-					<left>10</left>
-					<top>7</top>
-					<width>260</width>
-					<height>34</height>
-					<font>apptv20</font>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label>$INFO[ListItem.Label]</label>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				</control>
-			</itemlayout>
-			<focusedlayout width="280">
-				<control type="image">
-					<left>0</left>
-					<top>0</top>
-					<width>280</width>
-					<height>50</height>
-					<texture border="9">button-default-focus.png</texture>
-					<aspectratio>stretch</aspectratio>
-				</control>
-				<control type="label">
-					<left>10</left>
-					<top>7</top>
-					<width>260</width>
-					<height>34</height>
-					<font>apptv20</font>
-					<align>center</align>
-					<aligny>center</aligny>
-					<label>$INFO[ListItem.Label]</label>
-					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
-				</control>
-			</focusedlayout>
+			<itemlayout/>
+			<focusedlayout/>
 		</control>
-		<control type="group">
+		<control type="button" id="510">
+			<left>75</left>
+			<top>620</top>
+			<width>auto</width>
+			<height>50</height>
+			<texturefocus border="9">button-default-focus.png</texturefocus>
+			<texturenofocus border="9">button-default.png</texturenofocus>
+			<label>$VAR[WidgetViewHeading]</label>
+			<font>apptv20</font>
+			<onleft>9000</onleft>
+			<onright>9000</onright>
+			<onup>Control.Move(51,-1)</onup>
+			<ondown>SetFocus(5100)</ondown>
+			<onfocus condition="Container(51).ListItem.IsParentFolder">Control.Move(51,1)</onfocus>
+			<onclick>Control.Move(51,1)</onclick>
 			<visible>Control.IsVisible(51)</visible>
-			<control type="image">
-				<left>74</left>
-				<top>632</top>
-				<height>24</height>
-				<width>24</width>
-				<texture>scroll-left-focus.png</texture>
-				<visible>Container(51).HasPrevious + Integer.IsGreater(Container(51).NumItems,0)</visible>
-			</control>
-			<control type="image">
-				<left>334</left>
-				<top>632</top>
-				<height>24</height>
-				<width>24</width>
-				<texture>scroll-right-focus.png</texture>
-				<visible>Container(51).HasNext + Integer.IsGreater(Container(51).NumItems,0)</visible>
-			</control>
 		</control>
-		<control type="group">
+		<control type="group" id="5100">
 			<left>75</left>
 			<top>670</top>
 			<height>350</height>
 			<width>1890</width>
 			<visible>Control.IsVisible(51)</visible>
 			<include content="WidgetListPoster">
-				<param name="widget_id" value="5100"/>
+				<param name="widget_id" value="5101"/>
 				<param name="widget_parentid" value="51"/>
 				<param name="widget_left" value="0"/>
 				<param name="widget_top" value="6"/>
-				<param name="widget_onup" value="SetFocus(51)"/>
+				<param name="widget_onup" value="SetFocus(510)"/>
 				<param name="widget_ondown" value="Control.Move(51,1)"/>
 				<param name="widget_path" value="$VAR[WidgetViewPath]"/>
 				<param name="widget_target" value="Videos"/>
 			</include>
-			<control type="button" id="5101">
+			<control type="button" id="5102">
 				<left>0</left>
 				<top>6</top>
 				<width>1750</width>
@@ -102,10 +59,10 @@
 				<texturenofocus>blank.png</texturenofocus>
 				<onleft>9000</onleft>
 				<onright>9000</onright>
-				<onup>SetFocus(51)</onup>
+				<onup>SetFocus(510)</onup>
 				<ondown>Control.Move(51,1)</ondown>
 				<onclick>Control.Move(51,1)</onclick>
-				<visible>Integer.IsLessOrEqual(Container(5100).NumItems,0) | [Container(5100).IsUpdating]</visible>
+				<visible>Integer.IsLessOrEqual(Container(5101).NumItems,0) | [Container(5101).IsUpdating]</visible>
 			</control>
 		</control>
 		<control type="group">
@@ -137,7 +94,7 @@
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="group">
-					<visible>Control.HasFocus(5100)</visible>
+					<visible>Control.HasFocus(5101)</visible>
 					<control type="image">
 						<left>296</left>
 						<top>296</top>
@@ -171,7 +128,7 @@
 					<param name="indicator2left" value="1852"/>
 					<param name="indicator2top" value="790"/>
 					<param name="indicatorsize" value="32"/>
-					<param name="indicatorcontainer" value="5100"/>
+					<param name="indicatorcontainer" value="5101"/>
 				</include>
 			</control>
 		</control>
