@@ -2,12 +2,16 @@
 <includes>
 	<include name="IconHomeMenu">
 		<control type="image"><!-- Background image for main icon area -->
-			<include>fullscreenimage</include>
+			<left>0</left>
+			<top>471</top>
+			<width>100%</width>
+			<height>1080</height>
 			<texture>background-iconhome.png</texture>
+			<animation condition="![Container(9000).Row(0) | Container(9000).Row(1)] | Container(9000).HasPrevious()" effect="slide"  tween="quadratic" easing="out" start="0,0" end="0,-480" time="200">Conditonal</animation>
 		</control>
 		<control type="group">
 			<visible>[Container(9000).Row(0) | Container(9000).Row(1)] + !Container(9000).HasPrevious()</visible>
-			<animation effect="fade" start="0" end="100" time="300">Visible</animation>
+			<animation effect="fade" start="0" end="100" time="200">Visible</animation>
 			<!-- Background shelf image -->
 			<include file="Includes_Shelf.xml">ShelfBackground</include>
 			<!-- Show time on home screen -->
@@ -96,7 +100,7 @@
 			<onup condition="Control.IsVisible(9802) | Control.IsVisible(9803)">9005</onup>
 			<ondown>9005</ondown>
 			<scrolltime tween="quadratic" easing="out">300</scrolltime>
-			<animation condition="![Container(9000).Row(0) | Container(9000).Row(1)] | Container(9000).HasPrevious()" effect="slide"  tween="quadratic" easing="out" start="0,0" end="0,-480" time="300">Conditonal</animation>
+			<animation condition="![Container(9000).Row(0) | Container(9000).Row(1)] | Container(9000).HasPrevious()" effect="slide"  tween="quadratic" easing="out" start="0,0" end="0,-480" time="200">Conditonal</animation>
 			<itemlayout height="262" width="378">
 				<control type="image">
 					<left>36</left>

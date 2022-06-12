@@ -12,6 +12,7 @@
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(set.fanart))">$INFO[ListItem.Art(set.fanart)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Skin.String(background-custom))">$INFO[Skin.String(background-custom)]</value>
+		<value>background.png</value>
 	</variable>
 	<variable name="BackgndSimpleImage">
 		<value condition="Skin.HasSetting(background-slideshow) + Player.HasAudio + !String.IsEmpty(Window(visualisation).Property(ArtistSlideshow.Image))">$INFO[Window(visualisation).Property(ArtistSlideshow.Image)]</value>
@@ -19,6 +20,7 @@
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(Player.Art(fanart))">$INFO[Player.Art(fanart)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Skin.String(background-custom))">$INFO[Skin.String(background-custom)]</value>
+		<value>background.png</value>
 	</variable>
 	<variable name="BackgndWeatherImage">
 		<value condition="Skin.HasSetting(background-customweather.multi) + !String.IsEmpty(Skin.String(background-customweather.name))">$INFO[Skin.String(background-customweather.path)]$INFO[Window(weather).Property(Day0.FanartCode)]</value>
@@ -1117,9 +1119,9 @@
 	</variable>
 	<variable name="WidgetViewHeading">
 		<value condition="Control.IsVisible(51) + Container(51).ListItem.IsParentFolder">$INFO[Container(51).ListItem(1).Label]</value>
-		<value condition="Control.IsVisible(51)">$INFO[Container(51).ListItem(0).Label]</value>
+		<value condition="Control.IsVisible(51)">$INFO[Container(51).ListItem.Label]</value>
 		<value condition="Control.IsVisible(59) + Container(59).ListItem.IsParentFolder">$INFO[Container(59).ListItem(1).Label]</value>
-		<value condition="Control.IsVisible(59)">$INFO[Container(59).ListItem(0).Label]</value>
+		<value condition="Control.IsVisible(59)">$INFO[Container(59).ListItem.Label]</value>
 	</variable>
 	<variable name="WidgetLogo">
 		<value condition="!String.IsEmpty(Container(5101).ListItem(1).Art(tvshow.clearlogo)) + String.Contains(Container(5101).ListItem.Label,$LOCALIZE[20366])">$INFO[Container(5101).ListItem(1).Art(tvshow.clearlogo)]</value>
@@ -1132,8 +1134,8 @@
 	<variable name="WidgetViewPlot">
 		<value condition="Control.HasFocus(5101) + !String.IsEmpty(Container(5101).ListItem.Plot)">$INFO[Container(5101).ListItem.Plot]</value>
 		<value condition="Control.HasFocus(5101) + !String.IsEmpty(Container(5101).ListItem.PlotOutline)">$INFO[Container(5101).ListItem.PlotOutline]</value>
-		<value condition="!String.IsEmpty(Container(51).ListItem(1).Plot)">$INFO[Container(51).ListItem(1).Plot]</value>
-		<value condition="!String.IsEmpty(Container(51).ListItem(1).PlotOutline)">$INFO[Container(51).ListItem(1).PlotOutline]</value>
+		<value condition="!String.IsEmpty(Container(51).ListItem.Plot)">$INFO[Container(51).ListItem.Plot]</value>
+		<value condition="!String.IsEmpty(Container(51).ListItem.PlotOutline)">$INFO[Container(51).ListItem.PlotOutline]</value>
 	</variable>
 	<variable name="WidgetItemFlags">
 		<value condition="Control.IsVisible(51) + Container(5101).ListItem.IsStereoscopic">listitem/3D.png</value>

@@ -111,11 +111,6 @@
 			</control>
 			<control type="image">
 				<include>fullscreenimage</include>
-				<texture>background.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			<control type="image">
-				<include>fullscreenimage</include>
 				<texture background="false">$VAR[BackgndImage]</texture>
 				<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
 				<aspectratio>stretch</aspectratio>
@@ -144,11 +139,6 @@
 	</include>
 	<include name="backgroundsimple">
 		<control type="group">
-			<control type="image">
-				<include>fullscreenimage</include>
-				<texture>background.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
 			<control type="image">
 				<include>fullscreenimage</include>
 				<texture background="false">$VAR[BackgndSimpleImage]</texture>
@@ -647,8 +637,8 @@
 		</definition>
 	</include>
 	<include name="page-toggle">
-		<width>48</width>
-		<height>48</height>
+		<width>24</width>
+		<height>24</height>
 		<texturefocus>groupunfocused.png</texturefocus>
 		<texturenofocus>groupunfocused.png</texturenofocus>
 		<alttexturefocus>groupfocused.png</alttexturefocus>
@@ -678,7 +668,7 @@
 				<width>$PARAM[indicatorwidth]</width>
 				<height>$PARAM[indicatorheight]</height>
 				<orientation>$PARAM[indicatororientation]</orientation>
-				<itemgap>-12</itemgap>
+				<itemgap>0</itemgap>
 				<align>center</align>
 				<control type="togglebutton">
 					<include>page-toggle</include>
