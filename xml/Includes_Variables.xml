@@ -30,7 +30,6 @@
 		<value>background.png</value>
 	</variable>
 	<variable name="BackgndShelfImage">
-		<value condition="Container().Scrolling | !String.IsEqual(Skin.String(shelf-backgroundtype),$LOCALIZE[20445])">blank.png</value>
 		<value condition="Skin.HasSetting(animated-artwork) + !String.IsEmpty(ListItem.Art(animatedfanart))">$INFO[ListItem.Art(animatedfanart)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + [!String.IsEmpty(ListItem.Art(fanart1)) | [[$EXP[isContentSeasons] | $EXP[isContentEpisodes]] + !String.IsEmpty(ListItem.Art(tvshow.fanart1))]] + !String.IsEmpty(Control.GetLabel(300000))">$INFO[Control.GetLabel(300000)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
