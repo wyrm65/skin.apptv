@@ -780,7 +780,7 @@
 					<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
 					<animation effect="zoom" start="100" end="155" center="auto">focus</animation>
 					<animation effect="fade" start="100" end="40" condition="!Control.HasFocus($PARAM[searchid])">Conditional</animation>
-					<visible>!Container($PARAM[letterbarid]).IsUpdating + $PARAM[letterbarvisible]</visible>
+					<visible>!Container($PARAM[letterbarid]).IsUpdating + Control.IsVisible($PARAM[letterbarid])</visible>
 				</control>
 				<control type="panel" id="$PARAM[letterbarid]">
 					<left>$PARAM[letterbarleft]</left>
@@ -866,7 +866,7 @@
 					<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
 					<animation effect="zoom" start="100" end="160" center="auto">focus</animation>
 					<animation effect="fade" start="100" end="40" condition="!Control.HasFocus($PARAM[searchid])">Conditional</animation>
-					<visible>!Container($PARAM[letterbarid]).IsUpdating + $PARAM[letterbarvisible]</visible>
+					<visible>!Container($PARAM[letterbarid]).IsUpdating + Control.IsVisible($PARAM[letterbarid])</visible>
 				</control>
 				<control type="panel" id="$PARAM[letterbarid]">
 					<left>$PARAM[letterbarleft]</left>
