@@ -460,6 +460,7 @@
 	</variable>
 	<variable name="VideoHeadings">
 		<value condition="String.Contains(Container.FolderPath,plugin.video.specialfeatures)">$LOCALIZE[31891]</value>
+		<value condition="String.Contains(Container.FolderPath,addons:) + !String.IsEmpty(Container.FolderName)">$INFO[Container.FolderName]</value>
 		<value condition="Container.Content(movies)">$LOCALIZE[20342]</value>
 		<value condition="Container.Content(tvshows)">$LOCALIZE[31027]</value>
 		<value condition="Container.Content(episodes) + !String.IsEmpty(Container.ShowTitle) + Integer.IsGreater(ListItem.Season,0)">$INFO[Container.ShowTitle][CR]$INFO[ListItem.Season,$LOCALIZE[20373] - ]</value>
@@ -1109,17 +1110,18 @@
 		<value>$LOCALIZE[13205]</value>
 	</variable>
 	<variable name="WidgetViewPath">
-		<value condition="Control.IsVisible(51) + String.Contains(Container(51).Path,plugin://) + Container(51).ListItem.IsParentFolder">$INFO[Container(51).ListItem(1).Path]</value>
-		<value condition="Control.IsVisible(51) + String.Contains(Container(51).Path,plugin://)">$INFO[Container(51).ListItem(0).Path]</value>
+		<value condition="Control.IsVisible(51) + String.Contains(Container(51).FolderPath,plugin://) + Container(51).ListItem.IsParentFolder">$INFO[Container(51).ListItem(1).Path]</value>
+		<value condition="Control.IsVisible(51) + String.Contains(Container(51).FolderPath,plugin://)">$INFO[Container(51).ListItem(0).Path]</value>
 		<value condition="Control.IsVisible(51) + Container(51).ListItem.IsParentFolder">$INFO[Container(51).ListItem(1).FolderPath]</value>
 		<value condition="Control.IsVisible(51)">$INFO[Container(51).ListItem(0).FolderPath]</value>
-		<value condition="Control.IsVisible(59) + Container(59).ListItem.IsParentFolder">$INFO[Container(59).ListItem(1).FolderPath]</value>
+		<value condition="Control.IsVisible(59) + Container(59).ListItem.IsParentFolder"></value>
 		<value condition="Control.IsVisible(59)">$INFO[Container(59).ListItem(0).FolderPath]</value>
 	</variable>
 	<variable name="WidgetViewHeading">
 		<value condition="Control.IsVisible(51) + Container(51).ListItem.IsParentFolder">$INFO[Container(51).ListItem(1).Label]</value>
+		<value condition="Control.IsVisible(51) + Integer.IsGreater(Container(51).NumItems,0)">$INFO[Container(51).ListItem.Label]$INFO[Container(5101).NumItems, (,)]</value>
 		<value condition="Control.IsVisible(51)">$INFO[Container(51).ListItem.Label]</value>
-		<value condition="Control.IsVisible(59) + Container(59).ListItem.IsParentFolder">$INFO[Container(59).ListItem(1).Label]</value>
+		<value condition="Control.IsVisible(59) + !Container(59).ListItem.IsParentFolder + Integer.IsGreater(Container(5900).NumItems,0)">$INFO[Container(59).ListItem.Label]$INFO[Container(5900).NumItems, (,)]</value>
 		<value condition="Control.IsVisible(59)">$INFO[Container(59).ListItem.Label]</value>
 	</variable>
 	<variable name="WidgetLogo">

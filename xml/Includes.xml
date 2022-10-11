@@ -565,9 +565,8 @@
 				<height>50</height>
 				<font>apptv20</font>
 				<align>left</align>
-				<label>$PARAM[widget_label] $INFO[Container($PARAM[widget_id]).NumItems,(,)]</label>
-				<visible>Container($PARAM[widget_parentid]).IsUpdating | Integer.IsGreater(Container($PARAM[widget_parentid]).NumItems,1) | Container($PARAM[widget_id]).IsUpdating | 
-						Integer.IsGreater(Container($PARAM[widget_id]).NumItems,0)</visible>
+				<label>$PARAM[widget_label]</label>
+				<visible>Container($PARAM[widget_parentid]).IsUpdating|Integer.IsGreater(Container($PARAM[widget_parentid]).NumItems,1)|Container($PARAM[widget_id]).IsUpdating|						Integer.IsGreater(Container($PARAM[widget_id]).NumItems,0)</visible>
 			</control>
 		</definition>
 	</include>
@@ -581,8 +580,7 @@
 		<param name="widget_path"/>
 		<param name="widget_target"/>
 		<definition>
-			<visible>[Container($PARAM[widget_parentid]).IsUpdating | Integer.IsGreater(Container($PARAM[widget_parentid]).NumItems,1) | Container($PARAM[widget_id]).IsUpdating | 
-						Integer.IsGreater(Container($PARAM[widget_id]).NumItems,0)]</visible>
+			<visible>[Container($PARAM[widget_parentid]).IsUpdating|Integer.IsGreater(Container($PARAM[widget_parentid]).NumItems,1)|Container($PARAM[widget_id]).IsUpdating|						Integer.IsGreater(Container($PARAM[widget_id]).NumItems,0)]</visible>
 			<control type="panel" id="$PARAM[widget_id]">
 				<left>$PARAM[widget_left]</left>
 				<top>$PARAM[widget_top]</top>

@@ -92,16 +92,19 @@
 			<height>350</height>
 			<width>1890</width>
 			<visible>Control.IsVisible(59)</visible>
-			<include content="WidgetListPoster">
-				<param name="widget_id" value="5900"/>
-				<param name="widget_parentid" value="59"/>
-				<param name="widget_left" value="0"/>
-				<param name="widget_top" value="6"/>
-				<param name="widget_onup" value="Control.Move(59,-1)"/>
-				<param name="widget_ondown" value="Control.Move(59,1)"/>
-				<param name="widget_path" value="$VAR[WidgetViewPath]"/>
-				<param name="widget_target" value="Videos"/>
-			</include>
+			<control type="group">
+				<visible>!Container(59).ListItem.IsParentFolder</visible>
+				<include content="WidgetListPoster">
+					<param name="widget_id" value="5900"/>
+					<param name="widget_parentid" value="59"/>
+					<param name="widget_left" value="0"/>
+					<param name="widget_top" value="6"/>
+					<param name="widget_onup" value="Control.Move(59,-1)"/>
+					<param name="widget_ondown" value="Control.Move(59,1)"/>
+					<param name="widget_path" value="$VAR[WidgetViewPath]"/>
+					<param name="widget_target" value="Videos"/>
+				</include>
+			</control>
 			<control type="button" id="5901">
 				<left>0</left>
 				<top>6</top>
@@ -114,7 +117,7 @@
 				<onup>Control.Move(59,-1)</onup>
 				<ondown>Control.Move(59,1)</ondown>
 				<onclick>Control.Move(59,1)</onclick>
-				<visible>Integer.IsLessOrEqual(Container(5900).NumItems,0) | [Container(5900).IsUpdating]</visible>
+				<visible>Integer.IsLessOrEqual(Container(5900).NumItems,0) | [Container(5900).IsUpdating] | Container(59).ListItem.IsParentFolder</visible>
 			</control>
 		</control>
 	</include>
