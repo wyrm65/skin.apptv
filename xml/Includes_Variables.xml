@@ -527,7 +527,6 @@
 	</variable>
 	<variable name="IconPoster">
 		<value condition="!Container.Scrolling + !System.ScreenSaverActive + !String.IsEmpty(ListItem.Art(animatedposter)) + Skin.HasSetting(animated-artwork)">$INFO[ListItem.Art(animatedposter)]</value>
-		<!--<value condition="Control.IsVisible(51) + !String.IsEmpty(Container(5100).ListItem.Icon))">$INFO[Container(5100).ListItem.Icon]</value>-->
 		<value condition="!String.IsEmpty(ListItem(1).Art(tvshow.poster)) + Container.Content(seasons) + String.Contains(ListItem.Label,$LOCALIZE[20366])">$INFO[ListItem(1).Art(tvshow.poster)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
@@ -1124,6 +1123,26 @@
 		<value condition="Control.IsVisible(59) + !Container(59).ListItem.IsParentFolder + Integer.IsGreater(Container(5900).NumItems,0)">$INFO[Container(59).ListItem.Label]$INFO[Container(5900).NumItems, (,)]</value>
 		<value condition="Control.IsVisible(59)">$INFO[Container(59).ListItem.Label]</value>
 	</variable>
+	<variable name="WidgetIconPoster">
+		<value condition="!String.IsEqual(ListItem.Label,ListItem.Title) + String.Contains(ListItem.Label,$LOCALIZE[137])">icon-search.png</value>
+		<value condition="!String.IsEqual(ListItem.Label,ListItem.Title) + String.Contains(ListItem.Label,$LOCALIZE[13200])">DefaultUser.png</value>
+		<value condition="!String.IsEmpty(ListItem(1).Art(tvshow.poster)) + Container.Content(seasons) + String.Contains(ListItem.Label,$LOCALIZE[20366])">$INFO[ListItem(1).Art(tvshow.poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+		<value condition="!String.IsEmpty(ListItem.Icon) + ListItem.IsParentFolder">DefaultFolderBack.png</value>
+		<value condition="!String.IsEmpty(ListItem.Icon) + !String.Contains(ListItem.Icon,Default)">$INFO[ListItem.Icon]</value>
+		<value condition="String.IsEmpty(Container.Content) + !String.Contains(ListItem.Icon,Default)">$INFO[ListItem.Icon]</value>
+		<value condition="Container.Content(studios) + !String.IsEmpty(Skin.String(custom-moviestudioicons.path))">$INFO[Skin.String(custom-moviestudioicons.path)]$INFO[ListItem.Label]$INFO[Skin.String(custom-moviestudioicons.ext)]</value>
+		<value condition="Container.Content(genres) + !String.IsEmpty(Skin.String(custom-moviegenresicons.path))">$INFO[Skin.String(custom-moviegenresicons.path)]$INFO[ListItem.Label]$INFO[Skin.String(custom-moviegenresicons.ext)]</value>
+		<value condition="Container.Content(actors) | Container.Content(directors)">DefaultUser.png</value>
+		<value condition="Container.Content(years)">DefaultYear.png</value>
+		<value condition="Container.Content(playlists)">DefaultPlaylist.png</value>
+		<value condition="Container.Content(movies)">DefaultMovies.png</value>
+		<value condition="Container.Content(musicvideos)">DefaultMusicVideos.png</value>
+		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">DefaultTvshows.png</value>
+		<value>DefaultVideo.png</value>
+	</variable>	
 	<variable name="WidgetLogo">
 		<value condition="!String.IsEmpty(Container(5101).ListItem(1).Art(tvshow.clearlogo)) + String.Contains(Container(5101).ListItem.Label,$LOCALIZE[20366])">$INFO[Container(5101).ListItem(1).Art(tvshow.clearlogo)]</value>
 		<value condition="!String.IsEmpty(Container(5101).ListItem(1).Art(clearlogo)) + String.Contains(Container(5101).ListItem.Label,$LOCALIZE[20366])">$INFO[Container(5101).ListItem(1).Art(clearlogo)]</value>
