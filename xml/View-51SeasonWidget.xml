@@ -1,72 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 	<include name="VideoSeasonWidgetView">
-		<control type="wraplist" id="51">
+		<control type="fixedlist" id="51">
 			<viewtype label="31931">list</viewtype>
-			<left>10</left>
-			<top>10</top>
-			<width>0</width>
-			<height>0</height>
-			<scrolltime>0</scrolltime>
-			<orientation>horizontal</orientation>
+			<left>-10</left>
+			<top>-10</top>
+			<width>1</width>
+			<height>1</height>
 			<onleft>9000</onleft>
 			<onright>9000</onright>
 			<onfocus>SetFocus(510)</onfocus>
-			<visible>$EXP[isContentSeasons]</visible>
-			<animation effect="fade" start="100" end="60" reversible="true">Unfocus</animation>
+			<visible>Container.Content(seasons)</visible>
 			<itemlayout/>
 			<focusedlayout/>
 		</control>
-		<control type="button" id="510">
-			<left>75</left>
-			<top>620</top>
-			<width>auto</width>
-			<height>50</height>
-			<texturefocus border="9">button-default-focus.png</texturefocus>
-			<texturenofocus border="9">button-default.png</texturenofocus>
-			<label>$VAR[WidgetViewHeading]</label>
-			<font>apptv20</font>
-			<onleft>9000</onleft>
-			<onright>9000</onright>
-			<onup>Control.Move(51,-1)</onup>
-			<ondown>SetFocus(5100)</ondown>
-			<onfocus condition="Container(51).ListItem.IsParentFolder">Control.Move(51,1)</onfocus>
-			<onclick>Control.Move(51,1)</onclick>
-			<visible>Control.IsVisible(51)</visible>
-		</control>
-		<control type="group" id="5100">
-			<left>75</left>
-			<top>670</top>
-			<height>350</height>
-			<width>1890</width>
-			<visible>Control.IsVisible(51)</visible>
-			<include content="WidgetListPoster">
-				<param name="widget_id" value="5101"/>
-				<param name="widget_parentid" value="51"/>
-				<param name="widget_left" value="0"/>
-				<param name="widget_top" value="6"/>
-				<param name="widget_onup" value="SetFocus(510)"/>
-				<param name="widget_ondown" value="Control.Move(51,1)"/>
-				<param name="widget_path" value="$VAR[WidgetViewPath]"/>
-				<param name="widget_target" value="Videos"/>
-			</include>
-			<control type="button" id="5102">
-				<left>0</left>
-				<top>6</top>
-				<width>1750</width>
-				<height>268</height>
-				<texturefocus>blank.png</texturefocus>
-				<texturenofocus>blank.png</texturenofocus>
-				<onleft>9000</onleft>
-				<onright>9000</onright>
-				<onup>SetFocus(510)</onup>
-				<ondown>Control.Move(51,1)</ondown>
-				<onclick>Control.Move(51,1)</onclick>
-				<visible>Integer.IsLessOrEqual(Container(5101).NumItems,0) | [Container(5101).IsUpdating]</visible>
-			</control>
-		</control>
 		<control type="group">
 			<visible>Control.IsVisible(51)</visible>
+			<control type="button" id="510">
+				<left>75</left>
+				<top>620</top>
+				<width>auto</width>
+				<height>50</height>
+				<texturefocus border="9">button-default-focus.png</texturefocus>
+				<texturenofocus border="9">button-default.png</texturenofocus>
+				<label>$VAR[WidgetViewHeading]</label>
+				<font>apptv20</font>
+				<onleft>9000</onleft>
+				<onright>9000</onright>
+				<onup>Control.Move(51,-1)</onup>
+				<ondown>SetFocus(5100)</ondown>
+				<onclick condition="Container(51).ListItem.IsParentFolder">Back</onclick>
+				<onclick condition="!Container(51).ListItem.IsParentFolder">Control.Move(51,1)</onclick>
+			</control>
+			<control type="group" id="5100">
+				<left>75</left>
+				<top>670</top>
+				<height>350</height>
+				<width>1890</width>
+				<control type="group">
+					<visible>!Container(51).ListItem.IsParentFolder</visible>
+					<include content="WidgetListPoster">
+						<param name="widget_id" value="5101"/>
+						<param name="widget_parentid" value="51"/>
+						<param name="widget_left" value="0"/>
+						<param name="widget_top" value="6"/>
+						<param name="widget_onup" value="SetFocus(510)"/>
+						<param name="widget_ondown" value="Control.Move(51,1)"/>
+						<param name="widget_path" value="$VAR[WidgetViewPath]"/>
+						<param name="widget_target" value="Videos"/>
+					</include>
+				</control>
+				<control type="button" id="5102">
+					<left>0</left>
+					<top>6</top>
+					<width>1750</width>
+					<height>268</height>
+					<texturefocus>blank.png</texturefocus>
+					<texturenofocus>blank.png</texturenofocus>
+					<onleft>9000</onleft>
+					<onright>9000</onright>
+					<onup>SetFocus(510)</onup>
+					<ondown>Control.Move(51,1)</ondown>
+					<onclick>Control.Move(51,1)</onclick>
+					<visible>Integer.IsLessOrEqual(Container(5101).NumItems,0) | [Container(5101).IsUpdating] | Container(51).ListItem.IsParentFolder</visible>
+				</control>
+			</control>
 			<control type="group">
 				<control type="image">
 					<left>75</left>
@@ -121,14 +119,25 @@
 					<align>justify</align>
 					<aligny>top</aligny>
 				</control>
-				<include content="page-offscreen-horizontal">
-					<param name="indicator1left" value="20"/>
-					<param name="indicator1top" value="790"/>
-					<param name="indicator2left" value="1852"/>
-					<param name="indicator2top" value="790"/>
-					<param name="indicatorsize" value="32"/>
-					<param name="indicatorcontainer" value="5101"/>
+				<include content="page-offscreen-vertical">
+					<param name="indicator1left" value="936"/>
+					<param name="indicator1top" value="630"/>
+					<param name="indicator2left" value="936"/>
+					<param name="indicator2top" value="1020"/>
+					<param name="indicatorsize" value="48"/>
+					<param name="indicatorcontainer" value="51"/>
 				</include>
+				<control type="group">
+					<visible>!Container(51).ListItem.IsParentFolder</visible>
+					<include content="page-offscreen-horizontal">
+						<param name="indicator1left" value="20"/>
+						<param name="indicator1top" value="790"/>
+						<param name="indicator2left" value="1852"/>
+						<param name="indicator2top" value="790"/>
+						<param name="indicatorsize" value="32"/>
+						<param name="indicatorcontainer" value="5101"/>
+					</include>
+				</control>
 			</control>
 		</control>
 	</include>

@@ -155,6 +155,7 @@
 		<value condition="Control.IsVisible(58)">SetFocus(58)</value>
 	</variable>
 	<variable name="MPAARatingIcons">
+		<value condition="String.IsEmpty(Listitem.MPAA)"></value>
 		<value condition="Skin.HasSetting(defaultmpaa-locale)">$INFO[Listitem.MPAA,resource://resource.images.classificationicons.colour/,.png]</value>
 		<value>$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</value>
 	</variable>
@@ -1109,15 +1110,12 @@
 		<value>$LOCALIZE[13205]</value>
 	</variable>
 	<variable name="WidgetViewPath">
-		<value condition="Control.IsVisible(51) + String.Contains(Container(51).FolderPath,plugin://) + Container(51).ListItem.IsParentFolder">$INFO[Container(51).ListItem(1).Path]</value>
-		<value condition="Control.IsVisible(51) + String.Contains(Container(51).FolderPath,plugin://)">$INFO[Container(51).ListItem(0).Path]</value>
-		<value condition="Control.IsVisible(51) + Container(51).ListItem.IsParentFolder">$INFO[Container(51).ListItem(1).FolderPath]</value>
-		<value condition="Control.IsVisible(51)">$INFO[Container(51).ListItem(0).FolderPath]</value>
-		<value condition="Control.IsVisible(59) + Container(59).ListItem.IsParentFolder"></value>
-		<value condition="Control.IsVisible(59)">$INFO[Container(59).ListItem(0).FolderPath]</value>
+		<value condition="Control.IsVisible(51) + !String.IsEmpty(Container(51).ListItem.FolderPath)">$INFO[Container(51).ListItem.FolderPath]</value>
+		<value condition="Control.IsVisible(51) + !String.IsEmpty(Container(51).ListItem.Path)">$INFO[Container(51).ListItem.Path]</value>
+		<value condition="Control.IsVisible(59)">$INFO[Container(59).ListItem.FolderPath]</value>
 	</variable>
 	<variable name="WidgetViewHeading">
-		<value condition="Control.IsVisible(51) + Container(51).ListItem.IsParentFolder">$INFO[Container(51).ListItem(1).Label]</value>
+		<value condition="Control.IsVisible(51) + Container(51).ListItem.IsParentFolder">$INFO[Container(51).ListItem.Label]</value>
 		<value condition="Control.IsVisible(51) + Integer.IsGreater(Container(51).NumItems,0)">$INFO[Container(51).ListItem.Label]$INFO[Container(5101).NumItems, (,)]</value>
 		<value condition="Control.IsVisible(51)">$INFO[Container(51).ListItem.Label]</value>
 		<value condition="Control.IsVisible(59) + !Container(59).ListItem.IsParentFolder + Integer.IsGreater(Container(5900).NumItems,0)">$INFO[Container(59).ListItem.Label]$INFO[Container(5900).NumItems, (,)]</value>
@@ -1152,6 +1150,7 @@
 		<value condition="!String.IsEmpty(Container(51).ListItem(1).Art(tvshow.clearlogo))">$INFO[Container(51).ListItem(1).Art(tvshow.clearlogo)]</value>
 	</variable>
 	<variable name="WidgetViewPlot">
+		<value condition="Container(51).ListItem.IsParentFolder">$INFO[Container(51).ShowPlot]</value>
 		<value condition="Control.HasFocus(5101) + !String.IsEmpty(Container(5101).ListItem.Plot)">$INFO[Container(5101).ListItem.Plot]</value>
 		<value condition="Control.HasFocus(5101) + !String.IsEmpty(Container(5101).ListItem.PlotOutline)">$INFO[Container(5101).ListItem.PlotOutline]</value>
 		<value condition="!String.IsEmpty(Container(51).ListItem.Plot)">$INFO[Container(51).ListItem.Plot]</value>
@@ -1166,6 +1165,7 @@
 		<value condition="Control.IsVisible(51) + !String.IsEmpty(Container(5101).ListItem.VideoResolution)">listitem/SD.png</value>
 	</variable>
 	<variable name="WidgetMPAARatingIcons">
+		<value condition="String.IsEmpty(Container(5101).Listitem.MPAA)"></value>
 		<value condition="Control.HasFocus(5101) + Skin.HasSetting(defaultmpaa-locale)">$INFO[Container(5101).Listitem.MPAA,resource://resource.images.classificationicons.colour/,.png]</value>
 		<value condition="Control.HasFocus(5101)">$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Container(5101).Listitem.MPAA,,.png]</value>
 		<value condition="Skin.HasSetting(defaultmpaa-locale)">$INFO[Listitem.MPAA,resource://resource.images.classificationicons.colour/,.png]</value>
