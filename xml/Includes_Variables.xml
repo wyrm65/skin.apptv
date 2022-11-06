@@ -461,11 +461,9 @@
 	</variable>
 	<variable name="VideoHeadings">
 		<value condition="String.Contains(Container.FolderPath,plugin.video.specialfeatures)">$LOCALIZE[31891]</value>
-		<value condition="String.Contains(Container.FolderPath,addons:) + !String.IsEmpty(Container.FolderName)">$INFO[Container.FolderName]</value>
 		<value condition="Container.Content(movies)">$LOCALIZE[20342]</value>
 		<value condition="Container.Content(tvshows)">$LOCALIZE[31027]</value>
-		<value condition="Container.Content(episodes) + !String.IsEmpty(Container.ShowTitle) + Integer.IsGreater(ListItem.Season,0)">$INFO[Container.ShowTitle][CR]$INFO[ListItem.Season,$LOCALIZE[20373] - ]</value>
-		<value condition="Container.Content(episodes) + !String.IsEmpty(Container.ShowTitle) + String.IsEqual(ListItem.Season,0)">$INFO[Container.ShowTitle][CR]$LOCALIZE[20381]</value>
+		<value condition="Container.Content(episodes)">$VAR[EpisodeHeadings]</value>
 		<value condition="Container.Content(actors)">$LOCALIZE[344]</value>
 		<value condition="Container.Content(genres)">$LOCALIZE[135]</value>
 		<value condition="Container.Content(years)">$LOCALIZE[652]</value>
@@ -474,9 +472,15 @@
 		<value condition="Container.Content(musicvideos)">$LOCALIZE[20389]</value>
 		<value condition="Container.Content(playlists)">$LOCALIZE[136]</value>
 		<value condition="Container.Content(addons)">$LOCALIZE[31696]</value>
+		<value condition="String.Contains(Container.FolderPath,plugin://)+!String.IsEmpty(Container.FolderName)">$INFO[Container.FolderName]</value> 
+		<value condition="String.Contains(Container.FolderPath,addons://)+!String.IsEmpty(Container.FolderName)">$INFO[Container.FolderName]</value>
+		<value condition="!String.IsEmpty(Container.FolderName)">$INFO[Container.FolderName]</value>
 		<value condition="Container.Content(files)">$LOCALIZE[744]</value>
-		<value condition="!String.IsEmpty(Container.FolderName) + !String.IsEmpty(ListItem.Label)">$INFO[Container.FolderName]</value>
 		<value>$LOCALIZE[3]</value>
+	</variable>
+	<variable name="EpisodeHeadings">
+		<value condition="!String.IsEmpty(Container.ShowTitle) + !ListItem.Property(IsSpecial)">$INFO[Container.ShowTitle][CR]$INFO[Container.FolderName]</value>
+		<value condition="!String.IsEmpty(Container.ShowTitle) + ListItem.Property(IsSpecial)">$INFO[Container.ShowTitle][CR]$LOCALIZE[20381]</value>
 	</variable>
 	<variable name="MusicHeadings">
 		<value condition="Container.Content(artists)">$LOCALIZE[133]</value>
