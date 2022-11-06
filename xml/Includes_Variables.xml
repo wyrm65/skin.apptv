@@ -1142,6 +1142,7 @@
 		<value>DefaultVideo.png</value>
 	</variable>	
 	<variable name="WidgetLogo">
+		<value condition="Container(51).ListItem.IsParentFolder">DefaultFolderBack.png</value>
 		<value condition="!String.IsEmpty(Container(5101).ListItem(1).Art(tvshow.clearlogo)) + String.Contains(Container(5101).ListItem.Label,$LOCALIZE[20366])">$INFO[Container(5101).ListItem(1).Art(tvshow.clearlogo)]</value>
 		<value condition="!String.IsEmpty(Container(5101).ListItem(1).Art(clearlogo)) + String.Contains(Container(5101).ListItem.Label,$LOCALIZE[20366])">$INFO[Container(5101).ListItem(1).Art(clearlogo)]</value>
 		<value condition="!String.IsEmpty(Container(5101).ListItem.Art(clearlogo))">$INFO[Container(5101).ListItem.Art(clearlogo)]</value>
