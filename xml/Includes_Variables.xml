@@ -11,6 +11,7 @@
 		<value condition="!Skin.HasSetting(background-fanarts) + Player.HasAudio + !String.IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(set.fanart))">$INFO[ListItem.Art(set.fanart)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="!Skin.HasSetting(background-fanarts) + ListItem.IsParentFolder + !String.IsEmpty(ListItem(1).Art(fanart))">$INFO[ListItem(1).Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Skin.String(background-custom))">$INFO[Skin.String(background-custom)]</value>
 		<value>background.png</value>
 	</variable>
@@ -19,6 +20,7 @@
 		<value condition="!Skin.HasSetting(background-fanarts) + Player.HasAudio + !String.IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(Player.Art(fanart))">$INFO[Player.Art(fanart)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
+		<value condition="!Skin.HasSetting(background-fanarts) + ListItem.IsParentFolder + !String.IsEmpty(ListItem(1).Art(fanart))">$INFO[ListItem(1).Art(fanart)]</value>
 		<value condition="!String.IsEmpty(Skin.String(background-custom))">$INFO[Skin.String(background-custom)]</value>
 		<value>background.png</value>
 	</variable>
