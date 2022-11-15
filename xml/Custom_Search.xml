@@ -1,221 +1,472 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window id="1156">
 	<defaultcontrol always="true">200</defaultcontrol>
-	<backgroundcolor>background</backgroundcolor>
-	<include>PropertyIncludes</include>
 	<controls>
-		<!-- background -->
-		<include content="Background">
-			<param name="forced_visible" value="true"/>
+		<include>backgroundsimple</include>
+		<include content="screen-name">
+			<param name="screenlabel" value="$LOCALIZE[137][CR]'$VAR[SearchString]'"/>
 		</include>
+		<control type="button" id="200">
+			<top>90</top>
+			<left>70</left>
+			<width>300</width>
+			<height>50</height>
+			<onup>noop</onup>
+			<ondown>10</ondown>
+			<onclick>SetProperty(CustomSearch,1,home)</onclick>
+			<onclick>Skin.Reset(CustomSearchTerm)</onclick>
+			<onclick>Skin.SetString(CustomSearchTerm)</onclick>
+			<label>$LOCALIZE[31698]</label>
+			<font>apptv20</font>
+		</control>
+		<control type="label">
+			<top>165</top>
+			<left>20</left>
+			<width>1880</width>
+			<height>60</height>
+			<align>center</align>
+			<aligny>center</aligny>
+			<label>$LOCALIZE[284]</label>
+			<font>apptv30</font>
+			<visible>Integer.IsLess(Container(10).NumItems,1) + !$EXP[IsSearching] + !Window.IsVisible(virtualkeyboard)</visible>
+		</control>
 		<!-- results -->
 		<control type="grouplist" id="10">
 			<visible>!Window.IsVisible(virtualkeyboard)</visible>
-			<include>Window_OpenClose</include>
-			<defaultcontrol>12</defaultcontrol>
-			<width>100%</width>
-			<height>100%</height>
-			<itemgap>-80</itemgap>
+			<top>150</top>
+			<left>0</left>
+			<width>1920</width>
+			<height>900</height>
+			<itemgap>20</itemgap>
 			<orientation>vertical</orientation>
 			<usecontrolcoords>true</usecontrolcoords>
-			<include>ScrollTime</include>
-			<pagecontrol>17</pagecontrol>
-			<include content="WidgetSpacer">
-				<param name="id" value="11"/>
-			</include>
-			<control type="group">
-				<width>1920</width>
-				<height>239</height>
-				<control type="group">
-					<include content="widget_headline">
-						<param name="headline">$LOCALIZE[19133] '$VAR[SearchString]'</param>
-					</include>
-					<control type="grouplist" id="200">
-						<top>92</top>
-						<left>70</left>
-						<height>60</height>
-						<orientation>horizontal</orientation>
-						<itemgap>5</itemgap>
-						<onright>noop</onright>
-						<onleft>900</onleft>
-						<onup>6666</onup>
-						<ondown>200</ondown>
-						<control type="button" id="201">
-							<height>60</height>
-							<onup>noop</onup>
-							<ondown>noop</ondown>
-							<onleft>noop</onleft>
-							<onright>noop</onright>
-							<label>$LOCALIZE[31052]</label>
-							<visible>$EXP[IsSearching]</visible>
-						</control>
-						<control type="button" id="202">
-							<label>$LOCALIZE[31052]</label>
-							<height>60</height>
-							<onup>noop</onup>
-							<ondown>101</ondown>
-							<onclick>SetProperty(CustomSearch,1,home)</onclick>
-							<onclick>Skin.Reset(CustomSearchTerm)</onclick>
-							<onclick>Skin.SetString(CustomSearchTerm)</onclick>
-							<visible>!$EXP[IsSearching]</visible>
-						</control>
-					</control>
-					<control type="label">
-						<top>165</top>
-						<left>65</left>
-						<width>1000</width>
-						<height>87</height>
-						<font>Med23</font>
-						<align>left</align>
-						<aligny>center</aligny>
-						<label>$LOCALIZE[284]</label>
-						<visible>Integer.IsEqual(Container(10).NumItems,1) + !$EXP[IsSearching]</visible>
-					</control>
-				</control>
-			</control>
+			<onup>200</onup>
+			<ondown>201</ondown>
+			<pagecontrol>300</pagecontrol>
 			<!-- movies -->
-			<include content="PosterWidget">
-				<param name="id" value="101"/>
-				<param name="onup" value="200"/>
-				<param name="ondown" value="102"/>
-				<param name="headline" value="$LOCALIZE[342]"/>
-				<param name="force_visible" value="!String.IsEmpty(Window(home).Property(CustomSearch)) + !String.IsEmpty(Skin.String(CustomSearchTerm))"/>
-				<param name="use_custom_content" value="true"/>
-				<param name="widget_target" value="videos"/>
-				<param name="content" value="$VAR[Local.SearchMovies]"/>
-			</include>
+			<control type="group" id="201">
+				<top>0</top>
+				<left>0</left>
+				<width>1920</width>
+				<height>360</height>
+				<visible>Integer.IsGreater(Container(101).NumItems,0) | Container(101).IsUpdating</visible>
+				<include content="WidgetLabel">
+					<param name="widget_id" value="101"/>
+					<param name="widget_left" value="70"/>
+					<param name="widget_top" value="10"/>
+					<param name="widget_label" value="$LOCALIZE[342]$INFO[Container(101).NumItems,(,)]"/>
+				</include>
+				<include content="WidgetPoster">
+					<param name="widget_id" value="101"/>
+					<param name="widget_left" value="80"/>
+					<param name="widget_top" value="60"/>
+					<param name="widget_onup" value="200"/>
+					<param name="widget_ondown" value="203"/>
+					<param name="widget_path" value="$VAR[Local.SearchMovies]"/>
+					<param name="widget_target" value="Videos"/>
+				</include>
+				<include content="page-offscreen-horizontal">
+					<param name="indicator1left" value="20"/>
+					<param name="indicator1top" value="190"/>
+					<param name="indicator2left" value="1852"/>
+					<param name="indicator2top" value="190"/>
+					<param name="indicatorsize" value="32"/>
+					<param name="indicatorcontainer" value="101"/>
+				</include>
+			</control>
 			<!-- tvshows -->
-			<include content="WideWidget">
-				<param name="id" value="103"/>
-				<param name="onup" value="102"/>
-				<param name="ondown" value="104"/>
-				<param name="headline" value="$LOCALIZE[20343]"/>
-				<param name="force_visible" value="!String.IsEmpty(Window(home).Property(CustomSearch)) + !String.IsEmpty(Skin.String(CustomSearchTerm))"/>
-				<param name="use_custom_content" value="true"/>
-				<param name="widget_target" value="videos"/>
-				<param name="content" value="$VAR[Local.SearchShows]"/>
-			</include>
+			<control type="group" id="203">
+				<top>0</top>
+				<left>0</left>
+				<width>1920</width>
+				<height>320</height>
+				<visible>Integer.IsGreater(Container(103).NumItems,0) | Container(103).IsUpdating</visible>
+				<include content="WidgetLabel">
+					<param name="widget_id" value="103"/>
+					<param name="widget_left" value="70"/>
+					<param name="widget_top" value="10"/>
+					<param name="widget_label" value="$LOCALIZE[20343]$INFO[Container(103).NumItems,(,)]"/>
+				</include>
+				<include content="WidgetWide">
+					<param name="widget_id" value="103"/>
+					<param name="widget_left" value="80"/>
+					<param name="widget_top" value="40"/>
+					<param name="widget_onup" value="201"/>
+					<param name="widget_ondown" value="205"/>
+					<param name="widget_path" value="$VAR[Local.SearchShows]"/>
+					<param name="widget_target" value="Videos"/>
+				</include>
+				<include content="page-offscreen-horizontal">
+					<param name="indicator1left" value="20"/>
+					<param name="indicator1top" value="140"/>
+					<param name="indicator2left" value="1852"/>
+					<param name="indicator2top" value="140"/>
+					<param name="indicatorsize" value="32"/>
+					<param name="indicatorcontainer" value="103"/>
+				</include>
+			</control>
 			<!-- episodes -->
-			<include content="WideWidget">
-				<param name="id" value="105"/>
-				<param name="onup" value="104"/>
-				<param name="ondown" value="106"/>
-				<param name="headline" value="$LOCALIZE[20360]"/>
-				<param name="force_visible" value="!String.IsEmpty(Window(home).Property(CustomSearch)) + !String.IsEmpty(Skin.String(CustomSearchTerm))"/>
-				<param name="use_custom_content" value="true"/>
-				<param name="widget_target" value="videos"/>
-				<param name="content" value="$VAR[Local.SearchEpisodes]"/>
-			</include>
+			<control type="group" id="205">
+				<top>0</top>
+				<left>0</left>
+				<width>1920</width>
+				<height>320</height>
+				<visible>Integer.IsGreater(Container(105).NumItems,0) | Container(105).IsUpdating</visible>
+				<include content="WidgetLabel">
+					<param name="widget_id" value="105"/>
+					<param name="widget_left" value="70"/>
+					<param name="widget_top" value="10"/>
+					<param name="widget_label" value="$LOCALIZE[20360]$INFO[Container(105).NumItems,(,)]"/>
+				</include>
+				<include content="WidgetWide">
+					<param name="widget_id" value="105"/>
+					<param name="widget_left" value="80"/>
+					<param name="widget_top" value="40"/>
+					<param name="widget_onup" value="203"/>
+					<param name="widget_ondown" value="207"/>
+					<param name="widget_path" value="$VAR[Local.SearchEpisodes]"/>
+					<param name="widget_target" value="Videos"/>
+				</include>
+				<include content="page-offscreen-horizontal">
+					<param name="indicator1left" value="20"/>
+					<param name="indicator1top" value="140"/>
+					<param name="indicator2left" value="1852"/>
+					<param name="indicator2top" value="140"/>
+					<param name="indicatorsize" value="32"/>
+					<param name="indicatorcontainer" value="105"/>
+				</include>
+			</control>
 			<!-- musicvid -->
-			<include content="WideWidget">
-				<param name="id" value="107"/>
-				<param name="onup" value="106"/>
-				<param name="ondown" value="108"/>
-				<param name="height" value="439"/>
-				<param name="headline" value="$LOCALIZE[20389]"/>
-				<param name="force_visible" value="!String.IsEmpty(Window(home).Property(CustomSearch)) + !String.IsEmpty(Skin.String(CustomSearchTerm))"/>
-				<param name="use_custom_content" value="true"/>
-				<param name="widget_target" value="videos"/>
-				<param name="content" value="$VAR[Local.SearchMusicVideos]"/>
-			</include>
+			<control type="group" id="207">
+				<top>0</top>
+				<left>0</left>
+				<width>1920</width>
+				<height>320</height>
+				<visible>Integer.IsGreater(Container(107).NumItems,0) | Container(107).IsUpdating</visible>
+				<include content="WidgetLabel">
+					<param name="widget_id" value="107"/>
+					<param name="widget_left" value="70"/>
+					<param name="widget_top" value="10"/>
+					<param name="widget_label" value="$LOCALIZE[20389]$INFO[Container(107).NumItems,(,)]"/>
+				</include>
+				<include content="WidgetWide">
+					<param name="widget_id" value="107"/>
+					<param name="widget_left" value="80"/>
+					<param name="widget_top" value="40"/>
+					<param name="widget_onup" value="205"/>
+					<param name="widget_ondown" value="208"/>
+					<param name="widget_path" value="$VAR[Local.SearchMusicVideos]"/>
+					<param name="widget_target" value="Videos"/>
+				</include>
+				<include content="page-offscreen-horizontal">
+					<param name="indicator1left" value="20"/>
+					<param name="indicator1top" value="140"/>
+					<param name="indicator2left" value="1852"/>
+					<param name="indicator2top" value="140"/>
+					<param name="indicatorsize" value="32"/>
+					<param name="indicatorcontainer" value="107"/>
+				</include>
+			</control>
 			<!-- actors -->
-			<include content="PosterWidget">
-				<param name="id" value="108"/>
-				<param name="onup" value="107"/>
-				<param name="ondown" value="109"/>
-				<param name="headline" value="$LOCALIZE[31233] [CAPITALIZE]$VAR[SearchString][/CAPITALIZE]"/>
-				<param name="force_visible" value="!String.IsEmpty(Window(home).Property(CustomSearch)) + !String.IsEmpty(Skin.String(CustomSearchTerm))"/>
-				<param name="use_custom_content" value="true"/>
-				<param name="widget_target" value="videos"/>
-				<param name="content" value="$VAR[Local.SearchActorMovies]"/>
-			</include>
-			<include content="PosterWidget">
-				<param name="id" value="110"/>
-				<param name="onup" value="109"/>
-				<param name="ondown" value="111"/>
-				<param name="headline" value="$LOCALIZE[31234] [CAPITALIZE]$VAR[SearchString][/CAPITALIZE]"/>
-				<param name="force_visible" value="!String.IsEmpty(Window(home).Property(CustomSearch)) + !String.IsEmpty(Skin.String(CustomSearchTerm))"/>
-				<param name="use_custom_content" value="true"/>
-				<param name="widget_target" value="videos"/>
-				<param name="content" value="$VAR[Local.SearchActorShows]"/>
-			</include>
-			<include content="WideWidget">
-				<param name="id" value="112"/>
-				<param name="onup" value="111"/>
-				<param name="ondown" value="113"/>
-				<param name="headline" value="$LOCALIZE[31236] [CAPITALIZE]$VAR[SearchString][/CAPITALIZE]"/>
-				<param name="force_visible" value="!String.IsEmpty(Window(home).Property(CustomSearch)) + !String.IsEmpty(Skin.String(CustomSearchTerm))"/>
-				<param name="use_custom_content" value="true"/>
-				<param name="widget_target" value="videos"/>
-				<param name="content" value="$VAR[Local.SearchActorEpisodes]"/>
-			</include>
-			<include content="PosterWidget">
-				<param name="id" value="114"/>
-				<param name="onup" value="113"/>
-				<param name="ondown" value="115"/>
-				<param name="headline" value="$LOCALIZE[31235] [CAPITALIZE]$VAR[SearchString][/CAPITALIZE]"/>
-				<param name="force_visible" value="!String.IsEmpty(Window(home).Property(CustomSearch)) + !String.IsEmpty(Skin.String(CustomSearchTerm))"/>
-				<param name="use_custom_content" value="true"/>
-				<param name="widget_target" value="videos"/>
-				<param name="content" value="$VAR[Local.SearchDirectorMovies]"/>
-			</include>
+			<control type="group" id="208">
+				<top>0</top>
+				<left>0</left>
+				<width>1920</width>
+				<height>300</height>
+				<visible>Integer.IsGreater(Container(108).NumItems,0) | Container(108).IsUpdating</visible>
+				<include content="WidgetLabel">
+					<param name="widget_id" value="108"/>
+					<param name="widget_left" value="70"/>
+					<param name="widget_top" value="10"/>
+					<param name="widget_label" value="$LOCALIZE[20338] $LOCALIZE[344]$INFO[Container(108).NumItems,(,)]"/>
+				</include>
+				<include content="WidgetPoster">
+					<param name="widget_id" value="108"/>
+					<param name="widget_left" value="80"/>
+					<param name="widget_top" value="50"/>
+					<param name="widget_onup" value="203"/>
+					<param name="widget_ondown" value="210"/>
+					<param name="widget_path" value="$VAR[Local.SearchActorMovies]"/>
+					<param name="widget_target" value="Videos"/>
+				</include>
+				<include content="page-offscreen-horizontal">
+					<param name="indicator1left" value="20"/>
+					<param name="indicator1top" value="185"/>
+					<param name="indicator2left" value="1852"/>
+					<param name="indicator2top" value="185"/>
+					<param name="indicatorsize" value="32"/>
+					<param name="indicatorcontainer" value="108"/>
+				</include>
+			</control>
+			<control type="group" id="210">
+				<top>0</top>
+				<left>0</left>
+				<width>1920</width>
+				<height>300</height>
+				<visible>Integer.IsGreater(Container(110).NumItems,0) | Container(110).IsUpdating</visible>
+				<include content="WidgetLabel">
+					<param name="widget_id" value="110"/>
+					<param name="widget_left" value="70"/>
+					<param name="widget_top" value="10"/>
+					<param name="widget_label" value="$LOCALIZE[20343] $LOCALIZE[344]$INFO[Container(110).NumItems,(,)]"/>
+				</include>
+				<include content="WidgetPoster">
+					<param name="widget_id" value="110"/>
+					<param name="widget_left" value="80"/>
+					<param name="widget_top" value="50"/>
+					<param name="widget_onup" value="208"/>
+					<param name="widget_ondown" value="212"/>
+					<param name="widget_path" value="$VAR[Local.SearchActorShows]"/>
+					<param name="widget_target" value="Videos"/>
+				</include>
+				<include content="page-offscreen-horizontal">
+					<param name="indicator1left" value="20"/>
+					<param name="indicator1top" value="185"/>
+					<param name="indicator2left" value="1852"/>
+					<param name="indicator2top" value="185"/>
+					<param name="indicatorsize" value="32"/>
+					<param name="indicatorcontainer" value="110"/>
+				</include>
+			</control>
+			<control type="group" id="212">
+				<top>0</top>
+				<left>0</left>
+				<width>1920</width>
+				<height>300</height>
+				<visible>Integer.IsGreater(Container(112).NumItems,0) | Container(112).IsUpdating</visible>
+				<include content="WidgetLabel">
+					<param name="widget_id" value="112"/>
+					<param name="widget_left" value="70"/>
+					<param name="widget_top" value="10"/>
+					<param name="widget_label" value="$LOCALIZE[20360] $LOCALIZE[344]$INFO[Container(112).NumItems,(,)]"/>
+				</include>
+				<include content="WidgetWide">
+					<param name="widget_id" value="112"/>
+					<param name="widget_left" value="80"/>
+					<param name="widget_top" value="40"/>
+					<param name="widget_onup" value="210"/>
+					<param name="widget_ondown" value="216"/>
+					<param name="widget_path" value="$VAR[Local.SearchActorEpisodes]"/>
+					<param name="widget_target" value="Videos"/>
+				</include>
+				<include content="page-offscreen-horizontal">
+					<param name="indicator1left" value="20"/>
+					<param name="indicator1top" value="185"/>
+					<param name="indicator2left" value="1852"/>
+					<param name="indicator2top" value="185"/>
+					<param name="indicatorsize" value="32"/>
+					<param name="indicatorcontainer" value="112"/>
+				</include>
+			</control>
+			<control type="group" id="214">
+				<top>0</top>
+				<left>0</left>
+				<width>1920</width>
+				<height>300</height>
+				<visible>Integer.IsGreater(Container(114).NumItems,0) | Container(114).IsUpdating</visible>
+				<include content="WidgetLabel">
+					<param name="widget_id" value="114"/>
+					<param name="widget_left" value="70"/>
+					<param name="widget_top" value="10"/>
+					<param name="widget_label" value="$LOCALIZE[20342] $LOCALIZE[20339]$INFO[Container(114).NumItems,(,)]"/>
+				</include>
+				<include content="WidgetWide">
+					<param name="widget_id" value="114"/>
+					<param name="widget_left" value="80"/>
+					<param name="widget_top" value="40"/>
+					<param name="widget_onup" value="212"/>
+					<param name="widget_ondown" value="216"/>
+					<param name="widget_path" value="$VAR[Local.SearchDirectorMovies]"/>
+					<param name="widget_target" value="Videos"/>
+				</include>
+				<include content="page-offscreen-horizontal">
+					<param name="indicator1left" value="20"/>
+					<param name="indicator1top" value="185"/>
+					<param name="indicator2left" value="1852"/>
+					<param name="indicator2top" value="185"/>
+					<param name="indicatorsize" value="32"/>
+					<param name="indicatorcontainer" value="114"/>
+				</include>
+			</control>
 			<!-- artists -->
-			<include content="SquareWidget">
-				<param name="id" value="116"/>
-				<param name="onup" value="115"/>
-				<param name="ondown" value="117"/>
-				<param name="headline" value="$LOCALIZE[133]"/>
-				<param name="force_visible" value="!String.IsEmpty(Window(home).Property(CustomSearch)) + !String.IsEmpty(Skin.String(CustomSearchTerm))"/>
-				<param name="use_custom_content" value="true"/>
-				<param name="widget_target" value="music"/>
-				<param name="content" value="$VAR[Local.SearchArtists]"/>
-			</include>
+			<control type="group" id="216">
+				<top>0</top>
+				<left>0</left>
+				<width>1920</width>
+				<height>350</height>
+				<visible>Integer.IsGreater(Container(116).NumItems,0) | Container(116).IsUpdating</visible>
+				<include content="WidgetLabel">
+					<param name="widget_id" value="116"/>
+					<param name="widget_left" value="70"/>
+					<param name="widget_top" value="10"/>
+					<param name="widget_label" value="$LOCALIZE[133]$INFO[Container(116).NumItems,(,)]"/>
+				</include>
+				<include content="WidgetSquare">
+					<param name="widget_id" value="116"/>
+					<param name="widget_left" value="80"/>
+					<param name="widget_top" value="60"/>
+					<param name="widget_onup" value="208"/>
+					<param name="widget_ondown" value="217"/>
+					<param name="widget_path" value="$VAR[Local.SearchArtists]"/>
+					<param name="widget_target" value="Music"/>
+				</include>
+				<include content="page-offscreen-horizontal">
+					<param name="indicator1left" value="20"/>
+					<param name="indicator1top" value="190"/>
+					<param name="indicator2left" value="1852"/>
+					<param name="indicator2top" value="190"/>
+					<param name="indicatorsize" value="32"/>
+					<param name="indicatorcontainer" value="116"/>
+				</include>
+			</control>
 			<!-- albums -->
-			<include content="SquareWidget">
-				<param name="id" value="117"/>
-				<param name="onup" value="116"/>
-				<param name="ondown" value="118"/>
-				<param name="headline" value="$LOCALIZE[132]"/>
-				<param name="force_visible" value="!String.IsEmpty(Window(home).Property(CustomSearch)) + !String.IsEmpty(Skin.String(CustomSearchTerm))"/>
-				<param name="use_custom_content" value="true"/>
-				<param name="widget_target" value="music"/>
-				<param name="content" value="$VAR[Local.SearchAlbums]"/>
-			</include>
+			<control type="group" id="217">
+				<top>0</top>
+				<left>0</left>
+				<width>1920</width>
+				<height>350</height>
+				<visible>Integer.IsGreater(Container(117).NumItems,0) | Container(117).IsUpdating</visible>
+				<include content="WidgetLabel">
+					<param name="widget_id" value="117"/>
+					<param name="widget_left" value="70"/>
+					<param name="widget_top" value="10"/>
+					<param name="widget_label" value="$LOCALIZE[132]$INFO[Container(117).NumItems,(,)]"/>
+				</include>
+				<include content="WidgetSquare">
+					<param name="widget_id" value="117"/>
+					<param name="widget_left" value="80"/>
+					<param name="widget_top" value="60"/>
+					<param name="widget_onup" value="208"/>
+					<param name="widget_ondown" value="219"/>
+					<param name="widget_path" value="$VAR[Local.SearchAlbums]"/>
+					<param name="widget_target" value="Music"/>
+				</include>
+				<include content="page-offscreen-horizontal">
+					<param name="indicator1left" value="20"/>
+					<param name="indicator1top" value="190"/>
+					<param name="indicator2left" value="1852"/>
+					<param name="indicator2top" value="190"/>
+					<param name="indicatorsize" value="32"/>
+					<param name="indicatorcontainer" value="117"/>
+				</include>
+			</control>
 			<!-- songs -->
-			<include content="SquareWidget">
-				<param name="id" value="119"/>
-				<param name="onup" value="118"/>
-				<param name="ondown" value="120"/>
-				<param name="headline" value="$LOCALIZE[134]"/>
-				<param name="force_visible" value="!String.IsEmpty(Window(home).Property(CustomSearch)) + !String.IsEmpty(Skin.String(CustomSearchTerm))"/>
-				<param name="use_custom_content" value="true"/>
-				<param name="widget_target" value="music"/>
-				<param name="content" value="$VAR[Local.SearchSongs]"/>
-			</include>
-			<!-- youtube -->
-			<include content="WideWidget">
-				<param name="id" value="121"/>
-				<param name="onup" value="120"/>
-				<param name="ondown" value="122"/>
-				<param name="headline" value="YouTube"/>
-				<param name="force_visible" value="!String.IsEmpty(Window(home).Property(CustomSearch)) + !String.IsEmpty(Skin.String(CustomSearchTerm))"/>
-				<param name="use_custom_content" value="true"/>
-				<param name="use_custom_onclick" value="true"/>
-				<param name="onclick" value="PlayMedia($INFO[ListItem.Filenameandpath])"/>
-				<param name="widget_target" value="videos"/>
-				<param name="limit" value="25"/>
-				<param name="ar" value="scale"/>
-				<param name="content" value="$VAR[YouTube.Search]"/>
-			</include>
+			<control type="group" id="219">
+				<top>0</top>
+				<left>0</left>
+				<width>1920</width>
+				<height>350</height>
+				<visible>Integer.IsGreater(Container(119).NumItems,0) | Container(119).IsUpdating</visible>
+				<include content="WidgetLabel">
+					<param name="widget_id" value="119"/>
+					<param name="widget_left" value="70"/>
+					<param name="widget_top" value="10"/>
+					<param name="widget_label" value="$LOCALIZE[134]$INFO[Container(119).NumItems,(,)]"/>
+				</include>
+				<include content="WidgetSquare">
+					<param name="widget_id" value="119"/>
+					<param name="widget_left" value="80"/>
+					<param name="widget_top" value="60"/>
+					<param name="widget_onup" value="217"/>
+					<param name="widget_ondown" value="221"/>
+					<param name="widget_path" value="$VAR[Local.SearchSongs]"/>
+					<param name="widget_target" value="Music"/>
+				</include>
+				<include content="page-offscreen-horizontal">
+					<param name="indicator1left" value="20"/>
+					<param name="indicator1top" value="190"/>
+					<param name="indicator2left" value="1852"/>
+					<param name="indicator2top" value="190"/>
+					<param name="indicatorsize" value="32"/>
+					<param name="indicatorcontainer" value="119"/>
+				</include>
+			</control>
+			<!-- YouTube -->
+			<control type="group" id="221">
+				<top>0</top>
+				<left>0</left>
+				<width>1920</width>
+				<height>300</height>
+				<visible>System.HasAddon(plugin.video.youtube) + [Integer.IsGreater(Container(121).NumItems,0) | Container(121).IsUpdating]</visible>
+				<include content="WidgetLabel">
+					<param name="widget_id" value="121"/>
+					<param name="widget_left" value="70"/>
+					<param name="widget_top" value="10"/>
+					<param name="widget_label" value="YouTube$INFO[Container(121).NumItems,(,)]"/>
+				</include>
+				<include content="WidgetWide">
+					<param name="widget_id" value="121"/>
+					<param name="widget_left" value="80"/>
+					<param name="widget_top" value="40"/>
+					<param name="widget_onup" value="219"/>
+					<param name="widget_ondown" value="222"/>
+					<param name="widget_path" value="$VAR[YouTube.Search]"/>
+					<param name="widget_target" value="Videos"/>
+				</include>
+				<include content="page-offscreen-horizontal">
+					<param name="indicator1left" value="20"/>
+					<param name="indicator1top" value="185"/>
+					<param name="indicator2left" value="1852"/>
+					<param name="indicator2top" value="185"/>
+					<param name="indicatorsize" value="32"/>
+					<param name="indicatorcontainer" value="121"/>
+				</include>
+			</control>
+			<!-- NetFlix -->
+			<control type="group" id="222">
+				<top>0</top>
+				<left>0</left>
+				<width>1920</width>
+				<height>360</height>
+				<visible>System.HasAddon(plugin.video.youtube) + [Integer.IsGreater(Container(122).NumItems,0) | Container(122).IsUpdating]</visible>
+				<include content="WidgetLabel">
+					<param name="widget_id" value="122"/>
+					<param name="widget_left" value="70"/>
+					<param name="widget_top" value="10"/>
+					<param name="widget_label" value="NetFlix$INFO[Container(122).NumItems,(,)]"/>
+				</include>
+				<include content="WidgetPoster">
+					<param name="widget_id" value="122"/>
+					<param name="widget_left" value="80"/>
+					<param name="widget_top" value="60"/>
+					<param name="widget_onup" value="221"/>
+					<param name="widget_ondown" value="201"/>
+					<param name="widget_path" value="$VAR[NetFlix.Search]"/>
+					<param name="widget_target" value="Videos"/>
+				</include>
+				<include content="page-offscreen-horizontal">
+					<param name="indicator1left" value="20"/>
+					<param name="indicator1top" value="190"/>
+					<param name="indicator2left" value="1852"/>
+					<param name="indicator2top" value="190"/>
+					<param name="indicatorsize" value="32"/>
+					<param name="indicatorcontainer" value="122"/>
+				</include>
+			</control>
+			<control type="label">
+				<top>0</top>
+				<left>0</left>
+				<width>1</width>
+				<height>125</height>
+				<label></label>
+				<font></font>
+			</control>
 		</control>
-		<!-- header bar -->
-		<include content="HeaderBar">
-			<param name="id">10</param>
+		<include content="page-offscreen-vertical">
+			<param name="indicator1left" value="936"/>
+			<param name="indicator1top" value="100"/>
+			<param name="indicator2left" value="936"/>
+			<param name="indicator2top" value="1040"/>
+			<param name="indicatorsize" value="48"/>
+			<param name="indicatorcontainer" value="10"/>
 		</include>
-		<!-- busy spinner -->
-		<include content="CustomBusySpinner">
-			<param name="diffuse" value="false"/>
-			<param name="visible" value="[$EXP[IsSearching] | [!String.IsEmpty(Window(home).Property(CustomSearch)) + !String.IsEmpty(Skin.String(CustomSearchTerm))]] + !Window.IsVisible(virtualkeyboard)"/>
-		</include>
+		<control type="scrollbar" id="300">
+			<left>1888</left>
+			<top>150</top>
+			<width>16</width>
+			<height>890</height>
+			<animation condition="!Control.HasFocus(300) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+			<visible>$EXP[isEnabledScrollbar]</visible>
+		</control>
 	</controls>
 </window>
