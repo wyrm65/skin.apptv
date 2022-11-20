@@ -551,8 +551,10 @@
 					<thumb>$VAR[HomeSearchIcon]</thumb>
 					<label>$LOCALIZE[137]</label>
 					<label2>$LOCALIZE[571]</label2>
-					<onclick condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
-					<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
+					<onclick>SetProperty(CustomSearch,1,home)</onclick>
+					<onclick>Skin.Reset(CustomSearchTerm)</onclick>
+					<onclick>Skin.SetString(CustomSearchTerm)</onclick>
+					<onclick>ActivateWindow(1156)</onclick>
 				</item>
 				<item><!-- Filemanager -->
 					<visible>Skin.HasSetting(home-filemanager)</visible>

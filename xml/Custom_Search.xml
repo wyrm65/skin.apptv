@@ -452,6 +452,16 @@
 				<font></font>
 			</control>
 		</control>
+		<control type="image"><!-- Busy animation -->
+			<left>936</left>
+			<top>50</top>
+			<width>96</width>
+			<height>96</height>
+			<texture>busy.png</texture>
+			<aspectratio>keep</aspectratio>
+			<include>busy-spin</include>
+			<visible>$EXP[IsSearching]</visible>
+		</control>
 		<include content="page-offscreen-vertical">
 			<param name="indicator1left" value="936"/>
 			<param name="indicator1top" value="100"/>

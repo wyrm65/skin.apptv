@@ -56,8 +56,8 @@
 	<expression name="isParentFolder">ListItem.IsParentFolder</expression>
 	<expression name="isnotParentFolder">!ListItem.IsParentFolder</expression>
 	<expression name="IsSearching">[Container(101).IsUpdating | Container(103).IsUpdating | Container(105).IsUpdating | Container(107).IsUpdating
-									| Container(108).IsUpdating | Container(110).IsUpdating  Container(112).IsUpdating  | Container(114).IsUpdating] 
-									| Container(116).IsUpdating | Container(117).IsUpdating  Container(119).IsUpdating  | Container(121).IsUpdating]
+									| Container(108).IsUpdating | Container(110).IsUpdating  Container(112).IsUpdating  | Container(114).IsUpdating 
+									| Container(116).IsUpdating | Container(117).IsUpdating  Container(119).IsUpdating  | Container(121).IsUpdating
 									| Container(122).IsUpdating]</expression>
 
 	<include file="Defaults.xml"/>
@@ -733,7 +733,7 @@
 						<height>256</height>
 						<aspectratio scalediffuse="true">stretch</aspectratio>
 						<aligny>top</aligny>
-						<texture diffuse="mask-squ.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+						<texture diffuse="mask-squ.png" background="true">$INFO[ListItem.Icon]</texture>
 					</control>
 				</itemlayout>
 				<focusedlayout width="350">
@@ -744,7 +744,7 @@
 						<height>256</height>
 						<aspectratio scalediffuse="true">stretch</aspectratio>
 						<aligny>top</aligny>
-						<texture diffuse="mask-squ.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+						<texture diffuse="mask-squ.png" background="true">$INFO[ListItem.Icon]</texture>
 						<animation effect="zoom" start="100" end="104" center="auto" time="200" tween="back" easing="out" reversible="false">focus</animation>
 					</control>
 					<control type="textbox">
@@ -912,8 +912,10 @@
 					<ondown>$PARAM[letterbarid]</ondown>
 					<texturefocus>touch-search.png</texturefocus>
 					<texturenofocus>touch-search.png</texturenofocus>
-					<onclick condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
-					<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
+					<onclick>SetProperty(CustomSearch,1,home)</onclick>
+					<onclick>Skin.Reset(CustomSearchTerm)</onclick>
+					<onclick>Skin.SetString(CustomSearchTerm)</onclick>
+					<onclick>ActivateWindow(1156)</onclick>
 					<animation effect="zoom" start="100" end="155" center="auto">focus</animation>
 					<animation effect="fade" start="100" end="40" condition="!Control.HasFocus($PARAM[searchid])">Conditional</animation>
 					<visible>!Container($PARAM[letterbarid]).IsUpdating + Control.IsVisible($PARAM[letterbarid])</visible>
@@ -998,8 +1000,10 @@
 					<onright>$PARAM[letterbarid]</onright>
 					<texturefocus>touch-search.png</texturefocus>
 					<texturenofocus>touch-search.png</texturenofocus>
-					<onclick condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
-					<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
+					<onclick>SetProperty(CustomSearch,1,home)</onclick>
+					<onclick>Skin.Reset(CustomSearchTerm)</onclick>
+					<onclick>Skin.SetString(CustomSearchTerm)</onclick>
+					<onclick>ActivateWindow(1156)</onclick>
 					<animation effect="zoom" start="100" end="160" center="auto">focus</animation>
 					<animation effect="fade" start="100" end="40" condition="!Control.HasFocus($PARAM[searchid])">Conditional</animation>
 					<visible>!Container($PARAM[letterbarid]).IsUpdating + Control.IsVisible($PARAM[letterbarid])</visible>
@@ -1104,14 +1108,6 @@
 				<onclick>FullScreen</onclick>
 				<visible>Player.HasMedia</visible>
 			</control>
-			<!--<control type="button">--><!-- Search -->
-				<!--<include>touch-controls-common</include>
-				<texturefocus>touch-search.png</texturefocus>
-				<texturenofocus>touch-search.png</texturenofocus>
-				<onclick condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
-				<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
-				<visible>!Window.IsVisible(script-globalsearch.xml)</visible>
-			</control>-->
 			<control type="button"><!-- Search -->
 				<include>touch-controls-common</include>
 				<texturefocus>touch-search.png</texturefocus>

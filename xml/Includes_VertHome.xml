@@ -460,8 +460,10 @@
 				<item>
 					<thumb>icon-search.png</thumb>
 					<label>$LOCALIZE[137]</label>
-					<onclick condition="!System.HasAddon(script.globalsearch)">InstallAddon(script.globalsearch)</onclick>
-					<onclick condition="System.HasAddon(script.globalsearch)">RunScript(script.globalsearch)</onclick>
+					<onclick>SetProperty(CustomSearch,1,home)</onclick>
+					<onclick>Skin.Reset(CustomSearchTerm)</onclick>
+					<onclick>Skin.SetString(CustomSearchTerm)</onclick>
+					<onclick>ActivateWindow(1156)</onclick>
 					<visible>Skin.HasSetting(home-search)</visible>
 				</item>
 				<item>
