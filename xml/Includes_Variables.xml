@@ -161,7 +161,7 @@
 		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + System.HasAddon(plugin.video.youtube)">plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[Skin.String(CustomSearchTerm)]&amp;search_type=videos</value>
 	</variable>
 	<variable name="NetFlix.Search">
-		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + System.HasAddon(plugin.video.netflix)">plugin://plugin.video.netflix/directory/search/search/1/?query=$ESCINFO[Skin.String(CustomSearchTerm)]</value>
+		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + System.HasAddon(plugin.video.netflix)">plugin://plugin.video.netflix/directory/search/search?query=INFO[Skin.String(CustomSearchTerm)]</value>
 	</variable>
 
 	<variable name="VideoInfoWidget">
@@ -1166,7 +1166,7 @@
 		<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
 		<value condition="!String.IsEmpty(ListItem.Icon) + ListItem.IsParentFolder">DefaultFolderBack.png</value>
 		<value condition="!String.IsEmpty(ListItem.Icon) + !String.Contains(ListItem.Icon,Default)">$INFO[ListItem.Icon]</value>
-		<value condition="String.IsEmpty(Container.Content) + !String.Contains(ListItem.Icon,Default)">$INFO[ListItem.Icon]</value>
+		<value condition="!String.IsEmpty(ListItem.Icon) + String.IsEmpty(Container.Content) + !String.Contains(ListItem.Icon,Default)">$INFO[ListItem.Icon]</value>
 		<value condition="Container.Content(studios) + !String.IsEmpty(Skin.String(custom-moviestudioicons.path))">$INFO[Skin.String(custom-moviestudioicons.path)]$INFO[ListItem.Label]$INFO[Skin.String(custom-moviestudioicons.ext)]</value>
 		<value condition="Container.Content(genres) + !String.IsEmpty(Skin.String(custom-moviegenresicons.path))">$INFO[Skin.String(custom-moviegenresicons.path)]$INFO[ListItem.Label]$INFO[Skin.String(custom-moviegenresicons.ext)]</value>
 		<value condition="Container.Content(actors) | Container.Content(directors)">DefaultUser.png</value>
@@ -1175,7 +1175,7 @@
 		<value condition="Container.Content(movies)">DefaultMovies.png</value>
 		<value condition="Container.Content(musicvideos)">DefaultMusicVideos.png</value>
 		<value condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)">DefaultTvshows.png</value>
-		<value>DefaultVideo.png</value>
+		<value>DefaultFolder.png</value>
 	</variable>	
 	<variable name="WidgetLogo">
 		<value condition="Container(51).ListItem.IsParentFolder">DefaultFolderBack.png</value>
