@@ -62,7 +62,7 @@
 					<param name="widget_top" value="60"/>
 					<param name="widget_onup" value="200"/>
 					<param name="widget_ondown" value="203"/>
-					<param name="widget_path" value="$VAR[Local.SearchMovies]"/>
+					<param name="widget_path" value="$VAR[SearchMovies]"/>
 					<param name="widget_target" value="Videos"/>
 				</include>
 				<include content="page-offscreen-horizontal">
@@ -93,7 +93,7 @@
 					<param name="widget_top" value="40"/>
 					<param name="widget_onup" value="201"/>
 					<param name="widget_ondown" value="205"/>
-					<param name="widget_path" value="$VAR[Local.SearchShows]"/>
+					<param name="widget_path" value="$VAR[SearchShows]"/>
 					<param name="widget_target" value="Videos"/>
 				</include>
 				<include content="page-offscreen-horizontal">
@@ -124,7 +124,7 @@
 					<param name="widget_top" value="40"/>
 					<param name="widget_onup" value="203"/>
 					<param name="widget_ondown" value="207"/>
-					<param name="widget_path" value="$VAR[Local.SearchEpisodes]"/>
+					<param name="widget_path" value="$VAR[SearchEpisodes]"/>
 					<param name="widget_target" value="Videos"/>
 				</include>
 				<include content="page-offscreen-horizontal">
@@ -155,7 +155,7 @@
 					<param name="widget_top" value="40"/>
 					<param name="widget_onup" value="205"/>
 					<param name="widget_ondown" value="208"/>
-					<param name="widget_path" value="$VAR[Local.SearchMusicVideos]"/>
+					<param name="widget_path" value="$VAR[SearchMusicVideos]"/>
 					<param name="widget_target" value="Videos"/>
 				</include>
 				<include content="page-offscreen-horizontal">
@@ -186,7 +186,7 @@
 					<param name="widget_top" value="50"/>
 					<param name="widget_onup" value="203"/>
 					<param name="widget_ondown" value="210"/>
-					<param name="widget_path" value="$VAR[Local.SearchActorMovies]"/>
+					<param name="widget_path" value="$VAR[SearchActorMovies]"/>
 					<param name="widget_target" value="Videos"/>
 				</include>
 				<include content="page-offscreen-horizontal">
@@ -216,7 +216,7 @@
 					<param name="widget_top" value="50"/>
 					<param name="widget_onup" value="208"/>
 					<param name="widget_ondown" value="212"/>
-					<param name="widget_path" value="$VAR[Local.SearchActorShows]"/>
+					<param name="widget_path" value="$VAR[SearchActorShows]"/>
 					<param name="widget_target" value="Videos"/>
 				</include>
 				<include content="page-offscreen-horizontal">
@@ -246,7 +246,7 @@
 					<param name="widget_top" value="40"/>
 					<param name="widget_onup" value="210"/>
 					<param name="widget_ondown" value="216"/>
-					<param name="widget_path" value="$VAR[Local.SearchActorEpisodes]"/>
+					<param name="widget_path" value="$VAR[SearchActorEpisodes]"/>
 					<param name="widget_target" value="Videos"/>
 				</include>
 				<include content="page-offscreen-horizontal">
@@ -258,6 +258,7 @@
 					<param name="indicatorcontainer" value="112"/>
 				</include>
 			</control>
+			<!-- directors -->
 			<control type="group" id="214">
 				<top>0</top>
 				<left>0</left>
@@ -276,7 +277,7 @@
 					<param name="widget_top" value="40"/>
 					<param name="widget_onup" value="212"/>
 					<param name="widget_ondown" value="216"/>
-					<param name="widget_path" value="$VAR[Local.SearchDirectorMovies]"/>
+					<param name="widget_path" value="$VAR[SearchDirectorMovies]"/>
 					<param name="widget_target" value="Videos"/>
 				</include>
 				<include content="page-offscreen-horizontal">
@@ -307,7 +308,7 @@
 					<param name="widget_top" value="60"/>
 					<param name="widget_onup" value="208"/>
 					<param name="widget_ondown" value="217"/>
-					<param name="widget_path" value="$VAR[Local.SearchArtists]"/>
+					<param name="widget_path" value="$VAR[SearchArtists]"/>
 					<param name="widget_target" value="Music"/>
 				</include>
 				<include content="page-offscreen-horizontal">
@@ -338,7 +339,7 @@
 					<param name="widget_top" value="60"/>
 					<param name="widget_onup" value="208"/>
 					<param name="widget_ondown" value="219"/>
-					<param name="widget_path" value="$VAR[Local.SearchAlbums]"/>
+					<param name="widget_path" value="$VAR[SearchAlbums]"/>
 					<param name="widget_target" value="Music"/>
 				</include>
 				<include content="page-offscreen-horizontal">
@@ -368,9 +369,9 @@
 					<param name="widget_left" value="80"/>
 					<param name="widget_top" value="60"/>
 					<param name="widget_onup" value="217"/>
-					<param name="widget_ondown" value="221"/>
-					<param name="widget_path" value="$VAR[Local.SearchSongs]"/>
-					<param name="widget_target" value="Music"/>
+					<param name="widget_ondown" value="201"/>
+					<param name="widget_path" value="$VAR[SearchSongs]"/>
+					<param name="widget_target" value="music"/>
 				</include>
 				<include content="page-offscreen-horizontal">
 					<param name="indicator1left" value="20"/>
@@ -381,44 +382,13 @@
 					<param name="indicatorcontainer" value="119"/>
 				</include>
 			</control>
-			<!-- YouTube -->
-			<control type="group" id="221">
-				<top>0</top>
-				<left>0</left>
-				<width>1920</width>
-				<height>300</height>
-				<visible>System.HasAddon(plugin.video.youtube) + [Integer.IsGreater(Container(121).NumItems,0) | Container(121).IsUpdating]</visible>
-				<include content="WidgetLabel">
-					<param name="widget_id" value="121"/>
-					<param name="widget_left" value="70"/>
-					<param name="widget_top" value="10"/>
-					<param name="widget_label" value="YouTube$INFO[Container(121).NumItems,(,)]"/>
-				</include>
-				<include content="WidgetWide">
-					<param name="widget_id" value="121"/>
-					<param name="widget_left" value="80"/>
-					<param name="widget_top" value="40"/>
-					<param name="widget_onup" value="219"/>
-					<param name="widget_ondown" value="222"/>
-					<param name="widget_path" value="$VAR[YouTube.Search]"/>
-					<param name="widget_target" value="Videos"/>
-				</include>
-				<include content="page-offscreen-horizontal">
-					<param name="indicator1left" value="20"/>
-					<param name="indicator1top" value="185"/>
-					<param name="indicator2left" value="1852"/>
-					<param name="indicator2top" value="185"/>
-					<param name="indicatorsize" value="32"/>
-					<param name="indicatorcontainer" value="121"/>
-				</include>
-			</control>
 			<!-- NetFlix -->
-			<control type="group" id="222">
+			<!--<control type="group" id="222">
 				<top>0</top>
 				<left>0</left>
 				<width>1920</width>
 				<height>360</height>
-				<visible>System.HasAddon(plugin.video.youtube) + [Integer.IsGreater(Container(122).NumItems,0) | Container(122).IsUpdating]</visible>
+				<visible>System.HasAddon(plugin.video.netflix) + [Integer.IsGreater(Container(122).NumItems,2) | Container(122).IsUpdating]</visible>
 				<include content="WidgetLabel">
 					<param name="widget_id" value="122"/>
 					<param name="widget_left" value="70"/>
@@ -429,9 +399,10 @@
 					<param name="widget_id" value="122"/>
 					<param name="widget_left" value="80"/>
 					<param name="widget_top" value="60"/>
-					<param name="widget_onup" value="221"/>
+					<param name="widget_onup" value="219"/>
 					<param name="widget_ondown" value="201"/>
 					<param name="widget_path" value="$VAR[NetFlix.Search]"/>
+					<param name="widget_target" value="videos"/>
 				</include>
 				<include content="page-offscreen-horizontal">
 					<param name="indicator1left" value="20"/>
@@ -441,7 +412,7 @@
 					<param name="indicatorsize" value="32"/>
 					<param name="indicatorcontainer" value="122"/>
 				</include>
-			</control>
+			</control>-->
 			<control type="label">
 				<top>0</top>
 				<left>0</left>
@@ -452,8 +423,8 @@
 			</control>
 		</control>
 		<control type="image"><!-- Busy animation -->
-			<left>936</left>
-			<top>50</top>
+			<left>912</left>
+			<top>10</top>
 			<width>96</width>
 			<height>96</height>
 			<texture>busy.png</texture>
