@@ -124,44 +124,41 @@
 		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">$INFO[Skin.String(CustomSearchTerm)]</value>
 		<value>n/a</value>
 	</variable>	
-	<variable name="Local.SearchMovies">
+	<variable name="SearchMovies">
 		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(movies)">videodb://movies/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22movies%22%7D</value>
 	</variable>
-	<variable name="Local.SearchActorMovies">
+	<variable name="SearchActorMovies">
 		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(movies)">videodb://movies/titles/?xsp=%7b%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22actor%22%2c%22operator%22%3a%22is%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22movies%22%7d</value>
 	</variable>
-	<variable name="Local.SearchDirectorMovies">
+	<variable name="SearchDirectorMovies">
 		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(movies)">videodb://movies/titles/?xsp=%7b%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22director%22%2c%22operator%22%3a%22is%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22movies%22%7d</value>
 	</variable>
-	<variable name="Local.SearchShows">
+	<variable name="SearchShows">
 		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(tvshows)">videodb://tvshows/titles/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22tvshows%22%7D</value>
 	</variable>
-	<variable name="Local.SearchActorShows">
+	<variable name="SearchActorShows">
 		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(tvshows)">videodb://tvshows/titles/?xsp=%7b%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22actor%22%2c%22operator%22%3a%22is%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22tvshows%22%7d</value>
 	</variable>
-	<variable name="Local.SearchEpisodes">
+	<variable name="SearchEpisodes">
 		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(tvshows)">videodb://tvshows/titles/-1/-1/-1/-1/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22sorttitle%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22title%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22episodes%22%7D</value>
 	</variable>
-	<variable name="Local.SearchActorEpisodes">
+	<variable name="SearchActorEpisodes">
 		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(tvshows)">videodb://tvshows/titles/-1/-1/-1/-1/?xsp=%7b%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22actor%22%2c%22operator%22%3a%22is%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22episodes%22%7d</value>
 	</variable>
-	<variable name="Local.SearchMusicVideos">
+	<variable name="SearchMusicVideos">
 		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(musicvideos)">videodb://musicvideos/titles/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22sorttitle%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22title%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22musicvideos%22%7d</value>
 	</variable>
-	<variable name="Local.SearchArtists">
+	<variable name="SearchArtists">
 		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(music)">musicdb://artists/?xsp=%7B%22order%22%3A%7B%22direction%22%3A%22ascending%22%2C%22ignorefolders%22%3A0%2C%22method%22%3A%22artist%22%7D%2C%22rules%22%3A%7B%22and%22%3A%5B%7B%22field%22%3A%22artist%22%2C%22operator%22%3A%22contains%22%2C%22value%22%3A%5B%22$INFO[Skin.String(CustomSearchTerm)]%22%5D%7D%5D%7D%2C%22type%22%3A%22artists%22%7D</value>
 	</variable>
-	<variable name="Local.SearchAlbums">
+	<variable name="SearchAlbums">
 		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(music)">musicdb://albums/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22album%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22album%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22albums%22%7d</value>
 	</variable>
-	<variable name="Local.SearchSongs">
+	<variable name="SearchSongs">
 		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(music)">musicdb://songs/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22artist%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22title%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22songs%22%7d</value>
 	</variable>
-	<variable name="YouTube.Search">
-		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + System.HasAddon(plugin.video.youtube)">plugin://plugin.video.youtube/kodion/search/query/?q=$INFO[Skin.String(CustomSearchTerm)]&amp;search_type=videos</value>
-	</variable>
 	<variable name="NetFlix.Search">
-		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + System.HasAddon(plugin.video.netflix)">plugin://plugin.video.netflix/directory/search/search?query=INFO[Skin.String(CustomSearchTerm)]</value>
+		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + System.HasAddon(plugin.video.netflix)">plugin://plugin.video.netflix/directory/search/search/?query=$INFO[Skin.String(CustomSearchTerm)]</value>
 	</variable>
 
 	<variable name="VideoInfoWidget">
