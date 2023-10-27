@@ -5,9 +5,10 @@
 	<views>50,52,54,57,58</views>
 	<onload>ClearProperty(ShowScreenSettings,home)</onload>
 	<onunload>ClearProperty(ShowScreenSettings,home)</onunload>
+	<visible>Window.IsTopMost(addonbrowser)</visible>
 	<controls>
 		<control type="group">
-			<visible>!System.ScreenSaverActive + !Window.IsTopMost(fullscreenvideo) + !Window.IsTopMost(visualisation) + !Window.IsVisible(addoninformation)</visible>
+			<visible>Window.IsTopMost(addonbrowser) + !Window.IsTopMost(fullscreenvideo) + !Window.IsTopMost(visualisation) + !Window.IsVisible(addoninformation)</visible>
 			<include>backgroundsimple</include>
 			<include>fake-overlay</include>
 			<include content="screen-name">

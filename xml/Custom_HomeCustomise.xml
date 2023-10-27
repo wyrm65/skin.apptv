@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window id="1152">
-	<defaultcontrol>402</defaultcontrol>
+	<defaultcontrol always="true">402</defaultcontrol>
+	<onload>SetFocus(402)</onload>
+	<onunload>SetFocus(9000)</onunload>
 	<visible>!System.ScreenSaverActive</visible>
+	<include>zoom-openclose</include>
 	<controls>
 		<include>backgroundsimple</include>
 		<control type="label"><!-- Heading -->
@@ -29,10 +32,12 @@
 			<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31951])</onclick>
 			<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetBool(HomeMenuVertical)||Skin.Reset(HomeMenuHorizontal)||Skin.Reset(HomeMenuIcon)||ReloadSkin())</onclick>
 			<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31900])</onclick>
-			<ondown condition="$EXP[isHorizontalHome]">9001</ondown>
+			<ondown condition="Skin.HasSetting(HomeMenuHorizontal)">SetProperty(horzhomesubmenu,9100,home)</ondown>
+			<ondown condition="Skin.HasSetting(HomeMenuHorizontal)">9002</ondown>
 			<ondown condition="$EXP[isIconHome]">9021</ondown>
 			<ondown condition="$EXP[isVerticalHome]">9031</ondown>
-			<onright condition="$EXP[isHorizontalHome]">9001</onright>
+			<onright condition="$EXP[isHorizontalHome]">SetProperty(horzhomesubmenu,9100,home)</onright>
+			<onright condition="$EXP[isHorizontalHome]">9002</onright>
 			<onright condition="$EXP[isIconHome]">9021</onright>
 			<onright condition="$EXP[isVerticalHome]">9031</onright>
 			<animation effect="fade" start="100" end="60" condition="!Control.HasFocus(402)">Conditional</animation>
@@ -41,6 +46,7 @@
 			<control type="group" id="9001"><!-- Horizontal Home Menu -->
 				<visible>$EXP[isHorizontalHome]</visible>
 				<animation condition="true" effect="zoom" start="100" end="80" center="auto">Conditional</animation>
+				<animation effect="fade" start="100" end="60" condition="Control.HasFocus(402)">Conditional</animation>
 				<include file="Includes_HorzHome.xml">HorzHomeMenuBar</include>
 				<!-- Markers for off screen menu bar items -->
 				<include content="page-offscreen-horizontal">
@@ -67,7 +73,7 @@
 							<param name="focusid" value="9100"/>
 						</include>
 						<control type="group">
-							<visible>Control.HasFocus(9100) | Control.HasFocus(9130)</visible>
+							<visible>Control.HasFocus(9100) | Control.HasFocus(9130) | Control.HasFocus(402)</visible>
 							<include file="Includes_HorzHome.xml">HorzHomeHilite</include>
 							<!-- Markers for off screen menu items -->
 							<include content="page-offscreen-vertical">

@@ -7,9 +7,10 @@
 	<onload>ClearProperty(EditViews,home)</onload>
 	<onunload>ClearProperty(ShowScreenSettings,home)</onunload>
 	<onunload>ClearProperty(EditViews,home)</onunload>
+	<visible>Window.IsTopMost(music)</visible>
 	<controls>
 		<control type="group">
-			<visible>!System.ScreenSaverActive + !Window.IsTopMost(fullscreenvideo) + !Window.IsTopMost(visualisation) + !Window.IsVisible(musicinformation) + !Window.IsVisible(movieinformation) + !Window.IsVisible(addoninformation)</visible>
+			<visible>!Window.IsVisible(musicinformation) + !Window.IsVisible(movieinformation) + !Window.IsVisible(addoninformation)</visible>
 			<include>background</include>
 			<include>fake-overlay</include>
 			<include content="screen-name">
