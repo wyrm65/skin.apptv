@@ -69,11 +69,10 @@
 		<onload condition="!Skin.HasSetting(FontCheck)">Skin.ToggleSetting(FontCheck)</onload>
 	</include>
 	<!-- Postion and size of fullscreen image -->
-	<!-- NB, don't change height to a percentage as it will break fadebackground -->
 	<include name="fullscreenimage">
 		<left>0</left>
 		<top>0</top>
-		<width>100%</width>
+		<width>1920</width>
 		<height>1080</height>
 	</include>
 	<include name="fadebackground">
@@ -119,7 +118,7 @@
 				<colordiffuse>$VAR[BackgndImageVisibity]</colordiffuse>
 				<aspectratio>stretch</aspectratio>
 				<fadetime>400</fadetime>
-				<visible>!Container().Scrolling + ![Skin.HasSetting(background-playingmedia) + Player.HasVideo]</visible>
+				<visible>![Skin.HasSetting(background-playingmedia) + Player.HasVideo]</visible>
 			</control>
 			<control type="group">
 				<visible>Skin.HasSetting(background-playingmedia) + [[$EXP[isVerticalHome] + Window.IsVisible(home)] | !Window.IsVisible(home)]</visible>
@@ -1120,7 +1119,7 @@
 				<include>touch-controls-common</include>
 				<texturefocus>touch-fav.png</texturefocus>
 				<texturenofocus>touch-fav.png</texturenofocus>
-				<onclick>ActivateWindow(favourites)</onclick>
+				<onclick>ActivateWindow(favouritesbrowser)</onclick>
 				<visible>!Window.IsVisible(home)</visible>
 			</control>
 			<control type="button"><!-- Screen Settings -->

@@ -264,7 +264,7 @@
 					<thumb>$VAR[HomeFavoritesIcon]</thumb>
 					<label>$LOCALIZE[31652]</label>
 					<label2>$LOCALIZE[571]</label2>
-					<onclick>ActivateWindow(favourites)</onclick>
+					<onclick>ActivateWindow(favouritesbrowser)</onclick>
 				</item>
 				<item>
 					<thumb>$INFO[Skin.String(CustomMovies.1.Icon)]</thumb>
@@ -588,8 +588,8 @@
 			<top>1060</top>
 			<width>1920</width>
 			<height>20</height>
-			<texturefocus>-</texturefocus><!-- blank.png -->
-			<texturenofocus>-</texturenofocus><!-- blank.png -->
+			<texturefocus>blank.png</texturefocus>
+			<texturenofocus>blank.png</texturenofocus>
 			<onfocus>Control.Message(9000,moveup)</onfocus>
 			<onclick>Control.Message(9000,moveup)</onclick>
 			<visible>[Container(9000).Row(0) | Container(9000).Row(1)] + !Container(9000).HasPrevious()</visible>
