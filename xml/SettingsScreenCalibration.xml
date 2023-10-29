@@ -2,54 +2,99 @@
 <window>
 	<defaultcontrol>8</defaultcontrol>
 	<controls>
-		<control type="videowindow" id="20">
-			<include>fullscreenimage</include>
-		</control>
+		<include>backgroundsimple</include>
 		<control type="mover" id="8"><!-- top left mover -->
 			<left>0</left>
 			<top>0</top>
-			<width>192</width>
-			<height>192</height>
+			<width>128</width>
+			<height>128</height>
 			<texturefocus>calibrate-topleft-focus.png</texturefocus>
 			<texturenofocus>calibrate-topleft.png</texturenofocus>
-		</control>
-		<control type="label" id="2"><!-- coordinates label -->
-			<left>60</left>
-			<top>112</top>
-			<width>1800</width>
-			<height>38</height>
-			<align>center</align>
-		</control>
-		<control type="label" id="3"><!-- help information -->
-			<left>60</left>
-			<top>158</top>
-			<width>1800</width>
-			<height>38</height>
-			<align>center</align>
+			<movingspeed acceleration="180" maxvelocity="300" resettimeout="200" delta="1">
+				<eventconfig type="up" />
+				<eventconfig type="down" />
+				<eventconfig type="left" />
+				<eventconfig type="right" />
+			</movingspeed>
 		</control>
 		<control type="mover" id="9"><!-- right bottom mover -->
-			<left>1858</left>
-			<top>938</top>
-			<width>192</width>
-			<height>192</height>
+			<left>700</left>
+			<top>500</top>
+			<width>128</width>
+			<height>128</height>
 			<texturefocus>calibrate-bottomright-focus.png</texturefocus>
 			<texturenofocus>calibrate-bottomright.png</texturenofocus>
+			<movingspeed acceleration="180" maxvelocity="300" resettimeout="200" delta="1">
+				<eventconfig type="up" />
+				<eventconfig type="down" />
+				<eventconfig type="left" />
+				<eventconfig type="right" />
+			</movingspeed>
 		</control>
 		<control type="mover" id="10"><!-- subtitle position mover -->
-			<left>564</left>
-			<top>986</top>
-			<width>512</width>
-			<height>96</height>
+			<left>0</left>
+			<top>500</top>
+			<width>380</width>
+			<height>84</height>
 			<texturefocus>calibrate-subtitles-focus.png</texturefocus>
 			<texturenofocus>calibrate-subtitles.png</texturenofocus>
+			<movingspeed acceleration="180" maxvelocity="300" resettimeout="200" delta="1">
+				<eventconfig type="up" />
+				<eventconfig type="down" />
+			</movingspeed>
 		</control>
 		<control type="resize" id="11"><!-- pixel aspect ratio box -->
 			<left>0</left>
-			<top>492</top>
-			<width>768</width>
-			<height>768</height>
+			<top>540</top>
+			<width>512</width>
+			<height>512</height>
 			<texturefocus>calibrate-pixelratio-focus.png</texturefocus>
 			<texturenofocus>calibrate-pixelratio.png</texturenofocus>
+			<movingspeed acceleration="140" maxvelocity="300" resettimeout="180" delta="1">
+				<eventconfig type="left" />
+				<eventconfig type="right" />
+			</movingspeed>
+		</control>
+		<control type="mover" id="12"><!-- reset calibration -->
+			<left>36</left>
+			<top>900</top>
+			<width>64</width>
+			<height>64</height>
+			<texturefocus>calibrate-reset-focus.png</texturefocus>
+			<texturenofocus>calibrate-reset.png</texturenofocus>
+		</control>
+		<control type="label"><!-- window title -->
+			<top>10</top>
+			<left>60</left>
+			<width>1800</width>
+			<height>50</height>
+			<align>center</align>
+			<label>$LOCALIZE[214]</label>
+			<font>apptv30</font>
+		</control>
+		<control type="label" id="2"><!-- resolution info -->
+			<top>65</top>
+			<left>60</left>
+			<width>1800</width>
+			<height>50</height>
+			<align>center</align>
+			<font>apptv22</font>
+		</control>
+		<control type="label" id="3"><!-- help information -->
+			<top>120</top>
+			<left>60</left>
+			<width>1800</width>
+			<height>50</height>
+			<align>center</align>
+			<font>apptv20</font>
+		</control>
+		<control type="label" id="4"><!-- calibration value -->
+			<top>210</top>
+			<left>60</left>
+			<width>1800</width>
+			<height>50</height>
+			<align>center</align>
+			<font>apptv20</font>
 		</control>
 	</controls>
 </window>
