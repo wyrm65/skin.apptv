@@ -549,6 +549,25 @@
 		<value condition="pvr.IsPlayingRadio">$LOCALIZE[19024] - $INFO[MusicPlayer.ChannelGroup]</value>
 		<value>$LOCALIZE[19023] - $INFO[VideoPlayer.ChannelGroup]</value>
 	</variable>
+	<variable name="IconGeneral">
+		<value condition="!String.IsEmpty(ListItem.Icon) + !String.Contains(ListItem.Icon,Default)">$INFO[ListItem.Icon]</value>
+		<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+		<value condition="!String.IsEmpty(ListItem.Icon) + ListItem.IsParentFolder">$INFO[ListItem.Icon]</value>
+		<value condition="Container.Content(albums)">DefaultMusicAlbums.png</value>
+		<value condition="Container.Content(songs)">DefaultMusicSongs.png</value>
+		<value condition="Container.Content(musicvideos)">DefaultMusicVideos.png</value>
+		<value condition="Container.Content(artists)">DefaultUser.png</value>
+		<value condition="Container.Content(years)">DefaultMusicYears.png</value>
+		<value condition="Container.Content(addons)">DefaultAddon.png</value>
+		<value condition="Container.Content(genres) + !String.IsEmpty(Skin.String(custom-musicgenresicons.path))">$INFO[Skin.String(custom-musicgenresicons.path)]$INFO[ListItem.Label]$INFO[Skin.String(custom-musicgenresicons.ext)]</value>
+		<value condition="Window.Is(favouritesbrowser)">icon-fav.png</value>
+		<value condition="Window.Is(addonbrowser)">DefaultAddon.png</value>
+		<value condition="Window.Is(games)">DefaultGameAddons.png</value>
+		<value condition="Window.Is(programs)">DefaultProgram.png</value>
+		<value condition="Window.Is(pictures)">DefaultPicture.png</value>
+		<value condition="Window.Is(musicplaylist)">DefaultMusicPlaylists.png</value>
+		<value condition="Window.Is(videoplaylist)">DefaultVideoPlaylists.png.png</value>
+	</variable>
 	<variable name="IconBanner">
 		<value condition="!String.IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(clearlogo))">$INFO[ListItem.Art(clearlogo)]</value>
