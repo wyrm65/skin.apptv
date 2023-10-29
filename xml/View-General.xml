@@ -90,16 +90,6 @@
 				</include>
 			</focusedlayout>
 		</control>
-			<control type="label">
-				<!-- Debug -->
-				<left>26</left>
-				<top>100</top>
-				<width>1858</width>
-				<height>32</height>
-				<font>apptv20</font>
-				<align>center</align>
-				<label>$VAR[IconGeneral]</label>
-			</control>
 		<control type="group">
 			<visible>Control.IsVisible(50)</visible>
 			<control type="image">
@@ -169,7 +159,7 @@
 					<top>10</top>
 					<width>240</width>
 					<height>240</height>
-					<texture colordiffuse="UnFocusedPosters">$INFO[ListItem.Icon]</texture>
+					<texture colordiffuse="UnFocusedPosters" background="true">$VAR[IconGeneral]</texture>
 					<aspectratio>keep</aspectratio>
 				</control>
 				<control type="image">
@@ -186,22 +176,9 @@
 					<top>10</top>
 					<width>240</width>
 					<height>240</height>
-					<texture diffuse="mask-squ.png" background="true">$INFO[ListItem.Icon]</texture>
+					<texture background="true">$VAR[IconGeneral]</texture>
 					<aspectratio>keep</aspectratio>
-					<animation effect="zoom" start="100" end="110" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
-					<visible>$EXP[isDefaultIcon]</visible>
-				</control>
-				<control type="image">
-					<left>50</left>
-					<top>0</top>
-					<width>261</width>
-					<height>261</height>
-					<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
-					<bordertexture border="10">mask-hilitesqu.png</bordertexture>
-					<bordersize>10</bordersize>
-					<aspectratio scalediffuse="false">keep</aspectratio>
-					<animation effect="zoom" start="100" end="110" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
-					<visible>$EXP[isnotDefaultIcon]</visible>
+					<animation effect="zoom" start="100" end="112" center="auto" time="300" tween="back" easing="out" reversible="false">focus</animation>
 				</control>
 				<control type="image">
 					<left>212</left>
@@ -258,8 +235,7 @@
 					<width>160</width>
 					<height>160</height>
 					<aspectratio aligny="bottom">keep</aspectratio>
-					<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
-					<colordiffuse>UnFocusedCovers</colordiffuse>
+					<texture colordiffuse="UnFocusedPosters" background="true">$VAR[IconGeneral]</texture>
 				</control>
 			</itemlayout>
 			<focusedlayout height="432" width="432">
@@ -273,7 +249,7 @@
 				<width>416</width>
 				<height>416</height>
 				<aspectratio aligny="bottom">keep</aspectratio>
-				<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
+				<texture background="true">$VAR[IconGeneral]</texture>
 			</control>
 			<control type="group">
 				<visible>$EXP[isContentAddons]</visible>
@@ -830,36 +806,31 @@
 					<height>192</height>
 					<aspectratio>keep</aspectratio>
 					<colordiffuse>UnFocusedCovers</colordiffuse>
-					<texture fallback="DefaultProgram.png" background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
+					<texture fallback="DefaultProgram.png" background="true" diffuse="mask-squ.png">$VAR[IconGeneral]</texture>
 				</control>
 			</itemlayout>
 			<focusedlayout height="216" width="216">
-				<control type="image">
-					<left>0</left>
-					<top>0</top>
-					<width>216</width>
-					<height>216</height>
-					<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
-					<aspectratio>keep</aspectratio>
-					<bordertexture border="14">mask-hilite.png</bordertexture>
-					<bordersize>14</bordersize>
-					<animation effect="zoom" start="90" end="140" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
-					<visible>$EXP[isnotDefaultIcon]</visible>
-				</control>
 				<control type="image">
 					<left>12</left>
 					<top>12</top>
 					<width>192</width>
 					<height>192</height>
 					<aspectratio>keep</aspectratio>
-					<animation effect="zoom" start="90" end="140" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
-					<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
-					<visible>$EXP[isDefaultIcon]</visible>
+					<animation effect="zoom" start="90" end="124" center="auto" time="600" tween="back" easing="out" reversible="false">focus</animation>
+					<texture background="true">$VAR[IconGeneral]</texture>
 				</control>
 			</focusedlayout>
 		</control>
 		<control type="group">
 			<visible>Control.IsVisible(58)</visible>
+				<control type="label">  <!-- Debg -->
+					<left>26</left>
+					<top>100</top>
+					<width>1858</width>
+					<height>30</height>
+					<font>apptv18</font>
+					<label>$INFO[ListItem.FolderName]</label>
+				</control>
 			<control type="label"><!-- Title -->
 				<left>300</left>
 				<top>938</top>

@@ -550,9 +550,8 @@
 		<value>$LOCALIZE[19023] - $INFO[VideoPlayer.ChannelGroup]</value>
 	</variable>
 	<variable name="IconGeneral">
-		<value condition="!String.IsEmpty(ListItem.Icon) + !String.Contains(ListItem.Icon,Default)">$INFO[ListItem.Icon]</value>
+		<value condition="!String.IsEmpty(ListItem.Icon) + [ListItem.IsParentFolder | !String.Contains(ListItem.Icon,Default)]">$INFO[ListItem.Icon]</value>
 		<value condition="!String.IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
-		<value condition="!String.IsEmpty(ListItem.Icon) + ListItem.IsParentFolder">$INFO[ListItem.Icon]</value>
 		<value condition="Container.Content(albums)">DefaultMusicAlbums.png</value>
 		<value condition="Container.Content(songs)">DefaultMusicSongs.png</value>
 		<value condition="Container.Content(musicvideos)">DefaultMusicVideos.png</value>
@@ -567,6 +566,7 @@
 		<value condition="Window.Is(pictures)">DefaultPicture.png</value>
 		<value condition="Window.Is(musicplaylist)">DefaultMusicPlaylists.png</value>
 		<value condition="Window.Is(videoplaylist)">DefaultVideoPlaylists.png.png</value>
+		<value>$INFO[ListItem.Icon]</value>
 	</variable>
 	<variable name="IconBanner">
 		<value condition="!String.IsEmpty(ListItem.Art(banner))">$INFO[ListItem.Art(banner)]</value>
