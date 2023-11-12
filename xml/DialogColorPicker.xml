@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+	<defaultcontrol always="true">6</defaultcontrol>
+	<controls>
+		<include>fadebackground</include>
+		<control type="group">
+			<centertop>50%</centertop>
+			<centerleft>50%</centerleft>
+			<height>750</height>
+			<width>1240</width>
+			<control type="image"><!-- Dialog background -->
+				<left>0</left>
+				<top>0</top>
+				<width>1240</width>
+				<height>784</height>
+				<texture border="14">button-menu-background.png</texture>
+			</control>
+			<control type="label" id="1">
+				<left>16</left>
+				<top>25</top>
+				<width>1208</width>
+				<height>40</height>
+				<font>apptv25</font>
+				<align>center</align>
+			</control>
+			<control type="image">
+				<left>16</left>
+				<top>76</top>
+				<width>1208</width>
+				<height>6</height>
+				<texture>separator.png</texture>
+			</control>
+			<control type="panel" id="6"><!-- Color picker panel -->
+				<left>40</left>
+				<top>90</top>
+				<width>880</width>
+				<bottom>20</bottom>
+				<onup>6</onup>
+				<ondown>6</ondown>
+				<onleft>61</onleft>
+				<onright>9001</onright>
+				<orientation>vertical</orientation>
+				<pagecontrol>61</pagecontrol>
+				<viewtype label="100">icon</viewtype>
+				<itemlayout height="80" width="146">
+					<control type="group">
+						<control type="image">
+							<top>3</top>
+							<left>8</left>
+							<width>138</width>
+							<height>74</height>
+							<texture>colours/black.png</texture>
+						</control>
+						<control type="image">
+							<top>3</top>
+							<left>8</left>
+							<width>138</width>
+							<height>74</height>
+							<texture border="0">colours/white.png</texture>
+							<colordiffuse>$INFO[ListItem.Label2]</colordiffuse>
+							<aspectratio>stretch</aspectratio>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="80" width="146">
+					<control type="group">
+						<animation effect="zoom" time="200" tween="sine" easing="inout" start="100" end="124" center="auto">Focus</animation>
+						<control type="image">
+							<top>3</top>
+							<left>8</left>
+							<width>138</width>
+							<height>74</height>
+							<texture>colours/black.png</texture>
+						</control>
+						<control type="image">
+							<top>3</top>
+							<left>8</left>
+							<width>138</width>
+							<height>74</height>
+							<texture border="0">colours/white.png</texture>
+							<colordiffuse>$INFO[ListItem.Label2]</colordiffuse>
+							<aspectratio>stretch</aspectratio>
+						</control>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="scrollbar" id="61">
+				<left>12</left>
+				<top>88</top>
+				<width>16</width>
+				<bottom>18</bottom>
+				<onright condition="Control.IsVisible(6)">6</onright>
+				<orientation>vertical</orientation>
+			</control>
+			<control type="label">
+				<left>40</left>
+				<top>734</top>
+				<width>880</width>
+				<height>35</height>
+				<font>apptv22</font>
+				<align>left</align>
+				<label>$LOCALIZE[737]: $INFO[Container(6).ListItem.Label,, - ]$INFO[Container(6).ListItem.Label2,#,]</label>
+			</control>
+
+			<control type="grouplist" id="9001">
+				<left>925</left>
+				<top>90</top>
+				<itemgap>0</itemgap>
+				<onleft>6</onleft>
+				<control type="button" id="7"><!-- Cancel -->
+					<left>0</left>
+					<top>0</top>
+					<width>300</width>
+					<height>68</height>
+					<font>apptv22</font>
+					<align>center</align>
+					<label>$LOCALIZE[222]</label>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>
