@@ -37,7 +37,7 @@ To install this add-on you must do so from the Add-on manager from within Kodi b
 While I have tried very hard for the skin to be self contained, the following addons are required for the installation.  These addons will be installed if not already in the users system when the skin is installed via the offical Kodi repository.  The user will need to ensure these addons are available if installing via a zip file from this github page.
 
  - resource.uisounds.apptv v1.0.4
- - resource.images.classificationicons.colour v0.0.3
+ - resource.images.classificationicons.colour v0.0.4
  - script.embuary.helper v2.0.8
 
 ## OPTIONAL ADDONS
@@ -47,7 +47,6 @@ The following addons will be made use of if installed by the user.  The skin wil
  - service.tvtunes
  - plugin.program.autocompletion
  - script.cu.lrclyrics
- - script.globalsearch
  - script.image.resource.select
  - service.upnext
  - script.tv.show.next.aired
@@ -61,7 +60,6 @@ The following addons will be made use of if installed by the user.  The skin wil
 The following scripts are supported with custom skin files to match the script to the rest of the skin
 
  - script.cu.lrclyrics
- - script.globalsearch
  - script.tv.show.next.aired
  - service.upnext
  - plugin.video.specialfeatures
