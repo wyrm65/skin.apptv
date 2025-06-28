@@ -55,10 +55,36 @@
 	<expression name="isnotAlwaysScrollbar">![String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])]</expression>
 	<expression name="isParentFolder">ListItem.IsParentFolder</expression>
 	<expression name="isnotParentFolder">!ListItem.IsParentFolder</expression>
+	<expression name="isnotScrolling">![Container.Scrolling]</expression>
 	<expression name="IsSearching">[Container(101).IsUpdating | Container(103).IsUpdating | Container(105).IsUpdating | Container(107).IsUpdating
 									| Container(108).IsUpdating | Container(110).IsUpdating  Container(112).IsUpdating  | Container(114).IsUpdating 
 									| Container(116).IsUpdating | Container(117).IsUpdating  Container(119).IsUpdating]</expression>
-
+	<expression name="IsNumericSortLetter">[String.IsEqual(ListItem.SortLetter,0) | String.IsEqual(ListItem.SortLetter,1) | String.IsEqual(ListItem.SortLetter,2)
+											| String.IsEqual(ListItem.SortLetter,3) | String.IsEqual(ListItem.SortLetter,4) | String.IsEqual(ListItem.SortLetter,5)
+											| String.IsEqual(ListItem.SortLetter,6) | String.IsEqual(ListItem.SortLetter,7) | String.IsEqual(ListItem.SortLetter,8)
+									 		| String.IsEqual(ListItem.SortLetter,9)]</expression>
+	<expression name="IsNotNumericSortLetter">![String.IsEqual(ListItem.SortLetter,0) | String.IsEqual(ListItem.SortLetter,1) | String.IsEqual(ListItem.SortLetter,2)
+												| String.IsEqual(ListItem.SortLetter,3) | String.IsEqual(ListItem.SortLetter,4) | String.IsEqual(ListItem.SortLetter,5)
+												| String.IsEqual(ListItem.SortLetter,6) | String.IsEqual(ListItem.SortLetter,7) | String.IsEqual(ListItem.SortLetter,8)
+									 			| String.IsEqual(ListItem.SortLetter,9)]</expression>
+	<expression name="IsAlphaSortLetter">[String.IsEqual(ListItem.SortLetter,A) | String.IsEqual(ListItem.SortLetter,B) | String.IsEqual(ListItem.SortLetter,C)
+											| String.IsEqual(ListItem.SortLetter,D) | String.IsEqual(ListItem.SortLetter,E) | String.IsEqual(ListItem.SortLetter,F)
+											| String.IsEqual(ListItem.SortLetter,G) | String.IsEqual(ListItem.SortLetter,H) | String.IsEqual(ListItem.SortLetter,I)
+									 		| String.IsEqual(ListItem.SortLetter,J) | String.IsEqual(ListItem.SortLetter,K) | String.IsEqual(ListItem.SortLetter,L)
+											| String.IsEqual(ListItem.SortLetter,M) | String.IsEqual(ListItem.SortLetter,N) | String.IsEqual(ListItem.SortLetter,O)
+											| String.IsEqual(ListItem.SortLetter,P) | String.IsEqual(ListItem.SortLetter,Q) | String.IsEqual(ListItem.SortLetter,R)
+											| String.IsEqual(ListItem.SortLetter,S) | String.IsEqual(ListItem.SortLetter,T) | String.IsEqual(ListItem.SortLetter,U)
+											| String.IsEqual(ListItem.SortLetter,V) | String.IsEqual(ListItem.SortLetter,W) | String.IsEqual(ListItem.SortLetter,X)
+											| String.IsEqual(ListItem.SortLetter,Y) | String.IsEqual(ListItem.SortLetter,Z)	]</expression>
+	<expression name="IsNotAlphaSortLetter">![String.IsEqual(ListItem.SortLetter,A) | String.IsEqual(ListItem.SortLetter,B) | String.IsEqual(ListItem.SortLetter,C)
+											| String.IsEqual(ListItem.SortLetter,D) | String.IsEqual(ListItem.SortLetter,E) | String.IsEqual(ListItem.SortLetter,F)
+											| String.IsEqual(ListItem.SortLetter,G) | String.IsEqual(ListItem.SortLetter,H) | String.IsEqual(ListItem.SortLetter,I)
+									 		| String.IsEqual(ListItem.SortLetter,J) | String.IsEqual(ListItem.SortLetter,K) | String.IsEqual(ListItem.SortLetter,L)
+											| String.IsEqual(ListItem.SortLetter,M) | String.IsEqual(ListItem.SortLetter,N) | String.IsEqual(ListItem.SortLetter,O)
+											| String.IsEqual(ListItem.SortLetter,P) | String.IsEqual(ListItem.SortLetter,Q) | String.IsEqual(ListItem.SortLetter,R)
+											| String.IsEqual(ListItem.SortLetter,S) | String.IsEqual(ListItem.SortLetter,T) | String.IsEqual(ListItem.SortLetter,U)
+											| String.IsEqual(ListItem.SortLetter,V) | String.IsEqual(ListItem.SortLetter,W) | String.IsEqual(ListItem.SortLetter,X)
+											| String.IsEqual(ListItem.SortLetter,Y) | String.IsEqual(ListItem.SortLetter,Z)	]</expression>
 	<include file="Defaults.xml"/>
 
 	<include file="Includes_Variables.xml"/>
@@ -211,10 +237,11 @@
 	</include>
 	<include name="sortletternotification">
 		<control type="group">
-			<visible>Container.Scrolling + !Window.IsVisible(progressdialog) + [$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentAlbums] | $EXP[isContentArtists]]</visible>
+			<visible>Container.Scrolling + !Window.IsVisible(progressdialog) + [$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentAlbums] |
+			$EXP[isContentArtists]]</visible>
 			<animation effect="fade" time="200">Visible</animation>
 			<animation effect="fade" time="200" delay="500">Hidden</animation>
-			<animation condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentMovies] | $EXP[isContentTvshows] | $EXP[isContentAlbums] | $EXP[isContentArtists]]" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
+			<animation condition="Skin.HasSetting(show-letterbar) + [$EXP[isContentMovies]|$EXP[isContentTvshows]|$EXP[isContentAlbums]|$EXP[isContentArtists]]" effect="fade" start="100" end="0" reversible="true">Conditional</animation>
 			<left>897</left>
 			<top>36</top>
 			<width>123</width>
@@ -884,6 +911,48 @@
 			</control>
 		</definition>
 	</include>
+	<include name="Object_NumericLetter">
+		<control type="label">
+			<width>30</width>
+			<height>30</height>
+			<textcolor>button-text</textcolor>
+			<label>#</label>
+			<font>apptv18</font>
+			<align>center</align>
+			<visible>$EXP[IsNotNumericSortLetter] | [Control.HasFocus($PARAM[searchbtn])]</visible>
+		</control>
+		<control type="label">
+			<width>30</width>
+			<height>30</height>
+			<textcolor>listselected-text</textcolor>
+			<label>#</label>
+			<font>apptv20</font>
+			<align>center</align>
+			<animation condition="true" effect="zoom" start="100" end="130" center="auto">Conditional</animation>
+			<visible>[!Control.HasFocus($PARAM[searchbtn])] + $EXP[IsNumericSortLetter]</visible>	
+		</control>
+	</include>
+	<include name="Object_AlphabetLetter">
+		<control type="label">
+			<width>30</width>
+			<height>30</height>
+			<textcolor>button-text</textcolor>
+			<label>$PARAM[letter]</label>
+			<font>apptv18</font>
+			<align>center</align>
+			<visible>!String.IsEqual(ListItem.SortLetter,$PARAM[letter])</visible>
+		</control>
+		<control type="label">
+			<width>30</width>
+			<height>30</height>
+			<textcolor>listselected-text</textcolor>
+			<label>$PARAM[letter]</label>
+			<font>apptv20</font>
+			<align>center</align>
+			<animation condition="true" effect="zoom" start="100" end="130" center="auto">Conditional</animation>
+			<visible>String.IsEqual(ListItem.SortLetter,$PARAM[letter])</visible>
+		</control>
+	</include>
 	<include name="letterbar-vertical">
 		<param name="searchleft"/>
 		<param name="searchtop"/>
@@ -899,75 +968,75 @@
 		<definition>
 			<control type="group">
 				<visible>$PARAM[letterbarvisible]</visible>
+				<control type="button" id="$PARAM[letterbarid]">
+					<left>-100</left>
+					<top>-100</top>
+					<width>30</width>
+					<height>30</height>
+					<texturefocus />
+					<font />
+					<onleft>$PARAM[listitemid]</onleft>
+					<onright>$PARAM[scrollbarid]</onright>
+					<onup condition="$EXP[IsNumericSortLetter]">SetFocus($PARAM[searchid])</onup>
+					<onup condition="$EXP[IsNumericSortLetter]">Action(Select)</onup>
+					<onup condition="$EXP[IsNotNumericSortLetter]">SetFocus($PARAM[listitemid])</onup>
+					<onup condition="$EXP[IsNotNumericSortLetter]">Action(prevletter)</onup>
+					<onup>SetFocus($PARAM[letterbarid])</onup>
+					<ondown>SetFocus($PARAM[listitemid])</ondown>
+					<ondown>Action(nextletter)</ondown>
+					<ondown>SetFocus($PARAM[letterbarid])</ondown>
+				</control>
 				<control type="button" id="$PARAM[searchid]">
 					<left>$PARAM[searchleft]</left>
 					<top>$PARAM[searchtop]</top>
 					<width>30</width>
 					<height>30</height>
-					<onleft>$PARAM[listitemid]</onleft>
-					<onright>$PARAM[scrollbarid]</onright>
-					<onup>$PARAM[illegalexitsearch]</onup>
-					<ondown>$PARAM[letterbarid]</ondown>
-					<texturefocus>touch-search.png</texturefocus>
-					<texturenofocus>touch-search.png</texturenofocus>
+					<texturefocus colordiffuse="listselected-text">touch-search.png</texturefocus>
+					<texturenofocus colordiffuse="button-text">touch-search.png</texturenofocus>
 					<onclick>SetProperty(CustomSearch,1,home)</onclick>
 					<onclick>Skin.Reset(CustomSearchTerm)</onclick>
 					<onclick>Skin.SetString(CustomSearchTerm)</onclick>
 					<onclick>ActivateWindow(1156)</onclick>
-					<animation effect="zoom" start="100" end="155" center="auto">focus</animation>
-					<animation effect="fade" start="100" end="40" condition="!Control.HasFocus($PARAM[searchid])">Conditional</animation>
-					<visible>!Container($PARAM[letterbarid]).IsUpdating + Control.IsVisible($PARAM[letterbarid])</visible>
+					<animation effect="zoom" start="100" end="120" center="auto">focus</animation>
 				</control>
-				<control type="panel" id="$PARAM[letterbarid]">
+				<control type="grouplist"  id="$PARAM[letterbarid]1">
 					<left>$PARAM[letterbarleft]</left>
 					<top>$PARAM[letterbartop]</top>
 					<width>30</width>
-					<height>891</height>
+					<height>864</height>
 					<onleft>$PARAM[listitemid]</onleft>
 					<onright condition="$EXP[isEnabledScrollbar]">$PARAM[scrollbarid]</onright>
 					<onright condition="![$EXP[isEnabledScrollbar]]">$PARAM[illegalexitbar]</onright>
-					<onup>$PARAM[searchid]</onup>
 					<ondown>$PARAM[illegalexitbar]</ondown>
+					<itemgap>2</itemgap>
 					<orientation>vertical</orientation>
-					<itemlayout height="33" width="30">
-						<control type="label">
-							<height>30</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv20</font>
-							<align>center</align>
-							<textcolor>disabled-text</textcolor>
-							<animation effect="fade" start="100" end="40" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-						</control>
-						<control type="label">
-							<height>30</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv20</font>
-							<textcolor>listselected-text</textcolor>
-							<align>center</align>
-							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter) | String.IsEqual(ListItem.Property(IsNumber),Container.ListItem.SortLetter)</visible>
-						</control>
-					</itemlayout>
-					<focusedlayout height="33" width="30">
-						<control type="label">
-							<height>30</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv20</font>
-							<align>center</align>
-							<animation effect="zoom" start="100" end="154" center="auto">focus</animation>
-							<animation effect="fade" start="100" end="40" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-						</control>
-						<control type="label">
-							<height>30</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv20</font>
-							<align>center</align>
-							<textcolor>listselected-text</textcolor>
-							<animation effect="zoom" start="100" end="154" center="auto">focus</animation>
-							<animation effect="fade" start="100" end="40" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter) | String.IsEqual(ListItem.Property(IsNumber),Container.ListItem.SortLetter)</visible>
-						</control>
-					</focusedlayout>
-					<content>plugin://script.embuary.helper/?info=jumptoletter&amp;showall=true&amp;reload=$INFO[Container.NumItems]</content>
+					<include content="Object_NumericLetter"><param name="searchbtn">"$PARAM[searchid]"</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">A</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">B</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">C</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">D</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">E</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">F</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">G</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">H</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">I</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">J</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">K</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">L</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">M</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">N</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">O</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">P</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">Q</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">R</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">S</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">T</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">U</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">V</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">W</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">X</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">Y</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">Z</param></include>
 				</control>
 			</control>
 		</definition>
@@ -987,75 +1056,78 @@
 		<definition>
 			<control type="group">
 				<visible>$PARAM[letterbarvisible]</visible>
+				<animation effect="fadediffuse" start="FF808080" end="FFFFFFFF">VisibleChange</animation>
+				<animation effect="fadediffuse" start="FF808080" end="FFFFFFFF" condition="Control.HasFocus($PARAM[letterbarid])">Conditional</animation>
+				<control type="button" id="$PARAM[letterbarid]">
+					<left>-100</left>
+					<top>-100</top>
+					<width>30</width>
+					<height>30</height>
+					<texturefocus />
+					<font />
+					<onup>$PARAM[listitemid]</onup>
+					<ondown>$PARAM[scrollbarid]</ondown>
+					<onleft condition="$EXP[IsNumericSortLetter]">SetFocus($PARAM[searchid])</onleft>
+					<onleft condition="$EXP[IsNumericSortLetter]">Action(Select)</onleft>
+					<onleft condition="$EXP[IsNotNumericSortLetter]">SetFocus($PARAM[listitemid])</onleft>
+					<onleft condition="$EXP[IsNotNumericSortLetter]">Action(prevletter)</onleft>
+					<onleft>SetFocus($PARAM[letterbarid])</onleft>
+					<onright>SetFocus($PARAM[listitemid])</onright>
+					<onright>Action(nextletter)</onright>
+					<onright>SetFocus($PARAM[letterbarid])</onright>
+				</control>
 				<control type="button" id="$PARAM[searchid]">
 					<left>$PARAM[searchleft]</left>
 					<top>$PARAM[searchtop]</top>
 					<width>30</width>
 					<height>30</height>
-					<onup>$PARAM[listitemid]</onup>
-					<ondown>$PARAM[scrollbarid]</ondown>
-					<onleft>$PARAM[illegalexitsearch]</onleft>
-					<onright>$PARAM[letterbarid]</onright>
-					<texturefocus>touch-search.png</texturefocus>
-					<texturenofocus>touch-search.png</texturenofocus>
+					<texturefocus colordiffuse="listselected-text">touch-search.png</texturefocus>
+					<texturenofocus colordiffuse="button-text">touch-search.png</texturenofocus>
 					<onclick>SetProperty(CustomSearch,1,home)</onclick>
 					<onclick>Skin.Reset(CustomSearchTerm)</onclick>
 					<onclick>Skin.SetString(CustomSearchTerm)</onclick>
 					<onclick>ActivateWindow(1156)</onclick>
-					<animation effect="zoom" start="100" end="160" center="auto">focus</animation>
-					<animation effect="fade" start="100" end="40" condition="!Control.HasFocus($PARAM[searchid])">Conditional</animation>
-					<visible>!Container($PARAM[letterbarid]).IsUpdating + Control.IsVisible($PARAM[letterbarid])</visible>
+					<animation effect="zoom" start="100" end="120" center="auto">focus</animation>
 				</control>
-				<control type="panel" id="$PARAM[letterbarid]">
+				<control type="grouplist"  id="$PARAM[letterbarid]1">
 					<left>$PARAM[letterbarleft]</left>
 					<top>$PARAM[letterbartop]</top>
 					<width>1848</width>
-					<height>33</height>
+					<height>30</height>
 					<onup>$PARAM[listitemid]</onup>
 					<ondown condition="$EXP[isEnabledScrollbar]">$PARAM[scrollbarid]</ondown>
 					<ondown condition="![$EXP[isEnabledScrollbar]]">$PARAM[illegalexitbar]</ondown>
 					<onleft>$PARAM[searchid]</onleft>
 					<onright>$PARAM[illegalexitbar]</onright>
+					<itemgap>37</itemgap>
 					<orientation>horizontal</orientation>
-					<itemlayout height="33" width="66">
-						<control type="label">
-							<height>30</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv20</font>
-							<textcolor>disabled-text</textcolor>
-							<align>center</align>
-							<animation effect="fade" start="100" end="40" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-						</control>
-						<control type="label">
-							<height>30</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv20</font>
-							<textcolor>listselected-text</textcolor>
-							<align>center</align>
-							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter) | String.IsEqual(ListItem.Property(IsNumber),Container.ListItem.SortLetter)</visible>
-						</control>
-					</itemlayout>
-					<focusedlayout height="33" width="66">
-						<control type="label">
-							<height>30</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv20</font>
-							<align>center</align>
-							<animation effect="zoom" end="158" center="auto">focus</animation>
-							<animation effect="fade" start="100" end="40" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-						</control>
-						<control type="label">
-							<height>30</height>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv20</font>
-							<align>center</align>
-							<textcolor>listselected-text</textcolor>
-							<animation effect="zoom" end="158" center="auto">focus</animation>
-							<animation effect="fade" start="100" end="40" condition="!String.IsEmpty(ListItem.Property(NotAvailable))">Conditional</animation>
-							<visible>String.IsEqual(ListItem.Label,Container.ListItem.SortLetter) | String.IsEqual(ListItem.Property(IsNumber),Container.ListItem.SortLetter)</visible>
-						</control>
-					</focusedlayout>
-					<content>plugin://script.embuary.helper/?info=jumptoletter&amp;showall=true&amp;reload=$INFO[Container.NumItems]</content>
+					<include content="Object_NumericLetter"><param name="searchbtn">"$PARAM[searchid]"</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">A</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">B</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">C</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">D</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">E</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">F</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">G</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">H</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">I</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">J</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">K</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">L</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">M</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">N</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">O</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">P</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">Q</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">R</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">S</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">T</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">U</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">V</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">W</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">X</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">Y</param></include>
+					<include content="Object_AlphabetLetter"><param name="letter">Z</param></include>
 				</control>
 			</control>
 		</definition>
