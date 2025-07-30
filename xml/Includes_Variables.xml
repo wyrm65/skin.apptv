@@ -7,7 +7,7 @@
 	<variable name="BackgndImage">
 		<value condition="Skin.HasSetting(background-slideshow) + Player.HasAudio + !String.IsEmpty(Window(visualisation).Property(ArtistSlideshow.Image))">$INFO[Window(visualisation).Property(ArtistSlideshow.Image)]</value>
 		<value condition="Skin.HasSetting(animated-artwork) + !String.IsEmpty(ListItem.Art(animatedfanart))">$INFO[ListItem.Art(animatedfanart)]</value>
-		<value condition="!Skin.HasSetting(background-fanarts) + [[$EXP[isContentSeasons] | $EXP[isContentEpisodes]] + !String.IsEmpty(ListItem.Art(tvshow.fanart1))]] + !String.IsEmpty(Control.GetLabel(300000))">$INFO[Control.GetLabel(300000)]</value>
+		<value condition="!Skin.HasSetting(background-fanarts)+[[$EXP[isContentSeasons]|$EXP[isContentEpisodes]]+!String.IsEmpty(ListItem.Art(tvshow.fanart1))] + !String.IsEmpty(Control.GetLabel(300000))">$INFO[Control.GetLabel(300000)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + Player.HasAudio + !String.IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(set.fanart))">$INFO[ListItem.Art(set.fanart)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>

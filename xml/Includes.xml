@@ -477,7 +477,7 @@
 				<top>-10</top>
 				<width>1</width>
 				<height>1</height>
-				<onfocus>SetFocus($PARAM[returnid])</onfocus>
+				<onfocus>Control.SetFocus($PARAM[returnid])</onfocus>
 				<onfocus>ActivateWindow(1157)</onfocus>
 			</control>
 		</definition>
@@ -622,7 +622,7 @@
 				<onright>9000</onright>
 				<onup>$PARAM[widget_onup]</onup>
 				<ondown>$PARAM[widget_ondown]</ondown>
-				<onback>SetFocus($PARAM[widget_parentid])</onback>
+				<onback>Control.SetFocus($PARAM[widget_parentid])</onback>
 				<itemlayout width="250">
 					<control type="image">
 						<left>10</left>
@@ -686,7 +686,7 @@
 				<onright>9000</onright>
 				<onup>$PARAM[widget_onup]</onup>
 				<ondown>$PARAM[widget_ondown]</ondown>
-				<onback>SetFocus($PARAM[widget_parentid])</onback>
+				<onback>Control.SetFocus($PARAM[widget_parentid])</onback>
 				<itemlayout width="350">
 					<control type="image">
 						<left>15</left>
@@ -749,7 +749,7 @@
 				<onright>9000</onright>
 				<onup>$PARAM[widget_onup]</onup>
 				<ondown>$PARAM[widget_ondown]</ondown>
-				<onback>SetFocus($PARAM[widget_parentid])</onback>
+				<onback>Control.SetFocus($PARAM[widget_parentid])</onback>
 				<itemlayout width="350">
 					<control type="image">
 						<left>46</left>
@@ -977,14 +977,14 @@
 					<font />
 					<onleft>$PARAM[listitemid]</onleft>
 					<onright>$PARAM[scrollbarid]</onright>
-					<onup condition="$EXP[IsNumericSortLetter]">SetFocus($PARAM[searchid])</onup>
+					<onup condition="$EXP[IsNumericSortLetter]">Control.SetFocus($PARAM[searchid])</onup>
 					<onup condition="$EXP[IsNumericSortLetter]">Action(Select)</onup>
-					<onup condition="$EXP[IsNotNumericSortLetter]">SetFocus($PARAM[listitemid])</onup>
+					<onup condition="$EXP[IsNotNumericSortLetter]">Control.SetFocus($PARAM[listitemid])</onup>
 					<onup condition="$EXP[IsNotNumericSortLetter]">Action(prevletter)</onup>
-					<onup>SetFocus($PARAM[letterbarid])</onup>
-					<ondown>SetFocus($PARAM[listitemid])</ondown>
+					<onup>Control.SetFocus($PARAM[letterbarid])</onup>
+					<ondown>Control.SetFocus($PARAM[listitemid])</ondown>
 					<ondown>Action(nextletter)</ondown>
-					<ondown>SetFocus($PARAM[letterbarid])</ondown>
+					<ondown>Control.SetFocus($PARAM[letterbarid])</ondown>
 				</control>
 				<control type="button" id="$PARAM[searchid]">
 					<left>$PARAM[searchleft]</left>
@@ -1042,8 +1042,6 @@
 		</definition>
 	</include>
 	<include name="letterbar-horizontal">
-		<param name="searchleft"/>
-		<param name="searchtop"/>
 		<param name="letterbarleft"/>
 		<param name="letterbartop"/>
 		<param name="searchid"/>
@@ -1057,7 +1055,7 @@
 			<control type="group">
 				<visible>$PARAM[letterbarvisible]</visible>
 				<animation effect="fadediffuse" start="FF808080" end="FFFFFFFF">VisibleChange</animation>
-				<animation effect="fadediffuse" start="FF808080" end="FFFFFFFF" condition="Control.HasFocus($PARAM[letterbarid])">Conditional</animation>
+				<animation effect="fadediffuse" start="FF808080" end="FFFFFFFF" condition="Control.HasFocus($PARAM[letterbarid])|Control.HasFocus($PARAM[letterbarid]1)">Conditional</animation>
 				<control type="button" id="$PARAM[letterbarid]">
 					<left>-100</left>
 					<top>-100</top>
@@ -1067,29 +1065,16 @@
 					<font />
 					<onup>$PARAM[listitemid]</onup>
 					<ondown>$PARAM[scrollbarid]</ondown>
-					<onleft condition="$EXP[IsNumericSortLetter]">SetFocus($PARAM[searchid])</onleft>
+					<onleft condition="$EXP[IsNumericSortLetter]">Control.SetFocus($PARAM[searchid])</onleft>
 					<onleft condition="$EXP[IsNumericSortLetter]">Action(Select)</onleft>
-					<onleft condition="$EXP[IsNotNumericSortLetter]">SetFocus($PARAM[listitemid])</onleft>
+					<onleft condition="$EXP[IsNotNumericSortLetter]">Control.SetFocus($PARAM[listitemid])</onleft>
 					<onleft condition="$EXP[IsNotNumericSortLetter]">Action(prevletter)</onleft>
-					<onleft>SetFocus($PARAM[letterbarid])</onleft>
-					<onright>SetFocus($PARAM[listitemid])</onright>
+					<onleft>Control.SetFocus($PARAM[letterbarid])</onleft>
+					<onright>Control.SetFocus($PARAM[listitemid])</onright>
 					<onright>Action(nextletter)</onright>
-					<onright>SetFocus($PARAM[letterbarid])</onright>
+					<onright>Control.SetFocus($PARAM[letterbarid])</onright>
 				</control>
-				<control type="button" id="$PARAM[searchid]">
-					<left>$PARAM[searchleft]</left>
-					<top>$PARAM[searchtop]</top>
-					<width>30</width>
-					<height>30</height>
-					<texturefocus colordiffuse="listselected-text">touch-search.png</texturefocus>
-					<texturenofocus colordiffuse="button-text">touch-search.png</texturenofocus>
-					<onclick>SetProperty(CustomSearch,1,home)</onclick>
-					<onclick>Skin.Reset(CustomSearchTerm)</onclick>
-					<onclick>Skin.SetString(CustomSearchTerm)</onclick>
-					<onclick>ActivateWindow(1156)</onclick>
-					<animation effect="zoom" start="100" end="120" center="auto">focus</animation>
-				</control>
-				<control type="grouplist"  id="$PARAM[letterbarid]1">
+				<control type="list"  id="$PARAM[letterbarid]1">
 					<left>$PARAM[letterbarleft]</left>
 					<top>$PARAM[letterbartop]</top>
 					<width>1848</width>
@@ -1099,37 +1084,265 @@
 					<ondown condition="![$EXP[isEnabledScrollbar]]">$PARAM[illegalexitbar]</ondown>
 					<onleft>$PARAM[searchid]</onleft>
 					<onright>$PARAM[illegalexitbar]</onright>
-					<itemgap>37</itemgap>
 					<orientation>horizontal</orientation>
-					<include content="Object_NumericLetter"><param name="searchbtn">"$PARAM[searchid]"</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">A</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">B</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">C</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">D</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">E</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">F</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">G</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">H</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">I</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">J</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">K</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">L</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">M</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">N</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">O</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">P</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">Q</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">R</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">S</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">T</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">U</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">V</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">W</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">X</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">Y</param></include>
-					<include content="Object_AlphabetLetter"><param name="letter">Z</param></include>
+					<itemlayout width="64" height="30">
+						<control type="image">
+							<width>30</width>
+							<height>30</height>
+							<texture>$INFO[ListItem.Icon]</texture>
+						</control>
+						<control type="label">
+							<width>30</width>
+							<height>30</height>
+							<textcolor>button-text</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<font>apptv18</font>
+							<align>center</align>
+							<aligny>center</aligny>
+							<visible>!String.StartsWith(ListItem.Label,Container($PARAM[listitemid]).ListItem.SortLetter)</visible>
+						</control>
+						<control type="label">
+							<width>30</width>
+							<height>30</height>
+							<textcolor>listselected-text</textcolor>
+							<label>$INFO[ListItem.Label]</label>
+							<font>apptv18</font>
+							<align>center</align>
+							<animation condition="true" effect="zoom" start="100" end="145" center="auto">Conditional</animation>
+							<visible>[String.StartsWith(ListItem.Label,Container($PARAM[listitemid]).ListItem.SortLetter)]|[String.StartsWith(ListItem.Label,#)+$EXP[IsNumericSortLetter]]</visible>
+						</control>
+					</itemlayout>
+					<focusedlayout width="64" height="30">
+						<control type="group">
+							<animation condition="true" effect="zoom" start="100" end="145" center="auto">Conditional</animation>
+							<control type="image">
+								<width>30</width>
+								<height>30</height>
+								<texture>$INFO[ListItem.Icon]</texture>
+							</control>
+							<control type="label">
+								<width>30</width>
+								<height>30</height>
+								<textcolor>button-text</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+								<font>apptv18</font>
+								<align>center</align>
+								<aligny>center</aligny>
+								<visible>!String.StartsWith(ListItem.Label,Container($PARAM[listitemid]).ListItem.SortLetter)</visible>
+							</control>
+							<control type="label">
+								<width>30</width>
+								<height>30</height>
+								<textcolor>listselected-text</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+								<font>apptv18</font>
+								<align>center</align>
+								<visible>[String.StartsWith(ListItem.Label,Container($PARAM[listitemid]).ListItem.SortLetter)]|[String.StartsWith(ListItem.Label,#)+$EXP[IsNumericSortLetter]]</visible>
+							</control>
+						</control>
+					</focusedlayout>
+					<content>
+						<item>
+							<icon>touch-search.png</icon>
+							<onclick>SetProperty(CustomSearch,1,home)</onclick>
+							<onclick>Skin.Reset(CustomSearchTerm)</onclick>
+							<onclick>Skin.SetString(CustomSearchTerm)</onclick>
+							<onclick>ActivateWindow(1156)</onclick>
+						</item>
+						<item>
+							<label>#</label>
+							<onclick>Control.SetFocus($PARAM[listitemid],0,absolute)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>A</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS2)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>B</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS2)</onclick>
+							<onclick>Action(JumpSMS2)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>C</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS2)</onclick>
+							<onclick>Action(JumpSMS2)</onclick>
+							<onclick>Action(JumpSMS2)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>		
+						</item>
+						<item>
+							<label>D</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS3)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>E</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS3)</onclick>
+							<onclick>Action(JumpSMS3)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>F</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS3)</onclick>
+							<onclick>Action(JumpSMS3)</onclick>
+							<onclick>Action(JumpSMS3)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>G</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS4)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>H</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS4)</onclick>
+							<onclick>Action(JumpSMS4)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>I</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS4)</onclick>
+							<onclick>Action(JumpSMS4)</onclick>
+							<onclick>Action(JumpSMS4)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>J</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS5)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>K</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS5)</onclick>
+							<onclick>Action(JumpSMS5)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>L</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS5)</onclick>
+							<onclick>Action(JumpSMS5)</onclick>
+							<onclick>Action(JumpSMS5)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>M</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS6)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>N</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS6)</onclick>
+							<onclick>Action(JumpSMS6)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>O</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS6)</onclick>
+							<onclick>Action(JumpSMS6)</onclick>
+							<onclick>Action(JumpSMS6)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>P</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS7)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>Q</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS7)</onclick>
+							<onclick>Action(JumpSMS7)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>R</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS7)</onclick>
+							<onclick>Action(JumpSMS7)</onclick>
+							<onclick>Action(JumpSMS7)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>S</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS7)</onclick>
+							<onclick>Action(JumpSMS7)</onclick>
+							<onclick>Action(JumpSMS7)</onclick>
+							<onclick>Action(JumpSMS7)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>T</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS8)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>U</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS8)</onclick>
+							<onclick>Action(JumpSMS8)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>V</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS8)</onclick>
+							<onclick>Action(JumpSMS8)</onclick>
+							<onclick>Action(JumpSMS8)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>W</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS9)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>X</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS9)</onclick>
+							<onclick>Action(JumpSMS9)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>Y</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS9)</onclick>
+							<onclick>Action(JumpSMS9)</onclick>
+							<onclick>Action(JumpSMS9)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+						<item>
+							<label>Z</label>
+							<onclick>Control.SetFocus($PARAM[listitemid])</onclick>
+							<onclick>Action(JumpSMS9)</onclick>
+							<onclick>Action(JumpSMS9)</onclick>
+							<onclick>Action(JumpSMS9)</onclick>
+							<onclick>Action(JumpSMS9)</onclick>
+							<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
+						</item>
+					</content>
 				</control>
-			</control>
+			</control>			
 		</definition>
 	</include>
 	<include name="touch-controls-common">
