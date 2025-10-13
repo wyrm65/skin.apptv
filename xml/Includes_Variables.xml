@@ -157,9 +157,6 @@
 	<variable name="SearchSongs">
 		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(music)">musicdb://songs/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22artist%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22title%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22songs%22%7d</value>
 	</variable>
-	<variable name="NetFlix.Search">
-		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + System.HasAddon(plugin.video.netflix)">plugin://plugin.video.netflix/directory/search/search/?query=$INFO[Skin.String(CustomSearchTerm)]</value>
-	</variable>
 
 	<variable name="VideoInfoWidget">
 		<value condition="String.IsEqual(ListItem.DBTYPE,set)">$INFO[ListItem.FolderPath]</value>
