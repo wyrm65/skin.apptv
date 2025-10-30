@@ -77,12 +77,20 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="image">
-					<left>787</left>
+					<left>776</left>
+					<top>18</top>
+					<width>24</width>
+					<height>24</height>
+					<texture>overlayvideoversions.png</texture>
+					<visible>$EXP[isVideoVersion]</visible>
+				</control>
+				<control type="image">
+					<left>800</left>
 					<top>18</top>
 					<width>24</width>
 					<height>24</height>
 					<texture>overlayvideoextras.png</texture>
-					<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
+					<visible>$EXP[isVideoExtra]</visible>
 				</control>
 				<control type="image">
 					<left>776</left>
@@ -124,12 +132,20 @@
 					<include condition="Skin.HasSetting(text-autoscroll)">scrolltext</include>
 				</control>
 				<control type="image">
-					<left>787</left>
+					<left>776</left>
+					<top>18</top>
+					<width>24</width>
+					<height>24</height>
+					<texture>overlayvideoversions.png</texture>
+					<visible>$EXP[isVideoVersion]</visible>
+				</control>
+				<control type="image">
+					<left>800</left>
 					<top>18</top>
 					<width>24</width>
 					<height>24</height>
 					<texture>overlayvideoextras.png</texture>
-					<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
+					<visible>$EXP[isVideoExtra]</visible>
 				</control>
 				<control type="image">
 					<left>776</left>

@@ -33,11 +33,19 @@
 				</control>
 				<control type="image">
 					<left>52</left>
-					<top>46</top>
+					<top>48</top>
+					<width>24</width>
+					<height>24</height>
+					<texture>overlayvideoversions.png</texture>
+					<visible>$EXP[isVideoVersion]</visible>
+				</control>
+				<control type="image">
+					<left>52</left>
+					<top>74</top>
 					<width>24</width>
 					<height>24</height>
 					<texture>overlayvideoextras.png</texture>
-					<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
+					<visible>$EXP[isVideoExtra]</visible>
 				</control>
 				<include content="listitem-count">
 					<param name="left" value="225" />
@@ -78,11 +86,19 @@
 					</control>
 					<control type="image">
 						<left>52</left>
-						<top>46</top>
+						<top>48</top>
+						<width>24</width>
+						<height>24</height>
+						<texture>overlayvideoversions.png</texture>
+						<visible>$EXP[isVideoVersion]</visible>
+					</control>
+					<control type="image">
+						<left>52</left>
+						<top>74</top>
 						<width>24</width>
 						<height>24</height>
 						<texture>overlayvideoextras.png</texture>
-						<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
+						<visible>$EXP[isVideoExtra]</visible>
 					</control>
 					<include content="listitem-count">
 						<param name="left" value="216" />

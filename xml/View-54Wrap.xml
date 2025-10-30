@@ -48,12 +48,20 @@
 					<colordiffuse>UnFocusedCovers</colordiffuse>
 				</control>
 				<control type="image">
+					<left>84</left>
+					<top>488</top>
+					<width>16</width>
+					<height>16</height>
+					<texture>overlayvideoversions.png</texture>
+					<visible>$EXP[isVideoVersion]</visible>
+				</control>
+				<control type="image">
 					<left>100</left>
 					<top>488</top>
 					<width>16</width>
 					<height>16</height>
 					<texture>overlayvideoextras.png</texture>
-					<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
+					<visible>$EXP[isVideoExtra]</visible>
 				</control>
 				<include content="listitem-count">
 					<param name="left" value="50" />
@@ -140,12 +148,20 @@
 					<texture>$VAR[Overlay]</texture>
 				</control>
 				<control type="image">
+					<left>310</left>
+					<top>186</top>
+					<width>24</width>
+					<height>24</height>
+					<texture>overlayvideoversions.png</texture>
+					<visible>$EXP[isVideoVersion]</visible>
+				</control>
+				<control type="image">
 					<left>334</left>
-					<top>188</top>
+					<top>186</top>
 					<width>24</width>
 					<height>24</height>
 					<texture>overlayvideoextras.png</texture>
-					<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
+					<visible>$EXP[isVideoExtra]</visible>
 				</control>
 				<include content="listitem-count">
 					<param name="left" value="192" />

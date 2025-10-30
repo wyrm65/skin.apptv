@@ -22,13 +22,21 @@
 					<aspectratio>stretch</aspectratio>
 					<texture colordiffuse="UnFocusedPosters" diffuse="mask-rect.png" background="true">$VAR[IconPoster]</texture>
 				</control>
-				<control type="image"><!-- Video special features available -->
+				<control type="image">
 					<left>2</left>
 					<top>4</top>
 					<width>24</width>
 					<height>24</height>
+					<texture>overlayvideoversions.png</texture>
+					<visible>$EXP[isVideoVersion]</visible>
+				</control>
+				<control type="image">
+					<left>28</left>
+					<top>4</top>
+					<width>24</width>
+					<height>24</height>
 					<texture>overlayvideoextras.png</texture>
-					<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
+					<visible>$EXP[isVideoExtra]</visible>
 				</control>
 				<control type="image">
 					<left>158</left>
@@ -97,13 +105,21 @@
 						<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 						<visible>$EXP[isnotDefaultIcon] + !Control.HasFocus(58)</visible>
 					</control>
-					<control type="image"><!-- Video special features available -->
-						<left>16</left>
-						<top>16</top>
+					<control type="image">
+						<left>2</left>
+						<top>4</top>
+						<width>24</width>
+						<height>24</height>
+						<texture>overlayvideoversions.png</texture>
+						<visible>$EXP[isVideoVersion]</visible>
+					</control>
+					<control type="image">
+						<left>28</left>
+						<top>4</top>
 						<width>24</width>
 						<height>24</height>
 						<texture>overlayvideoextras.png</texture>
-						<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
+						<visible>$EXP[isVideoExtra]</visible>
 					</control>
 					<control type="image">
 						<left>158</left>

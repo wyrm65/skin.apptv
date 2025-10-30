@@ -409,13 +409,21 @@
 					<label>$VAR[ListitemDuration]</label>
 					<visible>![$EXP[isTvshow]] + ![$EXP[isSeason]] + !Container.Scrolling</visible>
 				</control>
-				<control type="image"><!-- Video special features available -->
+				<control type="image">
+					<left>1704</left>
+					<top>1018</top>
+					<width>24</width>
+					<height>24</height>
+					<texture>overlayvideoversions.png</texture>
+					<visible>$EXP[isVideoVersion]</visible>
+				</control>
+				<control type="image">
 					<left>1730</left>
 					<top>1018</top>
 					<width>24</width>
 					<height>24</height>
 					<texture>overlayvideoextras.png</texture>
-					<visible>!String.IsEmpty(Listitem.Art(sflogo))</visible>
+					<visible>$EXP[isVideoExtra]</visible>
 				</control>
 				<control type="image">
 					<left>1764</left>
