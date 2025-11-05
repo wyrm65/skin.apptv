@@ -119,7 +119,6 @@
 		<value condition="String.IsEqual(Skin.String(listview-idleanim),120)">120$LOCALIZE[31810]</value>
 		<value>$LOCALIZE[31815]</value>
 	</variable>
-	
 	<variable name="SearchString">
 		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm))">$INFO[Skin.String(CustomSearchTerm)]</value>
 		<value>n/a</value>
@@ -157,7 +156,6 @@
 	<variable name="SearchSongs">
 		<value condition="!String.IsEmpty(Skin.String(CustomSearchTerm)) + Library.HasContent(music)">musicdb://songs/?xsp=%7b%22order%22%3a%7b%22direction%22%3a%22ascending%22%2c%22ignorefolders%22%3a0%2c%22method%22%3a%22artist%22%7d%2c%22rules%22%3a%7b%22and%22%3a%5b%7b%22field%22%3a%22title%22%2c%22operator%22%3a%22contains%22%2c%22value%22%3a%5b%22$INFO[Skin.String(CustomSearchTerm)]%22%5d%7d%5d%7d%2c%22type%22%3a%22songs%22%7d</value>
 	</variable>
-
 	<variable name="VideoInfoWidget">
 		<value condition="String.IsEqual(ListItem.DBTYPE,set)">$INFO[ListItem.FolderPath]</value>
 		<value condition="String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)">$INFO[Window(home).Property(SpecialFeatures.Widget)]</value>
