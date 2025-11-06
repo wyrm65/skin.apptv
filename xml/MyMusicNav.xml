@@ -109,15 +109,6 @@
 						<onclick>SetProperty(EditViews,Music,home)</onclick>
 						<onclick>ActivateWindow(1161)</onclick>
 					</control>
-					<control type="radiobutton" id="208"><!-- Use Media case Toggle -->
-						<include>settings-screen-common</include>
-						<label>$LOCALIZE[31869]</label>
-						<onclick>Skin.ToggleSetting(media-case)</onclick>
-						<selected>Skin.HasSetting(media-case)</selected>
-						<radioposx>495</radioposx>
-						<textoffsetx>15</textoffsetx>
-						<visible>Container.Content(albums) | Container.Content(songs)</visible>
-					</control>
 					<control type="button" id="3"><!-- Sort by -->
 						<include>settings-screen-common</include>
 						<label>$LOCALIZE[103]</label>

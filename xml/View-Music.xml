@@ -184,15 +184,6 @@
 			<control type="group">
 				<visible>$EXP[isContentAlbums] | $EXP[isContentSongs]</visible>
 				<control type="image">
-					<left>524</left>
-					<top>150</top>
-					<height>444</height>
-					<width>444</width>
-					<texture>case-cd.png</texture>
-					<aspectratio>keep</aspectratio>
-					<visible>$EXP[isnotDefaultIcon] + $EXP[isnotEmptyIcon] + Skin.HasSetting(media-case)</visible>
-				</control>
-				<control type="image">
 					<left>570</left>
 					<top>179</top>
 					<width>392</width>
@@ -470,18 +461,6 @@
 				<control type="group">
 					<visible>$EXP[isContentAlbums] | $EXP[isContentSongs]</visible>
 					<control type="image">
-						<left>0</left>
-						<top>276</top>
-						<height>180</height>
-						<width>194</width>
-						<colordiffuse>UnFocusedCovers</colordiffuse>
-						<texture fallback="DefaultAudio.png" background="true">$VAR[IconCover]</texture>
-						<aspectratio>stretch</aspectratio>
-						<bordertexture border="28,18,4,19">case-cd.png</bordertexture>
-						<bordersize>28,18,4,19</bordersize>
-						<visible>$EXP[isnotDefaultIcon] + Skin.HasSetting(media-case)</visible>
-					</control>
-					<control type="image">
 						<left>32</left>
 						<top>276</top>
 						<height>160</height>
@@ -489,7 +468,7 @@
 						<colordiffuse>UnFocusedCovers</colordiffuse>
 						<texture fallback="DefaultAudio.png" background="true" diffuse="mask-squ.png">$VAR[IconCover]</texture>
 						<aspectratio>stretch</aspectratio>
-						<visible>!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | $EXP[isEmptyIcon]</visible>
+						<visible>$EXP[isDefaultIcon] | $EXP[isEmptyIcon]</visible>
 					</control>
 				</control>
 				<control type="group">
@@ -525,18 +504,6 @@
 				<visible>$EXP[isContentAlbums] | $EXP[isContentSongs]</visible>
 				<control type="image">
 					<left>0</left>
-					<top>240</top>
-					<height>216</height>
-					<width>232</width>
-					<texture fallback="DefaultAudio.png" background="true">$VAR[IconCover]</texture>
-					<aspectratio>stretch</aspectratio>
-					<bordertexture border="28,18,4,19">case-cd.png</bordertexture>
-					<bordersize>28,18,4,19</bordersize>
-					<animation effect="zoom" start="100" end="185" center="-16,440" time="0" tween="back" easing="out" reversible="false" condition="true">Conditional</animation>
-					<visible>Skin.HasSetting(media-case) + $EXP[isnotDefaultIcon] + $EXP[isnotEmptyIcon]</visible>
-				</control>
-				<control type="image">
-					<left>0</left>
 					<top>228</top>
 					<height>232</height>
 					<width>232</width>
@@ -544,7 +511,7 @@
 					<aspectratio aligny="bottom">stretch</aspectratio>
 					<colordiffuse>$VAR[ListScrollDiffuse]</colordiffuse>
 					<animation effect="zoom" start="100" end="160" center="-62,496" time="0" tween="back" easing="out" reversible="false" condition="true">Conditional</animation>
-					<visible>!Skin.HasSetting(media-case) | $EXP[isDefaultIcon] | $EXP[isEmptyIcon]</visible>
+					<visible>$EXP[isDefaultIcon] | $EXP[isEmptyIcon]</visible>
 				</control>
 			</control>
 			<control type="group">

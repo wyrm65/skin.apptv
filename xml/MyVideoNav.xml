@@ -148,7 +148,7 @@
 						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-listview-movie))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31982])</onclick>
 						<enable>!String.IsEqual(Skin.String(listview-idleanim),$LOCALIZE[31815])</enable>
-						<visible>$EXP[isContentMovies]</visible>
+						<visible>String.EndsWith(Control.GetLabel(2),$LOCALIZE[31941]) + $EXP[isContentMovies]</visible>
 					</control>
 					<control type="button" id="1195"><!-- List View TVShow Widget type -->
 						<include>settings-screen-common</include>
@@ -187,7 +187,7 @@
 						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-listview-tvshow))</onclick>
 						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31027])</onclick>
 						<enable>!String.IsEqual(Skin.String(listview-idleanim),$LOCALIZE[31815])</enable>
-						<visible>$EXP[isContentTvshows]</visible>
+						<visible>String.EndsWith(Control.GetLabel(2),$LOCALIZE[31941]) + $EXP[isContentTvshows]</visible>
 					</control>
 					<control type="button" id="1196"><!-- List view idle widget delay -->
 						<include>settings-screen-common</include>
@@ -211,13 +211,6 @@
 						<selected>Skin.HasSetting(animated-artwork)</selected>
 						<radioposx>495</radioposx>
 						<visible>$EXP[isContentMovies]</visible>
-					</control>
-					<control type="radiobutton" id="208"><!-- Use Media case Toggle -->
-						<include>settings-screen-common</include>
-						<label>$LOCALIZE[31869]</label>
-						<onclick>Skin.ToggleSetting(dvd-case)</onclick>
-						<selected>Skin.HasSetting(dvd-case)</selected>
-						<radioposx>495</radioposx>
 					</control>
 					<control type="button" id="3"><!-- Sort by button -->
 						<include>settings-screen-common</include>
