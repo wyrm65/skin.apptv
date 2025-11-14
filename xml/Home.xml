@@ -71,13 +71,7 @@
 						<height>69</height>
 						<label>$LOCALIZE[31900] - $VAR[MenuType]</label>
 						<font>apptv20</font>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31953])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetBool(HomeMenuIcon)||Skin.Reset(HomeMenuVertical)||Skin.Reset(HomeMenuHorizontal)||ReloadSkin())</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31952])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetBool(HomeMenuHorizontal)||Skin.Reset(HomeMenuVertical)||Skin.Reset(HomeMenuIcon)||ReloadSkin())</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31951])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetBool(HomeMenuVertical)||Skin.Reset(HomeMenuHorizontal)||Skin.Reset(HomeMenuIcon)||ReloadSkin())</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31900])</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31900],separator=||,list=$LOCALIZE[31953]||$LOCALIZE[31952]||$LOCALIZE[31951],"executebuiltin_0=Skin.SetBool(HomeMenuIcon)||Skin.Reset(HomeMenuVertical)||Skin.Reset(HomeMenuHorizontal)||ReloadSkin()","executebuiltin_1=Skin.SetBool(HomeMenuHorizontal)||Skin.Reset(HomeMenuVertical)||Skin.Reset(HomeMenuIcon)||ReloadSkin()","executebuiltin_2=Skin.SetBool(HomeMenuVertical)||Skin.Reset(HomeMenuHorizontal)||Skin.Reset(HomeMenuIcon)||ReloadSkin()")</onclick>
 					</control>
 					<control type="button" id="6102"><!-- Home Settings Menu -->
 						<width>639</width>

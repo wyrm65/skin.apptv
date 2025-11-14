@@ -100,15 +100,7 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31854]</label>
 						<label2>$INFO[Skin.String(startup-screentype)]</label2>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31856])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(startup-screentype,$LOCALIZE[31856]))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31857])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(startup-screentype,$LOCALIZE[31857]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31858])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(startup-screentype,$LOCALIZE[31858]))</onclick>
-						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31855])</onclick>
-						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(startup-screentype,$LOCALIZE[31855]))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31854])</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31854],separator=||,list=$LOCALIZE[31856]||$LOCALIZE[31857]||$LOCALIZE[31858]||$LOCALIZE[31855],"executebuiltin_0=Skin.SetString(startup-screentype,$LOCALIZE[31856])","executebuiltin_1=Skin.SetString(startup-screentype,$LOCALIZE[31857])"				,"executebuiltin_2=Skin.SetString(startup-screentype,$LOCALIZE[31858])","executebuiltin_3=Skin.SetString(startup-screentype,$LOCALIZE[31855])")</onclick>
 					</control>
 					<control type="button" id="105"><!-- Startup Screen Path -->
 						<include>settings-submenu-common</include>
@@ -172,13 +164,7 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31881]</label>
 						<label2>$INFO[Skin.String(show-scrollbar)]</label2>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31876])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(show-scrollbar,$LOCALIZE[31876]))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31875])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(show-scrollbar,$LOCALIZE[31875]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31877])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(show-scrollbar,$LOCALIZE[31877]))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31881])</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31881],separator=||,list=$LOCALIZE[31876]||$LOCALIZE[31875]||$LOCALIZE[31877],"executebuiltin_0=Skin.SetString(show-scrollbar,$LOCALIZE[31876])","executebuiltin_1=Skin.SetString(show-scrollbar,$LOCALIZE[31875])"				,"executebuiltin_2=Skin.SetString(show-scrollbar,$LOCALIZE[31877])")</onclick>
 					</control>
 					<control type="radiobutton" id="205"><!-- Autoscroll Toggle -->
 						<include>settings-submenu-radio</include>
@@ -336,13 +322,7 @@
 						<include>settings-submenu-common</include>
 						<label> - $LOCALIZE[31940]</label>
 						<label2>$INFO[Skin.String(widget-tvshowimgtyp)]</label2>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31950])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(widget-tvshowimgtyp,$LOCALIZE[31950]))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31949])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget-tvshowimgtyp,$LOCALIZE[31949]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31670])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget-tvshowimgtyp,$LOCALIZE[31670]))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31027] $LOCALIZE[31940])</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31027] $LOCALIZE[31940],separator=||,list=$LOCALIZE[31950]||$LOCALIZE[31949]||$LOCALIZE[31670],"executebuiltin_0=Skin.Skin.SetString(widget-tvshowimgtyp,$LOCALIZE[31950])","executebuiltin_1=Skin.SetString(widget-tvshowimgtyp,$LOCALIZE[31949])"				,"executebuiltin_2=Skin.SetString(widget-tvshowimgtyp,$LOCALIZE[31670])")</onclick>
 						<visible>!$EXP[isVerticalHome]</visible>
 					</control>
 					<control type="button" id="312"><!-- Music Widget type -->
@@ -892,34 +872,13 @@
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
 							<onclick>Addon.OpenSettings(script.artistslideshow)</onclick>
-							<altclick>RunScript(script.embuary.helper,action=toggleaddons,addonid=script.artistslideshow,enable=true)</altclick>
 							<altclick condition="!System.HasAddon(script.artistslideshow)">InstallAddon(script.artistslideshow)</altclick>
+							<altclick>EnableAddon(script.artistslideshow)</altclick>
 							<usealttexture>!System.HasAddon(script.artistslideshow)</usealttexture>
 						</control>
 						<control type="label">
 							<include>settings-submenu-common</include>
 							<label>$LOCALIZE[31590]</label>
-							<textoffsetx>27</textoffsetx>
-						</control>
-					</control>
-					<control type="group" id="704"><!-- TV Tunes script install/config -->
-						<include>settings-submenu-size</include>
-						<control type="togglebutton" id="705">
-							<onup>702</onup>
-							<ondown>707</ondown>
-							<onright>999</onright>
-							<include>settings-submenu-common</include>
-							<label>$LOCALIZE[24020]</label>
-							<altlabel>$LOCALIZE[24038]</altlabel>
-							<align>right</align>
-							<onclick>Addon.OpenSettings(service.tvtunes)</onclick>
-							<altclick>RunScript(script.embuary.helper,action=toggleaddons,addonid=service.tvtunes,enable=true)</altclick>
-							<altclick condition="!System.HasAddon(service.tvtunes)">InstallAddon(service.tvtunes)</altclick>
-							<usealttexture>!System.HasAddon(service.tvtunes)</usealttexture>
-						</control>
-						<control type="label">
-							<include>settings-submenu-common</include>
-							<label>$LOCALIZE[31596]</label>
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
@@ -934,8 +893,8 @@
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
 							<onclick>Addon.OpenSettings(plugin.program.autocompletion)</onclick>
-							<altclick>RunScript(script.embuary.helper,action=toggleaddons,addonid=plugin.program.autocompletion,enable=true)</altclick>
 							<altclick condition="!System.HasAddon(plugin.program.autocompletion)">InstallAddon(plugin.program.autocompletion)</altclick>
+							<altclick>EnableAddon(plugin.program.autocompletion)</altclick>	
 							<usealttexture>!System.HasAddon(plugin.program.autocompletion)</usealttexture>
 						</control>
 						<control type="label">
@@ -955,8 +914,8 @@
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
 							<onclick>Addon.OpenSettings(script.cu.lrclyrics)</onclick>
-							<altclick>RunScript(script.embuary.helper,action=toggleaddons,addonid=script.cu.lrclyrics,enable=true)</altclick>
 							<altclick condition="!System.HasAddon(script.cu.lrclyrics)">InstallAddon(script.cu.lrclyrics)</altclick>
+							<altclick>EnableAddon(script.cu.lrclyrics)</altclick>
 							<usealttexture>!System.HasAddon(script.cu.lrclyrics)</usealttexture>
 						</control>
 						<control type="label">
@@ -976,8 +935,8 @@
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
 							<onclick>noop</onclick>
-							<altclick>RunScript(script.embuary.helper,action=toggleaddons,addonid=script.image.resource.select,enable=true)</altclick>
 							<altclick condition="!System.HasAddon(script.image.resource.select)">InstallAddon(script.image.resource.select)</altclick>
+							<altclick>EnableAddon(script.image.resource.select)</altclick>
 							<usealttexture>!System.HasAddon(script.image.resource.select)</usealttexture>
 						</control>
 						<control type="label">
@@ -997,34 +956,13 @@
 							<altlabel>$LOCALIZE[24038]</altlabel>
 							<align>right</align>
 							<onclick>Addon.OpenSettings(service.upnext)</onclick>
-							<altclick>RunScript(script.embuary.helper,action=toggleaddons,addonid=service.upnext,enable=true)</altclick>
 							<altclick condition="!System.HasAddon(service.upnext)">InstallAddon(service.upnext)</altclick>
+							<altclick>EnableAddon(service.upnext)</altclick>
 							<usealttexture>!System.HasAddon(service.upnext)</usealttexture>
 						</control>
 						<control type="label">
 							<include>settings-submenu-common</include>
 							<label>$LOCALIZE[31593]</label>
-							<textoffsetx>27</textoffsetx>
-						</control>
-					</control>
-					<control type="group" id="716"><!-- Next aired TVShows script install/config -->
-						<include>settings-submenu-size</include>
-						<control type="togglebutton" id="717">
-							<onup>715</onup>
-							<ondown>718</ondown>
-							<onright>999</onright>
-							<include>settings-submenu-common</include>
-							<label>$LOCALIZE[24020]</label>
-							<altlabel>$LOCALIZE[24038]</altlabel>
-							<align>right</align>
-							<onclick>Addon.OpenSettings(script.tv.show.next.aired)</onclick>
-							<altclick>RunScript(script.embuary.helper,action=toggleaddons,addonid=script.tv.show.next.aired,enable=true)</altclick>
-							<altclick condition="!System.HasAddon(script.tv.show.next.aired)">InstallAddon(script.tv.show.next.aired)</altclick>
-							<usealttexture>!System.HasAddon(script.tv.show.next.aired)</usealttexture>
-						</control>
-						<control type="label">
-							<include>settings-submenu-common</include>
-							<label>$LOCALIZE[31597]</label>
 							<textoffsetx>27</textoffsetx>
 						</control>
 					</control>
