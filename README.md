@@ -44,23 +44,18 @@ While I have tried very hard for the skin to be self contained, the following ad
 The following addons will be made use of if installed by the user.  The skin will prompt the user to allow the installation of any necessary addons if the user selects an option requiring an addon.  In addition a number of the optional addons can be installed via the skins settings menus.
 
  - script.artistslideshow
- - service.tvtunes
  - plugin.program.autocompletion
  - script.cu.lrclyrics
  - script.image.resource.select
  - service.upnext
- - script.tv.show.next.aired
  - script.metadata.editor
  - script.libraryeditor
  - script.favourites
- - plugin.video.specialfeatures
  - script.kodi.loguploader
 
 ## SCRIPTS WITH SKINABLE ELEMENTS
 The following scripts are supported with custom skin files to match the script to the rest of the skin
 
  - script.cu.lrclyrics
- - script.tv.show.next.aired
  - service.upnext
- - plugin.video.specialfeatures
  - service.libreelec.settings
