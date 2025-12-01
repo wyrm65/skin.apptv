@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<onload>RunScript(script.embuary.helper,action=resetposition,container=50||950,only=inactive)</onload>
+	<onload>Control.SetFocus(999,0,absolute)</onload>
 	<defaultcontrol always="true">999</defaultcontrol>
 	<controls>
 		<include>background</include>
@@ -418,14 +418,21 @@
 				<enable>!String.IsEmpty(ListItem.Trailer)</enable>
 				<visible>$EXP[isMovie]</visible>
 			</control>
-			<control type="button" id="1227"><!-- Special Features button -->
+			<control type="button" id="14"><!-- Versions button -->
 				<include>info-options-common</include>
-				<label>$LOCALIZE[31891]</label>
+				<label>$LOCALIZE[40000]</label>
+				<texturefocus>button-info-versions-focus.png</texturefocus>
+				<texturenofocus>button-info-versions.png</texturenofocus>
+				<onclick>Dialog.Close(movieinformation)</onclick>
+				<visible>ListItem.HasVideoVersions</visible>
+			</control>
+			<control type="button" id="15"><!-- Extras button -->
+				<include>info-options-common</include>
+				<label>$LOCALIZE[40211]</label>
 				<texturefocus>button-info-extras-focus.png</texturefocus>
 				<texturenofocus>button-info-extras.png</texturenofocus>
 				<onclick>Dialog.Close(movieinformation)</onclick>
-				<onclick>RunScript(plugin.video.specialfeatures,listitem)</onclick>
-				<visible>String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)</visible>
+				<visible>String.IsEqual(ListItem.DBType,movie)</visible>
 			</control>
 			<control type="togglebutton" id="905"><!-- Cast/suggest media button -->
 				<include>info-options-common</include>
@@ -440,27 +447,13 @@
 				<altclick>SendClick(5)</altclick>
 				<visible>!$EXP[isSet]</visible>
 			</control>
-			<control type="button" id="6"><!-- Refresh button -->
-				<include>info-options-common</include>
-				<label>$LOCALIZE[184]</label>
-				<texturefocus>button-info-refresh-focus.png</texturefocus>
-				<texturenofocus>button-info-refresh.png</texturenofocus>
-				<visible>!$EXP[isSet]</visible>
-			</control>
 			<control type="button" id="1115"><!-- More options button -->
 				<include>info-options-common</include>
 				<label>$LOCALIZE[31693]</label>
 				<texturefocus>button-info-more-focus.png</texturefocus>
 				<texturenofocus>button-info-more.png</texturenofocus>
-				<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31680])</onclick>
-				<onclick>SetProperty(Dialog.1.BuiltIn,SendClick(movieinformation,10))</onclick>
-				<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[38023])</onclick>
-				<onclick>SetProperty(Dialog.2.BuiltIn,SendClick(movieinformation,7))</onclick>
-				<onclick condition="System.HasAddon(script.metadata.editor) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.3.Label,$LOCALIZE[31689])</onclick>
-				<onclick condition="System.HasAddon(script.metadata.editor) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.3.BuiltIn,RunScript(script.metadata.editor,dbid=$INFO[ListItem.DBID],type=$INFO[ListItem.DBType]))</onclick>
-				<onclick condition="System.HasAddon(script.libraryeditor) + !System.HasAddon(script.metadata.editor) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.3.Label,$LOCALIZE[31689])</onclick>
-				<onclick condition="System.HasAddon(script.libraryeditor) + !System.HasAddon(script.metadata.editor) + $EXP[isnotEmptyDBID]">SetProperty(Dialog.3.BuiltIn,RunScript(script.libraryeditor,DBID=$INFO[ListItem.DBID]))</onclick>
-				<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31693])</onclick>
+				<include condition="System.HasAddon(script.metadata.editor)">video-info-libraryscript</include>
+				<include condition="!System.HasAddon(script.metadata.editor)">video-info-no-libraryscript</include>
 			</control>
 		</control>
 		<control type="label">
@@ -609,34 +602,34 @@
 		</control>
 		<!-- Play bump sound if user tries to leave button bar by undefined direction -->
 		<include content="illegal-action">
-			<param name="controlid" value="1005" />
-			<param name="returnid" value="999" />
+			<param name="controlid" value="1005"/>
+			<param name="returnid" value="999"/>
 		</include>
 		<!-- Play bump sound if user tries to leave cast widget by undefined direction -->
 		<include content="illegal-action">
-			<param name="controlid" value="1010" />
-			<param name="returnid" value="50" />
+			<param name="controlid" value="1010"/>
+			<param name="returnid" value="50"/>
 		</include>
 		<!-- Play bump sound if user tries to leave videos widget by undefined direction -->
 		<include content="illegal-action">
-			<param name="controlid" value="1015" />
-			<param name="returnid" value="950" />
+			<param name="controlid" value="1015"/>
+			<param name="returnid" value="950"/>
 		</include>
 		<!-- Show a iOS style page indicator to show which focus group has the current focus -->
 		<!-- Focus group can be hidden or shown but is potentially focusable, that is it has not be disabled -->
 		<control type="group">
 			<include content="page-indicator">
-				<param name="indicatorleft" value="0" />
-				<param name="indicatortop" value="444" />
-				<param name="indicatorwidth" value="48" />
-				<param name="indicatorheight" value="192" />
-				<param name="indicatororientation" value="vertical" />
-				<param name="grp1indicate" value="Control.HasFocus(1123)" />
-				<param name="grp1visible" value="$EXP[isnotAlwaysScrollbar]+Integer.IsGreater(Container(1122).NumPages,1)" />
-				<param name="grp2indicate" value="ControlGroup(999).HasFocus()|Control.HasFocus(3550)" />
-				<param name="grp2visible" value="Integer.IsGreater(Container(950).NumItems,0)|Integer.IsGreater(Container(952).NumItems,0)|[$EXP[isnotAlwaysScrollbar]+Integer.IsGreater(Container(1522).NumPages,1)]" />
-				<param name="grp3indicate" value="Control.HasFocus(950)" />
-				<param name="grp3visible" value="[Integer.IsGreater(Container(950).NumItems,0)+Control.IsVisible(950)]" />
+				<param name="indicatorleft" value="0"/>
+				<param name="indicatortop" value="444"/>
+				<param name="indicatorwidth" value="48"/>
+				<param name="indicatorheight" value="192"/>
+				<param name="indicatororientation" value="vertical"/>
+				<param name="grp1indicate" value="Control.HasFocus(1123)"/>
+				<param name="grp1visible" value="$EXP[isnotAlwaysScrollbar]+Integer.IsGreater(Container(1122).NumPages,1)"/>
+				<param name="grp2indicate" value="ControlGroup(999).HasFocus()|Control.HasFocus(3550)"/>
+				<param name="grp2visible" value="Integer.IsGreater(Container(950).NumItems,0)|Integer.IsGreater(Container(952).NumItems,0)|[$EXP[isnotAlwaysScrollbar]+Integer.IsGreater(Container(1522).NumPages,1)]"/>
+				<param name="grp3indicate" value="Control.HasFocus(950)"/>
+				<param name="grp3visible" value="[Integer.IsGreater(Container(950).NumItems,0)+Control.IsVisible(950)]"/>
 			</include>
 		</control>
 	</controls>

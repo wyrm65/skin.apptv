@@ -3,14 +3,11 @@
 	<include name="MovieRecent">
 		<content target="video" sortby="random" limit="12" browse="never">videodb://recentlyaddedmovies/</content>
 	</include>
-	<include name="MovieRecommended">
-		<content target="video" limit="12" browse="never">plugin://script.embuary.helper/?info=getsimilar&amp;type=movie</content>
-	</include>
 	<include name="MovieInProgress">
-		<content target="video" limit="12" browse="never">plugin://script.embuary.helper/?info=getinprogress&amp;type=movie&amp;pos=0</content>
+		<content target="video" limit="12" browse="never">special://skin/extras/playlists/video/MoviesInProgress.xsp</content>
 	</include>
 	<include name="MovieRandom">
-		<content target="video" limit="12" browse="never">plugin://script.embuary.helper/?info=getbygenre&amp;unwatched=True&amp;type=movie</content>
+		<content target="video" limit="12" browse="never">special://skin/extras/playlists/video/RandomMovies.xsp</content>
 	</include>
 	<include name="MovieSets">
 		<content target="video" sortby="random" limit="12" browse="never">videodb://movies/sets/</content>
@@ -21,17 +18,11 @@
 	<include name="EpisodeRecent">
 		<content target="video" sortby="random" limit="12" browse="never">videodb://recentlyaddedepisodes/</content>
 	</include>
-	<include name="TVShowRecommended">
-		<content target="video" sortby="random" limit="12" browse="never">plugin://script.embuary.helper/?info=getsimilar&amp;type=tvshow&amp;pos=0</content>
-	</include>
 	<include name="EpisodeInProgress">
-		<content target="video" sortby="random" limit="12" browse="never">plugin://script.embuary.helper/?info=getinprogress&amp;type=tvshow&amp;reload=$INFO[Window(home).Property(EmbuaryWidgetUpdate)]</content>
-	</include>
-	<include name="EpisodeNextUp">
-		<content target="video" sortby="random" limit="12" browse="never">plugin://script.embuary.helper/?info=getnextup</content>
+		<content target="video" sortby="random" limit="12" browse="never">special://skin/extras/playlists/video/TVShowsInProgress.xsp</content>
 	</include>
 	<include name="TVShowsNew">
-		<content target="video" sortby="random" limit="12" browse="never">plugin://script.embuary.helper/?info=getnewshows&amp;showall=true</content>
+		<content target="video" sortby="random" limit="12" browse="never">special://skin/extras/playlists/video/RecentlyUpdatedTVShows.xsp</content>
 	</include>
 	<include name="TVShowCustom">
 		<content target="video" limit="12" browse="never">$INFO[Skin.String(widget-tvshow.List)]</content>
@@ -52,7 +43,7 @@
 		<content target="music" limit="30" browse="never">musicdb://top100/songs/</content>
 	</include>
 	<include name="AlbumTop30">
-		<content target="music" limit="30" browse="never">musicdb://top100/songs/</content>
+		<content target="music" limit="30" browse="never">musicdb://top100/albums/</content>
 	</include>
 	<include name="MusicCustom">
 		<content target="music" limit="12" browse="never">$INFO[Skin.String(widget-music.List)]</content>
@@ -62,9 +53,6 @@
 	</include>
 	<include name="LatestRecordings">
 		<content target="pvr" limit="12" browse="never">pvr://recordings/tv/active?view=flat</content>
-	</include>
-	<include name="AiringToday">
-		<content target="video" limit="12" browse="never">plugin://script.embuary.helper/?info=getnextup</content>
 	</include>
 	<include name="BroadcastCustom">
 		<content target="video" limit="12" browse="never">$INFO[Skin.String(widget-broadcast.List)]</content>
@@ -179,7 +167,6 @@
 					</control>
 				</focusedlayout>
 				<include condition="String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31964])">MovieRecent</include>
-				<include condition="String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31960])">MovieRecommended</include>
 				<include condition="String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31971])">MovieInProgress</include>
 				<include condition="String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31972])">MovieRandom</include>
 				<include condition="String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31974])">MovieSets</include>
@@ -331,9 +318,7 @@
 					</control>
 				</focusedlayout>
 				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31954])">EpisodeRecent</include>
-				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31962])">TVShowRecommended</include>
 				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31975])">EpisodeInProgress</include>
-				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31976])">EpisodeNextUp</include>
 				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31977])">TVShowsNew</include>
 				<include condition="String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31661])|String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31660])
 				|String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31652])">TVShowCustom</include>
@@ -660,7 +645,6 @@
 						</control>
 					</control>
 				</focusedlayout>
-				<include condition="String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31956])">AiringToday</include>
 				<include condition="String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31957])">PVRChannels</include>
 				<include condition="String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31958])">LatestRecordings</include>
 				<include condition="String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31661])|String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31660])
@@ -835,7 +819,7 @@
 				<content>
 					<item>
 						<property name="day">$LOCALIZE[31528] $INFO[Window(weather).Property(Current.Temperature)]</property>
-						<label>[COLOR red]$INFO[Window(weather).Property(Day0.HighTemp)][/COLOR] • [COLOR FF7070FF]$INFO[Window(weather).Property(Day0.LowTemp)][/COLOR]</label>
+						<label>[COLOR red]$VAR[WeatherTodaysMaximum][/COLOR] • [COLOR FF7070FF]$VAR[WeatherTodaysMinimum][/COLOR]</label>
 						<label2>$INFO[Weather.Conditions]</label2>
 						<icon>$VAR[WeatherIconCurrent]</icon>	
 					</item>

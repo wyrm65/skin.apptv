@@ -100,7 +100,7 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31854]</label>
 						<label2>$INFO[Skin.String(startup-screentype)]</label2>
-						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31854],separator=||,list=$LOCALIZE[31856]||$LOCALIZE[31857]||$LOCALIZE[31858]||$LOCALIZE[31855],"executebuiltin_0=Skin.SetString(startup-screentype,$LOCALIZE[31856])","executebuiltin_1=Skin.SetString(startup-screentype,$LOCALIZE[31857])"				,"executebuiltin_2=Skin.SetString(startup-screentype,$LOCALIZE[31858])","executebuiltin_3=Skin.SetString(startup-screentype,$LOCALIZE[31855])")</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31854],separator=||,list=$LOCALIZE[31856]||$LOCALIZE[31857]||$LOCALIZE[31858]||$LOCALIZE[31855],"executebuiltin_0=Skin.SetString(startup-screentype,$LOCALIZE[31856])","executebuiltin_1=Skin.SetString(startup-screentype,$LOCALIZE[31857])","executebuiltin_2=Skin.SetString(startup-screentype,$LOCALIZE[31858])","executebuiltin_3=Skin.SetString(startup-screentype,$LOCALIZE[31855])")</onclick>
 					</control>
 					<control type="button" id="105"><!-- Startup Screen Path -->
 						<include>settings-submenu-common</include>
@@ -191,24 +191,18 @@
 						<onclick>Skin.ToggleSetting(lyrics-simple)</onclick>
 						<selected>Skin.HasSetting(lyrics-simple)</selected>
 					</control>
-					<control type="group" id="211"><!-- Use default mpaa local toggle -->
-						<include>settings-submenu-size</include>
-						<control type="togglebutton" id="212">
-							<onup>209</onup>
-							<ondown>213</ondown>
-							<onright>999</onright>
-							<include>settings-submenu-common</include>
-							<label>$LOCALIZE[571]</label>
-							<altlabel>$INFO[Window(home).property(locale.country)]</altlabel>
-							<align>right</align>
-							<onclick>Skin.ToggleSetting(defaultmpaa-locale)</onclick>
-							<usealttexture>!Skin.HasSetting(defaultmpaa-locale)</usealttexture>
-						</control>
-						<control type="label">
-							<include>settings-submenu-common</include>
-							<label>$LOCALIZE[31896]</label>
-							<textoffsetx>27</textoffsetx>
-						</control>
+					<control type="button" id="211"><!-- Show Certification type -->
+						<include>settings-submenu-common</include>
+						<label>$LOCALIZE[31901]</label>
+						<label2>$INFO[Skin.String(certification-type)]</label2>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31901],separator=||,list=$LOCALIZE[31943]||$LOCALIZE[31658]||$LOCALIZE[231],"executebuiltin=Skin.SetString(certification-type,{v})")</onclick>
+					</control>
+					<control type="button" id="212"><!-- Certification Locale -->
+						<include>settings-submenu-common</include>
+						<label>$LOCALIZE[31896]</label>
+						<label2>$INFO[Skin.String(certification-locale)]</label2>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31896],separator=||,list=Australia||Belgium||Brazil||Canada||Denmark||Finland||France||Germany||Ghana||Greece||Hong Kong||Hungary||Iceland||India||Ireland||Italy||Japan||Kenya||Malaysia||Maldives||Netherlands||New Zealand||Nigeria||Norway||Philippines||Poland||Portugal||Russia||Saudi Arabia||Singapore||Slovakia||South Africa||South Korea||Spain||Switzerland||Taiwan||Thailand||Turkey||UAE||UK||USA||Vietnam, "executebuiltin=Skin.SetString(certification-locale,{v})")</onclick>
+						<enable>!String.StartsWith(Skin.String(certification-type),$LOCALIZE[231])</enable>
 					</control>
 					<control type="button" id="213"><!-- Reset Above Settings button -->
 						<include>settings-submenu-common</include>
@@ -220,7 +214,8 @@
 						<onclick>Skin.Reset(media-overlay)</onclick>
 						<onclick>Skin.Reset(show-touchcontrols)</onclick>
 						<onclick>Skin.Reset(lyrics-simple)</onclick>
-						<onclick>Skin.Reset(defaultmpaa-locale)</onclick>
+						<onclick>Skin.Reset(certification-type)</onclick>
+						<onclick>Skin.Reset(certification-locale)</onclick>
 					</control>
 				</control>
 				<!-- Markers for control area items -->
@@ -241,154 +236,35 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31026]</label>
 						<label2>$INFO[Skin.String(widget-movie)]</label2>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[231])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(widget-movie))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31964])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget-movie,$LOCALIZE[31964]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31960])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget-movie,$LOCALIZE[31960]))</onclick>
-						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31971])</onclick>
-						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(widget-movie,$LOCALIZE[31971]))</onclick>
-						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[31972])</onclick>
-						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(widget-movie,$LOCALIZE[31972]))</onclick>
-						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[31974])</onclick>
-						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(widget-movie,$LOCALIZE[31974]))</onclick>
-						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[31661])</onclick>
-						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(widget-movie,$LOCALIZE[31661])
-						||Skin.SetString(widget-movie.Type,$LOCALIZE[31661])
-						||Skin.Reset(widget-movie.List)||Skin.Reset(widget-movie.Path)||Skin.Reset(widget-movie.Icon)
-						||Skin.Reset(widget-movie.Label)||Skin.Reset(widget-movie.Type)||SetProperty(ListCustomBase,widget-movie,settings)
-						||SetProperty(SelectDialogType,selectskinplaylist,home)||Skin.SetString(widget-movie.Label)||ActivateWindow(1154))</onclick>
-						<onclick>SetProperty(Dialog.8.Label,$LOCALIZE[31660])</onclick>
-						<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(widget-movie,$LOCALIZE[31660])
-						||Skin.SetString(widget-movie.Type,$LOCALIZE[31660])
-						||Skin.Reset(widget-movie.List)||Skin.Reset(widget-movie.Path)||Skin.Reset(widget-movie.Icon)
-						||Skin.Reset(widget-movie.Label)||Skin.Reset(widget-movie.Type)||SetProperty(ListCustomBase,widget-movie,settings)
-						||SetProperty(SelectDialogType,selectuserplaylist,home)||Skin.SetString(widget-movie.Label)||ActivateWindow(1154))</onclick>
-						<onclick>SetProperty(Dialog.9.Label,$LOCALIZE[31652])</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.9.BuiltIn,Skin.SetString(widget-movie,$LOCALIZE[31652])
-						||Skin.Reset(widget-movie.List)||Skin.Reset(widget-movie.Path)
-						||Skin.Reset(widget-movie.Icon)||Skin.Reset(widget-movie.Label)||Skin.Reset(widget-movie.Type)
-						||RunScript(script.favourites,changetitle=true&amp;property=widget-movie))</onclick>
-						<onclick condition="!System.HasAddon(script.favourites)">SetProperty(Dialog.9.BuiltIn,Skin.SetString(widget-movie,$LOCALIZE[31652])
-						||Skin.Reset(widget-movie.List)||Skin.Reset(widget-movie.Path)
-						||Skin.Reset(widget-movie.Icon)||Skin.Reset(widget-movie.Label)||Skin.Reset(widget-movie.Type)
-						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-movie))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31026])</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31808] - $LOCALIZE[31026],separator=||,list=$LOCALIZE[231]||$LOCALIZE[31964]||$LOCALIZE[31971]||$LOCALIZE[31972]||$LOCALIZE[31661]||$LOCALIZE[31660]||$LOCALIZE[31652],"executebuiltin_4=Skin.SetString(widget-movie.Type,$LOCALIZE[31661])||Skin.Reset(widget-movie.List)||Skin.Reset(widget-movie.Path)||Skin.Reset(widget-movie.Icon)||Skin.Reset(widget-movie.Label)||Skin.Reset(widget-movie.Type)||SetProperty(ListCustomBase,widget-movie,settings)||SetProperty(SelectDialogType,selectskinplaylist,home)||Skin.SetString(widget-movie.Label)||ActivateWindow(1154)","executebuiltin_5=Skin.SetString(widget-movie,$LOCALIZE[31660])||Skin.SetString(widget-movie.Type,$LOCALIZE[31660])||Skin.Reset(widget-movie.List)||Skin.Reset(widget-movie.Path)||Skin.Reset(widget-movie.Icon)||Skin.Reset(widget-movie.Label)||Skin.Reset(widget-movie.Type)||SetProperty(ListCustomBase,widget-movie,settings)||SetProperty(SelectDialogType,selectuserplaylist,home)||Skin.SetString(widget-movie.Label)||ActivateWindow(1154)","executebuiltin_6=Skin.SetString(widget-movie,$LOCALIZE[31652])||Skin.Reset(widget-movie.List)||Skin.Reset(widget-movie.Path)||Skin.Reset(widget-movie.Icon)||Skin.Reset(widget-movie.Label)||Skin.Reset(widget-movie.Type)||RunScript(script.favourites,property=widget-movie)","executebuiltin=Skin.SetString(widget-movie,{v})")</onclick>
 						<visible>!$EXP[isVerticalHome]</visible>
 					</control>
 					<control type="button" id="308"><!-- TVShow Widget type -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31027]</label>
 						<label2>$INFO[Skin.String(widget-tvshow)]</label2>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[231])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(widget-tvshow))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31954])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31954]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31962])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31962]))</onclick>
-						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31975])</onclick>
-						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31975]))</onclick>
-						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[31976])</onclick>
-						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31976]))</onclick>
-						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[31977])</onclick>
-						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31977]))</onclick>
-						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[31661])</onclick>
-						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31661])
-						||Skin.SetString(widget-tvshow.Type,$LOCALIZE[31661])
-						||Skin.Reset(widget-tvshow.List)||Skin.Reset(widget-tvshow.Path)||Skin.Reset(widget-tvshow.Icon)
-						||Skin.Reset(widget-tvshow.Label)||Skin.Reset(widget-tvshow.Type)||SetProperty(ListCustomBase,widget-tvshow,settings)
-						||SetProperty(SelectDialogType,selectskinplaylist,home)||Skin.SetString(widget-tvshow.Label)||ActivateWindow(1154))</onclick>
-						<onclick>SetProperty(Dialog.8.Label,$LOCALIZE[31660])</onclick>
-						<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31660])
-						||Skin.SetString(widget-tvshow.Type,$LOCALIZE[31660])
-						||Skin.Reset(widget-tvshow.List)||Skin.Reset(widget-tvshow.Path)||Skin.Reset(widget-tvshow.Icon)
-						||Skin.Reset(widget-tvshow.Label)||Skin.Reset(widget-tvshow.Type)||SetProperty(ListCustomBase,widget-tvshow,settings)
-						||SetProperty(SelectDialogType,selectuserplaylist,home)||Skin.SetString(widget-tvshow.Label)||ActivateWindow(1154))</onclick>
-						<onclick>SetProperty(Dialog.9.Label,$LOCALIZE[31652])</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.9.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31652])
-						||Skin.Reset(widget-tvshow.List)||Skin.Reset(widget-tvshow.Path)
-						||Skin.Reset(widget-tvshow.Icon)||Skin.Reset(widget-tvshow.Label)||Skin.Reset(widget-tvshow.Type)
-						||RunScript(script.favourites,changetitle=true&amp;property=widget-tvshow))</onclick>
-						<onclick condition="!System.HasAddon(script.favourites)">SetProperty(Dialog.9.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31652])
-						||Skin.Reset(widget-tvshow.List)||Skin.Reset(widget-tvshow.Path)
-						||Skin.Reset(widget-tvshow.Icon)||Skin.Reset(widget-tvshow.Label)||Skin.Reset(widget-tvshow.Type)
-						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-tvshow))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31027])</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31808] - $LOCALIZE[31027],separator=||,list=$LOCALIZE[231]||$LOCALIZE[31954]||$LOCALIZE[31975]||$LOCALIZE[31977]||$LOCALIZE[31661]||$LOCALIZE[31660]||$LOCALIZE[31652],"executebuiltin_4=Skin.SetString(widget-tvshow.Type,$LOCALIZE[31661])||Skin.Reset(widget-tvshow.List)||Skin.Reset(widget-tvshow.Path)||Skin.Reset(widget-tvshow.Icon)||Skin.Reset(widget-tvshow.Label)||Skin.Reset(widget-tvshow.Type)||SetProperty(ListCustomBase,widget-tvshow,settings)||SetProperty(SelectDialogType,selectskinplaylist,home)||Skin.SetString(widget-tvshow.Label)||ActivateWindow(1154)","executebuiltin_5=Skin.SetString(widget-tvshow,$LOCALIZE[31660])||Skin.SetString(widget-tvshow.Type,$LOCALIZE[31660])||Skin.Reset(widget-tvshow.List)||Skin.Reset(widget-tvshow.Path)||Skin.Reset(widget-tvshow.Icon)||Skin.Reset(widget-tvshow.Label)||Skin.Reset(widget-tvshow.Type)||SetProperty(ListCustomBase,widget-tvshow,settings)||SetProperty(SelectDialogType,selectuserplaylist,home)||Skin.SetString(widget-tvshow.Label)||ActivateWindow(1154)","executebuiltin_6=Skin.SetString(widget-tvshow,$LOCALIZE[31652])||Skin.Reset(widget-tvshow.List)||Skin.Reset(widget-tvshow.Path)||Skin.Reset(widget-tvshow.Icon)||Skin.Reset(widget-tvshow.Label)||Skin.Reset(widget-tvshow.Type)||RunScript(script.favourites,property=widget-tvshow)","executebuiltin=Skin.SetString(widget-tvshow,{v})")</onclick>
 						<visible>!$EXP[isVerticalHome]</visible>
 					</control>
-
 					<control type="button" id="309"><!-- TVShow Widget image type -->
 						<include>settings-submenu-common</include>
 						<label> - $LOCALIZE[31940]</label>
 						<label2>$INFO[Skin.String(widget-tvshowimgtyp)]</label2>
-						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31027] $LOCALIZE[31940],separator=||,list=$LOCALIZE[31950]||$LOCALIZE[31949]||$LOCALIZE[31670],"executebuiltin_0=Skin.Skin.SetString(widget-tvshowimgtyp,$LOCALIZE[31950])","executebuiltin_1=Skin.SetString(widget-tvshowimgtyp,$LOCALIZE[31949])"				,"executebuiltin_2=Skin.SetString(widget-tvshowimgtyp,$LOCALIZE[31670])")</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31027] $LOCALIZE[31940],separator=||,list=$LOCALIZE[31950]||$LOCALIZE[31949]||$LOCALIZE[31670],"executebuiltin=Skin.SetString(widget-tvshowimgtyp,{v})")</onclick>
 						<visible>!$EXP[isVerticalHome]</visible>
 					</control>
 					<control type="button" id="312"><!-- Music Widget type -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[2]</label>
 						<label2>$INFO[Skin.String(widget-music)]</label2>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[231])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(widget-music))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31954])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget-music,$LOCALIZE[31954]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31955])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget-music,$LOCALIZE[31955]))</onclick>
-						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31978])</onclick>
-						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(widget-music,$LOCALIZE[31978]))</onclick>
-						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[31979])</onclick>
-						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(widget-music,$LOCALIZE[31979]))</onclick>
-						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[31980])</onclick>
-						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(widget-music,$LOCALIZE[31980]))</onclick>
-						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[31981])</onclick>
-						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(widget-music,$LOCALIZE[31981]))</onclick>
-						<onclick>SetProperty(Dialog.8.Label,$LOCALIZE[31661])</onclick>
-						<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(widget-music,$LOCALIZE[31661])
-						||Skin.SetString(widget-music.Type,$LOCALIZE[31661])
-						||Skin.Reset(widget-music.List)||Skin.Reset(widget-music.Path)||Skin.Reset(widget-music.Icon)
-						||Skin.Reset(widget-music.Label)||Skin.Reset(widget-music.Type)||SetProperty(ListCustomBase,widget-music,settings)
-						||SetProperty(SelectDialogType,selectskinplaylist,home)||Skin.SetString(widget-music.Label)||ActivateWindow(1154))</onclick>
-						<onclick>SetProperty(Dialog.9.Label,$LOCALIZE[31660])</onclick>
-						<onclick>SetProperty(Dialog.9.BuiltIn,Skin.SetString(widget-music,$LOCALIZE[31660])
-						||Skin.SetString(widget-music.Type,$LOCALIZE[31660])
-						||Skin.Reset(widget-music.List)||Skin.Reset(widget-music.Path)||Skin.Reset(widget-music.Icon)
-						||Skin.Reset(widget-music.Label)||Skin.Reset(widget-music.Type)||SetProperty(ListCustomBase,widget-music,settings)
-						||SetProperty(SelectDialogType,selectuserplaylist,home)||Skin.SetString(widget-music.Label)||ActivateWindow(1154))</onclick>
-						<onclick>SetProperty(Dialog.10.Label,$LOCALIZE[31652])</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.10.BuiltIn,Skin.SetString(widget-music,$LOCALIZE[31652])
-						||Skin.Reset(widget-music.List)||Skin.Reset(widget-music.Path)
-						||Skin.Reset(widget-music.Icon)||Skin.Reset(widget-music.Label)||Skin.Reset(widget-music.Type)
-						||RunScript(script.favourites,changetitle=true&amp;property=widget-music))</onclick>
-						<onclick condition="!System.HasAddon(script.favourites)">SetProperty(Dialog.10.BuiltIn,Skin.SetString(widget-music,$LOCALIZE[31652])
-						||Skin.Reset(widget-music.List)||Skin.Reset(widget-music.Path)
-						||Skin.Reset(widget-music.Icon)||Skin.Reset(widget-music.Label)||Skin.Reset(widget-music.Type)
-						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-music))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[2])</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31808] - $LOCALIZE[2],separator=||,list=$LOCALIZE[231]||$LOCALIZE[31954]||$LOCALIZE[31955]||$LOCALIZE[31978]||$LOCALIZE[31979]||$LOCALIZE[31980]||$LOCALIZE[31981]||$LOCALIZE[31661]||$LOCALIZE[31660]||$LOCALIZE[31652],"executebuiltin_7=Skin.SetString(widget-music.Type,$LOCALIZE[31661])||Skin.Reset(widget-music.List)||Skin.Reset(widget-music.Path)||Skin.Reset(widget-music.Icon)||Skin.Reset(widget-music.Label)||Skin.Reset(widget-music.Type)||SetProperty(ListCustomBase,widget-music,settings)||SetProperty(SelectDialogType,selectskinplaylist,home)||Skin.SetString(widget-music.Label)||ActivateWindow(1154)","executebuiltin_8=Skin.SetString(widget-music,$LOCALIZE[31660])||Skin.SetString(widget-music.Type,$LOCALIZE[31660])||Skin.Reset(widget-music.List)||Skin.Reset(widget-music.Path)||Skin.Reset(widget-music.Icon)||Skin.Reset(widget-music.Label)||Skin.Reset(widget-music.Type)||SetProperty(ListCustomBase,widget-music,settings)||SetProperty(SelectDialogType,selectuserplaylist,home)||Skin.SetString(widget-music.Label)||ActivateWindow(1154)","executebuiltin_9=Skin.SetString(widget-music,$LOCALIZE[31652])||Skin.Reset(widget-music.List)||Skin.Reset(widget-music.Path)||Skin.Reset(widget-music.Icon)||Skin.Reset(widget-music.Label)||Skin.Reset(widget-music.Type)||RunScript(script.favourites,property=widget-music)","executebuiltin=Skin.SetString(widget-music,{v})")</onclick>
 						<visible>!$EXP[isVerticalHome]</visible>
 					</control>
 					<control type="button" id="313"><!-- Broadcast Widget type -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31031]</label>
 						<label2>$INFO[Skin.String(widget-broadcast)]</label2>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[231])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(widget-broadcast))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31956])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget-broadcast,$LOCALIZE[31956]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31957])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget-broadcast,$LOCALIZE[31957]))</onclick>
-						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31958])</onclick>
-						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(widget-broadcast,$LOCALIZE[31958]))</onclick>
-						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[31652])</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.5.BuiltIn,Skin.SetString(widget-broadcast,$LOCALIZE[31652])
-						||Skin.Reset(widget-broadcast.List)||Skin.Reset(widget-broadcast.Path)
-						||Skin.Reset(widget-broadcast.Icon)||Skin.Reset(widget-broadcast.Label)||Skin.Reset(widget-broadcast.Type)
-						||RunScript(script.favourites,changetitle=true&amp;property=widget-broadcast))</onclick>
-						<onclick condition="!System.HasAddon(script.favourites)">SetProperty(Dialog.5.BuiltIn,Skin.SetString(widget-broadcast,$LOCALIZE[31652])
-						||Skin.Reset(widget-broadcast.List)||Skin.Reset(widget-broadcast.Path)
-						||Skin.Reset(widget-broadcast.Icon)||Skin.Reset(widget-broadcast.Label)||Skin.Reset(widget-broadcast.Type)
-						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-broadcast))</onclick>	
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31031])</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31808] - $LOCALIZE[31031],separator=||,list=$LOCALIZE[231]||$LOCALIZE[31957]||$LOCALIZE[31958]||$LOCALIZE[31652],"executebuiltin_3=Skin.SetString(widget-broadcast,$LOCALIZE[31652])||Skin.Reset(widget-broadcast.List)||Skin.Reset(widget-broadcast.Path)||Skin.Reset(widget-broadcast.Icon)||Skin.Reset(widget-broadcast.Label)||Skin.Reset(widget-broadcast.Type)||RunScript(script.favourites,property=widget-broadcast)","executebuiltin=Skin.SetString(widget-broadcast,{v})")</onclick>
 						<enable>System.HasPVRAddon</enable>
 						<visible>$EXP[isHorizontalHome]</visible>
 					</control>
@@ -396,124 +272,28 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[24001]</label>
 						<label2>$INFO[Skin.String(widget-addon)]</label2>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[231])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(widget-addon))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31954])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget-addon,$LOCALIZE[31954]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31959])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget-addon,$LOCALIZE[31959]))</onclick>
-						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31652])</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.4.BuiltIn,Skin.SetString(widget-addon,$LOCALIZE[31652])
-						||Skin.Reset(widget-addon.List)||Skin.Reset(widget-addon.Path)
-						||Skin.Reset(widget-addon.Icon)||Skin.Reset(widget-addon.Label)||Skin.Reset(widget-addon.Type)
-						||RunScript(script.favourites,changetitle=true&amp;property=widget-addon))</onclick>
-						<onclick condition="!System.HasAddon(script.favourites)">SetProperty(Dialog.4.BuiltIn,Skin.SetString(widget-addon,$LOCALIZE[31652])
-						||Skin.Reset(widget-addon.List)||Skin.Reset(widget-addon.Path)
-						||Skin.Reset(widget-addon.Icon)||Skin.Reset(widget-addon.Label)||Skin.Reset(widget-addon.Type)
-						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-addon))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[24001])</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31808] - $LOCALIZE[24001],separator=||,list=$LOCALIZE[231]||$LOCALIZE[31954]||$LOCALIZE[31959]||$LOCALIZE[31652],"executebuiltin_3=Skin.SetString(widget-addon,$LOCALIZE[31652])||Skin.Reset(widget-addon.List)||Skin.Reset(widget-addon.Path)||Skin.Reset(widget-addon.Icon)||Skin.Reset(widget-addon.Label)||Skin.Reset(widget-addon.Type)||RunScript(script.favourites,property=widget-addon)","executebuiltin=Skin.SetString(widget-addon,{v})")</onclick>
 						<visible>$EXP[isHorizontalHome]</visible>
 					</control>
 					<control type="button" id="315"><!-- Favourites Widget type -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[1036]</label>
 						<label2>$INFO[Skin.String(widget-favourite)]</label2>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[231])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(widget-favourite))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[593] $LOCALIZE[1036])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget-favourite,$LOCALIZE[593]$LOCALIZE[1036]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[14211] $LOCALIZE[1036])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget-favourite,$LOCALIZE[14211]$LOCALIZE[1036]))</onclick>
-						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31652])</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.4.BuiltIn,Skin.SetString(widget-favourite,$LOCALIZE[31652])
-						||Skin.Reset(widget-favourite.List)||Skin.Reset(widget-favourite.Path)
-						||Skin.Reset(widget-favourite.Icon)||Skin.Reset(widget-favourite.Label)||Skin.Reset(widget-favourite.Type)
-						||RunScript(script.favourites,changetitle=true&amp;property=widget-favourite))</onclick>
-						<onclick condition="!System.HasAddon(script.favourites)">SetProperty(Dialog.4.BuiltIn,Skin.SetString(widget-favourite,$LOCALIZE[31652])
-						||Skin.Reset(widget-favourite.List)||Skin.Reset(widget-favourite.Path)
-						||Skin.Reset(widget-favourite.Icon)||Skin.Reset(widget-favourite.Label)||Skin.Reset(widget-favourite.Type)
-						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-favourite))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[1036])</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31808] - $LOCALIZE[1036],separator=||,list=$LOCALIZE[231]||$LOCALIZE[593]||$LOCALIZE[14211]||$LOCALIZE[31652],"executebuiltin_3=Skin.SetString(widget-favourite,$LOCALIZE[31652])||Skin.Reset(widget-favourite.List)||Skin.Reset(widget-favourite.Path)||Skin.Reset(widget-favourite.Icon)||Skin.Reset(widget-favourite.Label)||Skin.Reset(widget-favourite.Type)||RunScript(script.favourites,property=widget-favourite)","executebuiltin=Skin.SetString(widget-favourite,{v})")</onclick>
 						<visible>$EXP[isHorizontalHome]</visible>
 					</control>
 					<control type="button" id="316"><!-- VideoInfo Movie Widget type -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31026] $LOCALIZE[31588]</label>
-						<label2>$INFO[Skin.String(widget-movie)]</label2>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31953])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(widget-infomovie,$LOCALIZE[31953]))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31964])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget-infomovie,$LOCALIZE[31964]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31960])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget-infomovie,$LOCALIZE[31960]))</onclick>
-						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31971])</onclick>
-						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(widget-infomovie,$LOCALIZE[31971]))</onclick>
-						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[31972])</onclick>
-						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(widget-infomovie,$LOCALIZE[31972]))</onclick>
-						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[31974])</onclick>
-						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(widget-infomovie,$LOCALIZE[31974]))</onclick>
-						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[31661])</onclick>
-						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(widget-infomovie,$LOCALIZE[31661])
-						||Skin.SetString(widget-infomovie.Type,$LOCALIZE[31661])
-						||Skin.Reset(widget-infomovie.List)||Skin.Reset(widget-infomovie.Path)||Skin.Reset(widget-infomovie.Icon)
-						||Skin.Reset(widget-infomovie.Label)||Skin.Reset(widget-infomovie.Type)||SetProperty(ListCustomBase,widget-infomovie,settings)
-						||SetProperty(SelectDialogType,selectskinplaylist,home)||Skin.SetString(widget-infomovie.Label)||ActivateWindow(1154))</onclick>
-						<onclick>SetProperty(Dialog.8.Label,$LOCALIZE[31660])</onclick>
-						<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(widget-infomovie,$LOCALIZE[31660])
-						||Skin.SetString(widget-infomovie.Type,$LOCALIZE[31660])
-						||Skin.Reset(widget-infomovie.List)||Skin.Reset(widget-infomovie.Path)||Skin.Reset(widget-infomovie.Icon)
-						||Skin.Reset(widget-infomovie.Label)||Skin.Reset(widget-infomovie.Type)||SetProperty(ListCustomBase,widget-infomovie,settings)
-						||SetProperty(SelectDialogType,selectuserplaylist,home)||Skin.SetString(widget-infomovie.Label)||ActivateWindow(1154))</onclick>
-						<onclick>SetProperty(Dialog.9.Label,$LOCALIZE[31652])</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.9.BuiltIn,Skin.SetString(widget-infomovie,$LOCALIZE[31652])
-						||Skin.Reset(widget-infomovie.List)||Skin.Reset(widget-infomovie.Path)
-						||Skin.Reset(widget-infomovie.Icon)||Skin.Reset(widget-infomovie.Label)||Skin.Reset(widget-infomovie.Type)
-						||RunScript(script.favourites,changetitle=true&amp;property=widget-infomovie))</onclick>
-						<onclick condition="!System.HasAddon(script.favourites)">SetProperty(Dialog.9.BuiltIn,Skin.SetString(widget-infomovie,$LOCALIZE[31652])
-						||Skin.Reset(widget-infomovie.List)||Skin.Reset(widget-infomovie.Path)
-						||Skin.Reset(widget-infomovie.Icon)||Skin.Reset(widget-infomovie.Label)||Skin.Reset(widget-infomovie.Type)
-						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-infomovie))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31026] $LOCALIZE[31588])</onclick>
+						<label2>$INFO[Skin.String(widget-infomovie)]</label2>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31808] - $LOCALIZE[31026] $LOCALIZE[31588],separator=||,list=$LOCALIZE[31964]||$LOCALIZE[31971]||$LOCALIZE[31972]||$LOCALIZE[31661]||$LOCALIZE[31660]||$LOCALIZE[31652],"executebuiltin_3=Skin.SetString(widget-infomovie.Type,$LOCALIZE[31661])||Skin.Reset(widget-infomovie.List)||Skin.Reset(widget-infomovie.Path)||Skin.Reset(widget-infomovie.Icon)||Skin.Reset(widget-infomovie.Label)||Skin.Reset(widget-infomovie.Type)||SetProperty(ListCustomBase,widget-infomovie,settings)||SetProperty(SelectDialogType,selectskinplaylist,home)||Skin.SetString(widget-infomovie.Label)||ActivateWindow(1154)","executebuiltin_4=Skin.SetString(widget-infomovie,$LOCALIZE[31660])||Skin.SetString(widget-infomovie.Type,$LOCALIZE[31660])||Skin.Reset(widget-infomovie.List)||Skin.Reset(widget-infomovie.Path)||Skin.Reset(widget-infomovie.Icon)||Skin.Reset(widget-infomovie.Label)||Skin.Reset(widget-infomovie.Type)||SetProperty(ListCustomBase,widget-infomovie,settings)||SetProperty(SelectDialogType,selectuserplaylist,home)||Skin.SetString(widget-infomovie.Label)||ActivateWindow(1154)","executebuiltin_5=Skin.SetString(widget-infomovie,$LOCALIZE[31652])||Skin.Reset(widget-infomovie.List)||Skin.Reset(widget-infomovie.Path)||Skin.Reset(widget-infomovie.Icon)||Skin.Reset(widget-infomovie.Label)||Skin.Reset(widget-infomovie.Type)||RunScript(script.favourites,property=widget-infomovie)","executebuiltin=Skin.SetString(widget-infomovie,{v})")</onclick>
 						<visible>!$EXP[isVerticalHome]</visible>
 					</control>
 					<control type="button" id="317"><!-- VideoInfo TVShow Widget type -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31027] $LOCALIZE[31588]</label>
 						<label2>$INFO[Skin.String(widget-infotvshow)]</label2>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31953])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(widget-infotvshow,$LOCALIZE[31953]))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31954])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget-infotvshow,$LOCALIZE[31954]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31955])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget-infotvshow,$LOCALIZE[31955]))</onclick>
-						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31975])</onclick>
-						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(widget-infotvshow,$LOCALIZE[31975]))</onclick>
-						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[31976])</onclick>
-						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(widget-infotvshow,$LOCALIZE[31976]))</onclick>
-						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[31977])</onclick>
-						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(widget-infotvshow,$LOCALIZE[31977]))</onclick>
-						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[31661])</onclick>
-						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(widget-infotvshow,$LOCALIZE[31661])
-						||Skin.SetString(widget-infotvshow.Type,$LOCALIZE[31661])
-						||Skin.Reset(widget-infotvshow.List)||Skin.Reset(widget-infotvshow.Path)||Skin.Reset(widget-infotvshow.Icon)
-						||Skin.Reset(widget-infotvshow.Label)||Skin.Reset(widget-infotvshow.Type)||SetProperty(ListCustomBase,widget-infotvshow,settings)
-						||SetProperty(SelectDialogType,selectskinplaylist,home)||Skin.SetString(widget-infotvshow.Label)||ActivateWindow(1154))</onclick>
-						<onclick>SetProperty(Dialog.8.Label,$LOCALIZE[31660])</onclick>
-						<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(widget-infotvshow,$LOCALIZE[31660])
-						||Skin.SetString(widget-infotvshow.Type,$LOCALIZE[31660])
-						||Skin.Reset(widget-infotvshow.List)||Skin.Reset(widget-infotvshow.Path)||Skin.Reset(widget-infotvshow.Icon)
-						||Skin.Reset(widget-infotvshow.Label)||Skin.Reset(widget-infotvshow.Type)||SetProperty(ListCustomBase,widget-infotvshow,settings)
-						||SetProperty(SelectDialogType,selectuserplaylist,home)||Skin.SetString(widget-infotvshow.Label)||ActivateWindow(1154))</onclick>
-						<onclick>SetProperty(Dialog.9.Label,$LOCALIZE[31652])</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.9.BuiltIn,Skin.SetString(widget-tvshow,$LOCALIZE[31652])
-						||Skin.Reset(widget-infotvshow.List)||Skin.Reset(widget-infotvshow.Path)
-						||Skin.Reset(widget-infotvshow.Icon)||Skin.Reset(widget-infotvshow.Label)||Skin.Reset(widget-infotvshow.Type)
-						||RunScript(script.favourites,changetitle=true&amp;property=widget-infotvshow))</onclick>
-						<onclick condition="!System.HasAddon(script.favourites)">SetProperty(Dialog.9.BuiltIn,Skin.SetString(widget-infotvshow,$LOCALIZE[31652])
-						||Skin.Reset(widget-infotvshow.List)||Skin.Reset(widget-infotvshow.Path)
-						||Skin.Reset(widget-infotvshow.Icon)||Skin.Reset(widget-infotvshow.Label)||Skin.Reset(widget-infotvshow.Type)
-						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-infotvshow))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31027] $LOCALIZE[31588])</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31808] - $LOCALIZE[31027] $LOCALIZE[31588],separator=||,list=$LOCALIZE[31954]||$LOCALIZE[31975]||$LOCALIZE[31977]||$LOCALIZE[31661]||$LOCALIZE[31660]||$LOCALIZE[31652],"executebuiltin_3=Skin.SetString(widget-infotvshow.Type,$LOCALIZE[31661])||Skin.Reset(widget-infotvshow.List)||Skin.Reset(widget-infotvshow.Path)||Skin.Reset(widget-infotvshow.Icon)||Skin.Reset(widget-infotvshow.Label)||Skin.Reset(widget-infotvshow.Type)||SetProperty(ListCustomBase,widget-infotvshow,settings)||SetProperty(SelectDialogType,selectskinplaylist,home)||Skin.SetString(widget-infotvshow.Label)||ActivateWindow(1154)","executebuiltin_4=Skin.SetString(widget-infotvshow,$LOCALIZE[31660])||Skin.SetString(widget-infotvshow.Type,$LOCALIZE[31660])||Skin.Reset(widget-infotvshow.List)||Skin.Reset(widget-infotvshow.Path)||Skin.Reset(widget-infotvshow.Icon)||Skin.Reset(widget-infotvshow.Label)||Skin.Reset(widget-infotvshow.Type)||SetProperty(ListCustomBase,widget-infotvshow,settings)||SetProperty(SelectDialogType,selectuserplaylist,home)||Skin.SetString(widget-infotvshow.Label)||ActivateWindow(1154)","executebuiltin_5=Skin.SetString(widget-infotvshow,$LOCALIZE[31652])||Skin.Reset(widget-infotvshow.List)||Skin.Reset(widget-infotvshow.Path)||Skin.Reset(widget-infotvshow.Icon)||Skin.Reset(widget-infotvshow.Label)||Skin.Reset(widget-infotvshow.Type)||RunScript(script.favourites,property=widget-infotvshow)","executebuiltin=Skin.SetString(widget-infotvshow,{v})")</onclick>
 						<visible>!$EXP[isVerticalHome]</visible>
 					</control>
 					<control type="button" id="325"><!-- Reset Above Settings button -->
@@ -591,13 +371,7 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31868]</label>
 						<label2>$VAR[BackgroundVisibilty]</label2>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[391])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.Reset(background-visibiltyhigh)||Skin.Reset(background-visibiltymed))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[392])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetBool(background-visibiltymed)||Skin.Reset(background-visibiltyhigh))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[393])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetBool(background-visibiltyhigh)||Skin.Reset(background-visibiltymed))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31868])</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31868],separator=||,list=$LOCALIZE[391]||$LOCALIZE[392]||$LOCALIZE[393],"executebuiltin_0=Skin.Reset(background-visibiltyhigh)||Skin.Reset(background-visibiltymed)","executebuiltin_1=Skin.SetBool(background-visibiltymed)||Skin.Reset(background-visibiltyhigh)","executebuiltin_2=Skin.SetBool(background-visibiltyhigh)||Skin.Reset(background-visibiltymed)")</onclick>
 					</control>
 					<control type="button" id="514"><!-- Reset Above Settings button -->
 						<include>settings-submenu-common</include>
@@ -628,212 +402,38 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31920]</label>
 						<label2>$INFO[Skin.String(libraryentry-movie)]</label2>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[369])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[369]))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[20108])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[20108]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[20386])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[20386]))</onclick>
-						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[135])</onclick>
-						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[135]))</onclick>
-						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[652])</onclick>
-						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[652]))</onclick>
-						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[344])</onclick>
-						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[344]))</onclick>
-						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[20348])</onclick>
-						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[20348]))</onclick>
-						<onclick>SetProperty(Dialog.8.Label,$LOCALIZE[20388])</onclick>
-						<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[20388]))</onclick>
-						<onclick>SetProperty(Dialog.9.Label,$LOCALIZE[20434])</onclick>
-						<onclick>SetProperty(Dialog.9.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[20434]))</onclick>
-						<onclick>SetProperty(Dialog.10.Label,$LOCALIZE[20451])</onclick>
-						<onclick>SetProperty(Dialog.10.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[20451]))</onclick>
-						<onclick>SetProperty(Dialog.11.Label,$LOCALIZE[20459])</onclick>
-						<onclick>SetProperty(Dialog.11.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[20459]))</onclick>
-						<onclick>SetProperty(Dialog.12.Label,$LOCALIZE[744])</onclick>
-						<onclick>SetProperty(Dialog.12.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[744]))</onclick>
-						<onclick>SetProperty(Dialog.13.Label,$LOCALIZE[31661])</onclick>
-						<onclick>SetProperty(Dialog.13.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[31661])
-						||Skin.SetString(libraryentry-movie.Type,$LOCALIZE[31661])
-						||Skin.Reset(libraryentry-movie.List)||Skin.Reset(libraryentry-movie.Path)||Skin.Reset(libraryentry-movie.Icon)
-						||Skin.Reset(libraryentry-movie.Label)||Skin.Reset(libraryentry-movie.Type)||SetProperty(ListCustomBase,libraryentry-movie,settings)
-						||SetProperty(SelectDialogType,selectskinplaylist,home)||ActivateWindow(1154))</onclick>
-						<onclick>SetProperty(Dialog.14.Label,$LOCALIZE[31660])</onclick>
-						<onclick>SetProperty(Dialog.14.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[31660])
-						||Skin.SetString(libraryentry-movie.Type,$LOCALIZE[31660])
-						||Skin.Reset(libraryentry-movie.List)||Skin.Reset(libraryentry-movie.Path)||Skin.Reset(libraryentry-movie.Icon)
-						||Skin.Reset(libraryentry-movie.Label)||Skin.Reset(libraryentry-movie.Type)||SetProperty(ListCustomBase,libraryentry-movie,settings)
-						||SetProperty(SelectDialogType,selectuserplaylist,home)||ActivateWindow(1154))</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.15.Label,$LOCALIZE[31652])</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.15.BuiltIn,Skin.SetString(libraryentry-movie,$LOCALIZE[31652])||RunScript(script.favourites,changetitle=false&amp;property=CustomMovieEntry))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31920])</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31920],separator=||,list=$LOCALIZE[369]||$LOCALIZE[20108]||$LOCALIZE[20386]||$LOCALIZE[135]||$LOCALIZE[652]||$LOCALIZE[344]||$LOCALIZE[20348]||$LOCALIZE[20388]||$LOCALIZE[20434]||$LOCALIZE[20451]||$LOCALIZE[20459]||$LOCALIZE[744]||$LOCALIZE[31661]||$LOCALIZE[31660]||$LOCALIZE[31652],"executebuiltin_12=Skin.SetString(libraryentry-movie,$LOCALIZE[31661])||Skin.SetString(libraryentry-movie.Type,$LOCALIZE[31661])||Skin.Reset(libraryentry-movie.List)||Skin.Reset(libraryentry-movie.Path)||Skin.Reset(libraryentry-movie.Icon)||Skin.Reset(libraryentry-movie.Label)||Skin.Reset(libraryentry-movie.Type)||SetProperty(ListCustomBase,libraryentry-movie,settings)||SetProperty(SelectDialogType,selectskinplaylist,home)||ActivateWindow(1154)","executebuiltin_13=Skin.SetString(libraryentry-movie,$LOCALIZE[31660])||Skin.SetString(libraryentry-movie.Type,$LOCALIZE[31660])||Skin.Reset(libraryentry-movie.List)||Skin.Reset(libraryentry-movie.Path)||Skin.Reset(libraryentry-movie.Icon)||Skin.Reset(libraryentry-movie.Label)||Skin.Reset(libraryentry-movie.Type)||SetProperty(ListCustomBase,libraryentry-movie,settings)||SetProperty(SelectDialogType,selectuserplaylist,home)||ActivateWindow(1154)","executebuiltin_14=Skin.SetString(libraryentry-movie,$LOCALIZE[31652])||Skin.Reset(libraryentry-movie.List)||Skin.Reset(libraryentry-movie.Path)||Skin.Reset(libraryentry-movie.Icon)||Skin.Reset(libraryentry-movie.Label)||Skin.Reset(libraryentry-movie.Type)||RunScript(script.favourites,property=libraryentry-movie)","executebuiltin=Skin.SetString(libraryentry-movie,{v})")</onclick>
 					</control>
 					<control type="button" id="603"><!-- Set TVShow library entry point -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31921]</label>
 						<label2>$INFO[Skin.String(libraryentry-tvshow)]</label2>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[369])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[369]))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[20108])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[20108]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[20387])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[20387]))</onclick>
-						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[135])</onclick>
-						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[135]))</onclick>
-						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[652])</onclick>
-						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[652]))</onclick>
-						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[344])</onclick>
-						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[344]))</onclick>
-						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[20388])</onclick>
-						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[20388]))</onclick>
-						<onclick>SetProperty(Dialog.8.Label,$LOCALIZE[744])</onclick>
-						<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[744]))</onclick>
-						<onclick>SetProperty(Dialog.9.Label,$LOCALIZE[31661])</onclick>
-						<onclick>SetProperty(Dialog.9.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[31661])
-						||Skin.SetString(libraryentry-tvshow.Type,$LOCALIZE[31661])
-						||Skin.Reset(libraryentry-tvshow.List)||Skin.Reset(libraryentry-tvshow.Path)||Skin.Reset(libraryentry-tvshow.Icon)
-						||Skin.Reset(libraryentry-tvshow.Label)||Skin.Reset(libraryentry-tvshow.Type)||SetProperty(ListCustomBase,libraryentry-tvshow,settings)
-						||SetProperty(SelectDialogType,selectskinplaylist,home)||ActivateWindow(1154))</onclick>
-						<onclick>SetProperty(Dialog.10.Label,$LOCALIZE[31660])</onclick>
-						<onclick>SetProperty(Dialog.10.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[31660])
-						||Skin.SetString(libraryentry-tvshow.Type,$LOCALIZE[31660])
-						||Skin.Reset(libraryentry-tvshow.List)||Skin.Reset(libraryentry-tvshow.Path)||Skin.Reset(libraryentry-tvshow.Icon)
-						||Skin.Reset(libraryentry-tvshow.Label)||Skin.Reset(libraryentry-tvshow.Type)||SetProperty(ListCustomBase,libraryentry-tvshow,settings)
-						||SetProperty(SelectDialogType,selectuserplaylist,home)||ActivateWindow(1154))</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.11.Label,$LOCALIZE[31652])</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.11.BuiltIn,Skin.SetString(libraryentry-tvshow,$LOCALIZE[31652])||RunScript(script.favourites,changetitle=false&amp;property=CustomTVShowEntry))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31921])</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31922],separator=||,list=$LOCALIZE[369]||$LOCALIZE[20108]||$LOCALIZE[20387]||$LOCALIZE[135]||$LOCALIZE[652]||$LOCALIZE[344]||$LOCALIZE[20388]||$LOCALIZE[744]||$LOCALIZE[31661]||$LOCALIZE[31660]||$LOCALIZE[31652],"executebuiltin_8=Skin.SetString(libraryentry-tvshow,$LOCALIZE[31661])||Skin.SetString(libraryentry-tvshow.Type,$LOCALIZE[31661])||Skin.Reset(libraryentry-tvshow.List)||Skin.Reset(libraryentry-tvshow.Path)||Skin.Reset(libraryentry-tvshow.Icon)||Skin.Reset(libraryentry-tvshow.Label)||Skin.Reset(libraryentry-tvshow.Type)||SetProperty(ListCustomBase,libraryentry-tvshow,settings)||SetProperty(SelectDialogType,selectskinplaylist,home)||ActivateWindow(1154)","executebuiltin_9=Skin.SetString(libraryentry-tvshow,$LOCALIZE[31660])||Skin.SetString(libraryentry-tvshow.Type,$LOCALIZE[31660])||Skin.Reset(libraryentry-tvshow.List)||Skin.Reset(libraryentry-tvshow.Path)||Skin.Reset(libraryentry-tvshow.Icon)||Skin.Reset(libraryentry-tvshow.Label)||Skin.Reset(libraryentry-tvshow.Type)||SetProperty(ListCustomBase,libraryentry-tvshow,settings)||SetProperty(SelectDialogType,selectuserplaylist,home)||ActivateWindow(1154)","executebuiltin_10=Skin.SetString(libraryentry-tvshow,$LOCALIZE[31652])||Skin.Reset(libraryentry-tvshow.List)||Skin.Reset(libraryentry-tvshow.Path)||Skin.Reset(libraryentry-tvshow.Icon)||Skin.Reset(libraryentry-tvshow.Label)||Skin.Reset(libraryentry-tvshow.Type)||RunScript(script.favourites,property=libraryentry-tvshow)","executebuiltin=Skin.SetString(libraryentry-tvshow,{v})")</onclick>
 					</control>
 					<control type="button" id="604"><!-- Set Music Video library entry point -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31922]</label>
 						<label2>$INFO[Skin.String(libraryentry-musicvideo)]</label2>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[369])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[369]))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[20108])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[20108]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[20390])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[20390]))</onclick>
-						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[135])</onclick>
-						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[135]))</onclick>
-						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[652])</onclick>
-						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[652]))</onclick>
-						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[133])</onclick>
-						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[133]))</onclick>
-						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[132])</onclick>
-						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[132]))</onclick>
-						<onclick>SetProperty(Dialog.8.Label,$LOCALIZE[20348])</onclick>
-						<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[20348]))</onclick>
-						<onclick>SetProperty(Dialog.9.Label,$LOCALIZE[20388])</onclick>
-						<onclick>SetProperty(Dialog.9.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[20388]))</onclick>
-						<onclick>SetProperty(Dialog.10.Label,$LOCALIZE[744])</onclick>
-						<onclick>SetProperty(Dialog.10.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[744]))</onclick>
-						<onclick>SetProperty(Dialog.11.Label,$LOCALIZE[31661])</onclick>
-						<onclick>SetProperty(Dialog.11.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[31661])
-						||Skin.SetString(libraryentry-musicvideo.Type,$LOCALIZE[31661])
-						||Skin.Reset(libraryentry-musicvideo.List)||Skin.Reset(libraryentry-musicvideo.Path)||Skin.Reset(libraryentry-musicvideo.Icon)
-						||Skin.Reset(libraryentry-musicvideo.Label)||Skin.Reset(libraryentry-musicvideo.Type)||SetProperty(ListCustomBase,libraryentry-musicvideo,settings)
-						||SetProperty(SelectDialogType,selectskinplaylist,home)||ActivateWindow(1154))</onclick>
-						<onclick>SetProperty(Dialog.12.Label,$LOCALIZE[31660])</onclick>
-						<onclick>SetProperty(Dialog.12.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[31660])
-						||Skin.SetString(libraryentry-musicvideo.Type,$LOCALIZE[31660])
-						||Skin.Reset(libraryentry-musicvideo.List)||Skin.Reset(libraryentry-musicvideo.Path)||Skin.Reset(libraryentry-musicvideo.Icon)
-						||Skin.Reset(libraryentry-musicvideo.Label)||Skin.Reset(libraryentry-musicvideo.Type)||SetProperty(ListCustomBase,libraryentry-musicvideo,settings)
-						||SetProperty(SelectDialogType,selectuserplaylist,home)||ActivateWindow(1154))</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.13.Label,$LOCALIZE[31652])</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.13.BuiltIn,Skin.SetString(libraryentry-musicvideo,$LOCALIZE[31652])||RunScript(script.favourites,changetitle=false&amp;property=CustomMusicVideoEntry))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31922])</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31922],separator=||,list=$LOCALIZE[369]||$LOCALIZE[20108]||$LOCALIZE[20390]||$LOCALIZE[135]||$LOCALIZE[652]||$LOCALIZE[133]||$LOCALIZE[132]||$LOCALIZE[20348]||$LOCALIZE[20388]||$LOCALIZE[744]||$LOCALIZE[31661]||$LOCALIZE[31660]||$LOCALIZE[31652],"executebuiltin_10=Skin.SetString(libraryentry-musicvideo,$LOCALIZE[31661])||Skin.SetString(libraryentry-musicvideo.Type,$LOCALIZE[31661])||Skin.Reset(libraryentry-musicvideo.List)||Skin.Reset(libraryentry-musicvideo.Path)||Skin.Reset(libraryentry-musicvideo.Icon)||Skin.Reset(libraryentry-musicvideo.Label)||Skin.Reset(libraryentry-musicvideo.Type)||SetProperty(ListCustomBase,libraryentry-musicvideo,settings)||SetProperty(SelectDialogType,selectskinplaylist,home)||ActivateWindow(1154)","executebuiltin_11=Skin.SetString(libraryentry-musicvideo,$LOCALIZE[31660])||Skin.SetString(libraryentry-musicvideo.Type,$LOCALIZE[31660])||Skin.Reset(libraryentry-musicvideo.List)||Skin.Reset(libraryentry-musicvideo.Path)||Skin.Reset(libraryentry-musicvideo.Icon)||Skin.Reset(libraryentry-musicvideo.Label)||Skin.Reset(libraryentry-musicvideo.Type)||SetProperty(ListCustomBase,libraryentry-musicvideo,settings)||SetProperty(SelectDialogType,selectuserplaylist,home)||ActivateWindow(1154)","executebuiltin_12=Skin.SetString(libraryentry-musicvideo,$LOCALIZE[31652])||Skin.Reset(libraryentry-musicvideo.List)||Skin.Reset(libraryentry-musicvideo.Path)||Skin.Reset(libraryentry-musicvideo.Icon)||Skin.Reset(libraryentry-musicvideo.Label)||Skin.Reset(libraryentry-musicvideo.Type)||RunScript(script.favourites,property=libraryentry-musicvideo)","executebuiltin=Skin.SetString(libraryentry-musicvideo,{v})")</onclick>
 					</control>
 					<control type="button" id="605"><!-- Set Music library entry point -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31923]</label>
 						<label2>$INFO[Skin.String(libraryentry-music)]</label2>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[132])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[132]))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[20108])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[20108]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[135])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[135]))</onclick>
-						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[133])</onclick>
-						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[133]))</onclick>
-						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[134])</onclick>
-						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[134]))</onclick>
-						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[10504])</onclick>
-						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[10504]))</onclick>
-						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[10505])</onclick>
-						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[10505]))</onclick>
-						<onclick>SetProperty(Dialog.8.Label,$LOCALIZE[359])</onclick>
-						<onclick>SetProperty(Dialog.8.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[359]))</onclick>
-						<onclick>SetProperty(Dialog.9.Label,$LOCALIZE[517])</onclick>
-						<onclick>SetProperty(Dialog.9.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[517]))</onclick>
-						<onclick>SetProperty(Dialog.10.Label,$LOCALIZE[521])</onclick>
-						<onclick>SetProperty(Dialog.10.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[521]))</onclick>
-						<onclick>SetProperty(Dialog.11.Label,$LOCALIZE[652])</onclick>
-						<onclick>SetProperty(Dialog.11.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[652]))</onclick>
-						<onclick>SetProperty(Dialog.12.Label,$LOCALIZE[1050])</onclick>
-						<onclick>SetProperty(Dialog.12.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[1050]))</onclick>
-						<onclick>SetProperty(Dialog.13.Label,$LOCALIZE[744])</onclick>
-						<onclick>SetProperty(Dialog.13.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[744]))</onclick>
-						<onclick>SetProperty(Dialog.14.Label,$LOCALIZE[31661])</onclick>
-						<onclick>SetProperty(Dialog.14.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[31661])
-						||Skin.SetString(libraryentry-music.Type,$LOCALIZE[31661])
-						||Skin.Reset(libraryentry-music.List)||Skin.Reset(libraryentry-music.Path)||Skin.Reset(libraryentry-music.Icon)
-						||Skin.Reset(libraryentry-music.Label)||Skin.Reset(libraryentry-music.Type)||SetProperty(ListCustomBase,libraryentry-music,settings)
-						||SetProperty(SelectDialogType,selectskinplaylist,home)||ActivateWindow(1154))</onclick>
-						<onclick>SetProperty(Dialog.15.Label,$LOCALIZE[31660])</onclick>
-						<onclick>SetProperty(Dialog.15.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[31660])
-						||Skin.SetString(libraryentry-music.Type,$LOCALIZE[31660])
-						||Skin.Reset(libraryentry-music.List)||Skin.Reset(libraryentry-music.Path)||Skin.Reset(libraryentry-music.Icon)
-						||Skin.Reset(libraryentry-music.Label)||Skin.Reset(libraryentry-music.Type)||SetProperty(ListCustomBase,libraryentry-music,settings)
-						||SetProperty(SelectDialogType,selectuserplaylist,home)||ActivateWindow(1154))</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.16.Label,$LOCALIZE[31652])</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.16.BuiltIn,Skin.SetString(libraryentry-music,$LOCALIZE[31652])||RunScript(script.favourites,changetitle=false&amp;property=CustomMusicEntry))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31923])</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31923],separator=||,list=$LOCALIZE[132]||$LOCALIZE[20108]||$LOCALIZE[135]||$LOCALIZE[133]||$LOCALIZE[134]||$LOCALIZE[10504]||$LOCALIZE[10505]||$LOCALIZE[359]||$LOCALIZE[517]||$LOCALIZE[521]||$LOCALIZE[652]||$LOCALIZE[1050]||$LOCALIZE[744]||$LOCALIZE[31661]||$LOCALIZE[31660]||$LOCALIZE[31652],"executebuiltin_13=Skin.SetString(libraryentry-music,$LOCALIZE[31661])||Skin.SetString(libraryentry-music.Type,$LOCALIZE[31661])||Skin.Reset(libraryentry-music.List)||Skin.Reset(libraryentry-music.Path)||Skin.Reset(libraryentry-music.Icon)||Skin.Reset(libraryentry-music.Label)||Skin.Reset(libraryentry-music.Type)||SetProperty(ListCustomBase,libraryentry-music,settings)||SetProperty(SelectDialogType,selectskinplaylist,home)||ActivateWindow(1154)","executebuiltin_14=Skin.SetString(libraryentry-music,$LOCALIZE[31660])||Skin.SetString(libraryentry-music.Type,$LOCALIZE[31660])||Skin.Reset(libraryentry-music.List)||Skin.Reset(libraryentry-music.Path)||Skin.Reset(libraryentry-music.Icon)||Skin.Reset(libraryentry-music.Label)||Skin.Reset(libraryentry-music.Type)||SetProperty(ListCustomBase,libraryentry-music,settings)||SetProperty(SelectDialogType,selectuserplaylist,home)||ActivateWindow(1154)","executebuiltin_15=Skin.SetString(libraryentry-music,$LOCALIZE[31652])||Skin.Reset(libraryentry-music.List)||Skin.Reset(libraryentry-music.Path)||Skin.Reset(libraryentry-music.Icon)||Skin.Reset(libraryentry-music.Label)||Skin.Reset(libraryentry-music.Type)||RunScript(script.favourites,property=libraryentry-music)","executebuiltin=Skin.SetString(libraryentry-music,{v})")</onclick>
 					</control>
 					<control type="button" id="606"><!-- Set TV library entry point -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31924]</label>
 						<label2>$INFO[Skin.String(libraryentry-tv)]</label2>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[20108])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(libraryentry-tv,$LOCALIZE[20108]))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31703])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(libraryentry-tv,$LOCALIZE[31703]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[19023])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(libraryentry-tv,$LOCALIZE[19023]))</onclick>
-						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[19069])</onclick>
-						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(libraryentry-tv,$LOCALIZE[19069]))</onclick>
-						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[19163])</onclick>
-						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(libraryentry-tv,$LOCALIZE[19163]))</onclick>
-						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[19040])</onclick>
-						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(libraryentry-tv,$LOCALIZE[19040]))</onclick>
-						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[137])</onclick>
-						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(libraryentry-tv,$LOCALIZE[137]))</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.8.Label,$LOCALIZE[31652])</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.8.BuiltIn,Skin.SetString(libraryentry-tv,$LOCALIZE[31652])||RunScript(script.favourites,changetitle=false&amp;property=CustomTVEntry))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31924])</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31924],separator=||,list=$LOCALIZE[20108]||$LOCALIZE[31703]||$LOCALIZE[19023]||$LOCALIZE[19069]||$LOCALIZE[19163]||$LOCALIZE[19040]||$LOCALIZE[137]||$LOCALIZE[31652],"executebuiltin_7=Skin.SetString(libraryentry-tv,$LOCALIZE[31652])||Skin.Reset(libraryentry-tv.List)||Skin.Reset(libraryentry-tv.Path)||Skin.Reset(libraryentry-tv.Icon)||Skin.Reset(libraryentry-tv.Label)||Skin.Reset(libraryentry-tv.Type)||RunScript(script.favourites,property=libraryentry-tv)","executebuiltin=Skin.SetString(libraryentry-tv,{v})")</onclick>
 						<enable>Pvr.HasTVChannels</enable>
 					</control>
 					<control type="button" id="607"><!-- Set Radio library entry point -->
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31925]</label>
 						<label2>$INFO[Skin.String(libraryentry-radio)]</label2>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[20108])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(libraryentry-radio,$LOCALIZE[20108]))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31703])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(libraryentry-radio,$LOCALIZE[31703]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[19024])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(libraryentry-radio,$LOCALIZE[19024]))</onclick>
-						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[19069])</onclick>
-						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(libraryentry-radio,$LOCALIZE[19069]))</onclick>
-						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[19163])</onclick>
-						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(libraryentry-radio,$LOCALIZE[19163]))</onclick>
-						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[19040])</onclick>
-						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(libraryentry-radio,$LOCALIZE[19040]))</onclick>
-						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[137])</onclick>
-						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(libraryentry-radio,$LOCALIZE[137]))</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.8.Label,$LOCALIZE[31652])</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.8.BuiltIn,Skin.SetString(libraryentry-radio,$LOCALIZE[31652])||RunScript(script.favourites,changetitle=false&amp;property=CustomRadioEntry))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31925])</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31925],separator=||,list=$LOCALIZE[20108]||$LOCALIZE[31703]||$LOCALIZE[19024]||$LOCALIZE[19069]||$LOCALIZE[19163]||$LOCALIZE[19040]||$LOCALIZE[137]||$LOCALIZE[31652],"executebuiltin_7=Skin.SetString(libraryentry-radio,$LOCALIZE[31652])||Skin.Reset(libraryentry-radio.List)||Skin.Reset(libraryentry-radio.Path)||Skin.Reset(libraryentry-radio.Icon)||Skin.Reset(libraryentry-radio.Label)||Skin.Reset(libraryentry-radio.Type)||RunScript(script.favourites,property=libraryentry-radio)","executebuiltin=Skin.SetString(libraryentry-radio,{v})")</onclick>
 						<enable>Pvr.HasRadioChannels</enable>
 					</control>
 					<control type="button" id="608"><!-- Reset Above Settings button -->

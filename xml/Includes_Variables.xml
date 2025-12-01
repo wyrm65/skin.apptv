@@ -7,7 +7,7 @@
 	<variable name="BackgndImage">
 		<value condition="Skin.HasSetting(background-slideshow) + Player.HasAudio + !String.IsEmpty(Window(visualisation).Property(ArtistSlideshow.Image))">$INFO[Window(visualisation).Property(ArtistSlideshow.Image)]</value>
 		<value condition="Skin.HasSetting(animated-artwork) + !String.IsEmpty(ListItem.Art(animatedfanart))">$INFO[ListItem.Art(animatedfanart)]</value>
-		<value condition="!Skin.HasSetting(background-fanarts)+[[$EXP[isContentSeasons]|$EXP[isContentEpisodes]]+!String.IsEmpty(ListItem.Art(tvshow.fanart1))] + !String.IsEmpty(Control.GetLabel(300000))">$INFO[Control.GetLabel(300000)]</value>
+		<value condition="!Skin.HasSetting(background-fanarts)+[[$EXP[isContentSeasons]|$EXP[isContentEpisodes]]+!String.IsEmpty(ListItem.Art(tvshow.fanart1))] + !String.IsEmpty(Control.GetLabel(300000))">$ESCINFO[Control.GetLabel(300000)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + Player.HasAudio + !String.IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(set.fanart))">$INFO[ListItem.Art(set.fanart)]</value>
 		<value condition="!Skin.HasSetting(background-fanarts) + !String.IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>
@@ -47,6 +47,16 @@
 		<value condition="!Skin.HasSetting(background-visibiltymed) + !Skin.HasSetting(background-visibiltyhigh)">HighBgnVisibity</value>
 		<value condition="Skin.HasSetting(background-visibiltymed)">MedBgnVisibity</value>
 		<value condition="Skin.HasSetting(background-visibiltyhigh)">LowBgnVisibity</value>
+	</variable>
+	<variable name="WeatherTodaysMinimum">
+		<value condition="String.IsEqual(Window(weather).Property(Current.NowLabel),Max) + String.IsEqual(Window(weather).Property(Current.LaterLabel),Overnight Min)">$INFO[Window(weather).Property(Current.LaterValue)]</value>
+		<value condition="String.Contains(Window(weather).Property(Current.NowLabel),Overnight) + String.Contains(Window(weather).Property(Current.LaterLabel),Tomorrow)">$INFO[Window(weather).Property(Current.NowValue)]</value>
+		<value>$INFO[Window(weather).Property(Day0.LowTemp)]</value>
+	</variable>
+	<variable name="WeatherTodaysMaximum">
+		<value condition="String.IsEqual(Window(weather).Property(Current.NowLabel),Max) + String.IsEqual(Window(weather).Property(Current.LaterLabel),Overnight Min)">$INFO[Window(weather).Property(Current.NowValue)]</value>
+		<value condition="String.Contains(Window(weather).Property(Current.NowLabel),Overnight) + String.Contains(Window(weather).Property(Current.LaterLabel),Tomorrow)">$INFO[Window(weather).Property(Current.LaterValue)]</value>
+		<value>$INFO[Window(weather).Property(Day0.HighTemp)]</value>
 	</variable>
 	<variable name="HorzHomeSubmenu1">
 		<value condition="String.IsEqual(Window(home).Property(horzhomesubmenu),9100)">tab-hilite</value>
@@ -159,20 +169,14 @@
 	<variable name="VideoInfoWidget">
 		<value condition="String.IsEqual(ListItem.DBTYPE,set)">$INFO[ListItem.FolderPath]</value>
 		<value condition="String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)">$INFO[Window(home).Property(SpecialFeatures.Widget)]</value>
-		<value condition="String.IsEqual(ListItem.DBTYPE,movie) + String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31960])">plugin://script.embuary.helper/?info=getsimilar&amp;dbid=$INFO[ListItem.DBID]&amp;type=movie</value>
-		<value condition="String.IsEqual(ListItem.DBTYPE,movie) + String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31971])">plugin://script.embuary.helper/?info=getinprogress&amp;type=movie&amp;pos=0</value>
-		<value condition="String.IsEqual(ListItem.DBTYPE,movie) + String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31972])">plugin://script.embuary.helper/?info=getbygenre&amp;unwatched=True&amp;type=movie</value>
-		<value condition="String.IsEqual(ListItem.DBTYPE,movie) + String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31974])">videodb://movies/sets/</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,movie) + String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31971])">special://skin/extras/playlists/video/MoviesInProgress.xsp</value>
+		<value condition="String.IsEqual(ListItem.DBTYPE,movie) + String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31972])">special://skin/extras/playlists/video/RandomMovies.xsp</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,movie) + String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31661]) | String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31660]) | String.IsEqual(Skin.String(widget-infomovie),$LOCALIZE[31652])">$INFO[Skin.String(widget-infomovie.List)]</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,movie)">videodb://recentlyaddedmovies/</value>
 		<value condition="[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)] + 
-		String.IsEqual(Skin.String(widget-infotvshow),$LOCALIZE[31955])">plugin://script.embuary.helper/?info=getsimilar&amp;dbid=$INFO[ListItem.DBID]&amp;type=tvshow</value>
-		<value condition="[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)] + 
-		String.IsEqual(Skin.String(widget-infotvshow),$LOCALIZE[31975])">plugin://script.embuary.helper/?info=getinprogress&amp;type=tvshow</value>
+		String.IsEqual(Skin.String(widget-infotvshow),$LOCALIZE[31975])">special://skin/extras/playlists/video/TVShowsInProgress.xsp</value>
 		<value condition="[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)] +
-		String.IsEqual(Skin.String(widget-infotvshow),$LOCALIZE[31976])">plugin://script.embuary.helper/?info=getnextup</value>
-		<value condition="[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)] +
-		String.IsEqual(Skin.String(widget-infotvshow),$LOCALIZE[31977])">plugin://script.embuary.helper/?info=getnewshows</value>
+		String.IsEqual(Skin.String(widget-infotvshow),$LOCALIZE[31977])">videodb://recentlyaddedepisodes/</value>
 		<value condition="String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)">videodb://tvshows/titles/</value>
 		<value condition="[String.IsEqual(ListItem.DBTYPE,tvshow) | String.IsEqual(ListItem.DBTYPE,season) | String.IsEqual(ListItem.DBTYPE,episode)] + 
 		[String.IsEqual(Skin.String(widget-infotvshow),$LOCALIZE[31661]) | String.IsEqual(Skin.String(widget-infotvshow),$LOCALIZE[31660])
@@ -185,6 +189,10 @@
 		<value condition="!Control.IsVisible(50) + !String.IsEmpty(Container(950).ListItem.Label) + !String.IsEqual(Window(home).Property(SpecialFeatures.Visible),true)">$LOCALIZE[31691]</value>
 		<value>$LOCALIZE[206]</value>
 	</variable>
+	<variable name="VideoExtrasSelect">
+		<value condition="[Window.IsVisible(managevideoversions) | Window.IsVisible(selectvideoversion)] + !String.IsEmpty(ListItem.VideoVersionName)">$INFO[ListItem.VideoVersionName]</value>
+		<value>$INFO[ListItem.Label]</value>
+	</variable>
 	<variable name="FocusToView">
 		<value condition="Control.IsVisible(50)">SetFocus(50)</value>
 		<value condition="Control.IsVisible(52)">SetFocus(52)</value>
@@ -195,8 +203,7 @@
 	</variable>
 	<variable name="MPAARatingIcons">
 		<value condition="String.IsEmpty(Listitem.MPAA)"></value>
-		<value condition="Skin.HasSetting(defaultmpaa-locale)">$INFO[Listitem.MPAA,resource://resource.images.classificationicons.colour/,.png]</value>
-		<value>$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</value>
+		<value>$INFO[Skin.String(certification-locale),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</value>
 	</variable>
 	<variable name="Overlay">
 		<value condition="ListItem.IsResumable">OverlayPartialyWatched.png</value>
@@ -256,16 +263,13 @@
 		<value condition="Window.IsVisible(programs)">ActivateWindow(programs,"$INFO[ListItem.FolderPath]",return)</value>
 	</variable>
 	<variable name="ListDynamicContent">
-		<value condition="Container.Content(movies) + String.IsEqual(Skin.String(widget-listview-movie),$LOCALIZE[31960])">plugin://script.embuary.helper/?info=getsimilar&amp;type=movie</value>
-		<value condition="Container.Content(movies) + String.IsEqual(Skin.String(widget-listview-movie),$LOCALIZE[31971])">plugin://script.embuary.helper/?info=getinprogress&amp;type=movie&amp;pos=0</value>
-		<value condition="Container.Content(movies) + String.IsEqual(Skin.String(widget-listview-movie),$LOCALIZE[31972])">plugin://script.embuary.helper/?info=getbygenre&amp;unwatched=True&amp;type=movie</value>
+		<value condition="Container.Content(movies) + String.IsEqual(Skin.String(widget-listview-movie),$LOCALIZE[31971])">special://skin/extras/playlists/video/MoviesInProgress.xsp</value>
+		<value condition="Container.Content(movies) + String.IsEqual(Skin.String(widget-listview-movie),$LOCALIZE[31983])">special://skin/extras/playlists/video/RandomTV.xsp</value>
 		<value condition="Container.Content(movies) + String.IsEqual(Skin.String(widget-listview-movie),$LOCALIZE[31974])">videodb://movies/sets/</value>
 		<value condition="Container.Content(movies) + [String.IsEqual(Skin.String(widget-listview-movie),$LOCALIZE[31661]) | String.IsEqual(Skin.String(widget-listview-movie),$LOCALIZE[31660]) | String.IsEqual(Skin.String(widget-listview-movie),$LOCALIZE[31652])]">$INFO[Skin.String(widget-listview-movie.List)]</value>
 		<value condition="Container.Content(movies)">videodb://recentlyaddedmovies/</value>
-		<value condition="Container.Content(tvshows) + String.IsEqual(Skin.String(widget-listview-tvshow),$LOCALIZE[31955])">plugin://script.embuary.helper/?info=getsimilar&amp;type=tvshow&amp;pos=0</value>
-		<value condition="Container.Content(tvshows) + String.IsEqual(Skin.String(widget-listview-tvshow),$LOCALIZE[31975])">plugin://script.embuary.helper/?info=getinprogress&amp;type=tvshow</value>
-		<value condition="Container.Content(tvshows) + String.IsEqual(Skin.String(widget-listview-tvshow),$LOCALIZE[31976])">plugin://script.embuary.helper/?info=getnextup</value>
-		<value condition="Container.Content(tvshows) + String.IsEqual(Skin.String(widget-listview-tvshow),$LOCALIZE[31977])">plugin://script.embuary.helper/?info=getnewshows</value>
+		<value condition="Container.Content(tvshows) + String.IsEqual(Skin.String(widget-listview-tvshow),$LOCALIZE[31975])">special://skin/extras/playlists/video/TVShowsInProgress.xsp</value>
+		<value condition="Container.Content(tvshows) + String.IsEqual(Skin.String(widget-listview-tvshow),$LOCALIZE[31977])">special://skin/extras/playlists/video/RecentlyUpdatedTVShows.xsp</value>
 		<value condition="Container.Content(tvshows) + [String.IsEqual(Skin.String(widget-listview-tvshow),$LOCALIZE[31661]) | String.IsEqual(Skin.String(widget-listview-tvshow),$LOCALIZE[31660]) | String.IsEqual(Skin.String(widget-listview-tvshow),$LOCALIZE[31652])]">$INFO[Skin.String(widget-listview-tvshow.List)]</value>
 		<value condition="Container.Content(tvshows)">videodb://recentlyaddedepisodes/</value>
 	</variable>
@@ -484,7 +488,6 @@
 		<value>ActivateWindow(music,videodb://musicvideos/titles/,return)</value>
 	</variable>
 	<variable name="VideoHeadings">
-		<value condition="String.Contains(Container.FolderPath,plugin.video.specialfeatures)">$LOCALIZE[31891]</value>
 		<value condition="Container.Content(movies)">$LOCALIZE[20342]</value>
 		<value condition="Container.Content(tvshows)">$LOCALIZE[31027]</value>
 		<value condition="Container.Content(episodes)">$VAR[EpisodeHeadings]</value>
@@ -1033,7 +1036,6 @@
 		<value>$INFO[ListItem.TvShowTitle]</value>
 	</variable>
 	<variable name="BroadcastShelfLabel">
-		<value condition="String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31956])">$INFO[ListItem.Label]</value>
 		<value>$INFO[ListItem.Title]</value>
 	</variable>
 	<variable name="BroadcastShelfLabel2">
@@ -1215,10 +1217,8 @@
 	</variable>
 	<variable name="WidgetMPAARatingIcons">
 		<value condition="String.IsEmpty(Container(5101).Listitem.MPAA)"></value>
-		<value condition="Control.HasFocus(5101) + Skin.HasSetting(defaultmpaa-locale)">$INFO[Container(5101).Listitem.MPAA,resource://resource.images.classificationicons.colour/,.png]</value>
-		<value condition="Control.HasFocus(5101)">$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Container(5101).Listitem.MPAA,,.png]</value>
-		<value condition="Skin.HasSetting(defaultmpaa-locale)">$INFO[Listitem.MPAA,resource://resource.images.classificationicons.colour/,.png]</value>
-		<value>$INFO[Window(home).property(locale.country),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</value>
+		<value condition="Control.HasFocus(5101)">$INFO[Skin.String(certification-locale),resource://resource.images.classificationicons.colour/] $INFO[Container(5101).Listitem.MPAA,,.png]</value>
+		<value>$INFO[Skin.String(certification-locale),resource://resource.images.classificationicons.colour/] $INFO[Listitem.MPAA,,.png]</value>
 	</variable>
 	<variable name="WidgetItemDuration">
 		<value condition="Integer.IsLess(Container(5101).ListItem.Duration(mins),1) + !String.IsEmpty(Container(5101).Listitem.Duration)">( $LOCALIZE[19695] )</value>
@@ -1235,7 +1235,6 @@
 	</variable>
 	<variable name="MovieShelfLabel">
 		<value condition="[Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31026])] + String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31964])">$LOCALIZE[31964]</value>
-		<value condition="[Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31026])] + String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31960])">$LOCALIZE[31960]</value>
 		<value condition="[Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31026])] + String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31971])">$LOCALIZE[31971]</value>
 		<value condition="[Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31026])] + String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31972])">$LOCALIZE[31972]</value>
 		<value condition="[Control.HasFocus(9150) | Control.HasFocus(9160) | Control.HasFocus(9180) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31026])] + String.IsEqual(Skin.String(widget-movie),$LOCALIZE[31973])">$LOCALIZE[31973]</value>
@@ -1246,9 +1245,7 @@
 	</variable>
 	<variable name="TVShowShelfLabel">
 		<value condition="[Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[20343])] + String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31954])">$LOCALIZE[31965]</value>
-		<value condition="[Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[20343])] + String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31962])">$LOCALIZE[31962]</value>
 		<value condition="[Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[20343])] + String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31975])">$LOCALIZE[31975]</value>		
-		<value condition="[Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[20343])] + String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31976])">$LOCALIZE[31976]</value>
 		<value condition="[Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[20343])] + String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31977])">$LOCALIZE[31977]</value>
 		<value condition="[Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[20343])] + String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31978])">$LOCALIZE[31978]</value>
 		<value condition="[Control.HasFocus(9200) | Control.HasFocus(9210) | Control.HasFocus(9230) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[20343])] + String.IsEqual(Skin.String(widget-tvshow),$LOCALIZE[31660])">$INFO[Skin.String(widget-tvshow.Label)]</value>
@@ -1273,7 +1270,6 @@
 		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[24001])] + String.IsEqual(Skin.String(widget-music),$LOCALIZE[31652])">$INFO[Skin.String(widget-music.Label)]</value>
 	</variable>
 	<variable name="BroadcastShelfLabel">
-		<value condition="[Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9530) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31031])] + String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31956])">$LOCALIZE[31961]</value>
 		<value condition="[Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9530) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31031])] + String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31957])">$LOCALIZE[31967]</value>
 		<value condition="[Control.HasFocus(9500) | Control.HasFocus(9510) | Control.HasFocus(9530) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31031])] + String.IsEqual(Skin.String(widget-broadcast),$LOCALIZE[31958])">$LOCALIZE[31968]</value>
 		<value condition="[Control.HasFocus(9250) | Control.HasFocus(9260) | Control.HasFocus(9280) | String.IsEqual(Container(9000).ListItem.Label2,$LOCALIZE[31031])] + String.IsEqual(Skin.String(widget-music),$LOCALIZE[31652])">$INFO[Skin.String(widget-music.Label)]</value>
@@ -1961,6 +1957,7 @@
 		<value condition="Control.HasFocus(206)">$LOCALIZE[31307]</value>
 		<value condition="Control.HasFocus(209)">$LOCALIZE[31310]</value>
 		<value condition="Control.HasFocus(210)">$LOCALIZE[31323]</value>
+		<value condition="Control.HasFocus(211)">$LOCALIZE[31327]</value>
 		<value condition="Control.HasFocus(212)">$LOCALIZE[31324]</value>
 		<value condition="Control.HasFocus(307)">$LOCALIZE[31315]</value>
 		<value condition="Control.HasFocus(308)">$LOCALIZE[31316]</value>

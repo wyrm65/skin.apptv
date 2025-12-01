@@ -111,98 +111,28 @@
 						<onclick>SetProperty(EditViews,Video,home)</onclick>
 						<onclick>ActivateWindow(1161)</onclick>
 					</control>
-					<control type="button" id="1194"><!-- List View Movie Widget type -->
-						<include>settings-screen-common</include>
-						<label>$LOCALIZE[31982]</label>
-						<label2>$INFO[Skin.String(widget-listview-movie)]</label2>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31964])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(widget-listview-movie,$LOCALIZE[31964]))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31960])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget-listview-movie,$LOCALIZE[31960]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31971])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget-listview-movie,$LOCALIZE[31971]))</onclick>
-						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31972])</onclick>
-						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(widget-listview-movie,$LOCALIZE[31972]))</onclick>
-						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[31974])</onclick>
-						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(widget-listview-movie,$LOCALIZE[31974]))</onclick>
-						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[31661])</onclick>
-						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(widget-listview-movie,$LOCALIZE[31661])
-						||Skin.SetString(widget-listview-movie.Type,$LOCALIZE[31661])
-						||Skin.Reset(widget-listview-movie.List)||Skin.Reset(widget-listview-movie.Path)||Skin.Reset(widget-listview-movie.Icon)
-						||Skin.Reset(widget-listview-movie.Label)||Skin.Reset(widget-listview-movie.Type)||SetProperty(ListCustomBase,widget-listview-movie,settings)
-						||SetProperty(SelectDialogType,selectskinplaylist,home)||Skin.SetString(widget-listview-movie.Label)||ActivateWindow(1154))</onclick>
-						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[31660])</onclick>
-						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(widget-listview-movie,$LOCALIZE[31660])
-						||Skin.SetString(widget-listview-movie.Type,$LOCALIZE[31660])
-						||Skin.Reset(widget-listview-movie.List)||Skin.Reset(widget-listview-movie.Path)||Skin.Reset(widget-listview-movie.Icon)
-						||Skin.Reset(widget-listview-movie.Label)||Skin.Reset(widget-listview-movie.Type)||SetProperty(ListCustomBase,widget-listview-movie,settings)
-						||SetProperty(SelectDialogType,selectuserplaylist,home)||Skin.SetString(widget-listview-movie.Label)||ActivateWindow(1154))</onclick>
-						<onclick>SetProperty(Dialog.8.Label,$LOCALIZE[31652])</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.8.BuiltIn,Skin.SetString(widget-listview-movie,$LOCALIZE[31652])
-						||Skin.Reset(widget-listview-movie.List)||Skin.Reset(widget-listview-movie.Path)
-						||Skin.Reset(widget-listview-movie.Icon)||Skin.Reset(widget-listview-movie.Label)||Skin.Reset(widget-listview-movie.Type)
-						||RunScript(script.favourites,changetitle=true&amp;property=widget-listview-movie))</onclick>
-						<onclick condition="!System.HasAddon(script.favourites)">SetProperty(Dialog.8.BuiltIn,Skin.SetString(widget-listview-movie,$LOCALIZE[31652])
-						||Skin.Reset(widget-listview-movie.List)||Skin.Reset(widget-listview-movie.Path)
-						||Skin.Reset(widget-listview-movie.Icon)||Skin.Reset(widget-listview-movie.Label)||Skin.Reset(widget-listview-movie.Type)
-						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-listview-movie))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31982])</onclick>
-						<enable>!String.IsEqual(Skin.String(listview-idleanim),$LOCALIZE[31815])</enable>
-						<visible>String.EndsWith(Control.GetLabel(2),$LOCALIZE[31941]) + $EXP[isContentMovies]</visible>
-					</control>
-					<control type="button" id="1195"><!-- List View TVShow Widget type -->
-						<include>settings-screen-common</include>
-						<label>$LOCALIZE[31982]</label>
-						<label2>$INFO[Skin.String(widget-listview-tvshow)]</label2>
-						<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[31954])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(widget-listview-tvshow,$LOCALIZE[31954]))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[31955])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(widget-listview-tvshow,$LOCALIZE[31955]))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[31975])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(widget-listview-tvshow,$LOCALIZE[31975]))</onclick>
-						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31976])</onclick>
-						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(widget-listview-tvshow,$LOCALIZE[31976]))</onclick>
-						<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[31977])</onclick>
-						<onclick>SetProperty(Dialog.5.BuiltIn,Skin.SetString(widget-listview-tvshow,$LOCALIZE[31977]))</onclick>
-						<onclick>SetProperty(Dialog.6.Label,$LOCALIZE[31661])</onclick>
-						<onclick>SetProperty(Dialog.6.BuiltIn,Skin.SetString(widget-listview-tvshow,$LOCALIZE[31661])
-						||Skin.SetString(widget-listview-tvshow.Type,$LOCALIZE[31661])
-						||Skin.Reset(widget-listview-tvshow.List)||Skin.Reset(widget-listview-tvshow.Path)||Skin.Reset(widget-listview-tvshow.Icon)
-						||Skin.Reset(widget-listview-tvshow.Label)||Skin.Reset(widget-listview-tvshow.Type)||SetProperty(ListCustomBase,widget-listview-tvshow,settings)
-						||SetProperty(SelectDialogType,selectskinplaylist,home)||Skin.SetString(widget-listview-tvshow.Label)||ActivateWindow(1154))</onclick>
-						<onclick>SetProperty(Dialog.7.Label,$LOCALIZE[31660])</onclick>
-						<onclick>SetProperty(Dialog.7.BuiltIn,Skin.SetString(widget-listview-tvshow,$LOCALIZE[31660])
-						||Skin.SetString(widget-listview-tvshow.Type,$LOCALIZE[31660])
-						||Skin.Reset(widget-listview-tvshow.List)||Skin.Reset(widget-listview-tvshow.Path)||Skin.Reset(widget-listview-tvshow.Icon)
-						||Skin.Reset(widget-listview-tvshow.Label)||Skin.Reset(widget-listview-tvshow.Type)||SetProperty(ListCustomBase,widget-listview-tvshow,settings)
-						||SetProperty(SelectDialogType,selectuserplaylist,home)||Skin.SetString(widget-listview-tvshow.Label)||ActivateWindow(1154))</onclick>
-						<onclick>SetProperty(Dialog.8.Label,$LOCALIZE[31652])</onclick>
-						<onclick condition="System.HasAddon(script.favourites)">SetProperty(Dialog.8.BuiltIn,Skin.SetString(widget-listview-tvshow,$LOCALIZE[31652])
-						||Skin.Reset(widget-listview-tvshow.List)||Skin.Reset(widget-listview-tvshow.Path)
-						||Skin.Reset(widget-listview-tvshow.Icon)||Skin.Reset(widget-listview-tvshow.Label)||Skin.Reset(widget-listview-tvshow.Type)
-						||RunScript(script.favourites,changetitle=true&amp;property=widget-listview-tvshow))</onclick>
-						<onclick condition="!System.HasAddon(script.favourites)">SetProperty(Dialog.8.BuiltIn,Skin.SetString(widget-listview-tvshow,$LOCALIZE[31652])
-						||Skin.Reset(widget-listview-tvshow.List)||Skin.Reset(widget-listview-tvshow.Path)
-						||Skin.Reset(widget-listview-tvshow.Icon)||Skin.Reset(widget-listview-tvshow.Label)||Skin.Reset(widget-listview-tvshow.Type)
-						||InstallAddon(script.favourites)||RunScript(script.favourites,changetitle=true&amp;property=widget-listview-tvshow))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31808] - $LOCALIZE[31027])</onclick>
-						<enable>!String.IsEqual(Skin.String(listview-idleanim),$LOCALIZE[31815])</enable>
-						<visible>String.EndsWith(Control.GetLabel(2),$LOCALIZE[31941]) + $EXP[isContentTvshows]</visible>
-					</control>
-					<control type="button" id="1196"><!-- List view idle widget delay -->
+					<control type="button" id="1194"><!-- List view idle widget delay -->
 						<include>settings-screen-common</include>
 						<label>$LOCALIZE[31885]</label>
 						<label2>$VAR[DelayListAnimation]</label2>
-						<onclick>SetProperty(Dialog.1.Label,60 $LOCALIZE[31812])</onclick>
-						<onclick>SetProperty(Dialog.1.BuiltIn,Skin.SetString(listview-idleanim,60))</onclick>
-						<onclick>SetProperty(Dialog.2.Label,90 $LOCALIZE[31812])</onclick>
-						<onclick>SetProperty(Dialog.2.BuiltIn,Skin.SetString(listview-idleanim,90))</onclick>
-						<onclick>SetProperty(Dialog.3.Label,120 $LOCALIZE[31812])</onclick>
-						<onclick>SetProperty(Dialog.3.BuiltIn,Skin.SetString(listview-idleanim,120))</onclick>
-						<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[31815])</onclick>
-						<onclick>SetProperty(Dialog.4.BuiltIn,Skin.SetString(listview-idleanim,$LOCALIZE[31815]))</onclick>
-						<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[31885])</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31885],separator=||,list=60 $LOCALIZE[31812]||90 $LOCALIZE[31812]||120 $LOCALIZE[31812]||$LOCALIZE[31815],"executebuiltin_0=Skin.SetString(listview-idleanim,60)","executebuiltin_1=Skin.SetString(listview-idleanim,90)","executebuiltin_2=Skin.SetString(listview-idleanim,120)","executebuiltin_3=Skin.SetString(listview-idleanim,$LOCALIZE[31815])")</onclick>
 						<visible>String.EndsWith(Control.GetLabel(2),$LOCALIZE[31941])</visible>
+					</control>
+					<control type="button" id="1195"><!-- List View Movie Widget type -->
+						<include>settings-screen-common</include>
+						<label>$LOCALIZE[31982]</label>
+						<label2>$INFO[Skin.String(widget-listview-movie)]</label2>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31982],separator=||,list=$LOCALIZE[31964]||$LOCALIZE[31971]||$LOCALIZE[31972]||$LOCALIZE[31661]||$LOCALIZE[31660]||$LOCALIZE[31652],"executebuiltin_3=Skin.SetString(widget-listview-movie.Type,$LOCALIZE[31661])||Skin.Reset(widget-listview-movie.List)||Skin.Reset(widget-listview-movie.Path)||Skin.Reset(widget-listview-movie.Icon)||Skin.Reset(widget-listview-movie.Label)||Skin.Reset(widget-listview-movie.Type)||SetProperty(ListCustomBase,widget-listview-movie,settings)||SetProperty(SelectDialogType,selectskinplaylist,home)||Skin.SetString(widget-listview-movie.Label)||ActivateWindow(1154)","executebuiltin_4=Skin.SetString(widget-listview-movie,$LOCALIZE[31660])||Skin.SetString(widget-listview-movie.Type,$LOCALIZE[31660])||Skin.Reset(widget-listview-movie.List)||Skin.Reset(widget-listview-movie.Path)||Skin.Reset(widget-listview-movie.Icon)||Skin.Reset(widget-listview-movie.Label)||Skin.Reset(widget-listview-movie.Type)||SetProperty(ListCustomBase,widget-listview-movie,settings)||SetProperty(SelectDialogType,selectuserplaylist,home)||Skin.SetString(widget-listview-movie.Label)||ActivateWindow(1154)","executebuiltin_5=Skin.SetString(widget-listview-movie,$LOCALIZE[31652])||Skin.Reset(widget-listview-movie.List)||Skin.Reset(widget-listview-movie.Path)||Skin.Reset(widget-listview-movie.Icon)||Skin.Reset(widget-listview-movie.Label)||Skin.Reset(widget-listview-movie.Type)||RunScript(script.favourites,property=widget-listview-movie)","executebuiltin=Skin.SetString(widget-listview-movie,{v})")</onclick>
+						<enable>!String.IsEqual(Skin.String(listview-idleanim),$LOCALIZE[31815])</enable>
+						<visible>String.EndsWith(Control.GetLabel(2),$LOCALIZE[31941]) + $EXP[isContentMovies]</visible>
+					</control>
+					<control type="button" id="1196"><!-- List View TVShow Widget type -->
+						<include>settings-screen-common</include>
+						<label>$LOCALIZE[31982]</label>
+						<label2>$INFO[Skin.String(widget-listview-tvshow)]</label2>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31982],separator=||,list=$LOCALIZE[31954]||$LOCALIZE[31975]||$LOCALIZE[31977]||$LOCALIZE[31661]||$LOCALIZE[31660]||$LOCALIZE[31652],"executebuiltin_3=Skin.SetString(widget-listview-tvshow.Type,$LOCALIZE[31661])||Skin.Reset(widget-listview-tvshow.List)||Skin.Reset(widget-listview-tvshow.Path)||Skin.Reset(widget-listview-tvshow.Icon)||Skin.Reset(widget-listview-tvshow.Label)||Skin.Reset(widget-listview-tvshow.Type)||SetProperty(ListCustomBase,widget-listview-tvshow,settings)||SetProperty(SelectDialogType,selectskinplaylist,home)||Skin.SetString(widget-listview-tvshow.Label)||ActivateWindow(1154)","executebuiltin_4=Skin.SetString(widget-listview-tvshow,$LOCALIZE[31660])||Skin.SetString(widget-listview-tvshow.Type,$LOCALIZE[31660])||Skin.Reset(widget-listview-tvshow.List)||Skin.Reset(widget-listview-tvshow.Path)||Skin.Reset(widget-listview-tvshow.Icon)||Skin.Reset(widget-listview-tvshow.Label)||Skin.Reset(widget-listview-tvshow.Type)||SetProperty(ListCustomBase,widget-listview-tvshow,settings)||SetProperty(SelectDialogType,selectuserplaylist,home)||Skin.SetString(widget-listview-tvshow.Label)||ActivateWindow(1154)","executebuiltin_5=Skin.SetString(widget-listview-tvshow,$LOCALIZE[31652])||Skin.Reset(widget-listview-tvshow.List)||Skin.Reset(widget-listview-tvshow.Path)||Skin.Reset(widget-listview-tvshow.Icon)||Skin.Reset(widget-listview-tvshow.Label)||Skin.Reset(widget-listview-tvshow.Type)||RunScript(script.favourites,property=widget-listview-tvshow)","executebuiltin=Skin.SetString(widget-listview-tvshow,{v})")</onclick>
+						<enable>!String.IsEqual(Skin.String(listview-idleanim),$LOCALIZE[31815])</enable>
+						<visible>String.EndsWith(Control.GetLabel(2),$LOCALIZE[31941]) + $EXP[isContentTvshows]</visible>
 					</control>
 					<control type="radiobutton" id="1197"><!-- Use animated Artwork  -->
 						<include>settings-screen-common</include>

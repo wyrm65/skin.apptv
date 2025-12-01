@@ -151,17 +151,7 @@
 						<item id="2108"><!-- Settings button -->
 							<label>$LOCALIZE[5]</label>
 							<icon>game-settings.png</icon>
-							<onclick>SetProperty(Dialog.1.Label,$LOCALIZE[35225])</onclick>
-							<onclick>SetProperty(Dialog.1.BuiltIn,ActivateWindow(GameVideoFilter))</onclick>
-							<onclick>SetProperty(Dialog.2.Label,$LOCALIZE[629])</onclick>
-							<onclick>SetProperty(Dialog.2.BuiltIn,ActivateWindow(GameViewMode))</onclick>
-							<onclick>SetProperty(Dialog.3.Label,$LOCALIZE[13376])</onclick>
-							<onclick>SetProperty(Dialog.3.BuiltIn,ActivateWindow(GameVolume))</onclick>
-							<onclick>SetProperty(Dialog.4.Label,$LOCALIZE[35234])</onclick>
-							<onclick>SetProperty(Dialog.4.BuiltIn,ActivateWindow(GameControllers))</onclick>
-							<onclick>SetProperty(Dialog.5.Label,$LOCALIZE[35226])</onclick>
-							<onclick>SetProperty(Dialog.5.BuiltIn,ActivateWindow(GameAdvancedSettings))</onclick>
-							<onclick>RunScript(script.embuary.helper,action=createselect,header=$LOCALIZE[5])</onclick>
+							<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[5],separator=||,list=$LOCALIZE[35225]||$LOCALIZE[629]||$LOCALIZE[13376]||$LOCALIZE[35234]||$LOCALIZE[35226],"executebuiltin_0=ActivateWindow(GameVideoFilter)","executebuiltin_1=ActivateWindow(GameViewMode)","executebuiltin_2=ActivateWindow(GameVolume)","executebuiltin_3=ActivateWindow(GameControllers)","executebuiltin_4=ActivateWindow(GameAdvancedSettings)")</onclick>
 						</item>
 					</content>
 				</control>

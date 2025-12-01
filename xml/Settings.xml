@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
-	<onunload>RunScript(script.embuary.helper,action=getkodisetting,setting=locale.country,strip=timeformat)</onunload>
+	<onunload condition="String.IsEmpty(Skin.String(certification-locale))">Skin.SetString(certification-locale,USA)</onunload>
 	<defaultcontrol>8999</defaultcontrol>
 	<visible>Window.IsTopMost(settings)</visible>
 	<controls>
