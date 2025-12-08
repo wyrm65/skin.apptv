@@ -2,9 +2,9 @@
 <window id="1156">
 	<defaultcontrol always="true">200</defaultcontrol>
 	<controls>
+		<include>backgroundsimple</include>
 		<control type="group">
-			<visible>!Window.IsVisible(movieinformation) + !Window.IsVisible(addoninformation)</visible>
-			<include>backgroundsimple</include>
+			<include>overlayed-windowfade</include>
 			<include content="screen-name">
 				<param name="screenlabel" value="$LOCALIZE[137][CR]'$VAR[SearchString]'"/>
 			</include>

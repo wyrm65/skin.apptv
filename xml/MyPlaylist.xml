@@ -7,158 +7,181 @@
 	<menucontrol>9000</menucontrol>
 	<visible>Window.IsTopMost(musicplaylist) | Window.IsTopMost(videoplaylist)</visible>
 	<controls>
-		<include>background</include>
-		<control type="label"><!-- Video playlist heading -->
-			<left>1400</left>
-			<top>38</top>
-			<width>471</width>
-			<height>75</height>
-			<label>$LOCALIZE[10522]</label>
-			<font>apptv30</font>
-			<wrapmultiline>true</wrapmultiline>
-			<visible>Window.IsActive(videoplaylist)</visible>
-		</control>
-		<control type="label"><!-- Music playlist heading -->
-			<left>1400</left>
-			<top>38</top>
-			<width>471</width>
-			<height>75</height>
-			<label>$LOCALIZE[10517]</label>
-			<font>apptv30</font>
-			<wrapmultiline>true</wrapmultiline>
-			<visible>Window.IsActive(musicplaylist)</visible>
-		</control>
-		<include file="View-General.xml">ListView</include>
-		<control type="group"><!-- Video Playlist -->
-			<visible>Window.IsActive(videoplaylist)</visible>
-			<control type="videowindow">
-				<left>52</left>
-				<top>188</top>
-				<width>915</width>
-				<height>506</height>
-				<visible>Player.HasVideo + !Skin.HasSetting(background-playingmedia)</visible>
-			</control>
-			<control type="image">
-				<left>471</left>
-				<top>174</top>
-				<width>504</width>
-				<height>504</height>
-				<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
-				<aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
-				<visible>Skin.HasSetting(background-playingmedia) | !Player.HasVideo</visible>
-			</control>
+		<control type="group">
+			<!-- Dim screen for fake Screen settings dialog -->
+			<animation effect="fadediffuse" start="FFFFFFFF" end="FF404040" time="100" condition="$EXP[isEnabledScreenSettings]">Conditional</animation>
+			<include>background</include>
 			<control type="group">
-				<visible>Player.HasVideo</visible>
-				<control type="label">
-					<left>52</left>
-					<top>852</top>
-					<width>928</width>
-					<height>45</height>
-					<font>apptv23</font>
-					<label>$INFO[VideoPlayer.Title]</label>
+				<visible>!$EXP[isActiveFullscreenWindow]</visible>
+				<include>overlayed-windowfade</include>
+				<control type="label"><!-- Video playlist heading -->
+					<left>1400</left>
+					<top>38</top>
+					<width>471</width>
+					<height>75</height>
+					<label>$LOCALIZE[10522]</label>
+					<font>apptv30</font>
+					<wrapmultiline>true</wrapmultiline>
+					<visible>Window.IsActive(videoplaylist)</visible>
 				</control>
-				<control type="progress">
-					<left>51</left>
-					<top>912</top>
-					<width>608</width>
-					<height>18</height>
-					<info>Player.Progress</info>
+				<control type="label"><!-- Music playlist heading -->
+					<left>1400</left>
+					<top>38</top>
+					<width>471</width>
+					<height>75</height>
+					<label>$LOCALIZE[10517]</label>
+					<font>apptv30</font>
+					<wrapmultiline>true</wrapmultiline>
+					<visible>Window.IsActive(musicplaylist)</visible>
 				</control>
-				<control type="label"><!-- Time/Duration -->
-					<left>682</left>
-					<top>900</top>
-					<width>300</width>
-					<height>38</height>
-					<font>apptv22</font>
-					<label>$INFO[VideoPlayer.Time]$INFO[VideoPlayer.Duration, / ]</label>
+				<include file="View-General.xml">ListView</include>
+				<control type="group"><!-- Video Playlist -->
+					<visible>Window.IsActive(videoplaylist)</visible>
+					<control type="videowindow">
+						<left>52</left>
+						<top>188</top>
+						<width>915</width>
+						<height>506</height>
+						<visible>Player.HasVideo + !Skin.HasSetting(background-playingmedia)</visible>
+					</control>
+					<control type="image">
+						<left>471</left>
+						<top>174</top>
+						<width>504</width>
+						<height>504</height>
+						<texture background="true" diffuse="mask-rect.png">$VAR[IconPoster]</texture>
+						<aspectratio scalediffuse="true" align="right" aligny="top">keep</aspectratio>
+						<visible>Skin.HasSetting(background-playingmedia) | !Player.HasVideo</visible>
+					</control>
+					<control type="group">
+						<visible>Player.HasVideo</visible>
+						<control type="label">
+							<left>52</left>
+							<top>852</top>
+							<width>928</width>
+							<height>45</height>
+							<font>apptv23</font>
+							<label>$INFO[VideoPlayer.Title]</label>
+						</control>
+						<control type="progress">
+							<left>51</left>
+							<top>912</top>
+							<width>608</width>
+							<height>18</height>
+							<info>Player.Progress</info>
+						</control>
+						<control type="label"><!-- Time/Duration -->
+							<left>682</left>
+							<top>900</top>
+							<width>300</width>
+							<height>38</height>
+							<font>apptv22</font>
+							<label>$INFO[VideoPlayer.Time]$INFO[VideoPlayer.Duration, / ]</label>
+						</control>
+					</control>
 				</control>
+				<control type="group"><!-- Music Playlist -->
+					<visible>Window.IsActive(musicplaylist)</visible>
+					<control type="image">
+						<left>183</left>
+						<top>174</top>
+						<width>576</width>
+						<height>576</height>
+						<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
+						<aspectratio scalediffuse="false">keep</aspectratio>
+					</control>
+					<control type="group">
+						<visible>Player.HasAudio</visible>
+						<control type="progress">
+							<left>51</left>
+							<top>784</top>
+							<width>690</width>
+							<height>18</height>
+							<info>Player.Progress</info>
+						</control>
+						<control type="label">
+							<left>758</left>
+							<top>772</top>
+							<width>270</width>
+							<height>35</height>
+							<font>apptv23</font>
+							<label>$INFO[Player.Time]$INFO[Player.Duration,/ ]</label>
+						</control>
+						<control type="label">
+							<left>52</left>
+							<top>810</top>
+							<width>720</width>
+							<height>35</height>
+							<label>$VAR[PlayerMusicInfo1]</label>
+							<font>apptv23</font>
+						</control>
+						<control type="label">
+							<left>52</left>
+							<top>850</top>
+							<width>990</width>
+							<height>30</height>
+							<font>apptv22</font>
+							<label>$VAR[PlayerMusicInfo2]</label>
+						</control>
+						<control type="label">
+							<left>52</left>
+							<top>886</top>
+							<width>990</width>
+							<height>30</height>
+							<font>apptv22</font>
+							<label>$VAR[PlayerMusicInfo3]</label>
+						</control>
+						<control type="label">
+							<left>52</left>
+							<top>922</top>
+							<width>990</width>
+							<height>30</height>
+							<font>apptv22</font>
+							<label>$VAR[PlayerMusicInfo4]</label>
+						</control>
+					</control>
+				</control>
+				<!-- Show a iOS style page indicator to show which focus group has the current focus -->
+				<!-- Focus group can be hidden or shown but is potentially focusable, that is it has not be disabled -->
+				<control type="group">
+					<include content="page-indicator">
+						<param name="indicatorleft" value="864" />
+						<param name="indicatortop" value="0" />
+						<param name="indicatorwidth" value="192" />
+						<param name="indicatorheight" value="48" />
+						<param name="indicatororientation" value="horizontal" />
+						<param name="grp1indicate" value="[ControlGroup(9000).HasFocus()|String.IsEqual(Window(home).Property(ShowScreenSettings),show)]" />
+						<param name="grp1visible" value="[!Skin.HasSetting(lock-screensettings)]" />
+						<param name="grp2indicate" value="[Control.HasFocus(50)]" />
+						<param name="grp2visible" value="[Control.IsVisible(50)]+[!Skin.HasSetting(lock-screensettings)]" />
+					</include>
+				</control>
+				<include>touch-controls</include>
 			</control>
 		</control>
-		<control type="group"><!-- Music Playlist -->
-			<visible>Window.IsActive(musicplaylist)</visible>
-			<control type="image">
-				<left>183</left>
-				<top>174</top>
-				<width>576</width>
-				<height>576</height>
-				<texture background="true" diffuse="mask-squ.png">$INFO[ListItem.Icon]</texture>
-				<aspectratio scalediffuse="false">keep</aspectratio>
-			</control>
-			<control type="group">
-				<visible>Player.HasAudio</visible>
-				<control type="progress">
-					<left>51</left>
-					<top>784</top>
-					<width>690</width>
-					<height>18</height>
-					<info>Player.Progress</info>
-				</control>
-				<control type="label">
-					<left>758</left>
-					<top>772</top>
-					<width>270</width>
-					<height>35</height>
-					<font>apptv23</font>
-					<label>$INFO[Player.Time]$INFO[Player.Duration,/ ]</label>
-				</control>
-				<control type="label">
-					<left>52</left>
-					<top>810</top>
-					<width>720</width>
-					<height>35</height>
-					<label>$VAR[PlayerMusicInfo1]</label>
-					<font>apptv23</font>
-				</control>
-				<control type="label">
-					<left>52</left>
-					<top>850</top>
-					<width>990</width>
-					<height>30</height>
-					<font>apptv22</font>
-					<label>$VAR[PlayerMusicInfo2]</label>
-				</control>
-				<control type="label">
-					<left>52</left>
-					<top>886</top>
-					<width>990</width>
-					<height>30</height>
-					<font>apptv22</font>
-					<label>$VAR[PlayerMusicInfo3]</label>
-				</control>
-				<control type="label">
-					<left>52</left>
-					<top>922</top>
-					<width>990</width>
-					<height>30</height>
-					<font>apptv22</font>
-					<label>$VAR[PlayerMusicInfo4]</label>
-				</control>
-			</control>
-		</control>
-		<include>touch-controls</include>
 		<control type="group"><!-- Screen Settings Menu -->
+			<left>0</left>
 			<top>1080</top>
 			<include>screen-settings</include>
-			<include>fadebackground</include>
-			<control type="image">
-				<left>699</left>
-				<top>318</top>
-				<width>576</width>
-				<height>540</height>
+			<control type="image"><!-- Button background -->
+				<left>622</left>
+				<top>114</top>
+				<width>672</width>
+				<height>820</height>
 				<texture border="14">button-menu-background.png</texture>
 			</control>
 			<control type="label"><!-- Dialog heading -->
-				<left>716</left>
-				<top>336</top>
-				<width>540</width>
-				<height>48</height>
+				<left>638</left>
+				<top>126</top>
+				<width>639</width>
+				<height>51</height>
 				<font>apptv23</font>
 				<label>$LOCALIZE[31557]$INFO[Container(9000).NumItems, (,)]</label>
 				<align>center</align>
 			</control>
 			<control type="button"><!-- Touch Close button -->
-				<left>1242</left>
-				<top>303</top>
+				<left>1262</left>
+				<top>98</top>
 				<width>48</width>
 				<height>48</height>
 				<texturefocus>touch-close.png</texturefocus>
@@ -168,66 +191,56 @@
 				<visible>$EXP[isEnabledTouch]</visible>
 			</control>
 			<control type="image">
-				<left>716</left>
-				<top>381</top>
-				<width>543</width>
+				<left>638</left>
+				<top>180</top>
+				<width>639</width>
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
+			<include content="page-offscreen-vertical">
+				<param name="indicator1left" value="942"/>
+				<param name="indicator1top" value="180"/>
+				<param name="indicator2left" value="942"/>
+				<param name="indicator2top" value="898"/>
+				<param name="indicatorsize" value="32"/>
+				<param name="indicatorcontainer" value="9000"/>
+			</include>
 			<control type="grouplist" id="9000">
-				<defaultcontrol>2</defaultcontrol>
-				<left>716</left>
-				<top>390</top>
-				<width>543</width>
-				<height>450</height>
+				<defaultcontrol>20</defaultcontrol>
+				<left>638</left>
+				<top>206</top>
+				<width>640</width>
+				<height>700</height>
 				<itemgap>0</itemgap>
-				<onleft>ClearProperty(ShowScreenSettings,home)</onleft>
-				<onleft>50</onleft>
 				<onright>ClearProperty(ShowScreenSettings,home)</onright>
 				<onright>50</onright>
+				<onleft>ClearProperty(ShowScreenSettings,home)</onleft>
+				<onleft>50</onleft>
 				<control type="button" id="20"><!-- Shuffle -->
-					<width>543</width>
-					<height>75</height>
-					<font>apptv23</font>
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[191]</label>
-					<textoffsetx>15</textoffsetx>
 				</control>
 				<control type="radiobutton" id="28"><!-- Randomize -->
-					<width>543</width>
-					<height>75</height>
-					<font>apptv23</font>
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[13319]</label>
-					<textoffsetx>15</textoffsetx>
 					<radioposx>495</radioposx>
 				</control>
 				<control type="button" id="26"><!-- Repeat -->
-					<width>543</width>
-					<height>75</height>
-					<font>apptv23</font>
-					<textoffsetx>15</textoffsetx>
+					<include>settings-screen-common</include>
 				</control>
 				<control type="button" id="21"><!-- Save -->
-					<width>543</width>
-					<height>75</height>
-					<font>apptv23</font>
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[190]</label>
-					<textoffsetx>15</textoffsetx>
 				</control>
 				<control type="button" id="22"><!-- Clear -->
-					<width>543</width>
-					<height>75</height>
-					<font>apptv23</font>
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[192]</label>
 					<onclick condition="Window.IsActive(musicplaylist)">ReplaceWindow(music)</onclick>
 					<onclick condition="Window.IsActive(videoplaylist)">ReplaceWindow(videos)</onclick>
-					<textoffsetx>15</textoffsetx>
 				</control>
 				<control type="button" id="1200"><!-- Player controls -->
-					<width>543</width>
-					<height>75</height>
-					<font>apptv23</font>
+					<include>settings-screen-common</include>
 					<label>$LOCALIZE[16003] $LOCALIZE[478]</label>
-					<textoffsetx>15</textoffsetx>
 					<onclick>SetFocus(50)</onclick>
 					<onclick condition="String.IsEqual(Window(home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,home)</onclick>
 					<onclick>ActivateWindow(playercontrols)</onclick>
@@ -235,20 +248,6 @@
 				</control>
 			</control>
 		</control>
-		<!-- Show a iOS style page indicator to show which focus group has the current focus -->
-		<!-- Focus group can be hidden or shown but is potentially focusable, that is it has not be disabled -->
-		<control type="group">
-			<include content="page-indicator">
-				<param name="indicatorleft" value="864" />
-				<param name="indicatortop" value="0" />
-				<param name="indicatorwidth" value="192" />
-				<param name="indicatorheight" value="48" />
-				<param name="indicatororientation" value="horizontal" />
-				<param name="grp1indicate" value="[ControlGroup(9000).HasFocus()|String.IsEqual(Window(home).Property(ShowScreenSettings),show)]" />
-				<param name="grp1visible" value="[!Skin.HasSetting(lock-screensettings)]" />
-				<param name="grp2indicate" value="[Control.HasFocus(50)]" />
-				<param name="grp2visible" value="[Control.IsVisible(50)]+[!Skin.HasSetting(lock-screensettings)]" />
-			</include>
-		</control>
+
 	</controls>
 </window>

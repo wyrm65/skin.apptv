@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<expression name="isFullscreenVideo">Window.IsActive(fullscreenvideo)</expression>
+	<expression name="isnotFullscreenVideo">![Window.IsActive(fullscreenvideo)]</expression>
+	<expression name="isVerticalHome">Skin.HasSetting(HomeMenuVertical)</expression>
+	<expression name="isHorizontalHome">Skin.HasSetting(HomeMenuHorizontal)</expression>
+	<expression name="isIconHome">Skin.HasSetting(HomeMenuIcon) | [!Skin.HasSetting(HomeMenuHorizontal) + !Skin.HasSetting(HomeMenuVertical)]</expression>
+	<expression name="isVideoAddon">String.Contains(Container.FolderPath,plugin://plugin.video)</expression>
+	<expression name="isMovie">String.IsEqual(ListItem.DBTYPE,movie)</expression>
+	<expression name="isContentMovies">Container.Content(movies)</expression>
+	<expression name="isSet">String.IsEqual(ListItem.DBTYPE,set)</expression>
+	<expression name="isContentSets">Container.Content(sets)</expression>
+	<expression name="isVideo">String.IsEqual(ListItem.DBTYPE,video)</expression>
+	<expression name="isContentVideos">Container.Content(videos)</expression>
+	<expression name="isTvshow">String.IsEqual(ListItem.DBTYPE,tvshow)</expression>
+	<expression name="isContentTvshows">Container.Content(tvshows)</expression>
+	<expression name="isSeason">String.IsEqual(ListItem.DBTYPE,season)</expression>
+	<expression name="isContentSeasons">Container.Content(seasons)</expression>
+	<expression name="isEpisode">String.IsEqual(ListItem.DBTYPE,episode)</expression>
+	<expression name="isContentEpisodes">Container.Content(episodes)</expression>
+	<expression name="isMusicvideo">String.IsEqual(ListItem.DBTYPE,musicvideo)</expression>
+	<expression name="isContentMusicvideos">Container.Content(musicvideos)</expression>
+	<expression name="isVideoVersion">ListItem.HasVideoVersions</expression>
+	<expression name="isVideoExtra">ListItem.HasVideoExtras</expression>	
+	<expression name="isContentAddons">Container.Content(addons)</expression>
+	<expression name="isArtist">String.IsEqual(ListItem.DBTYPE,artist)</expression>
+	<expression name="isnotArtist">![String.IsEqual(ListItem.DBTYPE,artist)]</expression>
+	<expression name="isContentArtists">Container.Content(artists)</expression>
+	<expression name="isAlbum">String.IsEqual(ListItem.DBTYPE,album)</expression>
+	<expression name="isContentAlbums">Container.Content(albums)</expression>
+	<expression name="isSong">String.IsEqual(ListItem.DBTYPE,song)</expression>
+	<expression name="isContentSongs">Container.Content(songs)</expression>
+	<expression name="isContentPlaylists">Container.Content(playlists)</expression>
+	<expression name="isEmptyIcon">String.IsEmpty(ListItem.Icon)</expression>
+	<expression name="isnotEmptyIcon">![String.IsEmpty(ListItem.Icon)]</expression>
+	<expression name="isEmptyPVRIcon">String.IsEmpty(ListItem.Icon)</expression>
+	<expression name="isEmptyDBID">String.IsEmpty(ListItem.DBID)</expression>
+	<expression name="isnotEmptyDBID">![String.IsEmpty(ListItem.DBID)]</expression>
+	<expression name="isDefaultIcon">String.StartsWith(ListItem.Icon,Default)</expression>
+	<expression name="isnotDefaultIcon">![String.StartsWith(ListItem.Icon,Default)]</expression>
+	<expression name="isEnabledTouch">Skin.HasSetting(show-touchcontrols)</expression>
+	<expression name="isEnabledScreenSettings">[ControlGroup(9000).HasFocus() | String.IsEqual(Window(home).Property(ShowScreenSettings),show)] + !Skin.HasSetting(lock-screensettings)</expression>
+	<expression name="isEnabledParentDirectory">System.GetBool(filelists.showparentdiritems)</expression>
+	<expression name="isnotEnabledParentDirectory">!System.GetBool(filelists.showparentdiritems)</expression>
+	<expression name="isEnabledScrollbar">![String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31877])]</expression>
+	<expression name="isnotAlwaysScrollbar">![String.IsEqual(Skin.String(show-scrollbar),$LOCALIZE[31875])]</expression>
+	<expression name="isParentFolder">ListItem.IsParentFolder</expression>
+	<expression name="isnotParentFolder">!ListItem.IsParentFolder</expression>
+	<expression name="isnotScrolling">![Container.Scrolling]</expression>
+	<expression name="isActiveFullscreenWindow">[Window.IsActive(musicinformation) | Window.IsActive(songinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation)
+												| Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo) | Window.IsActive(textviewer)
+												| Window.IsActive(addonsettings) | Window.IsActive(service-LibreELEC-Settings-mainWindow.xml) | Window.IsActive(Custom_Search.xml)]</expression>
+	<expression name="isActiveWindowedDialog">[Window.IsActive(yesnodialog) | Window.IsActive(progressdialog) | Window.IsActive(virtualkeyboard) | Window.IsActive(contextmenu)
+									| Window.IsActive(shutdownmenu) | Window.IsActive(DialogSelect.xml) | Window.IsActive(videobookmarks) | Window.IsActive(mediasource) | Window.IsActive(numericinput)
+									| Window.IsActive(DialogBusy.xml) | Window.IsActive(DialogVideoManager.xml) | Window.IsActive(Custom_3DDialogSelect.xml)]</expression>
+	<expression name="IsSearching">[Container(101).IsUpdating | Container(103).IsUpdating | Container(105).IsUpdating | Container(107).IsUpdating
+									| Container(108).IsUpdating | Container(110).IsUpdating  Container(112).IsUpdating  | Container(114).IsUpdating 
+									| Container(116).IsUpdating | Container(117).IsUpdating  Container(119).IsUpdating]</expression>
+	<expression name="IsNumericSortLetter">[String.IsEqual(ListItem.SortLetter,0) | String.IsEqual(ListItem.SortLetter,1) | String.IsEqual(ListItem.SortLetter,2)
+											| String.IsEqual(ListItem.SortLetter,3) | String.IsEqual(ListItem.SortLetter,4) | String.IsEqual(ListItem.SortLetter,5)
+											| String.IsEqual(ListItem.SortLetter,6) | String.IsEqual(ListItem.SortLetter,7) | String.IsEqual(ListItem.SortLetter,8)
+									 		| String.IsEqual(ListItem.SortLetter,9)]</expression>
+	<expression name="IsAlphaSortLetter">[String.IsEqual(ListItem.SortLetter,A) | String.IsEqual(ListItem.SortLetter,B) | String.IsEqual(ListItem.SortLetter,C)
+										| String.IsEqual(ListItem.SortLetter,D) | String.IsEqual(ListItem.SortLetter,E) | String.IsEqual(ListItem.SortLetter,F)
+										| String.IsEqual(ListItem.SortLetter,G) | String.IsEqual(ListItem.SortLetter,H) | String.IsEqual(ListItem.SortLetter,I)
+									 	| String.IsEqual(ListItem.SortLetter,J) | String.IsEqual(ListItem.SortLetter,K) | String.IsEqual(ListItem.SortLetter,L)
+										| String.IsEqual(ListItem.SortLetter,M) | String.IsEqual(ListItem.SortLetter,N) | String.IsEqual(ListItem.SortLetter,O)
+										| String.IsEqual(ListItem.SortLetter,P) | String.IsEqual(ListItem.SortLetter,Q) | String.IsEqual(ListItem.SortLetter,R)
+										| String.IsEqual(ListItem.SortLetter,S) | String.IsEqual(ListItem.SortLetter,T) | String.IsEqual(ListItem.SortLetter,U)
+										| String.IsEqual(ListItem.SortLetter,V) | String.IsEqual(ListItem.SortLetter,W) | String.IsEqual(ListItem.SortLetter,X)
+										| String.IsEqual(ListItem.SortLetter,Y) | String.IsEqual(ListItem.SortLetter,Z)	]</expression>
+	<expression name="IsnotPreviousAlphaSortLetter">![String.IsEqual(ListItem(-1).SortLetter,A) | String.IsEqual(ListItem(-1).SortLetter,B) | String.IsEqual(ListItem(-1).SortLetter,C)
+													| String.IsEqual(ListItem(-1).SortLetter,D) | String.IsEqual(ListItem(-1).SortLetter,E) | String.IsEqual(ListItem(-1).SortLetter,F)
+													| String.IsEqual(ListItem(-1).SortLetter,G) | String.IsEqual(ListItem(-1).SortLetter,H) | String.IsEqual(ListItem(-1).SortLetter,I)
+												 	| String.IsEqual(ListItem(-1).SortLetter,J) | String.IsEqual(ListItem(-1).SortLetter,K) | String.IsEqual(ListItem(-1).SortLetter,L)
+													| String.IsEqual(ListItem(-1).SortLetter,M) | String.IsEqual(ListItem(-1).SortLetter,N) | String.IsEqual(ListItem(-1).SortLetter,O)
+													| String.IsEqual(ListItem(-1).SortLetter,P) | String.IsEqual(ListItem(-1).SortLetter,Q) | String.IsEqual(ListItem(-1).SortLetter,R)
+													| String.IsEqual(ListItem(-1).SortLetter,S) | String.IsEqual(ListItem(-1).SortLetter,T) | String.IsEqual(ListItem(-1).SortLetter,U)
+													| String.IsEqual(ListItem(-1).SortLetter,V) | String.IsEqual(ListItem(-1).SortLetter,W) | String.IsEqual(ListItem(-1).SortLetter,X)
+													| String.IsEqual(ListItem(-1).SortLetter,Y) | String.IsEqual(ListItem(-1).SortLetter,Z)	]</expression>
+</includes>

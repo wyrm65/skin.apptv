@@ -3,9 +3,11 @@
     <defaultcontrol always="true">1000</defaultcontrol>
     <include>window-openclose</include>
     <controls>
+        <include>backgroundsimple</include>
         <control type="group">
+            <visible>!$EXP[isActiveFullscreenWindow]</visible>
+            <include>overlayed-windowfade</include>
             <include>backgroundsimple</include>
-            <include>fake-overlay</include>
             <include content="screen-name">
                 <param name="screenlabel" value="$ADDON[service.libreelec.settings 600]"/>
             </include>

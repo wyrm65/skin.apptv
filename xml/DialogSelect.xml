@@ -2,7 +2,6 @@
 <window>
 	<defaultcontrol>1000</defaultcontrol>
 	<controls>
-		<include>fadebackground</include>
 		<control type="label" id="1"><!-- Dialog heading -->
 			<left>0</left>
 			<top>-200</top>
@@ -15,7 +14,7 @@
 				<left>526</left>
 				<top>90</top>
 				<width>868</width>
-				<height>910</height>
+				<height>880</height>
 				<texture border="14">button-menu-background.png</texture>
 			</control>
 			<control type="grouplist"><!-- Dialog heading -->
@@ -48,7 +47,7 @@
 			</control>
 			<control type="scrollbar" id="23">
 				<left>554</left>
-				<top>176</top>
+				<top>196</top>
 				<width>16</width>
 				<height>720</height>
 				<onright>3</onright>
@@ -57,41 +56,41 @@
 			</control>
 			<!-- Markers for control area items -->
 			<include content="page-offscreen-vertical">
-				<param name="indicator1left" value="949"/>
-				<param name="indicator1top" value="154"/>
-				<param name="indicator2left" value="949"/>
-				<param name="indicator2top" value="894"/>
-				<param name="indicatorsize" value="24"/>
+				<param name="indicator1left" value="825"/>
+				<param name="indicator1top" value="160"/>
+				<param name="indicator2left" value="825"/>
+				<param name="indicator2top" value="924"/>
+				<param name="indicatorsize" value="32"/>
 				<param name="indicatorcontainer" value="3"/>
 			</include>
 			<control type="grouplist">
-				<left>459</left>
-				<top>916</top>
-				<height>70</height>
-				<width>1002</width>
+				<left>1100</left>
+				<top>196</top>
+				<height>180</height>
+				<width>250</width>
 				<itemgap>0</itemgap>
 				<align>center</align>
-				<orientation>horizontal</orientation>
-				<onup>3</onup>
+				<orientation>vertical</orientation>
+				<onleft>3</onleft>
 				<control type="button" id="5">
-					<width>334</width>
-					<height>70</height>
-					<font>apptv23</font>
+					<width>250</width>
+					<height>60</height>
+					<font>apptv22</font>
 					<align>center</align>
 					<visible>!String.IsEmpty(Control.GetLabel(5))</visible>
 				</control>
 				<control type="button" id="8">
-					<width>334</width>
-					<height>70</height>
-					<font>apptv23</font>
+					<width>250</width>
+					<height>60</height>
+					<font>apptv22</font>
 					<label></label>
 					<align>center</align>
 					<visible>!String.IsEmpty(Control.GetLabel(8))</visible>
 				</control>
 				<control type="button" id="7"><!-- Cancel -->
-					<width>334</width>
-					<height>70</height>
-					<font>apptv23</font>
+					<width>250</width>
+					<height>60</height>
+					<font>apptv22</font>
 					<label>$LOCALIZE[222]</label>
 					<align>center</align>
 				</control>
@@ -197,38 +196,38 @@
 		<control type="group" id="1000">
 			<control type="list" id="3"><!-- Type 3 Select -->
 				<left>586</left>
-				<top>176</top>
-				<width>750</width>
+				<top>196</top>
+				<width>500</width>
 				<height>720</height>
 				<onup>noop</onup>
 				<onleft condition="![$EXP[isEnabledScrollbar]]">noop</onleft>
 				<onleft condition="$EXP[isEnabledScrollbar]">23</onleft>
-				<ondown condition="!Control.IsVisible(5)">7</ondown>
-				<ondown condition="Control.IsVisible(5)">5</ondown>
+				<onright condition="!Control.IsVisible(5)">7</onright>
+				<onright condition="Control.IsVisible(5)">5</onright>
 				<pagecontrol>23</pagecontrol>
-				<itemlayout height="72">
+				<itemlayout height="60">
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
-						<width>750</width>
-						<height>72</height>
+						<width>500</width>
+						<height>60</height>
 						<texture border="9">button-default.png</texture>
 					</control>
 					<control type="group">
 						<visible>!String.IsEmpty(ListItem.Label2)</visible>
 						<control type="label">
 							<left>15</left>
-							<top>4</top>
-							<width>720</width>
-							<height>36</height>
-							<font>apptv22</font>
+							<top>0</top>
+							<width>470</width>
+							<height>30</height>
+							<font>apptv18</font>
 							<selectedcolor>listselected-text</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
 							<left>15</left>
-							<top>42</top>
-							<width>720</width>
+							<top>30</top>
+							<width>470</width>
 							<height>30</height>
 							<font>apptv18</font>
 							<textcolor>disabled-text</textcolor>
@@ -238,21 +237,21 @@
 					</control>
 					<control type="label">
 						<left>15</left>
-						<top>18</top>
-						<width>720</width>
-						<height>36</height>
-						<font>apptv23</font>
+						<top>12</top>
+						<width>470</width>
+						<height>30</height>
+						<font>apptv20</font>
 						<selectedcolor>listselected-text</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<visible>String.IsEmpty(ListItem.Label2)</visible>
 					</control>
 				</itemlayout>
-				<focusedlayout height="72">
+				<focusedlayout height="60">
 					<control type="image">
 						<left>0</left>
 						<top>0</top>
-						<width>750</width>
-						<height>72</height>
+						<width>500</width>
+						<height>60</height>
 						<texture border="9">button-default-focus.png</texture>
 						<animation condition="!Control.HasFocus(3)" effect="fade" start="100" end="60">Conditional</animation>
 					</control>
@@ -260,17 +259,17 @@
 						<visible>!String.IsEmpty(ListItem.Label2)</visible>
 						<control type="label">
 							<left>15</left>
-							<top>4</top>
-							<width>720</width>
-							<height>36</height>
-							<font>apptv22</font>
+							<top>0</top>
+							<width>470</width>
+							<height>30</height>
+							<font>apptv18</font>
 							<selectedcolor>listselected-text</selectedcolor>
 							<label>$INFO[ListItem.Label]</label>
 						</control>
 						<control type="label">
 							<left>15</left>
-							<top>42</top>
-							<width>720</width>
+							<top>30</top>
+							<width>470</width>
 							<height>30</height>
 							<font>apptv18</font>
 							<textcolor>disabled-text</textcolor>
@@ -280,10 +279,10 @@
 					</control>
 					<control type="label">
 						<left>15</left>
-						<top>18</top>
-						<width>720</width>
-						<height>36</height>
-						<font>apptv23</font>
+						<top>12</top>
+						<width>470</width>
+						<height>30</height>
+						<font>apptv20</font>
 						<selectedcolor>listselected-text</selectedcolor>
 						<label>$INFO[ListItem.Label]</label>
 						<visible>String.IsEmpty(ListItem.Label2)</visible>

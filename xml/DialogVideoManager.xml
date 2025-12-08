@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<controls>
-		<include>fadebackground</include>
 		<control type="group">
 			<control type="image">
 				<left>100</left>
 				<top>80</top>
 				<width>1720</width>
-				<height>665</height>
+				<height>745</height>
 				<texture border="14">button-menu-background.png</texture>
 			</control>
 			<control type="label" id="2"><!-- Dialog heading string -->
@@ -54,7 +53,7 @@
 			</control>
 			<control type="label"><!-- Path -->
 				<left>144</left>
-				<top>700</top>
+				<top>770</top>
 				<width>1656</width>
 				<height>30</height>
 				<font>apptv16</font>
@@ -69,14 +68,14 @@
 					<top>50</top>
 					<left>20</left>
 					<width>840</width>
-					<height>625</height>
+					<height>600</height>
 					<onup>50</onup>
 					<ondown>50</ondown>
 					<onleft>60</onleft>
 					<onright>101</onright>
 					<pagecontrol>60</pagecontrol>
 					<scrolltime>200</scrolltime>
-					<itemlayout height="115">
+					<itemlayout height="120">
 						<control type="label">
 							<left>20</left>
 							<top>0</top>
@@ -85,7 +84,7 @@
 							<font>apptv20</font>
 							<align>center</align>
 							<aligny>center</aligny>
-							<label>$INFO[ListItem.VideoVersionName]</label>
+							<label>$VAR[VideoExtrasSelect]</label>
 						</control>
 						<control type="label">
 							<left>20</left>
@@ -98,7 +97,7 @@
 							<label>$INFO[ListItem.Duration,$LOCALIZE[180]: ][CR]$INFO[ListItem.VideoCodec,, ]$INFO[ListItem.VideoResolution,| , ]$INFO[ListItem.VideoAspect,| ,:1 ]$INFO[ListItem.AudioCodec,| , ]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout height="115">
+					<focusedlayout height="120">
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
@@ -114,7 +113,7 @@
 							<align>center</align>
 							<aligny>center</aligny>
 							<font>apptv20</font>
-							<label>$INFO[ListItem.VideoVersionName]</label>
+							<label>$VAR[VideoExtrasSelect]</label>
 						</control>
 						<control type="label">
 							<left>20</left>
@@ -130,10 +129,10 @@
 				</control>
 			</control>
 			<control type="scrollbar" id="60">
-				<left>440</left>
-				<top>150</top>
+				<left>455</left>
+				<top>155</top>
 				<width>16</width>
-				<height>625</height>
+				<height>610</height>
 				<onright>50</onright>
 				<animation condition="!Control.HasFocus(60) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
 				<visible>$EXP[isEnabledScrollbar]</visible>

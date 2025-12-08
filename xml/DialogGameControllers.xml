@@ -3,8 +3,9 @@
 	<defaultcontrol>3</defaultcontrol>
 	<controls>
 		<include>backgroundsimple</include>
-		<include>fadebackground</include>
 		<control type="group">
+			<visible>!$EXP[isActiveFullscreenWindow]</visible>
+			<include>overlayed-windowfade</include>
 			<control type="label"><!-- Heading -->
 				<left>1170</left>
 				<top>52</top>
