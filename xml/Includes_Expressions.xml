@@ -52,7 +52,8 @@
 												| Window.IsActive(addonsettings) | Window.IsActive(service-LibreELEC-Settings-mainWindow.xml) | Window.IsActive(Custom_Search.xml)]</expression>
 	<expression name="isActiveWindowedDialog">[Window.IsActive(yesnodialog) | Window.IsActive(progressdialog) | Window.IsActive(virtualkeyboard) | Window.IsActive(contextmenu)
 									| Window.IsActive(shutdownmenu) | Window.IsActive(DialogSelect.xml) | Window.IsActive(videobookmarks) | Window.IsActive(mediasource) | Window.IsActive(numericinput)
-									| Window.IsActive(DialogBusy.xml) | Window.IsActive(DialogVideoManager.xml) | Window.IsActive(Custom_3DDialogSelect.xml)]</expression>
+									| Window.IsActive(DialogBusy.xml) | Window.IsActive(DialogVideoManager.xml) | Window.IsActive(Custom_3DDialogSelect.xml)
+									| Window.IsActive(extendedprogressdialog)]</expression>
 	<expression name="IsSearching">[Container(101).IsUpdating | Container(103).IsUpdating | Container(105).IsUpdating | Container(107).IsUpdating
 									| Container(108).IsUpdating | Container(110).IsUpdating  Container(112).IsUpdating  | Container(114).IsUpdating 
 									| Container(116).IsUpdating | Container(117).IsUpdating  Container(119).IsUpdating]</expression>
