@@ -215,60 +215,31 @@
 		<control type="grouplist"><!-- Media flags -->
 			<left>507</left>
 			<top>546</top>
-			<width>435</width>
+			<width>240</width>
 			<height>45</height>
 			<align>left</align>
 			<orientation>horizontal</orientation>
-			<itemgap>-6</itemgap>
+			<itemgap>0</itemgap>
 			<visible>[$EXP[isMovie] | $EXP[isEpisode] | $EXP[isMusicvideo]]</visible>
 			<control type="image" id="171"><!-- Audio codec -->
 				<width>60</width>
 				<height>45</height>
 				<texture background="true">$INFO[Listitem.AudioCodec,special://skin/extras/images/audio/,.png]</texture>
-				<visible>!String.IsEqual(Control.GetLabel(161),blank.png)</visible>
 			</control>
 			<control type="image" id="172"><!-- Video codec -->
 				<width>60</width>
 				<height>45</height>
 				<texture background="true">$INFO[Listitem.VideoCodec,special://skin/extras/images/video/,.png]</texture>
-				<visible>!String.IsEqual(Control.GetLabel(162),blank.png)</visible>
 			</control>
 			<control type="image" id="173"><!-- Video aspect ratio -->
 				<width>60</width>
 				<height>45</height>
 				<texture background="true">$INFO[ListItem.VideoAspect,special://skin/extras/images/aspectratio/,.png]</texture>
-				<visible>!String.IsEqual(Control.GetLabel(163),blank.png)</visible>
 			</control>
 			<control type="image" id="174"><!-- Video resolution -->
 				<width>60</width>
 				<height>45</height>
 				<texture background="true">$INFO[Listitem.VideoResolution,special://skin/extras/images/resolution/,.png]</texture>
-				<visible>!String.IsEqual(Control.GetLabel(164),blank.png)</visible>
-			</control>
-			<!-- Hack to check if media flag image is available -->
-			<control type="image" id="161">
-				<width>1</width>
-				<height>45</height>
-				<colordiffuse>HideControl</colordiffuse>
-				<texture background="true" fallback="blank.png">$INFO[Listitem.AudioCodec,special://skin/extras/images/audio/,.png]</texture>
-			</control>
-			<control type="image" id="162">
-				<width>1</width>
-				<height>45</height>
-				<colordiffuse>HideControl</colordiffuse>
-				<texture background="true" fallback="blank.png">$INFO[Listitem.VideoCodec,special://skin/extras/images/video/,.png]</texture>
-			</control>
-			<control type="image" id="163">
-				<width>1</width>
-				<height>45</height>
-				<texture background="true" fallback="blank.png">$INFO[ListItem.VideoAspect,special://skin/extras/images/aspectratio/,.png]</texture>
-				<colordiffuse>HideControl</colordiffuse>
-			</control>
-			<control type="image" id="164">
-				<width>1</width>
-				<height>45</height>
-				<colordiffuse>HideControl</colordiffuse>
-				<texture background="true" fallback="blank.png">$INFO[Listitem.VideoResolution,special://skin/extras/images/resolution/,.png]</texture>
 			</control>
 		</control>
 		<control type="group">
