@@ -125,6 +125,21 @@
 			<height>75</height>
 			<font>apptv22</font>
 		</control>
+		<control type="group">
+			<include content="page-indicator">
+				<param name="indicatorleft" value="864" />
+				<param name="indicatortop" value="0" />
+				<param name="indicatorwidth" value="192" />
+				<param name="indicatorheight" value="48" />
+				<param name="indicatororientation" value="horizontal" />
+				<param name="grp1indicate" value="Control.HasFocus(23)" />
+				<param name="grp1visible" value="Skin.HasSetting(show-letterbar)" />
+				<param name="grp2indicate" value="ControlGroup(5).HasFocus()" />
+				<param name="grp2visible" value="true" />
+				<param name="grp3indicate" value="ControlGroup(3).HasFocus() + ![ControlGroup(5).HasFocus() | Control.HasFocus(23)]" />
+				<param name="grp3visible" value="true" />
+			</include>
+		</control>
 		<!-- Play bump sound if user tries to leave sub headings by undefined direction -->
 		<include content="illegal-action">
 			<param name="controlid" value="4503" />

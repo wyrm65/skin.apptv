@@ -212,36 +212,10 @@
 				<font>apptv20</font>
 			</control>
 		</control>
-		<control type="grouplist"><!-- Media flags -->
-			<left>507</left>
-			<top>546</top>
-			<width>240</width>
-			<height>45</height>
-			<align>left</align>
-			<orientation>horizontal</orientation>
-			<itemgap>0</itemgap>
-			<visible>[$EXP[isMovie] | $EXP[isEpisode] | $EXP[isMusicvideo]]</visible>
-			<control type="image" id="171"><!-- Audio codec -->
-				<width>60</width>
-				<height>45</height>
-				<texture background="true">$INFO[Listitem.AudioCodec,special://skin/extras/images/audio/,.png]</texture>
-			</control>
-			<control type="image" id="172"><!-- Video codec -->
-				<width>60</width>
-				<height>45</height>
-				<texture background="true">$INFO[Listitem.VideoCodec,special://skin/extras/images/video/,.png]</texture>
-			</control>
-			<control type="image" id="173"><!-- Video aspect ratio -->
-				<width>60</width>
-				<height>45</height>
-				<texture background="true">$INFO[ListItem.VideoAspect,special://skin/extras/images/aspectratio/,.png]</texture>
-			</control>
-			<control type="image" id="174"><!-- Video resolution -->
-				<width>60</width>
-				<height>45</height>
-				<texture background="true">$INFO[Listitem.VideoResolution,special://skin/extras/images/resolution/,.png]</texture>
-			</control>
-		</control>
+		<include content="media-mediaflags">
+			<param name="mediaflagsleft" value="507"/>
+			<param name="mediaflagstop" value="546"/>
+		</include>
 		<control type="group">
 			<visible>$EXP[isMovie] | $EXP[isEpisode] | $EXP[isMusicvideo] + Integer.IsGreater(Container(50).Numitems,0)</visible>
 			<control type="label">

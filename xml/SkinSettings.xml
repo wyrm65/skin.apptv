@@ -100,7 +100,7 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31854]</label>
 						<label2>$INFO[Skin.String(startup-screentype)]</label2>
-						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31854],separator=||,list=$LOCALIZE[31856]||$LOCALIZE[31857]||$LOCALIZE[31858]||$LOCALIZE[31855],"executebuiltin_0=Skin.SetString(startup-screentype,$LOCALIZE[31856])","executebuiltin_1=Skin.SetString(startup-screentype,$LOCALIZE[31857])","executebuiltin_2=Skin.SetString(startup-screentype,$LOCALIZE[31858])","executebuiltin_3=Skin.SetString(startup-screentype,$LOCALIZE[31855])")</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31854],separator=||,list=$LOCALIZE[31856]||$LOCALIZE[31857]||$LOCALIZE[31858]||$LOCALIZE[31855],"executebuiltin=Skin.SetString(startup-screentype,{v})")</onclick>
 					</control>
 					<control type="button" id="105"><!-- Startup Screen Path -->
 						<include>settings-submenu-common</include>
@@ -164,7 +164,7 @@
 						<include>settings-submenu-common</include>
 						<label>$LOCALIZE[31881]</label>
 						<label2>$INFO[Skin.String(show-scrollbar)]</label2>
-						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31881],separator=||,list=$LOCALIZE[31876]||$LOCALIZE[31875]||$LOCALIZE[31877],"executebuiltin_0=Skin.SetString(show-scrollbar,$LOCALIZE[31876])","executebuiltin_1=Skin.SetString(show-scrollbar,$LOCALIZE[31875])"				,"executebuiltin_2=Skin.SetString(show-scrollbar,$LOCALIZE[31877])")</onclick>
+						<onclick>RunScript(script.skinvariables,run_dialog=select,heading=$LOCALIZE[31881],separator=||,list=$LOCALIZE[31876]||$LOCALIZE[31875]||$LOCALIZE[31877],"executebuiltin=Skin.SetString(show-scrollbar,{v})")</onclick>
 					</control>
 					<control type="radiobutton" id="205"><!-- Autoscroll Toggle -->
 						<include>settings-submenu-radio</include>
@@ -641,6 +641,21 @@
 			<font>apptv20</font>
 			<align>center</align>
 			<label>$VAR[SkinSettingHelp]</label>
+		</control>
+		<control type="group">
+			<include content="page-indicator">
+				<param name="indicatorleft" value="864" />
+				<param name="indicatortop" value="0" />
+				<param name="indicatorwidth" value="192" />
+				<param name="indicatorheight" value="48" />
+				<param name="indicatororientation" value="horizontal" />
+				<param name="grp1indicate" value="Control.HasFocus(1223)" />
+				<param name="grp1visible" value="Control.IsVisible(1223)+$EXP[isEnabledScrollbar]" />
+				<param name="grp2indicate" value="ControlGroup(998).HasFocus()" />
+				<param name="grp2visible" value="true" />
+				<param name="grp3indicate" value="!ControlGroup(998).HasFocus() + !Control.HasFocus(1223)" />
+				<param name="grp3visible" value="true" />
+			</include>
 		</control>
 	</controls>
 </window>
