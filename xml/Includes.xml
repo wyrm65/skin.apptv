@@ -10,13 +10,12 @@
 		_Search 1156
 		_DummyDialog 1157
 		_DialogToggleSelect 1161 -->
-		
-	<include file="Includes_Expressions.xml"/>
-	<include file="Defaults.xml"/>
-	<include file="Includes_Animations.xml"/>
-	<include file="Includes_Variables.xml"/>
-
-	<include name="defaultskinsettings"><!-- various default settings  -->
+	<include file="Includes_Expressions.xml" />
+	<include file="Defaults.xml" />
+	<include file="Includes_Animations.xml" />
+	<include file="Includes_Variables.xml" />
+	<include name="defaultskinsettings">
+		<!-- various default settings  -->
 		<onload condition="String.IsEmpty(Skin.String(certification-locale))">Skin.SetString(certification-locale,USA)</onload>
 	</include>
 	<!-- Postion and size of fullscreen image -->
@@ -29,8 +28,10 @@
 	<include name="background">
 		<control type="group">
 			<animation effect="fadediffuse" start="FFFFFFFF" end="FF404040" time="200" condition="$EXP[isActiveWindowedDialog]">Conditional</animation>
-			<control type="fadelabel" id="300000"><!-- Randomizer for plugin-free multiple fanart -->
-				<top>-1000</top> <!-- Don't need to see it, but can't change its visibility. Put it off screen -->
+			<control type="fadelabel" id="300000">
+				<!-- Randomizer for plugin-free multiple fanart -->
+				<top>-1000</top>
+				<!-- Don't need to see it, but can't change its visibility. Put it off screen -->
 				<width>1</width>
 				<height>1</height>
 				<info>ListItem.Art(fanart1)</info>
@@ -47,7 +48,8 @@
 				<info>ListItem.Art(tvshow.fanart5)</info>
 				<info>ListItem.Art(tvshow.fanart6)</info>
 				<randomize>true</randomize>
-				<pauseatend>6600</pauseatend> <!-- Time to show each image -->
+				<pauseatend>6600</pauseatend>
+				<!-- Time to show each image -->
 				<!-- No scrolling so only the pauseatend above (plus a short fade-in) affects length of time each image shown -->
 				<scroll>false</scroll>
 				<scrollout>false</scrollout>
@@ -73,7 +75,8 @@
 					<animation effect="fade" time="200">VisibleChange</animation>
 					<visible>Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
 				</control>
-				<control type="image"><!-- Use mask background to fade video or visualisation -->
+				<control type="image">
+					<!-- Use mask background to fade video or visualisation -->
 					<include>fullscreenimage</include>
 					<texture>background-mask.png</texture>
 					<colordiffuse>$VAR[BackgndMaskVisibity]</colordiffuse>
@@ -104,7 +107,8 @@
 					<animation effect="fade" time="200">VisibleChange</animation>
 					<visible>Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
 				</control>
-				<control type="image"><!-- Use mask background to fade video or visualisation -->
+				<control type="image">
+					<!-- Use mask background to fade video or visualisation -->
 					<include>fullscreenimage</include>
 					<texture>background-mask.png</texture>
 					<colordiffuse>$VAR[BackgndMaskVisibity]</colordiffuse>
@@ -136,7 +140,8 @@
 					<animation effect="fade" time="200">VisibleChange</animation>
 					<visible>Player.HasAudio + String.IsEmpty(Window(videos).Property(PlayingBackgroundMedia))</visible>
 				</control>
-				<control type="image"><!-- Use mask background to fade video or visualisation -->
+				<control type="image">
+					<!-- Use mask background to fade video or visualisation -->
 					<include>fullscreenimage</include>
 					<texture>background-mask.png</texture>
 					<colordiffuse>$VAR[BackgndMaskVisibity]</colordiffuse>
@@ -145,8 +150,68 @@
 			</control>
 		</control>
 	</include>
+	<include name="dialogbackground-common">
+		<param name="dialogleft" />
+		<param name="dialogtop" />
+		<param name="dialogwidth" />
+		<param name="dialogheight" />
+		<param name="headingwidth" />
+		<param name="headinglabel" />
+		<definition>
+			<control type="group">
+				<left>$PARAM[dialogleft]</left>
+				<top>$PARAM[dialogtop]</top>
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<width>$PARAM[dialogwidth]</width>
+					<height>$PARAM[dialogheight]</height>
+					<texture border="14">button-menu-background.png</texture>
+				</control>
+				<control type="label">
+					<left>28</left>
+					<top>6</top>
+					<width>$PARAM[headingwidth]</width>
+					<height>50</height>
+					<label>$PARAM[headinglabel]</label>
+					<wrapmultiline>true</wrapmultiline>
+					<align>center</align>
+					<aligny>top</aligny>
+				</control>
+				<control type="image">
+					<left>28</left>
+					<top>58</top>
+					<width>$PARAM[headingwidth]</width>
+					<height>6</height>
+					<texture>separator.png</texture>
+				</control>
+			</control>
+		</definition>
+	</include>
+	<include name="dialog-touchclose">
+		<param name="closeleft" />
+		<param name="closetop" />
+		<param name="onclickcondition1" />
+		<param name="onclickaction1" />
+		<param name="onclickcondition2" />
+		<param name="onclickaction2" />
+		<definition>
+			<control type="button">
+				<left>$PARAM[closeleft]</left>
+				<top>$PARAM[closetop]</top>
+				<width>48</width>
+				<height>48</height>
+				<texturefocus>touch-close.png</texturefocus>
+				<texturenofocus>touch-close.png</texturenofocus>
+				<onclick condition="$PARAM[onclickcondition1]">$PARAM[onclickaction1]</onclick>
+				<onclick condition="$PARAM[onclickcondition2]">$PARAM[onclickaction2]</onclick>
+				<visible>$EXP[isEnabledTouch]</visible>
+			</control>
+		</definition>
+	</include>
 	<include name="player-mediaicon">
-		<control type="image" id="1"><!-- Player Media Icon -->
+		<control type="image" id="1">
+			<!-- Player Media Icon -->
 			<left>12</left>
 			<top>746</top>
 			<width>320</width>
@@ -163,7 +228,8 @@
 		<control type="group">
 			<visible>!System.ScreenSaverActive</visible>
 			<animation effect="slide" end="282,0" condition="$EXP[isEnabledTouch]">Conditional</animation>
-			<control type="image"><!-- RSS Logo -->
+			<control type="image">
+				<!-- RSS Logo -->
 				<left>8</left>
 				<top>1026</top>
 				<width>32</width>
@@ -302,7 +368,7 @@
 		</control>
 	</include>
 	<include name="shelf-defaulticon">
-		<param name="defaulticon"/>
+		<param name="defaulticon" />
 		<definition>
 			<control type="image">
 				<left>812</left>
@@ -313,7 +379,8 @@
 			</control>
 		</definition>
 	</include>
-	<include name="fullscreendummy"><!-- Dummy button for mouse control -->
+	<include name="fullscreendummy">
+		<!-- Dummy button for mouse control -->
 		<control type="button" id="3550">
 			<left>0</left>
 			<top>0</top>
@@ -325,8 +392,8 @@
 		</control>
 	</include>
 	<include name="screen-name">
-		<param name="screenlabel"/>
-		<param name="listitems"/>
+		<param name="screenlabel" />
+		<param name="listitems" />
 		<definition>
 			<control type="grouplist">
 				<left>1400</left>
@@ -354,9 +421,9 @@
 	</include>
 	<!-- Fake Equaliser (listitem is being played) -->
 	<include name="fake-equaliser">
-		<param name="feleft"/>
-		<param name="fetop"/>
-		<param name="fesize" default="64"/>
+		<param name="feleft" />
+		<param name="fetop" />
+		<param name="fesize" default="64" />
 		<definition>
 			<control type="image">
 				<left>$PARAM[feleft]</left>
@@ -369,15 +436,15 @@
 		</definition>
 	</include>
 	<include name="osd-togglebutton">
-		<param name="osdid"/>
-		<param name="osdsize" default="64"/>
-		<param name="osdtexture"/>
-		<param name="osdusealttexture"/>
-		<param name="osdalttexture"/>
-		<param name="osdaction"/>
-		<param name="osdaction2" default="noop"/>
-		<param name="osdup" default="noop"/>
-		<param name="osdvisible" default="true"/>
+		<param name="osdid" />
+		<param name="osdsize" default="64" />
+		<param name="osdtexture" />
+		<param name="osdusealttexture" />
+		<param name="osdalttexture" />
+		<param name="osdaction" />
+		<param name="osdaction2" default="noop" />
+		<param name="osdup" default="noop" />
+		<param name="osdvisible" default="true" />
 		<definition>
 			<control type="togglebutton" id="$PARAM[osdid]">
 				<width>$PARAM[osdsize]</width>
@@ -396,13 +463,13 @@
 		</definition>
 	</include>
 	<include name="osd-button">
-		<param name="osdid"/>
-		<param name="osdsize" default="64"/>
-		<param name="osdtexture"/>
-		<param name="osdaction"/>
-		<param name="osdaction2" default="noop"/>
-		<param name="osdup" default="noop"/>
-		<param name="osdvisible" default="true"/>
+		<param name="osdid" />
+		<param name="osdsize" default="64" />
+		<param name="osdtexture" />
+		<param name="osdaction" />
+		<param name="osdaction2" default="noop" />
+		<param name="osdup" default="noop" />
+		<param name="osdvisible" default="true" />
 		<definition>
 			<control type="button" id="$PARAM[osdid]">
 				<width>$PARAM[osdsize]</width>
@@ -418,8 +485,8 @@
 		</definition>
 	</include>
 	<include name="illegal-action">
-		<param name="controlid"/>
-		<param name="returnid"/>
+		<param name="controlid" />
+		<param name="returnid" />
 		<definition>
 			<control type="button" id="$PARAM[controlid]">
 				<left>-10</left>
@@ -432,10 +499,10 @@
 		</definition>
 	</include>
 	<include name="listitem-count">
-		<param name="left" default="0"/>
-		<param name="top" default="0"/>
-		<param name="count"/>
-		<param name="size" default="100"/>
+		<param name="left" default="0" />
+		<param name="top" default="0" />
+		<param name="count" />
+		<param name="size" default="100" />
 		<definition>
 			<control type="group">
 				<visible>Integer.IsGreater($PARAM[count],0)</visible>
@@ -460,33 +527,33 @@
 					<visible>Integer.IsGreater($PARAM[count],9)</visible>
 				</control>
 				<control type="label">
-					<left>15</left>
+					<left>8</left>
 					<top>4</top>
-					<width>54</width>
+					<width>64</width>
 					<height>30</height>
-					<font>apptv20</font>
+					<font>apptv18</font>
 					<label>$INFO[$PARAM[count]]</label>
 					<textcolor>white</textcolor>
-					<shadowcolor/>
+					<shadowcolor />
 					<align>center</align>
 				</control>
 			</control>
 		</definition>
 	</include>
 	<include name="use-alttexture">
-		<param name="visiblecondition"/>
+		<param name="visiblecondition" />
 		<definition>
 			<usealttexture>$PARAM[visiblecondition]</usealttexture>
 		</definition>
 	</include>
 	<include name="listpanelitems">
-		<param name="itemcustombase"/>
-		<param name="itemthumb"/>
-		<param name="itemlabel"/>
-		<param name="itemmenuheading"/>
-		<param name="itemmenuid"/>
-		<param name="itemcondition"/>
-		<param name="itemtoggle"/>
+		<param name="itemcustombase" />
+		<param name="itemthumb" />
+		<param name="itemlabel" />
+		<param name="itemmenuheading" />
+		<param name="itemmenuid" />
+		<param name="itemcondition" />
+		<param name="itemtoggle" />
 		<definition>
 			<item>
 				<thumb>$PARAM[itemthumb]</thumb>
@@ -511,7 +578,7 @@
 			<item>
 				<thumb>$PARAM[itemthumb]</thumb>
 				<label>$PARAM[itemlabel]</label>
-				<property name="isActive"/>
+				<property name="isActive" />
 				<property name="visibleToggle">$PARAM[itemtoggle]</property>
 				<property name="customBase">$PARAM[itemcustombase]</property>
 				<property name="menuHeading">$PARAM[itemmenuheading]</property>
@@ -531,11 +598,11 @@
 		</definition>
 	</include>
 	<include name="WidgetLabel">
-		<param name="widget_id"/>
-		<param name="widget_parentid"/>
-		<param name="widget_left"/>
-		<param name="widget_top"/>
-		<param name="widget_label"/>
+		<param name="widget_id" />
+		<param name="widget_parentid" />
+		<param name="widget_left" />
+		<param name="widget_top" />
+		<param name="widget_label" />
 		<definition>
 			<control type="label" id="$PARAM[widget_id]2">
 				<left>$PARAM[widget_left]</left>
@@ -550,14 +617,14 @@
 		</definition>
 	</include>
 	<include name="WidgetPoster">
-		<param name="widget_id"/>
-		<param name="widget_parentid"/>
-		<param name="widget_left"/>
-		<param name="widget_top"/>
-		<param name="widget_onup"/>
-		<param name="widget_ondown"/>
-		<param name="widget_path"/>
-		<param name="widget_target"/>
+		<param name="widget_id" />
+		<param name="widget_parentid" />
+		<param name="widget_left" />
+		<param name="widget_top" />
+		<param name="widget_onup" />
+		<param name="widget_ondown" />
+		<param name="widget_path" />
+		<param name="widget_target" />
 		<definition>
 			<visible>[Container($PARAM[widget_parentid]).IsUpdating|Integer.IsGreater(Container($PARAM[widget_parentid]).NumItems,1)|Container($PARAM[widget_id]).IsUpdating|						Integer.IsGreater(Container($PARAM[widget_id]).NumItems,0)]</visible>
 			<control type="panel" id="$PARAM[widget_id]">
@@ -614,14 +681,14 @@
 		</definition>
 	</include>
 	<include name="WidgetWide">
-		<param name="widget_id"/>
-		<param name="widget_parentid"/>
-		<param name="widget_left"/>
-		<param name="widget_top"/>
-		<param name="widget_onup"/>
-		<param name="widget_ondown"/>
-		<param name="widget_path"/>
-		<param name="widget_target"/>
+		<param name="widget_id" />
+		<param name="widget_parentid" />
+		<param name="widget_left" />
+		<param name="widget_top" />
+		<param name="widget_onup" />
+		<param name="widget_ondown" />
+		<param name="widget_path" />
+		<param name="widget_target" />
 		<definition>
 			<visible>[Container($PARAM[widget_parentid]).IsUpdating|Integer.IsGreater(Container($PARAM[widget_parentid]).NumItems,1)|Container($PARAM[widget_id]).IsUpdating|						Integer.IsGreater(Container($PARAM[widget_id]).NumItems,0)]</visible>
 			<control type="panel" id="$PARAM[widget_id]">
@@ -677,14 +744,14 @@
 		</definition>
 	</include>
 	<include name="WidgetSquare">
-		<param name="widget_id"/>
-		<param name="widget_parentid"/>
-		<param name="widget_left"/>
-		<param name="widget_top"/>
-		<param name="widget_onup"/>
-		<param name="widget_ondown"/>
-		<param name="widget_path"/>
-		<param name="widget_target"/>
+		<param name="widget_id" />
+		<param name="widget_parentid" />
+		<param name="widget_left" />
+		<param name="widget_top" />
+		<param name="widget_onup" />
+		<param name="widget_ondown" />
+		<param name="widget_path" />
+		<param name="widget_target" />
 		<definition>
 			<visible>[Container($PARAM[widget_id]).IsUpdating | Integer.IsGreater(Container($PARAM[widget_id]).NumItems,0)]</visible>
 			<control type="panel" id="$PARAM[widget_id]">
@@ -748,21 +815,21 @@
 		<onclick>noop</onclick>
 	</include>
 	<include name="page-indicator">
-		<param name="indicatorleft" default="0"/>
-		<param name="indicatortop" default="0"/>
-		<param name="indicatorwidth" default="0"/>
-		<param name="indicatorheight" default="0"/>
-		<param name="indicatororientation" default="horizontal"/>
-		<param name="grp1indicate"/>
-		<param name="grp1visible" default="false"/>
-		<param name="grp2indicate"/>
-		<param name="grp2visible" default="false"/>
-		<param name="grp3indicate"/>
-		<param name="grp3visible" default="false"/>
-		<param name="grp4indicate"/>
-		<param name="grp4visible" default="false"/>
-		<param name="grp5indicate"/>
-		<param name="grp5visible" default="false"/>
+		<param name="indicatorleft" default="0" />
+		<param name="indicatortop" default="0" />
+		<param name="indicatorwidth" default="0" />
+		<param name="indicatorheight" default="0" />
+		<param name="indicatororientation" default="horizontal" />
+		<param name="grp1indicate" />
+		<param name="grp1visible" default="false" />
+		<param name="grp2indicate" />
+		<param name="grp2visible" default="false" />
+		<param name="grp3indicate" />
+		<param name="grp3visible" default="false" />
+		<param name="grp4indicate" />
+		<param name="grp4visible" default="false" />
+		<param name="grp5indicate" />
+		<param name="grp5visible" default="false" />
 		<definition>
 			<control type="grouplist">
 				<left>$PARAM[indicatorleft]</left>
@@ -801,12 +868,12 @@
 		</definition>
 	</include>
 	<include name="page-offscreen-vertical">
-		<param name="indicator1left" default="0"/>
-		<param name="indicator1top" default="0"/>
-		<param name="indicator2left" default="0"/>
-		<param name="indicator2top" default="0"/>
-		<param name="indicatorsize" default="0"/>
-		<param name="indicatorcontainer"/>
+		<param name="indicator1left" default="0" />
+		<param name="indicator1top" default="0" />
+		<param name="indicator2left" default="0" />
+		<param name="indicator2top" default="0" />
+		<param name="indicatorsize" default="0" />
+		<param name="indicatorcontainer" />
 		<definition>
 			<control type="button" id="$PARAM[indicatorcontainer]51">
 				<left>$PARAM[indicator1left]</left>
@@ -831,12 +898,12 @@
 		</definition>
 	</include>
 	<include name="page-offscreen-horizontal">
-		<param name="indicator1left" default="0"/>
-		<param name="indicator1top" default="0"/>
-		<param name="indicator2left" default="0"/>
-		<param name="indicator2top" default="0"/>
-		<param name="indicatorsize" default="0"/>
-		<param name="indicatorcontainer"/>
+		<param name="indicator1left" default="0" />
+		<param name="indicator1top" default="0" />
+		<param name="indicator2left" default="0" />
+		<param name="indicator2top" default="0" />
+		<param name="indicatorsize" default="0" />
+		<param name="indicatorcontainer" />
 		<definition>
 			<control type="button" id="$PARAM[indicatorcontainer]53">
 				<left>$PARAM[indicator1left]</left>
@@ -861,8 +928,8 @@
 		</definition>
 	</include>
 	<include name="letterbar-listitems">
-		<param name="letterbarid"/>
-		<param name="listitemid"/>
+		<param name="letterbarid" />
+		<param name="listitemid" />
 		<definition>
 			<item>
 				<icon>touch-search.png</icon>
@@ -1064,14 +1131,14 @@
 		</definition>
 	</include>
 	<include name="letterbar-vertical">
-		<param name="letterbarleft"/>
-		<param name="letterbartop"/>
-		<param name="letterbarid"/>
-		<param name="scrollbarid"/>
-		<param name="listitemid"/>
-		<param name="illegalexitsearch" default="noop"/>
-		<param name="illegalexitbar" default="noop"/>
-		<param name="letterbarvisible"/>
+		<param name="letterbarleft" />
+		<param name="letterbartop" />
+		<param name="letterbarid" />
+		<param name="scrollbarid" />
+		<param name="listitemid" />
+		<param name="illegalexitsearch" default="noop" />
+		<param name="illegalexitbar" default="noop" />
+		<param name="letterbarvisible" />
 		<definition>
 			<control type="group">
 				<visible>$PARAM[letterbarvisible]</visible>
@@ -1160,23 +1227,23 @@
 					</focusedlayout>
 					<content>
 						<include content="letterbar-listitems">
-							<param name="letterbarid" value="$PARAM[letterbarid]"/>
-							<param name="listitemid" value="$PARAM[listitemid]"/>
+							<param name="letterbarid" value="$PARAM[letterbarid]" />
+							<param name="listitemid" value="$PARAM[listitemid]" />
 						</include>
 					</content>
 				</control>
-			</control>			
+			</control>
 		</definition>
 	</include>
 	<include name="letterbar-horizontal">
-		<param name="letterbarleft"/>
-		<param name="letterbartop"/>
-		<param name="letterbarid"/>
-		<param name="scrollbarid"/>
-		<param name="listitemid"/>
-		<param name="illegalexitsearch" default="noop"/>
-		<param name="illegalexitbar" default="noop"/>
-		<param name="letterbarvisible"/>
+		<param name="letterbarleft" />
+		<param name="letterbartop" />
+		<param name="letterbarid" />
+		<param name="scrollbarid" />
+		<param name="listitemid" />
+		<param name="illegalexitsearch" default="noop" />
+		<param name="illegalexitbar" default="noop" />
+		<param name="letterbarvisible" />
 		<definition>
 			<control type="group">
 				<visible>$PARAM[letterbarvisible]</visible>
@@ -1264,12 +1331,12 @@
 					</focusedlayout>
 					<content>
 						<include content="letterbar-listitems">
-							<param name="letterbarid" value="$PARAM[letterbarid]"/>
-							<param name="listitemid" value="$PARAM[listitemid]"/>
+							<param name="letterbarid" value="$PARAM[letterbarid]" />
+							<param name="listitemid" value="$PARAM[listitemid]" />
 						</include>
 					</content>
 				</control>
-			</control>			
+			</control>
 		</definition>
 	</include>
 	<include name="touch-controls-common">
@@ -1286,14 +1353,16 @@
 			<height>48</height>
 			<itemgap>18</itemgap>
 			<orientation>horizontal</orientation>
-			<control type="button"><!-- Back -->
+			<control type="button">
+				<!-- Back -->
 				<include>touch-controls-common</include>
 				<texturefocus>touch-back.png</texturefocus>
 				<texturenofocus>touch-back.png</texturenofocus>
 				<onclick>Back</onclick>
 				<visible>!Window.IsVisible(home)</visible>
 			</control>
-			<control type="button"><!-- Context -->
+			<control type="button">
+				<!-- Context -->
 				<include>touch-controls-common</include>
 				<texturefocus>touch-context.png</texturefocus>
 				<texturenofocus>touch-context.png</texturenofocus>
@@ -1301,7 +1370,8 @@
 				<onclick>Action(ContextMenu)</onclick>
 				<visible>[Window.IsVisible(videos) | Window.IsVisible(music) | Window.IsVisible(games) | Window.IsVisible(pictures) | Window.IsVisible(addonbrowser)] + $EXP[isnotParentFolder]</visible>
 			</control>
-			<control type="togglebutton"><!-- OSD Play/Pause -->
+			<control type="togglebutton">
+				<!-- OSD Play/Pause -->
 				<include>touch-controls-common</include>
 				<texturefocus>touch-play.png</texturefocus>
 				<texturenofocus>touch-play.png</texturenofocus>
@@ -1311,14 +1381,16 @@
 				<onclick>ActivateWindow(playercontrols)</onclick>
 				<visible>Player.HasMedia</visible>
 			</control>
-			<control type="button"><!-- Zoom -->
+			<control type="button">
+				<!-- Zoom -->
 				<include>touch-controls-common</include>
 				<texturefocus>touch-zoom.png</texturefocus>
 				<texturenofocus>touch-zoom.png</texturenofocus>
 				<onclick>FullScreen</onclick>
 				<visible>Player.HasMedia</visible>
 			</control>
-			<control type="button"><!-- Search -->
+			<control type="button">
+				<!-- Search -->
 				<include>touch-controls-common</include>
 				<texturefocus>touch-search.png</texturefocus>
 				<texturenofocus>touch-search.png</texturenofocus>
@@ -1328,14 +1400,16 @@
 				<onclick>ActivateWindow(1156)</onclick>
 				<visible>!Skin.HasSetting(show-letterbar) | [!Window.IsVisible(videos) + !Window.IsVisible(music)]</visible>
 			</control>
-			<control type="button"><!-- Favourite -->
+			<control type="button">
+				<!-- Favourite -->
 				<include>touch-controls-common</include>
 				<texturefocus>touch-fav.png</texturefocus>
 				<texturenofocus>touch-fav.png</texturenofocus>
 				<onclick>ActivateWindow(favouritesbrowser)</onclick>
 				<visible>!Window.IsVisible(home)</visible>
 			</control>
-			<control type="button"><!-- Screen Settings -->
+			<control type="button">
+				<!-- Screen Settings -->
 				<include>touch-controls-common</include>
 				<texturefocus>touch-settings.png</texturefocus>
 				<texturenofocus>touch-settings.png</texturenofocus>
@@ -1399,7 +1473,7 @@
 		<onleft>1223</onleft>
 		<onright>999</onright>
 		<pagecontrol>1223</pagecontrol>
-	</include>				
+	</include>
 	<include name="info-options-common">
 		<height>144</height>
 		<width>144</width>
@@ -1413,7 +1487,7 @@
 		<textoffsety>84</textoffsety>
 	</include>
 	<include name="keyboard-key-common">
-		<shadowcolor/>
+		<shadowcolor />
 		<width>96</width>
 		<height>96</height>
 		<texturenofocus border="9">key-standard-nofocus.png</texturenofocus>
@@ -1425,6 +1499,43 @@
 	</include>
 	<include name="keyboard-auto-complete">
 		<content>plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Control.GetLabel(312).index(1)]&amp;&amp;limit=10</content>
+	</include>
+	<include name="media-mediaflags">
+		<param name="mediaflagsleft" />
+		<param name="mediaflagstop" />
+		<param name="mediaflagssizepercent" default="100" />
+		<definition>
+			<control type="grouplist">
+				<left>$PARAM[mediaflagsleft]</left>
+				<top>$PARAM[mediaflagstop]</top>
+				<width>240</width>
+				<height>45</height>
+				<align>left</align>
+				<orientation>horizontal</orientation>
+				<itemgap>0</itemgap>
+				<animation effect="zoom" start="100" end="$PARAM[mediaflagssizepercent]" center="auto" condition="true">Conditional</animation>
+				<control type="image" id="171">
+					<width>60</width>
+					<height>45</height>
+					<texture background="true">$INFO[Listitem.AudioCodec,special://skin/extras/images/audio/,.png]</texture>
+				</control>
+				<control type="image" id="172">
+					<width>60</width>
+					<height>45</height>
+					<texture background="true">$INFO[Listitem.VideoCodec,special://skin/extras/images/video/,.png]</texture>
+				</control>
+				<control type="image" id="173">
+					<width>60</width>
+					<height>45</height>
+					<texture background="true">$INFO[ListItem.VideoAspect,special://skin/extras/images/aspectratio/,.png]</texture>
+				</control>
+				<control type="image" id="174">
+					<width>60</width>
+					<height>45</height>
+					<texture background="true">$INFO[Listitem.VideoResolution,special://skin/extras/images/resolution/,.png]</texture>
+				</control>
+			</control>
+		</definition>
 	</include>
 	<include name="overlay-label">
 		<width>1170</width>

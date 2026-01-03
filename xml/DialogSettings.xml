@@ -4,27 +4,21 @@
 	<controls>
 		<control type="group">
 			<visible>!Window.IsVisible(sliderdialog)</visible>
-			<control type="image"><!-- Dialog background -->
-				<left>321</left>
-				<top>90</top>
-				<width>1272</width>
-				<height>900</height>
-				<texture border="14">button-menu-background.png</texture>
-			</control>
 			<control type="label" id="2"><!-- Dialog heading -->
 				<left>336</left>
-				<top>105</top>
+				<top>-50</top>
 				<width>1242</width>
 				<height>38</height>
-				<align>center</align>
 			</control>
-			<control type="image">
-				<left>336</left>
-				<top>150</top>
-				<width>1242</width>
-				<height>4</height>
-				<texture>separator.png</texture>
-			</control>
+			<!-- Dialog background and title -->
+			<include content="dialogbackground-common">
+				<param name="dialogleft" value="321"/>
+				<param name="dialogtop" value="90"/>
+				<param name="dialogwidth" value="1272"/>
+				<param name="dialogheight" value="900"/>
+				<param name="headingwidth" value="1218"/>
+				<param name="headinglabel" value="$INFO[Control.GetLabel(2)]"/>
+			</include>
 			<control type="grouplist" id="5"><!-- Default Grouplist -->
 				<left>366</left>
 				<top>189</top>

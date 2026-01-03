@@ -1,0 +1,867 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="DefaultDialogSelectLayout">
+		<control type="label" id="1"><!-- Dialog heading -->
+			<left>0</left>
+			<top>-200</top>
+			<width>1350</width>
+			<height>52</height>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(3)</visible>
+			<!-- Dialog background and title -->
+			<include content="dialogbackground-common">
+				<param name="dialogleft" value="476"/>
+				<param name="dialogtop" value="90"/>
+				<param name="dialogwidth" value="1008"/>
+				<param name="dialogheight" value="880"/>
+				<param name="headingwidth" value="950"/>
+				<param name="headinglabel" value="$INFO[Control.GetLabel(1)]$VAR[SelectDialogNumObjects]"/>
+			</include>
+			<control type="scrollbar" id="23">
+				<left>484</left>
+				<top>196</top>
+				<width>16</width>
+				<height>720</height>
+				<onright>3</onright>
+				<animation condition="!Control.HasFocus(23) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>$EXP[isEnabledScrollbar]</visible>
+			</control>
+			<!-- Markers for control area items -->
+			<include content="page-offscreen-vertical">
+				<param name="indicator1left" value="855"/>
+				<param name="indicator1top" value="160"/>
+				<param name="indicator2left" value="855"/>
+				<param name="indicator2top" value="924"/>
+				<param name="indicatorsize" value="32"/>
+				<param name="indicatorcontainer" value="3"/>
+			</include>
+			<control type="grouplist">
+				<left>1204</left>
+				<top>196</top>
+				<height>180</height>
+				<width>250</width>
+				<itemgap>0</itemgap>
+				<align>center</align>
+				<orientation>vertical</orientation>
+				<onleft>3</onleft>
+				<control type="button" id="5">
+					<width>250</width>
+					<height>60</height>
+					<font>apptv22</font>
+					<align>center</align>
+					<visible>!String.IsEmpty(Control.GetLabel(5))</visible>
+				</control>
+				<control type="button" id="8">
+					<width>250</width>
+					<height>60</height>
+					<font>apptv22</font>
+					<label></label>
+					<align>center</align>
+					<visible>!String.IsEmpty(Control.GetLabel(8))</visible>
+				</control>
+				<control type="button" id="7"><!-- Cancel -->
+					<width>250</width>
+					<height>60</height>
+					<font>apptv22</font>
+					<label>$LOCALIZE[222]</label>
+					<align>center</align>
+				</control>
+			</control>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(6)</visible>
+			<!-- Dialog background and title -->
+			<include content="dialogbackground-common">
+				<param name="dialogleft" value="180"/>
+				<param name="dialogtop" value="90"/>
+				<param name="dialogwidth" value="1560"/>
+				<param name="dialogheight" value="798"/>
+				<param name="headingwidth" value="1494"/>
+				<param name="headinglabel" value="$INFO[Control.GetLabel(1)]$VAR[SelectDialogNumObjects]"/>
+			</include>
+			<control type="scrollbar" id="26">
+				<left>208</left>
+				<top>186</top>
+				<width>16</width>
+				<height>672</height>
+				<onright>6</onright>
+				<animation condition="!Control.HasFocus(26) + !Container.Scrolling + $EXP[isnotAlwaysScrollbar]" effect="fade" start="100" end="0" time="200" reversible="true">Conditional</animation>
+				<visible>$EXP[isEnabledScrollbar]</visible>
+			</control>
+			<!-- Markers for control area items -->
+			<include content="page-offscreen-vertical">
+				<param name="indicator1left" value="753."/>
+				<param name="indicator1top" value="166"/>
+				<param name="indicator2left" value="753"/>
+				<param name="indicator2top" value="856"/>
+				<param name="indicatorsize" value="24"/>
+				<param name="indicatorcontainer" value="6"/>
+			</include>
+			<control type="image">
+				<left>1342</left>
+				<top>456</top>
+				<height>352</height>
+				<width>352</width>
+				<texture fallback="DefaultFile.png">$INFO[Container(6).ListItem.Icon]</texture>
+				<aspectratio aligny="top">keep</aspectratio>
+				<animation effect="fade" time="300">VisibleChange</animation>
+			</control>
+			<control type="grouplist">
+				<left>1326</left>
+				<top>186</top>
+				<height>252</height>
+				<width>370</width>
+				<itemgap>0</itemgap>
+				<orientation>vertical</orientation>
+				<onleft>6</onleft>
+				<control type="button" id="5">
+					<width>384</width>
+					<height>84</height>
+					<font>apptv23</font>
+					<label></label>
+					<align>center</align>
+					<visible>!String.IsEmpty(Control.GetLabel(5))</visible>
+				</control>
+				<control type="button" id="8">
+					<width>384</width>
+					<height>84</height>
+					<font>apptv23</font>
+					<label></label>
+					<align>center</align>
+					<visible>!String.IsEmpty(Control.GetLabel(8))</visible>
+				</control>
+				<control type="button" id="7"><!-- Cancel -->
+					<width>384</width>
+					<height>84</height>
+					<font>apptv23</font>
+					<label>$LOCALIZE[222]</label>
+					<align>center</align>
+				</control>
+			</control>
+		</control>
+		<control type="group" id="1000">
+			<control type="list" id="3"><!-- Type 3 Select -->
+				<left>518</left>
+				<top>196</top>
+				<width>714</width>
+				<height>720</height>
+				<onup>noop</onup>
+				<onleft condition="![$EXP[isEnabledScrollbar]]">noop</onleft>
+				<onleft condition="$EXP[isEnabledScrollbar]">23</onleft>
+				<onright condition="!Control.IsVisible(5)">7</onright>
+				<onright condition="Control.IsVisible(5)">5</onright>
+				<pagecontrol>23</pagecontrol>
+				<itemlayout height="60">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>684</width>
+						<height>60</height>
+						<texture border="9">button-default.png</texture>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<top>0</top>
+						<width>654</width>
+						<height>30</height>
+						<font>apptv18</font>
+						<selectedcolor>listselected-text</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="slide" start="0,0" end="0,12" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<top>30</top>
+						<width>654</width>
+						<height>30</height>
+						<font>apptv18</font>
+						<textcolor>disabled-text</textcolor>
+						<selectedcolor>listselected-text</selectedcolor>
+						<label>$INFO[ListItem.Label2,- ]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout height="60">
+					<control type="image">
+						<left>0</left>
+						<top>0</top>
+						<width>684</width>
+						<height>60</height>
+						<texture border="9">button-default-focus.png</texture>
+						<animation condition="!Control.HasFocus(3)" effect="fade" start="100" end="60">Conditional</animation>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<top>0</top>
+						<width>654</width>
+						<height>30</height>
+						<font>apptv18</font>
+						<selectedcolor>listselected-text</selectedcolor>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="slide" start="0,0" end="0,12" condition="String.IsEmpty(ListItem.Label2)">Conditional</animation>
+					</control>
+					<control type="label">
+						<left>15</left>
+						<top>30</top>
+						<width>654</width>
+						<height>30</height>
+						<font>apptv18</font>
+						<textcolor>disabled-text</textcolor>
+						<selectedcolor>listselected-text</selectedcolor>
+						<label>$INFO[ListItem.Label2,- ]</label>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="list" id="6"><!-- Type 6 Select -->
+				<left>245</left>
+				<top>186</top>
+				<width>1050</width>
+				<height>672</height>
+				<onleft condition="![$EXP[isEnabledScrollbar]]">noop</onleft>
+				<onleft condition="$EXP[isEnabledScrollbar]">26</onleft>
+				<onright condition="!Control.IsVisible(5)">7</onright>
+				<onright condition="Control.IsVisible(5)">5</onright>
+				<pagecontrol>26</pagecontrol>
+				<itemlayout height="84">
+					<control type="image">
+						<left>0</left>
+						<top>3</top>
+						<height>78</height>
+						<width>78</width>
+						<texture fallback="DefaultFile.png">$INFO[ListItem.Icon]</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="image">
+						<left>81</left>
+						<top>0</top>
+						<width>969</width>
+						<height>84</height>
+						<texture border="9">button-default.png</texture>
+					</control>
+					<control type="label">
+						<left>105</left>
+						<top>-6</top>
+						<width>921</width>
+						<height>84</height>
+						<font>apptv22</font>
+						<selectedcolor>listselected-text</selectedcolor>
+						<label>$INFO[ListItem.Label] [I]$INFO[ListItem.Label2, - ] [/I]</label>
+					</control>
+				</itemlayout>
+				<focusedlayout height="84">
+					<control type="image">
+						<left>0</left>
+						<top>3</top>
+						<height>78</height>
+						<width>78</width>
+						<texture fallback="DefaultFile.png">$INFO[ListItem.Icon]</texture>
+						<aspectratio>keep</aspectratio>
+					</control>
+					<control type="image">
+						<left>81</left>
+						<top>0</top>
+						<width>969</width>
+						<height>84</height>
+						<texture border="9">button-default-focus.png</texture>
+						<animation condition="!Control.HasFocus(6)" effect="fade" start="100" end="60">Conditional</animation>
+					</control>
+					<control type="label">
+						<left>105</left>
+						<top>-6</top>
+						<width>921</width>
+						<height>84</height>
+						<font>apptv22</font>
+						<selectedcolor>listselected-text</selectedcolor>
+						<label>$INFO[ListItem.Label] [I]$INFO[ListItem.Label2, - ] [/I]</label>
+					</control>
+				</focusedlayout>
+			</control>
+		</control>
+	</include>
+	<include name="GameDialogSelectSaveLayout">
+		<control type="group">
+			<centertop>50%</centertop>
+			<centerleft>50%</centerleft>
+			<width>1639</width>
+			<height>919</height>
+			<include content="DialogBackgroundCommons">
+				<param name="width" value="1639" />
+				<param name="height" value="919" />
+				<param name="header_label" value="35260" />
+				<param name="header_id" value="10820" />
+			</include>
+			<control type="group">
+				<description>Content area</description>
+				<top>100</top>
+				<bottom>20</bottom>
+				<left>30</left>
+				<right>30</right>
+				<control type="group">
+					<description>Panel area, including scroll bar</description>
+					<width>1224</width>
+					<height>748</height>
+					<control type="image">
+						<left>-20</left>
+						<right>-20</right>
+						<top>-20</top>
+						<bottom>-20</bottom>
+						<texture border="40">buttons/dialogbutton-nofo.png</texture>
+					</control>
+					<control type="panel" id="3">
+						<onright>9001</onright>
+						<pagecontrol>61</pagecontrol>
+						<scrolltime>200</scrolltime>
+						<itemlayout width="408" height="374">
+							<control type="image">
+								<left>10</left>
+								<right>10</right>
+								<top>10</top>
+								<height>256</height>
+								<texture>$INFO[ListItem.Art(screenshot)]</texture>
+								<aspectratio>keep</aspectratio>
+							</control>
+							<control type="label">
+								<left>10</left>
+								<right>10</right>
+								<top>286</top>
+								<height>20</height>
+								<align>center</align>
+								<aligny>center</aligny>
+								<scroll>true</scroll>
+								<font>font13</font>
+								<label>$INFO[ListItem.Label]</label>
+								<shadowcolor>text_shadow</shadowcolor>
+							</control>
+							<control type="label">
+								<left>10</left>
+								<right>10</right>
+								<top>322</top>
+								<height>20</height>
+								<align>center</align>
+								<aligny>center</aligny>
+								<scroll>true</scroll>
+								<font>font27</font>
+								<label>$INFO[ListItem.Label2]</label>
+								<shadowcolor>text_shadow</shadowcolor>
+							</control>
+						</itemlayout>
+						<focusedlayout width="408" height="374">
+							<control type="image">
+								<texture colordiffuse="button_focus">lists/focus.png</texture>
+								<visible>Control.HasFocus(3)</visible>
+							</control>
+							<control type="image">
+								<left>10</left>
+								<right>10</right>
+								<top>10</top>
+								<height>256</height>
+								<texture>$INFO[ListItem.Art(screenshot)]</texture>
+								<aspectratio>keep</aspectratio>
+							</control>
+							<control type="label">
+								<left>10</left>
+								<right>10</right>
+								<top>286</top>
+								<height>20</height>
+								<align>center</align>
+								<aligny>center</aligny>
+								<scroll>true</scroll>
+								<font>font13</font>
+								<label>$INFO[ListItem.Label]</label>
+								<shadowcolor>text_shadow</shadowcolor>
+							</control>
+							<control type="label">
+								<left>10</left>
+								<right>10</right>
+								<top>322</top>
+								<height>20</height>
+								<align>center</align>
+								<aligny>center</aligny>
+								<scroll>true</scroll>
+								<font>font27</font>
+								<label>$INFO[ListItem.Label2]</label>
+								<shadowcolor>text_shadow</shadowcolor>
+							</control>
+						</focusedlayout>
+					</control>
+					<control type="scrollbar" id="61">
+						<description>Scroll bar</description>
+						<right>-20</right>
+						<width>12</width>
+						<orientation>vertical</orientation>
+					</control>
+				</control>
+				<control type="grouplist" id="9001">
+					<description>Buttons on the right</description>
+					<left>1302</left>
+					<top>-20</top>
+					<onleft>3</onleft>
+					<itemgap>dialogbuttons_itemgap</itemgap>
+					<include content="DefaultDialogButton">
+						<param name="id" value="10825" />
+						<param name="label" value="$LOCALIZE[35261]" />
+					</include>
+					<include content="DefaultDialogButton">
+						<param name="id" value="10826" />
+						<param name="label" value="$LOCALIZE[222]" />
+					</include>
+				</control>
+				<control type="group">
+					<description>Emulator name and icon</description>
+					<right>0</right>
+					<width>310</width>
+					<top>162</top>
+					<height>330</height>
+					<bottom>50</bottom>
+					<control type="group">
+						<left>52</left>
+						<control type="image">
+							<left>-20</left>
+							<right>-20</right>
+							<top>-20</top>
+							<bottom>-20</bottom>
+							<texture border="40">buttons/dialogbutton-nofo.png</texture>
+						</control>
+						<control type="label">
+							<description>Label for Saved with: text</description>
+							<top>14</top>
+							<height>20</height>
+							<font>font16</font>
+							<label>35255</label>
+							<align>center</align>
+						</control>
+						<control type="label" id="10823">
+							<description>Emulator name</description>
+							<top>60</top>
+							<height>20</height>
+							<font>font23_narrow</font>
+							<align>center</align>
+						</control>
+						<control type="image" id="10824">
+							<description>Emulator icon</description>
+							<top>108</top>
+							<height>192</height>
+							<right>33</right>
+							<width>192</width>
+							<aspectratio>keep</aspectratio>
+						</control>
+					</control>
+				</control>
+				<control type="group">
+					<description>Bottom bar of text area</description>
+					<height>40</height>
+					<bottom>0</bottom>
+					<control type="label" id="10822">
+						<description>Caption area</description>
+						<right>200</right>
+						<font>font12</font>
+						<align>left</align>
+						<aligny>center</aligny>
+					</control>
+					<control type="label">
+						<description>Item count</description>
+						<right>0</right>
+						<width>200</width>
+						<font>font12</font>
+						<align>right</align>
+						<aligny>center</aligny>
+						<label>$VAR[SelectLabel]</label>
+					</control>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="GameDialogSelectFilterLayout">
+		<control type="button">
+			<description>background close area</description>
+			<left>0</left>
+			<top>0</top>
+			<width>100%</width>
+			<bottom>540</bottom>
+			<texturefocus />
+			<texturenofocus />
+			<onclick>Action(close)</onclick>
+		</control>
+		<control type="group">
+			<bottom>0</bottom>
+			<height>540</height>
+			<width>100%</width>
+			<control type="image">
+				<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+				<texture colordiffuse="E6FFFFFF">dialogs/dialog-bg-nobo.png</texture>
+			</control>
+			<control type="panel" id="10811">
+				<top>30</top>
+				<scrolltime tween="sine">200</scrolltime>
+				<orientation>horizontal</orientation>
+				<itemlayout width="480" height="340">
+					<control type="group">
+						<left>18</left>
+						<right>18</right>
+						<top>5</top>
+						<control type="image">
+							<width>444</width>
+							<height>250</height>
+							<aspectratio>scale</aspectratio>
+							<texture border="4">DefaultVideo.png</texture>
+							<bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
+							<bordersize>4</bordersize>
+						</control>
+						<control type="gamewindow">
+							<width>444</width>
+							<height>250</height>
+							<videofilter>$INFO[ListItem.Property(game.videofilter)]</videofilter>
+							<stretchmode>$INFO[ListItem.Property(game.stretchmode)]</stretchmode>
+							<rotation>$INFO[ListItem.Property(game.videorotation)]</rotation>
+						</control>
+						<control type="label">
+							<top>250</top>
+							<width>444</width>
+							<height>80</height>
+							<label>$INFO[ListItem.Label][CR][COLOR grey]$INFO[ListItem.Label2][/COLOR]</label>
+							<font>font37</font>
+							<align>center</align>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout width="480" height="340">
+					<control type="group">
+						<left>18</left>
+						<right>18</right>
+						<top>5</top>
+						<control type="image">
+							<width>444</width>
+							<height>250</height>
+							<aspectratio>scale</aspectratio>
+							<texture border="4">DefaultVideo.png</texture>
+							<bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
+							<bordersize>4</bordersize>
+						</control>
+						<control type="gamewindow">
+							<width>444</width>
+							<height>250</height>
+							<videofilter>$INFO[ListItem.Property(game.videofilter)]</videofilter>
+							<stretchmode>$INFO[ListItem.Property(game.stretchmode)]</stretchmode>
+							<rotation>$INFO[ListItem.Property(game.videorotation)]</rotation>
+						</control>
+						<control type="label">
+							<top>250</top>
+							<width>444</width>
+							<height>80</height>
+							<label>$INFO[ListItem.Label][CR][COLOR grey]$INFO[ListItem.Label2][/COLOR]</label>
+							<font>font37</font>
+							<align>center</align>
+						</control>
+						<control type="image">
+							<width>444</width>
+							<height>250</height>
+							<texture border="8" colordiffuse="button_focus">buttons/thumbnail_focused.png</texture>
+							<visible>Control.HasFocus(10811)</visible>
+						</control>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="textbox" id="10812">
+				<description>Description Area</description>
+				<top>410</top>
+				<left>100</left>
+				<right>100</right>
+				<height>200</height>
+				<font>font37</font>
+				<align>justify</align>
+				<autoscroll time="3000" delay="5000" repeat="5000">true</autoscroll>
+			</control>
+		</control>
+	</include>
+	<include name="GameDialogSelectViewLayout">
+		<control type="button">
+			<description>background close area</description>
+			<left>0</left>
+			<top>0</top>
+			<width>100%</width>
+			<bottom>410</bottom>
+			<texturefocus />
+			<texturenofocus />
+			<onclick>Action(close)</onclick>
+		</control>
+		<control type="group">
+			<bottom>0</bottom>
+			<height>410</height>
+			<width>100%</width>
+			<control type="image">
+				<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+				<texture colordiffuse="E6FFFFFF">dialogs/dialog-bg-nobo.png</texture>
+			</control>
+			<control type="panel" id="10811">
+				<top>30</top>
+				<scrolltime tween="sine">200</scrolltime>
+				<orientation>horizontal</orientation>
+				<itemlayout width="480" height="340">
+					<control type="group">
+						<left>18</left>
+						<right>18</right>
+						<top>5</top>
+						<control type="image">
+							<width>444</width>
+							<height>250</height>
+							<aspectratio>scale</aspectratio>
+							<texture border="4">DefaultVideo.png</texture>
+							<bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
+							<bordersize>4</bordersize>
+						</control>
+						<control type="gamewindow">
+							<width>444</width>
+							<height>250</height>
+							<videofilter>$INFO[ListItem.Property(game.videofilter)]</videofilter>
+							<stretchmode>$INFO[ListItem.Property(game.stretchmode)]</stretchmode>
+							<rotation>$INFO[ListItem.Property(game.videorotation)]</rotation>
+						</control>
+						<control type="label">
+							<top>250</top>
+							<width>444</width>
+							<height>40</height>
+							<label>$INFO[ListItem.Label][CR][COLOR grey]$INFO[ListItem.Label2][/COLOR]</label>
+							<font>font37</font>
+							<align>center</align>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout width="480" height="340">
+					<control type="group">
+						<left>18</left>
+						<right>18</right>
+						<top>5</top>
+						<control type="image">
+							<width>444</width>
+							<height>250</height>
+							<aspectratio>scale</aspectratio>
+							<texture border="4">DefaultVideo.png</texture>
+							<bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
+							<bordersize>4</bordersize>
+						</control>
+						<control type="gamewindow">
+							<width>444</width>
+							<height>250</height>
+							<videofilter>$INFO[ListItem.Property(game.videofilter)]</videofilter>
+							<stretchmode>$INFO[ListItem.Property(game.stretchmode)]</stretchmode>
+							<rotation>$INFO[ListItem.Property(game.videorotation)]</rotation>
+						</control>
+						<control type="label">
+							<top>250</top>
+							<width>444</width>
+							<height>40</height>
+							<label>$INFO[ListItem.Label][CR][COLOR grey]$INFO[ListItem.Label2][/COLOR]</label>
+							<font>font37</font>
+							<align>center</align>
+						</control>
+						<control type="image">
+							<width>444</width>
+							<height>250</height>
+							<texture border="8" colordiffuse="button_focus">buttons/thumbnail_focused.png</texture>
+							<visible>Control.HasFocus(10811)</visible>
+						</control>
+					</control>
+				</focusedlayout>
+			</control>
+		</control>
+	</include>
+	<include name="GameDialogSelectSaveInGameLayout">
+		<control type="button">
+			<description>background close area</description>
+			<left>0</left>
+			<top>0</top>
+			<width>100%</width>
+			<bottom>540</bottom>
+			<texturefocus />
+			<texturenofocus />
+			<onclick>Action(close)</onclick>
+		</control>
+		<control type="group">
+			<bottom>0</bottom>
+			<height>540</height>
+			<width>100%</width>
+			<control type="image">
+				<animation effect="fade" start="0" end="100" time="300">WindowOpen</animation>
+				<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
+				<texture colordiffuse="E6FFFFFF">dialogs/dialog-bg-nobo.png</texture>
+			</control>
+			<control type="panel" id="10811">
+				<top>30</top>
+				<scrolltime tween="sine">200</scrolltime>
+				<orientation>horizontal</orientation>
+				<itemlayout width="480" height="340">
+					<control type="group">
+						<left>18</left>
+						<right>18</right>
+						<top>5</top>
+						<control type="image">
+							<width>444</width>
+							<height>250</height>
+							<aspectratio>scale</aspectratio>
+							<texture border="4">$INFO[ListItem.Icon]</texture>
+							<bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
+							<bordersize>4</bordersize>
+						</control>
+						<control type="image">
+							<width>444</width>
+							<height>250</height>
+							<aspectratio>scale</aspectratio>
+							<texture border="4">$INFO[ListItem.Art(screenshot)]</texture>
+							<bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
+							<bordersize>4</bordersize>
+						</control>
+						<control type="gamewindow">
+							<width>444</width>
+							<height>250</height>
+							<pixels>$INFO[ListItem.FilenameAndPath]</pixels>
+						</control>
+						<control type="label">
+							<top>250</top>
+							<width>444</width>
+							<height>80</height>
+							<label>$INFO[ListItem.Label][CR][COLOR grey]$INFO[ListItem.Label2][/COLOR]</label>
+							<font>font37</font>
+							<align>center</align>
+						</control>
+					</control>
+				</itemlayout>
+				<focusedlayout width="480" height="340">
+					<control type="group">
+						<left>18</left>
+						<right>18</right>
+						<top>5</top>
+						<control type="image">
+							<width>444</width>
+							<height>250</height>
+							<aspectratio>scale</aspectratio>
+							<texture border="4">$INFO[ListItem.Icon]</texture>
+							<bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
+							<bordersize>4</bordersize>
+						</control>
+						<control type="image">
+							<width>444</width>
+							<height>250</height>
+							<aspectratio>scale</aspectratio>
+							<texture border="4">$INFO[ListItem.Art(screenshot)]</texture>
+							<bordertexture colordiffuse="border_alpha">colors/black.png</bordertexture>
+							<bordersize>4</bordersize>
+						</control>
+						<control type="gamewindow">
+							<width>444</width>
+							<height>250</height>
+							<pixels>$INFO[ListItem.FilenameAndPath]</pixels>
+						</control>
+						<control type="label">
+							<top>250</top>
+							<width>444</width>
+							<height>80</height>
+							<label>$INFO[ListItem.Label][CR][COLOR grey]$INFO[ListItem.Label2][/COLOR]</label>
+							<font>font37</font>
+							<align>center</align>
+						</control>
+						<control type="image">
+							<width>444</width>
+							<height>250</height>
+							<texture border="8" colordiffuse="button_focus">buttons/thumbnail_focused.png</texture>
+						</control>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="textbox" id="10812">
+				<description>Description Area</description>
+				<top>410</top>
+				<left>100</left>
+				<right>100</right>
+				<height>200</height>
+				<font>font37</font>
+				<align>justify</align>
+				<autoscroll time="3000" delay="5000" repeat="5000">true</autoscroll>
+				<label>$INFO[ListItem.Property(savestate.caption)]</label>
+			</control>
+		</control>
+	</include>
+	<include name="VideoSelectLayout">
+		<control type="group">
+			<centertop>50%</centertop>
+			<centerleft>50%</centerleft>
+			<height>750</height>
+			<width>1640</width>
+			<include content="DialogBackgroundCommons">
+				<param name="width" value="1640" />
+				<param name="height" value="750" />
+				<param name="header_id" value="1" />
+			</include>
+			<control type="image">
+				<left>20</left>
+				<width>400</width>
+				<height>630</height>
+				<top>100</top>
+				<texture>$VAR[VideoListPosterVar]</texture>
+				<aspectratio aligny="top">keep</aspectratio>
+			</control>
+			<control type="image">
+				<left>420</left>
+				<top>80</top>
+				<width>920</width>
+				<height>665</height>
+				<texture border="40">buttons/dialogbutton-nofo.png</texture>
+			</control>
+			<control type="list" id="3">
+			</control>
+			<control type="list" id="6">
+				<left>440</left>
+				<top>100</top>
+				<width>920</width>
+				<height>625</height>
+				<onup>6</onup>
+				<ondown>6</ondown>
+				<onleft>9001</onleft>
+				<onright>61</onright>
+				<pagecontrol>61</pagecontrol>
+				<scrolltime>200</scrolltime>
+				<include>MediaInfoListLayout</include>
+			</control>
+			<control type="scrollbar" id="61">
+				<left>1320</left>
+				<top>100</top>
+				<width>12</width>
+				<bottom>20</bottom>
+				<onleft>6</onleft>
+				<onright>9001</onright>
+				<orientation>vertical</orientation>
+			</control>
+			<control type="grouplist" id="9001">
+				<left>1340</left>
+				<top>80</top>
+				<onleft>61</onleft>
+				<itemgap>dialogbuttons_itemgap</itemgap>
+				<onright>6</onright>
+				<include content="DefaultDialogButton">
+					<param name="id" value="5" />
+					<param name="label" value="" />
+					<param name="visible" value="false" />
+				</include>
+				<include content="DefaultDialogButton">
+					<param name="id" value="8" />
+					<param name="label" value="" />
+					<param name="visible" value="false" />
+				</include>
+				<include content="DefaultDialogButton">
+					<param name="id" value="7" />
+					<param name="label" value="$LOCALIZE[222]" />
+					</include>
+			</control>
+			<control type="label">
+				<right>20</right>
+				<bottom>10</bottom>
+				<width>275</width>
+				<height>35</height>
+				<font>font12</font>
+				<align>right</align>
+				<label>$VAR[SelectLabel]</label>
+			</control>
+		</control>
+	</include>
+</includes>

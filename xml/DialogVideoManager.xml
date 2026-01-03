@@ -2,55 +2,42 @@
 <window>
 	<controls>
 		<control type="group">
-			<control type="image">
-				<left>100</left>
-				<top>80</top>
-				<width>1720</width>
-				<height>745</height>
-				<texture border="14">button-menu-background.png</texture>
-			</control>
 			<control type="label" id="2"><!-- Dialog heading string -->
 				<left>0</left>
 				<top>-200</top>
 				<width>1644</width>
 				<height>52</height>
 			</control>
-			<control type="grouplist"><!-- Dialog heading -->
-				<left>138</left>
-				<top>86</top>
-				<width>1644</width>
-				<height>50</height>
-				<align>center</align>
-				<orientation>horizontal</orientation>
-				<control type="label">
-					<width max="1500">auto</width>
-					<height>50</height>
-					<label>$INFO[Control.GetLabel(2)]</label>
-					<wrapmultiline>true</wrapmultiline>
-					<aligny>top</aligny>
-				</control>
-				<control type="label">
-					<width max="144">auto</width>
-					<height>50</height>
-					<label>($INFO[Container(50).NumItems])</label>
-					<aligny>top</aligny>
-				</control>
-			</control>
+			<!-- Dialog background and title -->
+			<include content="dialogbackground-common">
+				<param name="dialogleft" value="100"/>
+				<param name="dialogtop" value="80"/>
+				<param name="dialogwidth" value="1720"/>
+				<param name="dialogheight" value="745"/>
+				<param name="headingwidth" value="1664"/>
+				<param name="headinglabel" value="$INFO[Control.GetLabel(2)]$INFO[Container(50).NumItems,(,)]"/>
+			</include>
+			<include content="dialog-touchclose">
+				<param name="closeleft" value="1790"/>
+				<param name="closetop" value="62"/>
+				<param name="onclickcondition1" value="true"/>
+				<param name="onclickaction1" value="Dialog.Close(managevideoversions)"/>
+				<param name="onclickcondition2" value="true"/>
+				<param name="onclickaction2" value="Dialog.Close(managevideoextras)"/>
+			</include>
 			<control type="image">
-				<left>122</left>
-				<top>138</top>
-				<width>1680</width>
-				<height>6</height>
-				<texture>separator.png</texture>
-			</control>
-			<control type="image">
-				<left>150</left>
-				<top>210</top>
+				<left>158</left>
+				<top>160</top>
 				<width>285</width>
 				<height>500</height>
-				<texture>$INFO[ListItem.Art(poster)]</texture>
-				<aspectratio aligny="top">keep</aspectratio>
+				<texture background="true" diffuse="mask-rect.png">$INFO[ListItem.Art(poster)]</texture>
+				<aspectratio align="center" aligny="top">keep</aspectratio>
 			</control>
+			<include content="media-mediaflags">
+				<param name="mediaflagsleft" value="175"/>
+				<param name="mediaflagstop" value="620"/>
+				<param name="mediaflagssizepercent" value="90"/>
+			</include>
 			<control type="label"><!-- Path -->
 				<left>144</left>
 				<top>770</top>
@@ -75,12 +62,12 @@
 					<onright>101</onright>
 					<pagecontrol>60</pagecontrol>
 					<scrolltime>200</scrolltime>
-					<itemlayout height="120">
+					<itemlayout height="100">
 						<control type="label">
 							<left>20</left>
-							<top>0</top>
+							<top>4</top>
 							<width>800</width>
-							<height>60</height>
+							<height>40</height>
 							<font>apptv20</font>
 							<align>center</align>
 							<aligny>center</aligny>
@@ -88,28 +75,28 @@
 						</control>
 						<control type="label">
 							<left>20</left>
-							<top>50</top>
+							<top>54</top>
 							<width>800</width>
-							<height>65</height>
-							<font>apptv16</font>
+							<height>30</height>
+							<font>apptv18</font>
 							<align>center</align>
 							<aligny>center</aligny>
-							<label>$INFO[ListItem.Duration,$LOCALIZE[180]: ][CR]$INFO[ListItem.VideoCodec,, ]$INFO[ListItem.VideoResolution,| , ]$INFO[ListItem.VideoAspect,| ,:1 ]$INFO[ListItem.AudioCodec,| , ]</label>
+							<label>$INFO[ListItem.Duration,$LOCALIZE[180]: ]</label>
 						</control>
 					</itemlayout>
-					<focusedlayout height="120">
+					<focusedlayout height="100">
 						<control type="image">
 							<left>0</left>
 							<top>0</top>
 							<width>840</width>
-							<height>120</height>
+							<height>100</height>
 							<texture border="9">button-default-focus.png</texture>
 						</control>
 						<control type="label">
 							<left>20</left>
-							<top>0</top>
+							<top>4</top>
 							<width>800</width>
-							<height>60</height>
+							<height>40</height>
 							<align>center</align>
 							<aligny>center</aligny>
 							<font>apptv20</font>
@@ -117,13 +104,13 @@
 						</control>
 						<control type="label">
 							<left>20</left>
-							<top>50</top>
+							<top>54</top>
 							<width>800</width>
-							<height>65</height>
-							<font>apptv16</font>
+							<height>30</height>
+							<font>apptv18</font>
 							<align>center</align>
 							<aligny>center</aligny>
-							<label>$INFO[ListItem.Duration,$LOCALIZE[180]: ][CR]$INFO[ListItem.VideoCodec,, ]$INFO[ListItem.VideoResolution,| , ]$INFO[ListItem.VideoAspect,| ,:1 ]$INFO[ListItem.AudioCodec,| , ]</label>
+							<label>$INFO[ListItem.Duration,$LOCALIZE[180]: ]</label>
 						</control>
 					</focusedlayout>
 				</control>

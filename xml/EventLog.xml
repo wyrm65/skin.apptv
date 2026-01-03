@@ -160,40 +160,23 @@
 			<left>0</left>
 			<top>1080</top>
 			<include>screen-settings</include>
-			<control type="image"><!-- Button background -->
-				<left>622</left>
-				<top>114</top>
-				<width>672</width>
-				<height>820</height>
-				<texture border="14">button-menu-background.png</texture>
-			</control>
-			<control type="label"><!-- Dialog heading -->
-				<left>638</left>
-				<top>126</top>
-				<width>639</width>
-				<height>51</height>
-				<font>apptv23</font>
-				<label>$LOCALIZE[31557]$INFO[Container(9000).NumItems, (,)]</label>
-				<align>center</align>
-			</control>
-			<control type="button"><!-- Touch Close button -->
-				<left>1262</left>
-				<top>98</top>
-				<width>48</width>
-				<height>48</height>
-				<texturefocus>touch-close.png</texturefocus>
-				<texturenofocus>touch-close.png</texturenofocus>
-				<onclick condition="!String.IsEqual(Window(home).Property(ShowScreenSettings),show)">SetProperty(ShowScreenSettings,show,home)</onclick>
-				<onclick condition="String.IsEqual(Window(home).Property(ShowScreenSettings),show)">ClearProperty(ShowScreenSettings,home)</onclick>
-				<visible>$EXP[isEnabledTouch]</visible>
-			</control>
-			<control type="image">
-				<left>638</left>
-				<top>180</top>
-				<width>639</width>
-				<height>6</height>
-				<texture>separator.png</texture>
-			</control>
+			<!-- Dialog background and title -->
+			<include content="dialogbackground-common">
+				<param name="dialogleft" value="622"/>
+				<param name="dialogtop" value="114"/>
+				<param name="dialogwidth" value="672"/>
+				<param name="dialogheight" value="820"/>
+				<param name="headingwidth" value="639"/>
+				<param name="headinglabel" value="$LOCALIZE[31557]$INFO[Container(9000).NumItems, (,)]"/>
+			</include>
+			<include content="dialog-touchclose">
+				<param name="closeleft" value="1262"/>
+				<param name="closetop" value="98"/>
+				<param name="onclickcondition1" value="!String.IsEqual(Window(home).Property(ShowScreenSettings),show)"/>
+				<param name="onclickaction1" value="SetProperty(ShowScreenSettings,show,home)"/>
+				<param name="onclickcondition2" value="String.IsEqual(Window(home).Property(ShowScreenSettings),show)"/>
+				<param name="onclickaction2" value="ClearProperty(ShowScreenSettings,home)"/>
+			</include>
 			<include content="page-offscreen-vertical">
 				<param name="indicator1left" value="942"/>
 				<param name="indicator1top" value="180"/>

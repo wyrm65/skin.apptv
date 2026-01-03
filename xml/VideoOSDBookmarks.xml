@@ -34,17 +34,6 @@
 			<font>apptv23</font>
 			<label>$LOCALIZE[298] ($INFO[Container(11).NumItems])</label>
 		</control>
-		<control type="button">
-			<!-- Touch mouse close button -->
-			<left>1206</left>
-			<top>-15</top>
-			<width>48</width>
-			<height>48</height>
-			<texturefocus>touch-close.png</texturefocus>
-			<texturenofocus>touch-close.png</texturenofocus>
-			<onclick>Dialog.Close(videobookmarks)</onclick>
-			<visible>$EXP[isEnabledTouch]</visible>
-		</control>
 		<control type="image">
 			<left>92</left>
 			<top>63</top>
@@ -52,6 +41,12 @@
 			<height>6</height>
 			<texture>separator.png</texture>
 		</control>
+		<include content="dialog-touchclose">
+			<param name="closeleft" value="1206"/>
+			<param name="closetop" value="-15"/>
+			<param name="onclickcondition1" value="true"/>
+			<param name="onclickaction1" value="Dialog.Close(videobookmarks)"/>
+		</include>
 		<control type="panel" id="11">
 			<left>135</left>
 			<top>82</top>

@@ -2,28 +2,14 @@
 <window>
 	<defaultcontrol>7</defaultcontrol>
 	<controls>
-		<control type="image"><!-- Dialog background -->
-			<left>45</left>
-			<top>45</top>
-			<width>1830</width>
-			<height>978</height>
-			<texture border="14">button-menu-background.png</texture>
-		</control>
-		<control type="label"><!-- Dialog heading -->
-			<left>66</left>
-			<top>57</top>
-			<width>1788</width>
-			<height>54</height>
-			<align>center</align>
-			<label>$VAR[PVRChannelManagerHeading]</label>
-		</control>
-		<control type="image">
-			<left>66</left>
-			<top>117</top>
-			<width>1788</width>
-			<height>6</height>
-			<texture>separator.png</texture>
-		</control>
+		<include content="dialogbackground-common">
+			<param name="dialogleft" value="45"/>
+			<param name="dialogtop" value="45"/>
+			<param name="dialogwidth" value="1830"/>
+			<param name="dialogheight" value="978"/>
+			<param name="headingwidth" value="1788"/>
+			<param name="headinglabel" value="$VAR[PVRChannelManagerHeading]"/>
+		</include>
 		<control type="group">
 			<left>51</left>
 			<top>132</top>

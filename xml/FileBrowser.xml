@@ -4,28 +4,15 @@
 	<controls>
 		<control type="group">
 			<visible>!$EXP[isActiveFullscreenWindow]</visible>
-			<control type="image"><!-- Background image -->
-				<left>135</left>
-				<top>144</top>
-				<width>1656</width>
-				<height>795</height>
-				<texture border="14">button-menu-background.png</texture>
-			</control>
-			<control type="label" id="411"><!-- Heading -->
-				<left>153</left>
-				<top>162</top>
-				<width>1620</width>
-				<height>45</height>
-				<label>$LOCALIZE[1023] $INFO[Container(450).NumItems,(,)]</label>
-				<align>center</align>
-			</control>
-			<control type="image">
-				<left>153</left>
-				<top>218</top>
-				<width>1620</width>
-				<height>6</height>
-				<texture>separator.png</texture>
-			</control>
+			<!-- Dialog background and title -->
+			<include content="dialogbackground-common">
+				<param name="dialogleft" value="135"/>
+				<param name="dialogtop" value="144"/>
+				<param name="dialogwidth" value="1656"/>
+				<param name="dialogheight" value="795"/>
+				<param name="headingwidth" value="1620"/>
+				<param name="headinglabel" value="$LOCALIZE[1023]$INFO[Container(450).NumItems, (,)]"/>
+			</include>
 			<control type="list" id="450">
 				<left>204</left>
 				<top>237</top>

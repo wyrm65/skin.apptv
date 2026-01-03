@@ -2,28 +2,23 @@
 <window>
 	<defaultcontrol>10</defaultcontrol>
 	<controls>
-		<control type="image"><!-- Dialog background -->
-			<left>266</left>
-			<top>280</top>
-			<width>1380</width>
-			<height>627</height>
-			<texture border="14">button-menu-background.png</texture>
-		</control>
 		<control type="label" id="2"><!-- Heading -->
 			<left>320</left>
-			<top>296</top>
+			<top>-50</top>
 			<width>1272</width>
 			<height>69</height>
 			<align>center</align>
 			<font>apptv23</font>
 		</control>
-		<control type="image">
-			<left>316</left>
-			<top>352</top>
-			<width>1272</width>
-			<height>6</height>
-			<texture>separator.png</texture>
-		</control>
+		<!-- Dialog background and title -->
+		<include content="dialogbackground-common">
+			<param name="dialogleft" value="266"/>
+			<param name="dialogtop" value="280"/>
+			<param name="dialogwidth" value="1380"/>
+			<param name="dialogheight" value="627"/>
+			<param name="headingwidth" value="1272"/>
+			<param name="headinglabel" value="$INFO[Control.GetLabel(2)]"/>
+		</include>
 		<control type="label"><!-- Path heading -->
 			<left>320</left>
 			<top>356</top>

@@ -3,29 +3,15 @@
 	<defaultcontrol>500</defaultcontrol>
 	<onunload>ClearProperty(EditViews,home)</onunload>
 	<controls>
-		<control type="image"><!-- Dialog background -->
-			<left>512</left>
-			<top>250</top>
-			<width>894</width>
-			<height>489</height>
-			<texture colordiffuse="UnFocusedPosters" border="14">button-menu-background.png</texture>
-		</control>
-		<control type="label"><!-- Header -->
-			<left>527</left>
-			<top>262</top>
-			<width>864</width>
-			<height>60</height>
-			<font>apptv23</font>
-			<label>$LOCALIZE[31895]$INFO[Container(500).NumItems, (,)]</label>
-			<align>center</align>
-		</control>
-		<control type="image">
-			<left>527</left>
-			<top>325</top>
-			<width>864</width>
-			<height>6</height>
-			<texture>separator.png</texture>
-		</control>
+		<!-- Dialog background and title -->
+		<include content="dialogbackground-common">
+			<param name="dialogleft" value="512"/>
+			<param name="dialogtop" value="250"/>
+			<param name="dialogwidth" value="894"/>
+			<param name="dialogheight" value="489"/>
+			<param name="headingwidth" value="864"/>
+			<param name="headinglabel" value="$LOCALIZE[31895]$INFO[Container(500).NumItems, (,)]"/>
+		</include>
 		<control type="grouplist" id="500">
 			<animation effect="fade" time="200">VisibleChange</animation>
 			<left>527</left>

@@ -42,16 +42,6 @@
 				<label>$INFO[System.Date(DDD)], $INFO[System.Date(d)] $INFO[System.Date(mmm)] $INFO[System.Date(yyyy)] • $INFO[System.Time]</label>
 				<align>center</align>
 			</control>
-			<control type="button">
-				<left>1287</left>
-				<top>79</top>
-				<width>48</width>
-				<height>48</height>
-				<texturefocus>touch-close.png</texturefocus>
-				<texturenofocus>touch-close.png</texturenofocus>
-				<onclick>Dialog.Close(pvrosdchannels)</onclick>
-				<visible>$EXP[isEnabledTouch]</visible>
-			</control>
 			<control type="image">
 				<left>598</left>
 				<top>196</top>
@@ -59,6 +49,12 @@
 				<height>6</height>
 				<texture>separator.png</texture>
 			</control>
+			<include content="dialog-touchclose">
+				<param name="closeleft" value="1287"/>
+				<param name="closetop" value="79"/>
+				<param name="onclickcondition1" value="true"/>
+				<param name="onclickaction1" value="Dialog.Close(pvrosdchannels)"/>
+			</include>
 			<control type="list" id="11">
 				<left>618</left>
 				<top>205</top>

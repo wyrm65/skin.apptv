@@ -10,16 +10,12 @@
 				<height>940</height>
 				<texture border="14">button-menu-background.png</texture>
 			</control>
-			<control type="button">
-				<left>1290</left>
-				<top>28</top>
-				<width>48</width>
-				<height>48</height>
-				<texturefocus>touch-close.png</texturefocus>
-				<texturenofocus>touch-close.png</texturenofocus>
-				<onclick>Close</onclick>
-				<visible>$EXP[isEnabledTouch]</visible>
-			</control>
+			<include content="dialog-touchclose">
+				<param name="closeleft" value="1290"/>
+				<param name="closetop" value="28"/>
+				<param name="onclickcondition1" value="true"/>
+				<param name="onclickaction1" value="Close"/>
+			</include>
 			<control type="grouplist">
 				<left>630</left>
 				<top>68</top>

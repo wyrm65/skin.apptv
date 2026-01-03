@@ -9,30 +9,15 @@
 		</control>
 		<control type="group">
 			<visible>String.IsEqual(Window(home).Property(SelectDialogType),selectskinplaylist) | String.IsEqual(Window(home).Property(SelectDialogType),selectuserplaylist)</visible>
-			<control type="image"><!-- Dialog background image -->
-				<left>135</left>
-				<top>144</top>
-				<width>1656</width>
-				<height>795</height>
-				<texture border="14">button-menu-background.png</texture>
-			</control>
-			<control type="label"><!-- Dialog heading -->
-				<left>153</left>
-				<top>166</top>
-				<width>1476</width>
-				<height>56</height>
-				<label>$LOCALIZE[1033]</label>
-				<align>center</align>
-				<aligny>top</aligny>
-				<font>apptv23</font>
-			</control>
-			<control type="image">
-				<left>153</left>
-				<top>210</top>
-				<width>1620</width>
-				<height>6</height>
-				<texture>separator.png</texture>
-			</control>
+			<!-- Dialog background and title -->
+			<include content="dialogbackground-common">
+				<param name="dialogleft" value="135"/>
+				<param name="dialogtop" value="144"/>
+				<param name="dialogwidth" value="1656"/>
+				<param name="dialogheight" value="795"/>
+				<param name="headingwidth" value="1620"/>
+				<param name="headinglabel" value="$LOCALIZE[1033]"/>
+			</include>
 			<control type="grouplist" id="1000">
 				<animation effect="fade" time="200">VisibleChange</animation>
 				<left>204</left>

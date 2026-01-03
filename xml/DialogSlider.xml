@@ -13,16 +13,12 @@
 				<texture border="14">button-menu-background.png</texture>
 				<colordiffuse>mask-background</colordiffuse>
 			</control>
-			<control type="button"><!-- Touch Close button -->
-				<left>1029</left>
-				<top>-15</top>
-				<width>48</width>
-				<height>48</height>
-				<texturefocus>touch-close.png</texturefocus>
-				<texturenofocus>touch-close.png</texturenofocus>
-				<onclick>Dialog.Close(sliderdialog)</onclick>
-				<visible>$EXP[isEnabledTouch]</visible>
-			</control>
+			<include content="dialog-touchclose">
+				<param name="closeleft" value="1029"/>
+				<param name="closetop" value="-15"/>
+				<param name="onclickcondition1" value="true"/>
+				<param name="onclickaction1" value="Dialog.Close(sliderdialog)"/>
+			</include>
 			<control type="label" id="10"><!-- Dialog heading -->
 				<left>33</left>
 				<top>27</top>
