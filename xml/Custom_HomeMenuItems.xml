@@ -2,6 +2,7 @@
 <window type="dialog" id="1153">
 	<onload>ClearProperty(ShowAction,settings)</onload>
 	<onload>ClearProperty(ShowCommands,settings)</onload>
+	<onload>Skin.Reset(HomeItemToggle)</onload>
 	<defaultcontrol always="true">4999</defaultcontrol>
 	<controls>
 		<control type="group">
@@ -10,28 +11,15 @@
 		<control type="group">
 			<left>206</left>
 			<top>270</top>
-			<control type="image"><!-- Dialog background -->
-				<left>0</left>
-				<top>0</top>
-				<width>1506</width>
-				<height>549</height>
-				<texture border="14">button-menu-background.png</texture>
-			</control>
-			<control type="label"><!-- Dialog heading -->
-				<left>38</left>
-				<top>18</top>
-				<width>1431</width>
-				<height>45</height>
-				<align>center</align>
-				<label>$LOCALIZE[31926]</label>
-			</control>
-			<control type="image">
-				<left>38</left>
-				<top>72</top>
-				<width>1431</width>
-				<height>6</height>
-				<texture>separator.png</texture>
-			</control>
+			<!-- Dialog background and title -->
+			<include content="dialogbackground-common">
+				<param name="dialogleft" value="0"/>
+				<param name="dialogtop" value="0"/>
+				<param name="dialogwidth" value="1506"/>
+				<param name="dialogheight" value="549"/>
+				<param name="headingwidth" value="1431"/>
+				<param name="headinglabel" value="$LOCALIZE[31926]"/>
+			</include>
 			<control type="button" id="4999">
 				<label></label><!-- Assign custom home shortcut from context menu to favourite button -->
 				<left>38</left>
@@ -43,6 +31,8 @@
 				<onfocus condition="!String.IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Label],$INFO[Window(home).Property(ItemName)])</onfocus>
 				<onfocus condition="!String.IsEmpty(Window(home).Property(ItemPath))">Skin.SetString($INFO[Window(settings).Property(ListCustomBase),,.Icon],$INFO[Window(home).Property(ItemIcon)])</onfocus>
 				<onfocus condition="!String.IsEmpty(Window(home).Property(ItemPath))">ClearProperty(ItemPath,home)</onfocus>
+				<onfocus condition="Skin.HasSetting($INFO[Window(settings).Property(ListToggle)])">Skin.SetBool(HomeItemToggle)</onfocus>
+				<onfocus condition="!Skin.HasSetting($INFO[Window(settings).Property(ListToggle)])">Skin.Reset(HomeItemToggle)</onfocus>
 				<onfocus>SetFocus(5000)</onfocus>
 			</control>
 			<control type="grouplist" id="5000">
@@ -138,35 +128,18 @@
 					<font>apptv22</font>
 					<visible>!String.IsEmpty(Window(settings).Property(ListCustomBase))</visible>
 				</control>
-				<control type="group" id="5006"><!-- Show/Hide menu item -->
+				<control type="radiobutton" id="5007"><!-- Show/Hide menu item -->
 					<left>0</left>
 					<top>0</top>
 					<width>1431</width>
 					<height>72</height>
+					<font>apptv22</font>
+					<textwidth>1431</textwidth>
+					<label>$LOCALIZE[31915] </label>
+					<selected>Skin.HasSetting(HomeItemToggle)</selected>
+					<onclick>Skin.ToggleSetting($INFO[Window(settings).Property(ListToggle)])</onclick>
+					<onclick>Skin.ToggleSetting(HomeItemToggle)</onclick>
 					<visible>String.IsEmpty(Window(settings).Property(ListCustomBase)) + !String.IsEqual(Window(settings).Property(ListToggle),home-shutdown)</visible>
-					<control type="togglebutton" id="5007">
-						<width>1431</width>
-						<height>72</height>
-						<label>$LOCALIZE[16041]</label>
-						<altlabel>$LOCALIZE[16039]</altlabel>
-						<onup>5005</onup>
-						<ondown>5008</ondown>
-						<onright>Close</onright>
-						<onleft>Close</onleft>
-						<font>apptv22</font>
-						<align>right</align>
-						<include content="use-alttexture">
-							<param name="altcondition" value="Window(settings).Property(ListActive)" />
-						</include>
-						<onclick>Skin.ToggleSetting($INFO[Window(settings).Property(ListToggle)])</onclick>
-					</control>
-					<control type="label">
-						<width>1431</width>
-						<height>72</height>
-						<label>$LOCALIZE[31915]</label>
-						<font>apptv22</font>
-						<textoffsetx>27</textoffsetx>
-					</control>
 				</control>
 				<control type="button" id="5008"><!-- Assign favourite to custom menu item -->
 					<width>1431</width>
@@ -380,42 +353,22 @@
 			<onfocus>SetFocus(5000)</onfocus>
 		</control>
 		<control type="group" id="6000">
-			<left>0</left>
-			<top>1080</top>
-			<animation effect="slide" start="0,0" end="0,-1080">Visible</animation>
 			<visible allowhiddenfocus="true">!String.IsEmpty(Window(settings).Property(ShowAction))</visible>
-			<control type="image"><!-- Dialog background -->
-				<left>1150</left>
-				<top>342</top>
-				<width>561</width>
-				<height>378</height>
-				<texture border="14">button-menu-background.png</texture>
-			</control>
-			<control type="label"><!-- Dialog heading -->
-				<left>1168</left>
-				<top>354</top>
-				<width>525</width>
-				<height>51</height>
-				<label>$LOCALIZE[31928]$INFO[Container(6001).NumItems,(,)]</label>
-				<align>center</align>
-			</control>
-			<control type="button"><!-- Touch Close button -->
-				<left>1680</left>
-				<top>328</top>
-				<width>48</width>
-				<height>48</height>
-				<texturefocus>touch-close.png</texturefocus>
-				<texturenofocus>touch-close.png</texturenofocus>
-				<onclick>SetFocus(6005)</onclick>
-				<visible>$EXP[isEnabledTouch]</visible>
-			</control>
-			<control type="image">
-				<left>1168</left>
-				<top>411</top>
-				<width>525</width>
-				<height>6</height>
-				<texture>separator.png</texture>
-			</control>
+			<!-- Dialog background and title -->
+			<include content="dialogbackground-common">
+				<param name="dialogleft" value="1150"/>
+				<param name="dialogtop" value="342"/>
+				<param name="dialogwidth" value="561"/>
+				<param name="dialogheight" value="378"/>
+				<param name="headingwidth" value="525"/>
+				<param name="headinglabel" value="$LOCALIZE[31928]$INFO[Container(6001).NumItems,(,)]"/>
+			</include>
+			<include content="dialog-touchclose">
+				<param name="closeleft" value="1680"/>
+				<param name="closetop" value="328"/>
+				<param name="onclickcondition1" value="true"/>
+				<param name="onclickaction1" value="SetFocus(6005)"/>
+			</include>
 			<control type="list" id="6001"><!-- Custom menuitem type -->
 				<left>1168</left>
 				<top>423</top>
@@ -508,38 +461,21 @@
 			<top>1080</top>
 			<animation effect="slide" start="0,0" end="0,-1080">Visible</animation>
 			<visible allowhiddenfocus="true">!String.IsEmpty(Window(settings).Property(ShowCommands))</visible>
-			<control type="image"><!-- Dialog background -->
-				<left>1150</left>
-				<top>414</top>
-				<width>561</width>
-				<height>378</height>
-				<texture border="14">button-menu-background.png</texture>
-			</control>
-			<control type="label"><!-- Dialog heading -->
-				<left>1168</left>
-				<top>429</top>
-				<width>525</width>
-				<height>51</height>
-				<label>$LOCALIZE[31929]$INFO[Container(6011).NumItems,(,)]</label>
-				<align>center</align>
-			</control>
-			<control type="button"><!-- Touch Close button -->
-				<left>1680</left>
-				<top>398</top>
-				<width>48</width>
-				<height>48</height>
-				<texturefocus>touch-close.png</texturefocus>
-				<texturenofocus>touch-close.png</texturenofocus>
-				<onclick>SetFocus(6015)</onclick>
-				<visible>$EXP[isEnabledTouch]</visible>
-			</control>
-			<control type="image">
-				<left>1168</left>
-				<top>483</top>
-				<width>525</width>
-				<height>6</height>
-				<texture>separator.png</texture>
-			</control>
+			<!-- Dialog background and title -->
+			<include content="dialogbackground-common">
+				<param name="dialogleft" value="1150"/>
+				<param name="dialogtop" value="414"/>
+				<param name="dialogwidth" value="561"/>
+				<param name="dialogheight" value="378"/>
+				<param name="headingwidth" value="525"/>
+				<param name="headinglabel" value="$LOCALIZE[31929]$INFO[Container(6011).NumItems,(,)]"/>
+			</include>
+			<include content="dialog-touchclose">
+				<param name="closeleft" value="1680"/>
+				<param name="closetop" value="398"/>
+				<param name="onclickcondition1" value="true"/>
+				<param name="onclickaction1" value="SetFocus(6015)"/>
+			</include>
 			<control type="list" id="6011"><!-- Custom action type - Commands -->
 				<left>1168</left>
 				<top>495</top>
@@ -696,38 +632,21 @@
 			<top>1080</top>
 			<animation effect="slide" start="0,0" end="0,-1080">Visible</animation>
 			<visible allowhiddenfocus="true">!String.IsEmpty(Window(settings).Property(ShowQuit))</visible>
-			<control type="image"><!-- Dialog background -->
-				<left>1150</left>
-				<top>414</top>
-				<width>561</width>
-				<height>378</height>
-				<texture border="14">button-menu-background.png</texture>
-			</control>
-			<control type="label"><!-- Dialog heading -->
-				<left>1168</left>
-				<top>429</top>
-				<width>525</width>
-				<height>51</height>
-				<label>$LOCALIZE[31914]$INFO[Container(6021).NumItems,(,)]</label>
-				<align>center</align>
-			</control>
-			<control type="button"><!-- Touch Close button -->
-				<left>1680</left>
-				<top>398</top>
-				<width>48</width>
-				<height>48</height>
-				<texturefocus>touch-close.png</texturefocus>
-				<texturenofocus>touch-close.png</texturenofocus>
-				<onclick>SetFocus(6025)</onclick>
-				<visible>$EXP[isEnabledTouch]</visible>
-			</control>
-			<control type="image">
-				<left>1168</left>
-				<top>483</top>
-				<width>525</width>
-				<height>6</height>
-				<texture>separator.png</texture>
-			</control>
+			<!-- Dialog background and title -->
+			<include content="dialogbackground-common">
+				<param name="dialogleft" value="1150"/>
+				<param name="dialogtop" value="414"/>
+				<param name="dialogwidth" value="561"/>
+				<param name="dialogheight" value="378"/>
+				<param name="headingwidth" value="525"/>
+				<param name="headinglabel" value="$LOCALIZE[31914]$INFO[Container(6021).NumItems,(,)]"/>
+			</include>
+			<include content="dialog-touchclose">
+				<param name="closeleft" value="1680"/>
+				<param name="closetop" value="398"/>
+				<param name="onclickcondition1" value="true"/>
+				<param name="onclickaction1" value="SetFocus(6025)"/>
+			</include>
 			<control type="list" id="6021"><!-- Custom action type - Quit actions -->
 				<left>1168</left>
 				<top>495</top>
