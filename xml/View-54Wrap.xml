@@ -103,10 +103,10 @@
 				<control type="group">
 					<visible>$EXP[isnotDefaultIcon]</visible>
 					<control type="image">
-						<left>10</left>
+						<left>23</left>
 						<top>195</top>
-						<height>525</height>
-						<width>384</width>
+						<height>522</height>
+						<width>360</width>
 						<texture>mask-hilite.png</texture>
 						<aspectratio>stretch</aspectratio>
 						<visible>Control.HasFocus(54)</visible>
@@ -268,9 +268,9 @@
 				<param name="letterbartop" value="951"/>
 				<param name="searchid" value="1244"/>
 				<param name="letterbarid" value="1264"/>
+				<param name="letterbarlistid" value="1284"/>
 				<param name="scrollbarid" value="1254"/>
 				<param name="listitemid" value="54"/>
-				<param name="illegalexitsearch" value="4542"/>
 				<param name="illegalexitbar" value="4544"/>
 				<param name="letterbarvisible" value="Skin.HasSetting(show-letterbar)+[$EXP[isContentMovies]|$EXP[isContentTvshows]|$EXP[isContentMusicvideos]]"/>
 			</include>
@@ -291,11 +291,6 @@
 			<include content="illegal-action">
 				<param name="controlid" value="4541" />
 				<param name="returnid" value="54" />
-			</include>
-			<!-- Play bump sound if user tries leaving search button by undefined direction -->
-			<include content="illegal-action">
-				<param name="controlid" value="4542" />
-				<param name="returnid" value="1244" />
 			</include>
 			<!-- Play bump sound if user tries leaving scrollbar by undefined direction -->
 			<include content="illegal-action">

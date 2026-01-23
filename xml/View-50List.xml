@@ -370,9 +370,9 @@
 			<param name="letterbarleft" value="1850"/>
 			<param name="letterbartop" value="166"/>
 			<param name="letterbarid" value="1260"/>
+			<param name="letterbarlistid" value="1280"/>
 			<param name="scrollbarid" value="1250"/>
 			<param name="listitemid" value="50"/>
-			<param name="illegalexitsearch" value="4503"/>
 			<param name="illegalexitbar" value="4505"/>
 			<param name="letterbarvisible" value="Control.IsVisible(50)+Skin.HasSetting(show-letterbar)+[$EXP[isContentSets]|$EXP[isContentMovies]|$EXP[isContentTvshows]|$EXP[isContentMusicvideos]]"/>
 		</include>
@@ -397,11 +397,6 @@
 		<include content="illegal-action">
 			<param name="controlid" value="4502" />
 			<param name="returnid" value="50" />
-		</include>
-		<!-- Play bump sound if user tries leaving search button by undefined direction -->
-		<include content="illegal-action">
-			<param name="controlid" value="4503" />
-			<param name="returnid" value="1240" />
 		</include>
 		<!-- Play bump sound if user tries leaving scrollbar by undefined direction -->
 		<include content="illegal-action">

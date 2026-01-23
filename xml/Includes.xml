@@ -348,7 +348,7 @@
 	</include>
 	<include name="CustomHorzFocusitem">
 		<control type="group">
-			<animation effect="fade" start="100" end="60" condition="String.IsEmpty(ListItem.Property(isActive))">Conditional</animation>
+			<animation effect="fade" start="100" end="60" condition="!ListItem.Property(isActive)">Conditional</animation>
 			<control type="image">
 				<left>0</left>
 				<top>0</top>
@@ -538,12 +538,6 @@
 					<align>center</align>
 				</control>
 			</control>
-		</definition>
-	</include>
-	<include name="use-alttexture">
-		<param name="visiblecondition" />
-		<definition>
-			<usealttexture>$PARAM[visiblecondition]</usealttexture>
 		</definition>
 	</include>
 	<include name="listpanelitems">
@@ -933,6 +927,7 @@
 		<definition>
 			<item>
 				<icon>touch-search.png</icon>
+				<label></label>
 				<onclick>SetProperty(CustomSearch,1,home)</onclick>
 				<onclick>Skin.Reset(CustomSearchTerm)</onclick>
 				<onclick>Skin.SetString(CustomSearchTerm)</onclick>
@@ -941,6 +936,7 @@
 			<item>
 				<label>#</label>
 				<onclick>Control.SetFocus($PARAM[listitemid],0,absolute)</onclick>
+				<onclick>Control.SetFocus($PARAM[letterbarid])</onclick>
 			</item>
 			<item>
 				<label>A</label>
@@ -1130,21 +1126,42 @@
 			</item>
 		</definition>
 	</include>
+	<include name="letterbar-iconitem">
+		<control type="image">
+			<width>30</width>
+			<height>30</height>
+			<texture>$INFO[ListItem.Icon]</texture>
+			<animation condition="[!$EXP[IsNumericSortLetter] + !$EXP[IsAlphaSortLetter]]" effect="zoom" start="100" end="145" center="auto">Conditional</animation>
+			<animation condition="[!$EXP[IsNumericSortLetter] + !$EXP[IsAlphaSortLetter]]" effect="fadediffuse" start="FFFFFFFF" end="listselected-text">Conditional</animation>
+		</control>
+	</include>
+	<include name="letterbar-letteritem">
+		<control type="label">
+			<width>30</width>
+			<height>30</height>
+			<label>$INFO[ListItem.Label]</label>
+			<font>apptv18</font>
+			<align>center</align>
+			<aligny>center</aligny>
+			<animation condition="String.StartsWith(ListItem.Label,Control.GetLabel(7000)) | [$EXP[IsNumericSortLetter] + String.StartsWith(ListItem.Label,#)]" effect="zoom" start="100" end="145" center="auto">Conditional</animation>
+			<animation condition="String.StartsWith(ListItem.Label,Control.GetLabel(7000)) | [$EXP[IsNumericSortLetter] + String.StartsWith(ListItem.Label,#)]" effect="fadediffuse" start="FFFFFFFF" end="listselected-text">Conditional</animation>
+		</control>
+	</include>
 	<include name="letterbar-vertical">
 		<param name="letterbarleft" />
 		<param name="letterbartop" />
 		<param name="letterbarid" />
+		<param name="letterbarlistid" />
 		<param name="scrollbarid" />
 		<param name="listitemid" />
-		<param name="illegalexitsearch" default="noop" />
 		<param name="illegalexitbar" default="noop" />
 		<param name="letterbarvisible" />
 		<definition>
 			<control type="group">
-				<visible>$PARAM[letterbarvisible]</visible>
+				<visible>$PARAM[letterbarvisible] + !Window.IsActive(virtualkeyboard)</visible>
 				<animation effect="fadediffuse" start="FF808080" end="FFFFFFFF">VisibleChange</animation>
-				<animation effect="fadediffuse" start="FF808080" end="FFFFFFFF" condition="Control.HasFocus($PARAM[letterbarid])|Control.HasFocus($PARAM[letterbarid]1)">Conditional</animation>
-				<control type="label" id="50000">
+				<animation effect="fadediffuse" start="FF808080" end="FFFFFFFF" condition="Control.HasFocus($PARAM[letterbarid])|Control.HasFocus($PARAM[letterbarlistid])">Conditional</animation>
+				<control type="label" id="7000">
 					<left>-40</left>
 					<top>-40</top>
 					<width>30</width>
@@ -1160,16 +1177,20 @@
 					<onleft>$PARAM[listitemid]</onleft>
 					<onright condition="$EXP[isEnabledScrollbar]">$PARAM[scrollbarid]</onright>
 					<onright condition="![$EXP[isEnabledScrollbar]]">$PARAM[illegalexitbar]</onright>
-					<onup condition="$EXP[IsNumericSortLetter]">Control.SetFocus($PARAM[letterbarid]1,0,absolute)</onup>
+					<onup condition="$EXP[IsNumericSortLetter]">Control.SetFocus($PARAM[letterbarlistid],0,absolute)</onup>
 					<onup condition="$EXP[IsNumericSortLetter]">Action(Select)</onup>
-					<onup condition="$EXP[IsAlphaSortLetter]">Control.SetFocus($PARAM[listitemid])</onup>
-					<onup condition="$EXP[IsAlphaSortLetter]">Action(prevletter)</onup>
+					<onup condition="$EXP[IsNumericSortLetter]">Control.SetFocus($PARAM[letterbarlistid],1,absolute)</onup>
+					<onup condition="$EXP[IsAlphaSortLetter] + String.IsEqual(ListItem.SortLetter,A)">Control.SetFocus($PARAM[listitemid],1,absolute)</onup>
+					<onup condition="$EXP[IsAlphaSortLetter] + !String.IsEqual(ListItem.SortLetter,A)">Control.SetFocus($PARAM[listitemid])</onup>
+					<onup condition="$EXP[IsAlphaSortLetter] + !String.IsEqual(ListItem.SortLetter,A)">Action(prevletter)</onup>
 					<onup>Control.SetFocus($PARAM[letterbarid])</onup>
-					<ondown>Control.SetFocus($PARAM[listitemid])</ondown>
-					<ondown>Action(nextletter)</ondown>
+					<ondown condition="$EXP[IsNumericSortLetter]">Control.SetFocus($PARAM[listitemid])</ondown>
+					<ondown condition="$EXP[IsNumericSortLetter]">Action(JumpSMS2)</ondown>
+					<ondown condition="$EXP[IsAlphaSortLetter]">Control.SetFocus($PARAM[listitemid])</ondown>
+					<ondown condition="$EXP[IsAlphaSortLetter]">Action(nextletter)</ondown>
 					<ondown>Control.SetFocus($PARAM[letterbarid])</ondown>
 				</control>
-				<control type="list" id="$PARAM[letterbarid]1">
+				<control type="list" id="$PARAM[letterbarlistid]">
 					<left>$PARAM[letterbarleft]</left>
 					<top>$PARAM[letterbartop]</top>
 					<width>30</width>
@@ -1180,50 +1201,12 @@
 					<ondown>$PARAM[illegalexitbar]</ondown>
 					<orientation>vertical</orientation>
 					<itemlayout width="30" height="31">
-						<control type="image">
-							<width>30</width>
-							<height>30</height>
-							<texture>$INFO[ListItem.Icon]</texture>
-						</control>
-						<control type="label">
-							<width>30</width>
-							<height>30</height>
-							<textcolor>button-text</textcolor>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv18</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<visible>![String.StartsWith(ListItem.Label,Control.GetLabel(50000))] | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogConfirm.xml) | Window.IsVisible(DialogKeyboard.xml)</visible>
-						</control>
-						<control type="label">
-							<width>30</width>
-							<height>30</height>
-							<textcolor>listselected-text</textcolor>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv18</font>
-							<align>center</align>
-							<animation condition="true" effect="zoom" start="100" end="145" center="auto">Conditional</animation>
-							<visible>[!String.IsEmpty(ListItem.Label)] + [String.StartsWith(ListItem.Label,Control.GetLabel(50000))]+!Window.IsVisible(DialogContextMenu.xml)+!Window.IsVisible(DialogConfirm.xml) + !Window.IsVisible(DialogKeyboard.xml)</visible>
-						</control>
+						<include>letterbar-iconitem</include>
+						<include>letterbar-letteritem</include>
 					</itemlayout>
 					<focusedlayout width="30" height="31">
-						<control type="group">
-							<animation condition="true" effect="zoom" start="100" end="145" center="auto">Conditional</animation>
-							<control type="image">
-								<width>30</width>
-								<height>30</height>
-								<texture>$INFO[ListItem.Icon]</texture>
-							</control>
-							<control type="label">
-								<width>30</width>
-								<height>30</height>
-								<textcolor>button-text</textcolor>
-								<label>$INFO[ListItem.Label]</label>
-								<font>apptv18</font>
-								<align>center</align>
-								<aligny>center</aligny>
-							</control>
-						</control>
+						<include>letterbar-iconitem</include>
+						<include>letterbar-letteritem</include>
 					</focusedlayout>
 					<content>
 						<include content="letterbar-listitems">
@@ -1239,17 +1222,17 @@
 		<param name="letterbarleft" />
 		<param name="letterbartop" />
 		<param name="letterbarid" />
+		<param name="letterbarlistid" />
 		<param name="scrollbarid" />
 		<param name="listitemid" />
-		<param name="illegalexitsearch" default="noop" />
 		<param name="illegalexitbar" default="noop" />
 		<param name="letterbarvisible" />
 		<definition>
 			<control type="group">
-				<visible>$PARAM[letterbarvisible]</visible>
+				<visible>$PARAM[letterbarvisible] + !Window.IsActive(virtualkeyboard)</visible>
 				<animation effect="fadediffuse" start="FF808080" end="FFFFFFFF">VisibleChange</animation>
-				<animation effect="fadediffuse" start="FF808080" end="FFFFFFFF" condition="Control.HasFocus($PARAM[letterbarid])|Control.HasFocus($PARAM[letterbarid]1)">Conditional</animation>
-				<control type="label" id="50001">
+				<animation effect="fadediffuse" start="FF808080" end="FFFFFFFF" condition="Control.HasFocus($PARAM[letterbarid])|Control.HasFocus($PARAM[letterbarlistid])">Conditional</animation>
+				<control type="label" id="7000">
 					<left>-40</left>
 					<top>-40</top>
 					<width>30</width>
@@ -1264,16 +1247,20 @@
 					<height>30</height>
 					<onup>$PARAM[listitemid]</onup>
 					<ondown>$PARAM[scrollbarid]</ondown>
-					<onleft condition="$EXP[IsNumericSortLetter]">Control.SetFocus($PARAM[letterbarid]1,0,absolute)</onleft>
+					<onleft condition="$EXP[IsNumericSortLetter]">Control.SetFocus($PARAM[letterbarlistid],0,absolute)</onleft>
 					<onleft condition="$EXP[IsNumericSortLetter]">Action(Select)</onleft>
-					<onleft condition="$EXP[IsAlphaSortLetter]">Control.SetFocus($PARAM[listitemid])</onleft>
-					<onleft condition="$EXP[IsAlphaSortLetter]">Action(prevletter)</onleft>
+					<onleft condition="$EXP[IsNumericSortLetter]">Control.SetFocus($PARAM[letterbarlistid],1,absolute)</onleft>
+					<onleft condition="$EXP[IsAlphaSortLetter] + String.IsEqual(ListItem.SortLetter,A)">Control.SetFocus($PARAM[listitemid],1,absolute)</onleft>
+					<onleft condition="$EXP[IsAlphaSortLetter] + !String.IsEqual(ListItem.SortLetter,A)">Control.SetFocus($PARAM[listitemid])</onleft>
+					<onleft condition="$EXP[IsAlphaSortLetter] + !String.IsEqual(ListItem.SortLetter,A)">Action(prevletter)</onleft>
 					<onleft>Control.SetFocus($PARAM[letterbarid])</onleft>
-					<onright>Control.SetFocus($PARAM[listitemid])</onright>
-					<onright>Action(nextletter)</onright>
+					<onright condition="$EXP[IsNumericSortLetter]">Control.SetFocus($PARAM[listitemid])</onright>
+					<onright condition="$EXP[IsNumericSortLetter]">Action(JumpSMS2)</onright>
+					<onright condition="$EXP[IsAlphaSortLetter] | [!$EXP[IsNumericSortLetter] + !$EXP[IsAlphaSortLetter]]">Control.SetFocus($PARAM[listitemid])</onright>
+					<onright condition="$EXP[IsAlphaSortLetter] | [!$EXP[IsNumericSortLetter] + !$EXP[IsAlphaSortLetter]]">Action(nextletter)</onright>
 					<onright>Control.SetFocus($PARAM[letterbarid])</onright>
 				</control>
-				<control type="list" id="$PARAM[letterbarid]1">
+				<control type="list" id="$PARAM[letterbarlistid]">
 					<left>$PARAM[letterbarleft]</left>
 					<top>$PARAM[letterbartop]</top>
 					<width>1848</width>
@@ -1284,50 +1271,12 @@
 					<onright>$PARAM[illegalexitbar]</onright>
 					<orientation>horizontal</orientation>
 					<itemlayout width="64" height="30">
-						<control type="image">
-							<width>30</width>
-							<height>30</height>
-							<texture>$INFO[ListItem.Icon]</texture>
-						</control>
-						<control type="label">
-							<width>30</width>
-							<height>30</height>
-							<textcolor>button-text</textcolor>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv18</font>
-							<align>center</align>
-							<aligny>center</aligny>
-							<visible>![String.StartsWith(ListItem.Label,Control.GetLabel(50001))] | Window.IsVisible(DialogContextMenu.xml) | Window.IsVisible(DialogConfirm.xml) | Window.IsVisible(DialogKeyboard.xml)</visible>
-						</control>
-						<control type="label">
-							<width>30</width>
-							<height>30</height>
-							<textcolor>listselected-text</textcolor>
-							<label>$INFO[ListItem.Label]</label>
-							<font>apptv18</font>
-							<align>center</align>
-							<animation condition="true" effect="zoom" start="100" end="145" center="auto">Conditional</animation>
-							<visible>[!String.IsEmpty(ListItem.Label)] + [String.StartsWith(ListItem.Label,Control.GetLabel(50001))] + !Window.IsVisible(DialogContextMenu.xml) + !Window.IsVisible(DialogConfirm.xml) + !Window.IsVisible(DialogKeyboard.xml)</visible>
-						</control>
+						<include>letterbar-iconitem</include>
+						<include>letterbar-letteritem</include>
 					</itemlayout>
 					<focusedlayout width="64" height="30">
-						<control type="group">
-							<animation condition="true" effect="zoom" start="100" end="145" center="auto">Conditional</animation>
-							<control type="image">
-								<width>30</width>
-								<height>30</height>
-								<texture>$INFO[ListItem.Icon]</texture>
-							</control>
-							<control type="label">
-								<width>30</width>
-								<height>30</height>
-								<textcolor>button-text</textcolor>
-								<label>$INFO[ListItem.Label]</label>
-								<font>apptv18</font>
-								<align>center</align>
-								<aligny>center</aligny>
-							</control>
-						</control>
+						<include>letterbar-iconitem</include>
+						<include>letterbar-letteritem</include>
 					</focusedlayout>
 					<content>
 						<include content="letterbar-listitems">

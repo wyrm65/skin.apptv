@@ -53,30 +53,21 @@
 	<expression name="isActiveWindowedDialog">[Window.IsActive(yesnodialog) | Window.IsActive(progressdialog) | Window.IsActive(virtualkeyboard) | Window.IsActive(contextmenu)
 									| Window.IsActive(shutdownmenu) | Window.IsActive(DialogSelect.xml) | Window.IsActive(videobookmarks) | Window.IsActive(mediasource) | Window.IsActive(numericinput)
 									| Window.IsActive(DialogBusy.xml) | Window.IsActive(DialogVideoManager.xml) | Window.IsActive(Custom_3DDialogSelect.xml)
-									| Window.IsActive(extendedprogressdialog)]</expression>
+									| Window.IsActive(extendedprogressdialog) | Window.IsActive(Custom_HomeMenuItems.xml)]</expression>
 	<expression name="IsSearching">[Container(101).IsUpdating | Container(103).IsUpdating | Container(105).IsUpdating | Container(107).IsUpdating
 									| Container(108).IsUpdating | Container(110).IsUpdating  Container(112).IsUpdating  | Container(114).IsUpdating 
 									| Container(116).IsUpdating | Container(117).IsUpdating  Container(119).IsUpdating]</expression>
-	<expression name="IsNumericSortLetter">[String.IsEqual(ListItem.SortLetter,0) | String.IsEqual(ListItem.SortLetter,1) | String.IsEqual(ListItem.SortLetter,2)
-											| String.IsEqual(ListItem.SortLetter,3) | String.IsEqual(ListItem.SortLetter,4) | String.IsEqual(ListItem.SortLetter,5)
-											| String.IsEqual(ListItem.SortLetter,6) | String.IsEqual(ListItem.SortLetter,7) | String.IsEqual(ListItem.SortLetter,8)
-									 		| String.IsEqual(ListItem.SortLetter,9)]</expression>
-	<expression name="IsAlphaSortLetter">[String.IsEqual(ListItem.SortLetter,A) | String.IsEqual(ListItem.SortLetter,B) | String.IsEqual(ListItem.SortLetter,C)
-										| String.IsEqual(ListItem.SortLetter,D) | String.IsEqual(ListItem.SortLetter,E) | String.IsEqual(ListItem.SortLetter,F)
-										| String.IsEqual(ListItem.SortLetter,G) | String.IsEqual(ListItem.SortLetter,H) | String.IsEqual(ListItem.SortLetter,I)
-									 	| String.IsEqual(ListItem.SortLetter,J) | String.IsEqual(ListItem.SortLetter,K) | String.IsEqual(ListItem.SortLetter,L)
-										| String.IsEqual(ListItem.SortLetter,M) | String.IsEqual(ListItem.SortLetter,N) | String.IsEqual(ListItem.SortLetter,O)
-										| String.IsEqual(ListItem.SortLetter,P) | String.IsEqual(ListItem.SortLetter,Q) | String.IsEqual(ListItem.SortLetter,R)
-										| String.IsEqual(ListItem.SortLetter,S) | String.IsEqual(ListItem.SortLetter,T) | String.IsEqual(ListItem.SortLetter,U)
-										| String.IsEqual(ListItem.SortLetter,V) | String.IsEqual(ListItem.SortLetter,W) | String.IsEqual(ListItem.SortLetter,X)
-										| String.IsEqual(ListItem.SortLetter,Y) | String.IsEqual(ListItem.SortLetter,Z)	]</expression>
-	<expression name="IsnotPreviousAlphaSortLetter">![String.IsEqual(ListItem(-1).SortLetter,A) | String.IsEqual(ListItem(-1).SortLetter,B) | String.IsEqual(ListItem(-1).SortLetter,C)
-													| String.IsEqual(ListItem(-1).SortLetter,D) | String.IsEqual(ListItem(-1).SortLetter,E) | String.IsEqual(ListItem(-1).SortLetter,F)
-													| String.IsEqual(ListItem(-1).SortLetter,G) | String.IsEqual(ListItem(-1).SortLetter,H) | String.IsEqual(ListItem(-1).SortLetter,I)
-												 	| String.IsEqual(ListItem(-1).SortLetter,J) | String.IsEqual(ListItem(-1).SortLetter,K) | String.IsEqual(ListItem(-1).SortLetter,L)
-													| String.IsEqual(ListItem(-1).SortLetter,M) | String.IsEqual(ListItem(-1).SortLetter,N) | String.IsEqual(ListItem(-1).SortLetter,O)
-													| String.IsEqual(ListItem(-1).SortLetter,P) | String.IsEqual(ListItem(-1).SortLetter,Q) | String.IsEqual(ListItem(-1).SortLetter,R)
-													| String.IsEqual(ListItem(-1).SortLetter,S) | String.IsEqual(ListItem(-1).SortLetter,T) | String.IsEqual(ListItem(-1).SortLetter,U)
-													| String.IsEqual(ListItem(-1).SortLetter,V) | String.IsEqual(ListItem(-1).SortLetter,W) | String.IsEqual(ListItem(-1).SortLetter,X)
-													| String.IsEqual(ListItem(-1).SortLetter,Y) | String.IsEqual(ListItem(-1).SortLetter,Z)	]</expression>
+	<expression name="IsNumericSortLetter">[String.IsEqual(Control.GetLabel(7000),0) | String.IsEqual(Control.GetLabel(7000),1) | String.IsEqual(Control.GetLabel(7000),2)
+											| String.IsEqual(Control.GetLabel(7000),3) | String.IsEqual(Control.GetLabel(7000),4) | String.IsEqual(Control.GetLabel(7000),5)
+											| String.IsEqual(Control.GetLabel(7000),6) | String.IsEqual(Control.GetLabel(7000),7) | String.IsEqual(Control.GetLabel(7000),8)
+									 		| String.IsEqual(Control.GetLabel(7000),9)]</expression>
+	<expression name="IsAlphaSortLetter">[String.IsEqual(Control.GetLabel(7000),A) | String.IsEqual(Control.GetLabel(7000),B) | String.IsEqual(Control.GetLabel(7000),C)
+										| String.IsEqual(Control.GetLabel(7000),D) | String.IsEqual(Control.GetLabel(7000),E) | String.IsEqual(Control.GetLabel(7000),F)
+										| String.IsEqual(Control.GetLabel(7000),G) | String.IsEqual(Control.GetLabel(7000),H) | String.IsEqual(Control.GetLabel(7000),I)
+									 	| String.IsEqual(Control.GetLabel(7000),J) | String.IsEqual(Control.GetLabel(7000),K) | String.IsEqual(Control.GetLabel(7000),L)
+										| String.IsEqual(Control.GetLabel(7000),M) | String.IsEqual(Control.GetLabel(7000),N) | String.IsEqual(Control.GetLabel(7000),O)
+										| String.IsEqual(Control.GetLabel(7000),P) | String.IsEqual(Control.GetLabel(7000),Q) | String.IsEqual(Control.GetLabel(7000),R)
+										| String.IsEqual(Control.GetLabel(7000),S) | String.IsEqual(Control.GetLabel(7000),T) | String.IsEqual(Control.GetLabel(7000),U)
+										| String.IsEqual(Control.GetLabel(7000),V) | String.IsEqual(Control.GetLabel(7000),W) | String.IsEqual(Control.GetLabel(7000),X)
+										| String.IsEqual(Control.GetLabel(7000),Y) | String.IsEqual(Control.GetLabel(7000),Z)]</expression>
 </includes>
