@@ -1157,7 +1157,7 @@
 		<param name="letterbarvisible" />
 		<definition>
 			<control type="group">
-				<visible>$PARAM[letterbarvisible] + !Window.IsActive(virtualkeyboard)</visible>
+				<visible>$PARAM[letterbarvisible] + !Window.IsActive(virtualkeyboard) + !Window.IsActive(contextmenu)</visible>
 				<animation effect="fadediffuse" start="FF808080" end="FFFFFFFF">VisibleChange</animation>
 				<animation effect="fadediffuse" start="FF808080" end="FFFFFFFF" condition="Control.HasFocus($PARAM[letterbarid])|Control.HasFocus($PARAM[letterbarlistid])">Conditional</animation>
 				<control type="label" id="7000">
@@ -1188,6 +1188,11 @@
 					<ondown condition="$EXP[IsAlphaSortLetter]">Control.SetFocus($PARAM[listitemid])</ondown>
 					<ondown condition="$EXP[IsAlphaSortLetter]">Action(nextletter)</ondown>
 					<ondown>Control.SetFocus($PARAM[letterbarid])</ondown>
+					<onclick condition="Container($PARAM[letterbarlistid]).Position(0)">Control.SetFocus($PARAM[listitemid],1,absolute)</onclick>
+					<onclick condition="Container($PARAM[letterbarlistid]).Position(0)">SetProperty(CustomSearch,1,home)</onclick>
+					<onclick condition="Container($PARAM[letterbarlistid]).Position(0)">Skin.Reset(CustomSearchTerm)</onclick>
+					<onclick condition="Container($PARAM[letterbarlistid]).Position(0)">Skin.SetString(CustomSearchTerm)</onclick>
+					<onclick condition="Container($PARAM[letterbarlistid]).Position(0)">ActivateWindow(1156)</onclick>
 				</control>
 				<control type="list" id="$PARAM[letterbarlistid]">
 					<left>$PARAM[letterbarleft]</left>
@@ -1228,7 +1233,7 @@
 		<param name="letterbarvisible" />
 		<definition>
 			<control type="group">
-				<visible>$PARAM[letterbarvisible] + !Window.IsActive(virtualkeyboard)</visible>
+				<visible>$PARAM[letterbarvisible] + !Window.IsActive(virtualkeyboard) + !Window.IsActive(contextmenu)</visible>
 				<animation effect="fadediffuse" start="FF808080" end="FFFFFFFF">VisibleChange</animation>
 				<animation effect="fadediffuse" start="FF808080" end="FFFFFFFF" condition="Control.HasFocus($PARAM[letterbarid])|Control.HasFocus($PARAM[letterbarlistid])">Conditional</animation>
 				<control type="label" id="7000">
@@ -1258,6 +1263,11 @@
 					<onright condition="$EXP[IsAlphaSortLetter] | [!$EXP[IsNumericSortLetter] + !$EXP[IsAlphaSortLetter]]">Control.SetFocus($PARAM[listitemid])</onright>
 					<onright condition="$EXP[IsAlphaSortLetter] | [!$EXP[IsNumericSortLetter] + !$EXP[IsAlphaSortLetter]]">Action(nextletter)</onright>
 					<onright>Control.SetFocus($PARAM[letterbarid])</onright>
+					<onclick condition="Container($PARAM[letterbarlistid]).Position(0)">Control.SetFocus($PARAM[listitemid],1,absolute)</onclick>
+					<onclick condition="Container($PARAM[letterbarlistid]).Position(0)">SetProperty(CustomSearch,1,home)</onclick>
+					<onclick condition="Container($PARAM[letterbarlistid]).Position(0)">Skin.Reset(CustomSearchTerm)</onclick>
+					<onclick condition="Container($PARAM[letterbarlistid]).Position(0)">Skin.SetString(CustomSearchTerm)</onclick>
+					<onclick condition="Container($PARAM[letterbarlistid]).Position(0)">ActivateWindow(1156)</onclick>
 				</control>
 				<control type="list" id="$PARAM[letterbarlistid]">
 					<left>$PARAM[letterbarleft]</left>
