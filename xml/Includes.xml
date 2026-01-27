@@ -552,11 +552,11 @@
 			<item>
 				<thumb>$PARAM[itemthumb]</thumb>
 				<label>$PARAM[itemlabel]</label>
-				<property name="isActive">true</property>
 				<property name="visibleToggle">$PARAM[itemtoggle]</property>
 				<property name="customBase">$PARAM[itemcustombase]</property>
 				<property name="menuHeading">$PARAM[itemmenuheading]</property>
 				<property name="menuID">$PARAM[itemmenuid]</property>
+				<property name="isActive">true</property>
 				<onclick>SetProperty(ListActive,true,settings)</onclick>
 				<onclick>SetProperty(ListLabel,$PARAM[itemlabel],settings)</onclick>
 				<onclick>SetProperty(ListID,$PARAM[itemmenuid],settings)</onclick>
@@ -572,11 +572,11 @@
 			<item>
 				<thumb>$PARAM[itemthumb]</thumb>
 				<label>$PARAM[itemlabel]</label>
-				<property name="isActive" />
 				<property name="visibleToggle">$PARAM[itemtoggle]</property>
 				<property name="customBase">$PARAM[itemcustombase]</property>
 				<property name="menuHeading">$PARAM[itemmenuheading]</property>
 				<property name="menuID">$PARAM[itemmenuid]</property>
+				<property name="isActive" />
 				<onclick>ClearProperty(ListActive,settings)</onclick>
 				<onclick>SetProperty(ListLabel,$PARAM[itemlabel],settings)</onclick>
 				<onclick>SetProperty(ListID,$PARAM[itemmenuid],settings)</onclick>
@@ -869,7 +869,7 @@
 		<param name="indicatorsize" default="0" />
 		<param name="indicatorcontainer" />
 		<definition>
-			<control type="button" id="$PARAM[indicatorcontainer]51">
+			<control type="button">
 				<left>$PARAM[indicator1left]</left>
 				<top>$PARAM[indicator1top]</top>
 				<height>$PARAM[indicatorsize]</height>
@@ -879,7 +879,7 @@
 				<onclick>Control.Move($PARAM[indicatorcontainer],-1)</onclick>
 				<visible>Container($PARAM[indicatorcontainer]).HasPrevious + Integer.IsGreater(Container($PARAM[indicatorcontainer]).NumItems,0) + Control.IsVisible($PARAM[indicatorcontainer])</visible>
 			</control>
-			<control type="button" id="$PARAM[indicatorcontainer]52">
+			<control type="button">
 				<left>$PARAM[indicator2left]</left>
 				<top>$PARAM[indicator2top]</top>
 				<height>$PARAM[indicatorsize]</height>
@@ -899,7 +899,7 @@
 		<param name="indicatorsize" default="0" />
 		<param name="indicatorcontainer" />
 		<definition>
-			<control type="button" id="$PARAM[indicatorcontainer]53">
+			<control type="button">
 				<left>$PARAM[indicator1left]</left>
 				<top>$PARAM[indicator1top]</top>
 				<height>$PARAM[indicatorsize]</height>
@@ -909,7 +909,7 @@
 				<onclick>Control.Move($PARAM[indicatorcontainer],-1)</onclick>
 				<visible>Container($PARAM[indicatorcontainer]).HasPrevious + Integer.IsGreater(Container($PARAM[indicatorcontainer]).NumItems,0) + Control.IsVisible($PARAM[indicatorcontainer])</visible>
 			</control>
-			<control type="button" id="$PARAM[indicatorcontainer]54">
+			<control type="button">
 				<left>$PARAM[indicator2left]</left>
 				<top>$PARAM[indicator2top]</top>
 				<height>$PARAM[indicatorsize]</height>
@@ -927,7 +927,6 @@
 		<definition>
 			<item>
 				<icon>touch-search.png</icon>
-				<label></label>
 				<onclick>SetProperty(CustomSearch,1,home)</onclick>
 				<onclick>Skin.Reset(CustomSearchTerm)</onclick>
 				<onclick>Skin.SetString(CustomSearchTerm)</onclick>
