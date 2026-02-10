@@ -17,8 +17,9 @@
 			<left>1410</left>
 			<top>168</top>
 			<width>458</width>
-			<height>600</height>
+			<height>700</height>
 			<itemgap>0</itemgap>
+
 			<control type="button" id="95"><!-- Summary -->
 				<width>458</width>
 				<height>75</height>
@@ -56,6 +57,12 @@
 				<font>apptv22</font>
 				<visible>System.HasPVR</visible>
 			</control>
+			<control type="button" id="93"><!-- Skin info -->
+				<width>458</width>
+				<height>75</height>
+				<label>$LOCALIZE[166]</label>
+				<font>apptv22</font>
+			</control>
 			<control type="button" id="100"><!-- Privacy policy info -->
 				<width>458</width>
 				<height>75</height>
@@ -63,10 +70,10 @@
 				<font>apptv22</font>
 				<onleft>60</onleft>
 			</control>
-			<control type="button" id="101"><!-- Skin info -->
+			<control type="button" id="101"><!-- Donation info -->
 				<width>458</width>
 				<height>75</height>
-				<label>$LOCALIZE[166]</label>
+				<label>$LOCALIZE[12396]</label>
 				<font>apptv22</font>
 			</control>
 		</control>
@@ -77,7 +84,7 @@
 			<height>814</height>
 			<pagecontrol>60</pagecontrol>
 			<font>apptv20</font>
-			<visible>!Control.HasFocus(101)</visible>
+			<visible>!Control.HasFocus(101) + !Control.HasFocus(93)</visible>
 		</control>
 		<control type="scrollbar" id="60">
 			<left>16</left>
@@ -93,7 +100,7 @@
 			<top>168</top>
 			<width>1335</width>
 			<height>828</height>
-			<visible>!Control.HasFocus(100) + !Control.HasFocus(101)</visible>
+			<visible>!Control.HasFocus(100) + !Control.HasFocus(101) + !Control.HasFocus(93)</visible>
 			<control type="label" id="2">
 				<width>1335</width>
 				<height>69</height>
@@ -154,13 +161,53 @@
 				<font>apptv20</font>
 				<wrapmultiline>true</wrapmultiline>
 			</control>
+			<control type="label" id="12">
+				<width>1335</width>
+				<height>69</height>
+				<font>apptv20</font>
+				<wrapmultiline>true</wrapmultiline>
+			</control>
+			<control type="label" id="13">
+				<width>1335</width>
+				<height>69</height>
+				<font>apptv20</font>
+				<wrapmultiline>true</wrapmultiline>
+			</control>
+		</control>
+		<control type="group" id="102"><!-- System Info page that shows a QR code linking to https://kodi.tv/donate/ -->
+			<left>51</left>
+			<top>168</top>
+			<width>1335</width>
+			<height>760</height>
+			<control type="textbox">
+				<height>110</height>
+				<width>1200</width>
+				<label>$LOCALIZE[12397]</label>
+				<font>apptv20</font>
+				<align>center</align>
+			</control>
+			<control type="multiimage" id="103">
+				<top>110</top>
+				<height>620</height>
+				<imagepath>special://xbmc/media/qr/kodilove/</imagepath>
+				<aspectratio>keep</aspectratio>
+				<timeperimage>5000</timeperimage>
+				<fadetime>1000</fadetime>
+				<randomize>false</randomize>
+			</control>
+			<control type="label">
+				<top>748</top>
+				<label>$LOCALIZE[12398]</label>
+				<font>apptv20</font>
+				<align>center</align>
+			</control>
 		</control>
 		<control type="grouplist">
 			<left>51</left>
 			<top>168</top>
 			<width>1335</width>
 			<height>450</height>
-			<visible>!Control.HasFocus(100) + Control.HasFocus(101)</visible>
+			<visible>Control.HasFocus(93)</visible>
 			<control type="label"><!-- Skin version -->
 				<width>1335</width>
 				<height>69</height>
